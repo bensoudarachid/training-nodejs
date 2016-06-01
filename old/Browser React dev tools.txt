@@ -1,0 +1,6 @@
+Add script in index.html 4 React dev tools
+<script> __REACT_DEVTOOLS_GLOBAL_HOOK__ = parent.__REACT_DEVTOOLS_GLOBAL_HOOK__ </script>
+
+   // "react": "^15.1.0",
+    // "react-dom": "^15.1.0",
+ 

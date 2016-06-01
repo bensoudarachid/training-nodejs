@@ -1,5 +1,7 @@
+
 var webpack = require('webpack');
 var path = require('path');
+//window.React = require('react');
 
 module.exports = {
     devtool: 'inline-source-map',
@@ -21,11 +23,14 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
-            }
+                loaders: ['react-hot', 'babel?retainLines=true,presets[]=react,presets[]=es2015']
+            },
+            { test: /\.scss$/, loader: 'style!css!sass' },
+            { test: require.resolve("react"), loader: "expose?React" }
         ]
     },
     plugins: [
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ]
