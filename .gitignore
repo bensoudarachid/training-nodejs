@@ -1,4 +1,5 @@
-# project folders
+# project folders and files
+bundle.js
 node_modules
 # webstorm
 .idea/
