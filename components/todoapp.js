@@ -18,7 +18,7 @@ const todos = [
   }
 ];
 
-class App extends Component {
+class TodoApp extends Component {
 
   constructor(props) {
     super(props)
@@ -34,7 +34,7 @@ class App extends Component {
     //  alert("Hi "+test);
     return (
       <div>
-            <h1>React to dos!</h1>
+            <h1>React to dos!dd</h1>
             <CreateToDo todos={this.state.todos} createTask={this.createTask.bind(this)}/>
             <TodosList todos={this.state.todos}
       deleteTask={this.deleteTask.bind(this)}
@@ -78,4 +78,4 @@ class App extends Component {
 
 
 }
-export default App
+export default TodoApp

@@ -1,6 +1,7 @@
 import React from 'react';
-require('./todos-list-item.scss');
-
+if (process.env.BROWSER) {
+  require('./todos-list-item.scss');
+}
 export default class TodosListItem extends React.Component {
   constructor(props) {
     super(props);
