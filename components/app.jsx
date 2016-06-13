@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-// var React = require('react');
+import { connect } from 'react-redux'
 import { Router, Route, IndexLink, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
 // var Router = require('react-router').Router;
 // var Route = require('react-router').Route;
@@ -118,12 +118,15 @@ class App extends Component {
 // );
 
 
+// function mapStateToProps(state) {
+//   return state
+// }
+
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     actions: bindActionCreators(actions, dispatch)
+//   }
+// }
+
 export default App
-//module.exports.App = App
-
-      // <Router history={hashHistory}>
-      //   <Route path='/' component={TodoApp} />
-      //   <Route path='/userapp' component={UserApp} />
-      // </Router>
-
-            // <TodoApp/>
+// export default connect( mapStateToProps, mapDispatchToProps )(App)

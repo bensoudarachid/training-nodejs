@@ -1,9 +1,10 @@
-import TodoApp from '../components/todoapp'
-import UserApp from '../components/userapp'
 import AboutComponent from '../components/about'
 import AppComponent from '../components/appcomponent'
+import TodoApp from '../components/todoapp'
+import UserApp from '../components/userapp'
 
 import React from 'react'
+
 
 // const Title = (props) => (
 //       <div>
@@ -11,6 +12,21 @@ import React from 'react'
 //         { this.props.children }
 //       </div>
 // )
+
+// import configureStore from '../redux/store'
+// let initialState = {
+//   todos: [{
+//     id: 0,
+//     completed: false,
+//     text: 'Initial todo for demo purposes'
+//   }],
+//   user: {
+//     username: 'kurt',
+//     id: 13
+//   }
+// }
+
+// const store = configureStore(initialState)
 
 
 const routes = {
