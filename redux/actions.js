@@ -1,5 +1,6 @@
 let actions = {
   addTodo: function(text) {
+    console.log('actions. AddTodo')
     return {
       type: 'ADD_TODO',
       text: text
@@ -44,7 +45,6 @@ let actions = {
       }, 2500)
     }
   }
-
 }
 
 export default actions

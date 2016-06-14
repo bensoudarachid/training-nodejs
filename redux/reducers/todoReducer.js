@@ -5,11 +5,13 @@ function getId(todos) {
 }
 
 let todoReducer = function(todos = [], action) {
+  console.log('Todo reducer. switch')
   switch (action.type) {
     case 'ADD_TODO':
+      console.log('Todo reducer. AddTodo '+action.text)
       return [{
-          text: action.text,
-          completed: false,
+          task: action.text,
+          isCompleted: false,
           id: getId(todos)
         }, ...todos]
     case 'COMPLETE_TODO':

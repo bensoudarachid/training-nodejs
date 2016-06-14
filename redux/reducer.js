@@ -7,6 +7,7 @@ function getId(state) {
 let reducer = function(state, action) {
   switch (action.type) {
     case 'ADD_TODO':
+    console.log('Reducer. add to do')
       return Object.assign({}, state, {
         todos: [{
           text: action.text,

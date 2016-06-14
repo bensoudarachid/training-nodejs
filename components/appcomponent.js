@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux'
 import actions from '../redux/actions'
 
 
+
+
 const Nav = () => (
   <div>
     <IndexLink activeClassName='active' to='/'>Home</IndexLink> 
@@ -16,39 +18,41 @@ const Nav = () => (
 )
 
 
-
-
-
-
-
-
 class AppComponent extends React.Component {
   render() {
     // var children = this.props.children
-    var children = React.Children.map(this.props.children, function(child) {
-      return React.cloneElement(child, {
-        gruss : 'hi'
-      })
-    })
+    var children = updateChildren(this.props.children, this.props);
     return (
       <div>
         <Nav/>
         <h2>Welcome to my App</h2>
         { children }
       </div>
-    );
+      );
   }
+}
+
+function updateChildren(children, props) {
+  var childrenBack = React.Children.map(children, function(child) {
+    return React.cloneElement(child, {
+      actions: actions,
+      todos: props.todos,
+      dispatch: props.dispatch
+    })
+  })
+  return childrenBack
 }
 
 function mapStateToProps(state) {
   return state
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  }
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     actions: bindActionCreators(actions, dispatch)
+//   }
+// }
 
-export default connect( mapStateToProps, mapDispatchToProps )(AppComponent);
+export default connect(mapStateToProps)(AppComponent);
+// export default connect(mapStateToProps, mapDispatchToProps)(AppComponent);
 // export default AppComponent;

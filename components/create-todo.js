@@ -3,7 +3,7 @@ import React from 'react';
 import _ from 'lodash';
 
 
-export default class TodosList extends React.Component {
+export default class CreateTodo extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,14 +26,15 @@ export default class TodosList extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleCreate.bind(this)}>
-            <input type="text" placeholder="What do I need to do now?" ref="createInput" />
-                <button>Creates</button>
+            <input type="text" placeholder="What do I need to do?" ref="createInput" />
+                <button>Create</button>
                 {this.renderError()}
         </form>
       );
   }
 
   handleCreate(event) {
+    console.log('handle create call')
     event.preventDefault();
 
     const createInput = this.refs.createInput;
@@ -50,7 +51,8 @@ export default class TodosList extends React.Component {
     this.setState({
       error: null
     });
-    this.props.createTask(task);
+    // this.props.createTask(task);
+    this.props.dispatch(this.props.actions.addTodo(task));
     this.refs.createInput.value = '';
   }
 

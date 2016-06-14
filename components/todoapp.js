@@ -1,46 +1,47 @@
-import CreateToDo from './create-todo'
+import CreateTodo from './create-todo'
 import React, {Component} from 'react'
 import TodosList from './todos-list'
 import _ from 'lodash'
 
-const todos = [
-  {
-    task: 'make react tuto',
-    isCompleted: false
-  },
-  {
-    task: 'eat dinner',
-    isCompleted: true
-  },
-  {
-    task: 'Beat it',
-    isCompleted: false
-  }
-];
+// const todos = [
+//   {
+//     task: 'make react tuto',
+//     isCompleted: false
+//   },
+//   {
+//     task: 'eat dinner',
+//     isCompleted: true
+//   },
+//   {
+//     task: 'Beat it',
+//     isCompleted: false
+//   }
+// ];
 
 class TodoApp extends Component {
 
-  constructor(props) {
-    super(props)
+  // constructor(props) {
+  //   super(props)
 
-    this.state = {
-      todos
-    }
-  }
+  //   this.state = {
+  //     todos
+  //   }
+  // }
 
   render() {
     //let test = 'App';
     //console.log("Hi there from "+test);
     //  alert("Hi "+test);
+    // createTask={this.createTask.bind(this)}
     return (
       <div>
             <h1>React to dos!dd</h1>
-            <CreateToDo todos={this.state.todos} createTask={this.createTask.bind(this)}/>
-            <TodosList todos={this.state.todos}
-      deleteTask={this.deleteTask.bind(this)}
-      toggleTask={this.toggleTask.bind(this)}
-      saveTask={this.saveTask.bind(this)}
-      />
+            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
+            <TodosList todos={this.props.todos}
+                        deleteTask={this.deleteTask.bind(this)}
+                        toggleTask={this.toggleTask.bind(this)}
+                        saveTask={this.saveTask.bind(this)}
+            />
         </div>
       );
   }
@@ -53,6 +54,7 @@ class TodoApp extends Component {
     })
   }
   createTask(task) {
+    console.log('todoapp. create task')
     this.state.todos.push({
       task,
       isCompleted: false

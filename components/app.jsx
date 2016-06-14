@@ -15,9 +15,9 @@ import UserApp from './userapp'
 // var TodoApp = require('./todoapp');
 // var UserApp = require('./userapp');
 
-if (process.env.BROWSER) {
+// if (process.env.BROWSER) {
   require('./nav.scss');
-}
+// }
 
 const Home = (props) => (
   <div>

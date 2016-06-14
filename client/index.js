@@ -18,7 +18,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 // import App from '../components/app.jsx';
 import AppComponent from '../components/appcomponent';
 import { routes } from '../components/routes';
-import reducers from '../redux/reducers' 
+import rootReducer from '../redux/reducers' 
 
 // let message = 'hello from entry baby'+routes[0].path;
 // console.log(message);
@@ -44,7 +44,7 @@ import reducers from '../redux/reducers'
 
 
 const initialState = window.__REDUX_STATE__  
-const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
+const store = createStore(rootReducer, initialState, applyMiddleware(thunkMiddleware))
 // let store = configureStore(initialState)
 syncHistoryWithStore(browserHistory, store)
 
