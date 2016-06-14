@@ -33,14 +33,16 @@ class TodoApp extends Component {
     //console.log("Hi there from "+test);
     //  alert("Hi "+test);
     // createTask={this.createTask.bind(this)}
+//            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
+                        // deleteTask={this.deleteTask.bind(this)}
     return (
       <div>
             <h1>React to dos!dd</h1>
-            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
-            <TodosList todos={this.props.todos}
-                        deleteTask={this.deleteTask.bind(this)}
+            <CreateTodo todos={this.props.todos} addTodo={this.props.actions.addTodo}/>
+            <TodosList todos={this.props.todos} actions={this.props.actions}
                         toggleTask={this.toggleTask.bind(this)}
                         saveTask={this.saveTask.bind(this)}
+                        deleteTask={this.deleteTask.bind(this)}
             />
         </div>
       );
@@ -53,16 +55,16 @@ class TodoApp extends Component {
       todos: this.state.todos
     })
   }
-  createTask(task) {
-    console.log('todoapp. create task')
-    this.state.todos.push({
-      task,
-      isCompleted: false
-    });
-    this.setState({
-      todos: this.state.todos
-    });
-  }
+  // createTask(task) {
+  //   console.log('todoapp. create task')
+  //   this.state.todos.push({
+  //     task,
+  //     isCompleted: false
+  //   });
+  //   this.setState({
+  //     todos: this.state.todos
+  //   });
+  // }
   deleteTask(taskToDelete) {
     //        console.log('delete'+taskToDelete);
     _.remove(this.state.todos, (todo) => todo.task === taskToDelete);

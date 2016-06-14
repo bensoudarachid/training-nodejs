@@ -34,7 +34,7 @@ export default class CreateTodo extends React.Component {
   }
 
   handleCreate(event) {
-    console.log('handle create call')
+//    console.log('handle create call')
     event.preventDefault();
 
     const createInput = this.refs.createInput;
@@ -52,7 +52,7 @@ export default class CreateTodo extends React.Component {
       error: null
     });
     // this.props.createTask(task);
-    this.props.dispatch(this.props.actions.addTodo(task));
+    this.props.addTodo(task);
     this.refs.createInput.value = '';
   }
 

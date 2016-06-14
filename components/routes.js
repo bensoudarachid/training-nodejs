@@ -27,7 +27,7 @@ import React from 'react'
 // }
 
 // const store = configureStore(initialState)
-
+const NotFound = () => ( <h1>404.. This page is not found!</h1> )
 
 const routes = {
   path: '',
@@ -40,6 +40,10 @@ const routes = {
     {
       path: '/about',
       component: AboutComponent
+    },
+    {
+      path: '*',
+      component: NotFound
     }
   ]
 }

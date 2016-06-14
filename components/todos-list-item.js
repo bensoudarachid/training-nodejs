@@ -13,7 +13,7 @@ export default class TodosListItem extends React.Component {
   }
 
   renderTaskSection() {
-    const { task, isCompleted } = this.props;
+    const {task, isCompleted} = this.props;
     const taskStyle = {
       color: isCompleted ? 'green' : 'red',
       cursor: 'pointer'
@@ -34,23 +34,23 @@ export default class TodosListItem extends React.Component {
       );
   }
 
-  renderActionsSection() {
-    if (this.state.isEditing) {
-      return (
-        <td>
-            <button onClick={this.onSaveClick.bind(this)}>Save this</button>
-            <button onClick={this.onCancelClick.bind(this) }>Cancel</button>
-        </td>
-        );
-    }
+  // renderActionsSection() {
+  //   if (this.state.isEditing) {
+  //     return (
+  //       <td>
+  //           <button onClick={this.onSaveClick.bind(this)}>Save this</button>
+  //           <button onClick={this.onCancelClick.bind(this) }>Cancel</button>
+  //       </td>
+  //       );
+  //   }
 
-    return (
-      <td>
-            <button onClick={this.onEditClick.bind(this)}>Edit</button>
-            <button onClick={this.props.deleteTask.bind(this, this.props.task)}>Delete</button>
-      </td>
-      );
-  }
+  //   return (
+  //     <td>
+  //           <button onClick={this.onEditClick.bind(this)}>Edit</button>
+  //           <button onClick={this.props.deleteTask.bind(this, this.props.task)}>Delete</button>
+  //     </td>
+  //     );
+  // }
 
   getActions() {
     //console.log('actions is editing=' + this.state.isEditing);
@@ -62,9 +62,13 @@ export default class TodosListItem extends React.Component {
     else
       return (
         <td><button onClick={this.onEditClick.bind(this)}>Edit</button>
-            <button onClick={this.props.deleteTask.bind(this, this.props.task)}>Delete</button></td>
+            <button onClick={this.handleDelete.bind(this)}>Delete</button></td>
         );
   }
+            // <button onClick={this.handleDelete.bind(this)}>Delete todo</button></td>
+  // <button onClick={this.props.deleteTask.bind(this, this.props.task)}>Delete</button></td>
+  // <button onClick={this.props.actions.deleteTodo(this.props.key)}>Delete</button></td>
+  // <button onClick={this.handleDelete.bind(this)}>Delete todo</button>
   render() {
     return (
       <tr className="todoslistitem">
@@ -75,13 +79,17 @@ export default class TodosListItem extends React.Component {
       );
   }
 
-  renderMe() {
-    return (
-      <tr>
-        {this.renderTaskSection()}
-        {this.renderActionsSection()}
-      </tr>
-      );
+  // renderMe() {
+  //   return (
+  //     <tr>
+  //       {this.renderTaskSection()}
+  //       {this.renderActionsSection()}
+  //     </tr>
+  //     );
+  // }
+  handleDelete() {
+    console.log('delete '+this.props.id)
+    this.props.actions.deleteTodo(this.props.id)
   }
 
   onEditClick() {
@@ -99,9 +107,13 @@ export default class TodosListItem extends React.Component {
 
   onSaveClick(event) {
     event.preventDefault();
-    const oldTask = this.props.task;
+    // const oldTask = this.props.task;
     const newTask = this.refs.editInput.value;
-    this.props.saveTask(oldTask, newTask);
+    // this.props.saveTask(oldTask, newTask);
+    // this.setState({
+    //   isEditing: false
+    // });
+    this.props.actions.saveTodo(this.props.id, newTask);
     this.setState({
       isEditing: false
     });

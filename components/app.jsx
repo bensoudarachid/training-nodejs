@@ -73,15 +73,15 @@ class App extends Component {
       <Router history={browserHistory}>
         <Route path = '/' component={Container}>
           <Route path='home' component={Home}>
-          <IndexRoute components={{ title: Title, subTitle: SubTitle }} />
-      </Route>
+            <IndexRoute components={{ title: Title, subTitle: SubTitle }} />
+          </Route>
           <Route path='/todos' component={TodoApp} />
           <Route path='/userapp' component={UserApp} />
           <Route path='/address' component={Address}>
               <IndexRoute component={TwitterFeed} />
               <Route path='instagram' component={Instagram} />
-            </Route>
-            <Route path='/about(/:name)' component={About} />
+          </Route>
+          <Route path='/about(/:name)' component={About} />
           <Route path='*' component={NotFound} />
         </Route>
       </Router>

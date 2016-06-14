@@ -9,11 +9,21 @@ let todoReducer = function(todos = [], action) {
   switch (action.type) {
     case 'ADD_TODO':
       console.log('Todo reducer. AddTodo '+action.text)
-      return [{
+      return [ ...todos, {
           task: action.text,
           isCompleted: false,
           id: getId(todos)
-        }, ...todos]
+        }]
+    case 'SAVE_TODO':
+      console.log('Todo reducer. SaveTodo id='+action.id+'task = '+action.text)
+      return todos.map((todo) => {
+        return todo.id === action.id ? 
+          Object.assign({}, todo, {
+          task: action.text,
+          // id: action.id,
+        }) : todo
+      })
+
     case 'COMPLETE_TODO':
       return todos.map((todo) => {
         return todo.id === action.id ? 

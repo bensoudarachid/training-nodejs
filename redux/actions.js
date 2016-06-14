@@ -7,6 +7,15 @@ let actions = {
     }
   },
 
+  saveTodo: function(id, text) {
+    console.log('actions. SaveTodo')
+    return {
+      type: 'SAVE_TODO',
+      id: id,
+      text: text
+    }
+  },
+
   completeTodo: function(id) {
     return {
       type: 'COMPLETE_TODO',
