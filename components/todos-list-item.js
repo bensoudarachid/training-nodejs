@@ -113,7 +113,7 @@ export default class TodosListItem extends React.Component {
     // this.setState({
     //   isEditing: false
     // });
-    this.props.actions.saveTodo(this.props.id, newTask);
+    this.props.actions.saveTodoAsync(this.props.id, newTask);
     this.setState({
       isEditing: false
     });

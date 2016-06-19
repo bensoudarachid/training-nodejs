@@ -8,6 +8,8 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'  
 import { syncHistoryWithStore } from 'react-router-redux'  
+import { FetchData, reducer as fetching } from 'redux-fetch-data';
+
 // import createBrowserHistory from 'history/lib/createBrowserHistory';
 // const history = createBrowserHistory();
 
@@ -51,7 +53,8 @@ syncHistoryWithStore(browserHistory, store)
 // store={store}
 ReactDom.render(
   <Provider store={store}>
-	  <Router routes={routes} history={browserHistory} />
+	  <Router render={props => <FetchData {...props}/>} 
+            routes={routes} history={browserHistory} />
   </Provider>,
   document.getElementById('root')
 );

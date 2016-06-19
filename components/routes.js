@@ -25,9 +25,17 @@ import React from 'react'
 //     id: 13
 //   }
 // }
-
+// const Users = () => (
+//   <h3>Howdy.</h3>
+// );
+const Users = ( { params, location } ) => (
+  <h3>Howdy { params.name }! You like Food: { location.query.food }.</h3>
+);
+const Home = () => (
+  <h3>Welcome home!</h3>
+);
 // const store = configureStore(initialState)
-const NotFound = () => ( <h1>404.. This page is not found!</h1> )
+const NotFound = () => ( <h1>404.. This page is not found!</h1> );
 
 const routes = {
   path: '',
@@ -35,8 +43,16 @@ const routes = {
   childRoutes: [
     {
       path: '/',
+      component: Home
+    },
+    {
+      path: '/todos',
       component: TodoApp
     },
+    {
+      path: '/users/:name',
+      component: Users
+    },    
     {
       path: '/about',
       component: AboutComponent

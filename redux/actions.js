@@ -7,12 +7,28 @@ let actions = {
     }
   },
 
+  addTodos: function(todos) {
+    console.log('actions. AddTodos')
+    return {
+      type: 'ADD_TODOS',
+      todos: todos
+    }
+  },
+
   saveTodo: function(id, text) {
     console.log('actions. SaveTodo')
     return {
       type: 'SAVE_TODO',
       id: id,
       text: text
+    }
+  },
+
+  saveTodoAsync: function(id, text) {
+    return (dispatch) => {
+      setTimeout(() => {
+        dispatch(actions.saveTodo(id, text))
+      }, 2500)
     }
   },
 
@@ -53,7 +69,15 @@ let actions = {
         dispatch(actions.createNewUserId())
       }, 2500)
     }
+  },
+  loadTodos: function(todos) {
+    return {
+          type: 'TODOS_LOADED',
+          todos: todos
+        }   
   }
+
+
 }
 
 export default actions

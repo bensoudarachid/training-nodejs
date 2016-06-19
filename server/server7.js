@@ -8,6 +8,11 @@ import { createStore, applyMiddleware } from 'redux'
 import reducers from '../redux/reducers'
 import thunkMiddleware from 'redux-thunk'
 import { Provider } from 'react-redux'
+import { fetchDataOnServer, reducer as fetching } from 'redux-fetch-data';
+
+// var fetch = require('node-fetch');
+
+var bodyParser = require('body-parser'); // is used for POST requests
 
 
 
@@ -18,6 +23,10 @@ var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
 
 const app = express();
+
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 var compiler = webpack(config);
 
@@ -36,7 +45,7 @@ app.use(webpackHotMiddleware(compiler));
 //   res.render('index');
 // });
 
-app.get('*', (req, res) => {
+app.get('*', (req, res,next) => {
   // routes is our object of React routes defined above
   console.log('Get request now');
   match({
@@ -58,10 +67,20 @@ app.get('*', (req, res) => {
       if (components.some((c) => c && c.displayName === 'error-404')) {
         res.status(404)
       }
-
-      const Comp = components[components.length - 1].WrappedComponent
-      const fetchData = (Comp && Comp.fetchData) || (() => Promise.resolve())
-
+      // console.log('components-length = ' +components.length )
+      // const Comp = components[components.length-1].WrappedComponent
+      // // console.log(components[0])
+      // // console.log(components[1])
+      // // console.log(Comp.fetchData)
+      // const fetchData = (Comp && Comp.fetchData) || (() => Promise.resolve())
+      // console.log(fetchData)
+      
+      // fetchData().then(data => {
+      //   console.log('server. test fetchData ' +data)
+      //   // this.props.actions.addTodos(data.todos);
+      // })
+      // .catch(err => console.log('Booooo' + err));
+      
       const initialState = {
         todos: [
           {
@@ -75,16 +94,6 @@ app.get('*', (req, res) => {
             id: 3
           }
         ],
-        tests: [
-          {
-            test: 'test 1',
-            completed: false
-          },
-          {
-            test: 'test 2',
-            completed: true
-          }
-        ],
         user: {
           username: 'John connor',
           id: 13
@@ -94,32 +103,51 @@ app.get('*', (req, res) => {
       const {location, params, history} = renderProps
 
       // fetchData({ store, location, params, history })
-      //   .then(() => {
-      console.log('Get request on 8080' + {
-          ...renderProps
-        });
-      // const body = renderToString(<RouterContext {...renderProps} />);
-      const body = renderToString(
-        <Provider store={store}>
-            <RouterContext {...renderProps} />
-          </Provider>
-      )
-      console.log('Get request on 8080 rendered');
+      fetchDataOnServer(renderProps, store)
+        .then(() => {
+          console.log('Get request on 8080' + {...renderProps});
+          // const body = renderToString(<RouterContext {...renderProps} />);
+          const body = renderToString(
+            <Provider store={store}>
+                <RouterContext {...renderProps} />
+              </Provider>
+          )
+          const state = store.getState();
+          res.send(`<!DOCTYPE html>
+              <html>
+                <head></head>
+                <body>
+                  <div id="root">${body}</div>
+                  <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
+                  <script src="bundle.js"></script>
+                </body>
+              </html>`)
+        }).catch((err) => next(err))
 
-      const state = store.getState();
 
-      // <link rel="stylesheet" href="bundle.css">
-      res.send(`<!DOCTYPE html>
-          <html>
-            <head></head>
-            <body>
-              <div id="root">${body}</div>
-              <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
-              <script src="bundle.js"></script>
-            </body>
-          </html>`)
-      // })
-      // .catch((err) => next(err))
+     // fetchData({ store, location, params, history }).then(response => response.json())
+     //  .then(data => {
+     //    // console.log(data.todos)
+     //    this.props.actions.addTodos(data.todos);
+     //    console.log('Get request on 8080' + {...renderProps});
+     //    // const body = renderToString(<RouterContext {...renderProps} />);
+     //    const body = renderToString(
+     //      <Provider store={store}>
+     //          <RouterContext {...renderProps} />
+     //        </Provider>
+     //    )
+     //    const state = store.getState();
+     //    res.send(`<!DOCTYPE html>
+     //        <html>
+     //          <head></head>
+     //          <body>
+     //            <div id="root">${body}</div>
+     //            <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
+     //            <script src="bundle.js"></script>
+     //          </body>
+     //        </html>`)
+     //  }).catch((err) => next(err))
+
 
     } else {
 
@@ -128,6 +156,38 @@ app.get('*', (req, res) => {
       res.sendStatus(404);
     }
   });
+});
+
+app.post('/api/todos', function(req, res) {
+    var user_id = req.body.id;
+    var token = req.body.token;
+    var geo = req.body.geo;
+    console.log('server post method'+req.body.id)
+    console.log('server post method'+req.body.token)
+
+    res.send({ user_id, token, geo });
+});
+
+app.post('/api/todoslist', function(req, res) {
+    // var param = req.body.param;
+    console.log('server post method here : '+req.body.testparam)
+
+    res.send(
+      {
+        todos: [
+          {
+            task: 'make it now baby',
+            isCompleted: false,
+            id: 4
+          },
+          {
+            task: 'ya do it baby',
+            isCompleted: true,
+            id: 5
+          }
+        ]
+      }
+    );
 });
 
 var port = 8080

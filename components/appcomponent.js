@@ -15,15 +15,42 @@ const Nav = () => (
     <IndexLink activeClassName='active' to='/'>Home</IndexLink> 
     <Link activeClassName='active' to='/address'>Address</Link>
     <Link activeClassName='active' to='/todos'>Todos</Link>
-    <Link activeClassName='active' to='/userapp'>Users</Link>
+    <Link activeClassName='active' to='/users'>Users</Link>
     <Link activeClassName='active' to='/about'>About</Link>
   </div>
 )
 
 
 class AppComponent extends React.Component {
+
+  // static fetchData() {
+  //   console.log('todos component is mounted. Do nothing'+ JSON.stringify({
+  //       param: 'abbas'
+  //     }))
+  //   var test='This is abbas in the hood!'
+  //   return fetch('/api/todoslist', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/x-www-form-urlencoded',
+  //       'Content-Type': 'application/json'
+  //     },
+  //     // body: 'param=value' //if no json in header
+  //     body: JSON.stringify({
+  //       testparam: test
+  //     })
+  //   })
+  // }
+  
   render() {
-    // var children = this.props.children
+
+      // AppComponent.fetchData().then(response => response.json())
+      // .then(data => {
+      //   // console.log(data.todos)
+      //   this.props.actions.addTodos(data.todos);
+      // })
+      // .catch(err => console.log('Booooo' + err));
+
+    
     var children = updateChildren(this.props.children, this.props);
     return (
       <div>
