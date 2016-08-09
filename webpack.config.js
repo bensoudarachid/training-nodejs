@@ -8,7 +8,10 @@ module.exports = {
     entry: [
         // 'webpack-dev-server/client?http://127.0.0.1:8880/',
         // 'webpack/hot/only-dev-server',
-        'webpack-hot-middleware/client',
+
+//specifying the exact path for hot deployment eliminates the 'cannot find route' on netflix zuul server
+        // 'webpack-hot-middleware/client',
+        'webpack-hot-middleware/client?path=http://localhost:8081/__webpack_hmr',
         './client'
     ],
     output: {
@@ -27,6 +30,7 @@ module.exports = {
                 loaders: ['react-hot', 'babel?retainLines=true,presets[]=react,presets[]=es2015,presets[]=react-hmre,presets[]=stage-2']
             },
             { test: /\.scss$/, loader: 'style!css!sass' },
+            { test: /\.css$/, loader: 'style!css' },
             { test: require.resolve("react"), loader: "expose?React" }
         ]
     },

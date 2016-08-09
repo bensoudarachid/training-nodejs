@@ -5,10 +5,16 @@ import { RouterContext, match } from 'react-router'
 import { renderToString } from 'react-dom/server'
 import { routes } from '../components/routes';
 import { createStore, applyMiddleware } from 'redux'
-import reducers from '../redux/reducers'
-import thunkMiddleware from 'redux-thunk'
+import rootReducer from '../redux/reducers'
+import thunk from 'redux-thunk'
+import createLogger from 'redux-logger'
+
 import { Provider } from 'react-redux'
-import { fetchDataOnServer, reducer as fetching } from 'redux-fetch-data';
+
+import { bindActionCreators } from 'redux'
+import actions from '../redux/actions'
+
+// import { fetchDataOnServer, reducer as fetching } from 'redux-fetch-data';
 
 // var fetch = require('node-fetch');
 
@@ -21,11 +27,14 @@ var webpack = require('webpack');
 
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
+var favicon = require('serve-favicon');
 
 const app = express();
 
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 
 var compiler = webpack(config);
@@ -37,6 +46,10 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler));
 
 
+
+
+app.use(favicon('./images/favicon.ico'));
+
 // app.use(express.static('./public'));
 
 // app.set('view engine', 'ejs');
@@ -44,10 +57,53 @@ app.use(webpackHotMiddleware(compiler));
 // app.get('*', (req, res) => {
 //   res.render('index');
 // });
+app.get('/api/*', (req, res) => {
+  console.log('GET API '+req.url + ' called. param: ' + req.body.testparam)
+  console.log('GET API Auth: '+req.headers.authorization )
+  var employee = JSON.stringify({
+      'EmpName': 'VB',
+      'Salary': 52000,
+      'DeptName': 'HR',
+      'Designation': 'LEAD'
+  });
 
-app.get('*', (req, res,next) => {
+  var extServerOptionsPost = {
+    host: '127.0.0.1',
+    port: '8083',
+    path: req.url,
+    method: 'GET',
+    headers: req.headers
+    // {
+    //   'Content-Type': 'application/json',
+    //   // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
+    //   'Authorization': req.headers.authorization
+    // }
+  };
+
+  var data = {};
+  var reqPost = http.request(extServerOptionsPost, function(res2) {
+    console.log("response statusCode: ", res.statusCode);
+    res2.on('data', function(data) {
+      console.log('Got Result data:\n');
+      process.stdout.write(data);
+      console.log('\n\nGET Operation Completed');
+      res.send(data)
+
+    });
+    res2.on('error', function(e) {
+      console.error(e);
+    });
+
+  });
+  reqPost.end();
+});
+
+app.get('*', (req, res) => {
   // routes is our object of React routes defined above
-  console.log('Get request now');
+  console.log('');console.log('');console.log('');
+  console.log('*********************************************')
+  console.log('Get request now just came: ' + req.url)
+
   match({
     routes,
     location: req.url
@@ -74,81 +130,69 @@ app.get('*', (req, res,next) => {
       // // console.log(Comp.fetchData)
       // const fetchData = (Comp && Comp.fetchData) || (() => Promise.resolve())
       // console.log(fetchData)
-      
+
       // fetchData().then(data => {
       //   console.log('server. test fetchData ' +data)
       //   // this.props.actions.addTodos(data.todos);
       // })
       // .catch(err => console.log('Booooo' + err));
-      
-      const initialState = {
-        todos: [
-          {
-            task: 'make it now',
-            isCompleted: false,
-            id: 2
-          },
-          {
-            task: 'ya do it',
-            isCompleted: true,
-            id: 3
-          }
-        ],
-        user: {
-          username: 'John connor',
-          id: 13
-        }
-      }
-      const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
+
+      const initialState = {}
+      // const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
+      // const store = createStore(reducers, initialState)
+      const logger = createLogger();
+      const store = createStore(rootReducer, initialState, applyMiddleware(thunk, logger))
+      var dispactions = bindActionCreators(actions, store.dispatch)
       const {location, params, history} = renderProps
 
-      // fetchData({ store, location, params, history })
-      fetchDataOnServer(renderProps, store)
-        .then(() => {
-          console.log('Get request on 8080' + {...renderProps});
-          // const body = renderToString(<RouterContext {...renderProps} />);
+      match({
+        routes,
+        location: req.url
+      }, (error, redirectLocation, renderProps) => {
+        const promises = renderProps.components
+          .filter((component) => component.fetchData)
+          .map((component) => component.fetchData(dispactions))
+        Promise.all(promises).then(() => {
+          // res.status(200).send(renderView())
+          console.log('resolved')
           const body = renderToString(
             <Provider store={store}>
                 <RouterContext {...renderProps} />
               </Provider>
           )
-          const state = store.getState();
-          res.send(`<!DOCTYPE html>
+          // console.log('Server. body '+body);
+          const state = store.getState()
+          res.status(200).send(`<!DOCTYPE html>
               <html>
                 <head></head>
                 <body>
+                  <h4>WAHNSINN</h4>
                   <div id="root">${body}</div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
                   <script src="bundle.js"></script>
                 </body>
               </html>`)
-        }).catch((err) => next(err))
+        }).catch(err => console.log('Booooo' + err));
+      })
 
+      // const state = store.getState()
+      // console.log('Server. Render now = ' + JSON.stringify(state))
+      // const body = renderToString(
+      //   <Provider store={store}>
+      //       <RouterContext {...renderProps} />
+      //     </Provider>
+      // )
 
-     // fetchData({ store, location, params, history }).then(response => response.json())
-     //  .then(data => {
-     //    // console.log(data.todos)
-     //    this.props.actions.addTodos(data.todos);
-     //    console.log('Get request on 8080' + {...renderProps});
-     //    // const body = renderToString(<RouterContext {...renderProps} />);
-     //    const body = renderToString(
-     //      <Provider store={store}>
-     //          <RouterContext {...renderProps} />
-     //        </Provider>
-     //    )
-     //    const state = store.getState();
-     //    res.send(`<!DOCTYPE html>
-     //        <html>
-     //          <head></head>
-     //          <body>
-     //            <div id="root">${body}</div>
-     //            <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
-     //            <script src="bundle.js"></script>
-     //          </body>
-     //        </html>`)
-     //  }).catch((err) => next(err))
-
-
+    // res.send(`<!DOCTYPE html>
+    //     <html>
+    //       <head></head>
+    //       <body>
+    //         <h4>WAHNSINN</h4>
+    //         <div id="root">${body}</div>
+    //         <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
+    //         <script src="bundle.js"></script>
+    //       </body>
+    //     </html>`)
     } else {
 
       // no route match, so 404. In a real app you might render a custom
@@ -158,39 +202,104 @@ app.get('*', (req, res,next) => {
   });
 });
 
-app.post('/api/todos', function(req, res) {
-    var user_id = req.body.id;
-    var token = req.body.token;
-    var geo = req.body.geo;
-    console.log('server post method'+req.body.id)
-    console.log('server post method'+req.body.token)
+// app.post('/api/todosobsolet', function(req, res) {
+//   var user_id = req.body.id;
+//   var token = req.body.token;
+//   var geo = req.body.geo;
+//   console.log('server post method' + req.body.id)
+//   console.log('server post method' + req.body.token)
 
-    res.send({ user_id, token, geo });
+//   res.send({
+//     user_id,
+//     token,
+//     geo
+//   });
+// });
+
+// app.post('/api/todo/:id/save', function(req, res) {
+//   //get param & query params
+//   console.log('save task id ' + req.params.id + ' with text ' + req.body.task)
+//   // store them in global var. later in database ot spring service
+//   res.sendStatus(200);
+// });
+
+// app.post('/api/todosold', function(req, res) {
+//   // var param = req.body.param;
+//   console.log('/api/todoslist called. param: ' + req.body.testparam)
+
+//   res.send(
+//     {
+//       todos: [
+//         {
+//           task: 'make it now baby',
+//           isCompleted: false,
+//           id: 4
+//         },
+//         {
+//           task: 'ya do it baby',
+//           isCompleted: true,
+//           id: 5
+//         }
+//       ]
+//     }
+//   );
+// });
+
+app.post('/api/*', function(req, res) {
+  // var param = req.body.param;
+  console.log('POST API '+req.url + ' called. param: ' + req.body.testparam)
+  var employee = JSON.stringify({
+      'EmpName': 'VB',
+      'Salary': 52000,
+      'DeptName': 'HR',
+      'Designation': 'LEAD'
+  });
+
+  var extServerOptionsPost = {
+    host: 'localhost',
+    port: '8083',
+    path: req.url,
+    method: 'POST',
+    headers: req.headers
+    // {
+    //   'Content-Type': 'application/json',
+    //   'Authorization': req.headers.authorization
+    // }
+  };
+
+  var data = {};
+  var reqPost = http.request(extServerOptionsPost, function(res2) {
+    console.log("response statusCode: ", res.statusCode);
+    res2.on('data', function(data) {
+      console.log('Got Result data:\n');
+      process.stdout.write(data);
+      console.log('\n\nPOST Operation Completed');
+      res.send(data)
+
+    });
+    res2.on('error', function(e) {
+      console.error(e);
+    });
+
+  });
+  reqPost.end();
 });
 
-app.post('/api/todoslist', function(req, res) {
-    // var param = req.body.param;
-    console.log('server post method here : '+req.body.testparam)
 
-    res.send(
-      {
-        todos: [
-          {
-            task: 'make it now baby',
-            isCompleted: false,
-            id: 4
-          },
-          {
-            task: 'ya do it baby',
-            isCompleted: true,
-            id: 5
-          }
-        ]
-      }
-    );
-});
 
-var port = 8080
+// function get() {
+//     http.request(extServerOptions, function (res) {
+//         res.setEncoding('utf8');
+//         res.on('data', function (data) {
+//             emp = JSON.parse(data);
+//             emp.foreach(function (e) {
+//                 console.log(e.EmpNo + "\t" + e.EmpName + "\t" + e.Salary + "\t" + e.DeptName + "\t" + e.Designation);
+//             });
+//         });
+ 
+//     }).end();
+// };
+var port = 8081
 
 app.listen(port, function(error) {
   if (error)

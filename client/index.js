@@ -6,9 +6,12 @@ import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 're
 import configureStore from '../redux/store'
 import { createStore, applyMiddleware } from 'redux' 
 import { Provider } from 'react-redux'
-import thunkMiddleware from 'redux-thunk'  
+import thunk from 'redux-thunk'
+import createLogger from 'redux-logger'
+
+
 import { syncHistoryWithStore } from 'react-router-redux'  
-import { FetchData, reducer as fetching } from 'redux-fetch-data';
+// import { FetchData, reducer as fetching } from 'redux-fetch-data';
 
 // import createBrowserHistory from 'history/lib/createBrowserHistory';
 // const history = createBrowserHistory();
@@ -44,17 +47,16 @@ import rootReducer from '../redux/reducers'
 // }
 //let store = configureStore(initialState)
 
-
+const logger = createLogger();
 const initialState = window.__REDUX_STATE__  
-const store = createStore(rootReducer, initialState, applyMiddleware(thunkMiddleware))
+const store = createStore(rootReducer, initialState, applyMiddleware(thunk, logger))
 // let store = configureStore(initialState)
 syncHistoryWithStore(browserHistory, store)
 
 // store={store}
 ReactDom.render(
   <Provider store={store}>
-	  <Router render={props => <FetchData {...props}/>} 
-            routes={routes} history={browserHistory} />
+	  <Router routes={routes} history={browserHistory} />
   </Provider>,
   document.getElementById('root')
 );

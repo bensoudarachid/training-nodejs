@@ -3,6 +3,8 @@ import { Router, Route, IndexLink, Link, IndexRoute, hashHistory, browserHistory
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import actions from '../redux/actions'
+
+import Nav from './nav.js'
 if (process.env.BROWSER) {
   require('./nav.scss')
 }
@@ -10,15 +12,15 @@ if (process.env.BROWSER) {
 
 
 
-const Nav = () => (
-  <div>
-    <IndexLink activeClassName='active' to='/'>Home</IndexLink> 
-    <Link activeClassName='active' to='/address'>Address</Link>
-    <Link activeClassName='active' to='/todos'>Todos</Link>
-    <Link activeClassName='active' to='/users'>Users</Link>
-    <Link activeClassName='active' to='/about'>About</Link>
-  </div>
-)
+// const Navi = () => (
+//   <div>
+//     <IndexLink activeClassName='active' to='/'>Home</IndexLink> 
+//     <Link activeClassName='active' to='/address'>Address</Link>
+//     <Link activeClassName='active' to='/todos'>Todos</Link>
+//     <Link activeClassName='active' to='/users'>Users</Link>
+//     <Link activeClassName='active' to='/about/hana?food=pizza'>About</Link>
+//   </div>
+// )
 
 
 class AppComponent extends React.Component {
@@ -42,7 +44,7 @@ class AppComponent extends React.Component {
   // }
   
   render() {
-
+      const { dispatch, quote, auth, errorMessage, isSecretQuote } = this.props
       // AppComponent.fetchData().then(response => response.json())
       // .then(data => {
       //   // console.log(data.todos)
@@ -54,7 +56,13 @@ class AppComponent extends React.Component {
     var children = updateChildren(this.props.children, this.props);
     return (
       <div>
-        <Nav/>
+        <Nav
+          actions={this.props.actions}
+          isAuthenticated={auth.isAuthenticated}
+          errorMessage={errorMessage}
+          auth={this.props.auth}
+          location={this.props.location}
+        />
         <h2>Welcome to my App</h2>
         { children }
       </div>

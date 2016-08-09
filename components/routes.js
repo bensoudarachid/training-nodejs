@@ -2,6 +2,8 @@ import AboutComponent from '../components/about'
 import AppComponent from '../components/appcomponent'
 import TodoApp from '../components/todoapp'
 import UserApp from '../components/userapp'
+import Register from '../components/register'
+import RegisterConfirmation from '../components/registerconfirm'
 
 import React from 'react'
 
@@ -46,16 +48,24 @@ const routes = {
       component: Home
     },
     {
-      path: '/todos',
+      path: '/todos(/:param)',
       component: TodoApp
     },
     {
-      path: '/users/:name',
+      path: '/users(/:name)',
       component: Users
     },    
     {
-      path: '/about',
+      path: '/about(/:name)',
       component: AboutComponent
+    },
+    {
+      path: '/register(/:name)',
+      component: Register
+    },
+    {
+      path: '/registerconfirm(/:username)',
+      component: RegisterConfirmation
     },
     {
       path: '*',

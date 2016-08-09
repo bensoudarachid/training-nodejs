@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 function getId(todos) {
   return todos.reduce((maxId, todo) => {
     return Math.max(todo.id, maxId)
@@ -15,7 +17,7 @@ let todoReducer = function(todos = [], action) {
           id: getId(todos)
         }]
     case 'ADD_TODOS':
-      // console.log('Todo reducer. AddTodos ')
+      console.log('Todo reducer+++++++++++++ AddTodos')
       // _.find(this.state.todos, (todo) => todo.task === task)
       // return [...todos, ...action.todos]
       // return [...todos, ...action.todos.map((todo) => {
@@ -23,6 +25,7 @@ let todoReducer = function(todos = [], action) {
       //     todo : undefined
       //   })]
       return [...todos, ...action.todos.filter((todo) => {
+          console.log('Todo reducer. AddTodo '+todo.task)
           return _.find(todos, (todoint) => todoint.id === todo.id) === undefined
         })]
     case 'TODOS_LOADED':
