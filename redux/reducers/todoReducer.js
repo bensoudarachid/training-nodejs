@@ -8,7 +8,7 @@ function getId(todos) {
   }, -1) + 1
 }
 
-let todoReducer = function(todos = [], action) {
+let todoReducer = function(todos = Immutable.List([]), action) {
   // console.log('Todo reducer. switch')
   switch (action.type) {
     case 'ADD_TODO':
@@ -24,18 +24,12 @@ let todoReducer = function(todos = [], action) {
           isCompleted: false,
           id: maxid
         })]
-    case 'ADD_TODOS':
-      console.log('Todo reducer+++++++++++++ AddTodos')
-      // _.find(this.state.todos, (todo) => todo.task === task)
-      // return [...todos, ...action.todos]
-      // return [...todos, ...action.todos.map((todo) => {
-      //   return _.find(todos, (todoint) => todoint.id === todo.id) === undefined ? 
-      //     todo : undefined
-      //   })]
-      return [...todos, ...action.todos.filter((todo) => {
-          console.log('Todo reducer. AddTodo '+todo.task)
-          return _.find(todos, (todoint) => todoint.id === todo.id) === undefined
-        })]
+    // case 'ADD_TODOS':
+    //   console.log('Todo reducer+++++++++++++ AddTodos')
+    //   return [...todos, ...action.todos.filter((todo) => {
+    //       console.log('Todo reducer. AddTodo '+todo.task)
+    //       return _.find(todos, (todoint) => todoint.id === todo.id) === undefined
+    //     })]
     case 'TODOS_LOADED':
       console.log('todos reducer. todos loaded')
       return action.todos.map((todo) => {
@@ -59,6 +53,12 @@ let todoReducer = function(todos = [], action) {
       return todos.map((todo) => {
         return todo.id === action.id ? 
           Object.assign({}, todo, {completed: !todo.completed}) : todo
+      })
+    case 'TOGGLE_TODO':
+      return todos.map((todo) => {
+        return todo.get('id') === action.id ? 
+          todo.set('isCompleted',!todo.get('isCompleted'))
+        : todo
       })
     case 'DELETE_TODO':
       return todos.filter((todo) => {

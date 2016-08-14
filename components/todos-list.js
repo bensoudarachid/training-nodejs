@@ -8,8 +8,9 @@ export default class ToDosList extends React.Component {
     renderItems() {
         const props = _.omit(this.props, 'todos');
         // console.log('render items baby'+this.props.todos);
-        return _.map(this.props.todos, (todo, index) => <TodosListItem key={index} todo={todo} {...props} />);
-//        return 'Hello';
+        // return _.map(this.props.todos, (todo, index) => <TodosListItem key={index} todo={todo} {...props} />);
+        return this.props.todos.map(
+        (todo, index) => <TodosListItem key={index} todo={todo} {...props} /> );
     }
 
     render() {

@@ -4,6 +4,7 @@
 // export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 import { browserHistory } from 'react-router'
 import { getIsFetching } from './reducers'
+import Immutable from 'Immutable'
 
 
 
@@ -85,13 +86,13 @@ let actions = {
     }
   },
 
-  addTodos: function(todos) {
-    console.log('actions. AddTodos')
-    return {
-      type: 'ADD_TODOS',
-      todos: todos
-    }
-  },
+  // addTodos: function(todos) {
+  //   console.log('actions. AddTodos')
+  //   return {
+  //     type: 'ADD_TODOS',
+  //     todos: todos
+  //   }
+  // },
 
   saveTodo: function(id, text) {
     console.log('actions. SaveTodo')
@@ -132,6 +133,13 @@ let actions = {
   completeTodo: function(id) {
     return {
       type: 'COMPLETE_TODO',
+      id: id
+    }
+  },
+
+  toggleTodo: function(id) {
+    return {
+      type: 'TOGGLE_TODO',
       id: id
     }
   },
@@ -184,7 +192,7 @@ let actions = {
     //   }
     return {
       type: 'TODOS_LOADED',
-      todos: todos
+      todos: Immutable.List(todos)
     }
   },
 

@@ -59,7 +59,8 @@ export default class CreateTodo extends React.Component {
   validateInput(task) {
     if (!task) {
       return 'Please enter a task.';
-    } else if (_.find(this.props.todos, (todo) => todo.task === task)) {
+    // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
+    } else if (this.props.todos.find((todo) =>  todo.get('task') === task) ){
       return 'Task already exists.';
     } else {
       return null;

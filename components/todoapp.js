@@ -2,6 +2,8 @@ import CreateTodo from './create-todo'
 import React, { Component } from 'react'
 import TodosList from './todos-list'
 import _ from 'lodash'
+// import Immutable from 'Immutable'
+
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
@@ -54,6 +56,7 @@ class TodoApp extends Component {
   //     .catch(err => console.log('Booooo' + err));
   // }
 
+
   render() {
     //let test = 'App';
     //console.log("Hi there from "+test);
@@ -74,47 +77,38 @@ class TodoApp extends Component {
               <h1>React to dos!!!!</h1>
               <CreateTodo todos={this.props.todos} addTodo={this.props.actions.addTodo}/>
               <TodosList todos={this.props.todos} actions={this.props.actions}
-        toggleTask={this.toggleTask.bind(this)}
-        saveTask={this.saveTask.bind(this)}
-        deleteTask={this.deleteTask.bind(this)}
+        // toggleTask={this.toggleTask.bind(this)}
+        // saveTask={this.saveTask.bind(this)}
+        // deleteTask={this.deleteTask.bind(this)}
         />
       </div>
       }
       </div>
       );
   }
-  saveTask(oldTask, newTask) {
-    const foundTodo = _.find(this.state.todos, (todo) => todo.task === oldTask);
-    foundTodo.task = newTask;
+  // saveTask(oldTask, newTask) {
+  //   const foundTodo = _.find(this.state.todos, (todo) => todo.task === oldTask);
+  //   foundTodo.task = newTask;
 
-    this.setState({
-      todos: this.state.todos
-    })
-  }
-  // createTask(task) {
-  //   console.log('todoapp. create task')
-  //   this.state.todos.push({
-  //     task,
-  //     isCompleted: false
-  //   });
+  //   this.setState({
+  //     todos: this.state.todos
+  //   })
+  // }
+  // deleteTask(taskToDelete) {
+  //   //        console.log('delete'+taskToDelete);
+  //   _.remove(this.state.todos, (todo) => todo.task === taskToDelete);
   //   this.setState({
   //     todos: this.state.todos
   //   });
   // }
-  deleteTask(taskToDelete) {
-    //        console.log('delete'+taskToDelete);
-    _.remove(this.state.todos, (todo) => todo.task === taskToDelete);
-    this.setState({
-      todos: this.state.todos
-    });
-  }
-  toggleTask(task) {
-    const foundTodo = _.find(this.state.todos, (todo) => todo.task === task);
-    foundTodo.isCompleted = !foundTodo.isCompleted;
-    this.setState({
-      todos: this.state.todos
-    });
-  }
+  // toggleTask(task) {
+  //   const foundTodo = this.state.todos.find((todo) =>  todo.get('task') === task)
+  //   // const foundTodo = _.find(this.state.todos, (todo) => todo.task === task);
+  //   foundTodo.isCompleted = !foundTodo.isCompleted;
+  //   this.setState({
+  //     todos: this.state.todos
+  //   });
+  // }
   componentDidMount() {
     console.log('Todos mounted' + this.props.auth.id_token)
     TodoApp.fetchData(this.props.actions, this.props.auth.id_token)

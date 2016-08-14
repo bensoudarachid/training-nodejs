@@ -34,7 +34,7 @@ export default class TodosListItem extends React.Component {
     }
 
     return (
-      <td style={taskStyle} onClick={this.props.toggleTask.bind(this, task)}>{task}</td>
+      <td style={taskStyle} onClick={this.handleToggle.bind(this)}>{task}</td>
       );
   }
 
@@ -94,6 +94,11 @@ export default class TodosListItem extends React.Component {
   handleDelete() {
     console.log('todos-list-item, delete todo'+this.props.todo.get('id'))
     this.props.actions.deleteTodo(this.props.todo.get('id'))
+  }
+
+  handleToggle() {
+    console.log('todos-list-item, toggle todo'+this.props.todo.get('id'))
+    this.props.actions.toggleTodo(this.props.todo.get('id'))
   }
 
   onEditClick() {
