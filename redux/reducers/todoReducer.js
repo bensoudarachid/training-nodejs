@@ -1,8 +1,10 @@
 import _ from 'lodash'
+import Immutable from 'Immutable'
+
 
 function getId(todos) {
   return todos.reduce((maxId, todo) => {
-    return Math.max(todo.id, maxId)
+    return Math.max(todo.get('id'), maxId)
   }, -1) + 1
 }
 
@@ -10,12 +12,18 @@ let todoReducer = function(todos = [], action) {
   // console.log('Todo reducer. switch')
   switch (action.type) {
     case 'ADD_TODO':
-      // console.log('Todo reducer. AddTodo '+action.text)
-      return [ ...todos, {
+      var maxid= getId(todos)
+      console.log('Todo reducer. AddTodo '+maxid)
+      // return todos.push(Immutable.Map({
+      //     task: action.text,
+      //     isCompleted: false,
+      //     id: maxid
+      //   }))
+      return [ ...todos, Immutable.Map({
           task: action.text,
           isCompleted: false,
-          id: getId(todos)
-        }]
+          id: maxid
+        })]
     case 'ADD_TODOS':
       console.log('Todo reducer+++++++++++++ AddTodos')
       // _.find(this.state.todos, (todo) => todo.task === task)
@@ -30,15 +38,21 @@ let todoReducer = function(todos = [], action) {
         })]
     case 'TODOS_LOADED':
       console.log('todos reducer. todos loaded')
-      return action.todos
+      return action.todos.map((todo) => {
+        return Immutable.Map(todo)
+      })
+      // return action.todos
     case 'SAVE_TODO':
       console.log('Todo reducer. SaveTodo id='+action.id+'task = '+action.text)
       return todos.map((todo) => {
-        return todo.id === action.id ? 
-          Object.assign({}, todo, {
-          task: action.text,
-          // id: action.id,
-        }) : todo
+        return todo.get('id') === action.id ? 
+          todo.set('task',action.text)
+
+        //   Object.assign({}, todo, {
+        //   task: action.text,
+        //   // id: action.id,
+        // }) 
+        : todo
       })
 
     case 'COMPLETE_TODO':
@@ -48,7 +62,7 @@ let todoReducer = function(todos = [], action) {
       })
     case 'DELETE_TODO':
       return todos.filter((todo) => {
-        return todo.id !== action.id
+        return todo.get('id') !== action.id
       })
     default: 
       return todos;

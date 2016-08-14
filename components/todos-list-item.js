@@ -13,7 +13,11 @@ export default class TodosListItem extends React.Component {
   }
 
   renderTaskSection() {
-    const {task, isCompleted} = this.props;
+    // const {task, isCompleted} = this.props;
+    // const {todo} = this.props;
+    const task = this.props.todo.get('task');
+    const isCompleted = this.props.todo.get('isCompleted');
+    // const id = this.props.todo.get('id');
     const taskStyle = {
       color: isCompleted ? 'green' : 'red',
       cursor: 'pointer'
@@ -88,8 +92,8 @@ export default class TodosListItem extends React.Component {
   //     );
   // }
   handleDelete() {
-    console.log('delete '+this.props.id)
-    this.props.actions.deleteTodo(this.props.id)
+    console.log('todos-list-item, delete todo'+this.props.todo.get('id'))
+    this.props.actions.deleteTodo(this.props.todo.get('id'))
   }
 
   onEditClick() {
@@ -106,6 +110,7 @@ export default class TodosListItem extends React.Component {
   }
 
   onSaveClick(event) {
+    console.log('todos-list-item, save '+this.props.todo.get('id'))
     event.preventDefault();
     // const oldTask = this.props.task;
     const newTask = this.refs.editInput.value;
@@ -113,7 +118,7 @@ export default class TodosListItem extends React.Component {
     // this.setState({
     //   isEditing: false
     // });
-    this.props.actions.saveTodoAsync(this.props.id, newTask);
+    this.props.actions.saveTodoAsync(this.props.todo.get('id'), newTask);
     this.setState({
       isEditing: false
     });
