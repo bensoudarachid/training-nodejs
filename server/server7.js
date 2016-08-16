@@ -84,7 +84,7 @@ app.get('/api/*', (req, res) => {
   var reqPost = http.request(extServerOptionsPost, function(res2) {
     console.log("response statusCode: ", res.statusCode);
     res2.on('data', function(data) {
-      console.log('Got Result data:\n');
+      console.log('Server. Got Result data:\n');
       process.stdout.write(data);
       console.log('\n\nGET Operation Completed');
       res.send(data)
@@ -247,20 +247,22 @@ app.get('*', (req, res) => {
 
 app.post('/api/*', function(req, res) {
   // var param = req.body.param;
-  console.log('POST API '+req.url + ' called. param: ' + req.body.testparam)
-  var employee = JSON.stringify({
-      'EmpName': 'VB',
-      'Salary': 52000,
-      'DeptName': 'HR',
-      'Designation': 'LEAD'
-  });
+  console.log('POST API YEAAAAH')
+  // console.log('POST API '+req.url + ' called. param: ' + req.body.task)
+  // var employee = JSON.stringify({
+  //     'EmpName': 'VB',
+  //     'Salary': 52000,
+  //     'DeptName': 'HR',
+  //     'Designation': 'LEAD'
+  // });
 
   var extServerOptionsPost = {
     host: 'localhost',
     port: '8083',
     path: req.url,
     method: 'POST',
-    headers: req.headers
+    headers: req.headers,
+    body: req.body
     // {
     //   'Content-Type': 'application/json',
     //   'Authorization': req.headers.authorization
@@ -271,7 +273,7 @@ app.post('/api/*', function(req, res) {
   var reqPost = http.request(extServerOptionsPost, function(res2) {
     console.log("response statusCode: ", res.statusCode);
     res2.on('data', function(data) {
-      console.log('Got Result data:\n');
+      console.log('Server. Got Result data:\n');
       process.stdout.write(data);
       console.log('\n\nPOST Operation Completed');
       res.send(data)

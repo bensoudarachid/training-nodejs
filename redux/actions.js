@@ -5,42 +5,45 @@
 import { browserHistory } from 'react-router'
 import { getIsFetching } from './reducers'
 import Immutable from 'Immutable'
-
-
+import cookie from 'react-cookie'
+import registeractions from'./actions/registeractions'
+import todoactions from'./actions/todoactions'
 
 let actions = {
-  requestRegister: function(creds) {
-    return {
-      type: 'REGISTER_REQUEST',
-      isFetching: true,
-      isAuthenticated: false,
-      creds
-    }
-  },
+  ...registeractions,
+  ...todoactions,
+  // requestRegister: function(creds) {
+  //   return {
+  //     type: 'REGISTER_REQUEST',
+  //     isFetching: true,
+  //     isAuthenticated: false,
+  //     creds
+  //   }
+  // },
 
-  receiveRegister: function(user) {
-    // console.log('actions user access token: ' + user.access_token)
-    return {
-      type: 'REGISTER_SUCCESS',
-      user
-    }
-  },
+  // receiveRegister: function(user) {
+  //   // console.log('actions user access token: ' + user.access_token)
+  //   return {
+  //     type: 'REGISTER_SUCCESS',
+  //     user
+  //   }
+  // },
 
-  registerInit: function() {
-    console.log('Actions. Init registration: ')
-    return {
-      type: 'REGISTER_INIT'
-    }
-  },
+  // registerInit: function() {
+  //   console.log('Actions. Init registration: ')
+  //   return {
+  //     type: 'REGISTER_INIT'
+  //   }
+  // },
 
-  registerError: function(registererror) {
-    console.log('Actions. Error registration: ')
-    console.log(registererror)
-    return {
-      type: 'REGISTER_ERROR',
-      registererror
-    }
-  },
+  // registerError: function(registererror) {
+  //   console.log('Actions. Error registration: ')
+  //   console.log(registererror)
+  //   return {
+  //     type: 'REGISTER_ERROR',
+  //     registererror
+  //   }
+  // },
 
   requestLogin: function(creds) {
     return {
@@ -53,6 +56,7 @@ let actions = {
 
   receiveLogin: function(user) {
     // console.log('actions user access token: ' + user.access_token)
+    cookie.save('jwt', user.access_token, { path: '/' });
     return {
       type: 'LOGIN_SUCCESS',
       isFetching: false,
@@ -71,6 +75,7 @@ let actions = {
   },
   
   receiveLogout: function() {
+    cookie.remove('jwt', { path: '/' });
     return {
       type: 'LOGOUT_SUCCESS',
       isFetching: false,
@@ -78,13 +83,13 @@ let actions = {
     }
   },
 
-  addTodo: function(text) {
-    console.log('actions. AddTodo')
-    return {
-      type: 'ADD_TODO',
-      text: text
-    }
-  },
+  // addTodo: function(text) {
+  //   console.log('actions. AddTodo')
+  //   return {
+  //     type: 'ADD_TODO',
+  //     text: text
+  //   }
+  // },
 
   // addTodos: function(todos) {
   //   console.log('actions. AddTodos')
@@ -94,62 +99,62 @@ let actions = {
   //   }
   // },
 
-  saveTodo: function(id, text) {
-    console.log('actions. SaveTodo')
-    return {
-      type: 'SAVE_TODO',
-      id: id,
-      text: text
-    }
-  },
+  // saveTodo: function(id, text) {
+  //   console.log('actions. SaveTodo')
+  //   return {
+  //     type: 'SAVE_TODO',
+  //     id: id,
+  //     text: text
+  //   }
+  // },
 
-  saveTodoAsync: function(id, text) {
-    return (dispatch) => {
-      // setTimeout(() => {
-      fetch('http://127.0.0.1:8081/api/todo/'+id+'/save', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
-        },
-        // body: 'testparam='+test //if no json in header
-        body: JSON.stringify({
-          task: text
-        })
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log('todoapp. component mounted ' + data.todos[0].task)
-          actions.addTodos(data.todos)
-        })
-        .catch(err => console.log('Hooooo' + err))
+  // saveTodoAsync: function(id, text) {
+  //   return (dispatch) => {
+  //     // setTimeout(() => {
+  //     fetch('http://127.0.0.1:8081/api/todo/'+id+'/save', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/x-www-form-urlencoded',
+  //         'Content-Type': 'application/json',
+  //         'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
+  //       },
+  //       // body: 'testparam='+test //if no json in header
+  //       body: JSON.stringify({
+  //         task: text
+  //       })
+  //     })
+  //       .then(response => response.json())
+  //       .then(data => {
+  //         console.log('todoapp. component mounted ' + data.todos[0].task)
+  //         actions.addTodos(data.todos)
+  //       })
+  //       .catch(err => console.log('Hooooo' + err))
 
-      dispatch(actions.saveTodo(id, text))
-    // }, 2500)
-    }
-  },
+  //     dispatch(actions.saveTodo(id, text))
+  //   // }, 2500)
+  //   }
+  // },
 
-  completeTodo: function(id) {
-    return {
-      type: 'COMPLETE_TODO',
-      id: id
-    }
-  },
+  // completeTodo: function(id) {
+  //   return {
+  //     type: 'COMPLETE_TODO',
+  //     id: id
+  //   }
+  // },
 
-  toggleTodo: function(id) {
-    return {
-      type: 'TOGGLE_TODO',
-      id: id
-    }
-  },
+  // toggleTodo: function(id) {
+  //   return {
+  //     type: 'TOGGLE_TODO',
+  //     id: id
+  //   }
+  // },
 
-  deleteTodo: function(id) {
-    return {
-      type: 'DELETE_TODO',
-      id: id
-    }
-  },
+  // deleteTodo: function(id) {
+  //   return {
+  //     type: 'DELETE_TODO',
+  //     id: id
+  //   }
+  // },
 
   createNewUserId: function() {
     return {
@@ -176,25 +181,25 @@ let actions = {
     }
   },
 
-  loadTodos: function(todos) {
-    // return (dispatch) => {
-    //   if (todos.error == 'invalid_token'){
-    //     console.log('actions loadTodos logout because of error **************************************************************')
+  // loadTodos: function(todos) {
+  //   // return (dispatch) => {
+  //   //   if (todos.error == 'invalid_token'){
+  //   //     console.log('actions loadTodos logout because of error **************************************************************')
 
-    //     dispatch(actions.receiveLogout())
-    //     browserHistory.push('/')
-    //   }else
-    //     console.log('todos loaded**************************************************************')
-    //     return {
-    //       type: 'TODOS_LOADED',
-    //       todos: todos
-    //     }
-    //   }
-    return {
-      type: 'TODOS_LOADED',
-      todos: Immutable.List(todos)
-    }
-  },
+  //   //     dispatch(actions.receiveLogout())
+  //   //     browserHistory.push('/')
+  //   //   }else
+  //   //     console.log('todos loaded**************************************************************')
+  //   //     return {
+  //   //       type: 'TODOS_LOADED',
+  //   //       todos: todos
+  //   //     }
+  //   //   }
+  //   return {
+  //     type: 'TODOS_LOADED',
+  //     todos: Immutable.List(todos)
+  //   }
+  // },
 
   requestLogout: function() {
     return {
@@ -301,54 +306,54 @@ let actions = {
           }
         }).catch(err => console.log("Error: ", err))
     }
-  },
-  registerUser: function(creds) {
-    console.log('actions register user '+creds.username+' .pass '+creds.password+' .email '+creds.email)
-    var body='username='+creds.username+'&password='+creds.password+'&email='+creds.email
-    //&scope=read%20write
-    console.log('body '+body)
-    let config = {
-      method: 'POST'
-      , headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-      , body: body
-    }
-
-    return (dispatch,getState) => {
-      if( getState().auth.isFetching ){
-        console.log('Fetching! Do nothing')
-        return;
-      }
-
-      dispatch(actions.requestRegister(creds))
-      return fetch('http://localhost:8083/register', config)
-        .then
-        (response =>
-      response.json().then(user => ({
-        status: response.status,
-        user
-      })
-    ))
-    .then(
-      ({ status, user }) => {
-        if (status >= 400) {
-          var error = user;
-          console.log('Status looks bad. '+status+'. error message = '+error.message)
-          dispatch(actions.registerError(error))
-        } else {
-          console.log('Status looks good ')
-          console.log(user)
-          dispatch(actions.receiveRegister(user))
-          browserHistory.push('/registerconfirm/')
-        }
-      },
-      err => {
-        console.log('Status looks not good at all!'+err)
-      }
-    )
-    }
   }
+  // registerUser: function(creds) {
+  //   console.log('actions register user '+creds.username+' .pass '+creds.password+' .email '+creds.email)
+  //   var body='username='+creds.username+'&password='+creds.password+'&email='+creds.email
+  //   //&scope=read%20write
+  //   console.log('body '+body)
+  //   let config = {
+  //     method: 'POST'
+  //     , headers: {
+  //       'Content-Type': 'application/x-www-form-urlencoded'
+  //     }
+  //     , body: body
+  //   }
+
+  //   return (dispatch,getState) => {
+  //     if( getState().auth.isFetching ){
+  //       console.log('Fetching! Do nothing')
+  //       return;
+  //     }
+
+  //     dispatch(actions.requestRegister(creds))
+  //     return fetch('http://localhost:8083/register', config)
+  //       .then
+  //       (response =>
+  //     response.json().then(user => ({
+  //       status: response.status,
+  //       user
+  //     })
+  //   ))
+  //   .then(
+  //     ({ status, user }) => {
+  //       if (status >= 400) {
+  //         var error = user;
+  //         console.log('Status looks bad. '+status+'. error message = '+error.message)
+  //         dispatch(actions.registerError(error))
+  //       } else {
+  //         console.log('Status looks good ')
+  //         console.log(user)
+  //         dispatch(actions.receiveRegister(user))
+  //         browserHistory.push('/registerconfirm/')
+  //       }
+  //     },
+  //     err => {
+  //       console.log('Status looks not good at all!'+err)
+  //     }
+  //   )
+  //   }
+  // }
 }
 
 export default actions

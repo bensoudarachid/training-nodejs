@@ -172,7 +172,7 @@ class TodoApp extends Component {
         if (data.error == 'invalid_token')
           actions.receiveLogout()
         else
-          actions.loadTodos(data.todos)
+          actions.loadTodos(data)
         // actions.addTodos(data.todos)
     })
     .catch(err => console.log('Hooooo' + err))
