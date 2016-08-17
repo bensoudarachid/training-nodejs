@@ -10,13 +10,13 @@ class Nav extends Component {
 	// <div>
  //    </div>    
 	render () {
-		const { dispatch, isAuthenticated, errorMessage } = this.props		
+		const { dispatch, isAuthenticated, errorMessage } = this.props
 		return (
 		  <div>
 		    <IndexLink activeClassName='active' to='/'>Home</IndexLink> 
 		    <Link activeClassName='active' to='/address'>Address</Link>
 	  {isAuthenticated &&
-		    <Link activeClassName='active' to='/todos/applp'>Todos</Link>
+		    <Link activeClassName='active' to='/todos'>Todos</Link>
 	  }
 		    <Link activeClassName='active' to='/users'>Users</Link>
 		    <Link activeClassName='active' to='/about/hana?food=pizza'>About</Link>
@@ -33,7 +33,7 @@ class Nav extends Component {
 	  }
 
 	  {isAuthenticated &&
-	  	<Logout auth={this.props.auth} onLogoutClick={tokenid => this.props.actions.logoutUser(tokenid)} />
+	  	<Logout auth={this.props.auth} onLogoutClick={() => this.props.actions.logoutUser()} />
 	  }
 
 

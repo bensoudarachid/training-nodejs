@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDom from 'react-dom'
 // var ReactDom = require('react-dom');
 import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
-import configureStore from '../redux/store'
+// import configureStore from '../redux/store'
 import { createStore, applyMiddleware } from 'redux' 
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'

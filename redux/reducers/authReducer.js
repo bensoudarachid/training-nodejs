@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import cookie from 'react-cookie'
 // import {
 //   LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS
 // } from '../actions'
@@ -9,15 +10,17 @@ import _ from 'lodash'
 
 let authReducer = function(auth = {
     isFetching: false,
-    isAuthenticated: false //localStorage.getItem('id_token') ? true : false
+    isAuthenticated: cookie.load('jwt') ? true : false
   }, action) {
-  // console.log('Auth Reducer action: ' + action.type + ', id token : ' + authentication.id_token)
+  auth.isAuthenticated=cookie.load('jwt') ? true : false
+  console.log('Auth Reducer is authenticated: ' + auth.isAuthenticated )
+  console.log('Auth Reducer cookie is there: ' + (cookie.load('jwt') ? true : false))
 
   switch (action.type) {
     case 'LOGIN_REQUEST':
       return Object.assign({}, auth, {
         isFetching: true,
-        isAuthenticated: false,
+        // isAuthenticated: false,
         usercreds: action.creds
       })
     case 'LOGIN_SUCCESS':
@@ -25,34 +28,34 @@ let authReducer = function(auth = {
       // console.log(action.id_token)
       return Object.assign({}, _.omit(auth, ['usercreds']), {
         isFetching: false,
-        isAuthenticated: true,
-        id_token: action.id_token,
+        isAuthenticated: cookie.load('jwt') ? true : false,
+//        id_token: action.id_token,
         errorMessage: ''
       })
     case 'LOGIN_FAILURE':
       return Object.assign({}, _.omit(auth, ['usercreds']), {
         isFetching: false,
-        isAuthenticated: false,
+        // isAuthenticated: false,
         errorMessage: action.message
       })
     case 'LOGOUT_REQUEST':
       return Object.assign({}, _.omit(auth, ['usercreds']), {
-        isFetching: true,
-        isAuthenticated: true
+        isFetching: true
+        // isAuthenticated: true
       })
     case 'LOGOUT_SUCCESS':
-      return Object.assign({}, _.omit(auth, ['id_token']), {
+      return Object.assign({}, auth, {
         isFetching: false,
-        isAuthenticated: false
+        isAuthenticated: cookie.load('jwt') ? true : false
       })
-      // return Object.assign({}, auth, {
-      //   isFetching: true,
+      // return Object.assign({}, _.omit(auth, ['id_token']), {
+      //   isFetching: false,
       //   isAuthenticated: false
       // })
     case 'REGISTER_REQUEST':
       return Object.assign({}, auth, {
         isFetching: true,
-        isAuthenticated: false,
+        // isAuthenticated: false,
         usercreds: action.creds,
         registererror: ''
       })

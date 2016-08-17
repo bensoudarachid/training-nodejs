@@ -49,7 +49,7 @@ let actions = {
     return {
       type: 'LOGIN_REQUEST',
       isFetching: true,
-      isAuthenticated: false,
+      isAuthenticated: cookie.load('jwt') ? true : false,
       creds
     }
   },
@@ -60,8 +60,8 @@ let actions = {
     return {
       type: 'LOGIN_SUCCESS',
       isFetching: false,
-      isAuthenticated: true,
-      id_token: user.access_token
+      isAuthenticated: cookie.load('jwt') ? true : false
+      // id_token: user.access_token
     }
   },
 
@@ -69,7 +69,7 @@ let actions = {
     return {
       type: 'LOGIN_FAILURE',
       isFetching: false,
-      isAuthenticated: false,
+      isAuthenticated: cookie.load('jwt') ? true : false,
       message
     }
   },
@@ -79,7 +79,7 @@ let actions = {
     return {
       type: 'LOGOUT_SUCCESS',
       isFetching: false,
-      isAuthenticated: false
+      isAuthenticated: cookie.load('jwt') ? true : false
     }
   },
 
@@ -205,19 +205,20 @@ let actions = {
     return {
       type: 'LOGOUT_REQUEST',
       isFetching: true,
-      isAuthenticated: true
+      isAuthenticated: cookie.load('jwt') ? true : false
     }
   },
 
-  logoutUser: function(tokenid) {
+  logoutUser: function() {
     console.log('actions logout user ')
     //&scope=read%20write
+    var id_token = cookie.load('jwt')
     let config = {
       method: 'POST'
       , headers: {
           'Accept': 'application/json'
         , 'Content-Type': 'application/x-www-form-urlencoded'
-        , 'Authorization': 'Bearer '+ tokenid
+        , 'Authorization': 'Bearer '+ id_token
   //      `username=${creds.username}&password=${creds.password}&client_id=clientapp&client_secret=123456&grant_type=password&scope=read%20write`
       }
       // , body: body
@@ -290,11 +291,12 @@ let actions = {
           response.json().then(user => ({ user, response }))
               ).then(({ user, response }) =>  {
           if (!response.ok) {
-            // console.log('actions request login not ok')
-
+            console.log('actions. login not ok')
+            console.log(user)
+            console.log(response)
             // If there was a problem, we want to
             // dispatch the error condition
-            dispatch(actions.loginError(user.message))
+            dispatch(actions.loginError(user.error_description))
             return Promise.reject(user)
           } else {
             // console.log('loginUser user token '+user.access_token )

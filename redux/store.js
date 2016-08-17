@@ -10,7 +10,7 @@ let finalCreateStore = compose(
 )(createStore)
 
 
-export default function configureStore(initialState = { todos: [], user: {} }) {
-	console.log('store.js. This is used. i thought not')
-  return finalCreateStore(rootReducer, initialState)
-}
+// export default function configureStore(initialState = { todos: [], user: {} }) {
+// 	console.log('store.js. This is used. i thought not')
+//   return finalCreateStore(rootReducer, initialState)
+// }

@@ -1,7 +1,10 @@
 import CreateTodo from './create-todo'
 import React, { Component } from 'react'
 import TodosList from './todos-list'
+import cookie from 'react-cookie'
 import _ from 'lodash'
+import {ThreeBounce} from 'better-react-spinkit'
+
 // import Immutable from 'Immutable'
 
 require('es6-promise').polyfill();
@@ -59,12 +62,17 @@ class TodoApp extends Component {
 
   render() {
     //let test = 'App';
-    //console.log("Hi there from "+test);
+    var isBrowser = typeof window !== 'undefined';
+    console.log("Render todoapp isBrowser ?" + isBrowser);
+    if(!isBrowser) {
+      return <div><h3>Loading</h3><ThreeBounce size={25} fade={{duration:0.3}}/></div>
+    }
+    const { auth } = this.props  
+    console.log("Render todoapp authenticated ? " + auth.isAuthenticated);
     //  alert("Hi "+test);
     // createTask={this.createTask.bind(this)}
     //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
     // deleteTask={this.deleteTask.bind(this)}
-    const { auth } = this.props  
     return (
       <div>
       {!auth.isAuthenticated &&
@@ -74,8 +82,8 @@ class TodoApp extends Component {
       }
       {auth.isAuthenticated &&
       <div>
-              <h1>React to dos!!!!</h1>
-              <CreateTodo todos={this.props.todos} addTodo={this.props.actions.addTodo}/>
+              <h3>To dos. Please proceed</h3>
+              <CreateTodo todos={this.props.todos} createTodo={this.props.actions.createTodo}/>
               <TodosList todos={this.props.todos} actions={this.props.actions}
         // toggleTask={this.toggleTask.bind(this)}
         // saveTask={this.saveTask.bind(this)}
@@ -111,35 +119,18 @@ class TodoApp extends Component {
   // }
   componentDidMount() {
     console.log('Todos mounted' + this.props.auth.id_token)
-    TodoApp.fetchData(this.props.actions, this.props.auth.id_token)
-
-    // var test='This is abbas in the hoodd!'
-    // fetch('http://127.0.0.1:8080/api/todoslist', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/x-www-form-urlencoded'
-    //     ,'Content-Type': 'application/json'
-    //   },
-    //   // body: 'testparam=value' //if no json in header
-    //   body: JSON.stringify({
-    //     testparam: test
-    //   })
-    // })
-      // .then(response => response.json())
-      // .then(data => {
-      //   console.log('todoapp. component mounted ' +data.todos)
-      //   this.props.actions.addTodos(data.todos);
-      // })
-      // .catch(err => console.log('Booooo' + err));
+    TodoApp.fetchData(this.props.actions)
   }
 
-  static fetchData(actions, id_token='') {
+
+  static fetchData(actions) {
     var headers=  {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Content-Type': 'application/json'
           // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
           // 'Authorization': 'Bearer '+id_token
     }
+    var id_token = cookie.load('jwt')
     if( id_token!='' ){
       headers.Authorization='Bearer '+id_token
       console.log('Ya todos fetchData.  auth id token: '+ id_token)

@@ -52,7 +52,7 @@ export default class CreateTodo extends React.Component {
       error: null
     });
     // this.props.createTask(task);
-    this.props.addTodo(task);
+    this.props.createTodo(task);
     this.refs.createInput.value = '';
   }
 

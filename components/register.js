@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-var Spinner = require('react-spinkit');
+import {ThreeBounce} from 'better-react-spinkit'
 
 export default class Register extends Component {
 //<Spinner spinnerName='three-bounce' /> circle wordpress double-bounce<p>Loading...</p>
@@ -20,7 +20,7 @@ export default class Register extends Component {
           <p>Errors: {registererror}</p>
         }
         {isFetching &&
-          <p><Spinner spinnerName='three-bounce' noFadeIn/></p>
+          <p><ThreeBounce size={25} fade={{duration:0.3}}/></p>
 
         }
       </div>

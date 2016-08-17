@@ -4,6 +4,12 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import actions from '../redux/actions'
 
+
+import { Component, PropTypes } from 'react'
+import { ThreeBounce } from 'better-react-spinkit'
+
+
+
 import Nav from './nav.js'
 if (process.env.BROWSER) {
   require('./nav.scss')
@@ -25,6 +31,23 @@ if (process.env.BROWSER) {
 
 class AppComponent extends React.Component {
 
+  constructor() {
+    super(...arguments);
+
+    this.constructor.childContextTypes = {
+      betterReactSpinkit: PropTypes.object
+    };
+  }
+
+  getChildContext () {
+    return {
+      betterReactSpinkit: {
+        color: '#505050', //'black'
+        size: 15
+        // ,fade: { duration: 0.3 }
+      }
+    }
+  }
   // static fetchData() {
   //   console.log('todos component is mounted. Do nothing'+ JSON.stringify({
   //       param: 'abbas'
@@ -52,14 +75,13 @@ class AppComponent extends React.Component {
       // })
       // .catch(err => console.log('Booooo' + err));
 
-    
     var children = updateChildren(this.props.children, this.props);
     return (
       <div>
         <Nav
           actions={this.props.actions}
           isAuthenticated={auth.isAuthenticated}
-          errorMessage={errorMessage}
+          errorMessage={auth.errorMessage}
           auth={this.props.auth}
           location={this.props.location}
         />
@@ -69,6 +91,7 @@ class AppComponent extends React.Component {
       );
   }
 }
+
 
 function updateChildren(children, props) {
   var childrenBack = React.Children.map(children, function(child) {

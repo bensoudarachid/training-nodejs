@@ -1,4 +1,7 @@
 import React from 'react';
+import Immutable from 'Immutable'
+import {Pulse,FoldingCube,ThreeBounce,FadingCircle} from 'better-react-spinkit'
+
 if (process.env.BROWSER) {
   require('./todos-list-item.scss')
 }
@@ -15,10 +18,14 @@ export default class TodosListItem extends React.Component {
   renderTaskSection() {
     // const {task, isCompleted} = this.props;
     // const {todo} = this.props;
+    // console.log('todo list item. Render ------------------'+this.props.todo.get('task'))
+    // console.log(this.props.todo)
     const task = this.props.todo.get('task');
     const isCompleted = this.props.todo.get('isCompleted');
     // const id = this.props.todo.get('id');
+    // const id = this.props.todo.get('id');
     const taskStyle = {
+      // color: id===-1? 'black' : (isCompleted ? 'green' : 'red'),
       color: isCompleted ? 'green' : 'red',
       cursor: 'pointer'
     };
@@ -57,17 +64,22 @@ export default class TodosListItem extends React.Component {
   // }
 
   getActions() {
-    //console.log('actions is editing=' + this.state.isEditing);
-    if (this.state.isEditing)
+    //<Spinner spinnerName='three-bounce' noFadeIn/> <Pulse size={20} color='blue'/>
+    const id = this.props.todo.get('id');
+    if (id ===-1 )
+      return (
+        <td><ThreeBounce size={15} fade={{duration:0.3}}/></td>
+      );
+    else if (this.state.isEditing)
       return (
         <td><button onClick={this.onSaveClick.bind(this)}>Save</button>
         <button onClick={this.onCancelClick.bind(this)}>Cancel</button></td>
-        );
+      );
     else
       return (
         <td><button onClick={this.onEditClick.bind(this)}>Edit</button>
             <button onClick={this.handleDelete.bind(this)}>Delete</button></td>
-        );
+      );
   }
             // <button onClick={this.handleDelete.bind(this)}>Delete todo</button></td>
   // <button onClick={this.props.deleteTask.bind(this, this.props.task)}>Delete</button></td>

@@ -13,7 +13,7 @@ let registrationactions = {
     return {
       type: 'REGISTER_REQUEST',
       isFetching: true,
-      isAuthenticated: false,
+      isAuthenticated: cookie.load('jwt') ? true : false,
       creds
     }
   },

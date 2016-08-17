@@ -4,7 +4,7 @@ export default class Login extends Component {
 
   render() {
     const { errorMessage } = this.props
-
+      // var myStyle = {fontSize: 100, color: '#FF0000'}
     return (
       <div>
         <input type='text' ref='username' className="form-control" placeholder='Username'/>
@@ -14,7 +14,7 @@ export default class Login extends Component {
         </button>
 
         {errorMessage &&
-          <p>{errorMessage}</p>
+          <p style={{fontSize: 25, color: '#FF0000'}}>{errorMessage}</p>
         }
       </div>
     )
