@@ -7,7 +7,8 @@ import { routerReducer } from 'react-router-redux'
 
 const rootReducer = combineReducers({
   auth: authReducer,	
-  todos: todoReducer,
+  // todoappmap: todoAppReducer,
+  todoappmap: todoReducer,
   user: userReducer,
   routing: routerReducer
 })

@@ -1,11 +1,13 @@
 import React, { Component, PropTypes } from 'react'
-import {ThreeBounce} from 'better-react-spinkit'
+import { ThreeBounce } from 'better-react-spinkit'
 
 export default class Register extends Component {
-//<Spinner spinnerName='three-bounce' /> circle wordpress double-bounce<p>Loading...</p>
+  //<Spinner spinnerName='three-bounce' /> circle wordpress double-bounce<p>Loading...</p>
   render() {
-    const { registererror, isFetching } = this.props.auth
-    // console.log('error = '+registererror)
+    const {registererror, isFetching/*, isAuthenticated*/} = this.props.auth
+    // console.log('Register render. isAuthenticated = '+isAuthenticated)
+    // if (isAuthenticated)
+    //   return <div/>
     return (
       <div>
         <input type='text' ref='email' className="form-control" placeholder='Email'/>
@@ -17,27 +19,33 @@ export default class Register extends Component {
         </button>
 
         {registererror &&
-          <p>Errors: {registererror}</p>
-        }
+      <p>Errors: {registererror}</p>
+      }
         {isFetching &&
-          <p><ThreeBounce size={25} fade={{duration:0.3}}/></p>
+      <p><ThreeBounce size={25} fade={{
+        duration: 0.3
+      }}/></p>
 
-        }
+      }
       </div>
     )
   }
 
   componentDidMount() {
-      console.log('register component mounted')
-      this.props.actions.registerInit()
+    console.log('register component mounted')
+    this.props.actions.registerInit()
   }
   handleClick(event) {
     const username = this.refs.username
     const password = this.refs.password
     const email = this.refs.email
     const passwordcheck = this.refs.passwordcheck
-    const creds = { username: username.value.trim(), password: password.value.trim(),email: email.value.trim() }
+    const creds = {
+      username: username.value.trim(),
+      password: password.value.trim(),
+      email: email.value.trim()
+    }
     this.props.actions.registerUser(creds)
-  }     
+  }
 }
 

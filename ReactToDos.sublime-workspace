@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"upd",
+				"updateTodo"
+			],
+			[
+				"TodoList",
+				"TodoListItem"
+			],
+			[
+				"TodoItem",
+				"TodoListItem"
+			],
+			[
+				"filter",
+				"filterTodos"
+			],
+			[
+				"user",
+				"userId"
+			],
+			[
+				"is",
+				"isAuthenticated"
+			],
+			[
+				"l",
+				"log"
+			],
+			[
+				"reg",
+				"registeractions"
+			],
+			[
+				"regi",
+				"registererror"
+			],
+			[
+				"error",
+				"errorMessage"
+			],
+			[
 				"id",
 				"id_token"
 			],
@@ -48,53 +88,54 @@
 	"buffers":
 	[
 		{
-			"contents": "Searching 13 files for \"params\"\n\nD:\\RP\\Tests\\ReactToDoExp2\\components\\app.jsx:\n   36  const About = (props) => (\n   37    <div>\n   38:     <h2>Welcome to the About page: {props.params.name}</h2>\n   39    </div>\n   40  )\n\nD:\\RP\\Tests\\ReactToDoExp2\\components\\routes.js:\n   29  //   <h3>Howdy.</h3>\n   30  // );\n   31: const Users = ( { params, location } ) => (\n   32:   <h3>Howdy { params.name }! You like Food: { location.query.food }.</h3>\n   33  );\n   34  const Home = () => (\n\nD:\\RP\\Tests\\ReactToDoExp2\\components\\routes.jsx:\n   36  const About = (props) => (\n   37    <div>\n   38:     <h2>Welcome to the About page: {props.params.name}</h2>\n   39    </div>\n   40  )\n\n4 matches across 3 files\n\n\nSearching 49352 files for \"favicon.ico\"\n\nD:\\RP\\Tests\\Basic-express-api-master\\express-babel-es2015-template\\node_modules\\normalize-package-data\\lib\\fixer.js:\n  333        (strict && (!allowLegacyCase) && name !== name.toLowerCase()) ||\n  334        name.toLowerCase() === \"node_modules\" ||\n  335:       name.toLowerCase() === \"favicon.ico\") {\n  336          throw new Error(\"Invalid name: \" + JSON.stringify(name))\n  337    }\n\nD:\\RP\\Tests\\Basic-express-api-master\\express-babel-es2015-template\\node_modules\\normalize-package-data\\README.md:\n   88  * contain the following characters: `/@\\s+%`\n   89  * contain and characters that would need to be encoded for use in urls.\n   90: * resemble the word `node_modules` or `favicon.ico` (case doesn't matter).\n   91  \n   92  ### Rules for version field\n\nD:\\RP\\Tests\\example-react-router-server-rendering-lazy-routes-master\\modules\\server.js:\n   17  http.createServer((req, res) => {\n   18  \n   19:   if (req.url === '/favicon.ico') {\n   20      write('haha', 'text/plain', res)\n   21    }\n\nD:\\RP\\Tests\\playground-transform-es6-to-es5-with-babel-master\\app.js:\n   16  \n   17  // uncomment after placing your favicon in /public\n   18: //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));\n   19  app.use(logger('dev'));\n   20  app.use(bodyParser.json());\n\nD:\\RP\\Tests\\playground-transform-es6-to-es5-with-babel-master\\node_modules\\serve-favicon\\index.js:\n   53    var stat;\n   54  \n   55:   if (!path) throw new TypeError('path to favicon.ico is required');\n   56  \n   57    if (Buffer.isBuffer(path)) {\n   ..\n   65      if (stat.isDirectory()) throw createIsDirError(path);\n   66    } else {\n   67:     throw new TypeError('path to favicon.ico must be string or buffer');\n   68    }\n   69  \n   70    return function favicon(req, res, next){\n   71:     if (parseUrl(req).pathname !== '/favicon.ico') {\n   72        next();\n   73        return;\n\nD:\\RP\\Tests\\playground-transform-es6-to-es5-with-babel-master\\node_modules\\serve-favicon\\README.md:\n   16  Why use this module?\n   17  \n   18:   - User agents request `favicon.ico` frequently and indiscriminately, so you\n   19      may wish to exclude these requests from your logs by using this middleware\n   20      before your logger middleware.\n   ..\n   26  \n   27  **Note** This module is exclusively for serving the \"default, implicit favicon\",\n   28: which is `GET /favicon.ico`. For additional vendor-specific icons that require\n   29  HTML markup, additional middleware is required to serve the relevant files, for\n   30  example [serve-static](https://npmjs.org/package/serve-static).\n   ..\n   57  Typically this middleware will come very early in your stack (maybe even first)\n   58  to avoid processing any other middleware if we already know the request is for\n   59: `/favicon.ico`.\n   60  \n   61  ### express\n   ..\n   66  \n   67  var app = express();\n   68: app.use(favicon(__dirname + '/public/favicon.ico'));\n   69  \n   70  // Add your routes here, etc.\n   ..\n   80  \n   81  var app = connect();\n   82: app.use(favicon(__dirname + '/public/favicon.ico'));\n   83  \n   84  // Add your middleware here, etc.\n   ..\n   97  var finalhandler = require('finalhandler');\n   98  \n   99: var _favicon = favicon(__dirname + '/public/favicon.ico');\n  100  \n  101  var server = http.createServer(function onRequest(req, res) {\n\nD:\\RP\\Tests\\react-router-mega-demo-master\\app\\server.js:\n   55      case '/js/main.js':\n   56        return write(mainJS, 'text/javascript', res);\n   57:     case '/favicon.ico':\n   58        return write('haha', 'text/plain', res);\n   59      case '/styles.css':\n\nD:\\RP\\Tests\\ReactToDoExp2\\node_modules\\caniuse-db\\features-json\\link-icon-png.json:\n   12    \"bugs\":[\n   13      {\n   14:       \"description\":\"IE 11 [lost the support](https://connect.microsoft.com/IE/feedbackdetail/view/800076/internet-explorer-11-lost-support-for-non-rgb-a-png-format-images-inside-favicon-ico) for non-RGB/a PNG format images inside FavIcon.ico, does work in IE 10.\"\n   15      }\n   16    ],\n\nD:\\RP\\Tests\\ReactToDoExp2\\node_modules\\normalize-package-data\\lib\\fixer.js:\n  333        (strict && (!allowLegacyCase) && name !== name.toLowerCase()) ||\n  334        name.toLowerCase() === \"node_modules\" ||\n  335:       name.toLowerCase() === \"favicon.ico\") {\n  336          throw new Error(\"Invalid name: \" + JSON.stringify(name))\n  337    }\n\nD:\\RP\\Tests\\ReactToDoExp2\\node_modules\\normalize-package-data\\README.md:\n   88  * contain the following characters: `/@\\s+%`\n   89  * contain and characters that would need to be encoded for use in urls.\n   90: * resemble the word `node_modules` or `favicon.ico` (case doesn't matter).\n   91  \n   92  ### Rules for version field\n\nD:\\RP\\Tests\\ReactToDoExp2\\node_modules\\sax\\LICENSE-W3C.html:\n    2  <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /><meta name=\"generator\" content=\"HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 13), see www.w3.org\" /><title>W3C Software Notice and License</title><link rel=\"stylesheet\" href=\"/2008/site/css/minimum\" type=\"text/css\" media=\"handheld, all\" /><style type=\"text/css\" media=\"print, screen and (min-width: 481px)\" xml:space=\"preserve\">\n    3       @import url(\"/2008/site/css/advanced\");\n    4: </style><link href=\"/2008/site/css/minimum\" rel=\"stylesheet\" type=\"text/css\" media=\"handheld, only screen and (max-device-width: 480px)\" /><meta name=\"viewport\" content=\"width=device-width\" /><link rel=\"stylesheet\" href=\"/2008/site/css/print\" type=\"text/css\" media=\"print\" /><link rel=\"shortcut icon\" href=\"/2008/site/images/favicon.ico\" type=\"image/x-icon\" /></head><body id=\"www-w3-org\" class=\"w3c_public\"><div id=\"w3c_container\">\n    5      \n    6      \n\nD:\\RP\\Tests\\ReactYeo1\\node_modules\\normalize-package-data\\lib\\fixer.js:\n  333        (strict && (!allowLegacyCase) && name !== name.toLowerCase()) ||\n  334        name.toLowerCase() === \"node_modules\" ||\n  335:       name.toLowerCase() === \"favicon.ico\") {\n  336          throw new Error(\"Invalid name: \" + JSON.stringify(name))\n  337    }\n\nD:\\RP\\Tests\\ReactYeo1\\node_modules\\normalize-package-data\\README.md:\n   88  * contain the following characters: `/@\\s+%`\n   89  * contain and characters that would need to be encoded for use in urls.\n   90: * resemble the word `node_modules` or `favicon.ico` (case doesn't matter).\n   91  \n   92  ### Rules for version field\n\nD:\\RP\\Tests\\spring-react-boilerplate-master\\.mvn\\node\\node_modules\\npm\\node_modules\\npm-registry-client\\lib\\request.js:\n   33    }\n   34  \n   35:   if (where.match(/^\\/?favicon.ico/)) {\n   36:     return cb(new Error(\"favicon.ico isn't a package, it's a picture.\"))\n   37    }\n   38  \n\nD:\\RP\\Tests\\spring-react-boilerplate-master\\.mvn\\node\\node_modules\\npm\\node_modules\\read-package-json\\node_modules\\normalize-package-data\\lib\\fixer.js:\n  297        (strict && name !== name.toLowerCase()) ||\n  298        name.toLowerCase() === \"node_modules\" ||\n  299:       name.toLowerCase() === \"favicon.ico\") {\n  300          throw new Error(\"Invalid name: \" + JSON.stringify(name))\n  301    }\n\nD:\\RP\\Tests\\spring-react-boilerplate-master\\.mvn\\node\\node_modules\\npm\\node_modules\\read-package-json\\node_modules\\normalize-package-data\\package.json:\n   39      }\n   40    ],\n   41:   \"readme\": \"# normalize-package-data [![Build Status](https://travis-ci.org/meryn/normalize-package-data.png?branch=master)](https://travis-ci.org/meryn/normalize-package-data)\\n\\nnormalize-package data exports a function that normalizes package metadata. This data is typically found in a package.json file, but in principle could come from any source - for example the npm registry.\\n\\nnormalize-package-data is used by [read-package-json](https://npmjs.org/package/read-package-json) to normalize the data it reads from a package.json file. In turn, read-package-json is used by [npm](https://npmjs.org/package/npm) and various npm-related tools.\\n\\n## Installation\\n\\n```\\nnpm install normalize-package-data\\n```\\n\\n## Usage\\n\\nBasic usage is really simple. You call the function that normalize-package-data exports. Let's call it `normalizeData`.\\n\\n```javascript\\nnormalizeData = require('normalize-package-data')\\npackageData = fs.readfileSync(\\\"package.json\\\")\\nnormalizeData(packageData)\\n// packageData is now normalized\\n```\\n\\n#### Strict mode\\n\\nYou may activate strict validation by passing true as the second argument.\\n\\n```javascript\\nnormalizeData = require('normalize-package-data')\\npackageData = fs.readfileSync(\\\"package.json\\\")\\nwarnFn = function(msg) { console.error(msg) }\\nnormalizeData(packageData, true)\\n// packageData is now normalized\\n```\\n\\nIf strict mode is activated, only Semver 2.0 version strings are accepted. Otherwise, Semver 1.0 strings are accepted as well. Packages must have a name, and the name field must not have contain leading or trailing whitespace.\\n\\n#### Warnings\\n\\nOptionally, you may pass a \\\"warning\\\" function. It gets called whenever the `normalizeData` function encounters something that doesn't look right. It indicates less than perfect input data.\\n\\n```javascript\\nnormalizeData = require('normalize-package-data')\\npackageData = fs.readfileSync(\\\"package.json\\\")\\nwarnFn = function(msg) { console.error(msg) }\\nnormalizeData(packageData, warnFn)\\n// packageData is now normalized. Any number of warnings may have been logged.\\n```\\n\\nYou may combine strict validation with warnings by passing `true` as the second argument, and `warnFn` as third.\\n\\nWhen `private` field is set to `true`, warnings will be suppressed.\\n\\n### Potential exceptions\\n\\nIf the supplied data has an invalid name or version vield, `normalizeData` will throw an error. Depending on where you call `normalizeData`, you may want to catch these errors so can pass them to a callback.\\n\\n## What normalization (currently) entails\\n\\n* The value of `name` field gets trimmed (unless in strict mode).\\n* The value of the `version` field gets cleaned by `semver.clean`. See [documentation for the semver module](https://github.com/isaacs/node-semver).\\n* If `name` and/or `version` fields are missing, they are set to empty strings.\\n* If `files` field is not an array, it will be removed.\\n* If `bin` field is a string, then `bin` field will become an object with `name` set to the value of the `name` field, and `bin` set to the original string value.\\n* If `man` field is a string, it will become an array with the original string as its sole member.\\n* If `keywords` field is string, it is considered to be a list of keywords separated by one or more white-space characters. It gets converted to an array by splitting on `\\\\s+`.\\n* All people fields (`author`, `maintainers`, `contributors`) get converted into objects with name, email and url properties.\\n* If `bundledDependencies` field (a typo) exists and `bundleDependencies` field does not, `bundledDependencies` will get renamed to `bundleDependencies`.\\n* If the value of any of the dependencies fields  (`dependencies`, `devDependencies`, `optionalDependencies`) is a string, it gets converted into an object with familiar `name=>value` pairs.\\n* The values in `optionalDependencies` get added to `dependencies`. The `optionalDependencies` array is left untouched.\\n* If `description` field does not exists, but `readme` field does, then (more or less) the first paragraph of text that's found in the readme is taken as value for `description`.\\n* If `repository` field is a string, it will become an object with `url` set to the original string value, and `type` set to `\\\"git\\\"`.\\n* If `repository.url` is not a valid url, but in the style of \\\"[owner-name]/[repo-name]\\\", `repository.url` will be set to git://github.com/[owner-name]/[repo-name]\\n* If `bugs` field is a string, the value of `bugs` field is changed into an object with `url` set to the original string value.\\n* If `bugs` field does not exist, but `repository` field points to a repository hosted on GitHub, the value of the `bugs` field gets set to an url in the form of https://github.com/[owner-name]/[repo-name]/issues . If the repository field points to a GitHub Gist repo url, the associated http url is chosen.\\n* If `bugs` field is an object, the resulting value only has email and url properties. If email and url properties are not strings, they are ignored. If no valid values for either email or url is found, bugs field will be removed.\\n* If `homepage` field is not a string, it will be removed.\\n* If the url in the `homepage` field does not specify a protocol, then http is assumed. For example, `myproject.org` will be changed to `http://myproject.org`.\\n* If `homepage` field does not exist, but `repository` field points to a repository hosted on GitHub, the value of the `homepage` field gets set to an url in the form of https://github.com/[owner-name]/[repo-name]/ . If the repository field points to a GitHub Gist repo url, the associated http url is chosen.\\n\\n### Rules for name field\\n\\nIf `name` field is given, the value of the name field must be a string. The string may not:\\n\\n* start with a period.\\n* contain the following characters: `/@\\\\s+%`\\n* contain and characters that would need to be encoded for use in urls.\\n* resemble the word `node_modules` or `favicon.ico` (case doesn't matter).\\n\\n### Rules for version field\\n\\nIf `version` field is given, the value of the version field must be a valid *semver* string, as determined by the `semver.valid` method. See [documentation for the semver module](https://github.com/isaacs/node-semver).\\n\\n## Credits\\n\\nThis package contains code based on read-package-json written by Isaac Z. Schlueter. Used with permisson.\\n\\n## License\\n\\nnormalize-package-data is released under the [BSD 2-Clause License](http://opensource.org/licenses/MIT).  \\nCopyright (c) 2013 Meryn Stol  \",\n   42    \"readmeFilename\": \"README.md\",\n   43    \"bugs\": {\n\nD:\\RP\\Tests\\spring-react-boilerplate-master\\.mvn\\node\\node_modules\\npm\\node_modules\\read-package-json\\node_modules\\normalize-package-data\\README.md:\n   86  * contain the following characters: `/@\\s+%`\n   87  * contain and characters that would need to be encoded for use in urls.\n   88: * resemble the word `node_modules` or `favicon.ico` (case doesn't matter).\n   89  \n   90  ### Rules for version field\n\nD:\\RP\\Tests\\spring-react-boilerplate-master\\src\\main\\java\\uk\\co\\blackpepper\\config\\SecurityConfig.java:\n   45  	@Override\n   46  	public void configure(WebSecurity web) throws Exception {\n   47: 		web.ignoring().antMatchers(\"/app/**\", \"/js/**\", \"/favicon.ico\");\n   48  	}\n   49  \n\nD:\\RP\\Tests\\spring-security-jwt-master\\src\\main\\java\\com\\technicalrex\\springsecurityjwt\\vendor\\SpringSecurityConfig.java:\n   40                  // Allow anonymous resource requests\n   41                  .antMatchers(\"/\").permitAll()\n   42:                 .antMatchers(\"/favicon.ico\").permitAll()\n   43                  .antMatchers(\"/**/*.html\").permitAll()\n   44                  .antMatchers(\"/**/*.css\").permitAll()\n\n27 matches across 19 files\n\n\nSearching 49424 files for \"ya do it\"\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\13\\b09157ba304800161442d6de4642cf9f:\n   35  //          \"},\"+\n   36  //          \"{\"+\n   37: //            \"task: 'ya do it 7bayby',\"+\n   38  //            \"isCompleted: true,\"+\n   39  //            \"id: 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\17\\60eae7a8304800161442d6de4642cf9f:\n   33            \"},\"+\n   34            \"{\"+\n   35:             \"task: 'ya do it 7bayby',\"+\n   36              \"isCompleted: true,\"+\n   37              \"id: 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\24\\f0292d5b324800161442d6de4642cf9f:\n   25  		System.out.println(\"Calling Spring controller\");\n   26  //		return \"forward:/test2?param1=foo&param2=bar\";\n   27: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   28  \n   29  		return \"{\"+\n   ..\n   35            \"},\"+\n   36            \"{\"+\n   37:             \"task: 'ya do it 7bayby',\"+\n   38              \"isCompleted: true,\"+\n   39              \"id: 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\2f\\10d48462124900161442d6de4642cf9f:\n   26  		System.out.println(\"Calling Spring controller\");\n   27  //		return \"forward:/test2?param1=foo&param2=bar\";\n   28: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   29  \n   30  		return \"{\"+\n   ..\n   36            \"},\"+\n   37            \"{\"+\n   38:             \"\\\"task\\\": \\\"ya do it 7bayby\\\",\"+\n   39              \"\\\"isCompleted\\\": true,\"+\n   40              \"\\\"id\\\": 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\bb\\d0b4688c734800161442d6de4642cf9f:\n   25  		System.out.println(\"Calling Spring controller\");\n   26  //		return \"forward:/test2?param1=foo&param2=bar\";\n   27: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   28  \n   29  		return \"{\"+\n   ..\n   35            \"},\"+\n   36            \"{\"+\n   37:             \"\\\"task\\\": \\\"ya do it 7bayby\\\",\"+\n   38              \"\\\"isCompleted\\\": true,\"+\n   39              \"\\\"id\\\": 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\bc\\d081e3bc324800161442d6de4642cf9f:\n   25  		System.out.println(\"Calling Spring controller\");\n   26  //		return \"forward:/test2?param1=foo&param2=bar\";\n   27: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   28  \n   29  		return \"{\"+\n   ..\n   35            \"},\"+\n   36            \"{\"+\n   37:             \"task: \\\"ya do it 7bayby\\\",\"+\n   38              \"isCompleted: true,\"+\n   39              \"id: 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\cf\\e016b857734800161442d6de4642cf9f:\n   25  		System.out.println(\"Calling Spring controller\");\n   26  //		return \"forward:/test2?param1=foo&param2=bar\";\n   27: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   28  \n   29  		return \"{\"+\n   ..\n   35            \"},\"+\n   36            \"{\"+\n   37:             \"\\\"task\\\": \\\"ya do it 7bayby\\\",\"+\n   38              \"\\\"isCompleted\\\": true,\"+\n   39              \"\\\"id\\\": 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\d8\\20d17c0d314800161442d6de4642cf9f:\n   35  //          \"},\"+\n   36  //          \"{\"+\n   37: //            \"task: 'ya do it 7bayby',\"+\n   38  //            \"isCompleted: true,\"+\n   39  //            \"id: 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\f4\\90cdb139314800161442d6de4642cf9f:\n   25  		System.out.println(\"Calling Spring controller\");\n   26  //		return \"forward:/test2?param1=foo&param2=bar\";\n   27: 		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   28  \n   29  //		return \"{\"+\n   ..\n   35  //          \"},\"+\n   36  //          \"{\"+\n   37: //            \"task: 'ya do it 7bayby',\"+\n   38  //            \"isCompleted: true,\"+\n   39  //            \"id: 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\fe\\a07a35ae764800161442d6de4642cf9f:\n   25  		System.out.println(\"Calling Spring controller\");\n   26  //		return \"forward:/test2?param1=foo&param2=bar\";\n   27: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   28  \n   29  		return \"{\"+\n   ..\n   35            \"},\"+\n   36            \"{\"+\n   37:             \"\\\"task\\\": \\\"ya do it 7bayby\\\",\"+\n   38              \"\\\"isCompleted\\\": true,\"+\n   39              \"\\\"id\\\": 5\"+\n\n\n\nSearching 49424 files for \"ya do it\"\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\13\\b09157ba304800161442d6de4642cf9f:\n   35  //          \"},\"+\n   36  //          \"{\"+\n   37: //            \"task: 'ya do it 7bayby',\"+\n   38  //            \"isCompleted: true,\"+\n   39  //            \"id: 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\17\\60eae7a8304800161442d6de4642cf9f:\n   33            \"},\"+\n   34            \"{\"+\n   35:             \"task: 'ya do it 7bayby',\"+\n   36              \"isCompleted: true,\"+\n   37              \"id: 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\24\\f0292d5b324800161442d6de4642cf9f:\n   25  		System.out.println(\"Calling Spring controller\");\n   26  //		return \"forward:/test2?param1=foo&param2=bar\";\n   27: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   28  \n   29  		return \"{\"+\n   ..\n   35            \"},\"+\n   36            \"{\"+\n   37:             \"task: 'ya do it 7bayby',\"+\n   38              \"isCompleted: true,\"+\n   39              \"id: 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\2f\\10d48462124900161442d6de4642cf9f:\n   26  		System.out.println(\"Calling Spring controller\");\n   27  //		return \"forward:/test2?param1=foo&param2=bar\";\n   28: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   29  \n   30  		return \"{\"+\n   ..\n   36            \"},\"+\n   37            \"{\"+\n   38:             \"\\\"task\\\": \\\"ya do it 7bayby\\\",\"+\n   39              \"\\\"isCompleted\\\": true,\"+\n   40              \"\\\"id\\\": 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\bb\\d0b4688c734800161442d6de4642cf9f:\n   25  		System.out.println(\"Calling Spring controller\");\n   26  //		return \"forward:/test2?param1=foo&param2=bar\";\n   27: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   28  \n   29  		return \"{\"+\n   ..\n   35            \"},\"+\n   36            \"{\"+\n   37:             \"\\\"task\\\": \\\"ya do it 7bayby\\\",\"+\n   38              \"\\\"isCompleted\\\": true,\"+\n   39              \"\\\"id\\\": 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\bc\\d081e3bc324800161442d6de4642cf9f:\n   25  		System.out.println(\"Calling Spring controller\");\n   26  //		return \"forward:/test2?param1=foo&param2=bar\";\n   27: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   28  \n   29  		return \"{\"+\n   ..\n   35            \"},\"+\n   36            \"{\"+\n   37:             \"task: \\\"ya do it 7bayby\\\",\"+\n   38              \"isCompleted: true,\"+\n   39              \"id: 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\cf\\e016b857734800161442d6de4642cf9f:\n   25  		System.out.println(\"Calling Spring controller\");\n   26  //		return \"forward:/test2?param1=foo&param2=bar\";\n   27: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   28  \n   29  		return \"{\"+\n   ..\n   35            \"},\"+\n   36            \"{\"+\n   37:             \"\\\"task\\\": \\\"ya do it 7bayby\\\",\"+\n   38              \"\\\"isCompleted\\\": true,\"+\n   39              \"\\\"id\\\": 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\d8\\20d17c0d314800161442d6de4642cf9f:\n   35  //          \"},\"+\n   36  //          \"{\"+\n   37: //            \"task: 'ya do it 7bayby',\"+\n   38  //            \"isCompleted: true,\"+\n   39  //            \"id: 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\f4\\90cdb139314800161442d6de4642cf9f:\n   25  		System.out.println(\"Calling Spring controller\");\n   26  //		return \"forward:/test2?param1=foo&param2=bar\";\n   27: 		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   28  \n   29  //		return \"{\"+\n   ..\n   35  //          \"},\"+\n   36  //          \"{\"+\n   37: //            \"task: 'ya do it 7bayby',\"+\n   38  //            \"isCompleted: true,\"+\n   39  //            \"id: 5\"+\n\nD:\\RP\\Tests\\.metadata\\.plugins\\org.eclipse.core.resources\\.history\\fe\\a07a35ae764800161442d6de4642cf9f:\n   25  		System.out.println(\"Calling Spring controller\");\n   26  //		return \"forward:/test2?param1=foo&param2=bar\";\n   27: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   28  \n   29  		return \"{\"+\n   ..\n   35            \"},\"+\n   36            \"{\"+\n   37:             \"\\\"task\\\": \\\"ya do it 7bayby\\\",\"+\n   38              \"\\\"isCompleted\\\": true,\"+\n   39              \"\\\"id\\\": 5\"+\n\nD:\\RP\\Tests\\ReactToDoExp2\\server\\server7.js:\n  146            },\n  147            {\n  148:             task: 'ya do it',\n  149              isCompleted: true,\n  150              id: 3\n  ...\n  254  //         },\n  255  //         {\n  256: //           task: 'ya do it baby',\n  257  //           isCompleted: true,\n  258  //           id: 5\n\nD:\\RP\\Tests\\SpringBoot_Part_1\\src\\main\\java\\com\\royasoftware\\rest\\HelloWorldController.java:\n   26  		System.out.println(\"Calling Spring controller\");\n   27  //		return \"forward:/test2?param1=foo&param2=bar\";\n   28: //		return \"{todos: [{task: 'make it now 7bayby',isCompleted: false,id: 24},{task: 'ya do it 7bayby',isCompleted: false,id: 25}]}\"; \n   29  \n   30  		return \"{\"+\n   ..\n   36            \"},\"+\n   37            \"{\"+\n   38:             \"\\\"task\\\": \\\"ya do it 7bayby\\\",\"+\n   39              \"\\\"isCompleted\\\": true,\"+\n   40              \"\\\"id\\\": 5\"+\n\n21 matches across 12 files\n",
+			"file": ".gitlab-ci.yml",
 			"settings":
 			{
-				"buffer_size": 26298,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
+				"buffer_size": 701,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "redux/actions.js",
+			"file": "components/todos-list-item.js",
 			"settings":
 			{
-				"buffer_size": 6232,
-				"line_ending": "Windows"
+				"buffer_size": 4526,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/components/TodosListItem_spec.jsx",
+			"settings":
+			{
+				"buffer_size": 5826,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "redux/reducers/todoReducer.js",
 			"settings":
 			{
-				"buffer_size": 1802,
-				"line_ending": "Windows"
+				"buffer_size": 5842,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "redux/reducers/authReducer.js",
+			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 1749,
-				"line_ending": "Windows"
+				"buffer_size": 0,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "components/routes.js",
+			"contents": "Package Control Messages\n========================\n\nPackage Control\n---------------\n\n  Version 3.2 Release Notes\n  \n  This version of Package Control focuses on bug-fixes, with notable changes\n  including:\n  \n   - OS X TLS trust roots are exported using APIs to prevent the error message\n     displayed to some El Capitan users\n  \n   - Theme, syntax and color scheme upgrades have been improved and should result\n     in fewer popup messages when filenames change\n  \n   - Various bugs related to installing dependencies have been resolved\n  \n   - Windows and OS X trust roots are exported in a way that valid/invalid purpose\n     information is now communicated to the OpenSSL-based Python ssl module\n  \n   - Further improvements have been made to handling of git/hg package upgrades\n  \n   - The Windows WinINet downloader has improved compatibility with Windows 10\n",
 			"settings":
 			{
-				"buffer_size": 1350,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "components/todoapp.js",
-			"settings":
-			{
-				"buffer_size": 6802,
-				"line_ending": "Windows"
+				"buffer_size": 865,
+				"line_ending": "Windows",
+				"name": "Package Control Messages",
+				"read_only": true,
+				"scratch": true
 			}
 		}
 	],
@@ -105,11 +146,55 @@
 		"selected_items":
 		[
 			[
-				"Pack",
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"Pac",
 				"Package Control: Install Package"
 			],
 			[
 				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: List Packages"
+			],
+			[
+				"pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"packag",
+				"Package Control: Remove Package"
+			],
+			[
+				"linter",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"linter settings",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"Packa",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"P",
+				"Package Control: Remove Channel"
+			],
+			[
+				"Packag",
 				"Package Control: Install Package"
 			],
 			[
@@ -117,11 +202,15 @@
 				"Package Control: Install Package"
 			],
 			[
-				"package ",
+				"Package Control: Li",
+				"Package Control: List Packages"
+			],
+			[
+				"Pack",
 				"Package Control: Install Package"
 			],
 			[
-				"Packa",
+				"package ",
 				"Package Control: Install Package"
 			],
 			[
@@ -177,30 +266,60 @@
 	},
 	"file_history":
 	[
-		"/D/RP/Tests/ReactToDoExp2/server/server7.js",
-		"/D/RP/Tests/ReactToDoExp2/components/nav.js",
-		"/D/RP/Tests/ReactToDoExp2/components/login.js",
-		"/D/RP/Tests/ReactToDoExp2/components/todoapp.js",
-		"/D/RP/Tests/ReactToDoExp2/components/appcomponent.js",
-		"/D/RP/Tests/ReactToDoExp2/redux/reducers/index.js",
-		"/D/RP/Tests/ReactToDoExp2/client/index.js",
-		"/D/RP/Tests/ReactToDoExp2/webpack.config.js",
-		"/D/RP/Tests/ReactToDoExp2/redux/actions.js",
-		"/D/RP/Tests/ReactToDoExp2/redux/reducers/authReducer.js",
-		"/D/RP/Tests/ReactToDoExp2/components/logout.js",
-		"/D/RP/Tests/ReactToDoExp2/redux/reducers/todoReducer.js",
-		"/D/RP/Tests/ReactToDoExp2/components/about.js",
-		"/D/RP/Tests/ReactToDoExp2/package.json",
-		"/D/RP/Tests/ReactToDoExp2/components/routes.js",
-		"/D/RP/Tests/ReactToDoExp2/redux/store.js",
 		"/D/RP/Tests/ReactToDoExp2/components/todos-list.js",
+		"/D/RP/Tests/ReactToDoExp2/components/create-todo.js",
+		"/D/RP/Tests/ReactToDoExp2/components/logout.js",
+		"/D/RP/Tests/ReactToDoExp2/components/nav.scss",
+		"/D/RP/Tests/ReactToDoExp2/components/todos-filter.js",
+		"/D/RP/Tests/ReactToDoExp2/webpack.config.js",
+		"/D/RP/Tests/ReactToDoExp2/package.json",
+		"/D/RP/Tests/ReactToDoExp2/.gitlab-ci.yml",
+		"/D/RP/Tests/ReactToDoExp2/.babelrc",
+		"/D/RP/Tests/ReactToDoExp2/redux/actions/authactions.js",
+		"/D/RP/Tests/ReactToDoExp2/components/todos-list-item.js",
+		"/D/RP/Tests/ReactToDoExp2/test/components/TodosListItem_spec.jsx",
+		"/D/RP/Tests/ReactToDoExp2/redux/actions/todoactions.js",
+		"/D/RP/Tests/ReactToDoExp2/redux/actions/services.js",
+		"/D/RP/Tests/ReactToDoExp2/test/components/TodosList_spec.jsx",
+		"/D/RP/Tests/ReactToDoExp2/client/index.js",
+		"/D/RP/Tests/ReactToDoExp2/redux/reducers/todoReducer.js",
+		"/D/RP/Tests/ReactToDoExp2/test/components/TodoApp_spec.jsx",
+		"/D/RP/Tests/ReactToDoExp2/ReactToDos.sublime-project",
+		"/D/RP/Tests/ReactToDoExp2/components/todoapp.js",
+		"/D/RP/Tests/ReactToDoExp2/test/setup.js",
+		"/D/RP/Tests/ReactToDoExp2/components/registerconfirm.js",
+		"/C/Programm/SublimeText3/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Programm/SublimeText3/Data/Packages/User/ESLint-Formatter.sublime-settings",
+		"/D/RP/Tests/ReactToDoExp2/components/app.jsx",
+		"/D/RP/Tests/ReactToDoExp2/components/register.js",
+		"/C/Programm/SublimeText3/Data/Packages/User/Package Control.sublime-settings",
+		"/C/Programm/SublimeText3/Data/Packages/User/Emmet.sublime-settings",
+		"/C/Programm/SublimeText3/Data/Packages/ESLint-Formatter/Default (Windows).sublime-keymap",
+		"/C/Programm/SublimeText3/Data/Packages/ESLint-Formatter/ESLint-Formatter.sublime-settings",
+		"/C/Programm/SublimeText3/Data/Packages/EsFormatter/Default (Windows).sublime-keymap",
+		"/C/Programm/SublimeText3/Data/Packages/EsFormatter/EsFormatter.sublime-settings",
+		"/C/Programm/SublimeText3/Data/Packages/User/EsFormatter.sublime-settings",
+		"/D/RP/Tests/ReactToDoExp2/.eslintrc.json",
+		"/D/RP/Tests/ReactToDoExp2/redux/reducers/authReducer.js",
+		"/D/RP/Tests/ReactToDoExp2/.eslintrc.js",
+		"/D/RP/Tests/ReactToDoExp2/.jshintrc",
+		"/C/Programm/SublimeText3/Data/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Programm/SublimeText3/Data/Packages/User/Preferences.sublime-settings",
+		"/D/RP/Tests/ReactToDoExp2/redux/reducers/index.js",
+		"/D/RP/Tests/ReactToDoExp2/redux/reducers/todoAppReducer.js",
+		"/D/RP/Tests/ReactToDoExp2/components/appcomponent.js",
+		"/D/RP/Tests/ReactToDoExp2/server/server7.js",
+		"/D/RP/Tests/ReactToDoExp2/redux/actions.js",
+		"/D/RP/Tests/ReactToDoExp2/components/nav.js",
+		"/C/Programm/SublimeText3/Data/Packages/Default/Preferences.sublime-settings",
+		"/D/RP/Tests/ReactToDoExp2/redux/actions/registeractions.js",
+		"/D/RP/Tests/ReactToDoExp2/components/login.js",
+		"/D/RP/Tests/ReactToDoExp2/redux/store.js",
+		"/D/RP/Tests/ReactToDoExp2/components/todos-header.js",
+		"/D/RP/Tests/ReactToDoExp2/components/routes.js",
+		"/D/RP/Tests/ReactToDoExp2/components/about.js",
 		"/D/RP/Tests/ReactToDoExp2/redux/reducers/userReducer.js",
 		"/D/RP/Tests/ReactToDoExp2/redux/reducer.js",
-		"/D/RP/Tests/ReactToDoExp2/components/app.jsx",
-		"/D/RP/Tests/ReactToDoExp2/components/todos-list-item.js",
-		"/D/RP/Tests/ReactToDoExp2/components/create-todo.js",
-		"/C/Programm/SublimeText3/Data/Packages/Default/Preferences.sublime-settings",
-		"/D/RP/Tests/ReactToDoExp2/components/nav.scss",
 		"/D/RP/Tests/ReactToDoExp2/server/server5.js",
 		"/D/RP/Tests/ReactToDoExp2/server/server6.js",
 		"/D/RP/Tests/ReactToDoExp2/views/index.ejs",
@@ -212,7 +331,6 @@
 		"/D/RP/Tests/ReactToDoExp2/public/index.html",
 		"/D/RP/Tests/ReactToDoExp2/index.html",
 		"/D/RP/Tests/ReactToDoExp2/client/index.html",
-		"/D/RP/Tests/ReactToDoExp2/.babelrc",
 		"/D/RP/Tests/ReactToDoExp2/server/server3.js",
 		"/D/RP/Tests/ReactToDoExp2/components/App.jsx",
 		"/D/RP/Tests/ReactToDoExp2/components/App.js",
@@ -228,15 +346,12 @@
 		"/D/RP/Tests/ReactToDoExp2/src/components/todos-list.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/app.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/todos-header.js",
-		"/C/Programm/SublimeText3/Data/Packages/User/Default (Windows).sublime-keymap",
 		"/C/Programm/SublimeText3/Data/Packages/Default/Default (Windows).sublime-keymap",
 		"/C/Programm/SublimeText3/Data/Packages/User/ZenTabs.sublime-settings",
 		"/D/RP/Tests/ReactToDoExp2/src/components/create-todo.js",
 		"/D/RP/Tests/ReactToDoExp2/src/hello-world.js",
 		"/C/Programm/SublimeText3/Data/Packages/Zen Tabs/ZenTabs.sublime-settings",
 		"/D/RP/Tests/ReactToDoExp2/bundle.js",
-		"/C/Programm/SublimeText3/Data/Packages/EsFormatter/EsFormatter.sublime-settings",
-		"/D/RP/Tests/ReactToDoExp2/.eslintrc.js",
 		"/D/RP/Tests/ReactToDoExp2/.eslintrc",
 		"/C/Programm/SublimeText3/Data/Packages/Babel/Babel.sublime-settings",
 		"/C/Programm/SublimeText3/Data/Packages/User/Babel.sublime-settings",
@@ -251,6 +366,7 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"D:\\RP\\Tests\\ReactToDoExp2\\",
 			"D:\\RP\\Tests\\",
 			"D:\\RP\\Tests\\ReactToDoExp2\\components",
 			"D:\\RP\\Tests\\ReactToDoExp2\\redux",
@@ -273,6 +389,56 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"node_modules",
+			"when",
+			"mockStoreInitialized",
+			"store",
+			"sore",
+			"mockStoreInitialized",
+			"beforeEach",
+			"console",
+			"id_token",
+			"semico",
+			"syntax_map",
+			"./todoAppReducer",
+			"todos",
+			"cookie",
+			"todos",
+			"todoappmap",
+			"^state",
+			"CreateTodo",
+			"AppComponent",
+			"representTodo",
+			"actions.",
+			"ThreeBounce",
+			"todoold",
+			"todoparam",
+			"sleep",
+			"bad creden",
+			"reindent",
+			"data",
+			"cookie",
+			" react-spinkit",
+			"react-spinkit",
+			"Spinner",
+			"isAuthenticated",
+			"isAuthenticated*false",
+			"isAuthenticated",
+			"representTodo",
+			"inline-style-prefixer",
+			"id_token",
+			"cookie",
+			"react-cookie",
+			"setState",
+			"actions",
+			"configureStore",
+			"Promise",
+			"id_token",
+			"user",
+			"Got Result data",
+			"events",
+			"Immutable",
+			"props.id",
 			"receiveLogin",
 			"ya do it",
 			"localStorage",
@@ -334,6 +500,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"idToken",
+			"authactions.",
+			"todo",
+			"todoold",
+			"data",
 			"activeClassName",
 			"'active'",
 			"React.Component",
@@ -353,336 +524,48 @@
 			[
 				{
 					"buffer": 0,
+					"file": ".gitlab-ci.yml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 26298,
+						"buffer_size": 701,
 						"regions":
 						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										177,
-										183
-									],
-									[
-										335,
-										341
-									],
-									[
-										382,
-										388
-									],
-									[
-										628,
-										634
-									],
-									[
-										1026,
-										1037
-									],
-									[
-										1417,
-										1428
-									],
-									[
-										1661,
-										1672
-									],
-									[
-										1926,
-										1937
-									],
-									[
-										2185,
-										2196
-									],
-									[
-										2387,
-										2398
-									],
-									[
-										2540,
-										2551
-									],
-									[
-										2767,
-										2778
-									],
-									[
-										3072,
-										3083
-									],
-									[
-										3482,
-										3493
-									],
-									[
-										3609,
-										3620
-									],
-									[
-										3756,
-										3767
-									],
-									[
-										3937,
-										3948
-									],
-									[
-										4195,
-										4206
-									],
-									[
-										4648,
-										4659
-									],
-									[
-										4953,
-										4964
-									],
-									[
-										5303,
-										5314
-									],
-									[
-										6325,
-										6336
-									],
-									[
-										6699,
-										6710
-									],
-									[
-										7045,
-										7056
-									],
-									[
-										7294,
-										7305
-									],
-									[
-										7343,
-										7354
-									],
-									[
-										7710,
-										7721
-									],
-									[
-										13953,
-										13964
-									],
-									[
-										14910,
-										14921
-									],
-									[
-										15237,
-										15248
-									],
-									[
-										15544,
-										15555
-									],
-									[
-										15943,
-										15951
-									],
-									[
-										16213,
-										16221
-									],
-									[
-										16614,
-										16622
-									],
-									[
-										16770,
-										16778
-									],
-									[
-										17171,
-										17179
-									],
-									[
-										17332,
-										17340
-									],
-									[
-										17742,
-										17750
-									],
-									[
-										17903,
-										17911
-									],
-									[
-										18313,
-										18321
-									],
-									[
-										18470,
-										18478
-									],
-									[
-										18872,
-										18880
-									],
-									[
-										19033,
-										19041
-									],
-									[
-										19314,
-										19322
-									],
-									[
-										19717,
-										19725
-									],
-									[
-										19881,
-										19889
-									],
-									[
-										20286,
-										20294
-									],
-									[
-										20447,
-										20455
-									],
-									[
-										20768,
-										20776
-									],
-									[
-										21038,
-										21046
-									],
-									[
-										21439,
-										21447
-									],
-									[
-										21595,
-										21603
-									],
-									[
-										21996,
-										22004
-									],
-									[
-										22157,
-										22165
-									],
-									[
-										22567,
-										22575
-									],
-									[
-										22728,
-										22736
-									],
-									[
-										23138,
-										23146
-									],
-									[
-										23295,
-										23303
-									],
-									[
-										23697,
-										23705
-									],
-									[
-										23858,
-										23866
-									],
-									[
-										24139,
-										24147
-									],
-									[
-										24542,
-										24550
-									],
-									[
-										24706,
-										24714
-									],
-									[
-										25111,
-										25119
-									],
-									[
-										25272,
-										25280
-									],
-									[
-										25481,
-										25489
-									],
-									[
-										25629,
-										25637
-									],
-									[
-										26011,
-										26019
-									],
-									[
-										26172,
-										26180
-									]
-								],
-								"scope": ""
-							}
 						},
 						"selection":
 						[
 							[
-								20548,
-								20548
+								480,
+								480
 							]
 						],
 						"settings":
 						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 4,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7787.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "redux/actions.js",
+					"file": "components/todos-list-item.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6232,
+						"buffer_size": 4526,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								626,
-								626
+								149,
+								149
 							]
 						],
 						"settings":
@@ -699,19 +582,19 @@
 				},
 				{
 					"buffer": 2,
-					"file": "redux/reducers/todoReducer.js",
+					"file": "test/components/TodosListItem_spec.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1802,
+						"buffer_size": 5826,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								814,
-								814
+								174,
+								174
 							]
 						],
 						"settings":
@@ -728,19 +611,19 @@
 				},
 				{
 					"buffer": 3,
-					"file": "redux/reducers/authReducer.js",
+					"file": "redux/reducers/todoReducer.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1749,
+						"buffer_size": 5842,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1217,
-								1217
+								60,
+								60
 							]
 						],
 						"settings":
@@ -757,58 +640,58 @@
 				},
 				{
 					"buffer": 4,
-					"file": "components/routes.js",
-					"semi_transient": true,
+					"file": "package.json",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1350,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1124,
-								1124
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 123.0,
+						"translation.y": 637.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "components/todoapp.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6802,
+						"buffer_size": 865,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5792,
-								5792
+								865,
+								865
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"auto_indent": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_width": 2,
+							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2374.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -818,7 +701,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 21.0
 	},
 	"input":
 	{
@@ -847,6 +730,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 88.0
+	},
 	"project": "ReactToDos.sublime-project",
 	"replace":
 	{
@@ -884,7 +771,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 193.0,
+	"side_bar_width": 251.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

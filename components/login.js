@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react'
 
 export default class Login extends Component {
 
-  render() {
-    const { errorMessage } = this.props
+    render() {
+        const { errorMessage } = this.props
       // var myStyle = {fontSize: 100, color: '#FF0000'}
-    return (
+        return (
       <div>
         <input type='text' ref='username' className="form-control" placeholder='Username'/>
         <input type='password' ref='password' className="form-control" placeholder='Password'/>
@@ -18,17 +18,17 @@ export default class Login extends Component {
         }
       </div>
     )
-  }
+    }
 
-  handleClick(event) {
-    const username = this.refs.username
-    const password = this.refs.password
-    const creds = { username: username.value.trim(), password: password.value.trim() }
-    this.props.onLoginClick(creds)
-  }     
+    handleClick(event) {
+        const username = this.refs.username
+        const password = this.refs.password
+        const creds = { username: username.value.trim(), password: password.value.trim() }
+        this.props.onLoginClick(creds)
+    }     
 }
 
 Login.propTypes = {
-  onLoginClick: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string
+    onLoginClick: PropTypes.func.isRequired,
+    errorMessage: PropTypes.string
 }

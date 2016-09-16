@@ -1,0 +1,40 @@
+image: node:argon
+#image: node:6.6.0-wheezy
+
+before_script:
+#  - apt-get -qq update
+#  - apt-get -qq install -y python2.7 python2.7-dev build-essential make gcc g++ libicu-dev
+#  - npm -g install npm --silent
+#  - "echo -e \"export default {CLIENT_ID: '$CLIENT_ID'}\" > app/scripts/settings.js"
+#  - npm set progress=false
+#  - rm -rf node_modules
+#  - ls -alp
+#  - ifconfig
+#  - pwd
+  - npm install --silent
+#  - npm install --silent
+#  - ls -alp
+
+cache:
+#  key: ${CI_BUILD_REF_NAME}
+  paths:
+    - node_modules
+
+stages:
+  - test
+  - clean_up
+
+run_tests:
+  stage: test
+  tags:
+    - docker
+  script:
+    - npm test
+
+
+clean_up_job:
+  stage: clean_up
+  script:
+    - echo "done clean up"
+    - rm -rf node_modules
+  when: on_failure

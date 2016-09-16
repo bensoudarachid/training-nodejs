@@ -36,7 +36,6 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-
 var compiler = webpack(config);
 
 app.use(webpackDevMiddleware(compiler, {
@@ -58,8 +57,8 @@ app.use(favicon('./images/favicon.ico'));
 //   res.render('index');
 // });
 app.get('/api/*', (req, res) => {
-  console.log('GET API '+req.url + ' called. param: ' + req.body.testparam)
-  console.log('GET API Auth: '+req.headers.authorization )
+  console.log('GET API '+req.url)
+  // console.log('GET API Auth: '+req.headers.authorization )
   var employee = JSON.stringify({
       'EmpName': 'VB',
       'Salary': 52000,
@@ -80,13 +79,13 @@ app.get('/api/*', (req, res) => {
     // }
   };
 
-  var data = {};
+  // var data = {};
   var reqPost = http.request(extServerOptionsPost, function(res2) {
-    console.log("response statusCode: ", res.statusCode);
+    // console.log("response statusCode: ", res.statusCode);
     res2.on('data', function(data) {
-      console.log('Server. Got Result data:\n');
-      process.stdout.write(data);
-      console.log('\n\nGET Operation Completed');
+      // console.log('Server. Got Result data:');
+      // process.stdout.write(data);
+      console.log('GET Operation Completed.\n\n');
       res.send(data)
 
     });
@@ -97,6 +96,84 @@ app.get('/api/*', (req, res) => {
   });
   reqPost.end();
 });
+
+app.post('/api/*', function(req, res) {
+  // var param = req.body.param;
+  console.log('POST API. '+req.url)
+  // console.log('POST API YEAAAAH req.headers '+req.headers)
+  // console.log(req.headers)
+  // console.log('POST API YEAAAAH req.body '+req.body)
+  // console.log(req.body)
+  const dataSend =  JSON.stringify(req.body);
+  var extServerOptionsPost = {
+    host: '127.0.0.1',
+    port: '8083',
+    path: req.url,
+    method: 'POST',
+    headers: {
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': Buffer.byteLength(dataSend),
+        'Content-Type': 'application/json',
+        authorization: req.headers.authorization
+    }    // body: req.body
+    // {
+    //   'Content-Type': 'application/json',
+    //   'Authorization': req.headers.authorization
+    // }
+  };
+
+  // var data = {}
+  var reqPost = http.request(extServerOptionsPost, function(res2) {
+    // console.log("response statusCode: ", res.statusCode)
+    res2.on('data', function(data) {
+      // console.log('Server. Got Result data:\n')
+      // process.stdout.write(data);
+      console.log('POST Operation Completed.\n\n')
+      res.send(data)
+
+    });
+    res2.on('error', function(e) {
+      console.error(e)
+    })
+
+  })
+  reqPost.write(dataSend)
+  reqPost.end()
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.get('*', (req, res) => {
   // routes is our object of React routes defined above
@@ -202,90 +279,6 @@ app.get('*', (req, res) => {
   });
 });
 
-// app.post('/api/todosobsolet', function(req, res) {
-//   var user_id = req.body.id;
-//   var token = req.body.token;
-//   var geo = req.body.geo;
-//   console.log('server post method' + req.body.id)
-//   console.log('server post method' + req.body.token)
-
-//   res.send({
-//     user_id,
-//     token,
-//     geo
-//   });
-// });
-
-// app.post('/api/todo/:id/save', function(req, res) {
-//   //get param & query params
-//   console.log('save task id ' + req.params.id + ' with text ' + req.body.task)
-//   // store them in global var. later in database ot spring service
-//   res.sendStatus(200);
-// });
-
-// app.post('/api/todosold', function(req, res) {
-//   // var param = req.body.param;
-//   console.log('/api/todoslist called. param: ' + req.body.testparam)
-
-//   res.send(
-//     {
-//       todos: [
-//         {
-//           task: 'make it now baby',
-//           isCompleted: false,
-//           id: 4
-//         },
-//         {
-//           task: 'ya do it baby',
-//           isCompleted: true,
-//           id: 5
-//         }
-//       ]
-//     }
-//   );
-// });
-
-app.post('/api/*', function(req, res) {
-  // var param = req.body.param;
-  console.log('POST API YEAAAAH')
-  // console.log('POST API '+req.url + ' called. param: ' + req.body.task)
-  // var employee = JSON.stringify({
-  //     'EmpName': 'VB',
-  //     'Salary': 52000,
-  //     'DeptName': 'HR',
-  //     'Designation': 'LEAD'
-  // });
-
-  var extServerOptionsPost = {
-    host: 'localhost',
-    port: '8083',
-    path: req.url,
-    method: 'POST',
-    headers: req.headers,
-    body: req.body
-    // {
-    //   'Content-Type': 'application/json',
-    //   'Authorization': req.headers.authorization
-    // }
-  };
-
-  var data = {};
-  var reqPost = http.request(extServerOptionsPost, function(res2) {
-    console.log("response statusCode: ", res.statusCode);
-    res2.on('data', function(data) {
-      console.log('Server. Got Result data:\n');
-      process.stdout.write(data);
-      console.log('\n\nPOST Operation Completed');
-      res.send(data)
-
-    });
-    res2.on('error', function(e) {
-      console.error(e);
-    });
-
-  });
-  reqPost.end();
-});
 
 
 

@@ -5,5 +5,10 @@
 			"follow_symlinks": true,
 			"path": "D:\\RP\\Tests\\ReactToDoExp2"
 		}
-	]
+	],
+  	"settings": {
+    	"ESLint-Formatter": {
+      		"format_on_save": true
+    	}
+  	}
 }

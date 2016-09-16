@@ -1,26 +1,25 @@
-
-import React from 'react';
-import _ from 'lodash';
+import React from 'react'
+import _ from 'lodash'
 
 
 export default class CreateTodo extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       error: null
-    };
+    }
   }
 
 
   renderError() {
     if (!this.state.error) {
-      return null;
+      return null
     }
 
     return <div style={{
-        color: 'red'
-      }}>{this.state.error}</div>;
+      color: 'red'
+    }}>{this.state.error}</div>
   }
 
   render() {
@@ -30,40 +29,40 @@ export default class CreateTodo extends React.Component {
                 <button>Create</button>
                 {this.renderError()}
         </form>
-      );
+      )
   }
 
   handleCreate(event) {
 //    console.log('handle create call')
-    event.preventDefault();
+    event.preventDefault()
 
-    const createInput = this.refs.createInput;
-    const task = createInput.value;
-    const validateInput = this.validateInput(task);
+    const createInput = this.refs.createInput
+    const task = createInput.value
+    const validateInput = this.validateInput(task)
 
     if (validateInput) {
       this.setState({
         error: validateInput
-      });
-      return;
+      })
+      return
     }
 
     this.setState({
       error: null
-    });
+    })
     // this.props.createTask(task);
-    this.props.createTodo(task);
-    this.refs.createInput.value = '';
+    this.props.actions.createTodo(task)
+    this.refs.createInput.value = ''
   }
 
   validateInput(task) {
     if (!task) {
-      return 'Please enter a task.';
+      return 'Please enter a task.'
     // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
     } else if (this.props.todos.find((todo) =>  todo.get('task') === task) ){
-      return 'Task already exists.';
+      return 'Task already exists.'
     } else {
-      return null;
+      return null
     }
   }
 }

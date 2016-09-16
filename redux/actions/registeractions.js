@@ -4,7 +4,7 @@
 // export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 import { browserHistory } from 'react-router'
 import { getIsFetching } from '../reducers'
-import Immutable from 'Immutable'
+import Immutable from 'immutable'
 import cookie from 'react-cookie'
 
 
@@ -58,7 +58,7 @@ let registrationactions = {
     return (dispatch,getState) => {
       if( getState().auth.isFetching ){
         console.log('Fetching! Do nothing')
-        return;
+        return
       }
 
       dispatch(registrationactions.requestRegister(creds))
@@ -73,7 +73,7 @@ let registrationactions = {
     .then(
       ({ status, user }) => {
         if (status >= 400) {
-          var error = user;
+          var error = user
           console.log('Status looks bad. '+status+'. error message = '+error.message)
           dispatch(registrationactions.registerError(error))
         } else {

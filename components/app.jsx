@@ -1,5 +1,5 @@
-import React from 'react';
-import { Component } from 'react';
+import React from 'react'
+import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Router, Route, IndexLink, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
 // var Router = require('react-router').Router;
@@ -16,7 +16,7 @@ import UserApp from './userapp'
 // var UserApp = require('./userapp');
 
 // if (process.env.BROWSER) {
-  require('./nav.scss');
+require('./nav.scss')
 // }
 
 const Home = (props) => (

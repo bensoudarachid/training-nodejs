@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
 
 export default class AboutComponent extends React.Component {
-  render() {
+    render() {
   	// console.log(this.props)
 //        <p>A little bit about {this.props.params.name}!!I like {this.props.location.query.food}!</p>
 
-    return (
+        return (
       <div>
         <p>A little bit about me!!</p>
       </div>
-    );
-  }
+    )
+    }
 }

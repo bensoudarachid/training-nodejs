@@ -21,8 +21,8 @@ import { syncHistoryWithStore } from 'react-router-redux'
 // import TodoApp from '../components/todoapp';
 // import UserApp from '../components/userapp';
 // import App from '../components/app.jsx';
-import AppComponent from '../components/appcomponent';
-import { routes } from '../components/routes';
+// import AppComponent from '../components/appcomponent';
+import { routes } from '../components/routes'
 import rootReducer from '../redux/reducers' 
 
 // let message = 'hello from entry baby'+routes[0].path;
@@ -47,7 +47,7 @@ import rootReducer from '../redux/reducers'
 // }
 //let store = configureStore(initialState)
 
-const logger = createLogger();
+const logger = createLogger()
 const initialState = window.__REDUX_STATE__  
 const store = createStore(rootReducer, initialState, applyMiddleware(thunk, logger))
 // let store = configureStore(initialState)
@@ -59,7 +59,7 @@ ReactDom.render(
 	  <Router routes={routes} history={browserHistory} />
   </Provider>,
   document.getElementById('root')
-);
+)
    	// <Router routes={routes} history={browserHistory} />
 // <Router children={routes} history={browserHistory} />
    	// <AppComponent />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 
 export default class ToDosListHeader extends React.Component {
@@ -12,6 +12,6 @@ export default class ToDosListHeader extends React.Component {
                     <th>Action</th>
                 </tr>
             </thead>
-        );
+        )
     }
 }

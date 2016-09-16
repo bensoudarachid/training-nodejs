@@ -3,7 +3,7 @@ import { Router, Route, IndexLink, Link, IndexRoute, hashHistory, browserHistory
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import actions from '../redux/actions'
-
+import Immutable from 'immutable'
 
 import { Component, PropTypes } from 'react'
 import { ThreeBounce } from 'better-react-spinkit'
@@ -12,15 +12,19 @@ import { ThreeBounce } from 'better-react-spinkit'
 
 import Nav from './nav.js'
 if (process.env.BROWSER) {
+  // console.log('Appcomponent. environment is browser')
   require('./nav.scss')
 }
+//else
+//   console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Appcomponent. environment is server')
+
 
 
 
 
 // const Navi = () => (
 //   <div>
-//     <IndexLink activeClassName='active' to='/'>Home</IndexLink> 
+//     <IndexLink activeClassName='active' to='/'>Home</IndexLink>
 //     <Link activeClassName='active' to='/address'>Address</Link>
 //     <Link activeClassName='active' to='/todos'>Todos</Link>
 //     <Link activeClassName='active' to='/users'>Users</Link>
@@ -32,19 +36,18 @@ if (process.env.BROWSER) {
 class AppComponent extends React.Component {
 
   constructor() {
-    super(...arguments);
-
+    super(...arguments)
     this.constructor.childContextTypes = {
       betterReactSpinkit: PropTypes.object
-    };
+    }
   }
 
-  getChildContext () {
+  getChildContext() {
     return {
       betterReactSpinkit: {
         color: '#505050', //'black'
         size: 15
-        // ,fade: { duration: 0.3 }
+      // ,fade: { duration: 0.3 }
       }
     }
   }
@@ -65,17 +68,19 @@ class AppComponent extends React.Component {
   //     })
   //   })
   // }
-  
-  render() {
-      const { dispatch, quote, auth, errorMessage, isSecretQuote } = this.props
-      // AppComponent.fetchData().then(response => response.json())
-      // .then(data => {
-      //   // console.log(data.todos)
-      //   this.props.actions.addTodos(data.todos);
-      // })
-      // .catch(err => console.log('Booooo' + err));
 
-    var children = updateChildren(this.props.children, this.props);
+  render() {
+    const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
+    const isBrowser = typeof window !== 'undefined'
+
+    // AppComponent.fetchData().then(response => response.json())
+    // .then(data => {
+    //   // console.log(data.todos)
+    //   this.props.actions.addTodos(data.todos);
+    // })
+    // .catch(err => console.log('Booooo' + err));
+
+    var children = updateChildren(this.props.children, this.props)
     return (
       <div>
         <Nav
@@ -85,10 +90,15 @@ class AppComponent extends React.Component {
           auth={this.props.auth}
           location={this.props.location}
         />
-        <h2>Welcome to my App</h2>
+        {!isBrowser &&
+        <div><ThreeBounce size={18} fade={{
+          duration: 0.3
+        }}/></div>
+        }  
+        <h2>Welcome to The todo homepage</h2>
         { children }
       </div>
-      );
+      )
   }
 }
 
@@ -99,7 +109,9 @@ function updateChildren(children, props) {
     //   actions: props.actions,
     //   todos: props.todos
     // })
-    return React.cloneElement(child, { ...props })
+    return React.cloneElement(child, {
+      ...props
+    })
   })
   return childrenBack
 }
@@ -115,5 +127,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 // export default connect(mapStateToProps)(AppComponent);
-export default connect(mapStateToProps, mapDispatchToProps)(AppComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(AppComponent)
 // export default AppComponent;

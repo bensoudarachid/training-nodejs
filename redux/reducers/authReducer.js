@@ -13,8 +13,8 @@ let authReducer = function(auth = {
     isAuthenticated: cookie.load('jwt') ? true : false
   }, action) {
   auth.isAuthenticated=cookie.load('jwt') ? true : false
-  console.log('Auth Reducer is authenticated: ' + auth.isAuthenticated )
-  console.log('Auth Reducer cookie is there: ' + (cookie.load('jwt') ? true : false))
+  // console.log('Auth Reducer is authenticated: ' + auth.isAuthenticated )
+  // console.log('Auth Reducer cookie is there: ' + (cookie.load('jwt') ? true : false))
 
   switch (action.type) {
     case 'LOGIN_REQUEST':
@@ -65,15 +65,15 @@ let authReducer = function(auth = {
         username: action.user.username
       })
     case 'REGISTER_ERROR':
-      console.log('Auth reducer action registererror')
-      console.log(action.registererror)
+      // console.log('Auth reducer action registererror')
+      // console.log(action.registererror)
       return Object.assign({}, auth, {
         isFetching: false,
         registererror: action.registererror.message
       })
     case 'REGISTER_INIT':
-      console.log('Auth reducer action register init')
-      console.log(action.registererror)
+      // console.log('Auth reducer action register init')
+      // console.log(action.registererror)
       return Object.assign({}, auth, {
         isFetching: false,
         registererror: ''

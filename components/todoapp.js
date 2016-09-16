@@ -1,14 +1,16 @@
 import CreateTodo from './create-todo'
+import TodosFilter from './todos-filter'
+
 import React, { Component } from 'react'
 import TodosList from './todos-list'
 import cookie from 'react-cookie'
 import _ from 'lodash'
-import {ThreeBounce} from 'better-react-spinkit'
+import { ThreeBounce } from 'better-react-spinkit'
 
-// import Immutable from 'Immutable'
+// import Immutable from 'immutable'
 
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
+// require('es6-promise').polyfill();
+// require('isomorphic-fetch');
 
 
 // const todos = [
@@ -59,16 +61,22 @@ class TodoApp extends Component {
   //     .catch(err => console.log('Booooo' + err));
   // }
 
+//createTodo={this.props.actions.createTodo}
+// {this.props.todoappmap.get('filterOpen')}
+      // toggleTask={this.toggleTask.bind(this)}
+      // saveTask={this.saveTask.bind(this)}
+      // deleteTask={this.deleteTask.bind(this)}
 
   render() {
-    //let test = 'App';
-    var isBrowser = typeof window !== 'undefined';
-    console.log("Render todoapp isBrowser ?" + isBrowser);
-    if(!isBrowser) {
-      return <div><h3>Loading</h3><ThreeBounce size={25} fade={{duration:0.3}}/></div>
+
+    const isBrowser = process.env.BROWSER//typeof window !== 'undefined';
+    if (!isBrowser) {
+      // console.log('+++++++++++++++++++++++++Todoapp. environment is server')
+      return <div/>
     }
-    const { auth } = this.props  
-    console.log("Render todoapp authenticated ? " + auth.isAuthenticated);
+    // console.log('+++++++++++++++++++++++++Todoapp. environment is browser')
+    const {auth} = this.props
+    // console.log("Render todoapp authenticated ? " + auth.isAuthenticated);
     //  alert("Hi "+test);
     // createTask={this.createTask.bind(this)}
     //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
@@ -83,16 +91,13 @@ class TodoApp extends Component {
       {auth.isAuthenticated &&
       <div>
               <h3>To dos. Please proceed</h3>
-              <CreateTodo todos={this.props.todos} createTodo={this.props.actions.createTodo}/>
-              <TodosList todos={this.props.todos} actions={this.props.actions}
-        // toggleTask={this.toggleTask.bind(this)}
-        // saveTask={this.saveTask.bind(this)}
-        // deleteTask={this.deleteTask.bind(this)}
-        />
+              <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions} />
+              <CreateTodo todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
+              <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>
       </div>
       }
       </div>
-      );
+      )
   }
   // saveTask(oldTask, newTask) {
   //   const foundTodo = _.find(this.state.todos, (todo) => todo.task === oldTask);
@@ -118,84 +123,110 @@ class TodoApp extends Component {
   //   });
   // }
   componentDidMount() {
-    console.log('Todos mounted' + this.props.auth.id_token)
+    // console.log('Todos mounted')
     TodoApp.fetchData(this.props.actions)
   }
-
-
+  //This is a necessary call when component is fetched on server side
   static fetchData(actions) {
-    var headers=  {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Content-Type': 'application/json'
-          // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
-          // 'Authorization': 'Bearer '+id_token
-    }
-    var id_token = cookie.load('jwt')
-    if( id_token!='' ){
-      headers.Authorization='Bearer '+id_token
-      console.log('Ya todos fetchData.  auth id token: '+ id_token)
-    }
-    else
-      console.log('Ya todos fetchData. Wahnsinn: no id_token')
-    var test='This is abbas in the hood!'
-
-    return fetch('http://127.0.0.1:8081/api/todos/2373'
-      ,{
-        method: 'GET',
-        headers
-        // headers: {
-        //   'Content-Type': 'application/x-www-form-urlencoded',
-        //   'Content-Type': 'application/json',
-        //   // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
-        //   'Authorization': 'Bearer '+id_token
-        // }
-        // ,
-        // body: JSON.stringify({
-        //   testparam: test
-        // })
-        // body: 'testparam='+test //if no json in header
-      }
-    )
-    .then(response => response.json())
-    .then(data => {
-        console.log('todoapp. data fetch ')
-        console.log(data)
-        if (data.error == 'invalid_token')
-          actions.receiveLogout()
-        else
-          actions.loadTodos(data)
-        // actions.addTodos(data.todos)
-    })
-    .catch(err => console.log('Hooooo' + err))
+    actions.retrieveUserTodosDispatcher()
   }
+  // static fetchDataOld(actions) {
+  //   var headers = {
+  //     'Content-Type': 'application/x-www-form-urlencoded',
+  //     'Content-Type': 'application/json'
+  //   // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
+  //   // 'Authorization': 'Bearer '+id_token
+  //   }
+  //   var id_token = cookie.load('jwt')
+  //   if (id_token != '') {
+  //     headers.Authorization = 'Bearer ' + id_token
+  //     console.log('Ya todos fetchData.  auth id token: ' + id_token)
+  //   }
+  //   else
+  //     console.log('Ya todos fetchData. Wahnsinn: no id_token')
+  //   var test = 'This is abbas in the hood!'
 
-
-
-
-  // static fetchDataOrig(actions) {  
-  //   console.log('todos fetchData. Do nothing'+ JSON.stringify({
-  //       param: 'abbas'
-  //     }))
-  //   var test='This is abbas in the hood!'
-  //   return fetch('http://127.0.0.1:8081/api/todos'
-  //     ,{
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/x-www-form-urlencoded',
-  //         'Content-Type': 'application/json' 
-  //       },
-  //       // body: 'testparam='+test //if no json in header
-  //       body: JSON.stringify({
-  //         testparam: test
-  //       })
+  //   return fetch('http://127.0.0.1:8081/api/todos/2373'
+  //     , {
+  //       method: 'GET',
+  //       headers
+  //     // headers: {
+  //     //   'Content-Type': 'application/x-www-form-urlencoded',
+  //     //   'Content-Type': 'application/json',
+  //     //   // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
+  //     //   'Authorization': 'Bearer '+id_token
+  //     // }
+  //     // ,
+  //     // body: JSON.stringify({
+  //     //   testparam: test
+  //     // })
+  //     // body: 'testparam='+test //if no json in header
   //     }
   //   )
-  //   .then(response => response.json())
-  //   .then(data => {
-  //       console.log('todoapp. component mounted ' +data.todos)
-  //       actions.addTodos(data.todos)
-  //   })
-  //   .catch(err => console.log('Hooooo' + err))
+  //     .then(response => response.json().then(data => {
+  //       console.log('Response Status = ' + response.status)
+  //       return ({
+  //         status: response.status,
+  //         data
+  //       })
+  //     }
+  //     ))
+  //     .then(
+  //       ({status, data}) => {
+  //         if (status === 401) {
+  //           actions.receiveLogout()
+  //         } else if (status >= 400) {
+  //           var error = data
+  //           console.log('Status looks bad. ' + status + '. error message = ' + error.message)
+  //           actions.receiveLogout()
+  //         } else if (data.error) {
+  //           // var error = data.error
+  //           var errorDescription = data.error_description
+  //           console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
+  //           actions.receiveLogout()
+  //         } else {
+  //           actions.loadTodos(data)
+  //         }
+  //       })
+  //     // .then(data => {
+  //     //     console.log('todoapp. data fetch ')
+  //     //     console.log(data)
+  //     //     if (data.error == 'invalid_token')
+  //     //       actions.receiveLogout()
+  //     //     else
+  //     //       actions.loadTodos(data)
+  //     //     // actions.addTodos(data.todos)
+  //     // })
+  //     .catch(err => console.log('Hooooo. Status = ' + status + ', error = ' + err))
   // }
+
+
+
+
+// static fetchDataOrig(actions) {  
+//   console.log('todos fetchData. Do nothing'+ JSON.stringify({
+//       param: 'abbas'
+//     }))
+//   var test='This is abbas in the hood!'
+//   return fetch('http://127.0.0.1:8081/api/todos'
+//     ,{
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/x-www-form-urlencoded',
+//         'Content-Type': 'application/json' 
+//       },
+//       // body: 'testparam='+test //if no json in header
+//       body: JSON.stringify({
+//         testparam: test
+//       })
+//     }
+//   )
+//   .then(response => response.json())
+//   .then(data => {
+//       console.log('todoapp. component mounted ' +data.todos)
+//       actions.addTodos(data.todos)
+//   })
+//   .catch(err => console.log('Hooooo' + err))
+// }
 }
 export default TodoApp
