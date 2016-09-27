@@ -90,7 +90,7 @@ class TodoApp extends Component {
       }
       {auth.isAuthenticated &&
       <div>
-              <h3>To dos. Please proceed</h3>
+              <h3>To dos. Please proceed now</h3>
               <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions} />
               <CreateTodo todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
               <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>

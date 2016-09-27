@@ -3,9 +3,13 @@ import { ThreeBounce } from 'better-react-spinkit'
 import Immutable from 'immutable'
 import TodosListHeader from './todos-header'
 import TodosListItem from './todos-list-item'
-
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 export default class TodosList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
+  }
   getItems() {
     // console.log('todo list filteropen ' + this.props.filteropen)
     // console.log('todo list filterclosed ' + this.props.filterclosed)
