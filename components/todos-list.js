@@ -8,6 +8,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 export default class TodosList extends React.Component {
   constructor(props) {
     super(props)
+    console.log('todo list. Mixin in constructor')
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
   }
   getItems() {
