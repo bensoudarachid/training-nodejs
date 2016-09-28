@@ -6,6 +6,13 @@ import Logout from './logout.js'
 import { LogoutUser} from '../redux/actions.js'
 
 
+if (process.env.BROWSER) {
+  console.log('Appcomponent. environment is browser')
+  require('./nav.scss')
+}
+//require('./nav.scss')
+
+
 class Nav extends Component {
 	// <div>
  //    </div>    

@@ -6,6 +6,8 @@ import TodosList from './todos-list'
 import cookie from 'react-cookie'
 import _ from 'lodash'
 import { ThreeBounce } from 'better-react-spinkit'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
+
 
 // import Immutable from 'immutable'
 
@@ -31,7 +33,12 @@ import { ThreeBounce } from 'better-react-spinkit'
 
 class TodoApp extends Component {
 
-  // constructor(props) {
+  constructor(props) {
+    super(props)
+    console.log('todo list. Mixin in constructor')
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
+  }
+// constructor(props) {
   //   super(props)
 
   //   this.state = {

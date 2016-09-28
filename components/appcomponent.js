@@ -7,31 +7,11 @@ import Immutable from 'immutable'
 
 import { Component, PropTypes } from 'react'
 import { ThreeBounce } from 'better-react-spinkit'
-
-
-
 import Nav from './nav.js'
-if (process.env.BROWSER) {
-  // console.log('Appcomponent. environment is browser')
-  require('./nav.scss')
-}
-//else
-//   console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Appcomponent. environment is server')
 
-
-
-
-
-// const Navi = () => (
-//   <div>
-//     <IndexLink activeClassName='active' to='/'>Home</IndexLink>
-//     <Link activeClassName='active' to='/address'>Address</Link>
-//     <Link activeClassName='active' to='/todos'>Todos</Link>
-//     <Link activeClassName='active' to='/users'>Users</Link>
-//     <Link activeClassName='active' to='/about/hana?food=pizza'>About</Link>
-//   </div>
-// )
-
+// if (process.env.BROWSER) {
+//   require('./nav.scss')
+// }
 
 class AppComponent extends React.Component {
 
