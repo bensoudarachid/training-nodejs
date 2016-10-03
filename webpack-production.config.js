@@ -8,7 +8,7 @@ module.exports = {
   // devtool: 'inline-source-map',
   devtool: 'cheap-module-source-map',
   entry: [
-    'webpack-hot-middleware/client?path=http://localhost:8081/__webpack_hmr',
+    // 'webpack-hot-middleware/client?path=http://localhost:8081/__webpack_hmr',
     './src/client'
   ],
   output: {
@@ -24,11 +24,12 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel?retainLines=true,presets[]=react,presets[]=es2015,presets[]=react-hmre,presets[]=stage-2']
+        // loaders: ['react-hot', 'babel?retainLines=true,presets[]=react,presets[]=es2015,presets[]=react-hmre,presets[]=stage-2']
+        loaders: ['babel?retainLines=true,presets[]=react,presets[]=es2015,presets[]=stage-2']
       },
       { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/, 
         loader: 'file-loader?name=images/[name].[ext]' 
-      },      
+      },
       // { test: /\.scss$/, loader: 'style!css!sass' },
       // { test: /\.css$/, loader: 'style!css' },
       {
@@ -39,7 +40,6 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
       },
-
       { test: require.resolve('react'), loader: 'expose?React' }
     ]
   },
@@ -48,11 +48,11 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         BROWSER: JSON.stringify(true)
-        // ,NODE_ENV: JSON.stringify('production')
+        ,NODE_ENV: JSON.stringify('production')
       }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ]
 }

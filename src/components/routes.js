@@ -31,7 +31,7 @@ import React from 'react'
 //   <h3>Howdy.</h3>
 // );
 const Users = ( { params, location } ) => (
-  <h3>Howdy { params.name }! You like Food: { location.query.food }.</h3>
+  <h3>Howdy Wa fin { params.name }! You like Food: { location.query.food }.</h3>
 )
 const Home = () => (
   <h3>Welcome home!</h3>
@@ -40,38 +40,38 @@ const Home = () => (
 const NotFound = () => ( <h1>404.. This page is not found!</h1> )
 
 const routes = {
-    path: '',
-    component: AppComponent,
-    childRoutes: [
-        {
-            path: '/',
-            component: Home
-        },
-        {
-            path: '/todos(/:param)',
-            component: TodoApp
-        },
-        {
-            path: '/users(/:name)',
-            component: Users
-        },    
-        {
-            path: '/about(/:name)',
-            component: AboutComponent
-        },
-        {
-            path: '/register(/:name)',
-            component: Register
-        },
-        {
-            path: '/registerconfirm(/:username)',
-            component: RegisterConfirmation
-        },
-        {
-            path: '*',
-            component: NotFound
-        }
-    ]
+  path: '',
+  component: AppComponent,
+  childRoutes: [
+    {
+      path: '/',
+      component: Home
+    },
+    {
+      path: '/todos(/:param)',
+      component: TodoApp
+    },
+    {
+      path: '/users(/:name)',
+      component: Users
+    },    
+    {
+      path: '/about(/:name)',
+      component: AboutComponent
+    },
+    {
+      path: '/register(/:name)',
+      component: Register
+    },
+    {
+      path: '/registerconfirm(/:username)',
+      component: RegisterConfirmation
+    },
+    {
+      path: '*',
+      component: NotFound
+    }
+  ]
 }
 
 export { routes }

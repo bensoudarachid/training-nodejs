@@ -23,10 +23,10 @@ class Nav extends Component {
   render () {
     const isBrowser = typeof window !== 'undefined'
     const { dispatch, isAuthenticated, errorMessage } = this.props
-    console.log('nav: isAuthenticated'+isAuthenticated)
-    console.log('nav: isBrowser'+isBrowser)
+    // console.log('nav: isAuthenticated'+isAuthenticated)
+    // console.log('nav: isBrowser'+isBrowser)
     return (
-	<div>
+	<div id='headerNavigation'>
 	<IndexLink activeClassName='active' to='/'>Home</IndexLink> 
 	<Link activeClassName='active' to='/address'>Address</Link>
 	<Link activeClassName='active' to='/users'>Users</Link>

@@ -1,6 +1,6 @@
 // import Immutable from 'immutable';
 import cookie from 'react-cookie'
-
+// import {port} from '../../server7'
 // export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 // export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 // export const LOGIN_FAILURE = 'LOGIN_FAILURE'
@@ -8,10 +8,18 @@ import cookie from 'react-cookie'
 // import {browserHistory} from 'react-router';
 // import { getIsFetching } from '../reducers'
 
-
+const port = 8081
+var isBrowser = typeof window !== 'undefined'
+var url = ''
+if( isBrowser ){
+  url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')
+}else{
+  url = 'http:'+'//'+'127.0.0.1'+(port ? ':'+port: '')
+}
 const services = {
+  port:port,
   retrieveTodosService: function() {
-    console.log('Service retrieve todos fetchData call')
+    console.log('Service retrieve todos fetchData call '+ url)
     var headers = {
       // 'Content-Type': 'application/x-www-form-urlencoded',
       'Content-Type': 'application/json'
@@ -28,7 +36,7 @@ const services = {
     }
     //var test = 'This is abbas in the hood!';
 
-    return fetch('http://127.0.0.1:8081/api/todos/2373',
+    return fetch(url+'/api/todos/2373',
       {
         method: 'GET',
         headers
@@ -88,7 +96,7 @@ const services = {
     // console.log('config ')
     // console.log(config)
     // var todo = null;
-    return fetch('http://127.0.0.1:8081/api/todo/updatetodo', config).then(response => response.json()
+    return fetch(url+'/api/todo/updatetodo', config).then(response => response.json()
       .then(data => ({
         status: response.status,
         data
@@ -129,7 +137,7 @@ const services = {
     console.warn('config ')
     // onsole.log(config)
     // var todo = null;
-    return fetch('http://127.0.0.1:8081/api/todo/deletetodo', config).then(response => response.json()
+    return fetch(url+'/api/todo/deletetodo', config).then(response => response.json()
       .then(data => ({
         status: response.status,
         data

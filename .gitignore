@@ -2,6 +2,7 @@
 bundle.js
 *.au3
 node_modules
+old
 # webstorm
 .idea/
 

@@ -2,16 +2,17 @@ import React from 'react'
 import { Router, Route, IndexLink, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import actions from '../redux/actions'
 import Immutable from 'immutable'
+import actions from '../redux/actions'
 
-import { Component, PropTypes } from 'react'
 import { ThreeBounce } from 'better-react-spinkit'
-import Nav from './nav.js'
+import { Component, PropTypes } from 'react'
 
-// if (process.env.BROWSER) {
-//   require('./nav.scss')
-// }
+import Nav from './nav.js'
+if (process.env.BROWSER) {
+  console.log('Appcomponent. environment is browser')
+  require('./appcomponent.scss')
+}
 
 class AppComponent extends React.Component {
 
@@ -31,23 +32,22 @@ class AppComponent extends React.Component {
       }
     }
   }
-  // static fetchData() {
-  //   console.log('todos component is mounted. Do nothing'+ JSON.stringify({
-  //       param: 'abbas'
-  //     }))
-  //   var test='This is abbas in the hood!'
-  //   return fetch('/api/todoslist', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/x-www-form-urlencoded',
-  //       'Content-Type': 'application/json'
-  //     },
-  //     // body: 'param=value' //if no json in header
-  //     body: JSON.stringify({
-  //       testparam: test
-  //     })
-  //   })
-  // }
+
+
+      // <div>
+      //   <Nav
+      //     actions={this.props.actions}
+      //     isAuthenticated={auth.isAuthenticated}
+      //     errorMessage={auth.errorMessage}
+      //     auth={this.props.auth}
+      //     location={this.props.location}
+      //   />
+      //   {!isBrowser &&
+      //   <div style="background-color:red;height=100px;"><h2>mama</h2><ThreeBounce color='red' size={18} fade={{duration: 0.3}}/></div>
+      //   }  
+      //   <h2>Welcome to The todo homepage man!</h2>
+      //   { children }
+      // </div>
 
   render() {
     const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
@@ -59,7 +59,8 @@ class AppComponent extends React.Component {
     //   this.props.actions.addTodos(data.todos);
     // })
     // .catch(err => console.log('Booooo' + err));
-
+  //        <img src="/images/RoyaFacebookIdea1.png" alt="Smiley face" height="99" width="453" />      
+//style={{color: 'red'}}
     var children = updateChildren(this.props.children, this.props)
     return (
       <div>
@@ -71,9 +72,7 @@ class AppComponent extends React.Component {
           location={this.props.location}
         />
         {!isBrowser &&
-        <div><ThreeBounce size={18} fade={{
-          duration: 0.3
-        }}/></div>
+         <div id='wait'><ThreeBounce size={18} fade={{duration: 0.01}}/></div>
         }  
         <h2>Welcome to The todo homepage</h2>
         { children }
