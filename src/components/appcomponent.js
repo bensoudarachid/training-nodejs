@@ -25,15 +25,11 @@ import AppModalDlg from './appmodaldlg.js'
 if (process.env.BROWSER) {
   require('./appcomponent.scss')
   // console.log('Appcomponent. environment is browser')
-  // require('../../semantic/dist/semantic.min.js')
-  // require('../../semantic/dist/semantic.min.css')
   // require('material-design-lite/dist/material.js')
   // require('material-design-lite/dist//material.css')
   
   // require('../../js/material.js')
   // require('../../css/material.css')
-  // require('../../js/semantic.js')
-  // require('../../css/semantic.css')
 
   $(document).ready(function() { 
     // require('../js/mdl.js')

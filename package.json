@@ -118,12 +118,11 @@
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
-    "semantic-ui": "^2.2.6",
     "serve-favicon": "^2.3.0",
     "traceur": "0.0.110",
     "validator": "^6.2.0"
   },
-  "engines":{
-    "node":"4.4.4"
+  "engines": {
+    "node": "4.4.4"
   }
 }
