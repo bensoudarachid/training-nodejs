@@ -1,6 +1,5 @@
-
 import React from 'react'
-import _ from 'lodash'
+// import _ from 'lodash'
 
 
 export default class TodosFilter extends React.Component {
@@ -37,7 +36,7 @@ export default class TodosFilter extends React.Component {
     // var filter = undefined
     // if (filterAllChecked)
     //   filter = 'all'
-    // console.log('filter todos. handle toggle all. Checkbox'+ event.target.checked+', Filter '+filterOpen)
+    // console.log('filter todos. Open. Checkbox'+ event.target.checked+', Filter '+filterOpen)
     this.props.actions.filterTodosOpen(filterOpen)
   }
   handleFilterClosed(event) {    

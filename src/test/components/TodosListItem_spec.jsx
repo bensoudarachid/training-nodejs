@@ -83,13 +83,13 @@ describe('TodosListItem', () => {
     )
     expect(wrapper.find('.todoslistitem')).to.have.length(1)
   })
-  it('renders finds 2 buttons', function () {
+  it('renders finds 3 buttons', function () {
     // function handleClick() { done() }
     const wrapper = shallow(
       <TodosListItem key={index} todo={todo}/>
     )
-    expect(wrapper.find('button')).to.have.length(2)
-    console.log('TodosListItem spec. renders finds 2 buttons html: '+wrapper.html())
+    expect(wrapper.find('button')).to.have.length(3)
+    // console.log('TodosListItem spec. renders finds 3 buttons html: '+wrapper.html())
   })
   it('renders finds Edit button', function () {
     // function handleClick() { done() }
@@ -131,7 +131,7 @@ describe('TodosListItem', () => {
     // todosListItem.props.actions.updateTodo = spy
 
     var buttons = scryRenderedDOMComponentsWithTag(component, 'button')
-    expect(buttons).to.have.length(2)
+    expect(buttons).to.have.length(3)
     Simulate.click(buttons[0])
     // expect(dispatch.calledOnce).to.equal(true)
     // expect(dispatch.calledWith({ type: 'LOADING_TODO', todo:todo })).is.true

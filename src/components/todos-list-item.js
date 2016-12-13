@@ -1,8 +1,9 @@
 import React from 'react'
+import cookie from 'react-cookie'
 //import Immutable from 'immutable'
 import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'
-
-
+import util from 'util'
+import actions from '../redux/actions'
 if (process.env.BROWSER) {
   require('./todos-list-item.scss')
 }
@@ -35,7 +36,7 @@ export default class TodosListItem extends React.Component {
       return (
         <td>
           <form onSubmit={this.onSaveClick.bind(this)}>
-                <input type="text" defaultValue={task} ref="editInput" />
+                <input type='text' defaultValue={task} ref='editInput' />
             </form>
         </td>
         )
@@ -63,16 +64,17 @@ export default class TodosListItem extends React.Component {
   //     </td>
   //     );
   // }
+            // <form method='post' action={actions.appbasename+'/api/todo/12345/imageupload/'} enctype='multipart/form-data'>
+            //<input type='button' onClick={this.onChangeImageClick.bind(this)} value='3aSend' />
 
   getActions() {
     //<Spinner spinnerName='three-bounce' noFadeIn/> <Pulse size={20} color='blue'/>
+    
     const loading = this.props.todo.get('loading')
     const error = this.props.todo.get('error')
     if (loading)
       return (
-        <td><ThreeBounce size={15} fade={{
-          duration: 0.3
-        }}/></td>
+        <td><ThreeBounce size={15} duration='0.3'/></td>
         )
     else if (this.state.isEditing)
       return (
@@ -88,17 +90,27 @@ export default class TodosListItem extends React.Component {
         )
     else
       return (
-        <td><button className='editbutton' onClick={this.onEditClick.bind(this)}>Edit</button>
-            <button onClick={this.handleDelete.bind(this)}>Delete</button></td>
+        <td><button className='editbutton active' onClick={this.onEditClick.bind(this)}>Edit</button>
+            <button onClick={this.handleDelete.bind(this)}>Delete</button>
+            <form onSubmit={this.handleUploadFile.bind(this)}>
+            <input id={'uploadfile-'+this.props.todo.get('id')} name='uploadfile' type='file' size='50'/>
+            <input type="text" name='justtext' value='abibis'/>
+            <button type='submit' value='Upload'>Sir 3allah</button>
+            </form>
+        </td>
         )
   }
+            // <input type="hidden" name='authorizationtoken' value={cookie.load('jwt')}/>
+            // <form action={actions.appbasename+'/api/todo/'+this.props.todo.get('id')+'/fileupload/'} method="POST" encType="multipart/form-data">
+            // <input type="hidden" name='authorizationtoken' value={cookie.load('jwt')}/>
   // <button onClick={this.handleDelete.bind(this)}>Delete todo</button></td>
   // <button onClick={this.props.deleteTask.bind(this, this.props.task)}>Delete</button></td>
   // <button onClick={this.props.actions.deleteTodo(this.props.key)}>Delete</button></td>
   // <button onClick={this.handleDelete.bind(this)}>Delete todo</button>
   render() {
+    // console.log('todos-list-item, todo inspect ' + util.inspect(this.props.todo, false, null))
     return (
-      <tr className="todoslistitem">
+      <tr className='todoslistitem'>
         {this.renderTaskSection()}
         {this.getActions()}
          
@@ -118,7 +130,15 @@ export default class TodosListItem extends React.Component {
     console.log('todos-list-item, please delete todo ' + this.props.todo.get('id'))
     this.props.actions.deleteTodoSrv(this.props.todo)
   }
-
+  handleUploadFile(event){
+    event.preventDefault()
+    console.log('todos-list-item, upload todo file '+'#uploadfile-'+this.props.todo.get('id'))
+    // var fileinput = document.querySelector('input[type="file"]')
+    var fileinput = document.querySelector('#uploadfile-'+this.props.todo.get('id'))
+    // console.log('todos-list-item, upload todo file ' + fileinput.files[0])
+    var todo = this.props.todo.set('mama', 'i m here')
+    this.props.actions.uploadTodoFileDispatcher(todo, this.props.todo, fileinput.files[0])
+  }
   handleToggle() {
     console.log('todos-list-item, toggle todo ' + this.props.todo.get('id'))
     var todo = this.props.todo.set('completed', !this.props.todo.get('completed'))
@@ -131,6 +151,23 @@ export default class TodosListItem extends React.Component {
     })
     console.log('Click Edit' + this.state.isEditing)
   }
+  
+  // onChangeImageClick() {
+  //   console.log('todolistitemjs.Change Image'+this.refs.uploadInput.value)
+  //   event.preventDefault()
+  //   // const oldTask = this.props.task;
+  //   // const newTask = this.refs.uploadInput.value
+  //   // this.props.saveTask(oldTask, newTask);
+  //   // this.setState({
+  //   //   isEditing: false
+  //   // });
+  //   // const todo = this.props.todo.set('task', newTask)
+  //   // this.props.actions.updateTodoDispatcher(todo, this.props.todo)
+  //   // this.setState({
+  //   //   isEditing: false
+  //   // })
+  // }
+  
 
   onCancelClick() {
     this.setState({

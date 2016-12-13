@@ -11,13 +11,13 @@ export default class Logout extends Component {
 
     return (
       <button onClick={() => this.handleClick()} className="btn btn-primary">
-        Logout
+       <span className='glyphicon glyphicon-log-out'></span> Logout
       </button>
     )
   }
 
   handleClick() {
-    this.props.onLogoutClick(this.props.auth.id_token)
+    this.props.onLogoutClick(this.props.auth.get('id_token'))
   }     
 }
 

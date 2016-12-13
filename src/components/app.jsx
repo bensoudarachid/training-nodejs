@@ -51,15 +51,15 @@ const Instagram = () => <h3>Instagram Feed</h3>
 const TwitterFeed = () => <h3>Twitter Feed</h3>
 const NotFound = () => ( <h1>404.. This page is not found!</h1>)
 
-const Nav = () => (
-  <div>
-    <IndexLink activeClassName='active' to='/home'>Home</IndexLink>&nbsp;
-    <Link activeClassName='active' to='/address'>Address</Link>
-    <Link activeClassName='active' to='/todos'>Todos</Link>
-    <Link activeClassName='active' to='/userapp'>Users</Link>
-    <Link activeClassName='active' to='/about'>About</Link>
-  </div>
-)
+// const Nav = () => (
+//   <div>
+//     <IndexLink activeClassName='active' to='/home'>Home</IndexLink>&nbsp;
+//     <Link activeClassName='active' to='/address'>Address</Link>
+//     <Link activeClassName='active' to='/todos'>Todos</Link>
+//     <Link activeClassName='active' to='/userapp'>Users</Link>
+//     <Link activeClassName='active' to='/about'>About</Link>
+//   </div>
+// )
 
 const Container = (props) => <div>
   <Nav />

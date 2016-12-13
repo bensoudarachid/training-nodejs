@@ -12,19 +12,24 @@ import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './redux/reducers'
 import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
+import fs from 'fs'
+import multer from 'multer'
 
 import { Provider } from 'react-redux'
 
 import { bindActionCreators } from 'redux'
 import actions from './redux/actions'
 
+var FormData = require('form-data')
+const util = require('util')
+var compression = require('compression')
 // import { fetchDataOnServer, reducer as fetching } from 'redux-fetch-data';
 
 // var fetch = require('node-fetch');
 
 var bodyParser = require('body-parser') // is used for POST requests
 
-
+const appbasename=actions.appbasename
 
 // var config = require('../webpack.config.js')
 // var webpack = require('webpack')
@@ -35,7 +40,10 @@ const app = express()
 
 var favicon = require('serve-favicon')
 
+var storage = multer.memoryStorage()
+var upload = multer({ storage: storage })
 
+app.use(compression())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
@@ -63,7 +71,73 @@ app.use(favicon('./images/favicon.ico'))
 // app.get('*', (req, res) => {
 //   res.render('index');
 // });
-app.get('/api/*', (req, res) => {
+//const appurl = '/react'
+
+process.on('uncaughtException', function (err) {
+  console.log('serverjs. Process uncatched exception. See if you cant handle it anyhow else'+err)
+})
+
+app.post(appbasename+'/api/*/fileupload/*', upload.single('uploadfile'), function(req, res) {
+  // const dataSend =  JSON.stringify(req.body)
+  // console.log('POST API. data = '+dataSend)
+  //   console.log(req.file)
+  if (!req.file) {
+    return res.status(400).send('No file uploaded.')
+  }
+  console.log('POST API. Uploading file orig name '+req.file.originalname, ', name '+req.file.name)
+
+  // console.log('POST API. req.body.authorizationtoken = '+req.param('authorizationtoken'))//req.body.authorizationtoken)
+  const authtoken=req.body.authorizationtoken!==undefined?'Bearer '+req.body.authorizationtoken:req.headers.authorization
+  // console.log('POST API. data = '+dataSend)
+  // dataSend.file=fs.createReadStream(req.file.path)
+
+  var form = new FormData()
+  // form.append('todoimage', fs.readFileSync(req.file.path), 'todoimage')
+  form.append('uploadfile', req.file.buffer, req.file.originalname)
+  // form.append('todoimage', fs.createReadStream(req.file.path))
+  var headers = form.getHeaders()
+  headers.authorization=authtoken
+  // console.log('POST API. form buffer = '+util.inspect(req.file, false, null))
+
+  var extServerOptionsPost = {
+    host: req.headers.host,
+    port: '8083',
+    path: req.url,
+    method: 'POST',
+    headers:headers
+  }
+  var reqPost = http.request(extServerOptionsPost)
+  form.pipe(reqPost)
+
+  reqPost.on('response', function(res2) {
+    // console.log(res.statusCode)
+    var data = []
+    // console.log('working with chunks. better for images. Response status '+util.inspect(res2, false, null) )
+    res2.on('data', function(chunk) {
+      data.push(chunk)
+    }).on('error', function(e) {
+      console.log('Error uploading '+e)
+    }).on('end', function() {
+      var buffer = Buffer.concat(data)
+      console.log('working with chunks. better for images. Response is '+buffer)
+      res.send({message:'operation successful'})
+      // res.sendStatus(res2.statusCode)
+    })
+  })
+
+  reqPost.on('error', function(e) {
+    console.log('server resource not there! send empty json')
+    console.error(e)
+    res.send({error:'server unavailable',
+      errorDescription:'server is not responding'
+    })
+    // return
+  })
+  // reqPost.write(dataSend)
+  reqPost.end()
+})
+
+app.get(appbasename+'/api/*', (req, res) => {
   console.log('GET API '+req.url)
   // console.log('GET API Auth: '+req.headers.authorization )
   // var employee = JSON.stringify({
@@ -74,7 +148,7 @@ app.get('/api/*', (req, res) => {
   // })
 
   var extServerOptionsPost = {
-    host: '127.0.0.1',
+    host: req.headers.host,
     port: '8083',
     path: req.url,
     method: 'GET',
@@ -86,25 +160,24 @@ app.get('/api/*', (req, res) => {
     // }
   }
 
-  // var data = {};
   var reqPost = http.request(extServerOptionsPost, function(res2) {
-    // console.log("response statusCode: ", res.statusCode);
     res2.on('data', function(data) {
-      // console.log('Server. Got Result data:');
-      // process.stdout.write(data);
       console.log('GET Operation Completed.\n\n')
       res.send(data)
-
     })
-    res2.on('error', function(e) {
-      console.error(e)
-    })
-
   })
+  reqPost.on('error', function(e) {
+    // console.log('server resource not there! send empty json')
+    // console.error(e)
+    res.send({error:'server unavailable',
+      errorDescription:'server is not responding'
+    })
+  })
+
   reqPost.end()
 })
 
-app.post('/api/*', function(req, res) {
+app.post(appbasename+'/api/*', function(req, res) {
   // var param = req.body.param;
   console.log('POST API. '+req.url)
   // console.log('POST API YEAAAAH req.headers '+req.headers)
@@ -113,7 +186,7 @@ app.post('/api/*', function(req, res) {
   // console.log(req.body)
   const dataSend =  JSON.stringify(req.body)
   var extServerOptionsPost = {
-    host: '127.0.0.1',
+    host: req.headers.host,
     port: '8083',
     path: req.url,
     method: 'POST',
@@ -139,11 +212,15 @@ app.post('/api/*', function(req, res) {
       res.send(data)
 
     })
-    res2.on('error', function(e) {
-      console.error(e)
-    })
-
   })
+  reqPost.on('error', function(e) {
+    // console.log('server resource not there! send empty json')
+    // console.error(e)
+    res.send({error:'server unavailable',
+      errorDescription:'server is not responding'
+    })
+  })
+
   reqPost.write(dataSend)
   reqPost.end()
 })
@@ -157,8 +234,9 @@ app.post('/api/*', function(req, res) {
 
 
 
+var errorfile = __dirname + '/images/0.png'
 
-app.get('*', (req, res) => {
+app.get(appbasename+'/*', (req, res) => {
   // routes is our object of React routes defined above
   console.log('');console.log('');console.log('')
   console.log('*********************************************')
@@ -166,7 +244,28 @@ app.get('*', (req, res) => {
   // console.log(routes)
   if( req.url.indexOf('.') !== -1){
     console.log('Send File: ' + __dirname+ req.url)
-    res.status(200).sendFile(__dirname + req.url)    
+    // res.status(200).sendFile(__dirname + req.url)
+    var file = __dirname + req.url
+
+    // res.writeHead(200, {
+    //   'Content-Type': 'text/html'
+    // })
+    fs.readFile(file, function(err, data) {
+      if (err){
+        console.log('Error file not found. Send error File: ' + errorfile)
+        res.status(200).sendFile(errorfile)
+      }else
+      // res.contentLength = stat.size
+        res.end(data, 'binary')
+    })
+
+    // var file = __dirname + req.url
+    // fs.stat(file, function (err, stat) {
+    //   var img = fs.readFileSync(file)
+    //   // res.contentType = 'image/png'
+    //   res.contentLength = stat.size
+    //   res.end(img, 'binary')
+    // })
   }else{
     match({
       routes,
@@ -229,6 +328,7 @@ app.get('*', (req, res) => {
             res.status(200).send(`<!DOCTYPE html>
               <html>
                 <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
                 <link rel="stylesheet" type="text/css" href="style.css" />
                 </head>
                 <body>
@@ -284,7 +384,9 @@ app.get('*', (req, res) => {
 //     }).end();
 // };
 // var port = isProduction ? 3000 : 8081
+
 var port = actions.port
+
 app.listen(port, function(error) {
   if (error)
     throw error

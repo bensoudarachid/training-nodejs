@@ -4,10 +4,14 @@ import TodosFilter from './todos-filter'
 import React, { Component } from 'react'
 import TodosList from './todos-list'
 import cookie from 'react-cookie'
-import _ from 'lodash'
+// import _ from 'lodash'
 import { ThreeBounce } from 'better-react-spinkit'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
+if (process.env.BROWSER) {
+  console.log('Appcomponent. environment is browser')
+  require('./todoapp.scss')
+}
 
 // import Immutable from 'immutable'
 
@@ -32,12 +36,17 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 // import 'node-fetch'
 
 class TodoApp extends Component {
-
   constructor(props) {
     super(props)
     console.log('todo list. Mixin in constructor')
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
+    // const {auth} = this.props
+    if(process.env.BROWSER && !this.props.auth.get('isAuthenticated')){
+      console.log('todoapp start login process')
+      this.props.actions.loginProcessStart('No access rights!')
+    }
   }
+
 // constructor(props) {
   //   super(props)
 
@@ -83,19 +92,19 @@ class TodoApp extends Component {
     }
     // console.log('+++++++++++++++++++++++++Todoapp. environment is browser')
     const {auth} = this.props
-    // console.log("Render todoapp authenticated ? " + auth.isAuthenticated);
+    // console.log('Render todoapp authenticated ? ' + auth.get('isAuthenticated'))
     //  alert("Hi "+test);
     // createTask={this.createTask.bind(this)}
     //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
     // deleteTask={this.deleteTask.bind(this)}
     return (
-      <div>
-      {!auth.isAuthenticated &&
+      <div className='container'>
+      {!auth.get('isAuthenticated') &&
       <div>
         No right access here. Please login
       </div>
       }
-      {auth.isAuthenticated &&
+      {auth.get('isAuthenticated') &&
       <div>
               <h3>To dos. Please proceed now</h3>
               <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions} />
@@ -130,7 +139,7 @@ class TodoApp extends Component {
   //   });
   // }
   componentDidMount() {
-    // console.log('Todos mounted')
+    console.log('todoappjs mounted')
     TodoApp.fetchData(this.props.actions)
   }
   //This is a necessary call when component is fetched on server side

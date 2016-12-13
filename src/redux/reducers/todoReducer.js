@@ -32,14 +32,18 @@ require('isomorphic-fetch')
 //     return Immutable.List([]);
 //   }
 
-let todoReducer = function(todoappmap, action) {
+let todoReducer = function(todoappmap = new Immutable.Map({
+  filterOpen: true,
+  filterClosed: true,
+  todos: Immutable.List([])
+}), action) {
   // let todoReducer = function(todoappmap = new Immutable.Map({}), action) {
   // console.log('Todo reducer. is Map ' + (todoappmap instanceof Immutable.Map) )
   if (!(todoappmap instanceof Immutable.Map)) {
     console.log('Todo reducer. Init Map. Need to find out why it s not a map')
     todoappmap = new Immutable.Map({
-      filterOpen: 'true',
-      filterClosed: 'true',
+      filterOpen: true,
+      filterClosed: true,
       todos: Immutable.List([])
     })
   }
@@ -108,17 +112,15 @@ let todoReducer = function(todoappmap, action) {
     return todoappmap
 
   case 'UPDATE_TODO':
-    console.log('todo reducer. toggle todo : completed? ' + action.todo.get('completed'))
+    console.log('todo reducer. update todo : completed? ' + action.todo.get('completed'))
     index = todos.findIndex(function(item) {
       return item.get('id') === action.todo.get('id')
     })
     todoappmap = todoappmap.set('todos', todos.set(index, action.todo))
     return todoappmap
-    // return todos.map((todo) => {
-    //   return todo.get('id') === action.id ? 
-    //     todo.set('completed',!todo.get('completed'))
-    //   : todo
-    // })
+  case 'UPDATE_TODO_FILE':
+    console.log('todo reducer. Upload file')
+    return todoappmap
   case 'DELETE_TODO':
     todoappmap = todoappmap.set('todos', todos.filter((todo) => {
       return todo.get('id') !== action.id
@@ -136,7 +138,7 @@ let todoReducer = function(todoappmap, action) {
       //   id: -1,
       //   task: 'ok'
       // })))
-    console.log('todo reducer. todoappmap.filterOpen' + todoappmap.filterOpen)
+    // console.log('todo reducer. todoappmap.filterOpen' + todoappmap.filterOpen)
     return todoappmap
   case 'FILTER_TODOS_CLOSED':
       // todoappmap.todos = todos.map((todo) => {

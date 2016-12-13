@@ -12,32 +12,65 @@ import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './redux/reducers'
 import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
+import fs from 'fs'
+import multer from 'multer'
 
 import { Provider } from 'react-redux'
 
 import { bindActionCreators } from 'redux'
 import actions from './redux/actions'
 
+var FormData = require('form-data')
+const util = require('util')
+var compression = require('compression')
 // import { fetchDataOnServer, reducer as fetching } from 'redux-fetch-data';
 
 // var fetch = require('node-fetch');
 
 var bodyParser = require('body-parser') // is used for POST requests
 
-
+const appbasename=actions.appbasename
 
 var config = require('../webpack.config.js')
 var webpack = require('webpack')
 
 const app = express()
 
+
+
 var favicon = require('serve-favicon')
 
+// var storage = multer.diskStorage({
+//   destination: function (request, file, callback) {
+//     console.log('storage path: '+__dirname+'./uploads')
+//     callback(null, './uploads')
+//   },
+//   filename: function (request, file, callback) {
+//     console.log('storage file: '+file)
+//     console.log(file)
+//     callback(null, file.fieldname + '-' + Date.now())
+//   }
+// })
+// var upload = multer({ storage : storage}).single('todoimage')
+var storage = multer.memoryStorage()
+var upload = multer({ storage: storage })
 
+// var upload = multer({ dest: './uploads' })
+// var upload = multer({ dest: 'C:/RPLOGS/FilesToParse/',
+//     rename: function (fieldname, filename) {
+//       return filename+'_'+Date.now()
+//     },
+//     onFileUploadStart: function (file) {
+//       console.log(file.originalname + ' is starting ...')
+//     },
+//     onFileUploadComplete: function (file) {
+//       console.log(file.fieldname + ' uploaded to  ' + file.path)
+//       done=true
+//     }
+// }).single('todoimage')
+app.use(compression())
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({
-  extended: true
-}))
+app.use(bodyParser.urlencoded({extended: true}))
 
 var compiler = webpack(config)
 var webpackDevMiddleware = require('webpack-dev-middleware')
@@ -48,18 +81,75 @@ app.use(webpackDevMiddleware(compiler, {
 }))
 app.use(webpackHotMiddleware(compiler))
 
-
-
 app.use(favicon('./images/favicon.ico'))
+//important to prevent server from crashing. But it s not recommended. 
+process.on('uncaughtException', function (err) {
+  console.log('serverjs. Process uncatched exception. See if you cant handle it anyhow else'+err)
+})
 
-// app.use(express.static('./public'));
 
-// app.set('view engine', 'ejs');
+app.post(appbasename+'/api/*/fileupload/*', upload.single('uploadfile'), function(req, res) {
+  // const dataSend =  JSON.stringify(req.body)
+  // console.log('POST API. data = '+dataSend)
+  //   console.log(req.file)
+  if (!req.file) {
+    return res.status(400).send('No file uploaded.')
+  }
+  console.log('POST API. Uploading file orig name '+req.file.originalname, ', name '+req.file.name)
 
-// app.get('*', (req, res) => {
-//   res.render('index');
-// });
-app.get('/api/*', (req, res) => {
+  // console.log('POST API. req.body.authorizationtoken = '+req.param('authorizationtoken'))//req.body.authorizationtoken)
+  const authtoken=req.body.authorizationtoken!==undefined?'Bearer '+req.body.authorizationtoken:req.headers.authorization
+  // console.log('POST API. data = '+dataSend)
+  // dataSend.file=fs.createReadStream(req.file.path)
+
+  var form = new FormData()
+  // form.append('todoimage', fs.readFileSync(req.file.path), 'todoimage')
+  form.append('uploadfile', req.file.buffer, req.file.originalname)
+  // form.append('todoimage', fs.createReadStream(req.file.path))
+  var headers = form.getHeaders()
+  headers.authorization=authtoken
+  // console.log('POST API. form buffer = '+util.inspect(req.file, false, null))
+
+  var extServerOptionsPost = {
+    host: req.headers.host,
+    port: '8083',
+    path: req.url,
+    method: 'POST',
+    headers:headers
+  }
+  var reqPost = http.request(extServerOptionsPost)
+  form.pipe(reqPost)
+
+  reqPost.on('response', function(res2) {
+    // console.log(res.statusCode)
+    var data = []
+    // console.log('working with chunks. better for images. Response status '+util.inspect(res2, false, null) )
+    res2.on('data', function(chunk) {
+      data.push(chunk)
+    }).on('error', function(e) {
+      console.log('Error uploading '+e)
+    }).on('end', function() {
+      var buffer = Buffer.concat(data)
+      console.log('working with chunks. better for images. Response is '+buffer)
+      res.send({message:'operation successful'})
+      // res.sendStatus(res2.statusCode)
+    })
+  })
+
+  reqPost.on('error', function(e) {
+    console.log('server resource not there! send empty json')
+    console.error(e)
+    res.send({error:'server unavailable',
+      errorDescription:'server is not responding'
+    })
+    // return
+  })
+  // reqPost.write(dataSend)
+  reqPost.end()
+})
+
+
+app.get(appbasename+'/api/*', (req, res) => {
   console.log('GET API '+req.url)
   // console.log('GET API Auth: '+req.headers.authorization )
   // var employee = JSON.stringify({
@@ -70,7 +160,7 @@ app.get('/api/*', (req, res) => {
   // })
 
   var extServerOptionsPost = {
-    host: '127.0.0.1',
+    host: req.headers.host,
     port: '8083',
     path: req.url,
     method: 'GET',
@@ -81,35 +171,85 @@ app.get('/api/*', (req, res) => {
     //   'Authorization': req.headers.authorization
     // }
   }
-
-  // var data = {};
+  
   var reqPost = http.request(extServerOptionsPost, function(res2) {
-    // console.log("response statusCode: ", res.statusCode);
-    res2.on('data', function(data) {
-      // console.log('Server. Got Result data:');
-      // process.stdout.write(data);
-      console.log('GET Operation Completed.\n\n')
-      res.send(data)
-
+    
+    // res2.on('data', function(data) {
+    //   console.log('GET Operation Completed.'+req.url+'\n\n')
+    //   // res.send(data)
+    //   // res.send({error:'server unavailable',
+    //   //   errorDescription:'server is not responding'
+    //   // })
+    //   if( dt === ''){
+    //   console.log(data)
+    //     dt=data
+    //     res.send(data)
+    //   }
+    // })
+    var data = []
+    res2.on('data', function(chunk) {
+      data.push(chunk)
+    }).on('end', function() {
+      //at this point data is an array of Buffers
+      //so Buffer.concat() can make us a new Buffer
+      //of all of them together
+      var buffer = Buffer.concat(data)
+      // console.log(buffer.toString('base64'))
+      res.send(buffer)
     })
-    res2.on('error', function(e) {
-      console.error(e)
-    })
+  
 
   })
+  
+  reqPost.on('error', function(e) {
+    console.log('server resource not there!')
+    console.error(e)
+    res.send({error:'server unavailable',
+      errorDescription:'server is not responding'
+    })
+  })
   reqPost.end()
-})
+  // var reqPost = http.request(extServerOptionsPost)
+  // reqPost.pipe(res)
 
-app.post('/api/*', function(req, res) {
-  // var param = req.body.param;
+  // var reqPost = http.request(extServerOptionsPost, function(res2) {
+  //   res2.on('data', function(data) {
+  //     console.log('GET Operation Completed.\n\n')
+  //     res2.pipe(res)
+  //   })
+  // })
+  // var reply = http.request(extServerOptionsPost)
+  // req.pipe(reply)
+  // reply.pipe(res)
+  // reply.end()
+})
+//upload.single('todoimage')
+
+app.post(appbasename+'/api/*', function(req, res) {
   console.log('POST API. '+req.url)
+  console.log('POST API. '+req.headers.host)
+  // var param = req.body.param;
+  // var subdomains = req.headers.host
+  // var parts = subdomains.split('.')
+  // for (var i = 0; i< parts.length; i++)
+  //   console.log('subdomain '+i+' = '+ parts[i])
+  // console.log('subdomain looking for is '+ parts[parts.length-3])
+  // console.log('POST API. '+req.url+', subdomains: '+ util.inspect(subdomains, false, null))
   // console.log('POST API YEAAAAH req.headers '+req.headers)
   // console.log(req.headers)
   // console.log('POST API YEAAAAH req.body '+req.body)
   // console.log(req.body)
-  const dataSend =  JSON.stringify(req.body)
+  
+  // req.body['subdomain'] = parts[parts.length-3]
+  var dataSend =  JSON.stringify(req.body)
+  // console.log('POST API. req.body.authorizationtoken = '+req.param('authorizationtoken'))//req.body.authorizationtoken)
+  const authtoken=req.body.authorizationtoken!==undefined?'Bearer '+req.body.authorizationtoken:req.headers.authorization
+  console.log('POST API. data = '+dataSend)
+  // dataSend.subdmain = parts[parts.length-3]
+  // console.log('POST API. data = '+dataSend)
+  // console.log('POST API. files = '+req.files)
   var extServerOptionsPost = {
-    host: '127.0.0.1',
+    host: req.headers.host,
     port: '8083',
     path: req.url,
     method: 'POST',
@@ -117,7 +257,7 @@ app.post('/api/*', function(req, res) {
         // 'Content-Type': 'application/x-www-form-urlencoded',
       'Content-Length': Buffer.byteLength(dataSend),
       'Content-Type': 'application/json',
-      authorization: req.headers.authorization
+      authorization: authtoken
     }    // body: req.body
     // {
     //   'Content-Type': 'application/json',
@@ -128,18 +268,34 @@ app.post('/api/*', function(req, res) {
   // var data = {}
   var reqPost = http.request(extServerOptionsPost, function(res2) {
     // console.log("response statusCode: ", res.statusCode)
-    res2.on('data', function(data) {
-      // console.log('Server. Got Result data:\n')
-      // process.stdout.write(data);
-      console.log('POST Operation Completed.\n\n')
-      res.send(data)
+    // res2.on('data', function(data) {
+    //   // console.log('Server. Got Result data:\n')
+    //   // process.stdout.write(data);
+    //   console.log('POST Operation Completed.\n\n')
+    //   res.send(data)
 
-    })
-    res2.on('error', function(e) {
-      console.error(e)
+    // })
+    var data = []
+    res2.on('data', function(chunk) {
+      data.push(chunk)
+    }).on('end', function() {
+      //at this point data is an array of Buffers
+      //so Buffer.concat() can make us a new Buffer
+      //of all of them together
+      var buffer = Buffer.concat(data)
+      console.log('working with chunks. better for images')
+      res.send(buffer)
     })
 
   })
+  reqPost.on('error', function(e) {
+    // console.log('server resource not there! send empty json')
+    // console.error(e)
+    res.send({error:'server unavailable',
+      errorDescription:'server is not responding'
+    })
+  })
+
   reqPost.write(dataSend)
   reqPost.end()
 })
@@ -162,16 +318,42 @@ app.post('/api/*', function(req, res) {
 
 
 
+var errorfile = __dirname + '/images/0.png'
 
-app.get('*', (req, res) => {
+app.get(appbasename+'/*', (req, res) => {
   // routes is our object of React routes defined above
   console.log('');console.log('');console.log('')
   console.log('*********************************************')
   console.log('Get request now just came: ' + req.url)
   // console.log(routes)
+  // if( req.url.indexOf('.') !== -1){
+  //   console.log('Send File: ' + __dirname+ req.url)
+  //   res.status(200).sendFile(__dirname + req.url)    
+  // }
   if( req.url.indexOf('.') !== -1){
     console.log('Send File: ' + __dirname+ req.url)
-    res.status(200).sendFile(__dirname + req.url)    
+    // res.status(200).sendFile(__dirname + req.url)
+    var file = __dirname + req.url
+
+    // res.writeHead(200, {
+    //   'Content-Type': 'text/html'
+    // })
+    fs.readFile(file, function(err, data) {
+      if (err){
+        console.log('Error file not found. Send error File: ' + errorfile)
+        res.status(200).sendFile(errorfile)
+      }else
+      // res.contentLength = stat.size
+        res.end(data, 'binary')
+    })
+
+    // var file = __dirname + req.url
+    // fs.stat(file, function (err, stat) {
+    //   var img = fs.readFileSync(file)
+    //   // res.contentType = 'image/png'
+    //   res.contentLength = stat.size
+    //   res.end(img, 'binary')
+    // })
   }else{
     match({
       routes,
@@ -230,17 +412,19 @@ app.get('*', (req, res) => {
               </Provider>
           )
           // console.log('Server. body '+body);
+                  // <div id="devmarker" style="position:fixed;height:4px;width:263px;background-color:#fff;top:165px;left:50%;"></div>
+
             const state = store.getState()
             res.status(200).send(`<!DOCTYPE html>
               <html>
                 <head>
-                <link rel="stylesheet" type="text/css" href="style.css" />
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+                <link rel="stylesheet" type="text/css" href="/style.css" />
                 </head>
                 <body>
-                  <div id="devmarker" style="position:fixed;height:12px;width:263px;background-color:#fefefe;top:150px;left:50%;"></div>
                   <div id="root">${body}</div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
-                  <script src="bundle.js"></script>
+                  <script src="/bundle.js"></script>
                 </body>
               </html>`)
           }).catch(err => console.log('Booooo' + err))

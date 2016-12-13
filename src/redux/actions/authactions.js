@@ -4,9 +4,10 @@
 // export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 import { browserHistory } from 'react-router'
 import { getIsFetching } from '../reducers'
-import Immutable from 'immutable'
 import cookie from 'react-cookie'
 import actions from '../actions'
+
+
 
 let authactions = {
   requestLogin: function(creds) {
@@ -62,25 +63,39 @@ let authactions = {
   logoutUser: function() {
     console.log('actions logout user ')
     //&scope=read%20write
-    var id_token = cookie.load('jwt')
+    1
 
     return dispatch => {
       dispatch(authactions.requestLogout())
-      actions.logoutService(id_token)
+      actions.logoutService(cookie.load('jwt'))
         .then(response => {
           if (!response.ok) {
             console.log('actions request logout not ok')
             return Promise.reject()
           } else {
             dispatch(authactions.receiveLogout())
-            browserHistory.push('/')
+            window.routerHistory.push('/')
+            // browserHistory.push(actions.appbasename+'/')
           }
-        }).catch(err => console.log('Error: ', err))
+        }).catch(err => {
+          console.log('authactionsjs. Unhandled Login Error: ', err)
+        })
     }
   },
-
+  loginProcessStart: function(message) {
+    return {
+      type: 'LOGIN_PROCESS_START',
+      message
+    }
+  },
+  loginProcessEnd: function() {
+    console.log('authactionsjs close modal')
+    return {
+      type: 'LOGIN_PROCESS_END'
+    }
+  },
   loginUser: function(creds) {
-    console.log('actions login user ' + creds.username + ' .pass ' + creds.password)
+    // console.log('actions login user ' + creds.username + ' .pass ' + creds.password)
     return dispatch => {
       // We dispatch requestLogin to kickoff the call to the API
       // console.log('actions request login ')
@@ -89,9 +104,9 @@ let authactions = {
       actions.loginUserService(creds)
         .then(({user, response}) => {
           if (!response.ok) {
-            console.log('authactions. login not ok')
-            console.log(user)
-            console.log(response)
+            // console.log('authactions. login not ok')
+            // console.log(user)
+            // console.log(response)
             // If there was a problem, we want to
             // dispatch the error condition
             dispatch(authactions.loginError(user.error_description))
@@ -102,9 +117,23 @@ let authactions = {
             // localStorage.setItem('access_token', user.id_token)
             // Dispatch the success action
             dispatch(authactions.receiveLogin(user))
-            browserHistory.push('/')
+            var currentRouteName = window.location.pathname.replace('/reactor','')
+            // console.log('authactionsjs push this' + currentRouteName)
+            // console.log('authactionsjs push this' + currentRouteName.length)// const appbasename = '/reactor'
+            // const url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+'/reactor'
+            // console.log('authactionsjs push this' + url)
+            // console.log('authactionsjs push this' + url.length)
+            // var currentRoute = currentRouteName.replace(url,'')
+            // console.log('authactionsjs push this' + currentRoute)
+            // cannot find a reload action below
+            window.routerHistory.push('/')
+            window.routerHistory.push(currentRouteName)
+            // window.location.reload()
           }
-        }).catch(err => console.log('Error: ', err))
+        }).catch(err => {
+          console.log('authactionsjs. Unhandled Login Error: ', err.error_description)
+          dispatch(authactions.loginProcessStart(err.error_description))
+        })
     }
   },
   disconnect: function(dispatch,status, data) {
@@ -113,7 +142,8 @@ let authactions = {
       return true
     }
     return false
-  }
+  },
+
 
 }
 

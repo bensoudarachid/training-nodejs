@@ -1,0 +1,124 @@
+@import '../styles/animate.css';
+
+// @import "../../node_modules/materialize-css/sass/components/mixins";
+// @import "../../node_modules/materialize-css/sass/components/color";
+
+// Variables;
+// @import "../../node_modules/materialize-css/sass/components/variables";
+
+// Reset
+// @import "../../node_modules/materialize-css/sass/components/normalize";
+
+// components
+// @import "../../node_modules/materialize-css/sass/components/global";
+// @import "materialize-css/sass/components/icons-material-design";
+// @import "materialize-css/sass/components/grid";
+// @import "materialize-css/sass/components/navbar";
+// @import "materialize-css/sass/components/roboto";
+// @import "materialize-css/sass/components/typography";
+// @import "materialize-css/sass/components/cards";
+// @import "materialize-css/sass/components/toast";
+// @import "materialize-css/sass/components/tabs";
+// @import "materialize-css/sass/components/tooltip";
+// @import "../../node_modules/materialize-css/sass/components/buttons";
+// @import "../../node_modules/materialize-css/sass/components/waves";
+// @import "../../node_modules/materialize-css/sass/materialize";
+//@import '../../node_modules/materialize-css/sass/components/_buttons.scss';
+//@import '../../node_modules/materialize-css/sass/components/_waves.scss';
+
+$orangedark:#F07818;
+$orangelight:#F0A830;
+$reddark:#E91818;
+$beige:#FCEBB6;
+$redlight:#E36937;
+$bluelight:#91CED7;
+$bluedark:#0F6177;
+$braun:#9E5428;
+$greendark:#27AE60;
+$green:#799412;
+$blacklight:#091414;
+
+$roya-blue: rgba(140,200,233,1.0);
+$roya-blue: #6f9;
+$roya-blue: #FF3333;
+$roya-blue: #69F;
+$roya-blue: #96F;
+$roya-blue: #F96;
+$roya-blue:#91CED7;
+$roya-blue:#81BED7;
+
+$roya-blue:#69F;
+$backgroundimg:'../images/RoyaLearning9.png';
+
+
+body{
+  background-color: rgba( $beige, .99 );//rgba(210,210,210,0.1);
+  background: url($backgroundimg) no-repeat center center fixed;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  // *:after {
+  //   content: "";
+  // background: url($backgroundimg) no-repeat center center fixed;
+  // -webkit-background-size:cover;
+  // -moz-background-size:cover;
+  // -o-background-size:cover;
+  // background-size:cover;
+  //   opacity: 0.1;
+  //   top: 0;
+  //   left: 0;
+  //   bottom: 0;
+  //   right: 0;
+  //   position: absolute;
+  //   z-index: -1;   
+  // }
+  *:focus {
+    outline: none;
+  }
+}
+//bootstrap styling apply 5px whitch is a problem with mdl
+label{
+	margin-bottom: 0px;
+}
+
+
+@font-face {
+  // src: url('../styles/RBNo2Light.otf') format("truetype");
+  // src: url('../styles/RBNo2Light_a.otf') format("truetype");
+  // src: url('../styles/Ailerons-Typeface.otf') format("truetype");
+  // src: url('../styles/Arkhip_font.otf') format("truetype");
+  // src: url('../styles/Azedo-Bold.otf') format("truetype");
+  // src: url('../styles/Azedo-Light.otf') format("truetype");
+  // src: url('../styles/Kankin.otf') format("truetype");
+  // src: url('../styles/LockSmith_reg.otf') format("truetype");
+  font-family: 'Dancing Script';
+  src: url('../styles/neuropolitical rg.ttf') format("truetype");
+  src: url('../styles/Arkhip_font.ttf') format("truetype");
+  // src: url('../styles/Kankin.ttf') format("truetype");
+  // src: url('../styles/Oranienbaum.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'Roboto Regular';
+  src: url('../styles/Roboto-Regular.ttf') format("truetype");
+}
+
+// @media (max-width: 768px) {
+//   .btn-responsive {
+//     padding:2px 4px;
+//     font-size:80%;
+//     line-height: 1;
+//     border-radius:3px;
+//   }
+// }
+
+// #3F3F3F
+
+@mixin transitionAll($duration) {
+    -webkit-transition: all $duration ease-out;
+    -moz-transition: all $duration ease-out;
+    -ms-transition: all $duration ease-out;
+    -o-transition: all $duration ease-out;
+    transition: all $duration ease-out;
+}

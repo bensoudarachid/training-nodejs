@@ -37,12 +37,14 @@ export default class TodosList extends React.Component {
   render() {
     // console.log("Hi there from List. Props: "+this.props);
     return (
+      <div>
       <table>
         <TodosListHeader/>
         <tbody>
             {this.renderItems()}
         </tbody>
       </table>
+      </div>
     )
   }
 }
