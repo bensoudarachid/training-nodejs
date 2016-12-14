@@ -385,7 +385,7 @@ app.get(appbasename+'/*', (req, res) => {
 // };
 // var port = isProduction ? 3000 : 8081
 
-var port = actions.port
+var port = (process.env.PORT || actions.port)
 
 app.listen(port, function(error) {
   if (error)
