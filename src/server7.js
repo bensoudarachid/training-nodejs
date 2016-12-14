@@ -82,10 +82,20 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler))
 
 app.use(favicon('./images/favicon.ico'))
+
+console.log('dirname = '+__dirname )
+app.use(express.static(__dirname ))
+
 //important to prevent server from crashing. But it s not recommended. 
 process.on('uncaughtException', function (err) {
   console.log('serverjs. Process uncatched exception. See if you cant handle it anyhow else'+err)
 })
+
+
+
+
+
+
 
 
 app.post(appbasename+'/api/*/fileupload/*', upload.single('uploadfile'), function(req, res) {
@@ -149,8 +159,16 @@ app.post(appbasename+'/api/*/fileupload/*', upload.single('uploadfile'), functio
 })
 
 
+
+
+
+
+
+
 app.get(appbasename+'/api/*', (req, res) => {
   console.log('GET API '+req.url)
+  console.log('GET API. '+req.headers.host)
+  const myhost = 'abbaslearning.royasoftware.com'
   // console.log('GET API Auth: '+req.headers.authorization )
   // var employee = JSON.stringify({
   //   'EmpName': 'VB',
@@ -160,7 +178,7 @@ app.get(appbasename+'/api/*', (req, res) => {
   // })
 
   var extServerOptionsPost = {
-    host: req.headers.host,
+    host: myhost,
     port: '8083',
     path: req.url,
     method: 'GET',
@@ -208,6 +226,7 @@ app.get(appbasename+'/api/*', (req, res) => {
       errorDescription:'server is not responding'
     })
   })
+
   reqPost.end()
   // var reqPost = http.request(extServerOptionsPost)
   // reqPost.pipe(res)
@@ -225,9 +244,19 @@ app.get(appbasename+'/api/*', (req, res) => {
 })
 //upload.single('todoimage')
 
+
+
+
+
+
+
+
+
+
 app.post(appbasename+'/api/*', function(req, res) {
   console.log('POST API. '+req.url)
   console.log('POST API. '+req.headers.host)
+  const myhost = 'abbaslearning.royasoftware.com'
   // var param = req.body.param;
   // var subdomains = req.headers.host
   // var parts = subdomains.split('.')
@@ -249,7 +278,7 @@ app.post(appbasename+'/api/*', function(req, res) {
   // console.log('POST API. data = '+dataSend)
   // console.log('POST API. files = '+req.files)
   var extServerOptionsPost = {
-    host: req.headers.host,
+    host: myhost,
     port: '8083',
     path: req.url,
     method: 'POST',
