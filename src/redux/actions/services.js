@@ -22,7 +22,7 @@ const appbasename = ''
 if( isBrowser ){
   url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+appbasename
   // authurl= window.location.protocol+'//'+window.location.hostname+':8083'
-  authurl= window.location.protocol+'//'+'abbaslearning.royasoftware.com'+':8083'
+  authurl= 'http:'+'//'+'abbaslearning.royasoftware.com'+':8083'
 }else{
   url = 'http:'+'//'+'127.0.0.1'+(port ? ':'+port: '')+appbasename
   authurl= 'http:'+'//'+'127.0.0.1'+':8083'
