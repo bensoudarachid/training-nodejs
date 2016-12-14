@@ -1,5 +1,5 @@
 # project folders and files
-bundle.js
+# bundle.js we let it in because of heroku
 *.au3
 node_modules
 old
