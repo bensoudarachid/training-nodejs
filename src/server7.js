@@ -473,7 +473,7 @@ app.get(appbasename+'/*', (req, res) => {
  
 //     }).end();
 // };
-var port = (System.getenv('PORT') || actions.port)
+var port = (process.env.PORT || actions.port)
 app.listen(port, function(error) {
   if (error)
     throw error

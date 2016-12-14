@@ -484,7 +484,7 @@ app.get(appbasename + '/*', function (req, res) {
 
 //     }).end();
 // };
-var port = System.getenv('PORT') || _actions2.default.port;
+var port = process.env.PORT || _actions2.default.port;
 app.listen(port, function (error) {
   if (error) throw error;
   console.log('Express server listening on port', port);
