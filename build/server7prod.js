@@ -174,6 +174,7 @@ app.get(appbasename + '/api/*', function (req, res) {
   console.log('GET API ' + req.url);
   console.log('GET API. ' + req.headers.host);
   var myhost = 'abbaslearning.royasoftware.com';
+  console.log('GET API. Call alternative' + myhost);
   // console.log('GET API Auth: '+req.headers.authorization )
   // var employee = JSON.stringify({
   //   'EmpName': 'VB',
@@ -215,8 +216,9 @@ app.get(appbasename + '/api/*', function (req, res) {
 app.post(appbasename + '/api/*', function (req, res) {
   // var param = req.body.param;
   console.log('POST API. ' + req.url);
-  console.log('GET API. ' + req.headers.host);
+  console.log('POST API. ' + req.headers.host);
   var myhost = 'abbaslearning.royasoftware.com';
+  console.log('POST API. Call alternative' + myhost);
   // console.log('POST API YEAAAAH req.headers '+req.headers)
   // console.log(req.headers)
   // console.log('POST API YEAAAAH req.body '+req.body)
