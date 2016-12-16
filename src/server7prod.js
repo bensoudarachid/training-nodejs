@@ -337,17 +337,20 @@ app.get(appbasename+'/*', (req, res) => {
               <html>
                 <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-                <link rel="stylesheet" type="text/css" href="style.css" />
+                <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />
                 </head>
                 <body>
                   <div id="root">${body}</div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
-                  <script src="bundle.js"></script>
+                  <script src="http://rlearn.herokuapp.com/bundle.js"></script>
                 </body>
               </html>`)
           }).catch(err => console.log('Booooo' + err))
         })
-
+   // <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />
+   // <script src="http://rlearn.herokuapp.com/bundle.js"></script>
+//              <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />
+//              <script src="http://rlearn.herokuapp.com/bundle.js"></script>
       // const state = store.getState()
       // console.log('Server. Render now = ' + JSON.stringify(state))
       // const body = renderToString(

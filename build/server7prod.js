@@ -364,12 +364,15 @@ app.get(appbasename + '/*', function (req, res) {
               ));
               // console.log('Server. body '+body);
               var state = store.getState();
-              res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="style.css" />\n                </head>\n                <body>\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="bundle.js"></script>\n                </body>\n              </html>');
+              res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />\n                </head>\n                <body>\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="http://rlearn.herokuapp.com/bundle.js"></script>\n                </body>\n              </html>');
             }).catch(function (err) {
               return console.log('Booooo' + err);
             });
           });
-
+          // <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />
+          // <script src="http://rlearn.herokuapp.com/bundle.js"></script>
+          //              <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />
+          //              <script src="http://rlearn.herokuapp.com/bundle.js"></script>
           // const state = store.getState()
           // console.log('Server. Render now = ' + JSON.stringify(state))
           // const body = renderToString(
