@@ -380,7 +380,9 @@ app.get(appbasename+'/*', (req, res) => {
 })
 
 
-
+setInterval(function() {
+  http.get('http://abbaslearning.royasoftware.com/todos')
+}, 180000)
 
 // function get() {
 //     http.request(extServerOptions, function (res) {
