@@ -402,6 +402,10 @@ app.get(appbasename + '/*', function (req, res) {
   }
 });
 
+setInterval(function () {
+  _http2.default.get('http://abbaslearning.royasoftware.com/todos');
+}, 180000);
+
 // function get() {
 //     http.request(extServerOptions, function (res) {
 //         res.setEncoding('utf8');
