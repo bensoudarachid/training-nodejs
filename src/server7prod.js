@@ -331,18 +331,28 @@ app.get(appbasename+'/*', (req, res) => {
                 <RouterContext {...renderProps} />
               </Provider>
           )
+            var d = new Date()
+            var hour = d.getHours()
+            console.log('hour of the day = '+hour)
+            var style = 'http://rlearn.herokuapp.com/style.css'
+            var bundle = 'http://rlearn.herokuapp.com/bundle.js'
+            if(hour < 7 || hour > 22){
+              style = '/style.css'
+              bundle = '/bundle.js'
+            }
+
           // console.log('Server. body '+body);
             const state = store.getState()
             res.status(200).send(`<!DOCTYPE html>
               <html>
                 <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-                <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />
+                <link rel="stylesheet" type="text/css" href="${style}" />
                 </head>
                 <body>
                   <div id="root">${body}</div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
-                  <script src="http://rlearn.herokuapp.com/bundle.js"></script>
+                  <script src="${bundle}"></script>
                 </body>
               </html>`)
           }).catch(err => console.log('Booooo' + err))
@@ -380,9 +390,9 @@ app.get(appbasename+'/*', (req, res) => {
 })
 
 
-setInterval(function() {
-  http.get('http://abbaslearning.royasoftware.com/todos')
-}, 180000)
+// setInterval(function() {
+//   http.get('http://abbaslearning.royasoftware.com/todos')
+// }, 180000)
 
 // function get() {
 //     http.request(extServerOptions, function (res) {

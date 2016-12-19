@@ -362,9 +362,19 @@ app.get(appbasename + '/*', function (req, res) {
                 { store: store },
                 _react2.default.createElement(_reactRouter.RouterContext, renderProps)
               ));
+              var d = new Date();
+              var hour = d.getHours();
+              console.log('hour of the day = ' + hour);
+              var style = 'http://rlearn.herokuapp.com/style.css';
+              var bundle = 'http://rlearn.herokuapp.com/bundle.js';
+              if (hour < 7 || hour > 22) {
+                style = '/style.css';
+                bundle = '/bundle.js';
+              }
+
               // console.log('Server. body '+body);
               var state = store.getState();
-              res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />\n                </head>\n                <body>\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="http://rlearn.herokuapp.com/bundle.js"></script>\n                </body>\n              </html>');
+              res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="' + style + '" />\n                </head>\n                <body>\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="' + bundle + '"></script>\n                </body>\n              </html>');
             }).catch(function (err) {
               return console.log('Booooo' + err);
             });
@@ -402,9 +412,9 @@ app.get(appbasename + '/*', function (req, res) {
   }
 });
 
-setInterval(function () {
-  _http2.default.get('http://abbaslearning.royasoftware.com/todos');
-}, 180000);
+// setInterval(function() {
+//   http.get('http://abbaslearning.royasoftware.com/todos')
+// }, 180000)
 
 // function get() {
 //     http.request(extServerOptions, function (res) {

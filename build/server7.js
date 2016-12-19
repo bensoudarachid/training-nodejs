@@ -119,7 +119,8 @@ app.use(webpackHotMiddleware(compiler));
 app.use(favicon('./images/favicon.ico'));
 
 console.log('dirname = ' + __dirname);
-app.use(_express2.default.static(__dirname));
+// app.use(express.static(__dirname ))
+
 
 //important to prevent server from crashing. But it s not recommended. 
 process.on('uncaughtException', function (err) {
@@ -359,21 +360,29 @@ app.get(appbasename + '/*', function (req, res) {
     // res.writeHead(200, {
     //   'Content-Type': 'text/html'
     // })
-    _fs2.default.readFile(file, function (err, data) {
-      if (err) {
-        console.log('Error file not found. Send error File: ' + errorfile);
-        res.status(200).sendFile(errorfile);
-      } else
-        // res.contentLength = stat.size
-        res.end(data, 'binary');
-    });
+    var timeout = 0;
+    if (req.url.endsWith('.png')) {
+      timeout = 4000;
+    }
+    console.log('Timeout for ' + req.url + ' is ' + timeout);
+    setTimeout(function () {
+      _fs2.default.readFile(file, function (err, data) {
+        if (err) {
+          console.log('Error file not found. Send error File: ' + errorfile);
+          res.status(200).sendFile(errorfile);
+        } else
+          // res.contentLength = stat.size
+          res.end(data, 'binary');
+      });
+    }, timeout);
 
-    // var file = __dirname + req.url
-    // fs.stat(file, function (err, stat) {
-    //   var img = fs.readFileSync(file)
-    //   // res.contentType = 'image/png'
-    //   res.contentLength = stat.size
-    //   res.end(img, 'binary')
+    // fs.readFile(file, function(err, data) {
+    //   if (err){
+    //     console.log('Error file not found. Send error File: ' + errorfile)
+    //     res.status(200).sendFile(errorfile)
+    //   }else
+    //   // res.contentLength = stat.size
+    //     res.end(data, 'binary')
     // })
   } else {
     (0, _reactRouter.match)({
@@ -442,6 +451,7 @@ app.get(appbasename + '/*', function (req, res) {
                 { store: store },
                 _react2.default.createElement(_reactRouter.RouterContext, renderProps)
               ));
+
               // console.log('Server. body '+body);
               // <div id="devmarker" style="position:fixed;height:4px;width:263px;background-color:#fff;top:165px;left:50%;"></div>
 
@@ -480,6 +490,9 @@ app.get(appbasename + '/*', function (req, res) {
     });
   }
 });
+
+//testing image download delays above. this should be on top in production
+app.use(_express2.default.static('.'));
 
 setInterval(function () {
   _http2.default.get('http://abbaslearn.royasoftware.com/todos');

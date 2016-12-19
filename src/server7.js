@@ -84,7 +84,8 @@ app.use(webpackHotMiddleware(compiler))
 app.use(favicon('./images/favicon.ico'))
 
 console.log('dirname = '+__dirname )
-app.use(express.static(__dirname ))
+// app.use(express.static(__dirname ))
+
 
 //important to prevent server from crashing. But it s not recommended. 
 process.on('uncaughtException', function (err) {
@@ -367,21 +368,29 @@ app.get(appbasename+'/*', (req, res) => {
     // res.writeHead(200, {
     //   'Content-Type': 'text/html'
     // })
-    fs.readFile(file, function(err, data) {
-      if (err){
-        console.log('Error file not found. Send error File: ' + errorfile)
-        res.status(200).sendFile(errorfile)
-      }else
-      // res.contentLength = stat.size
-        res.end(data, 'binary')
-    })
+    var timeout = 0
+    if( req.url.endsWith('.png') ){
+      timeout = 4000
+    }
+    console.log('Timeout for '+req.url+' is '+timeout)
+    setTimeout(function() {
+      fs.readFile(file, function(err, data) {
+        if (err){
+          console.log('Error file not found. Send error File: ' + errorfile)
+          res.status(200).sendFile(errorfile)
+        }else
+        // res.contentLength = stat.size
+          res.end(data, 'binary')
+      })
+    }, timeout)
 
-    // var file = __dirname + req.url
-    // fs.stat(file, function (err, stat) {
-    //   var img = fs.readFileSync(file)
-    //   // res.contentType = 'image/png'
-    //   res.contentLength = stat.size
-    //   res.end(img, 'binary')
+    // fs.readFile(file, function(err, data) {
+    //   if (err){
+    //     console.log('Error file not found. Send error File: ' + errorfile)
+    //     res.status(200).sendFile(errorfile)
+    //   }else
+    //   // res.contentLength = stat.size
+    //     res.end(data, 'binary')
     // })
   }else{
     match({
@@ -440,6 +449,7 @@ app.get(appbasename+'/*', (req, res) => {
                 <RouterContext {...renderProps} />
               </Provider>
           )
+
           // console.log('Server. body '+body);
                   // <div id="devmarker" style="position:fixed;height:4px;width:263px;background-color:#fff;top:165px;left:50%;"></div>
 
@@ -487,6 +497,8 @@ app.get(appbasename+'/*', (req, res) => {
   }
 })
 
+//testing image download delays above. this should be on top in production
+app.use(express.static('.'))
 
 
 setInterval(function() {
