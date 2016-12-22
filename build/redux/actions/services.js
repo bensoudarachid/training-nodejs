@@ -31,7 +31,8 @@ var authurl = '';
 // const appbasename = '/reactor'
 var appbasename = '';
 if (isBrowser) {
-  authurl = 'http:' + '//' + 'abbaslearning.royasoftware.com' + ':8083';
+  authurl = window.location.protocol + '//' + window.location.hostname + ':8083';
+  // authurl= 'http:'+'//'+'abbaslearning.royasoftware.com'+':8083'
   // url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+appbasename
   url = authurl;
   // authurl= window.location.protocol+'//'+window.location.hostname+':8083'
@@ -151,29 +152,29 @@ var services = {
       body: body
     };
     return fetch(url + '/api/todo/' + todo.get('id') + '/fileupload/', config)
-    // .then(
-    // function(response) {
-    //   console.log('upload response status '+response.status)
-    //   return {status: response.status, data:new Immutable.Map({
-    //     operation: 'Ok'})}
-    // })
-    // .catch(function(err) {
-    //   console.log('upload response error '+err)
-    // })
-    .then(function (response) {
-      return response.json().then(function (data) {
-        return {
-          status: response.status,
-          data: data
-        };
-      });
-    });
-    // .then(response => response.
+    // .then(response => response.json()
     //   .then(data => ({
     //     status: response.status,
     //     data
     //   })
     // ))
+    .then(function (res) {
+      return res.text().then(function (text) {
+        console.log('*****************************************************************returned text is ' + text);
+        return text.length ? JSON.parse(text) : {};
+      }).then(function (data) {
+        return {
+          status: res.status,
+          data: data
+        };
+      });
+    });
+
+    // return fetch(url+'/api/todo/'+todo.get('id')+'/fileupload/', config)
+    // .then(response => ({
+    //   status: response.status
+    // })
+    // )
   },
   deleteTodoService: function deleteTodoService(todo) {
     var headers = {

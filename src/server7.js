@@ -168,8 +168,8 @@ app.post(appbasename+'/api/*/fileupload/*', upload.single('uploadfile'), functio
 
 app.get(appbasename+'/api/*', (req, res) => {
   console.log('GET API '+req.url)
-  console.log('GET API. '+req.headers.host)
-  const myhost = 'abbaslearning.royasoftware.com'
+  // console.log('GET API. '+req.headers.host)
+  // const myhost = 'abbaslearning.royasoftware.com'
   // console.log('GET API Auth: '+req.headers.authorization )
   // var employee = JSON.stringify({
   //   'EmpName': 'VB',
@@ -179,7 +179,7 @@ app.get(appbasename+'/api/*', (req, res) => {
   // })
 
   var extServerOptionsPost = {
-    host: myhost,
+    host: req.headers.host,
     port: '8083',
     path: req.url,
     method: 'GET',
@@ -256,8 +256,8 @@ app.get(appbasename+'/api/*', (req, res) => {
 
 app.post(appbasename+'/api/*', function(req, res) {
   console.log('POST API. '+req.url)
-  console.log('POST API. '+req.headers.host)
-  const myhost = 'abbaslearning.royasoftware.com'
+  // console.log('POST API. '+req.headers.host)
+  // const myhost = 'abbaslearning.royasoftware.com'
   // var param = req.body.param;
   // var subdomains = req.headers.host
   // var parts = subdomains.split('.')
@@ -279,7 +279,7 @@ app.post(appbasename+'/api/*', function(req, res) {
   // console.log('POST API. data = '+dataSend)
   // console.log('POST API. files = '+req.files)
   var extServerOptionsPost = {
-    host: myhost,
+    host: req.headers.host,
     port: '8083',
     path: req.url,
     method: 'POST',
@@ -346,8 +346,6 @@ app.post(appbasename+'/api/*', function(req, res) {
 
 
 
-
-
 var errorfile = __dirname + '/images/0.png'
 
 app.get(appbasename+'/*', (req, res) => {
@@ -373,14 +371,15 @@ app.get(appbasename+'/*', (req, res) => {
       timeout = 4000
     }
     console.log('Timeout for '+req.url+' is '+timeout)
+    console.log('Timeout done '+req.url)
     setTimeout(function() {
       fs.readFile(file, function(err, data) {
         if (err){
           console.log('Error file not found. Send error File: ' + errorfile)
           res.status(200).sendFile(errorfile)
         }else
-        // res.contentLength = stat.size
-          res.end(data, 'binary')
+      // res.contentLength = stat.size
+        res.end(data, 'binary')
       })
     }, timeout)
 
@@ -498,8 +497,8 @@ app.get(appbasename+'/*', (req, res) => {
 })
 
 //testing image download delays above. this should be on top in production
-app.use(express.static('.'))
-
+// app.use(express.static('.'))
+app.use(express.static(__dirname ))
 
 setInterval(function() {
   http.get('http://abbaslearn.royasoftware.com/todos')

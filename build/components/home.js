@@ -38,98 +38,120 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 if (process.env.BROWSER) {
-  // $.fn.sir3allah = function(event) {
-  //   $('.imgwrap').each(function(i, el) {
-  //     // console.log('++++++++++++++++Scroll'+el)
-  //     var elm = $(el)
-  //     var imgbg=elm.find('.imgbg')
-  //     var img=elm.find('.module')
-  //     var imgSpinner=elm.find('.spinner')
-  //     if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
-  //       img[0].setAttribute('src', img[0].getAttribute('data-src'))
-  //       img[0].onload = function() {
-  //         console.log('image loaded: '+img[0].getAttribute('data-src'))
-  //         img[0].removeAttribute('data-src')
-  //         imgSpinner.remove()
-  //       }
-  //     }
-  //     if (elm.visible(true)) {
-  //       if(elm.hasClass('animated'))
-  //         return
-  //       else{
-  //         // console.log('++++++++++++++++Appcomponent is visible'+elm)
-  //         // imgSpinner.remove()
-  //         elm.addClass('animated')
-  //         var rdm = Math.floor(Math.random() * 3) + 1
-  //         var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
-  //         img.addClass('animated '+imgAnim)
-  //         imgbg.removeClass('imgbg')
-  //         rdm = Math.floor(Math.random() * 2) + 1  
-  //     // console.log('++++++++++++++++Random '+rdm)
-  //         var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm===1?'fadeInLeft':'fadeInRight'
-  //     // console.log('++++++++++++++++Random '+fadeIn)
-  //         imgbg.addClass('animated '+imgbgAnim+' imgwraptor') 
-  //       }
-  //     } 
-  //   })
-  // }
-  var sir3allah = function sir3allah(event) {
-    var idToken = _reactCookie2.default.load('jwt');
-    (0, _jquery2.default)('.imgwrap').each(function (i, el) {
-      // console.log('++++++++++++++++Scroll'+el)
-      var elm = (0, _jquery2.default)(el);
+  (function () {
+    // $.fn.sir3allah = function(event) {
+    //   $('.imgwrap').each(function(i, el) {
+    //     // console.log('++++++++++++++++Scroll'+el)
+    //     var elm = $(el)
+    //     var imgbg=elm.find('.imgbg')
+    //     var img=elm.find('.module')
+    //     var imgSpinner=elm.find('.spinner')
+    //     if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+    //       img[0].setAttribute('src', img[0].getAttribute('data-src'))
+    //       img[0].onload = function() {
+    //         console.log('image loaded: '+img[0].getAttribute('data-src'))
+    //         img[0].removeAttribute('data-src')
+    //         imgSpinner.remove()
+    //       }
+    //     }
+    //     if (elm.visible(true)) {
+    //       if(elm.hasClass('animated'))
+    //         return
+    //       else{
+    //         // console.log('++++++++++++++++Appcomponent is visible'+elm)
+    //         // imgSpinner.remove()
+    //         elm.addClass('animated')
+    //         var rdm = Math.floor(Math.random() * 3) + 1
+    //         var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
+    //         img.addClass('animated '+imgAnim)
+    //         imgbg.removeClass('imgbg')
+    //         rdm = Math.floor(Math.random() * 2) + 1  
+    //     // console.log('++++++++++++++++Random '+rdm)
+    //         var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm===1?'fadeInLeft':'fadeInRight'
+    //     // console.log('++++++++++++++++Random '+fadeIn)
+    //         imgbg.addClass('animated '+imgbgAnim+' imgwraptor') 
+    //       }
+    //     } 
+    //   })
+    // }
+    var sir3allah = function sir3allah(event) {
+      var idToken = _reactCookie2.default.load('jwt');
+      (0, _jquery2.default)('.imgwrap').each(function (i, el) {
+        // console.log('++++++++++++++++Scroll'+el)
+        var elm = (0, _jquery2.default)(el);
+        // var imgbg=elm.find('.imgbg')
+        var img = elm.find('.module');
+        var imgSpinner = elm.find('.spinner');
+        if (img.load(true) && img[0].hasAttribute('data-src')) {
+          //img is a jquery object img[0] is the dom object 
+          img[0].setAttribute('src', img[0].getAttribute('data-src') + (img[0].getAttribute('data-src').includes('/api/') ? '?access_token=' + idToken : ''));
+          img[0].onload = function () {
+            // console.log('image loaded: '+img[0].getAttribute('data-src'))
+            img[0].removeAttribute('data-src');
+            imgSpinner.remove();
+
+            if (elm.visible(true) && !img[0].hasAttribute('data-src')) {
+              if (elm.hasClass('animated')) return;else {
+                // console.log('++++++++++++++++Appcomponent is visible'+elm)
+                animate(elm);
+                //     elm.addClass('animated')
+                //     var rdm = Math.floor(Math.random() * 3) + 1
+                //     var rdm2 = Math.floor(Math.random() * 2) + 1
+                //     var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
+                //     img.addClass('animated '+imgAnim+(rdm===3&&rdm2===1?' reverseanim':''))
+                //     // img.addClass('animated reverseanim '+imgAnim)
+                //     imgbg.removeClass('imgbg')
+                // // console.log('++++++++++++++++Random '+rdm)
+                //     var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm2===1?'fadeInLeft':'fadeInRight'
+                // // console.log('++++++++++++++++Random '+fadeIn)
+                //     imgbg.addClass('animated '+imgbgAnim+' imgwraptor')
+              }
+            }
+          };
+        }
+        if (elm.visible(true) && !img[0].hasAttribute('data-src')) {
+          if (elm.hasClass('animated')) return;else {
+            // console.log('++++++++++++++++Appcomponent is visible'+elm)
+            animate(elm);
+            //     elm.addClass('animated')
+            //     var rdm = Math.floor(Math.random() * 3) + 1
+            //     var rdm2 = Math.floor(Math.random() * 2) + 1
+            //     var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
+            //     img.addClass('animated '+imgAnim+(rdm===3&&rdm2===1?' reverseanim':''))
+            //     // img.addClass('animated reverseanim '+imgAnim)
+            //     imgbg.removeClass('imgbg')
+            // // console.log('++++++++++++++++Random '+rdm)
+            //     var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm2===1?'fadeInLeft':'fadeInRight'
+            // // console.log('++++++++++++++++Random '+fadeIn)
+            //     imgbg.addClass('animated '+imgbgAnim+' imgwraptor')
+          }
+        }
+      });
+    };
+
+    var animate = function animate(elm) {
       var imgbg = elm.find('.imgbg');
       var img = elm.find('.module');
-      var imgSpinner = elm.find('.spinner');
-      if (img.load(true) && img[0].hasAttribute('data-src')) {
-        //img is a jquery object img[0] is the dom object 
-        img[0].setAttribute('src', img[0].getAttribute('data-src') + (img[0].getAttribute('data-src').includes('/api/') ? '?access_token=' + idToken : ''));
-        img[0].onload = function () {
-          // console.log('image loaded: '+img[0].getAttribute('data-src'))
-          img[0].removeAttribute('data-src');
-          imgSpinner.remove();
+      // var imgSpinner=elm.find('.spinner')
+      elm.addClass('animated');
+      var rdm = Math.floor(Math.random() * 3) + 1;
+      var rdm2 = Math.floor(Math.random() * 2) + 1;
+      var imgAnim = rdm === 1 ? 'rubberBand' : rdm === 2 ? 'jello' : 'flip';
+      img.addClass('animated ' + imgAnim + (rdm === 3 && rdm2 === 1 ? ' reverseanim' : ''));
+      // img.addClass('animated reverseanim '+imgAnim)
+      imgbg.removeClass('imgbg');
+      // console.log('++++++++++++++++Random '+rdm)
+      var imgbgAnim = imgAnim === 'jello' ? 'rubberBand' : imgAnim === 'rubberBand' ? 'jello' : rdm2 === 1 ? 'fadeInLeft' : 'fadeInRight';
+      // console.log('++++++++++++++++Random '+fadeIn)
+      imgbg.addClass('animated ' + imgbgAnim + ' imgwraptor');
+    };
 
-          if (elm.visible(true) && !img[0].hasAttribute('data-src')) {
-            if (elm.hasClass('animated')) return;else {
-              // console.log('++++++++++++++++Appcomponent is visible'+elm)
-              elm.addClass('animated');
-              var rdm = Math.floor(Math.random() * 3) + 1;
-              var rdm2 = Math.floor(Math.random() * 2) + 1;
-              var imgAnim = rdm === 1 ? 'rubberBand' : rdm === 2 ? 'jello' : 'flip';
-              img.addClass('animated ' + imgAnim + (rdm === 3 && rdm2 === 1 ? ' reverseanim' : ''));
-              // img.addClass('animated reverseanim '+imgAnim)
-              imgbg.removeClass('imgbg');
-              // console.log('++++++++++++++++Random '+rdm)
-              var imgbgAnim = imgAnim === 'jello' ? 'rubberBand' : imgAnim === 'rubberBand' ? 'jello' : rdm2 === 1 ? 'fadeInLeft' : 'fadeInRight';
-              // console.log('++++++++++++++++Random '+fadeIn)
-              imgbg.addClass('animated ' + imgbgAnim + ' imgwraptor');
-            }
-          }
-        };
-      }
-      if (elm.visible(true) && !img[0].hasAttribute('data-src')) {
-        if (elm.hasClass('animated')) return;else {
-          // console.log('++++++++++++++++Appcomponent is visible'+elm)
-          elm.addClass('animated');
-          var rdm = Math.floor(Math.random() * 3) + 1;
-          var rdm2 = Math.floor(Math.random() * 2) + 1;
-          var imgAnim = rdm === 1 ? 'rubberBand' : rdm === 2 ? 'jello' : 'flip';
-          img.addClass('animated ' + imgAnim + (rdm === 3 && rdm2 === 1 ? ' reverseanim' : ''));
-          // img.addClass('animated reverseanim '+imgAnim)
-          imgbg.removeClass('imgbg');
-          // console.log('++++++++++++++++Random '+rdm)
-          var imgbgAnim = imgAnim === 'jello' ? 'rubberBand' : imgAnim === 'rubberBand' ? 'jello' : rdm2 === 1 ? 'fadeInLeft' : 'fadeInRight';
-          // console.log('++++++++++++++++Random '+fadeIn)
-          imgbg.addClass('animated ' + imgbgAnim + ' imgwraptor');
-        }
-      }
-    });
-  };
+    // console.log('Appcomponent. environment is browser')
+    require('./home.scss');
 
-  // console.log('Appcomponent. environment is browser')
-  require('./home.scss');
-  (0, _jquery2.default)(window).scroll(sir3allah);
-  (0, _jquery2.default)(window).resize(sir3allah);
+    (0, _jquery2.default)(window).scroll(sir3allah);
+    (0, _jquery2.default)(window).resize(sir3allah);
+  })();
 }
 
 var Home = function (_Component) {

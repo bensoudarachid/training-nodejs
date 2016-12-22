@@ -189,8 +189,8 @@ app.post(appbasename + '/api/*/fileupload/*', upload.single('uploadfile'), funct
 
 app.get(appbasename + '/api/*', function (req, res) {
   console.log('GET API ' + req.url);
-  console.log('GET API. ' + req.headers.host);
-  var myhost = 'abbaslearning.royasoftware.com';
+  // console.log('GET API. '+req.headers.host)
+  // const myhost = 'abbaslearning.royasoftware.com'
   // console.log('GET API Auth: '+req.headers.authorization )
   // var employee = JSON.stringify({
   //   'EmpName': 'VB',
@@ -200,7 +200,7 @@ app.get(appbasename + '/api/*', function (req, res) {
   // })
 
   var extServerOptionsPost = {
-    host: myhost,
+    host: req.headers.host,
     port: '8083',
     path: req.url,
     method: 'GET',
@@ -267,8 +267,8 @@ app.get(appbasename + '/api/*', function (req, res) {
 
 app.post(appbasename + '/api/*', function (req, res) {
   console.log('POST API. ' + req.url);
-  console.log('POST API. ' + req.headers.host);
-  var myhost = 'abbaslearning.royasoftware.com';
+  // console.log('POST API. '+req.headers.host)
+  // const myhost = 'abbaslearning.royasoftware.com'
   // var param = req.body.param;
   // var subdomains = req.headers.host
   // var parts = subdomains.split('.')
@@ -290,7 +290,7 @@ app.post(appbasename + '/api/*', function (req, res) {
   // console.log('POST API. data = '+dataSend)
   // console.log('POST API. files = '+req.files)
   var extServerOptionsPost = {
-    host: myhost,
+    host: req.headers.host,
     port: '8083',
     path: req.url,
     method: 'POST',
@@ -365,6 +365,7 @@ app.get(appbasename + '/*', function (req, res) {
       timeout = 4000;
     }
     console.log('Timeout for ' + req.url + ' is ' + timeout);
+    console.log('Timeout done ' + req.url);
     setTimeout(function () {
       _fs2.default.readFile(file, function (err, data) {
         if (err) {
@@ -492,7 +493,8 @@ app.get(appbasename + '/*', function (req, res) {
 });
 
 //testing image download delays above. this should be on top in production
-app.use(_express2.default.static('.'));
+// app.use(express.static('.'))
+app.use(_express2.default.static(__dirname));
 
 setInterval(function () {
   _http2.default.get('http://abbaslearn.royasoftware.com/todos');

@@ -55,7 +55,7 @@ if (process.env.BROWSER) {
     $('.imgwrap').each(function(i, el) {
       // console.log('++++++++++++++++Scroll'+el)
       var elm = $(el)
-      var imgbg=elm.find('.imgbg')
+      // var imgbg=elm.find('.imgbg')
       var img=elm.find('.module')
       var imgSpinner=elm.find('.spinner')
       if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
@@ -70,17 +70,18 @@ if (process.env.BROWSER) {
               return
             else{
               // console.log('++++++++++++++++Appcomponent is visible'+elm)
-              elm.addClass('animated')
-              var rdm = Math.floor(Math.random() * 3) + 1
-              var rdm2 = Math.floor(Math.random() * 2) + 1
-              var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
-              img.addClass('animated '+imgAnim+(rdm===3&&rdm2===1?' reverseanim':''))
-              // img.addClass('animated reverseanim '+imgAnim)
-              imgbg.removeClass('imgbg')
-          // console.log('++++++++++++++++Random '+rdm)
-              var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm2===1?'fadeInLeft':'fadeInRight'
-          // console.log('++++++++++++++++Random '+fadeIn)
-              imgbg.addClass('animated '+imgbgAnim+' imgwraptor')
+              animate(elm)
+          //     elm.addClass('animated')
+          //     var rdm = Math.floor(Math.random() * 3) + 1
+          //     var rdm2 = Math.floor(Math.random() * 2) + 1
+          //     var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
+          //     img.addClass('animated '+imgAnim+(rdm===3&&rdm2===1?' reverseanim':''))
+          //     // img.addClass('animated reverseanim '+imgAnim)
+          //     imgbg.removeClass('imgbg')
+          // // console.log('++++++++++++++++Random '+rdm)
+          //     var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm2===1?'fadeInLeft':'fadeInRight'
+          // // console.log('++++++++++++++++Random '+fadeIn)
+          //     imgbg.addClass('animated '+imgbgAnim+' imgwraptor')
             }
           }
 
@@ -91,22 +92,41 @@ if (process.env.BROWSER) {
           return
         else{
           // console.log('++++++++++++++++Appcomponent is visible'+elm)
-          elm.addClass('animated')
-          var rdm = Math.floor(Math.random() * 3) + 1
-          var rdm2 = Math.floor(Math.random() * 2) + 1
-          var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
-          img.addClass('animated '+imgAnim+(rdm===3&&rdm2===1?' reverseanim':''))
-          // img.addClass('animated reverseanim '+imgAnim)
-          imgbg.removeClass('imgbg')
-      // console.log('++++++++++++++++Random '+rdm)
-          var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm2===1?'fadeInLeft':'fadeInRight'
-      // console.log('++++++++++++++++Random '+fadeIn)
-          imgbg.addClass('animated '+imgbgAnim+' imgwraptor')
+          animate(elm)
+      //     elm.addClass('animated')
+      //     var rdm = Math.floor(Math.random() * 3) + 1
+      //     var rdm2 = Math.floor(Math.random() * 2) + 1
+      //     var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
+      //     img.addClass('animated '+imgAnim+(rdm===3&&rdm2===1?' reverseanim':''))
+      //     // img.addClass('animated reverseanim '+imgAnim)
+      //     imgbg.removeClass('imgbg')
+      // // console.log('++++++++++++++++Random '+rdm)
+      //     var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm2===1?'fadeInLeft':'fadeInRight'
+      // // console.log('++++++++++++++++Random '+fadeIn)
+      //     imgbg.addClass('animated '+imgbgAnim+' imgwraptor')
         }
       }
 
     })
   }
+  
+  function animate(elm) {
+    var imgbg=elm.find('.imgbg')
+    var img=elm.find('.module')
+    // var imgSpinner=elm.find('.spinner')
+    elm.addClass('animated')
+    var rdm = Math.floor(Math.random() * 3) + 1
+    var rdm2 = Math.floor(Math.random() * 2) + 1
+    var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
+    img.addClass('animated '+imgAnim+(rdm===3&&rdm2===1?' reverseanim':''))
+    // img.addClass('animated reverseanim '+imgAnim)
+    imgbg.removeClass('imgbg')
+// console.log('++++++++++++++++Random '+rdm)
+    var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm2===1?'fadeInLeft':'fadeInRight'
+// console.log('++++++++++++++++Random '+fadeIn)
+    imgbg.addClass('animated '+imgbgAnim+' imgwraptor')
+  }
+
   $(window).scroll(sir3allah)
   $(window).resize(sir3allah)
 

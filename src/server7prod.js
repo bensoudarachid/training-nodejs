@@ -142,8 +142,8 @@ app.post(appbasename+'/api/*/fileupload/*', upload.single('uploadfile'), functio
 app.get(appbasename+'/api/*', (req, res) => {
   console.log('GET API '+req.url)
   console.log('GET API. '+req.headers.host)
-  const myhost = 'abbaslearning.royasoftware.com'
-  console.log('GET API. Call alternative'+myhost)
+  // const myhost = 'abbaslearning.royasoftware.com'
+  // console.log('GET API. Call alternative'+myhost)
   // console.log('GET API Auth: '+req.headers.authorization )
   // var employee = JSON.stringify({
   //   'EmpName': 'VB',
@@ -153,7 +153,7 @@ app.get(appbasename+'/api/*', (req, res) => {
   // })
 
   var extServerOptionsPost = {
-    host: myhost,
+    host: req.headers.host,
     port: '8083',
     path: req.url,
     method: 'GET',
@@ -186,15 +186,15 @@ app.post(appbasename+'/api/*', function(req, res) {
   // var param = req.body.param;
   console.log('POST API. '+req.url)
   console.log('POST API. '+req.headers.host)
-  const myhost = 'abbaslearning.royasoftware.com'
-  console.log('POST API. Call alternative'+myhost)
+  // const myhost = 'abbaslearning.royasoftware.com'
+  // console.log('POST API. Call alternative'+myhost)
   // console.log('POST API YEAAAAH req.headers '+req.headers)
   // console.log(req.headers)
   // console.log('POST API YEAAAAH req.body '+req.body)
   // console.log(req.body)
   const dataSend =  JSON.stringify(req.body)
   var extServerOptionsPost = {
-    host: myhost,
+    host: req.headers.host,
     port: '8083',
     path: req.url,
     method: 'POST',

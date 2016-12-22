@@ -229,10 +229,17 @@ const todoactions = {
           ({status, data}) => {
             if (actions.disconnect(dispatch, status, data))
               return
-            else if (status >= 400) {
-              var error = data
-              console.log('Status looks bad. ' + status + '. error message = ' + error.message)
-
+            else if (status == 413) {
+              console.log('Status file too large. ' + status  )
+              todoold = todoold.set('error', 'File is too large')
+              dispatch(todoactions.updateTodo(todoold))
+              todoold = todoold.delete('error')
+              setTimeout(() => {
+                dispatch(todoactions.updateTodo(todoold))
+              }, 2500)
+            }else if (status >= 400) {
+              // var error = data
+              // console.log('Status looks bad. ' + status + '. error message = ' + error.message)
               todoold = todoold.set('error', 'System error')
               dispatch(todoactions.updateTodo(todoold))
               todoold = todoold.delete('error')
@@ -328,11 +335,13 @@ const todoactions = {
             //   dispatch(actions.receiveLogout())
             // } 
             else if (status >= 400) {
-              var error = data
-              console.log('Status looks bad. ' + status + '. error message = ' + error.message)
-              // for (var i = 0; i < 3; i++) {
+              var errorDescription
+              if(data.error){
+                console.log('Status looks bad. ' + status + '. error message = ' + data.error)
+                errorDescription = data.errorDescription!==undefined?data.errorDescription:'System error'
+              }
 
-              todoold = todoold.set('error', 'System error')
+              todoold = todoold.set('error', errorDescription)
               dispatch(todoactions.updateTodo(todoold))
               todoold = todoold.delete('error')
               setTimeout(() => {
@@ -350,7 +359,7 @@ const todoactions = {
             // } 
             else if (data.error) {
               // var error = data.error
-              var errorDescription = data.errorDescription!==undefined?data.errorDescription:'System error'
+              errorDescription = data.errorDescription!==undefined?data.errorDescription:'System error'
               console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
               console.log(data)
               todoold = todoold.set('error', errorDescription)
