@@ -12,6 +12,10 @@ var _immutable = require('immutable');
 
 var _immutable2 = _interopRequireDefault(_immutable);
 
+var _validator = require('validator');
+
+var _validator2 = _interopRequireDefault(_validator);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import {
@@ -20,9 +24,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // The auth reducer. The starting state sets authentication
 // based on a token being in local storage. In a real app,
-// we would also want a util to check if the token is expired.
+// we would also want a util to check if the token has expired.
 
-// import _ from 'lodash'
 var authReducer = function authReducer() {
   var auth = arguments.length <= 0 || arguments[0] === undefined ? new _immutable2.default.Map({
     isFetching: false,
@@ -30,9 +33,10 @@ var authReducer = function authReducer() {
     isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
     registrationStep: 1,
     registrationError: new _immutable2.default.Map({
-      username: '',
-      email: '',
-      password: ''
+      // username: '',
+      // email: '',
+      // password: '',
+      // passwordCheck: ''
     })
   }) : arguments[0];
   var action = arguments[1];
@@ -46,16 +50,18 @@ var authReducer = function authReducer() {
       isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
       registrationStep: 1,
       registrationError: new _immutable2.default.Map({
-        username: '',
-        email: '',
-        password: ''
+        // username: '',
+        // email: '',
+        // password: '',
+        // passwordCheck: ''
       })
     });
   }
-
-  auth = auth.set('isAuthenticated', _reactCookie2.default.load('jwt') ? true : false);
+  var authenticated = _reactCookie2.default.load('jwt') ? true : false;
+  //let authenticated = true 
+  auth = auth.set('isAuthenticated', authenticated);
   // console.log('Auth Reducer is authenticated: ' + auth.isAuthenticated )
-  // console.log('Auth Reducer cookie is there: ' + (cookie.load('jwt') ? true : false))
+  // console.log('Auth Reducer cookie is there: ' + (authenticated))
   //auth=auth.set('',)
   //auth=auth.remove('')
 
@@ -93,12 +99,12 @@ var authReducer = function authReducer() {
       // console.log(action.id_token)
       auth = auth.set('isFetching', false);
       auth = auth.set('errorMessage', '');
-      auth = auth.set('isAuthenticated', _reactCookie2.default.load('jwt') ? true : false);
+      auth = auth.set('isAuthenticated', authenticated);
       auth = auth.remove('usercreds');
       return auth;
     //     return Object.assign({}, _.omit(auth, ['usercreds']), {
     //       isFetching: false,
-    //       isAuthenticated: cookie.load('jwt') ? true : false,
+    //       isAuthenticated: authenticated,
     // //        id_token: action.id_token,
     //       errorMessage: ''
     //     })
@@ -124,11 +130,11 @@ var authReducer = function authReducer() {
     // })
     case 'LOGOUT_SUCCESS':
       auth = auth.set('isFetching', false);
-      auth = auth.set('isAuthenticated', _reactCookie2.default.load('jwt') ? true : false);
+      auth = auth.set('isAuthenticated', authenticated);
       return auth;
     // return Object.assign({}, auth, {
     //   isFetching: false,
-    //   isAuthenticated: cookie.load('jwt') ? true : false
+    //   isAuthenticated: authenticated
     // })
     case 'REGISTER_REQUEST':
       auth = auth.set('isRegistrationFetching', true);
@@ -154,7 +160,8 @@ var authReducer = function authReducer() {
       // console.log('Auth reducer action registererror')
       // console.log(action.registererror)
       auth = auth.set('isRegistrationFetching', false);
-      auth = auth.set('registererror', action.registererror);
+      // auth=auth.set('registererror', action.registererror)
+      auth = auth.set('registrationError', new _immutable2.default.Map(action.registererror));
       // auth=auth.set('registrationStep',3)
       return auth;
     case 'REGISTER_SYSTEM_ERROR':
@@ -180,29 +187,42 @@ var authReducer = function authReducer() {
     //   registererror: ''
     // })
     case 'REGISTER_VALIDATE':
-      console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++authreducer validate username' + action.user.username);
-      var registrationError = new _immutable2.default.Map({
-        username: '',
-        email: '',
-        password: ''
-      });
+      // var registrationError = new Immutable.Map({
+      //   username: '',
+      //   email: '',
+      //   password: '',
+      //   passwordCheck: ''
+      // })
+      console.log('auth reducer email ' + action.user.email);
+      var userInputErrors = {};
+      if (action.user.email.length === 0)
+        // registrationError = registrationError.set('email','email required')
+        userInputErrors.email = 'required';
+      if (action.user.email.length > 0 && !_validator2.default.isEmail(action.user.email))
+        // registrationError = registrationError.set('email','email is not valid')
+        userInputErrors.email = 'not valid';
+
       if (action.user.username.length === 0) {
         console.log('username required');
-        registrationError = registrationError.set('username', 'user name required');
-      }
-      if (action.user.password.length === 0) registrationError = registrationError.set('password', 'password required');
-      // if( action.user.password.length() < 8 ) 
-      //   registrationError = registrationError.set('password','password need to be > 8')
-      if (action.user.password !== action.user.passwordCheck) registrationError = registrationError.set('passwordCheck', 'password check different from password');
-      if (action.user.email.length === 0) registrationError = registrationError.set('email', 'email required');
-      // if( !action.user.email.contains('@')) 
-      //   registrationError = registrationError.set('email','email invalid')
-      auth = auth.set('registrationError', registrationError);
+        // registrationError = registrationError.set('username','user name required')
+        userInputErrors.username = 'required';
+      } else if (!_validator2.default.isLength(action.user.username.trim(), 1, 25)) userInputErrors.username = 'too long (25 chars max)';
+      if (action.user.password.length === 0)
+        // registrationError = registrationError.set('password','password required')
+        userInputErrors.password = 'required';else if (action.user.password.length < 8) userInputErrors.password = 'should be greater than 8 characters';
+
+      if (!userInputErrors.password && action.user.password !== action.user.passwordCheck)
+        // registrationError = registrationError.set('passwordCheck','password check different from password')
+        userInputErrors.passwordCheck = 'password check different from password';
+      console.log('Auth reducer action.user.email' + action.user.email);
+      console.log('Auth reducer action.user.email is valid' + _validator2.default.isEmail(action.user.email));
+      console.log('Auth reducer email error returned' + userInputErrors.email);
+
+      auth = auth.set('registrationError', new _immutable2.default.Map(userInputErrors));
       return auth;
 
     default:
       return auth;
   }
-};
-
+}; // import _ from 'lodash'
 exports.default = authReducer;

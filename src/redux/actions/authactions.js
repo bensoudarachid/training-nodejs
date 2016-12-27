@@ -7,6 +7,7 @@ import { getIsFetching } from '../reducers'
 import cookie from 'react-cookie'
 import actions from '../actions'
 
+const util = require('util')
 
 
 let authactions = {
@@ -144,7 +145,132 @@ let authactions = {
     return false
   },
 
+  requestRegister: function(creds) {
+    return {
+      type: 'REGISTER_REQUEST',
+      isRegistrationFetching: true,
+      isAuthenticated: cookie.load('jwt') ? true : false,
+      creds
+    }
+  },
 
+  receiveRegister: function(user) {
+    // console.log('actions user access token: ' + user.access_token)
+    return {
+      type: 'REGISTER_SUCCESS',
+      user
+    }
+  },
+
+  registerInit: function() {
+    console.log('Actions. Init registration: ')
+    return {
+      type: 'REGISTER_INIT'
+    }
+  },
+
+  registerUserError: function(registererror) {
+    console.log('Actions. Error registration: ')
+    console.log(registererror)
+    return {
+      type: 'REGISTER_USER_ERROR',
+      registererror
+    }
+  },
+
+  registerSystemError: function(registererror) {
+    console.log('Actions. Error registration: ')
+    console.log(registererror)
+    return {
+      type: 'REGISTER_SYSTEM_ERROR',
+      registererror
+    }
+  },
+
+  validateUser: function(user) {
+    // console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++registrationactions validate user')
+    return {
+      type: 'REGISTER_VALIDATE',
+      user: user  
+    }
+  },
+
+  registerUser: function(creds) {
+    // console.log('actions register user '+creds.username+' .pass '+creds.password+' .email '+creds.email)
+    // var body='username='+creds.username+'&password='+creds.password+'&email='+creds.email
+    //&scope=read%20write
+    // console.log('body '+body)
+    // let config = {
+    //   method: 'POST'
+    //   , headers: {
+    //     'Content-Type': 'application/x-www-form-urlencoded'
+    //   }
+    //   , body: body
+    // }
+
+    return (dispatch,getState) => {
+      if( getState().auth.get('isRegistrationFetching') ){
+        console.log('Fetching! Do nothing')
+        return
+      }
+      dispatch(actions.validateUser(creds))
+      const registrationError = getState().auth.get('registrationError')
+      // console.log('+++++++++++++++++++++++++++reg actions. auth registrationError username '+registrationError.get('username'))
+      if( registrationError.get('username')!== undefined || registrationError.get('email')!== undefined || registrationError.get('password')!== undefined || registrationError.get('passwordCheck')!== undefined){
+        // console.log('+++++++++++++++++++++++++++reg actions. reg error' + registrationError.get('username'))
+        return
+      }
+      
+      dispatch(actions.requestRegister(creds))
+      return actions.registerUserService(creds)
+    .then(
+      ({ status, data }) => {
+        var error = data.error
+        console.log('Auth actions, Response: '+util.inspect(data, false, null))
+        // console.log('Auth actions, Error: '+error)
+        // console.log('Auth actions, Error: '+error.error)
+        if (status >= 400 && error!=undefined) {
+          console.log('Status looks bad. '+status+'. error message = '+error.message)
+          dispatch(actions.registerSystemError(error.message))
+        } else if (error) {
+          // var errorDescription = error.errorDescription
+          // console.log('Todoapp fetch error = ' + error.error + ', description = ' + errorDescription)
+          dispatch(actions.registerUserError(error))
+          // dispatch(actions.appError(error))
+        } else {
+          console.log('Status looks good ')
+          console.log(data)
+          dispatch(actions.receiveRegister(data))
+//          browserHistory.push('/registerconfirm/')
+        }
+      },
+//     .then(
+//       ({ status, resp }) => {
+//         console.log('Auth actions, Response: '+util.inspect(resp, false, null))
+//         var error = resp.error
+//         var user = resp.account
+//         if (status >= 400) {
+//           console.log('Status looks bad. '+status+'. error message = '+error.message)
+//           dispatch(actions.registerSystemError(error.message))
+//         } else if (user.error) {
+//           var errorDescription = error.errorDescription
+//           console.log('Todoapp fetch error = ' + error.error + ', description = ' + errorDescription)
+//           dispatch(actions.registerUserError(errorDescription))
+//           dispatch(actions.appError(errorDescription))
+//         } else {
+//           console.log('Status looks good ')
+//           console.log(user)
+//           dispatch(actions.receiveRegister(user))
+// //          browserHistory.push('/registerconfirm/')
+//         }
+//       },
+
+      err => {
+        console.log('Status looks not good at all!'+err)
+      }
+    )
+    }
+  }
 }
 
 export default authactions

@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router'
 import { getIsFetching } from './reducers'
 import Immutable from 'immutable'
 import cookie from 'react-cookie'
-import registeractions from'./actions/registeractions'
+// import registeractions from'./actions/registeractions'
 import todoactions from'./actions/todoactions'
 import services from'./actions/services'
 import authactions from'./actions/authactions'
@@ -16,7 +16,7 @@ let actions = {
   ...appactions,
   ...services,
   ...authactions,
-  ...registeractions,
+  // ...registeractions,
   ...todoactions
   
 }

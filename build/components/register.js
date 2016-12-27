@@ -56,7 +56,9 @@ var RegError = function RegError() {
   );
 };
 
-var textInputClassnames = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label ';
+var textInputClassnames = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label';
+// const textInputClassnames = 'mdl-textfield'
+
 
 if (process.env.BROWSER) {
   require('./register.scss');
@@ -86,20 +88,29 @@ var Register = function (_Component) {
       var isRegistrationFetching = '';
       var registrationStep = '';
       var registrationError = {};
-      var usernameClasses = textInputClassnames;
+      // var usernameClasses
+      // var emailClasses
+      // var passwordClasses
+      // var passwordcheckClasses
       if (this.props.auth) {
         registererror = this.props.auth.get('registererror');
         isRegistrationFetching = this.props.auth.get('isRegistrationFetching');
         registrationStep = this.props.auth.get('registrationStep');
         registrationError = this.props.auth.get('registrationError');
-        usernameClasses = textInputClassnames + (registrationError.get('username') !== '' ? ' is-invalid' : '');
+        // usernameClasses = textInputClassnames + (registrationError.get('username')!==undefined?' is-invalid':'')
+        // emailClasses = textInputClassnames + (registrationError.get('email')!==undefined?' is-invalid':'')
+        // passwordClasses = textInputClassnames + (registrationError.get('password')!==undefined?' is-invalid':'')
+        // passwordcheckClasses = textInputClassnames + (registrationError.get('passwordCheck')!==undefined?' is-invalid':'')
       }
+      // console.log('Register render. registrationError email  = '+registrationError.get('email'))
+      // console.log('Register render. registrationError email Classes = '+emailClasses)
+
       // var emailClasses = textInputClassnames + (registrationError.get('email')!==''?' is-invalid':'')
       // var passwordClasses = textInputClassnames + (registrationError.get('password')!==''?' is-invalid':'')
       // var passwordCheckClasses = textInputClassnames + (registrationError.get('passwordCheck')!==''?' is-invalid':'')
 
       // console.log('Register render. registrationError username valid = '+usernameClasses)
-      // console.log('Register render. registrationError username = '+registrationError.get('username'))
+
 
       if (registererror) {}
       //   // var snackbarContainer = document.querySelector('#appsnackbar')
@@ -124,7 +135,7 @@ var Register = function (_Component) {
       //        <button onClick={(event) => this.handleClick(event)} className="btn btn-primary">
       //         Register
       //       </button>
-
+      //htmlFor='passwordcheck'
       switch (registrationStep) {
         case 1:
           return _react2.default.createElement(
@@ -134,7 +145,7 @@ var Register = function (_Component) {
               'form',
               { onSubmit: function onSubmit(event) {
                   return _this2.handleClick(event);
-                } },
+                }, novalidate: true },
               _react2.default.createElement(
                 'div',
                 { className: 'container' },
@@ -146,16 +157,16 @@ var Register = function (_Component) {
                     { className: 'col-xs-12 col-md-6 col-lg-6' },
                     _react2.default.createElement(
                       'div',
-                      { id: 'usernameid', className: usernameClasses },
-                      _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'username', type: 'text', id: 'usernameinput' }),
+                      { className: textInputClassnames },
+                      _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'username', type: 'text', id: 'username', name: 'username' }),
                       _react2.default.createElement(
                         'label',
-                        { className: 'mdl-textfield__label', htmlFor: 'passwordcheck' },
+                        { className: 'mdl-textfield__label', htmlFor: 'username' },
                         'User name'
                       ),
                       _react2.default.createElement(
                         'span',
-                        { className: 'mdl-textfield__error' },
+                        { className: 'mdl-textfield__error', htmlFor: 'username' },
                         registrationError.get('username')
                       )
                     )
@@ -166,11 +177,16 @@ var Register = function (_Component) {
                     _react2.default.createElement(
                       'div',
                       { className: textInputClassnames },
-                      _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'email', type: 'text', id: 'email' }),
+                      _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'email', type: 'text', id: 'email', name: 'email' }),
                       _react2.default.createElement(
                         'label',
-                        { className: 'mdl-textfield__label', htmlFor: 'passwordcheck' },
+                        { className: 'mdl-textfield__label', htmlFor: 'email' },
                         'Email'
+                      ),
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'mdl-textfield__error', htmlFor: 'email' },
+                        registrationError.get('email')
                       )
                     )
                   ),
@@ -180,11 +196,16 @@ var Register = function (_Component) {
                     _react2.default.createElement(
                       'div',
                       { className: textInputClassnames },
-                      _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'password', type: 'password', id: 'password' }),
+                      _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'password', type: 'password', id: 'password', name: 'password' }),
                       _react2.default.createElement(
                         'label',
-                        { className: 'mdl-textfield__label', htmlFor: 'passwordcheck' },
+                        { className: 'mdl-textfield__label', htmlFor: 'password' },
                         'Password'
+                      ),
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'mdl-textfield__error', htmlFor: 'password' },
+                        registrationError.get('password')
                       )
                     )
                   ),
@@ -194,11 +215,16 @@ var Register = function (_Component) {
                     _react2.default.createElement(
                       'div',
                       { className: textInputClassnames },
-                      _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'passwordcheck', type: 'password', id: 'passwordcheck' }),
+                      _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'passwordCheck', type: 'password', id: 'passwordCheck', name: 'passwordCheck' }),
                       _react2.default.createElement(
                         'label',
-                        { className: 'mdl-textfield__label', htmlFor: 'passwordcheck' },
+                        { className: 'mdl-textfield__label', htmlFor: 'passwordCheck' },
                         'Password check'
+                      ),
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'mdl-textfield__error', htmlFor: 'passwordCheck' },
+                        registrationError.get('passwordCheck')
                       )
                     )
                   )
@@ -253,14 +279,24 @@ var Register = function (_Component) {
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate() {
+      var registrationError = this.props.auth.get('registrationError');
       // console.log('Registeration. comp update')
       // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
       // $('#usernameid').get(0).MaterialTextfield.checkDirty()
       //Need this code to get correct placeholderfloating  behaviour. otherwise content and placeholder overlap
       var dialogInputs = document.querySelectorAll('.mdl-textfield');
       for (var i = 0, l = dialogInputs.length; i < l; i++) {
+        // console.log('Registeration. call dialog input id '+dialogInputs[i].MaterialTextfield.input_.id+', error: '+registrationError.get(dialogInputs[i].MaterialTextfield.input_.id))
+        // dialogInputs[i].MaterialTextfield.change(dialogInputs[i].MaterialTextfield.input_.value)
         dialogInputs[i].MaterialTextfield.checkDirty();
+        // dialogInputs[i].className += registrationError.get(dialogInputs[i].MaterialTextfield.input_.id)!==undefined?' is-invalid':''
+        if (registrationError.get(dialogInputs[i].MaterialTextfield.input_.id) !== undefined) dialogInputs[i].className += ' is-invalid';else {
+          dialogInputs[i].className = dialogInputs[i].className.replace(' is-invalid', ' ');
+          console.log('Register. dialogInputs[i].className - invalid ' + dialogInputs[i].className);
+        }
       }
+      // document.getElementById('email').parentElement.className += ' is-invalid'
+      // document.getElementById('input-error').textContent = 'Error Message'
     }
   }, {
     key: 'componentWillUnmount',
@@ -273,18 +309,22 @@ var Register = function (_Component) {
     value: function handleClick(event) {
       event.preventDefault();
       // const usernameref = this.refs.username
-      var usernameref = (0, _jquery2.default)('#usernameid');
-      var usernameinput = usernameref.find('.mdl-textfield__input');
+      // const usernameref = $('#usernameid')
+      // const usernameinput = usernameref.find('.mdl-textfield__input')
       // console.log('Registeration. '+usernameinput[0].value)
-
+      var username = this.refs.username;
+      // console.log('Register User: '+this.refs.username.value)
       var password = this.refs.password;
       var email = this.refs.email;
-      var passwordcheck = this.refs.passwordcheck;
+      var passwordCheck = this.refs.passwordCheck;
+      // console.log('Register passwordcheck: '+this.refs.passwordCheck.value)
+
       var creds = {
-        username: usernameinput[0].value.trim(),
-        password: password.value,
+        // username: usernameinput[0].value.trim(),
+        username: username.value.trim(),
+        password: password.value.trim(),
         email: email.value.trim(),
-        passwordCheck: passwordcheck.value
+        passwordCheck: passwordCheck.value.trim()
       };
       this.props.actions.registerUser(creds);
 

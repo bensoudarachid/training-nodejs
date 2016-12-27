@@ -50,14 +50,14 @@ if (process.env.BROWSER) {
   //     } 
   //   })
   // }
-  function sir3allah(event){
+  function imageload(event){
     var idToken = cookie.load('jwt')
     $('.imgwrap').each(function(i, el) {
       // console.log('++++++++++++++++Scroll'+el)
       var elm = $(el)
       // var imgbg=elm.find('.imgbg')
       var img=elm.find('.module')
-      var imgSpinner=elm.find('.spinner')
+      var imgSpinner=elm.find('.mdl-spinner')
       if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
         img[0].setAttribute('src', img[0].getAttribute('data-src')+ (img[0].getAttribute('data-src').includes('/api/')?('?access_token='+ idToken):''))
         img[0].onload = function() {
@@ -127,14 +127,15 @@ if (process.env.BROWSER) {
     imgbg.addClass('animated '+imgbgAnim+' imgwraptor')
   }
 
-  $(window).scroll(sir3allah)
-  $(window).resize(sir3allah)
+  $(window).scroll(imageload)
+  $(window).resize(imageload)
 
 }
 
 class Home extends Component {
 
   componentDidMount(){
+    require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     var idToken = cookie.load('jwt')
     
     $('.imgwrap').each(function(i, el) {
@@ -142,7 +143,7 @@ class Home extends Component {
       var elm = $(el)
       var imgbg=elm.find('.imgbg')
       var img=elm.find('.module')
-      var imgSpinner=elm.find('.spinner')
+      var imgSpinner=elm.find('.mdl-spinner')
 
       
 
@@ -198,7 +199,9 @@ class Home extends Component {
 
 // <div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./api/todo/img/1234'} className='module' alt='coding'/></div>
 // <div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./api/todo/img/1234'} className='module' alt='coding'/></div>
-        
+        // <div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='module' alt='coding'/></div>
+// <FadingCircle className='spinner' size={60}/>
+
   render() {
 
     return (
@@ -209,15 +212,15 @@ class Home extends Component {
 			<div className="row">
 				<div className="col-xs-12 col-md-4 col-lg-4">
 				
-        <div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='module' alt='coding'/></div>
+        <div className='imgwrap'><div className='imgbg'/><div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div><img src={'./images/0.png'} data-src={'./api/todo/img/1234'} className='module' alt='coding'/></div>
 				<p>1. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
 				</div>
 				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'} className='module' alt='coding'/></div>
+				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'} className='module' alt='coding'/></div>
 				<p>2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
 				</div>				
 				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral1.png'} className='module' alt='coding'/></div>
+				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral1.png'} className='module' alt='coding'/></div>
 				<p>3. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
 				</div>
 				<div className="clearfix visible-md visible-lg"></div>
@@ -225,15 +228,15 @@ class Home extends Component {
 			</div>
 			<div className="row">
 				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral2.png'} className='module' alt='coding'/></div>
+				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral2.png'} className='module' alt='coding'/></div>
 				<p>1. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
 				</div>
 				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral2.png'} className='module' alt='coding'/></div>
+				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral2.png'} className='module' alt='coding'/></div>
 				<p>2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
 				</div>
 				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral2.png'} className='module' alt='coding'/></div>
+				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral2.png'} className='module' alt='coding'/></div>
 				<p>3. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
 				</div>
 				<div className="clearfix visible-md visible-lg"></div>

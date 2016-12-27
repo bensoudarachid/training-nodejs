@@ -17,7 +17,8 @@ const RegError = () => (
   </div>
 )
 
-const textInputClassnames = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label '
+const textInputClassnames = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label'
+// const textInputClassnames = 'mdl-textfield'
 
 
 if (process.env.BROWSER) {
@@ -36,20 +37,29 @@ export default class Register extends Component {
     var isRegistrationFetching = ''
     var registrationStep = ''
     var registrationError = {}
-    var usernameClasses = textInputClassnames
+    // var usernameClasses
+    // var emailClasses
+    // var passwordClasses
+    // var passwordcheckClasses
     if( this.props.auth ){
       registererror = this.props.auth.get('registererror')
       isRegistrationFetching = this.props.auth.get('isRegistrationFetching')
       registrationStep = this.props.auth.get('registrationStep')
       registrationError = this.props.auth.get('registrationError')
-      usernameClasses = textInputClassnames + (registrationError.get('username')!==''?' is-invalid':'')
+      // usernameClasses = textInputClassnames + (registrationError.get('username')!==undefined?' is-invalid':'')
+      // emailClasses = textInputClassnames + (registrationError.get('email')!==undefined?' is-invalid':'')
+      // passwordClasses = textInputClassnames + (registrationError.get('password')!==undefined?' is-invalid':'')
+      // passwordcheckClasses = textInputClassnames + (registrationError.get('passwordCheck')!==undefined?' is-invalid':'')
     }
+    // console.log('Register render. registrationError email  = '+registrationError.get('email'))
+    // console.log('Register render. registrationError email Classes = '+emailClasses)
+
     // var emailClasses = textInputClassnames + (registrationError.get('email')!==''?' is-invalid':'')
     // var passwordClasses = textInputClassnames + (registrationError.get('password')!==''?' is-invalid':'')
     // var passwordCheckClasses = textInputClassnames + (registrationError.get('passwordCheck')!==''?' is-invalid':'')
 
     // console.log('Register render. registrationError username valid = '+usernameClasses)
-    // console.log('Register render. registrationError username = '+registrationError.get('username'))
+    
 
     if (registererror){
     //   // var snackbarContainer = document.querySelector('#appsnackbar')
@@ -74,40 +84,43 @@ export default class Register extends Component {
 //        <button onClick={(event) => this.handleClick(event)} className="btn btn-primary">
 //         Register
 //       </button>
-    
+    //htmlFor='passwordcheck'
     switch (registrationStep) {
     case 1:
       return (
           <div id='register'>
-            <form onSubmit={(event) => this.handleClick(event)}>
+            <form onSubmit={(event) => this.handleClick(event)} novalidate>
             <div className="container">
             <div className='row'>
               <div className='col-xs-12 col-md-6 col-lg-6'>
-              <div id='usernameid' className={usernameClasses}>
-                <input className='mdl-textfield__input' ref='username' type='text' id='usernameinput'/>
-                <label className='mdl-textfield__label' htmlFor='passwordcheck'>User name</label>
-                <span className="mdl-textfield__error">{registrationError.get('username')}</span>
+              <div className={textInputClassnames}>
+                <input className='mdl-textfield__input' ref='username' type='text' id='username' name='username'/>
+                <label className='mdl-textfield__label' htmlFor='username'>User name</label>
+                <span className="mdl-textfield__error" htmlFor='username'>{registrationError.get('username')}</span>
               </div>
               </div>
 
               <div className='col-xs-12 col-md-6 col-lg-6'>
               <div className={textInputClassnames}>
-                <input className='mdl-textfield__input' ref='email' type='text' id='email'/>
-                <label className='mdl-textfield__label' htmlFor='passwordcheck'>Email</label>
+                <input className='mdl-textfield__input' ref='email' type='text' id='email' name='email'/>
+                <label className='mdl-textfield__label' htmlFor='email'>Email</label>
+                <span className="mdl-textfield__error"htmlFor='email'>{registrationError.get('email')}</span>
               </div>
               </div>
 
               <div className='col-xs-12 col-md-6 col-lg-6'>
               <div className={textInputClassnames}>
-                <input className='mdl-textfield__input' ref='password' type='password' id='password'/>
-                <label className='mdl-textfield__label' htmlFor='passwordcheck'>Password</label>
+                <input className='mdl-textfield__input' ref='password' type='password' id='password' name='password'/>
+                <label className='mdl-textfield__label' htmlFor='password'>Password</label>
+                <span className="mdl-textfield__error" htmlFor='password'>{registrationError.get('password')}</span>
               </div>
               </div>
 
               <div className='col-xs-12 col-md-6 col-lg-6'>
               <div className={textInputClassnames}>
-                <input className='mdl-textfield__input' ref='passwordcheck' type='password' id='passwordcheck'/>
-                <label className='mdl-textfield__label' htmlFor='passwordcheck'>Password check</label>
+                <input className='mdl-textfield__input' ref='passwordCheck' type='password' id='passwordCheck' name='passwordCheck'/>
+                <label className='mdl-textfield__label' htmlFor='passwordCheck'>Password check</label>
+                <span className="mdl-textfield__error" htmlFor='passwordCheck'>{registrationError.get('passwordCheck')}</span>
               </div>
               </div>
 
@@ -156,14 +169,26 @@ export default class Register extends Component {
     // }
   }
   componentDidUpdate() {
+    let registrationError = this.props.auth.get('registrationError')
     // console.log('Registeration. comp update')
     // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     // $('#usernameid').get(0).MaterialTextfield.checkDirty()
     //Need this code to get correct placeholderfloating  behaviour. otherwise content and placeholder overlap
     var dialogInputs = document.querySelectorAll('.mdl-textfield')
     for (var i = 0, l = dialogInputs.length; i < l; i++) {
+      // console.log('Registeration. call dialog input id '+dialogInputs[i].MaterialTextfield.input_.id+', error: '+registrationError.get(dialogInputs[i].MaterialTextfield.input_.id))
+      // dialogInputs[i].MaterialTextfield.change(dialogInputs[i].MaterialTextfield.input_.value)
       dialogInputs[i].MaterialTextfield.checkDirty()
+      // dialogInputs[i].className += registrationError.get(dialogInputs[i].MaterialTextfield.input_.id)!==undefined?' is-invalid':''
+      if( registrationError.get(dialogInputs[i].MaterialTextfield.input_.id)!==undefined )
+        dialogInputs[i].className += ' is-invalid'
+      else{
+        dialogInputs[i].className = dialogInputs[i].className.replace(' is-invalid', ' ')
+        console.log('Register. dialogInputs[i].className - invalid '+dialogInputs[i].className)
+      }
     }
+    // document.getElementById('email').parentElement.className += ' is-invalid'
+    // document.getElementById('input-error').textContent = 'Error Message'
 
   }
   componentWillUnmount(){
@@ -173,18 +198,22 @@ export default class Register extends Component {
   handleClick(event) {
     event.preventDefault()
     // const usernameref = this.refs.username
-    const usernameref = $('#usernameid')
-    const usernameinput = usernameref.find('.mdl-textfield__input')
+    // const usernameref = $('#usernameid')
+    // const usernameinput = usernameref.find('.mdl-textfield__input')
     // console.log('Registeration. '+usernameinput[0].value)
-
+    const username = this.refs.username
+    // console.log('Register User: '+this.refs.username.value)
     const password = this.refs.password
     const email = this.refs.email
-    const passwordcheck = this.refs.passwordcheck
+    const passwordCheck = this.refs.passwordCheck
+    // console.log('Register passwordcheck: '+this.refs.passwordCheck.value)
+
     const creds = {
-      username: usernameinput[0].value.trim(),
-      password: password.value,
+      // username: usernameinput[0].value.trim(),
+      username: username.value.trim(),
+      password: password.value.trim(),
       email: email.value.trim(),
-      passwordCheck: passwordcheck.value
+      passwordCheck: passwordCheck.value.trim()
     }
     this.props.actions.registerUser(creds)
 

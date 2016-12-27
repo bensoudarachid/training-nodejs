@@ -22,6 +22,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 // export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 // export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
+var util = require('util');
+
 var authactions = {
   requestLogin: function requestLogin(creds) {
     return {
@@ -156,8 +158,134 @@ var authactions = {
       return true;
     }
     return false;
-  }
+  },
 
+  requestRegister: function requestRegister(creds) {
+    return {
+      type: 'REGISTER_REQUEST',
+      isRegistrationFetching: true,
+      isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
+      creds: creds
+    };
+  },
+
+  receiveRegister: function receiveRegister(user) {
+    // console.log('actions user access token: ' + user.access_token)
+    return {
+      type: 'REGISTER_SUCCESS',
+      user: user
+    };
+  },
+
+  registerInit: function registerInit() {
+    console.log('Actions. Init registration: ');
+    return {
+      type: 'REGISTER_INIT'
+    };
+  },
+
+  registerUserError: function registerUserError(registererror) {
+    console.log('Actions. Error registration: ');
+    console.log(registererror);
+    return {
+      type: 'REGISTER_USER_ERROR',
+      registererror: registererror
+    };
+  },
+
+  registerSystemError: function registerSystemError(registererror) {
+    console.log('Actions. Error registration: ');
+    console.log(registererror);
+    return {
+      type: 'REGISTER_SYSTEM_ERROR',
+      registererror: registererror
+    };
+  },
+
+  validateUser: function validateUser(user) {
+    // console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++registrationactions validate user')
+    return {
+      type: 'REGISTER_VALIDATE',
+      user: user
+    };
+  },
+
+  registerUser: function registerUser(creds) {
+    // console.log('actions register user '+creds.username+' .pass '+creds.password+' .email '+creds.email)
+    // var body='username='+creds.username+'&password='+creds.password+'&email='+creds.email
+    //&scope=read%20write
+    // console.log('body '+body)
+    // let config = {
+    //   method: 'POST'
+    //   , headers: {
+    //     'Content-Type': 'application/x-www-form-urlencoded'
+    //   }
+    //   , body: body
+    // }
+
+    return function (dispatch, getState) {
+      if (getState().auth.get('isRegistrationFetching')) {
+        console.log('Fetching! Do nothing');
+        return;
+      }
+      dispatch(_actions2.default.validateUser(creds));
+      var registrationError = getState().auth.get('registrationError');
+      // console.log('+++++++++++++++++++++++++++reg actions. auth registrationError username '+registrationError.get('username'))
+      if (registrationError.get('username') !== undefined || registrationError.get('email') !== undefined || registrationError.get('password') !== undefined || registrationError.get('passwordCheck') !== undefined) {
+        // console.log('+++++++++++++++++++++++++++reg actions. reg error' + registrationError.get('username'))
+        return;
+      }
+
+      dispatch(_actions2.default.requestRegister(creds));
+      return _actions2.default.registerUserService(creds).then(function (_ref2) {
+        var status = _ref2.status;
+        var data = _ref2.data;
+
+        var error = data.error;
+        console.log('Auth actions, Response: ' + util.inspect(data, false, null));
+        // console.log('Auth actions, Error: '+error)
+        // console.log('Auth actions, Error: '+error.error)
+        if (status >= 400 && error != undefined) {
+          console.log('Status looks bad. ' + status + '. error message = ' + error.message);
+          dispatch(_actions2.default.registerSystemError(error.message));
+        } else if (error) {
+          // var errorDescription = error.errorDescription
+          // console.log('Todoapp fetch error = ' + error.error + ', description = ' + errorDescription)
+          dispatch(_actions2.default.registerUserError(error));
+          // dispatch(actions.appError(error))
+        } else {
+          console.log('Status looks good ');
+          console.log(data);
+          dispatch(_actions2.default.receiveRegister(data));
+          //          browserHistory.push('/registerconfirm/')
+        }
+      },
+      //     .then(
+      //       ({ status, resp }) => {
+      //         console.log('Auth actions, Response: '+util.inspect(resp, false, null))
+      //         var error = resp.error
+      //         var user = resp.account
+      //         if (status >= 400) {
+      //           console.log('Status looks bad. '+status+'. error message = '+error.message)
+      //           dispatch(actions.registerSystemError(error.message))
+      //         } else if (user.error) {
+      //           var errorDescription = error.errorDescription
+      //           console.log('Todoapp fetch error = ' + error.error + ', description = ' + errorDescription)
+      //           dispatch(actions.registerUserError(errorDescription))
+      //           dispatch(actions.appError(errorDescription))
+      //         } else {
+      //           console.log('Status looks good ')
+      //           console.log(user)
+      //           dispatch(actions.receiveRegister(user))
+      // //          browserHistory.push('/registerconfirm/')
+      //         }
+      //       },
+
+      function (err) {
+        console.log('Status looks not good at all!' + err);
+      });
+    };
+  }
 };
 
 exports.default = authactions;

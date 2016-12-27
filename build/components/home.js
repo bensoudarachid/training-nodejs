@@ -74,14 +74,14 @@ if (process.env.BROWSER) {
     //     } 
     //   })
     // }
-    var sir3allah = function sir3allah(event) {
+    var imageload = function imageload(event) {
       var idToken = _reactCookie2.default.load('jwt');
       (0, _jquery2.default)('.imgwrap').each(function (i, el) {
         // console.log('++++++++++++++++Scroll'+el)
         var elm = (0, _jquery2.default)(el);
         // var imgbg=elm.find('.imgbg')
         var img = elm.find('.module');
-        var imgSpinner = elm.find('.spinner');
+        var imgSpinner = elm.find('.mdl-spinner');
         if (img.load(true) && img[0].hasAttribute('data-src')) {
           //img is a jquery object img[0] is the dom object 
           img[0].setAttribute('src', img[0].getAttribute('data-src') + (img[0].getAttribute('data-src').includes('/api/') ? '?access_token=' + idToken : ''));
@@ -149,8 +149,8 @@ if (process.env.BROWSER) {
     // console.log('Appcomponent. environment is browser')
     require('./home.scss');
 
-    (0, _jquery2.default)(window).scroll(sir3allah);
-    (0, _jquery2.default)(window).resize(sir3allah);
+    (0, _jquery2.default)(window).scroll(imageload);
+    (0, _jquery2.default)(window).resize(imageload);
   })();
 }
 
@@ -166,6 +166,7 @@ var Home = function (_Component) {
   _createClass(Home, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      require('exports?componentHandler!material-design-lite/material.js').upgradeDom();
       var idToken = _reactCookie2.default.load('jwt');
 
       (0, _jquery2.default)('.imgwrap').each(function (i, el) {
@@ -173,7 +174,7 @@ var Home = function (_Component) {
         var elm = (0, _jquery2.default)(el);
         var imgbg = elm.find('.imgbg');
         var img = elm.find('.module');
-        var imgSpinner = elm.find('.spinner');
+        var imgSpinner = elm.find('.mdl-spinner');
 
         if (img.load(true) && img[0].hasAttribute('data-src')) {
           //img is a jquery object img[0] is the dom object 
@@ -224,6 +225,8 @@ var Home = function (_Component) {
 
     // <div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./api/todo/img/1234'} className='module' alt='coding'/></div>
     // <div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./api/todo/img/1234'} className='module' alt='coding'/></div>
+    // <div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='module' alt='coding'/></div>
+    // <FadingCircle className='spinner' size={60}/>
 
   }, {
     key: 'render',
@@ -245,8 +248,8 @@ var Home = function (_Component) {
                 'div',
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
-                _react2.default.createElement(_betterReactSpinkit.FadingCircle, { className: 'spinner', size: 60 }),
-                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-CodingNeutral1.png', className: 'module', alt: 'coding' })
+                _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
+                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './api/todo/img/1234', className: 'module', alt: 'coding' })
               ),
               _react2.default.createElement(
                 'p',
@@ -261,7 +264,7 @@ var Home = function (_Component) {
                 'div',
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
-                _react2.default.createElement(_betterReactSpinkit.FadingCircle, { className: 'spinner', size: 60 }),
+                _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
                 _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-DeployingNeutral1.png', className: 'module', alt: 'coding' })
               ),
               _react2.default.createElement(
@@ -277,7 +280,7 @@ var Home = function (_Component) {
                 'div',
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
-                _react2.default.createElement(_betterReactSpinkit.FadingCircle, { className: 'spinner', size: 60 }),
+                _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
                 _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-PlanningNeutral1.png', className: 'module', alt: 'coding' })
               ),
               _react2.default.createElement(
@@ -298,7 +301,7 @@ var Home = function (_Component) {
                 'div',
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
-                _react2.default.createElement(_betterReactSpinkit.FadingCircle, { className: 'spinner', size: 60 }),
+                _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
                 _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-CodingNeutral2.png', className: 'module', alt: 'coding' })
               ),
               _react2.default.createElement(
@@ -314,7 +317,7 @@ var Home = function (_Component) {
                 'div',
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
-                _react2.default.createElement(_betterReactSpinkit.FadingCircle, { className: 'spinner', size: 60 }),
+                _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
                 _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-DeployingNeutral2.png', className: 'module', alt: 'coding' })
               ),
               _react2.default.createElement(
@@ -330,7 +333,7 @@ var Home = function (_Component) {
                 'div',
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
-                _react2.default.createElement(_betterReactSpinkit.FadingCircle, { className: 'spinner', size: 60 }),
+                _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
                 _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-PlanningNeutral2.png', className: 'module', alt: 'coding' })
               ),
               _react2.default.createElement(

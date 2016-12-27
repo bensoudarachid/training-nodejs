@@ -36,9 +36,11 @@ if (isBrowser) {
   // url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+appbasename
   url = authurl;
   // authurl= window.location.protocol+'//'+window.location.hostname+':8083'
+  console.log('services call url ' + url);
 } else {
   url = 'http:' + '//' + '127.0.0.1' + (port ? ':' + port : '') + appbasename;
   authurl = 'http:' + '//' + '127.0.0.1' + ':8083';
+  console.log('services call local url ' + url);
 }
 var services = {
   port: port,
@@ -225,10 +227,10 @@ var services = {
       // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
       // 'Authorization': 'Bearer '+idToken
     };
-    console.log('Register user service. user ' + user.username + ' pass ' + user.password);
+    // console.log('Register user service. user '+user.username+' pass '+user.password)
     var body = 'username=' + user.username + '&password=' + user.password + '&email=' + user.email;
     //&scope=read%20write
-    console.log('body ' + body);
+    // console.log('body '+body)
     // let config = {
     //   method: 'POST'
     //   , headers: {
@@ -244,10 +246,10 @@ var services = {
       body: body
     };
     return fetch(authurl + '/register', config).then(function (response) {
-      return response.json().then(function (user) {
+      return response.json().then(function (data) {
         return {
           status: response.status,
-          user: user
+          data: data
         };
       });
     });

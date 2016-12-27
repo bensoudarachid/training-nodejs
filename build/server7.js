@@ -362,7 +362,7 @@ app.get(appbasename + '/*', function (req, res) {
     // })
     var timeout = 0;
     if (req.url.endsWith('.png')) {
-      timeout = 4000;
+      timeout = 350;
     }
     console.log('Timeout for ' + req.url + ' is ' + timeout);
     console.log('Timeout done ' + req.url);
