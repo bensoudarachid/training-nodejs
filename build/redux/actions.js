@@ -43,5 +43,5 @@ var _appactions2 = _interopRequireDefault(_appactions);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var actions = _extends({}, _appactions2.default, _services2.default, _authactions2.default, _todoactions2.default);
-
+console.log('actionsjs. actions.url = ' + actions.apiurl);
 exports.default = actions;

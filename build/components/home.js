@@ -20,6 +20,10 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _actions = require('../redux/actions');
+
+var _actions2 = _interopRequireDefault(_actions);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -179,7 +183,8 @@ var Home = function (_Component) {
         if (img.load(true) && img[0].hasAttribute('data-src')) {
           //img is a jquery object img[0] is the dom object 
           // img[0].setAttribute('src', img[0].getAttribute('data-src')+ '?access_token='+ idToken)
-          img[0].setAttribute('src', img[0].getAttribute('data-src') + (img[0].getAttribute('data-src').includes('/api/') ? '?access_token=' + idToken : ''));
+          // img[0].setAttribute('src', img[0].getAttribute('data-src')+ (img[0].getAttribute('data-src').includes('/api/')?('?access_token='+ idToken):''))
+          img[0].setAttribute('src', img[0].getAttribute('data-src'));
           img[0].onload = function () {
             console.log('image loaded: ' + img[0].getAttribute('data-src'));
             img[0].removeAttribute('data-src');
@@ -231,7 +236,8 @@ var Home = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-
+      // console.log('homejs. props.actions.url = '+this.props.actions.apiurl)
+      // console.log('homejs. actions.url = '+actions.apiurl)
       return _react2.default.createElement(
         'div',
         { id: 'home' },
@@ -249,7 +255,7 @@ var Home = function (_Component) {
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
                 _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './api/todo/img/1234', className: 'module', alt: 'coding' })
+                _react2.default.createElement('img', { src: './images/0.png', 'data-src': _actions2.default.apiurl + '/api/todo/img/1234', className: 'module', alt: 'coding' })
               ),
               _react2.default.createElement(
                 'p',
