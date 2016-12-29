@@ -143,6 +143,10 @@ class AppComponent extends React.Component {
         // {!isBrowser &&
         //   <div id='wait'><ThreeBounce size={100}/></div>
         // }
+    // console.log('appcomponentjs. actions.apiurl = '+actions.apiurl)
+    // console.log('appcomponentjs. props.actions.apiurl = '+this.props.actions.apiurl)
+    // console.log('appcomponentjs. actions.auth = '+this.props.auth.get('isAuthenticated'))
+    // console.log('appcomponentjs. props.actions.apiurl = '+this.props.auth.apiurl)
     var children = updateChildren(this.props.children, this.props)
     return (
       <div id='appcomp'>

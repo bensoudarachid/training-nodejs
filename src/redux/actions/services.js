@@ -32,6 +32,7 @@ if( isBrowser ){
   console.log('services call local url '+url)
 }
 const services = {
+  apiurl:url,
   port:port,
   appbasename:appbasename,
   retrieveTodosService: function() {

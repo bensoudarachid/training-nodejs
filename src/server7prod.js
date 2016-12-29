@@ -65,7 +65,7 @@ app.use(bodyParser.urlencoded({
 app.use(favicon('./images/favicon.ico'))
 
 // app.use(express.static('./public'));
-console.log('dirname = '+__dirname )
+// console.log('dirname = '+__dirname )
 app.use(express.static(__dirname ))
 
 // app.set('view engine', 'ejs');

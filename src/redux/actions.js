@@ -20,5 +20,5 @@ let actions = {
   ...todoactions
   
 }
-
+console.log('actionsjs. actions.url = '+actions.apiurl)
 export default actions

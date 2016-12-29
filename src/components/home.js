@@ -3,6 +3,8 @@ import {FadingCircle} from 'better-react-spinkit'
 import cookie from 'react-cookie'
 import 'jquery'
 import $ from 'jquery'
+import actions from '../redux/actions'
+
 // import { IndexLink, Link} from 'react-router'
 // import Login from './login.js'
 // import Logout from './logout.js'
@@ -149,7 +151,8 @@ class Home extends Component {
 
       if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
         // img[0].setAttribute('src', img[0].getAttribute('data-src')+ '?access_token='+ idToken)
-        img[0].setAttribute('src', img[0].getAttribute('data-src')+ (img[0].getAttribute('data-src').includes('/api/')?('?access_token='+ idToken):''))
+        // img[0].setAttribute('src', img[0].getAttribute('data-src')+ (img[0].getAttribute('data-src').includes('/api/')?('?access_token='+ idToken):''))
+        img[0].setAttribute('src', img[0].getAttribute('data-src'))
         img[0].onload = function() {
           console.log('image loaded: '+img[0].getAttribute('data-src'))
           img[0].removeAttribute('data-src')
@@ -203,7 +206,8 @@ class Home extends Component {
 // <FadingCircle className='spinner' size={60}/>
 
   render() {
-
+    // console.log('homejs. props.actions.url = '+this.props.actions.apiurl)
+    // console.log('homejs. actions.url = '+actions.apiurl)
     return (
 		<div id='home'>
 		
@@ -212,7 +216,7 @@ class Home extends Component {
 			<div className="row">
 				<div className="col-xs-12 col-md-4 col-lg-4">
 				
-        <div className='imgwrap'><div className='imgbg'/><div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div><img src={'./images/0.png'} data-src={'./api/todo/img/1234'} className='module' alt='coding'/></div>
+        <div className='imgwrap'><div className='imgbg'/><div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div><img src={'./images/0.png'} data-src={actions.apiurl+'/api/todo/img/1234'} className='module' alt='coding'/></div>
 				<p>1. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
 				</div>
 				<div className="col-xs-12 col-md-4 col-lg-4">

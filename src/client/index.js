@@ -165,7 +165,7 @@ ReactDom.render(
 )
 	// <Router routes={routes} history={browserHistory} />
 // <Router children={routes} history={browserHistory} />
- 	// <AppComponent />
+// <AppComponent />
 //  	<App />
 
   // <Provider store={store}>
