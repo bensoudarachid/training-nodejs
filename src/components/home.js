@@ -216,11 +216,11 @@ class Home extends Component {
 			<div className="row">
 				<div className="col-xs-12 col-md-4 col-lg-4">
 				
-        <div className='imgwrap'><div className='imgbg'/><div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div><img src={'./images/0.png'} data-src={actions.apiurl+'/api/todo/img/1234'} className='module' alt='coding'/></div>
+        <div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='module' alt='coding'/></div>
 				<p>1. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
 				</div>
 				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'} className='module' alt='coding'/></div>
+        <div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'} className='module' alt='coding'/></div>
 				<p>2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
 				</div>				
 				<div className="col-xs-12 col-md-4 col-lg-4">
@@ -232,15 +232,15 @@ class Home extends Component {
 			</div>
 			<div className="row">
 				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral2.png'} className='module' alt='coding'/></div>
+				<div className='imgwrap'><div className='imgbg'/><div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div><img src={'./images/0.png'} data-src={actions.apiurl+'/api/todo/img/1234'} className='module' alt='coding'/></div>
 				<p>1. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
 				</div>
 				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral2.png'} className='module' alt='coding'/></div>
+				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral2.png'} className='module' alt='coding'/></div>
 				<p>2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
 				</div>
 				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral2.png'} className='module' alt='coding'/></div>
+				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral2.png'} className='module' alt='coding'/></div>
 				<p>3. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
 				</div>
 				<div className="clearfix visible-md visible-lg"></div>
