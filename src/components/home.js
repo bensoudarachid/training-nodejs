@@ -247,23 +247,43 @@ class Home extends Component {
 								
 			</div>	
 
-			<div className="row">
-				<div className="col-xs-6 col-sm-4 col-sm-push-4 boxlogo">
-				LOGO
-				</div>
-				<div className="col-xs-6 col-sm-8">
-				<div className="row">
-				<div className="col-sm-6 col-sm-pull-6 boxb">
-				B
-				</div>
-				<div className="col-sm-6 boxa">
-				A
-				</div>
-				</div>
-	
-				</div>
+			<div className="row">	
+        <ul className='mdl-list'>
+          <li className="mdl-list__item">
+            <span className="mdl-list__item-primary-content">
+              <span className='glyphicon  glyphicon-user'></span>
+              User 1
+            </span> 
+            <a className="mdl-list__item-primary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
+            </li>
+
+          <li className="mdl-list__item">
+            <span className="mdl-list__item-primary-content">
+              <span className='glyphicon  glyphicon-user'></span>
+              User 2
+            </span>
+            <a className="mdl-list__item-secondary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
+          </li>
+
+          <li className="mdl-list__item">
+            <span className="mdl-list__item-primary-content">
+              <span className='glyphicon  glyphicon-user'></span>
+              User 3</span>
+            <a className="mdl-list__item-secondary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
+          </li>
+
+          <li className="mdl-list__item">
+            <span className="mdl-list__item-primary-content">
+              <span className='glyphicon  glyphicon-user'></span>
+              User 4</span>
+            <a className="mdl-list__item-secondary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
+          </li>
+
+        </ul>
 			</div>
+
 		</div>
+        
 		</div>
 	)
   }

@@ -145,7 +145,11 @@ var AppComponent = function (_React$Component) {
         }
       };
     }
-
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      require('exports?componentHandler!material-design-lite/material.js').upgradeDom();
+    }
     // <div>
     //   <Nav
     //     actions={this.props.actions}
@@ -166,6 +170,24 @@ var AppComponent = function (_React$Component) {
     //   <button className='mdl-snackbar__action' type='button'></button>
     // </div>
 
+
+    // <div className="mdl-grid">
+    // <div className="mdl-layout mdl-js-layout">
+    //   <main className="mdl-layout__content">
+
+    //   <div id='contt'>
+    //   { children }
+    //   </div>
+    //   {appError &&
+    //   <div>
+    //     <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: '+appError}/>
+    //   </div>
+    //   }
+
+    //   </main>
+    // </div>  
+    // </div>
+
   }, {
     key: 'render',
     value: function render() {
@@ -181,31 +203,8 @@ var AppComponent = function (_React$Component) {
       var loginProgress = auth.get('loginProgress');
       var registererror = this.props.auth.get('registererror');
       var appError = this.props.app.get('appError');
-      // console.log('appcompjs-----------------------------')
-      // console.log(loginProgress)
-      // console.log('appcompjs-----------------------------')
-      // var modal = document.getElementById('myModal')
-      // if( loginProgress )
-      //   modal.style.display = 'block'
-      // else
-      //   modal.style.display = 'none'
-
-      // AppComponent.fetchData().then(response => response.json())
-      // .then(data => {
-      //   // console.log(data.todos)
-      //   this.props.actions.addTodos(data.todos);
-      // })
-      // .catch(err => console.log('Booooo' + err));
-      //        <img src='/images/RoyaFacebookIdea1.png' alt='Smiley face' height='99' width='453' />      
-      //style={{color: 'red'}}
-      // {!isBrowser &&
-      //   <div id='wait'><ThreeBounce size={100}/></div>
-      // }
-      // console.log('appcomponentjs. actions.apiurl = '+actions.apiurl)
-      // console.log('appcomponentjs. props.actions.apiurl = '+this.props.actions.apiurl)
-      // console.log('appcomponentjs. actions.auth = '+this.props.auth.get('isAuthenticated'))
-      // console.log('appcomponentjs. props.actions.apiurl = '+this.props.auth.apiurl)
       var children = updateChildren(this.props.children, this.props);
+
       return _react2.default.createElement(
         'div',
         { id: 'appcomp' },
