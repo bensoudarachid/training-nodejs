@@ -504,6 +504,7 @@ var todoactions = {
       //   }
       //   ))
       // dispatch(actions.loadingTodoFileOn())
+
       _actions2.default.retrieveTodosService().then(function (_ref4) {
         var status = _ref4.status;
         var data = _ref4.data;
