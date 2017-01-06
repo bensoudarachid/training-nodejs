@@ -40,7 +40,7 @@
 	}
 	img{
 		// background-color: red;
-		// background:radial-gradient(circle closest-side at 50% 50%, lighten(white,100%) 0,  darken($roya-blue,40%) 92%, transparent 96%);
+		background:radial-gradient(circle closest-side at 50% 50%, lighten(white,100%) 0,  lighten($roya-blue,15%) 95%, transparent 100%);
 		// margin-top:-10px;
 		margin-left: -50px;
 		// right:100px
@@ -69,8 +69,8 @@
 	}
 
 	.imgwrapper{
-		margin-top:-10px;
-		right:100px;
+		margin-top:-8px;
+		right:90px;
 		// margin-bottom:-30px;
 		position:absolute;
 		@media (min-width: 992px) {
