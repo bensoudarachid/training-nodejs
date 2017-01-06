@@ -176,10 +176,7 @@ export default class Register extends Component {
     //Need this code to get correct placeholderfloating  behaviour. otherwise content and placeholder overlap
     var dialogInputs = document.querySelectorAll('.mdl-textfield')
     for (var i = 0, l = dialogInputs.length; i < l; i++) {
-      // console.log('Registeration. call dialog input id '+dialogInputs[i].MaterialTextfield.input_.id+', error: '+registrationError.get(dialogInputs[i].MaterialTextfield.input_.id))
-      // dialogInputs[i].MaterialTextfield.change(dialogInputs[i].MaterialTextfield.input_.value)
       dialogInputs[i].MaterialTextfield.checkDirty()
-      // dialogInputs[i].className += registrationError.get(dialogInputs[i].MaterialTextfield.input_.id)!==undefined?' is-invalid':''
       if( registrationError.get(dialogInputs[i].MaterialTextfield.input_.id)!==undefined )
         dialogInputs[i].className += ' is-invalid'
       else{
@@ -187,8 +184,6 @@ export default class Register extends Component {
         console.log('Register. dialogInputs[i].className - invalid '+dialogInputs[i].className)
       }
     }
-    // document.getElementById('email').parentElement.className += ' is-invalid'
-    // document.getElementById('input-error').textContent = 'Error Message'
 
   }
   componentWillUnmount(){

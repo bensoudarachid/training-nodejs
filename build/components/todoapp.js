@@ -142,7 +142,7 @@ var TodoApp = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'container' },
+        { className: 'todoapp container' },
         !auth.get('isAuthenticated') && _react2.default.createElement(
           'div',
           null,

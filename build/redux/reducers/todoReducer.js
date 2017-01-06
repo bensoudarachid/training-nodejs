@@ -45,6 +45,7 @@ var todoReducer = function todoReducer() {
   var todoappmap = arguments.length <= 0 || arguments[0] === undefined ? new _immutable2.default.Map({
     filterOpen: true,
     filterClosed: true,
+    // loadTodoImages: false,
     todos: _immutable2.default.List([])
   }) : arguments[0];
   var action = arguments[1];
@@ -56,6 +57,7 @@ var todoReducer = function todoReducer() {
     todoappmap = new _immutable2.default.Map({
       filterOpen: true,
       filterClosed: true,
+      // loadTodoImages: false,
       todos: _immutable2.default.List([])
     });
   }
@@ -72,9 +74,24 @@ var todoReducer = function todoReducer() {
       index = todos.findIndex(function (item) {
         return item.get('id') === action.todo.get('id');
       });
-      todos = todos.set(index, action.todo);
+      todo = action.todo.set('loading', true);
+      todos = todos.set(index, todo);
       todoappmap = todoappmap.set('todos', todos);
       return todoappmap;
+    case 'UPLOADING_TODO_IMAGE':
+      index = todos.findIndex(function (item) {
+        return item.get('id') === action.todo.get('id');
+      });
+      // console.log('todoreducer uploading image. todo index = '+index)
+      var todo = action.todo.set('isUploading', action.isUploading);
+      console.log('todoreducer uploading image: ' + todo.get('isUploading'));
+      todos = todos.set(index, todo);
+      todoappmap = todoappmap.set('todos', todos);
+      // console.log('todoreducer uploading image. todo isUploading from todos = '+todos.get(index).get('isUploading') )
+      return todoappmap;
+    // case 'FINISH_LOADING_TODO_FILE':
+    //   todoappmap = todoappmap.set('loadTodoImages', false)
+    //   return todoappmap
 
     case 'REJECT_TODO_INIT':
       // console.log('todo reducer. reject create todo : '+action.text)
@@ -125,10 +142,12 @@ var todoReducer = function todoReducer() {
         return item.get('id') === action.todo.get('id');
       });
       todoappmap = todoappmap.set('todos', todos.set(index, action.todo));
+      todoappmap = todoappmap.set('loadTodoImages', true);
       return todoappmap;
-    case 'UPDATE_TODO_FILE':
-      console.log('todo reducer. Upload file');
-      return todoappmap;
+    // case 'UPDATE_TODO_FILE':
+    //   console.log('todo reducer. Upload file')
+    //   todoappmap = todoappmap.set('loadTodoImages', false)
+    //   return todoappmap
     case 'DELETE_TODO':
       todoappmap = todoappmap.set('todos', todos.filter(function (todo) {
         return todo.get('id') !== action.id;

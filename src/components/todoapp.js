@@ -98,7 +98,7 @@ class TodoApp extends Component {
     //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
     // deleteTask={this.deleteTask.bind(this)}
     return (
-      <div className='container'>
+      <div className='todoapp container'>
       {!auth.get('isAuthenticated') &&
       <div>
         No right access here. Please login
@@ -106,10 +106,10 @@ class TodoApp extends Component {
       }
       {auth.get('isAuthenticated') &&
       <div>
-              <h3>To dos. Please proceed now</h3>
-              <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions} />
-              <CreateTodo todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
-              <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>
+        <h3>To dos. Please proceed now</h3>
+        <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions} />
+        <CreateTodo todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
+        <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>
       </div>
       }
       </div>

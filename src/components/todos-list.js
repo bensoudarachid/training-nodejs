@@ -5,12 +5,21 @@ import TodosListHeader from './todos-header'
 import TodosListItem from './todos-list-item'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
+if (process.env.BROWSER) {
+  require('./todos-list.scss')
+}
+
 export default class TodosList extends React.Component {
   constructor(props) {
     super(props)
     console.log('todo list. Mixin in constructor')
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
   }
+  
+  componentDidMount(){
+    require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+  }
+
   getItems() {
     // console.log('todo list filteropen ' + this.props.filteropen)
     // console.log('todo list filterclosed ' + this.props.filterclosed)
@@ -29,13 +38,17 @@ export default class TodosList extends React.Component {
     var items = this.getItems()
     // const props = _.omit(this.props, 'todos');
     // console.log('todo list. render items. Size = '+items.size)
+    
     return items.map(
-      (todo, index) => <TodosListItem key={index} todo={todo} actions={this.props.actions}/>
+      (todo, index) => {
+        // console.log('todo list. index = '+index)
+        return <TodosListItem ind={index} todo={todo} actions={this.props.actions}/>
+      }
     )
   }
 
-  render() {
-    // console.log("Hi there from List. Props: "+this.props);
+  renderOld() {
+    // console.log('Hi there from List. Props: '+this.props);
     return (
       <div>
       <table>
@@ -44,6 +57,23 @@ export default class TodosList extends React.Component {
             {this.renderItems()}
         </tbody>
       </table>
+      </div>
+    )
+  }
+  render() {
+    // console.log('Hi there from List. Props: '+this.props);
+      // <div className="mdl-layout-spacer"></div>
+    return (
+      <div className='todoslist'>
+      {this.renderItems()}
+      </div>
+    )
+  }
+  renderNew() {
+    // console.log('Hi there from List. Props: '+this.props);
+    return (
+      <div>
+        {this.renderItems()}
       </div>
     )
   }

@@ -36,6 +36,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+if (process.env.BROWSER) {
+  require('./todos-list.scss');
+}
+
 var TodosList = function (_React$Component) {
   _inherits(TodosList, _React$Component);
 
@@ -50,6 +54,11 @@ var TodosList = function (_React$Component) {
   }
 
   _createClass(TodosList, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      require('exports?componentHandler!material-design-lite/material.js').upgradeDom();
+    }
+  }, {
     key: 'getItems',
     value: function getItems() {
       var _this2 = this;
@@ -72,14 +81,16 @@ var TodosList = function (_React$Component) {
       var items = this.getItems();
       // const props = _.omit(this.props, 'todos');
       // console.log('todo list. render items. Size = '+items.size)
+
       return items.map(function (todo, index) {
-        return _react2.default.createElement(_todosListItem2.default, { key: index, todo: todo, actions: _this3.props.actions });
+        // console.log('todo list. index = '+index)
+        return _react2.default.createElement(_todosListItem2.default, { ind: index, todo: todo, actions: _this3.props.actions });
       });
     }
   }, {
-    key: 'render',
-    value: function render() {
-      // console.log("Hi there from List. Props: "+this.props);
+    key: 'renderOld',
+    value: function renderOld() {
+      // console.log('Hi there from List. Props: '+this.props);
       return _react2.default.createElement(
         'div',
         null,
@@ -93,6 +104,27 @@ var TodosList = function (_React$Component) {
             this.renderItems()
           )
         )
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      // console.log('Hi there from List. Props: '+this.props);
+      // <div className="mdl-layout-spacer"></div>
+      return _react2.default.createElement(
+        'div',
+        { className: 'todoslist' },
+        this.renderItems()
+      );
+    }
+  }, {
+    key: 'renderNew',
+    value: function renderNew() {
+      // console.log('Hi there from List. Props: '+this.props);
+      return _react2.default.createElement(
+        'div',
+        null,
+        this.renderItems()
       );
     }
   }]);
