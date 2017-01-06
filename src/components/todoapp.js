@@ -98,7 +98,7 @@ class TodoApp extends Component {
     //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
     // deleteTask={this.deleteTask.bind(this)}
     return (
-      <div className='todoapp container'>
+      <div className='todoapp'>
       {!auth.get('isAuthenticated') &&
       <div>
         No right access here. Please login
