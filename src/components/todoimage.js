@@ -57,7 +57,7 @@ export default class TodoImage extends React.Component {
   componentDidMount() {
     require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-    console.log('++++++++++++++++ todoimage ++++++ componentDidMount ')
+    // console.log('++++++++++++++++ todoimage ++++++ componentDidMount ')
     // this.loadImage()
     // const taskid = this.props.taskid
     // var elm = $('#imgwrap'+taskid)
@@ -76,7 +76,7 @@ export default class TodoImage extends React.Component {
   componentDidUpdate() {
     // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
-    console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ')   
+    // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ')   
 
     const taskid = this.props.taskid
     var elm = $('#imgwrap'+taskid)
@@ -85,7 +85,7 @@ export default class TodoImage extends React.Component {
     // var image=$('#todolistitemimg'+taskid)
     var img = image[0]
     // var img = document.getElementById('todolistitemimg'+taskid)
-    console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))
+    // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))
 
 
     if (this.props.isUploading) {//img is a jquery object img[0] is the dom object 
@@ -102,13 +102,13 @@ export default class TodoImage extends React.Component {
       img.style.display = 'none'
       img.setAttribute('src', img.getAttribute('data-src'))
       img.removeAttribute('data-src')
-      console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate setstate to true')
+      // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate setstate to true')
     }        
   }
 
 
   handleImageLoaded() {
-    console.log('++++++++++++++++ todoimage ++++++ handleImageLoaded ')
+    console.log('todoimage handleImageLoaded ')
     this.setState({ imageLoaded: true })
     // this.props.imageLoaded = true
     const taskid = this.props.taskid
@@ -119,13 +119,16 @@ export default class TodoImage extends React.Component {
     var img = image[0]
     if (!img.hasAttribute('data-src')) {
       // imgSpinner.remove()
+      console.log('++++++++++++++++ todoimage ++++++ handleImageLoaded set background now' )
       img.style.display = 'block'
+      if(img.getAttribute('src') != './images/0.png')
+        img.style.background = 'radial-gradient(circle closest-side at 50% 50%, white 0,  #69F 95%, transparent 100%)'
       imgSpinner[0].style.display = 'none'
     }
   }
  
   handleImageErrored() {
-    console.log('++++++++++++++++ todoimage ++++++ handleImageErrored ')
+    console.log('todoimage handleImageErrored ')
     const taskid = this.props.taskid
     var elm = $('#imgwrap'+taskid)
     var imgSpinner=elm.find('.mdl-spinner')
@@ -139,7 +142,7 @@ export default class TodoImage extends React.Component {
   }
   shouldComponentUpdate(nextProps, nextState) {
     const isUploading  = this.props.isUploading
-    console.log('++++++++++++++++ todoimage ++++++ shouldComponentUpdate'+ isUploading)
+    // console.log('++++++++++++++++ todoimage ++++++ shouldComponentUpdate'+ isUploading)
     if (!this.props.isUploading) {
       return true
     }
