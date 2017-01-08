@@ -236,9 +236,26 @@ var todoactions = {
   },
   uploadTodoFileDispatcher: function uploadTodoFileDispatcher(todo, todoold, fileinput) {
     console.log('todoactions. uploadTodoFileDispatcher');
-    console.log('todoactions. updateTodoDispatcher');
     return function (dispatch) {
-      console.log('todoactions. updateTodoDispatcher assi');
+      if (fileinput == undefined) {
+        todoold = todoold.set('error', 'No file parameter provided');
+        dispatch(todoactions.updateTodo(todoold));
+        todoold = todoold.delete('error');
+        setTimeout(function () {
+          dispatch(todoactions.updateTodo(todoold));
+        }, 2500);
+        return;
+      }
+      if (fileinput.size > 250000) {
+        todoold = todoold.set('error', 'File too large (200kb max)');
+        dispatch(todoactions.updateTodo(todoold));
+        todoold = todoold.delete('error');
+        setTimeout(function () {
+          dispatch(todoactions.updateTodo(todoold));
+        }, 2500);
+        return;
+      }
+
       if (todo.get('loading') || todo.get('error')) {
         // console.log('todo actions toggle todo. Is loading or Error displaying. So no action')
         return;

@@ -453,6 +453,10 @@ app.get(appbasename + '/*', function (req, res) {
                 _react2.default.createElement(_reactRouter.RouterContext, renderProps)
               ));
 
+              // <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+              // <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
+              // <link rel="stylesheet" href="//storage.googleapis.com/code.getmdl.io/1.0.1/material.light_blue-red.min.css" />
+              // <script src="//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>                
               // console.log('Server. body '+body);
               // <div id="devmarker" style="position:fixed;height:4px;width:263px;background-color:#fff;top:165px;left:50%;"></div>
 
