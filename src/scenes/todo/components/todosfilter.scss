@@ -1,0 +1,22 @@
+@import '../../../styles/default.scss';
+
+#todosfilter
+{
+
+	margin: 12px 15px;
+	// margin-bottom: 0px;
+
+	// background-color: white !important;
+
+	padding: 0px;
+	.checkboxinput{
+		// color: white !important;
+	}
+	span{
+		font-family: 'Dancing Script', Tahoma, sans-serif;
+		// color: white;
+		// float: right;
+		// float: left;
+		
+	}
+}

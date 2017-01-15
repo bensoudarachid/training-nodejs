@@ -11,7 +11,7 @@ module.exports = {
   
   entry: [
     'webpack-hot-middleware/client?path=http://127.0.0.1:8081/__webpack_hmr',
-    './src/client'
+    './src/app'
   ],
   output: {
     path: path.join(__dirname, 'build'),
@@ -33,16 +33,16 @@ module.exports = {
       // { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.wav$|\.mp3$/, 
       //   loader: 'file-loader?name=images/[name].[ext]' 
       // },      
-      { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.wav$|\.mp3$/, 
-        loader: 'url-loader?limit=8192' 
-      },      
+      { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.wav$|\.mp3$/,
+        loader: 'url-loader?limit=150192'
+      },
       { test: /\.scss$/, loader: 'style!css!sass' },
       // {
       //   test: /\.scss$/,
       //   loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
       // },
       { test: /\.css$/, loader: 'style!css' },
-      { test: /\.(woff|woff2|ttf|eot)$/, loader: 'url'}, //important also for twitter bootstrap 
+      { test: /\.(woff|woff2|ttf|eot)$/, loader: 'url'}, //important also for twitter bootstrap
       // {
       //   test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, 
       //   loader: 'url?limit=10000&mimetype=application/font-woff'

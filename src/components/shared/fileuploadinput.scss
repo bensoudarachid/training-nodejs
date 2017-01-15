@@ -1,0 +1,39 @@
+@import '../../styles/default.scss';
+
+
+.file_input_div {
+	margin-top: -2px;
+	float: left;
+	padding-left: 10px;
+  .file_input {
+	  // float: left;
+	  // display: inline;
+	  .justify{
+	  	background-color: darken($roya-blue,30%);
+	  	padding-top:7px;
+	  	// height:40px;
+	  	// width:40px;
+	  }
+	}
+
+	#file_input_text_div {
+	  width: 200px;
+	  margin-top: -8px;
+	  margin-left: 5px;
+	}
+
+	.none {
+	  display: none;
+	}
+	.uploadlabel{
+		margin-top: 10px;
+		margin-left: 10px;
+		min-width: 100px;
+		// background-color: lighten($roya-blue,25%);
+		position: absolute;
+	}
+	
+}
+.disabled{
+	color: lighten($roya-blue,10%);
+}

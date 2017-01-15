@@ -1,0 +1,38 @@
+@import '../../styles/default.scss';
+
+div{
+ text-align:center;
+}
+table{
+ float:center;	
+}
+
+.todoapp{
+	width: 95%;
+	margin: 0 auto;
+	h4 {
+		font-family: 'Dancing Script', Tahoma, sans-serif;
+		color: white;
+		float: left;
+		margin-left:10px;
+	}
+	// background-color:orange;
+
+	.parampanel{
+		// padding:100px;
+
+		margin: 30px 0 !important;
+		background-color: $beige;
+		-moz-background-clip: padding; /* Firefox 3.6 */
+		-webkit-background-clip: padding; /* Safari 4? Chrome 6? */
+		background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+	}
+	@media (min-width: 480px) {
+		// background-color:pink;
+		width: 90%;
+	}
+	@media (min-width: 840px) {
+		// background-color:red;
+		width: 85%;
+	}	
+}

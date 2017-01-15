@@ -14,7 +14,7 @@ module.exports = {
   entry: [
     // 'webpack-hot-middleware/client?path=http://localhost:8081/__webpack_hmr',
     // './src/client/indexprod.js'
-    './src/client'
+    './src/app'
   ],
   output: {
     // path: path.join(__dirname, 'build/reactor'),

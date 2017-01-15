@@ -9,7 +9,7 @@ import { RouterContext, match } from 'react-router'
 import { renderToString } from 'react-dom/server'
 import { routes } from './components/routes'
 import { createStore, applyMiddleware } from 'redux'
-import rootReducer from './redux/reducers'
+import rootReducer from './services/rootreducer'
 import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 import fs from 'fs'
@@ -18,7 +18,7 @@ import multer from 'multer'
 import { Provider } from 'react-redux'
 
 import { bindActionCreators } from 'redux'
-import actions from './redux/actions'
+import actions from './services/actions'
 
 var FormData = require('form-data')
 const util = require('util')
@@ -353,7 +353,7 @@ app.get(appbasename+'/*', (req, res) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
                 <link rel="stylesheet" type="text/css" href="${style}" />
                 </head>
-                <body>
+                <body style="background-color:#003870">
                   <div id="root">${body}</div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
                   <script src="${bundle}"></script>

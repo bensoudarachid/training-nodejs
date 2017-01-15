@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'  
 import { Provider } from 'react-redux'  
 import routes from '../components/routes'  
-import reducers from '../redux/reducers'
+import reducers from '../services/rootreducer'
 
 const app = express()
 
