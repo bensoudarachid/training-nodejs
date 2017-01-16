@@ -40,7 +40,7 @@ const todoservices = {
   // port:port,
   // appbasename:appbasename,
   retrieveTodosService: function() {
-    console.log('Service retrieve todos fetchData call '+ url)
+    // console.log('Service retrieve todos fetchData call '+ url)
     var headers = {
       // 'Content-Type': 'application/x-www-form-urlencoded',
       'Content-Type': 'application/json'
@@ -50,11 +50,11 @@ const todoservices = {
     var idToken = cookie.load('jwt')
     if (idToken !== '') {
       headers.Authorization = 'Bearer ' + idToken
-      console.log('Ya todos fetchData.  auth id token: ' + idToken)
+      // console.log('Ya todos fetchData.  auth id token: ' + idToken)
     }
-    else {
-      console.log('Service retrieve todos fetchData. Wahnsinn: no idToken')
-    }
+    // else {
+    //   console.log('Service retrieve todos fetchData. Wahnsinn: no idToken')
+    // }
     //var test = 'This is abbas in the hood!';
 
     return fetch(url+'/api/todos/2373',
@@ -75,7 +75,7 @@ const todoservices = {
       }
     )
       .then(response => response.json().then(data => {
-        console.log('Response Status = ' + response.status)
+        // console.log('Response Status = ' + response.status)
         // console.log('Response data size = ' + data.size())
         return ({
           status: response.status,

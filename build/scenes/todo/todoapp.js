@@ -52,9 +52,9 @@ var TodoApp = function (_Component) {
   function TodoApp(props) {
     _classCallCheck(this, TodoApp);
 
+    // console.log('todo list. Mixin in constructor')
     var _this = _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).call(this, props));
 
-    console.log('todo list. Mixin in constructor');
     _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
     // const {auth} = this.props
     if (process.env.BROWSER && !_this.props.auth.get('isAuthenticated')) {
@@ -71,7 +71,7 @@ var TodoApp = function (_Component) {
   _createClass(TodoApp, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      console.log('todoappjs mounted');
+      // console.log('todoappjs mounted')
       TodoApp.fetchData(this.props.actions);
     }
     //This is a necessary call when component is fetched on server side

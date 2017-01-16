@@ -90,9 +90,9 @@ if (process.env.BROWSER) {
     // dialog.querySelector('.close').addEventListener('click', function() {
     //   dialog.close()
     // })
-    // setTimeout(() => {
-    // document.getElementById('wavybg-wrapper').style.visibility='visible'
-    // }, 1500)
+    setTimeout(function () {
+      document.getElementById('wavybg-wrapper').style.visibility = 'visible';
+    }, 1600);
 
     var smokyBGNow = (0, _jquery2.default)('#wavybg-wrapper').waterpipe({
       //Default values
@@ -106,7 +106,7 @@ if (process.env.BROWSER) {
       minMaxRad: 1,
       minRadFactor: 0.5,
       iterations: 4,
-      drawsPerFrame: 4,
+      drawsPerFrame: 35,
       lineWidth: 1,
       speed: 1,
       bgColorInner: '#6bc1ff',

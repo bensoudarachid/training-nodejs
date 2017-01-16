@@ -171,7 +171,7 @@ var TodosListItem = function (_React$Component) {
         //   console.log('todoslistitem.js. dialogInputs[i] is undefined')
       }
       var index = this.props.ind;
-      console.log('todoslistitem.js. this.props.ind ' + this.props.ind);
+      // console.log('todoslistitem.js. this.props.ind '+this.props.ind)
       if (!this.state.hadFocus && document.getElementById('taskInput' + index)) {
         document.getElementById('taskInput' + index).focus();
         this.setState({
@@ -313,7 +313,7 @@ var TodosListItem = function (_React$Component) {
       };
       var loading = this.props.todo.get('loading');
       var isUploading = this.props.todo.get('isUploading');
-      console.log('todolistitem. isUploading' + isUploading);
+      // console.log('todolistitem. isUploading'+isUploading)
 
       var disabled = loading || error;
       var errorClass = error ? 'error' : '';

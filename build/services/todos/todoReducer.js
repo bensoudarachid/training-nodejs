@@ -116,7 +116,7 @@ var todoReducer = function todoReducer() {
       todoappmap = todoappmap.set('todos', todos);
       return todoappmap;
     case 'TODOS_LOADED':
-      console.log('todos reducer. todos loaded');
+      // console.log('todos reducer. todos loaded')
       todoappmap = todoappmap.set('todos', _immutable2.default.List(action.todos.map(function (todo) {
         return _immutable2.default.Map(todo);
       })));

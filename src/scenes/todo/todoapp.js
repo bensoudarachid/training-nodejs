@@ -17,7 +17,7 @@ class TodoApp extends Component {
 
   constructor(props) {
     super(props)
-    console.log('todo list. Mixin in constructor')
+    // console.log('todo list. Mixin in constructor')
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
     // const {auth} = this.props
     if(process.env.BROWSER && !this.props.auth.get('isAuthenticated')){
@@ -32,7 +32,7 @@ class TodoApp extends Component {
 
 
   componentDidMount() {
-    console.log('todoappjs mounted')
+    // console.log('todoappjs mounted')
     TodoApp.fetchData(this.props.actions)
   }
   //This is a necessary call when component is fetched on server side

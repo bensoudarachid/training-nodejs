@@ -92,7 +92,7 @@ var TodoImage = function (_React$Component) {
     value: function componentDidMount() {
       require('exports?componentHandler!material-design-lite/material.js').upgradeDom();
       // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-      // console.log('++++++++++++++++ todoimage ++++++ componentDidMount ')
+      console.log('++++++++++++++++ todoimage ++++++ componentDidMount ');
       // this.loadImage()
       // const taskid = this.props.taskid
       // var elm = $('#imgwrap'+taskid)
@@ -113,7 +113,7 @@ var TodoImage = function (_React$Component) {
     value: function componentDidUpdate() {
       // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
       require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered();
-      // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ')   
+      console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ');
 
       var taskid = this.props.taskid;
       var elm = (0, _jquery2.default)('#imgwrap' + taskid);

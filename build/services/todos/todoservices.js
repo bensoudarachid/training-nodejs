@@ -54,7 +54,7 @@ var todoservices = {
   // port:port,
   // appbasename:appbasename,
   retrieveTodosService: function retrieveTodosService() {
-    console.log('Service retrieve todos fetchData call ' + url);
+    // console.log('Service retrieve todos fetchData call '+ url)
     var headers = {
       // 'Content-Type': 'application/x-www-form-urlencoded',
       'Content-Type': 'application/json'
@@ -64,10 +64,11 @@ var todoservices = {
     var idToken = _reactCookie2.default.load('jwt');
     if (idToken !== '') {
       headers.Authorization = 'Bearer ' + idToken;
-      console.log('Ya todos fetchData.  auth id token: ' + idToken);
-    } else {
-      console.log('Service retrieve todos fetchData. Wahnsinn: no idToken');
+      // console.log('Ya todos fetchData.  auth id token: ' + idToken)
     }
+    // else {
+    //   console.log('Service retrieve todos fetchData. Wahnsinn: no idToken')
+    // }
     //var test = 'This is abbas in the hood!';
 
     return fetch(url + '/api/todos/2373', {
@@ -86,7 +87,7 @@ var todoservices = {
       // body: 'testparam='+test //if no json in header
     }).then(function (response) {
       return response.json().then(function (data) {
-        console.log('Response Status = ' + response.status);
+        // console.log('Response Status = ' + response.status)
         // console.log('Response data size = ' + data.size())
         return {
           status: response.status,

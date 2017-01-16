@@ -11,7 +11,7 @@ if (process.env.BROWSER) {
 export default class TodosList extends React.Component {
   constructor(props) {
     super(props)
-    console.log('todo list. Mixin in constructor')
+    // console.log('todo list. Mixin in constructor')
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
   }
   

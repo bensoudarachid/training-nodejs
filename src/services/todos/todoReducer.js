@@ -104,7 +104,7 @@ let todoReducer = function(todoappmap = new Immutable.Map({
     todoappmap = todoappmap.set('todos', todos)
     return todoappmap
   case 'TODOS_LOADED':
-    console.log('todos reducer. todos loaded')
+    // console.log('todos reducer. todos loaded')
     todoappmap = todoappmap.set('todos', Immutable.List(action.todos.map((todo) => {
       return Immutable.Map(todo)
     })))

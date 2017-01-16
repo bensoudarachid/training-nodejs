@@ -57,7 +57,7 @@ export default class TodoImage extends React.Component {
   componentDidMount() {
     require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-    // console.log('++++++++++++++++ todoimage ++++++ componentDidMount ')
+    console.log('++++++++++++++++ todoimage ++++++ componentDidMount ')
     // this.loadImage()
     // const taskid = this.props.taskid
     // var elm = $('#imgwrap'+taskid)
@@ -76,7 +76,7 @@ export default class TodoImage extends React.Component {
   componentDidUpdate() {
     // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
-    // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ')   
+    console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ')   
 
     const taskid = this.props.taskid
     var elm = $('#imgwrap'+taskid)

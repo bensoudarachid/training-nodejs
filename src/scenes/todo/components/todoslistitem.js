@@ -123,7 +123,7 @@ export default class TodosListItem extends React.Component {
       //   console.log('todoslistitem.js. dialogInputs[i] is undefined')
     }
     const index = this.props.ind
-    console.log('todoslistitem.js. this.props.ind '+this.props.ind)
+    // console.log('todoslistitem.js. this.props.ind '+this.props.ind)
     if( !this.state.hadFocus && document.getElementById('taskInput'+index) ){
       document.getElementById('taskInput'+index).focus()
       this.setState({
@@ -257,7 +257,7 @@ export default class TodosListItem extends React.Component {
     }
     const loading = this.props.todo.get('loading')
     const isUploading = this.props.todo.get('isUploading')
-    console.log('todolistitem. isUploading'+isUploading)
+    // console.log('todolistitem. isUploading'+isUploading)
 
     const disabled = loading||error
     const errorClass = error?'error':''

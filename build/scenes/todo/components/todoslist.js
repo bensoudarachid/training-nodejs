@@ -42,9 +42,9 @@ var TodosList = function (_React$Component) {
   function TodosList(props) {
     _classCallCheck(this, TodosList);
 
+    // console.log('todo list. Mixin in constructor')
     var _this = _possibleConstructorReturn(this, (TodosList.__proto__ || Object.getPrototypeOf(TodosList)).call(this, props));
 
-    console.log('todo list. Mixin in constructor');
     _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
     return _this;
   }
