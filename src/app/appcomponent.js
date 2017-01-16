@@ -51,8 +51,7 @@ if (process.env.BROWSER) {
       // document.getElementById('wavybg-wrapper').style.visibility='visible'
     // }, 1500)
 
-
-    var smokyBG = $('#wavybg-wrapper').waterpipe({
+    var smokyBGNow = $('#wavybg-wrapper').waterpipe({
     //Default values
       gradientStart: '#6bc1ff',
       // gradientStart: '#FCEBB6',
