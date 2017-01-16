@@ -91,7 +91,9 @@ if (process.env.BROWSER) {
     //   dialog.close()
     // })
     setTimeout(function () {
-      document.getElementById('wavybg-wrapper').style.visibility = 'visible';
+      // document.getElementById('wavybg-wrapper').style.visibility='visible'
+      // $('#wavybg-wrapper').css('visibility','visible')
+      (0, _jquery2.default)('#wavybg-wrapper').addClass('fadein');
     }, 1600);
 
     var smokyBGNow = (0, _jquery2.default)('#wavybg-wrapper').waterpipe({
@@ -106,7 +108,7 @@ if (process.env.BROWSER) {
       minMaxRad: 1,
       minRadFactor: 0.5,
       iterations: 4,
-      drawsPerFrame: 35,
+      drawsPerFrame: 45,
       lineWidth: 1,
       speed: 1,
       bgColorInner: '#6bc1ff',

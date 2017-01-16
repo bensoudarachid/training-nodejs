@@ -36,7 +36,7 @@ export default class TodoImage extends React.Component {
     return (
         <div className='imgwrapper' id={'imgwrap'+taskid} >
             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
-            <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           
+            <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}
                 onLoad={this.handleImageLoaded.bind(this)}
                 onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
         </div>

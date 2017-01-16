@@ -12,8 +12,8 @@
 	position: fixed;
 	width:100%;
 	height:100%;	
-	visibility:hidden;
-
+	// visibility:hidden;
+	opacity:0;
 	canvas{
 		position: absolute;
 		top:0;
@@ -24,6 +24,11 @@
 }
 
 #appcomp{
+
+	.fadein{
+	 opacity : 1; 
+	 transition:opacity 0.6s; 
+	}
 
 	//width:95%;
 	//margin-top:-200px;
