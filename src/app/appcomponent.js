@@ -47,9 +47,10 @@ if (process.env.BROWSER) {
     // dialog.querySelector('.close').addEventListener('click', function() {
     //   dialog.close()
     // })
-    setTimeout(() => {
-      document.getElementById('wavybg-wrapper').style.visibility='visible'
-    }, 1500)
+    // setTimeout(() => {
+      // document.getElementById('wavybg-wrapper').style.visibility='visible'
+    // }, 1500)
+
 
     var smokyBG = $('#wavybg-wrapper').waterpipe({
     //Default values
@@ -59,11 +60,11 @@ if (process.env.BROWSER) {
       smokeOpacity: 0.05,
       smokeSize: 0.2,
       numCircles: 5,
-      maxMaxRad: 250,
+      maxMaxRad: 150,
       minMaxRad: 1,
       minRadFactor: 0.5,
       iterations: 4,
-      drawsPerFrame: 40,
+      drawsPerFrame: 4,
       lineWidth: 1,
       speed: 1,
       bgColorInner: '#6bc1ff',

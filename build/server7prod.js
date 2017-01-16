@@ -16,13 +16,13 @@ var _reactRouter = require('react-router');
 
 var _server = require('react-dom/server');
 
-var _routes = require('./components/routes');
+var _routes = require('./app/routes');
 
 var _redux = require('redux');
 
-var _reducers = require('./redux/reducers');
+var _rootreducer = require('./services/rootreducer');
 
-var _reducers2 = _interopRequireDefault(_reducers);
+var _rootreducer2 = _interopRequireDefault(_rootreducer);
 
 var _reduxLogger = require('redux-logger');
 
@@ -42,7 +42,7 @@ var _multer2 = _interopRequireDefault(_multer);
 
 var _reactRedux = require('react-redux');
 
-var _actions = require('./redux/actions');
+var _actions = require('./services/actions');
 
 var _actions2 = _interopRequireDefault(_actions);
 
@@ -338,7 +338,7 @@ app.get(appbasename + '/*', function (req, res) {
           // const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
           // const store = createStore(reducers, initialState)
           var logger = (0, _reduxLogger2.default)();
-          var store = (0, _redux.createStore)(_reducers2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default, logger));
+          var store = (0, _redux.createStore)(_rootreducer2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default, logger));
           dispactions = (0, _redux.bindActionCreators)(_actions2.default, store.dispatch);
           var location = renderProps.location;
           var params = renderProps.params;
@@ -378,7 +378,7 @@ app.get(appbasename + '/*', function (req, res) {
 
               // console.log('Server. body '+body);
               var state = store.getState();
-              res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="' + style + '" />\n                </head>\n                <body>\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="' + bundle + '"></script>\n                </body>\n              </html>');
+              res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="' + style + '" />\n                </head>\n                <body style="background-color:#003870">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="' + bundle + '"></script>\n                </body>\n              </html>');
             }).catch(function (err) {
               return console.log('Booooo' + err);
             });

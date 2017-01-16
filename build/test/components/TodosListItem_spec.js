@@ -20,7 +20,7 @@ var _sinon = require('sinon');
 
 var _sinon2 = _interopRequireDefault(_sinon);
 
-var _actions = require('../../redux/actions');
+var _actions = require('../../services/actions');
 
 var _actions2 = _interopRequireDefault(_actions);
 
@@ -44,9 +44,9 @@ var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
 var _reactRedux = require('react-redux');
 
-var _reducers = require('../../redux/reducers');
+var _rootreducer = require('../../services/rootreducer');
 
-var _reducers2 = _interopRequireDefault(_reducers);
+var _rootreducer2 = _interopRequireDefault(_rootreducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -63,7 +63,7 @@ var logger = (0, _reduxLogger2.default)();
 
 // const mockStore = configureMockStore([ thunk ])
 // const mockStoreInitialized = mockStore({ })
-var mockStoreInitialized = (0, _redux.createStore)(_reducers2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default, logger));
+var mockStoreInitialized = (0, _redux.createStore)(_rootreducer2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default, logger));
 
 function mapStateToProps(state) {
   return state;

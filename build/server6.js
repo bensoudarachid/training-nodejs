@@ -20,9 +20,9 @@ var _routes = require('../components/routes');
 
 var _routes2 = _interopRequireDefault(_routes);
 
-var _reducers = require('../redux/reducers');
+var _rootreducer = require('../services/rootreducer');
 
-var _reducers2 = _interopRequireDefault(_reducers);
+var _rootreducer2 = _interopRequireDefault(_rootreducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55,7 +55,7 @@ app.get('*', function (req, res, next) {
     };
 
     var initialState = {};
-    var store = (0, _redux.createStore)(_reducers2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default));
+    var store = (0, _redux.createStore)(_rootreducer2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default));
     var location = renderProps.location;
     var params = renderProps.params;
     var history = renderProps.history;
