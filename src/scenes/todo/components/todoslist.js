@@ -49,6 +49,12 @@ export default class TodosList extends React.Component {
   render() {
     // console.log('Hi there from List. Props: '+this.props);
       // <div className="mdl-layout-spacer"></div>
+
+    if(this.props.todos==undefined)
+      return (
+        <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>
+    )
+
     return (
       <div className='todoslist'>
       {this.renderItems()}

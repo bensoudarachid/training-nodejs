@@ -94,7 +94,7 @@ if (process.env.BROWSER) {
       // document.getElementById('wavybg-wrapper').style.visibility='visible'
       // $('#wavybg-wrapper').css('visibility','visible')
       (0, _jquery2.default)('#wavybg-wrapper').addClass('fadein');
-    }, 1600);
+    }, 1800);
 
     var smokyBGNow = (0, _jquery2.default)('#wavybg-wrapper').waterpipe({
       //Default values

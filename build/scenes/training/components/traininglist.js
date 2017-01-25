@@ -86,6 +86,9 @@ var TrainingList = function (_React$Component) {
     value: function render() {
       // console.log('Hi there from training list List. Props: '+this.props.trainings.size)
       // <div className="mdl-layout-spacer"></div>
+
+      if (this.props.trainings == undefined) return _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner', style: { width: '55px', height: '55px' } });
+
       return _react2.default.createElement(
         'div',
         { className: 'trainingslist' },

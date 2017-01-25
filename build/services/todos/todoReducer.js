@@ -46,7 +46,7 @@ var todoReducer = function todoReducer() {
     filterOpen: true,
     filterClosed: true,
     // loadTodoImages: false,
-    todos: _immutable2.default.List([])
+    todos: undefined //Immutable.List([])
   }) : arguments[0];
   var action = arguments[1];
 
@@ -58,7 +58,7 @@ var todoReducer = function todoReducer() {
       filterOpen: true,
       filterClosed: true,
       // loadTodoImages: false,
-      todos: _immutable2.default.List([])
+      todos: undefined //Immutable.List([])      
     });
   }
   // console.log('Todo reducer. Filter open: ' + todoappmap.get('filterOpen'))

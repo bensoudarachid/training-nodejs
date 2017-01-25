@@ -108,58 +108,36 @@
 	"buffers":
 	[
 		{
-			"file": "src/scenes/todo/components/todoslist.scss",
+			"contents": "Searching 125 files for \"blockborder\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\app.scss:\n   61  // }\n   62  \n   63: .blockborder{\n   64    // border: 2px solid rgba(black,0.1);\n   65    border: 3px solid rgba(white,0.3);\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\registration\\register.js:\n   89      case 1:\n   90        return (\n   91:           <div id='register' className='blockborder'>\n   92              <form onSubmit={(event) => this.handleClick(event)} novalidate>\n   93              <div className=\"container\">\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  103      return (\n  104        <div>\n  105:       <div className='mdl-grid todoslistitem blockborder center-items'>\n  106          {this.renderTaskForm()}\n  107        </div>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\traininglistitem.js:\n   26      return (\n   27        <div>\n   28:       <div className='mdl-grid trainingslistitem blockborder center-items'>\n   29          {this.renderTaskForm()}\n   30        </div>\n\n4 matches across 4 files\n\n\nSearching 126 files for \"      setTimeOut\nred\" (case sensitive)\n\n0 matches across 0 files\n\n\nSearching 126 files for \"setTimeout\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\navigation\\nav.js:\n   25      var timeout=800//rdm===1?800:350\n   26      logotitleElm2.addClass('animated '+imgAnim) //+(rdm===3&&rdm2===1?' reverseanim':'')\n   27:     setTimeout(() => {\n   28        logotitleElm2.removeClass('animated')\n   29        logotitleElm2.removeClass(imgAnim)\n   ..\n   37            function( callback ){\n   38              console.log('Halli')\n   39:             window.setTimeout(callback, 1000 / 2)\n   40            }\n   41    }\n   ..\n   45      // console.log('Halli')\n   46      sir3allah(undefined)\n   47:     setTimeout(function() {\n   48        requestAnimFrame(loop)\n   49      },(30000) ) //1000/100\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\registration\\register.js:\n   74        // mdl.mdl_open('#modal-demo')\n   75  \n   76:       // setTimeout(function(){\n   77  \n   78        //   mdl.mdl_close('#modal-demo')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  168      // var imgwrap = document.getElementById('imgwrap'+taskid)\n  169      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n  170:     // setTimeout(function() {\n  171      //   console.log('todos-list-item, set data-src')\n  172      //   // this.setState({\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\traininglistitem.js:\n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84:     // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n   86      //   // this.setState({\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\traininglistitem.js:\n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84:     // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n   86      //   // this.setState({\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\server7.js:\n  373      console.log('Timeout for '+req.url+' is '+timeout)\n  374      console.log('Timeout done '+req.url)\n  375:     setTimeout(function() {\n  376        fs.readFile(file, function(err, data) {\n  377          if (err){\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\todos\\todoactions.js:\n  188    //   console.log('todoactions. update todo' + todo.get('task'))\n  189    //   return (dispatch) => {\n  190:   //     // setTimeout(() => {\n  191    //     fetch('http://127.0.0.1:8083/api/updatetodo', {\n  192    //       method: 'POST',\n  ...\n  228          dispatch(todoactions.updateTodo(todoold))\n  229          todoold = todoold.delete('error')\n  230:         setTimeout(() => {\n  231            dispatch(todoactions.updateTodo(todoold))\n  232          }, 2500)\n  ...\n  237          dispatch(todoactions.updateTodo(todoold))\n  238          todoold = todoold.delete('error')\n  239:         setTimeout(() => {\n  240            dispatch(todoactions.updateTodo(todoold))\n  241          }, 2500)\n  ...\n  260                dispatch(todoactions.updateTodo(todoold))\n  261                todoold = todoold.delete('error')\n  262:               setTimeout(() => {\n  263                  dispatch(todoactions.updateTodo(todoold))\n  264                }, 2500)\n  ...\n  269                dispatch(todoactions.updateTodo(todoold))\n  270                todoold = todoold.delete('error')\n  271:               setTimeout(() => {\n  272                  dispatch(todoactions.updateTodo(todoold))\n  273                }, 2500)\n  ...\n  280                dispatch(todoactions.updateTodo(todoold))\n  281                todoold = todoold.delete('error')\n  282:               setTimeout(() => {\n  283                  dispatch(todoactions.updateTodo(todoold))\n  284                }, 2500)\n  ...\n  288                dispatch(todoactions.uploadingTodoImg(todo,true))\n  289                dispatch(todoactions.uploadingTodoImg(todo,false))\n  290:               // setTimeout(function() {\n  291                //   dispatch(todoactions.uploadingTodoImg(todo,false))\n  292                // },(2000) )\n  ...\n  302              todoold = todoold.delete('error')\n  303              // dispatch(todoactions.uploadingTodoImg(todo,false))\n  304:             setTimeout(() => {\n  305                dispatch(todoactions.updateTodo(todoold))\n  306              }, 2500)\n  ...\n  379                dispatch(todoactions.updateTodo(todoold))\n  380                todoold = todoold.delete('error')\n  381:               setTimeout(() => {\n  382                  dispatch(todoactions.updateTodo(todoold))\n  383                }, 2500)\n  ...\n  400                dispatch(todoactions.updateTodo(todoold))\n  401                todoold = todoold.delete('error')\n  402:               setTimeout(() => {\n  403                  dispatch(todoactions.updateTodo(todoold))\n  404                }, 2500)\n  ...\n  411              //   dispatch(todoactions.updateTodo(todoold))\n  412              //   todoold = todoold.delete('error')\n  413:             //   setTimeout(() => {\n  414              //     dispatch(todoactions.updateTodo(todoold))\n  415              //   }, 2500)\n  ...\n  453              dispatch(todoactions.updateTodo(todoold))\n  454              todoold = todoold.delete('error')\n  455:             setTimeout(() => {\n  456                dispatch(todoactions.updateTodo(todoold))\n  457              }, 2500)\n  ...\n  573                dispatch(todoactions.updateTodo(todo))\n  574                todo = todo.delete('error')\n  575:               setTimeout(() => {\n  576                  dispatch(todoactions.updateTodo(todo))\n  577                }, 2500)\n  ...\n  583                dispatch(todoactions.updateTodo(todo))\n  584                todo = todo.delete('error')\n  585:               setTimeout(() => {\n  586                  dispatch(todoactions.updateTodo(todo))\n  587                }, 2500)\n  ...\n  610              dispatch(todoactions.updateTodo(todo))\n  611              todo = todo.delete('error')\n  612:             setTimeout(() => {\n  613                dispatch(todoactions.updateTodo(todo))\n  614              }, 2500)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\trainings\\trainingactions.js:\n  191    //   console.log('trainingactions. update training' + training.get('title'))\n  192    //   return (dispatch) => {\n  193:   //     // setTimeout(() => {\n  194    //     fetch('http://127.0.0.1:8083/api/updatetraining', {\n  195    //       method: 'POST',\n  ...\n  231          dispatch(trainingactions.updateTraining(trainingold))\n  232          trainingold = trainingold.delete('error')\n  233:         setTimeout(() => {\n  234            dispatch(trainingactions.updateTraining(trainingold))\n  235          }, 2500)\n  ...\n  240          dispatch(trainingactions.updateTraining(trainingold))\n  241          trainingold = trainingold.delete('error')\n  242:         setTimeout(() => {\n  243            dispatch(trainingactions.updateTraining(trainingold))\n  244          }, 2500)\n  ...\n  263                dispatch(trainingactions.updateTraining(trainingold))\n  264                trainingold = trainingold.delete('error')\n  265:               setTimeout(() => {\n  266                  dispatch(trainingactions.updateTraining(trainingold))\n  267                }, 2500)\n  ...\n  272                dispatch(trainingactions.updateTraining(trainingold))\n  273                trainingold = trainingold.delete('error')\n  274:               setTimeout(() => {\n  275                  dispatch(trainingactions.updateTraining(trainingold))\n  276                }, 2500)\n  ...\n  283                dispatch(trainingactions.updateTraining(trainingold))\n  284                trainingold = trainingold.delete('error')\n  285:               setTimeout(() => {\n  286                  dispatch(trainingactions.updateTraining(trainingold))\n  287                }, 2500)\n  ...\n  292                dispatch(trainingactions.uploadingTrainingImg(training,true))\n  293                dispatch(trainingactions.uploadingTrainingImg(training,false))\n  294:               // setTimeout(function() {\n  295                //   dispatch(trainingactions.uploadingTrainingImg(training,false))\n  296                // },(2000) )\n  ...\n  306              trainingold = trainingold.delete('error')\n  307              // dispatch(trainingactions.uploadingTrainingImg(training,false))\n  308:             setTimeout(() => {\n  309                dispatch(trainingactions.updateTraining(trainingold))\n  310              }, 2500)\n  ...\n  383                dispatch(trainingactions.updateTraining(trainingold))\n  384                trainingold = trainingold.delete('error')\n  385:               setTimeout(() => {\n  386                  dispatch(trainingactions.updateTraining(trainingold))\n  387                }, 2500)\n  ...\n  404                dispatch(trainingactions.updateTraining(trainingold))\n  405                trainingold = trainingold.delete('error')\n  406:               setTimeout(() => {\n  407                  dispatch(trainingactions.updateTraining(trainingold))\n  408                }, 2500)\n  ...\n  415              //   dispatch(trainingactions.updateTraining(trainingold))\n  416              //   trainingold = trainingold.delete('error')\n  417:             //   setTimeout(() => {\n  418              //     dispatch(trainingactions.updateTraining(trainingold))\n  419              //   }, 2500)\n  ...\n  457              dispatch(trainingactions.updateTraining(trainingold))\n  458              trainingold = trainingold.delete('error')\n  459:             setTimeout(() => {\n  460                dispatch(trainingactions.updateTraining(trainingold))\n  461              }, 2500)\n  ...\n  535                dispatch(trainingactions.updateTraining(training))\n  536                training = training.delete('error')\n  537:               setTimeout(() => {\n  538                  dispatch(trainingactions.updateTraining(training))\n  539                }, 2500)\n  ...\n  545                dispatch(trainingactions.updateTraining(training))\n  546                training = training.delete('error')\n  547:               setTimeout(() => {\n  548                  dispatch(trainingactions.updateTraining(training))\n  549                }, 2500)\n  ...\n  572              dispatch(trainingactions.updateTraining(training))\n  573              training = training.delete('error')\n  574:             setTimeout(() => {\n  575                dispatch(trainingactions.updateTraining(training))\n  576              }, 2500)\n\n38 matches across 8 files\n\n\nSearching 126 files for \"style(\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\appcomponent.js:\n   67      var modal = document.getElementById('myModal')\n   68  \n   69:     $('#wavybg-wrapper').style()\n   70    // Get the button that opens the modal\n   71    // var btn = $('myBtn')[0]\n\n1 match in 1 file\n\n\nSearching 126 files for \"document.getElementById\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\appcomponent.js:\n   66  \n   67      // $('#wavybg-wrapper').show()\n   68:     document.getElementById('wavybg-wrapper').style.display='block'\n   69  \n   70:     var modal = document.getElementById('myModal')\n   71  \n   72    // When the user clicks anywhere outside of the modal, close it\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\appmodaldlg.js:\n    8    require('./appmodaldlg.scss')\n    9    // $(document).ready(function() { \n   10:   //   var modal = document.getElementById('myModal')\n   11  \n   12    // // Get the button that opens the modal\n   13    // // var btn = $('myBtn')[0]\n   14:   //   var btn = document.getElementById('myBtn')\n   15    //   // console.log('loginjs. myBtn '+btn)\n   16    // // Get the <span> element that closes the modal\n   ..\n   73    // handleLoginClick(event) {\n   74    //   // console.log('loginjs andle request login in progress click')\n   75:   //   // var modal = document.getElementById('myModal')\n   76    //   // modal.style.display = 'block'\n   77    //   this.props.onLoginProcessStartClick('Please login')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\index.js:\n  102  // ReactDom.render(\n  103  //   <App />,\n  104: //   document.getElementById('root')\n  105  // );\n  106  \n  ...\n  165      <Router routes={routes} history={mybrowserHistory} />\n  166    </Provider>,\n  167:   document.getElementById('root')\n  168  )\n  169  	// <Router routes={routes} history={browserHistory} />\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\login.js:\n   12  \n   13    // $(document).ready(function() { \n   14:   //   var modal = document.getElementById('myModal')\n   15  \n   16    // // Get the button that opens the modal\n   17    // // var btn = $('myBtn')[0]\n   18:   //   var btn = document.getElementById('myBtn')\n   19    //   // console.log('loginjs. myBtn '+btn)\n   20    // // Get the <span> element that closes the modal\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\loginmodal.js:\n    9    require('./loginmodal.scss')\n   10    // $(document).ready(function() { \n   11:   //   var modal = document.getElementById('myModal')\n   12  \n   13    // // Get the button that opens the modal\n   14    // // var btn = $('myBtn')[0]\n   15:   //   var btn = document.getElementById('myBtn')\n   16    //   // console.log('loginjs. myBtn '+btn)\n   17    // // Get the <span> element that closes the modal\n   ..\n  107    // handleLoginClick(event) {\n  108    //   // console.log('loginjs andle request login in progress click')\n  109:   //   // var modal = document.getElementById('myModal')\n  110    //   // modal.style.display = 'block'\n  111    //   this.props.onLoginProcessStartClick('Please login')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\navigation\\nav.js:\n   75    handleLoginClick(event) {\n   76      // console.log('loginjs andle request login in progress click')\n   77:     // var modal = document.getElementById('myModal')\n   78      // modal.style.display = 'block'\n   79      this.props.actions.loginProcessStart('Welcome to Roya')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\waterpipe.js:\n  302        imageWindow.document.close()\n  303              //copy the image into the empty img in the newly opened window:\n  304:       var exportImage = imageWindow.document.getElementById('exportImage')\n  305        exportImage.src = dataURL\n  306      }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\components\\shared\\fileuploadinput.js:\n   15      super(props)\n   16    \n   17:     // var fileInputTextDiv = document.getElementById('file_input_text_div')\n   18:     // var fileInput = document.getElementById('file_input_file')\n   19:     // var fileInputText = document.getElementById('file_input_text')\n   20      this.changeInputText = this.changeInputText.bind(this)\n   21    }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoimage.js:\n   85      // var image=$('#todolistitemimg'+taskid)\n   86      var img = image[0]\n   87:     // var img = document.getElementById('todolistitemimg'+taskid)\n   88      // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))\n   89  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  125      const index = this.props.ind\n  126      console.log('todoslistitem.js. this.props.ind '+this.props.ind)\n  127:     if( !this.state.hadFocus && document.getElementById('taskInput'+index) ){\n  128:       document.getElementById('taskInput'+index).focus()\n  129        this.setState({\n  130          hadFocus: true\n  ...\n  163      \n  164      \n  165:     // document.getElementById('todolistitemimg'+taskid).setAttribute('data-src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)\n  166:     // document.getElementById('todolistitemimg'+taskid).setAttribute('src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)\n  167      \n  168:     // var imgwrap = document.getElementById('imgwrap'+taskid)\n  169      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n  170      // setTimeout(function() {\n  ...\n  173      //   //   imageLoaded: undefined\n  174      //   // })\n  175:     //   // document.getElementById('todolistitemimg'+taskid).removeAttribute('src')\n  176:     //   document.getElementById('todolistitemimg'+taskid).setAttribute('src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)\n  177      //   // this.refs.uploadcomp.forceUpdate()\n  178      // }.bind(this),(5000) )\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingimage.js:\n   90      // var image = $('#traininglistitemimg'+trainingid)\n   91      // var img = image[0]\n   92:     var img = document.getElementById('traininglistitemimg'+trainingid)\n   93      // console.log('++++++++++++++++ trainingimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))\n   94      // var image=$('#traininglistitemimg'+trainingid)\n   ..\n  124      var elm = $('#trainingimgwrap'+trainingid)\n  125      var imgSpinner=elm.find('.mdl-spinner')\n  126:     var img = document.getElementById('traininglistitemimg'+trainingid)\n  127      // var image = $('#traininglistitemimg'+trainingid)\n  128      // var img = image[0]\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\traininglistitem.js:\n   48      const index = this.props.ind\n   49      // console.log('trainingslistitem.js. this.props.ind '+this.props.ind)\n   50:     if( !this.state.hadFocus && document.getElementById('titleInput'+index) ){\n   51:       document.getElementById('titleInput'+index).focus()\n   52        this.setState({\n   53          hadFocus: true\n   ..\n   77      \n   78      \n   79:     // document.getElementById('traininglistitemimg'+trainingid).setAttribute('data-src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   80:     // document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   81      \n   82:     // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84      // setTimeout(function() {\n   ..\n   87      //   //   imageLoaded: undefined\n   88      //   // })\n   89:     //   // document.getElementById('traininglistitemimg'+trainingid).removeAttribute('src')\n   90:     //   document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   91      //   // this.refs.uploadcomp.forceUpdate()\n   92      // }.bind(this),(5000) )\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\traininglistitem.js:\n   48      const index = this.props.ind\n   49      // console.log('trainingslistitem.js. this.props.ind '+this.props.ind)\n   50:     if( !this.state.hadFocus && document.getElementById('titleInput'+index) ){\n   51:       document.getElementById('titleInput'+index).focus()\n   52        this.setState({\n   53          hadFocus: true\n   ..\n   77      \n   78      \n   79:     // document.getElementById('traininglistitemimg'+trainingid).setAttribute('data-src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   80:     // document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   81      \n   82:     // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84      // setTimeout(function() {\n   ..\n   87      //   //   imageLoaded: undefined\n   88      //   // })\n   89:     //   // document.getElementById('traininglistitemimg'+trainingid).removeAttribute('src')\n   90:     //   document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   91      //   // this.refs.uploadcomp.forceUpdate()\n   92      // }.bind(this),(5000) )\n\n41 matches across 13 files\n\n\nSearching 126 files for \"setTimeout\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\navigation\\nav.js:\n   25      var timeout=800//rdm===1?800:350\n   26      logotitleElm2.addClass('animated '+imgAnim) //+(rdm===3&&rdm2===1?' reverseanim':'')\n   27:     setTimeout(() => {\n   28        logotitleElm2.removeClass('animated')\n   29        logotitleElm2.removeClass(imgAnim)\n   ..\n   37            function( callback ){\n   38              console.log('Halli')\n   39:             window.setTimeout(callback, 1000 / 2)\n   40            }\n   41    }\n   ..\n   45      // console.log('Halli')\n   46      sir3allah(undefined)\n   47:     setTimeout(function() {\n   48        requestAnimFrame(loop)\n   49      },(30000) ) //1000/100\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\registration\\register.js:\n   74        // mdl.mdl_open('#modal-demo')\n   75  \n   76:       // setTimeout(function(){\n   77  \n   78        //   mdl.mdl_close('#modal-demo')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todocreate.js:\n   70          error: validateInput\n   71        })\n   72:       setTimeout(function() {\n   73          this.setState({\n   74            error: null\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  168      // var imgwrap = document.getElementById('imgwrap'+taskid)\n  169      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n  170:     // setTimeout(function() {\n  171      //   console.log('todos-list-item, set data-src')\n  172      //   // this.setState({\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\traininglistitem.js:\n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84:     // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n   86      //   // this.setState({\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\traininglistitem.js:\n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84:     // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n   86      //   // this.setState({\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\server7.js:\n  373      console.log('Timeout for '+req.url+' is '+timeout)\n  374      console.log('Timeout done '+req.url)\n  375:     setTimeout(function() {\n  376        fs.readFile(file, function(err, data) {\n  377          if (err){\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\todos\\todoactions.js:\n  188    //   console.log('todoactions. update todo' + todo.get('task'))\n  189    //   return (dispatch) => {\n  190:   //     // setTimeout(() => {\n  191    //     fetch('http://127.0.0.1:8083/api/updatetodo', {\n  192    //       method: 'POST',\n  ...\n  228          dispatch(todoactions.updateTodo(todoold))\n  229          todoold = todoold.delete('error')\n  230:         setTimeout(() => {\n  231            dispatch(todoactions.updateTodo(todoold))\n  232          }, 2500)\n  ...\n  237          dispatch(todoactions.updateTodo(todoold))\n  238          todoold = todoold.delete('error')\n  239:         setTimeout(() => {\n  240            dispatch(todoactions.updateTodo(todoold))\n  241          }, 2500)\n  ...\n  260                dispatch(todoactions.updateTodo(todoold))\n  261                todoold = todoold.delete('error')\n  262:               setTimeout(() => {\n  263                  dispatch(todoactions.updateTodo(todoold))\n  264                }, 2500)\n  ...\n  269                dispatch(todoactions.updateTodo(todoold))\n  270                todoold = todoold.delete('error')\n  271:               setTimeout(() => {\n  272                  dispatch(todoactions.updateTodo(todoold))\n  273                }, 2500)\n  ...\n  280                dispatch(todoactions.updateTodo(todoold))\n  281                todoold = todoold.delete('error')\n  282:               setTimeout(() => {\n  283                  dispatch(todoactions.updateTodo(todoold))\n  284                }, 2500)\n  ...\n  288                dispatch(todoactions.uploadingTodoImg(todo,true))\n  289                dispatch(todoactions.uploadingTodoImg(todo,false))\n  290:               // setTimeout(function() {\n  291                //   dispatch(todoactions.uploadingTodoImg(todo,false))\n  292                // },(2000) )\n  ...\n  302              todoold = todoold.delete('error')\n  303              // dispatch(todoactions.uploadingTodoImg(todo,false))\n  304:             setTimeout(() => {\n  305                dispatch(todoactions.updateTodo(todoold))\n  306              }, 2500)\n  ...\n  379                dispatch(todoactions.updateTodo(todoold))\n  380                todoold = todoold.delete('error')\n  381:               setTimeout(() => {\n  382                  dispatch(todoactions.updateTodo(todoold))\n  383                }, 2500)\n  ...\n  400                dispatch(todoactions.updateTodo(todoold))\n  401                todoold = todoold.delete('error')\n  402:               setTimeout(() => {\n  403                  dispatch(todoactions.updateTodo(todoold))\n  404                }, 2500)\n  ...\n  411              //   dispatch(todoactions.updateTodo(todoold))\n  412              //   todoold = todoold.delete('error')\n  413:             //   setTimeout(() => {\n  414              //     dispatch(todoactions.updateTodo(todoold))\n  415              //   }, 2500)\n  ...\n  453              dispatch(todoactions.updateTodo(todoold))\n  454              todoold = todoold.delete('error')\n  455:             setTimeout(() => {\n  456                dispatch(todoactions.updateTodo(todoold))\n  457              }, 2500)\n  ...\n  573                dispatch(todoactions.updateTodo(todo))\n  574                todo = todo.delete('error')\n  575:               setTimeout(() => {\n  576                  dispatch(todoactions.updateTodo(todo))\n  577                }, 2500)\n  ...\n  583                dispatch(todoactions.updateTodo(todo))\n  584                todo = todo.delete('error')\n  585:               setTimeout(() => {\n  586                  dispatch(todoactions.updateTodo(todo))\n  587                }, 2500)\n  ...\n  610              dispatch(todoactions.updateTodo(todo))\n  611              todo = todo.delete('error')\n  612:             setTimeout(() => {\n  613                dispatch(todoactions.updateTodo(todo))\n  614              }, 2500)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\trainings\\trainingactions.js:\n  191    //   console.log('trainingactions. update training' + training.get('title'))\n  192    //   return (dispatch) => {\n  193:   //     // setTimeout(() => {\n  194    //     fetch('http://127.0.0.1:8083/api/updatetraining', {\n  195    //       method: 'POST',\n  ...\n  231          dispatch(trainingactions.updateTraining(trainingold))\n  232          trainingold = trainingold.delete('error')\n  233:         setTimeout(() => {\n  234            dispatch(trainingactions.updateTraining(trainingold))\n  235          }, 2500)\n  ...\n  240          dispatch(trainingactions.updateTraining(trainingold))\n  241          trainingold = trainingold.delete('error')\n  242:         setTimeout(() => {\n  243            dispatch(trainingactions.updateTraining(trainingold))\n  244          }, 2500)\n  ...\n  263                dispatch(trainingactions.updateTraining(trainingold))\n  264                trainingold = trainingold.delete('error')\n  265:               setTimeout(() => {\n  266                  dispatch(trainingactions.updateTraining(trainingold))\n  267                }, 2500)\n  ...\n  272                dispatch(trainingactions.updateTraining(trainingold))\n  273                trainingold = trainingold.delete('error')\n  274:               setTimeout(() => {\n  275                  dispatch(trainingactions.updateTraining(trainingold))\n  276                }, 2500)\n  ...\n  283                dispatch(trainingactions.updateTraining(trainingold))\n  284                trainingold = trainingold.delete('error')\n  285:               setTimeout(() => {\n  286                  dispatch(trainingactions.updateTraining(trainingold))\n  287                }, 2500)\n  ...\n  292                dispatch(trainingactions.uploadingTrainingImg(training,true))\n  293                dispatch(trainingactions.uploadingTrainingImg(training,false))\n  294:               // setTimeout(function() {\n  295                //   dispatch(trainingactions.uploadingTrainingImg(training,false))\n  296                // },(2000) )\n  ...\n  306              trainingold = trainingold.delete('error')\n  307              // dispatch(trainingactions.uploadingTrainingImg(training,false))\n  308:             setTimeout(() => {\n  309                dispatch(trainingactions.updateTraining(trainingold))\n  310              }, 2500)\n  ...\n  383                dispatch(trainingactions.updateTraining(trainingold))\n  384                trainingold = trainingold.delete('error')\n  385:               setTimeout(() => {\n  386                  dispatch(trainingactions.updateTraining(trainingold))\n  387                }, 2500)\n  ...\n  404                dispatch(trainingactions.updateTraining(trainingold))\n  405                trainingold = trainingold.delete('error')\n  406:               setTimeout(() => {\n  407                  dispatch(trainingactions.updateTraining(trainingold))\n  408                }, 2500)\n  ...\n  415              //   dispatch(trainingactions.updateTraining(trainingold))\n  416              //   trainingold = trainingold.delete('error')\n  417:             //   setTimeout(() => {\n  418              //     dispatch(trainingactions.updateTraining(trainingold))\n  419              //   }, 2500)\n  ...\n  457              dispatch(trainingactions.updateTraining(trainingold))\n  458              trainingold = trainingold.delete('error')\n  459:             setTimeout(() => {\n  460                dispatch(trainingactions.updateTraining(trainingold))\n  461              }, 2500)\n  ...\n  535                dispatch(trainingactions.updateTraining(training))\n  536                training = training.delete('error')\n  537:               setTimeout(() => {\n  538                  dispatch(trainingactions.updateTraining(training))\n  539                }, 2500)\n  ...\n  545                dispatch(trainingactions.updateTraining(training))\n  546                training = training.delete('error')\n  547:               setTimeout(() => {\n  548                  dispatch(trainingactions.updateTraining(training))\n  549                }, 2500)\n  ...\n  572              dispatch(trainingactions.updateTraining(training))\n  573              training = training.delete('error')\n  574:             setTimeout(() => {\n  575                dispatch(trainingactions.updateTraining(training))\n  576              }, 2500)\n\n39 matches across 9 files\n",
 			"settings":
 			{
-				"buffer_size": 395,
-				"line_ending": "Windows"
+				"buffer_size": 32463,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
 			"file": "src/scenes/todo/components/todoslist.js",
 			"settings":
 			{
-				"buffer_size": 1876,
+				"buffer_size": 1879,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/scenes/todo/components/todosfilter.js",
-			"settings":
-			{
-				"buffer_size": 3686,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/scenes/todo/components/todosfilter.scss",
-			"settings":
-			{
-				"buffer_size": 305,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/scenes/todo/components/todocreate.scss",
-			"settings":
-			{
-				"buffer_size": 89,
-				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "src/scenes/todo/components/todoimage.js",
 			"settings":
 			{
-				"buffer_size": 7494,
+				"buffer_size": 7477,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/scenes/todo/components/todocreate.js",
+			"file": "src/app/appcomponent.js",
 			"settings":
 			{
-				"buffer_size": 2971,
+				"buffer_size": 6325,
 				"line_ending": "Unix"
 			}
 		},
@@ -167,70 +145,15 @@
 			"file": "src/app/app.scss",
 			"settings":
 			{
-				"buffer_size": 3820,
+				"buffer_size": 4028,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Searching 125 files for \"blockborder\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\app.scss:\n   61  // }\n   62  \n   63: .blockborder{\n   64    // border: 2px solid rgba(black,0.1);\n   65    border: 3px solid rgba(white,0.3);\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\registration\\register.js:\n   89      case 1:\n   90        return (\n   91:           <div id='register' className='blockborder'>\n   92              <form onSubmit={(event) => this.handleClick(event)} novalidate>\n   93              <div className=\"container\">\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  103      return (\n  104        <div>\n  105:       <div className='mdl-grid todoslistitem blockborder center-items'>\n  106          {this.renderTaskForm()}\n  107        </div>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\traininglistitem.js:\n   26      return (\n   27        <div>\n   28:       <div className='mdl-grid trainingslistitem blockborder center-items'>\n   29          {this.renderTaskForm()}\n   30        </div>\n\n4 matches across 4 files\n",
+			"file": "src/app/appcomponent.scss",
 			"settings":
 			{
-				"buffer_size": 1063,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "src/scenes/todo/todoapp.js",
-			"settings":
-			{
-				"buffer_size": 5927,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/scenes/todo/todoapp.scss",
-			"settings":
-			{
-				"buffer_size": 704,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/scenes/todo/components/todoslistitem.scss",
-			"settings":
-			{
-				"buffer_size": 3189,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/scenes/todo/components/todoslistitem.js",
-			"settings":
-			{
-				"buffer_size": 17318,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "{\n    \"open_tab_limit\":  10,\n    \"highlight_modified_tabs\": true,\n    \"show_full_path\": false\n}",
-			"file": "/C/Programm/SublimeText3/Data/Packages/Zen Tabs/ZenTabs.sublime-settings",
-			"file_size": -1,
-			"file_write_time": -1,
-			"settings":
-			{
-				"buffer_size": 95,
-				"line_ending": "Windows",
-				"read_only": true,
-				"scratch": true
-			}
-		},
-		{
-			"file": "/C/Programm/SublimeText3/Data/Packages/User/ZenTabs.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 94,
+				"buffer_size": 2203,
 				"line_ending": "Windows"
 			}
 		}
@@ -374,27 +297,38 @@
 	},
 	"file_history":
 	[
-		"/C/Programm/SublimeText3/Data/Packages/Zen Tabs/TODO.todo",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/todoapp.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslist.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/home/home.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/todoapp.js",
+		"/D/RP/Tests/ReactToDoExp2/src/services/todos/todoservices.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslistitem.js",
+		"/D/RP/Tests/ReactToDoExp2/src/services/todos/todoReducer.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoimage.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/appcomponent.js",
+		"/D/RP/Tests/ReactToDoExp2/package.json",
+		"/D/RP/Tests/ReactToDoExp2/src/app/appcomponent.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/server7.js",
+		"/D/RP/Tests/ReactToDoExp2/src/server7prod.js",
 		"/D/RP/Tests/ReactToDoExp2/src/app/app.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/app/navigation/nav.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todosfilter.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todocreate.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslistitem.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todocreate.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/todoapp.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todosfilter.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslist.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslist.scss",
+		"/C/Programm/SublimeText3/Data/Packages/User/ZenTabs.sublime-settings",
+		"/C/Programm/SublimeText3/Data/Packages/Zen Tabs/ZenTabs.sublime-settings",
+		"/C/Programm/SublimeText3/Data/Packages/Zen Tabs/TODO.todo",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/home/home.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/home/home.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/registration/register.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/registration/register.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todocreate.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todosfilter.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/todoapp.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/traininglistitem.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslistitem.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/app/index.js",
 		"/D/RP/Tests/ReactToDoExp2/src/app/navigation/nav.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/app/appcomponent.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/trainingapp.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslistitem.js",
 		"/D/RP/Tests/ReactToDoExp2/src/styles/app.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/app/appcomponent.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todosfilter.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/components/shared/fileuploadinput.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todos-list.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todos-list-item.scss",
@@ -403,22 +337,17 @@
 		"/D/RP/Tests/ReactToDoExp2/src/app/waterpipe.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/app/authentication/authactions.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/app/userReducer.js",
-		"/D/RP/Tests/ReactToDoExp2/src/app/navigation/nav.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/unsorted/image.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/rootreducer.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/actions.js",
-		"/D/RP/Tests/ReactToDoExp2/src/server7.js",
 		"/D/RP/Tests/ReactToDoExp2/src/server6.js",
 		"/D/RP/Tests/ReactToDoExp2/src/test/components/TodosListItem_spec.jsx",
-		"/D/RP/Tests/ReactToDoExp2/src/server7prod.js",
 		"/D/RP/Tests/ReactToDoExp2/src/test/components/Register_spec.jsx",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoimage.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/traininglistitem.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/trainingimage.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todos-list-item.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/app/authentication/authservices.js",
 		"/D/RP/Tests/ReactToDoExp2/src/redux/store.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslist.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/trainingapp.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/routes.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/todos-list-item.js",
@@ -459,7 +388,6 @@
 		"/D/RP/Tests/ReactToDoExp2/src/redux/actions/authservices.js",
 		"/D/RP/Tests/ReactToDoExp2/src/redux/actions/apiconnection.js",
 		"/D/RP/Tests/ReactToDoExp2/src/redux/actions/services.js",
-		"/D/RP/Tests/ReactToDoExp2/package.json",
 		"/D/RP/Tests/ReactToDoExp2/src/components/register.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/todos-list.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/components/todos-list-item.scss",
@@ -496,12 +424,7 @@
 		"/D/RP/Tests/ReactToDoExp2/src/components/create-todo.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/snackbar.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/spinner.js",
-		"/D/RP/Tests/ReactToDoExp2/src/test/components/TodosList_spec.jsx",
-		"/D/RP/Tests/ReactToDoExp2/src/test/components/TodoApp_spec.jsx",
-		"/D/RP/Tests/ReactToDoExp2/src/redux/reducers/userReducer.js",
-		"/D/RP/Tests/ReactToDoExp2/src/sass/materialize.scss",
-		"/D/RP/Tests/ReactToDoExp2/node_modules/materialize-css/sass/components/_variables.scss",
-		"/D/RP/Tests/ReactToDoExp2/node_modules/materialize-css/sass/components/_color.scss"
+		"/D/RP/Tests/ReactToDoExp2/src/test/components/TodosList_spec.jsx"
 	],
 	"find":
 	{
@@ -542,6 +465,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"hot",
+			"setTimeout",
+			"document.getElementById",
+			"style(",
+			"#000000",
+			"#123456",
+			"#ffffff",
+			"setTimeout",
+			"      setTimeOut\nred",
+			"red",
 			"blockborder",
 			"error",
 			"container",
@@ -659,17 +592,7 @@
 			"loadTodoImages",
 			"UPDATE_TO",
 			"loadTodoImages",
-			"UPLOAD_TODO_FILE",
-			"uploadTodoFile",
-			"todolistitemimg",
-			"load",
-			"uploadfile",
-			"imageload",
-			"module",
-			"pad",
-			"font",
-			"state",
-			"setS"
+			"UPLOAD_TODO_FILE"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -677,6 +600,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"#003870",
+			"#6bc1ff",
+			"#123456",
 			"$beige",
 			"$orangelight",
 			"/services/rootreducer",
@@ -752,243 +678,15 @@
 	"groups":
 	[
 		{
-			"selected": 14,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/scenes/todo/components/todoslist.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 395,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/scenes/todo/components/todoslist.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1876,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								278,
-								219
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 19.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/scenes/todo/components/todosfilter.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3686,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								830,
-								830
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/scenes/todo/components/todosfilter.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 305,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								74,
-								74
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/scenes/todo/components/todocreate.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 89,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								42,
-								52
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/scenes/todo/components/todoimage.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7494,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/scenes/todo/components/todocreate.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2971,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1148,
-								1148
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/app/app.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3820,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2237,
-								2248
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 628.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1063,
+						"buffer_size": 32463,
 						"regions":
 						{
 							"match":
@@ -1011,6 +709,482 @@
 									[
 										951,
 										962
+									],
+									[
+										1416,
+										1426
+									],
+									[
+										1645,
+										1655
+									],
+									[
+										1790,
+										1800
+									],
+									[
+										2016,
+										2026
+									],
+									[
+										2395,
+										2405
+									],
+									[
+										2827,
+										2837
+									],
+									[
+										3252,
+										3262
+									],
+									[
+										3540,
+										3550
+									],
+									[
+										3833,
+										3843
+									],
+									[
+										4077,
+										4087
+									],
+									[
+										4306,
+										4316
+									],
+									[
+										4553,
+										4563
+									],
+									[
+										4812,
+										4822
+									],
+									[
+										5071,
+										5081
+									],
+									[
+										5358,
+										5368
+									],
+									[
+										5645,
+										5655
+									],
+									[
+										5900,
+										5910
+									],
+									[
+										6159,
+										6169
+									],
+									[
+										6427,
+										6437
+									],
+									[
+										6686,
+										6696
+									],
+									[
+										6932,
+										6942
+									],
+									[
+										7179,
+										7189
+									],
+									[
+										7420,
+										7430
+									],
+									[
+										7739,
+										7749
+									],
+									[
+										8007,
+										8017
+									],
+									[
+										8268,
+										8278
+									],
+									[
+										8547,
+										8557
+									],
+									[
+										8838,
+										8848
+									],
+									[
+										9129,
+										9139
+									],
+									[
+										9452,
+										9462
+									],
+									[
+										9771,
+										9781
+									],
+									[
+										10058,
+										10068
+									],
+									[
+										10349,
+										10359
+									],
+									[
+										10649,
+										10659
+									],
+									[
+										10940,
+										10950
+									],
+									[
+										11218,
+										11228
+									],
+									[
+										11497,
+										11507
+									],
+									[
+										11770,
+										11780
+									],
+									[
+										12118,
+										12124
+									],
+									[
+										12411,
+										12434
+									],
+									[
+										12506,
+										12529
+									],
+									[
+										12782,
+										12805
+									],
+									[
+										12939,
+										12962
+									],
+									[
+										13235,
+										13258
+									],
+									[
+										13488,
+										13511
+									],
+									[
+										13643,
+										13666
+									],
+									[
+										13870,
+										13893
+									],
+									[
+										14027,
+										14050
+									],
+									[
+										14330,
+										14353
+									],
+									[
+										14487,
+										14510
+									],
+									[
+										14783,
+										14806
+									],
+									[
+										15121,
+										15144
+									],
+									[
+										15484,
+										15507
+									],
+									[
+										15715,
+										15738
+									],
+									[
+										15792,
+										15815
+									],
+									[
+										15869,
+										15892
+									],
+									[
+										16164,
+										16187
+									],
+									[
+										16592,
+										16615
+									],
+									[
+										16651,
+										16674
+									],
+									[
+										16805,
+										16828
+									],
+									[
+										16960,
+										16983
+									],
+									[
+										17136,
+										17159
+									],
+									[
+										17452,
+										17475
+									],
+									[
+										17541,
+										17564
+									],
+									[
+										17960,
+										17983
+									],
+									[
+										18359,
+										18382
+									],
+									[
+										18753,
+										18776
+									],
+									[
+										18813,
+										18836
+									],
+									[
+										18968,
+										18991
+									],
+									[
+										19139,
+										19162
+									],
+									[
+										19331,
+										19354
+									],
+									[
+										19651,
+										19674
+									],
+									[
+										19748,
+										19771
+									],
+									[
+										20219,
+										20242
+									],
+									[
+										20279,
+										20302
+									],
+									[
+										20434,
+										20457
+									],
+									[
+										20605,
+										20628
+									],
+									[
+										20797,
+										20820
+									],
+									[
+										21117,
+										21140
+									],
+									[
+										21214,
+										21237
+									],
+									[
+										21745,
+										21755
+									],
+									[
+										21974,
+										21984
+									],
+									[
+										22119,
+										22129
+									],
+									[
+										22345,
+										22355
+									],
+									[
+										22557,
+										22567
+									],
+									[
+										22942,
+										22952
+									],
+									[
+										23374,
+										23384
+									],
+									[
+										23799,
+										23809
+									],
+									[
+										24087,
+										24097
+									],
+									[
+										24380,
+										24390
+									],
+									[
+										24624,
+										24634
+									],
+									[
+										24853,
+										24863
+									],
+									[
+										25100,
+										25110
+									],
+									[
+										25359,
+										25369
+									],
+									[
+										25618,
+										25628
+									],
+									[
+										25905,
+										25915
+									],
+									[
+										26192,
+										26202
+									],
+									[
+										26447,
+										26457
+									],
+									[
+										26706,
+										26716
+									],
+									[
+										26974,
+										26984
+									],
+									[
+										27233,
+										27243
+									],
+									[
+										27479,
+										27489
+									],
+									[
+										27726,
+										27736
+									],
+									[
+										27967,
+										27977
+									],
+									[
+										28286,
+										28296
+									],
+									[
+										28554,
+										28564
+									],
+									[
+										28815,
+										28825
+									],
+									[
+										29094,
+										29104
+									],
+									[
+										29385,
+										29395
+									],
+									[
+										29676,
+										29686
+									],
+									[
+										29999,
+										30009
+									],
+									[
+										30318,
+										30328
+									],
+									[
+										30605,
+										30615
+									],
+									[
+										30896,
+										30906
+									],
+									[
+										31196,
+										31206
+									],
+									[
+										31487,
+										31497
+									],
+									[
+										31765,
+										31775
+									],
+									[
+										32044,
+										32054
+									],
+									[
+										32317,
+										32327
 									]
 								],
 								"scope": ""
@@ -1019,15 +1193,15 @@
 						"selection":
 						[
 							[
-								683,
-								683
+								21752,
+								21752
 							]
 						],
 						"settings":
 						{
 							"detect_indentation": false,
 							"line_numbers": false,
-							"output_tag": 1,
+							"output_tag": 6,
 							"result_base_dir": "",
 							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
 							"result_line_regex": "^ +([0-9]+):",
@@ -1035,26 +1209,26 @@
 							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6435.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "src/scenes/todo/todoapp.js",
+					"buffer": 1,
+					"file": "src/scenes/todo/components/todoslist.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5927,
+						"buffer_size": 1879,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3251,
-								3251
+								376,
+								376
 							]
 						],
 						"settings":
@@ -1064,82 +1238,26 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 650.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "src/scenes/todo/todoapp.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 704,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								363,
-								363
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "src/scenes/todo/components/todoslistitem.scss",
+					"buffer": 2,
+					"file": "src/scenes/todo/components/todoimage.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3189,
+						"buffer_size": 7477,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								787,
-								787
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "src/scenes/todo/components/todoslistitem.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 17318,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6206,
-								6193
+								1719,
+								1719
 							]
 						],
 						"settings":
@@ -1149,31 +1267,33 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 919.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 13,
-					"file": "/C/Programm/SublimeText3/Data/Packages/Zen Tabs/ZenTabs.sublime-settings",
+					"buffer": 3,
+					"file": "src/app/appcomponent.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 95,
+						"buffer_size": 6325,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								93,
-								29
+								1363,
+								1363
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1182,25 +1302,55 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
-					"file": "/C/Programm/SublimeText3/Data/Packages/User/ZenTabs.sublime-settings",
+					"buffer": 4,
+					"file": "src/app/app.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 94,
+						"buffer_size": 4028,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								92,
-								92
+								749,
+								749
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/app/appcomponent.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2203,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								430,
+								430
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

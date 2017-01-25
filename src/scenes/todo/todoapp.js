@@ -92,7 +92,7 @@ class TodoApp extends Component {
       <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel' >
         <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions}/>
         <TodoCreate todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
-      </div>  
+      </div>
       <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>
       </div>
       }

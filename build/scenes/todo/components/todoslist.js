@@ -88,6 +88,9 @@ var TodosList = function (_React$Component) {
     value: function render() {
       // console.log('Hi there from List. Props: '+this.props);
       // <div className="mdl-layout-spacer"></div>
+
+      if (this.props.todos == undefined) return _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner', style: { width: '55px', height: '55px' } });
+
       return _react2.default.createElement(
         'div',
         { className: 'todoslist' },

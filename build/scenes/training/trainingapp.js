@@ -145,6 +145,39 @@ var TrainingApp = function (_Component) {
   //     )
   // }
 
+  // renderTodo() {
+
+  //   const isBrowser = process.env.BROWSER//typeof window !== 'undefined';
+  //   if (!isBrowser) {
+  //     // console.log('+++++++++++++++++++++++++Todoapp. environment is server')
+  //     return <div/>
+  //   }
+  //   // console.log('+++++++++++++++++++++++++Todoapp. environment is browser')
+  //   const {auth} = this.props
+  //   // console.log('Render todoapp authenticated ? ' + auth.get('isAuthenticated'))
+  //   //  alert("Hi "+test);
+  //   // createTask={this.createTask.bind(this)}
+  //   //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
+  //   // deleteTask={this.deleteTask.bind(this)}
+  //   return (
+  //     <div className='todoapp'>
+  //     {!auth.get('isAuthenticated') &&
+  //     <div>
+  //       No right access here. Please login
+  //     </div>
+  //     }
+  //     {auth.get('isAuthenticated') &&
+  //     <div>
+  //     <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel' >
+  //       <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions}/>
+  //       <TodoCreate todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
+  //     </div>
+  //     <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>
+  //     </div>
+  //     }
+  //     </div>
+  //     )
+  // }
 
   _createClass(TrainingApp, [{
     key: 'render',
@@ -165,11 +198,10 @@ var TrainingApp = function (_Component) {
           'div',
           null,
           _react2.default.createElement(
-            'h3',
-            null,
-            'Trainings. Please proceed now'
+            'div',
+            { className: 'mdl-grid mdl-grid--no-spacing blockborder parampanel' },
+            _react2.default.createElement(_trainingcreate2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions })
           ),
-          _react2.default.createElement(_trainingcreate2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions }),
           _react2.default.createElement(_traininglist2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions })
         )
       );

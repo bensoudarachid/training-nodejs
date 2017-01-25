@@ -36,7 +36,7 @@ let todoReducer = function(todoappmap = new Immutable.Map({
   filterOpen: true,
   filterClosed: true,
   // loadTodoImages: false,
-  todos: Immutable.List([])
+  todos: undefined//Immutable.List([])
 }), action) {
   // let todoReducer = function(todoappmap = new Immutable.Map({}), action) {
   // console.log('Todo reducer. is Map ' + (todoappmap instanceof Immutable.Map) )
@@ -46,7 +46,7 @@ let todoReducer = function(todoappmap = new Immutable.Map({
       filterOpen: true,
       filterClosed: true,
       // loadTodoImages: false,
-      todos: Immutable.List([])      
+      todos: undefined//Immutable.List([])      
     })
   }
   // console.log('Todo reducer. Filter open: ' + todoappmap.get('filterOpen'))

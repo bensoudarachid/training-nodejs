@@ -52,7 +52,7 @@ if (process.env.BROWSER) {
       // $('#wavybg-wrapper').css('visibility','visible')
       $('#wavybg-wrapper').addClass('fadein')
 
-    }, 1600)
+    }, 1800)
 
     var smokyBGNow = $('#wavybg-wrapper').waterpipe({
     //Default values

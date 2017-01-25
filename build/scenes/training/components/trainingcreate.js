@@ -20,6 +20,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // import _ from 'lodash'
 
+if (process.env.BROWSER) {
+  require('./trainingcreate.scss');
+}
 
 var TrainingCreate = function (_React$Component) {
   _inherits(TrainingCreate, _React$Component);
@@ -51,8 +54,8 @@ var TrainingCreate = function (_React$Component) {
       );
     }
   }, {
-    key: 'render',
-    value: function render() {
+    key: 'renderOld',
+    value: function renderOld() {
       return _react2.default.createElement(
         'form',
         { onSubmit: this.handleCreate.bind(this) },
@@ -63,6 +66,52 @@ var TrainingCreate = function (_React$Component) {
           'Create'
         ),
         this.renderError()
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var errorClass = this.state.error ? 'error' : '';
+
+      return _react2.default.createElement(
+        'div',
+        { id: 'trainingcreate', className: 'mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
+        _react2.default.createElement(
+          'form',
+          { className: 'mdl-grid mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone', onSubmit: this.handleCreate.bind(this) },
+          _react2.default.createElement(
+            'div',
+            { className: 'mdl-cell mdl-cell--9-col mdl-cell--6-col-tablet mdl-cell--3-col-phone' },
+            _react2.default.createElement(
+              'div',
+              { className: 'mdl-textfield tf mdl-js-textfield' },
+              _react2.default.createElement('input', { className: 'mdl-textfield__input', type: 'text', ref: 'createInput', id: 'createInput' }),
+              _react2.default.createElement(
+                'label',
+                { className: 'mdl-textfield__label', htmlFor: 'createInput' },
+                'New training...'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'editsaveblock pad mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone' },
+            _react2.default.createElement(
+              'button',
+              { className: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items' },
+              'Create'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'bgp editsaveblock pad mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
+          _react2.default.createElement(
+            'div',
+            { className: errorClass },
+            this.state.error
+          )
+        )
       );
     }
   }, {

@@ -48,6 +48,12 @@ export default class TrainingList extends React.Component {
   render() {
     // console.log('Hi there from training list List. Props: '+this.props.trainings.size)
       // <div className="mdl-layout-spacer"></div>
+
+    if(this.props.trainings==undefined)
+      return (
+        <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>
+    )
+
     return (
       <div className='trainingslist'>
       {this.renderItems()}

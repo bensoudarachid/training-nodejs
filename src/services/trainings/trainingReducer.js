@@ -34,7 +34,7 @@ require('isomorphic-fetch')
 
 let trainingReducer = function(trainingappmap = new Immutable.Map({
   // loadTrainingImages: false,
-  trainings: Immutable.List([])
+  trainings: undefined//Immutable.List([])
 }), action) {
   // let trainingReducer = function(trainingappmap = new Immutable.Map({}), action) {
   // console.log('Training reducer. is Map ' + (trainingappmap instanceof Immutable.Map) )
@@ -44,7 +44,7 @@ let trainingReducer = function(trainingappmap = new Immutable.Map({
       filterOpen: true,
       filterClosed: true,
       // loadTrainingImages: false,
-      trainings: Immutable.List([])      
+      trainings: undefined//Immutable.List([])      
     })
   }
   // console.log('Training reducer. Filter open: ' + trainingappmap.get('filterOpen'))
