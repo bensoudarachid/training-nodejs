@@ -124,12 +124,12 @@ var Nav = function (_Component) {
       var _props = this.props;
       var isAuthenticated = _props.isAuthenticated;
       var errorMessage = _props.errorMessage;
+      var auth = _props.auth;
       // console.log('navjs is authenticated '+isAuthenticated)
 
-      // console.log('nav: isAuthenticated'+isAuthenticated)
+      console.log('nav: authority = ' + auth.get('authority'));
       // console.log('nav: isBrowser'+isBrowser)
       //&& this.props.location.pathname!='/register'
-
       return _react2.default.createElement(
         'nav',
         { id: 'bsnavi', className: 'navbar navbar-default navbar-fixed-top', role: 'navigation' },

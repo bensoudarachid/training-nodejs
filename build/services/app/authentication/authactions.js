@@ -38,6 +38,9 @@ var authactions = {
     _reactCookie2.default.save('jwt', user.access_token, {
       path: '/'
     });
+    _reactCookie2.default.save('authority', user.authority, {
+      path: '/'
+    });
     return {
       type: 'LOGIN_SUCCESS',
       isFetching: false,

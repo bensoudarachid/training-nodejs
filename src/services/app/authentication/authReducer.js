@@ -14,6 +14,7 @@ let authReducer = function(auth = new Immutable.Map({
   isFetching: false,
   isRegistrationFetching: false,
   isAuthenticated: cookie.load('jwt') ? true : false,
+  authority: cookie.load('authority'),
   registrationStep:1,
   registrationError: new Immutable.Map({
     // username: '',
@@ -29,6 +30,7 @@ let authReducer = function(auth = new Immutable.Map({
       isFetching: false,
       isRegistrationFetching: false,
       isAuthenticated: cookie.load('jwt') ? true : false,
+      authority: cookie.load('authority'),
       registrationStep:1,
       registrationError: new Immutable.Map({
         // username: '',
@@ -39,8 +41,10 @@ let authReducer = function(auth = new Immutable.Map({
     })
   }
   let authenticated = cookie.load('jwt') ? true : false
+  let authority= cookie.load('authority')
   //let authenticated = true 
   auth=auth.set( 'isAuthenticated', authenticated)
+  auth=auth.set( 'authority', authority)
   // console.log('Auth Reducer is authenticated: ' + auth.isAuthenticated )
   // console.log('Auth Reducer cookie is there: ' + (authenticated))
   //auth=auth.set('',)

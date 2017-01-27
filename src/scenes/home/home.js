@@ -53,7 +53,7 @@ if (process.env.BROWSER) {
   //   })
   // }
   function imageload(event){
-    console.log('++++++++++++++++homejs image load')
+    // console.log('++++++++++++++++homejs image load')
     var idToken = cookie.load('jwt')
     $('.imgwrap').each(function(i, el) {
       
@@ -204,40 +204,6 @@ class Home extends Component {
 								
 			</div>	
 
-			<div className="row">	
-        <ul className='mdl-list'>
-          <li className="mdl-list__item">
-            <span className="mdl-list__item-primary-content">
-              <span className='glyphicon  glyphicon-user'></span>
-              User 1
-            </span> 
-            <a className="mdl-list__item-primary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
-          </li>
-
-          <li className="mdl-list__item">
-            <span className="mdl-list__item-primary-content">
-              <span className='glyphicon  glyphicon-user'></span>
-              User 2
-            </span>
-            <a className="mdl-list__item-secondary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
-          </li>
-
-          <li className="mdl-list__item">
-            <span className="mdl-list__item-primary-content">
-              <span className='glyphicon  glyphicon-user'></span>
-              User 3</span>
-            <a className="mdl-list__item-secondary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
-          </li>
-
-          <li className="mdl-list__item">
-            <span className="mdl-list__item-primary-content">
-              <span className='glyphicon  glyphicon-user'></span>
-              User 4</span>
-            <a className="mdl-list__item-secondary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
-          </li>
-
-        </ul>
-			</div>
 
 		</div>
         
@@ -246,3 +212,39 @@ class Home extends Component {
   }
 }
 export default Home
+
+
+      // <div className="row"> 
+      //   <ul className='mdl-list'>
+      //     <li className="mdl-list__item">
+      //       <span className="mdl-list__item-primary-content">
+      //         <span className='glyphicon  glyphicon-user'></span>
+      //         User 1
+      //       </span> 
+      //       <a className="mdl-list__item-primary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
+      //     </li>
+
+      //     <li className="mdl-list__item">
+      //       <span className="mdl-list__item-primary-content">
+      //         <span className='glyphicon  glyphicon-user'></span>
+      //         User 2
+      //       </span>
+      //       <a className="mdl-list__item-secondary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
+      //     </li>
+
+      //     <li className="mdl-list__item">
+      //       <span className="mdl-list__item-primary-content">
+      //         <span className='glyphicon  glyphicon-user'></span>
+      //         User 3</span>
+      //       <a className="mdl-list__item-secondary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
+      //     </li>
+
+      //     <li className="mdl-list__item">
+      //       <span className="mdl-list__item-primary-content">
+      //         <span className='glyphicon  glyphicon-user'></span>
+      //         User 4</span>
+      //       <a className="mdl-list__item-secondary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
+      //     </li>
+
+      //   </ul>
+      // </div>

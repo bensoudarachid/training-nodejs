@@ -31,6 +31,7 @@ var authReducer = function authReducer() {
     isFetching: false,
     isRegistrationFetching: false,
     isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
+    authority: _reactCookie2.default.load('authority'),
     registrationStep: 1,
     registrationError: new _immutable2.default.Map({
       // username: '',
@@ -48,6 +49,7 @@ var authReducer = function authReducer() {
       isFetching: false,
       isRegistrationFetching: false,
       isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
+      authority: _reactCookie2.default.load('authority'),
       registrationStep: 1,
       registrationError: new _immutable2.default.Map({
         // username: '',
@@ -58,8 +60,10 @@ var authReducer = function authReducer() {
     });
   }
   var authenticated = _reactCookie2.default.load('jwt') ? true : false;
+  var authority = _reactCookie2.default.load('authority');
   //let authenticated = true 
   auth = auth.set('isAuthenticated', authenticated);
+  auth = auth.set('authority', authority);
   // console.log('Auth Reducer is authenticated: ' + auth.isAuthenticated )
   // console.log('Auth Reducer cookie is there: ' + (authenticated))
   //auth=auth.set('',)

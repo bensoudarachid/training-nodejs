@@ -25,6 +25,9 @@ let authactions = {
     cookie.save('jwt', user.access_token, {
       path: '/'
     })
+    cookie.save('authority', user.authority, {
+      path: '/'
+    })
     return {
       type: 'LOGIN_SUCCESS',
       isFetching: false,

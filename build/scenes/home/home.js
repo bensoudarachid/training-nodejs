@@ -79,7 +79,7 @@ if (process.env.BROWSER) {
     //   })
     // }
     var imageload = function imageload(event) {
-      console.log('++++++++++++++++homejs image load');
+      // console.log('++++++++++++++++homejs image load')
       var idToken = _reactCookie2.default.load('jwt');
       (0, _jquery2.default)('.imgwrap').each(function (i, el) {
 
@@ -305,74 +305,6 @@ var Home = function (_Component) {
               )
             ),
             _react2.default.createElement('div', { className: 'clearfix visible-md visible-lg' })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'row' },
-            _react2.default.createElement(
-              'ul',
-              { className: 'mdl-list' },
-              _react2.default.createElement(
-                'li',
-                { className: 'mdl-list__item' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'mdl-list__item-primary-content' },
-                  _react2.default.createElement('span', { className: 'glyphicon  glyphicon-user' }),
-                  'User 1'
-                ),
-                _react2.default.createElement(
-                  'a',
-                  { className: 'mdl-list__item-primary-action', href: '#' },
-                  _react2.default.createElement('span', { className: 'glyphicon glyphicon-leaf' })
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: 'mdl-list__item' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'mdl-list__item-primary-content' },
-                  _react2.default.createElement('span', { className: 'glyphicon  glyphicon-user' }),
-                  'User 2'
-                ),
-                _react2.default.createElement(
-                  'a',
-                  { className: 'mdl-list__item-secondary-action', href: '#' },
-                  _react2.default.createElement('span', { className: 'glyphicon glyphicon-leaf' })
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: 'mdl-list__item' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'mdl-list__item-primary-content' },
-                  _react2.default.createElement('span', { className: 'glyphicon  glyphicon-user' }),
-                  'User 3'
-                ),
-                _react2.default.createElement(
-                  'a',
-                  { className: 'mdl-list__item-secondary-action', href: '#' },
-                  _react2.default.createElement('span', { className: 'glyphicon glyphicon-leaf' })
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: 'mdl-list__item' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'mdl-list__item-primary-content' },
-                  _react2.default.createElement('span', { className: 'glyphicon  glyphicon-user' }),
-                  'User 4'
-                ),
-                _react2.default.createElement(
-                  'a',
-                  { className: 'mdl-list__item-secondary-action', href: '#' },
-                  _react2.default.createElement('span', { className: 'glyphicon glyphicon-leaf' })
-                )
-              )
-            )
           )
         )
       );
@@ -383,3 +315,38 @@ var Home = function (_Component) {
 }(_react.Component);
 
 exports.default = Home;
+
+// <div className="row"> 
+//   <ul className='mdl-list'>
+//     <li className="mdl-list__item">
+//       <span className="mdl-list__item-primary-content">
+//         <span className='glyphicon  glyphicon-user'></span>
+//         User 1
+//       </span> 
+//       <a className="mdl-list__item-primary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
+//     </li>
+
+//     <li className="mdl-list__item">
+//       <span className="mdl-list__item-primary-content">
+//         <span className='glyphicon  glyphicon-user'></span>
+//         User 2
+//       </span>
+//       <a className="mdl-list__item-secondary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
+//     </li>
+
+//     <li className="mdl-list__item">
+//       <span className="mdl-list__item-primary-content">
+//         <span className='glyphicon  glyphicon-user'></span>
+//         User 3</span>
+//       <a className="mdl-list__item-secondary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
+//     </li>
+
+//     <li className="mdl-list__item">
+//       <span className="mdl-list__item-primary-content">
+//         <span className='glyphicon  glyphicon-user'></span>
+//         User 4</span>
+//       <a className="mdl-list__item-secondary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
+//     </li>
+
+//   </ul>
+// </div>

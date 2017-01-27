@@ -81,10 +81,10 @@ class Nav extends Component {
 
   render() {
     const isBrowser = typeof window !== 'undefined'
-    const { isAuthenticated, errorMessage } = this.props
+    const { isAuthenticated, errorMessage, auth } = this.props
     // console.log('navjs is authenticated '+isAuthenticated)
     
-    // console.log('nav: isAuthenticated'+isAuthenticated)
+    console.log('nav: authority = '+auth.get('authority'))
     // console.log('nav: isBrowser'+isBrowser)
 	//&& this.props.location.pathname!='/register'
     return (
