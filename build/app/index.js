@@ -36,7 +36,11 @@ require('bootstrap/dist/css/bootstrap.css');
 
 require('bootstrap/dist/js/bootstrap.js');
 
-require('material-design-lite/dist/material.css');
+require('material-design-lite/dist/material.brown-blue.min.css');
+
+require('material-design-lite/src/material-design-lite.scss');
+
+require('material-design-lite/src/mdlComponentHandler.js');
 
 require('material-design-lite/dist/material.js');
 
@@ -63,6 +67,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import UserApp from '../components/userapp';
 // import App from '../components/app.jsx';
 // import AppComponent from '../components/appcomponent';
+
+// import '../styles/default.scss'
 
 // import configureStore from '../redux/store'
 
@@ -141,6 +147,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // injectTapEventPlugin()
 
 // import '../styles/default.scss'
+
+// import 'material-design-lite/src/_variables.scss'
+// import 'material-design-lite/dist/material.css'
+// import 'material-design-lite/dist/material.blue-pink.min.css'
+// import 'material-design-lite/dist/material.blue-red.min.css'
 
 // import 'jquery'
 // import $ from 'jquery'

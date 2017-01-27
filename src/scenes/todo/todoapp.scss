@@ -17,16 +17,6 @@ table{
 		margin-left:10px;
 	}
 	// background-color:orange;
-
-	.parampanel{
-		// padding:100px;
-
-		margin: 30px 0 !important;
-		background-color: $beige;
-		-moz-background-clip: padding; /* Firefox 3.6 */
-		-webkit-background-clip: padding; /* Safari 4? Chrome 6? */
-		background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
-	}
 	@media (min-width: 480px) {
 		// background-color:pink;
 		width: 90%;

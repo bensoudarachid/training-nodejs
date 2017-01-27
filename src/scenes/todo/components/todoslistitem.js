@@ -298,7 +298,9 @@ export default class TodosListItem extends React.Component {
         }
           <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
             <form className='pad mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' onSubmit={this.handleUploadFile.bind(this)}>
-              <div className='mdl-cell mdl-cell--7-col mdl-cell--6-col-tablet mdl-cell--2-col-phone'><FileUploadInput id={'uploadfile-'+this.props.todo.get('id')} disabled={disabled} actions={this.props.actions}/></div>
+              <div className='mdl-cell mdl-cell--7-col mdl-cell--6-col-tablet mdl-cell--2-col-phone'>
+                <FileUploadInput id={'uploadfile-'+this.props.todo.get('id')} disabled={disabled} actions={this.props.actions}/>
+              </div>
               <div className='mdl-cell mdl-cell--5-col mdl-cell--2-col-tablet mdl-cell--2-col-phone'>
                 <TodoImage ref='uploadcomp' taskid={taskid} isUploading={isUploading}/>
                 <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items' type='submit' value='Upload' disabled={disabled}>Upload</button>

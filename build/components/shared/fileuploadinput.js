@@ -52,9 +52,9 @@ var FileUploadInput = function (_Component) {
           { className: 'file_input' },
           _react2.default.createElement(
             'label',
-            { className: 'justify image_input_button mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored' },
+            { className: 'justify image_input_button mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored' + disabled },
             _react2.default.createElement('span', { className: 'glyphicon glyphicon-upload ' + disabled }),
-            _react2.default.createElement('input', { ref: 'file_input_file', onChange: this.changeInputText, className: 'none', type: 'file', id: id })
+            _react2.default.createElement('input', { ref: 'file_input_file', onChange: this.changeInputText, className: 'none', type: 'file', id: id, disabled: this.props.disabled })
           ),
           _react2.default.createElement(
             'label',

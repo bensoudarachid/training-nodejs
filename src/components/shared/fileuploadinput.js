@@ -26,9 +26,9 @@ export default class FileUploadInput extends Component {
     return (
       <div className='file_input_div'>
         <div className='file_input'>
-          <label className='justify image_input_button mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored'>
+          <label className={'justify image_input_button mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored'+disabled}>
             <span className={'glyphicon glyphicon-upload '+disabled}></span>
-            <input ref='file_input_file' onChange={this.changeInputText} className='none' type='file' id={id}/>
+            <input ref='file_input_file' onChange={this.changeInputText} className='none' type='file' id={id} disabled={this.props.disabled}/>
           </label>
           <label className='uploadlabel' ref='file_input_text' name='file_input_text'>No image</label>
         </div>

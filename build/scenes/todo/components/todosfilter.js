@@ -143,7 +143,7 @@ var TodosFilter = function (_React$Component) {
       } else if (this.props.todos.find(function (todo) {
         return todo.get('task') === task;
       })) {
-        return 'Task already exists.';
+        return 'Task already exists';
       } else {
         return null;
       }

@@ -95,12 +95,15 @@ if (process.env.BROWSER) {
       // $('#wavybg-wrapper').css('visibility','visible')
       (0, _jquery2.default)('#wavybg-wrapper').addClass('fadein');
     }, 1800);
-
+    var color = (0, _jquery2.default)('.parampanel').css('background-color');
     var smokyBGNow = (0, _jquery2.default)('#wavybg-wrapper').waterpipe({
       //Default values
       gradientStart: '#6bc1ff',
       // gradientStart: '#FCEBB6',
-      gradientEnd: '#ffca76',
+      // gradientEnd: '#caff76',//color, //'#ffca76',
+      // gradientEnd: '#cacb26',
+      gradientEnd: '#4c5a69',
+
       smokeOpacity: 0.05,
       smokeSize: 0.2,
       numCircles: 5,

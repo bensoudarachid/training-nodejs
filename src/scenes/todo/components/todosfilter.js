@@ -37,7 +37,6 @@ export default class TodosFilter extends React.Component {
             </div>
           </div>
         </div>
-
     )
   }
 
@@ -86,7 +85,7 @@ export default class TodosFilter extends React.Component {
       return 'Please enter a task.'
     // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
     } else if (this.props.todos.find((todo) =>  todo.get('task') === task) ){
-      return 'Task already exists.'
+      return 'Task already exists'
     } else {
       return null
     }

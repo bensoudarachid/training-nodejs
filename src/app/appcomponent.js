@@ -53,12 +53,15 @@ if (process.env.BROWSER) {
       $('#wavybg-wrapper').addClass('fadein')
 
     }, 1800)
-
+    var color = $('.parampanel').css('background-color')
     var smokyBGNow = $('#wavybg-wrapper').waterpipe({
     //Default values
       gradientStart: '#6bc1ff',
       // gradientStart: '#FCEBB6',
-      gradientEnd: '#ffca76',
+      // gradientEnd: '#caff76',//color, //'#ffca76',
+      // gradientEnd: '#cacb26',
+      gradientEnd: '#4c5a69',
+
       smokeOpacity: 0.05,
       smokeSize: 0.2,
       numCircles: 5,

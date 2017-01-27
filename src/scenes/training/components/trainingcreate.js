@@ -24,15 +24,15 @@ export default class TrainingCreate extends React.Component {
     }}>{this.state.error}</div>
   }
 
-  renderOld() {
-    return (
-      <form onSubmit={this.handleCreate.bind(this)}>
-            <input type="text" placeholder="What do I need to do?" ref="createInput" />
-                <button>Create</button>
-                {this.renderError()}
-        </form>
-      )
-  }
+  // renderOld() {
+  //   return (
+  //     <form onSubmit={this.handleCreate.bind(this)}>
+  //           <input type="text" placeholder="What do I need to do?" ref="createInput" />
+  //               <button>Create</button>
+  //               {this.renderError()}
+  //       </form>
+  //     )
+  // }
   render() {
     const errorClass = this.state.error?'error':''
 

@@ -53,21 +53,17 @@ var TrainingCreate = function (_React$Component) {
         this.state.error
       );
     }
-  }, {
-    key: 'renderOld',
-    value: function renderOld() {
-      return _react2.default.createElement(
-        'form',
-        { onSubmit: this.handleCreate.bind(this) },
-        _react2.default.createElement('input', { type: 'text', placeholder: 'What do I need to do?', ref: 'createInput' }),
-        _react2.default.createElement(
-          'button',
-          null,
-          'Create'
-        ),
-        this.renderError()
-      );
-    }
+
+    // renderOld() {
+    //   return (
+    //     <form onSubmit={this.handleCreate.bind(this)}>
+    //           <input type="text" placeholder="What do I need to do?" ref="createInput" />
+    //               <button>Create</button>
+    //               {this.renderError()}
+    //       </form>
+    //     )
+    // }
+
   }, {
     key: 'render',
     value: function render() {

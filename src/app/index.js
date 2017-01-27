@@ -19,11 +19,26 @@ import actions from '../services/actions'
 // require('material-design-lite/dist/material.js')
 
 import '../styles/animate.css'
+// import '../styles/default.scss'
 import './app.scss'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
-import 'material-design-lite/dist/material.css'
+
+// import 'material-design-lite/src/_variables.scss'
+// import 'material-design-lite/dist/material.css'
+// import 'material-design-lite/dist/material.blue-pink.min.css'
+// import 'material-design-lite/dist/material.blue-red.min.css'
+
+import 'material-design-lite/dist/material.brown-blue.min.css'
+
+
+
+
+import 'material-design-lite/src/material-design-lite.scss'
+
+import 'material-design-lite/src/mdlComponentHandler.js'
 import 'material-design-lite/dist/material.js'
+
 
 // import '../../node_modules/materialize-css/dist/js/materialize.min.js'
 // import '../../node_modules/materialize-css/dist/css/materialize.min.css'
