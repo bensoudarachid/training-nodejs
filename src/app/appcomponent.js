@@ -131,40 +131,40 @@ if (process.env.BROWSER) {
             }
           },
 
-          line: function(){
-            var length = config.length,
-              iStar,
-              jStar,
-              i,
-              j
+          // line: function(){
+          //   var length = config.length,
+          //     iStar,
+          //     jStar,
+          //     i,
+          //     j
 
-            for (i = 0; i < length; i++) {
-              for (j = 0; j < length; j++) {
-                iStar = config.stars[i]
-                jStar = config.stars[j]
+          //   for (i = 0; i < length; i++) {
+          //     for (j = 0; j < length; j++) {
+          //       iStar = config.stars[i]
+          //       jStar = config.stars[j]
 
-                if (
-                            (iStar.x - jStar.x) < config.distance &&
-                            (iStar.y - jStar.y) < config.distance &&
-                            (iStar.x - jStar.x) > - config.distance &&
-                            (iStar.y - jStar.y) > - config.distance
-                        ) {
-                  if (
-                                (iStar.x - config.position.x) < config.radius &&
-                                (iStar.y - config.position.y) < config.radius &&
-                                (iStar.x - config.position.x) > - config.radius &&
-                                (iStar.y - config.position.y) > - config.radius
-                            ) {
-                    context.beginPath()
-                    context.moveTo(iStar.x, iStar.y)
-                    context.lineTo(jStar.x, jStar.y)
-                    context.stroke()
-                    context.closePath()
-                  }
-                }
-              }
-            }
-          }
+          //       if (
+          //                   (iStar.x - jStar.x) < config.distance &&
+          //                   (iStar.y - jStar.y) < config.distance &&
+          //                   (iStar.x - jStar.x) > - config.distance &&
+          //                   (iStar.y - jStar.y) > - config.distance
+          //               ) {
+          //         if (
+          //                       (iStar.x - config.position.x) < config.radius &&
+          //                       (iStar.y - config.position.y) < config.radius &&
+          //                       (iStar.x - config.position.x) > - config.radius &&
+          //                       (iStar.y - config.position.y) > - config.radius
+          //                   ) {
+          //           context.beginPath()
+          //           context.moveTo(iStar.x, iStar.y)
+          //           context.lineTo(jStar.x, jStar.y)
+          //           context.stroke()
+          //           context.closePath()
+          //         }
+          //       }
+          //     }
+          //   }
+          // }
         }
 
         this.createStars = function () {
@@ -181,7 +181,7 @@ if (process.env.BROWSER) {
             star.create()
           }
 
-          star.line()
+//          star.line()
           star.animate()
         }
 
@@ -257,9 +257,9 @@ if (process.env.BROWSER) {
       star: {
         width: 3
       },
-      line: {
-        color: 'rgba(150, 125, 105, .5)'
-      },
+      // line: {
+      //   color: 'rgba(150, 125, 105, .5)'
+      // },
       radius: 50
     })
 
@@ -274,7 +274,9 @@ if (process.env.BROWSER) {
       // gradientEnd: '#6C7A89',
       // gradientEnd: '#9caab9',
       // gradientEnd: '#bccad9',
-      gradientEnd: '#ffffff',
+      // gradientEnd: '#ffffff',
+      gradientEnd: '#dfefff',
+
 
       smokeOpacity: 0.05,
       smokeSize: 0.2,
