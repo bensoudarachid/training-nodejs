@@ -20,6 +20,18 @@ var _logout = require('../logout.js');
 
 var _logout2 = _interopRequireDefault(_logout);
 
+var _navuser = require('./navuser');
+
+var _navuser2 = _interopRequireDefault(_navuser);
+
+var _navpublic = require('./navpublic');
+
+var _navpublic2 = _interopRequireDefault(_navpublic);
+
+var _navadmin = require('./navadmin');
+
+var _navadmin2 = _interopRequireDefault(_navadmin);
+
 var _actions = require('../../services/actions.js');
 
 var _jquery = require('jquery');
@@ -43,48 +55,49 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // import '../styles/default.scss'
 
 if (process.env.BROWSER) {
-  (function () {
-    var sir3allah = function sir3allah(event) {
-      var logotitleElm2 = (0, _jquery2.default)('#bsnavi h2');
-      // var rdm = Math.floor(Math.random() * 2) + 1
-      // var rdm2 = Math.floor(Math.random() * 2) + 1
-      var imgAnim = 'flash'; //rdm===1?'flash':'flash' //flash
-      // console.log('anim='+imgAnim)
-      var timeout = 800; //rdm===1?800:350
-      logotitleElm2.addClass('animated ' + imgAnim); //+(rdm===3&&rdm2===1?' reverseanim':'')
-      setTimeout(function () {
-        logotitleElm2.removeClass('animated');
-        logotitleElm2.removeClass(imgAnim);
-      }, timeout);
-    };
+  // console.log('Appcomponent. environment is browser')
+  require('./nav.scss');
+  //   function sir3allah(event){
+  //     var logotitleElm2 = $('#bsnavi h2')
+  //     // var rdm = Math.floor(Math.random() * 2) + 1
+  //     // var rdm2 = Math.floor(Math.random() * 2) + 1
+  //     var imgAnim = 'flash'//rdm===1?'flash':'flash' //flash
+  //     // console.log('anim='+imgAnim)
+  //     var timeout=800//rdm===1?800:350
+  //     logotitleElm2.addClass('animated '+imgAnim) //+(rdm===3&&rdm2===1?' reverseanim':'')
+  //     setTimeout(() => {
+  //       logotitleElm2.removeClass('animated')
+  //       logotitleElm2.removeClass(imgAnim)
+  //     }, timeout)
 
-    // console.log('Appcomponent. environment is browser')
-    require('./nav.scss');
+  //   }
+  //   window.requestAnimFrame = (function(){
+  //     return  window.requestAnimationFrame       ||
+  //           window.webkitRequestAnimationFrame ||
+  //           window.mozRequestAnimationFrame    ||
+  //           function( callback ){
+  //             console.log('Halli')
+  //             window.setTimeout(callback, 1000 / 2)
+  //           }
+  //   }
+  // )();
 
-    window.requestAnimFrame = function () {
-      return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
-        console.log('Halli');
-        window.setTimeout(callback, 1000 / 2);
-      };
-    }();
+  //   (function loop(){
+  //     // console.log('Halli')
+  //     sir3allah(undefined)
+  //     setTimeout(function() {
+  //       requestAnimFrame(loop)
+  //     },(30000) ) //1000/100
+  //   })()
 
-    (function loop() {
-      // console.log('Halli')
-      sir3allah(undefined);
-      setTimeout(function () {
-        requestAnimFrame(loop);
-      }, 30000); //1000/100
-    })();
-
-    (0, _jquery2.default)(document).ready(function () {
-      (0, _jquery2.default)('body').click(function (event) {
-        // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
-        if ((0, _jquery2.default)('.navbar-collapse').is(':visible') && (0, _jquery2.default)('.navbar-toggle').is(':visible')) {
-          (0, _jquery2.default)('.navbar-collapse').collapse('toggle');
-        }
-      });
+  (0, _jquery2.default)(document).ready(function () {
+    (0, _jquery2.default)('body').click(function (event) {
+      // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
+      if ((0, _jquery2.default)('.navbar-collapse').is(':visible') && (0, _jquery2.default)('.navbar-toggle').is(':visible')) {
+        (0, _jquery2.default)('.navbar-collapse').collapse('toggle');
+      }
     });
-  })();
+  });
 }
 //require('./nav.scss')
 
@@ -118,137 +131,40 @@ var Nav = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       var isBrowser = typeof window !== 'undefined';
-      var _props = this.props;
-      var isAuthenticated = _props.isAuthenticated;
-      var errorMessage = _props.errorMessage;
-      var auth = _props.auth;
+      var auth = this.props.auth;
+
+      var isAuthenticated = auth.get('isAuthenticated');
       // console.log('navjs is authenticated '+isAuthenticated)
 
-      console.log('nav: authority = ' + auth.get('authority'));
+      // console.log('nav: authority = '+auth.get('authority'))
       // console.log('nav: isBrowser'+isBrowser)
       //&& this.props.location.pathname!='/register'
-      return _react2.default.createElement(
-        'nav',
-        { id: 'bsnavi', className: 'navbar navbar-default navbar-fixed-top', role: 'navigation' },
-        _react2.default.createElement(
-          'ul',
-          { className: 'navbar-header logoblock' },
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement('img', { id: 'logo', src: './images/RoyaLogoNeutralH120.png', className: 'logo', alt: 'Roya logo' })
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                'h2',
-                null,
-                'Roya'
-              ),
-              _react2.default.createElement(
-                'h3',
-                null,
-                'Software'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'button',
-              { id: 'togg', type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1' },
-              _react2.default.createElement('span', { className: 'icon-bar' }),
-              _react2.default.createElement('span', { className: 'icon-bar' }),
-              _react2.default.createElement('span', { className: 'icon-bar' })
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
-          _react2.default.createElement(
-            'ul',
-            { className: 'nav navbar-nav navbar-left' },
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                _reactRouter.IndexLink,
-                { activeClassName: 'active', to: '/' },
-                'Home'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { activeClassName: 'active', to: '/todos' },
-                'Todos'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { activeClassName: 'active', to: '/trainings' },
-                'Training'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'ul',
-            { className: 'nav navbar-nav navbar-right' },
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { activeClassName: 'active', to: '/register' },
-                'Register'
-              )
-            ),
-            isBrowser && !isAuthenticated && _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'a',
-                { href: '#', onClick: function onClick(event) {
-                    return _this2.handleLoginClick(event);
-                  } },
-                _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-in' }),
-                ' Login'
-              )
-            ),
-            isAuthenticated && _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'a',
-                { href: '#', onClick: function onClick(event) {
-                    return _this2.props.actions.logoutUser();
-                  } },
-                _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-out' }),
-                ' Logout'
-              )
-            )
-          )
-        )
-      );
+      if (auth.get('authority') == 'admin') {
+        console.log('nav: admin? authority = ' + auth.get('authority'));
+        return _react2.default.createElement(_navadmin2.default, {
+          actions: this.props.actions,
+          auth: this.props.auth
+        });
+      } else if (auth.get('authority') == 'user') {
+        console.log('nav: user? authority = ' + auth.get('authority'));
+        return _react2.default.createElement(_navuser2.default, {
+          actions: this.props.actions,
+          auth: this.props.auth
+        });
+      } else {
+        console.log('nav: guest? authority = ' + auth.get('authority'));
+        return _react2.default.createElement(_navpublic2.default, {
+          actions: this.props.actions,
+          auth: this.props.auth
+        });
+      }
     }
   }]);
 
   return Nav;
 }(_react.Component);
+
 // <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 
 exports.default = Nav;
@@ -265,4 +181,42 @@ exports.default = Nav;
 //   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
 //   }
 
-//    </div>
+//    </div>    
+
+
+//     <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
+//     <ul className='navbar-header logoblock'>
+//     <li><img id='logo' src={'./images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/></li>
+//     <li>
+//       <div>
+//       <h2>Roya</h2>
+//       <h3>Software</h3>
+//       </div>
+//     </li>
+//     <li>
+//       <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
+//         <span className="icon-bar"></span>
+//         <span className="icon-bar"></span>
+//         <span className="icon-bar"></span>
+//       </button>
+//     </li>   
+//   </ul>
+//     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+//       <ul className="nav navbar-nav navbar-left">
+//       <li><IndexLink activeClassName='active' to='/'>Home</IndexLink></li>
+//       <li><Link activeClassName='active' to='/todos'>Todos</Link></li>
+//       <li><Link activeClassName='active' to='/trainings'>Training</Link></li>
+//       </ul>
+//       <ul className="nav navbar-nav navbar-right">
+//       <li><Link activeClassName='active' to='/register'>Register</Link></li>
+// {isBrowser && !isAuthenticated &&
+//   <li><a href='#' onClick={(event) => this.handleLoginClick(event)}><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
+// }
+// {isAuthenticated &&
+//   <li>
+//   <a href='#' onClick={(event) => this.props.actions.logoutUser()}><span className='glyphicon glyphicon-log-out'></span> Logout</a>
+//   </li>
+// }     
+//       </ul>
+//     </div>
+//   </nav>

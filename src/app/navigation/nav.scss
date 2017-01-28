@@ -68,6 +68,12 @@
 		// -o-background-size:cover;
 		// background-size:cover;
 	}
+	#togg{
+		&:hover,&:focus{
+			background:radial-gradient(circle closest-side at 19px 20px, lighten(getMdlColor($color-primary),30%) 0,  lighten(getMdlColor($color-primary),30%) 17px, transparent 19px);
+			// background-color: lighten(getMdlColor($color-primary),30%);
+		}
+	}
     // border: none;
     .navbar-collapse,.collapse{
     	border:none;
@@ -156,7 +162,8 @@
 	.active{
 			// color: darken(getMdlColor($color-primary),65%);
 			color: darken(getMdlColor($color-primary),30%);
-			background:radial-gradient(circle closest-side at 35px 21px, lighten(getMdlColor($color-primary),30%) 0, lighten(getMdlColor($color-primary),30%) 16px, transparent 18px);
+			background:radial-gradient(circle closest-side at 35px 21px, lighten(getMdlColor($color-primary),30%) 0, lighten(getMdlColor($color-primary),30%) 18px, transparent 19px);
+		  	// background:radial-gradient(circle closest-side at 35px 21px, lighten($roya-blue,19%) 0,  lighten($roya-blue,19%) 18px, transparent 19px);
 			
 
 			border: 1px solid transparent;

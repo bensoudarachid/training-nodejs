@@ -62,6 +62,9 @@ var authactions = {
     _reactCookie2.default.remove('jwt', {
       path: '/'
     });
+    _reactCookie2.default.remove('authority', {
+      path: '/'
+    });
     return {
       type: 'LOGOUT_SUCCESS',
       isFetching: false,

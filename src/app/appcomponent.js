@@ -69,14 +69,16 @@ if (process.env.BROWSER) {
           context = canvas.getContext('2d'),
           defaults = {
             star: {
-              color: 'rgba(172, 186, 201, .99)', //silver
+              // color: 'rgba(172, 186, 201, .99)', //silver
               // color: 'rgba(34, 167, 240, .99)', //blue
+              color: 'rgba(255, 255, 255, .5)', //white
+              // color: 'rgba(0, 0, 0, .99)', //black
               // color: 'rgba(108, 122, 137, .99)',
               width: 100,
               randomWidth: true
             },
             line: {
-              color: 'rgba(255, 255, 255, .5)',
+              color: 'rgba(255, 0, 0, .9)',
               width: 0.2
             },
             position: {
@@ -269,7 +271,11 @@ if (process.env.BROWSER) {
     var color = $('.parampanel').css('background-color')
     var smokyBGNow = $('#wavybg-wrapper').waterpipe({
       gradientStart: '#6bc1ff',
-      gradientEnd: '#6C7A89',
+      // gradientEnd: '#6C7A89',
+      // gradientEnd: '#9caab9',
+      // gradientEnd: '#bccad9',
+      gradientEnd: '#ffffff',
+
       smokeOpacity: 0.05,
       smokeSize: 0.2,
       numCircles: 5,
@@ -280,8 +286,13 @@ if (process.env.BROWSER) {
       drawsPerFrame: 45,
       lineWidth: 1,
       speed: 1,
-      bgColorInner: '#6bc1ff',
-      bgColorOuter: '#003870'
+      // bgColorInner: '#6bc1ff',
+      bgColorInner: '#c5d3e2',
+      // bgColorOuter: '#003870'
+      // bgColorOuter: '#004790'
+      // bgColorOuter: '#ffffff'
+      bgColorOuter: '#2980b9'
+
     })
 
 
@@ -295,10 +306,6 @@ if (process.env.BROWSER) {
       }
     }
   })
-
-
-
-
 
 
 }
@@ -325,43 +332,14 @@ class AppComponent extends React.Component {
   componentDidMount(){
     require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
   }
-      // <div>
-      //   <Nav
-      //     actions={this.props.actions}
-      //     isAuthenticated={auth.isAuthenticated}
-      //     errorMessage={auth.errorMessage}
-      //     auth={this.props.auth}
-      //     location={this.props.location}
-      //   />
-      //   {!isBrowser &&
-      //   <div style='background-color:red;height=100px;'><h2>mama</h2><ThreeBounce color='red' size={18} fade={{duration: 0.3}}/></div>
-      //   }  
-      //   <h2>Welcome to The todo homepage man!</h2>
-      //   { children }
-      // </div>
 
-        // <div id='appsnackbar' className='mdl-js-snackbar mdl-snackbar'>
-        //   <div className='mdl-snackbar__text'></div>
-        //   <button className='mdl-snackbar__action' type='button'></button>
-        // </div>
-
-
-      // <div className="mdl-grid">
-      // <div className="mdl-layout mdl-js-layout">
-      //   <main className="mdl-layout__content">
-
-      //   <div id='contt'>
-      //   { children }
-      //   </div>
-      //   {appError &&
-      //   <div>
-      //     <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: '+appError}/>
-      //   </div>
-      //   }
-
-      //   </main>
-      // </div>  
-      // </div>
+        // <Nav
+        //   actions={this.props.actions}
+        //   isAuthenticated={auth.get('isAuthenticated')}
+        //   errorMessage={auth.get('errorMessage')}
+        //   auth={this.props.auth}
+        //   location={this.props.location}
+        // />
 
   render() {
     const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
@@ -384,10 +362,7 @@ class AppComponent extends React.Component {
       <div>
         <Nav
           actions={this.props.actions}
-          isAuthenticated={auth.get('isAuthenticated')}
-          errorMessage={auth.get('errorMessage')}
           auth={this.props.auth}
-          location={this.props.location}
         />
       </div>
       {loginProgress &&

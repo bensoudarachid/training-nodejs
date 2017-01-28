@@ -49,6 +49,9 @@ let authactions = {
     cookie.remove('jwt', {
       path: '/'
     })
+    cookie.remove('authority', {
+      path: '/'
+    })
     return {
       type: 'LOGOUT_SUCCESS',
       isFetching: false,

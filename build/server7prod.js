@@ -367,7 +367,7 @@ app.get(appbasename + '/*', function (req, res) {
               console.log('hour of the day = ' + hour);
               var style = 'http://rlearn.herokuapp.com/style.css';
               var bundle = 'http://rlearn.herokuapp.com/bundle.js';
-              if (hour < 7 || hour > 22) {
+              if (hour < 7 || hour > 19) {
                 style = '/style.css';
                 bundle = '/bundle.js';
               }
@@ -378,7 +378,7 @@ app.get(appbasename + '/*', function (req, res) {
 
               // console.log('Server. body '+body);
               var state = store.getState();
-              res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="' + style + '" />\n                </head>\n                <body style="background-color:#003870">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="' + bundle + '"></script>\n                </body>\n              </html>');
+              res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="' + style + '" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="' + bundle + '"></script>\n                </body>\n              </html>');
             }).catch(function (err) {
               return console.log('Booooo' + err);
             });

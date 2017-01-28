@@ -461,7 +461,7 @@ app.get(appbasename + '/*', function (req, res) {
               // <div id="devmarker" style="position:fixed;height:4px;width:263px;background-color:#fff;top:165px;left:50%;"></div>
 
               var state = store.getState();
-              res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="/style.css" />\n                </head>\n                <body style="background-color:#003870">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="/bundle.js"></script>\n                </body>\n              </html>');
+              res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="/style.css" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="/bundle.js"></script>\n                </body>\n              </html>');
             }).catch(function (err) {
               return console.log('Booooo' + err);
             });

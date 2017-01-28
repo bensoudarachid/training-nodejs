@@ -336,7 +336,7 @@ app.get(appbasename+'/*', (req, res) => {
             console.log('hour of the day = '+hour)
             var style = 'http://rlearn.herokuapp.com/style.css'
             var bundle = 'http://rlearn.herokuapp.com/bundle.js'
-            if(hour < 7 || hour > 22){
+            if(hour < 7 || hour > 19){
               style = '/style.css'
               bundle = '/bundle.js'
             }
@@ -353,7 +353,7 @@ app.get(appbasename+'/*', (req, res) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
                 <link rel="stylesheet" type="text/css" href="${style}" />
                 </head>
-                <body style="background-color:#003870">
+                <body style="background-color:#2980b9">
                   <div id="root">${body}</div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
                   <script src="${bundle}"></script>
