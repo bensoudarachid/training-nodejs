@@ -16,38 +16,38 @@ import $ from 'jquery'
 if (process.env.BROWSER) {
   // console.log('Appcomponent. environment is browser')
   require('./nav.scss')
-  function sir3allah(event){
-    var logotitleElm2 = $('#bsnavi h2')
-    // var rdm = Math.floor(Math.random() * 2) + 1
-    // var rdm2 = Math.floor(Math.random() * 2) + 1
-    var imgAnim = 'flash'//rdm===1?'flash':'flash' //flash
-    // console.log('anim='+imgAnim)
-    var timeout=800//rdm===1?800:350
-    logotitleElm2.addClass('animated '+imgAnim) //+(rdm===3&&rdm2===1?' reverseanim':'')
-    setTimeout(() => {
-      logotitleElm2.removeClass('animated')
-      logotitleElm2.removeClass(imgAnim)
-    }, timeout)
+//   function sir3allah(event){
+//     var logotitleElm2 = $('#bsnavi h2')
+//     // var rdm = Math.floor(Math.random() * 2) + 1
+//     // var rdm2 = Math.floor(Math.random() * 2) + 1
+//     var imgAnim = 'flash'//rdm===1?'flash':'flash' //flash
+//     // console.log('anim='+imgAnim)
+//     var timeout=800//rdm===1?800:350
+//     logotitleElm2.addClass('animated '+imgAnim) //+(rdm===3&&rdm2===1?' reverseanim':'')
+//     setTimeout(() => {
+//       logotitleElm2.removeClass('animated')
+//       logotitleElm2.removeClass(imgAnim)
+//     }, timeout)
     
-  }
-  window.requestAnimFrame = (function(){
-    return  window.requestAnimationFrame       ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame    ||
-          function( callback ){
-            console.log('Halli')
-            window.setTimeout(callback, 1000 / 2)
-          }
-  }
-)();
+//   }
+//   window.requestAnimFrame = (function(){
+//     return  window.requestAnimationFrame       ||
+//           window.webkitRequestAnimationFrame ||
+//           window.mozRequestAnimationFrame    ||
+//           function( callback ){
+//             console.log('Halli')
+//             window.setTimeout(callback, 1000 / 2)
+//           }
+//   }
+// )();
 
-  (function loop(){
-    // console.log('Halli')
-    sir3allah(undefined)
-    setTimeout(function() {
-      requestAnimFrame(loop)
-    },(30000) ) //1000/100
-  })()
+//   (function loop(){
+//     // console.log('Halli')
+//     sir3allah(undefined)
+//     setTimeout(function() {
+//       requestAnimFrame(loop)
+//     },(30000) ) //1000/100
+//   })()
 
   $(document).ready(function() { 
     $('body').click(function(event) {
@@ -106,12 +106,11 @@ class NavPublic extends Component {
 	</ul>
 		<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul className="nav navbar-nav navbar-left">
-			<li><IndexLink activeClassName='active' to='/'>HomeP</IndexLink></li>
-      <li><Link activeClassName='active' to='/todos'>TodosP</Link></li>
-      <li><Link activeClassName='active' to='/trainings'>TrainingP</Link></li>
+			<li><IndexLink activeClassName='active' to='/'>Home</IndexLink></li>
+      <li><Link activeClassName='active' to='/trainings'>Training</Link></li>
 			</ul>
 			<ul className="nav navbar-nav navbar-right">
-			<li><Link activeClassName='active' to='/register'>RegisterP</Link></li>
+			<li><Link activeClassName='active' to='/register'>Register</Link></li>
 {isBrowser && !isAuthenticated &&
 	<li><a href='#' onClick={(event) => this.handleLoginClick(event)}><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 }
