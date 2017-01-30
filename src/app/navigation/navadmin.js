@@ -107,7 +107,7 @@ class NavAdmin extends Component {
 		<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul className="nav navbar-nav navbar-left">
 			<li><IndexLink activeClassName='active' to='/'>Home</IndexLink></li>
-      {process.env.NODE_ENV!='production' && //process.env.NODE_ENV=='production' &&
+      {process.env.NODE_ENV!='production' && process.env.NODE_ENV=='production' &&
       <li><Link activeClassName='active' to='/todos'>Todos</Link></li>
       }
       <li><Link activeClassName='active' to='/trainings'>Training</Link></li>
