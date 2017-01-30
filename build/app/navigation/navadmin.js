@@ -184,8 +184,7 @@ var NavAdmin = function (_Component) {
 								'Home'
 							)
 						),
-						process.env.NODE_ENV != 'production' && //process.env.NODE_ENV=='production' &&
-						_react2.default.createElement(
+						process.env.NODE_ENV != 'production' && process.env.NODE_ENV == 'production' && _react2.default.createElement(
 							'li',
 							null,
 							_react2.default.createElement(
