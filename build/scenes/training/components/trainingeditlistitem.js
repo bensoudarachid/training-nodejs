@@ -46,16 +46,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 if (process.env.BROWSER) {
-  require('./traininglistitem.scss');
+  require('./trainingeditlistitem.scss');
 }
 
-var TrainingsListItem = function (_React$Component) {
-  _inherits(TrainingsListItem, _React$Component);
+var TrainingsEditListItem = function (_React$Component) {
+  _inherits(TrainingsEditListItem, _React$Component);
 
-  function TrainingsListItem(props) {
-    _classCallCheck(this, TrainingsListItem);
+  function TrainingsEditListItem(props) {
+    _classCallCheck(this, TrainingsEditListItem);
 
-    var _this = _possibleConstructorReturn(this, (TrainingsListItem.__proto__ || Object.getPrototypeOf(TrainingsListItem)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (TrainingsEditListItem.__proto__ || Object.getPrototypeOf(TrainingsEditListItem)).call(this, props));
 
     _this.state = {
       isEditing: false
@@ -63,7 +63,7 @@ var TrainingsListItem = function (_React$Component) {
     return _this;
   }
 
-  _createClass(TrainingsListItem, [{
+  _createClass(TrainingsEditListItem, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -295,7 +295,7 @@ var TrainingsListItem = function (_React$Component) {
             { className: 'pad mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--7-col mdl-cell--5-col-tablet mdl-cell--4-col-phone', onSubmit: this.onSaveClick.bind(this) },
             _react2.default.createElement(
               'div',
-              { className: 'mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--4-col-phone', style: titleStyle, onClick: this.handleToggle.bind(this) },
+              { className: 'mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone', style: titleStyle, onClick: this.handleToggle.bind(this) },
               _react2.default.createElement(
                 'p',
                 null,
@@ -345,7 +345,7 @@ var TrainingsListItem = function (_React$Component) {
     }
   }]);
 
-  return TrainingsListItem;
+  return TrainingsEditListItem;
 }(_react2.default.Component);
 
 // }
@@ -366,4 +366,4 @@ var TrainingsListItem = function (_React$Component) {
 // )
 
 
-exports.default = TrainingsListItem;
+exports.default = TrainingsEditListItem;

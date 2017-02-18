@@ -77,10 +77,10 @@ function mapDispatchToProps(dispatch) {
 
 var TodosListItemConn = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_todosListItem2.default);
 
-var renderIntoDocument = _reactAddonsTestUtils2.default.renderIntoDocument;
-var findRenderedDOMComponentsWithClass = _reactAddonsTestUtils2.default.findRenderedDOMComponentsWithClass;
-var scryRenderedDOMComponentsWithClass = _reactAddonsTestUtils2.default.scryRenderedDOMComponentsWithClass;
-var scryRenderedDOMComponentsWithTag = _reactAddonsTestUtils2.default.scryRenderedDOMComponentsWithTag;
+var renderIntoDocument = _reactAddonsTestUtils2.default.renderIntoDocument,
+    findRenderedDOMComponentsWithClass = _reactAddonsTestUtils2.default.findRenderedDOMComponentsWithClass,
+    scryRenderedDOMComponentsWithClass = _reactAddonsTestUtils2.default.scryRenderedDOMComponentsWithClass,
+    scryRenderedDOMComponentsWithTag = _reactAddonsTestUtils2.default.scryRenderedDOMComponentsWithTag;
 
 
 (0, _mocha.describe)('TodosListItem', function () {

@@ -57,7 +57,7 @@ var TodosFilter = function (_React$Component) {
             { className: 'mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone checkboxinput' },
             _react2.default.createElement(
               'label',
-              { className: 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect', 'for': 'checkbox2' },
+              { className: 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect', htmlFor: 'checkbox2' },
               _react2.default.createElement('input', { type: 'checkbox', id: 'checkbox1', className: 'mdl-checkbox__input', ref: 'filterOpen', defaultChecked: this.props.filteropen, onClick: this.handleFilterOpen.bind(this) }),
               _react2.default.createElement(
                 'span',
@@ -71,7 +71,7 @@ var TodosFilter = function (_React$Component) {
             { className: 'mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone' },
             _react2.default.createElement(
               'label',
-              { className: 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect checkboxinput', 'for': 'checkbox2' },
+              { className: 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect checkboxinput', htmlFor: 'checkbox2' },
               _react2.default.createElement('input', { type: 'checkbox', id: 'checkbox2', className: 'mdl-checkbox__input', ref: 'filterTodosClosed', defaultChecked: this.props.filterclosed, onClick: this.handleFilterClosed.bind(this) }),
               _react2.default.createElement(
                 'span',

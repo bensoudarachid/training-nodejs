@@ -56,9 +56,9 @@ app.get('*', function (req, res, next) {
 
     var initialState = {};
     var store = (0, _redux.createStore)(_rootreducer2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default));
-    var location = renderProps.location;
-    var params = renderProps.params;
-    var history = renderProps.history;
+    var location = renderProps.location,
+        params = renderProps.params,
+        history = renderProps.history;
 
 
     fetchData({ store: store, location: location, params: params, history: history }).then(function () {

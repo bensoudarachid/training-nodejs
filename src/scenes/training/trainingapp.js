@@ -2,8 +2,11 @@ import TrainingCreate from './components/trainingcreate'
 
 
 import React, { Component } from 'react'
-import TrainingList from './components/traininglist'
+import TrainingEditList from './components/trainingeditlist'
+import AdminTrainingList from './admin/admintraininglist'
 import cookie from 'react-cookie'
+import $ from 'jquery'
+
 // import _ from 'lodash'
 // import { ThreeBounce } from 'better-react-spinkit'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
@@ -11,7 +14,70 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 if (process.env.BROWSER) {
   console.log('Appcomponent. environment is browser')
   require('./trainingapp.scss')
+  
+  var rdm = 0
+  var lastrdm = 0
+  // var textSwitchId = undefined
+  // var textSwitchContainer = undefined //$('#textswitch')
+  // var textSwitchWrapContainer = undefined //$('#textswitch')
+  // window.isTextSwitchAnimated = true //$('#textswitch')
+
+  // window.textswitcher = function() {
+  //   window.isTextSwitchAnimated = true
+  //   setTimeout( function() {
+  //     console.log('isTextSwitchAnimated = '+window.isTextSwitchAnimated )
+  //     textSwitchWrapContainer = $('#textwrap')
+  //     textSwitchContainer = $('#textswitch')
+  //     if( window.isTextSwitchAnimated )
+  //       window.requestAnimationFrame(window.textswitcher)
+  //     else{
+  //       console.log('I m out now ' )
+  //       textSwitchWrapContainer.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+  //         $(this).removeClass()
+  //         textSwitchWrapContainer.text('')
+  //       })
+  //       return
+  //     }
+
+      
+  //     while( lastrdm === rdm )
+  //       rdm = Math.floor(Math.random() * window.switchTextArray.length)
+  //     console.log('rdm = '+rdm +', lastrdm = '+lastrdm+' : '+window.switchTextArray[rdm]+' : ')
+  //     lastrdm = rdm
+  //       // divContainer[0].style.display = 'none'
+  // //headShake 300 flash 300 fadeInLeft 300 rubberBand
+  //     textSwitchWrapContainer.removeClass().addClass('rubberBand animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+  //       $(this).removeClass()
+  //     })
+  //     setTimeout( function() {
+  //       textSwitchContainer.shuffleLetters({
+  //         'text': window.switchTextArray[rdm]
+  //       })
+  //         // setTimeout( function() {
+  //         //   container.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+  //         //     $(this).removeClass()
+  //         //   })
+  //         // }, 4600 )
+  //     }, 450 )
+  //       // await sleep(1000)
+  //   }, 2000 )
+  // }
+
+  // $(document).ready(function() { 
+  //   // textSwitchContainer = $('#textswitch')
+  //   window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass']
+  //   window.textswitcher()
+  //   // textSwitchId = window.requestAnimationFrame(window.textswitcher)
+  //   // setTimeout( function() {
+  //   //   console.log('Cancel now : ')
+  //   //   window.isTextSwitchAnimated = false
+  //   // }, 12000 )
+
+  // })
+
 }
+
+
 
 // import Immutable from 'immutable'
 
@@ -40,6 +106,9 @@ class TrainingApp extends Component {
     super(props)
     // console.log('training list. Mixin in constructor')
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
+    this.isTextSwitchAnimated = false
+    this.textSwitchContainer = undefined //$('#textswitch')
+    this.textSwitchWrapContainer = undefined //$('#textswitch')
     // const {auth} = this.props
     // if(process.env.BROWSER && !this.props.auth.get('isAuthenticated')){
     //   console.log('trainingapp start login process')
@@ -143,6 +212,9 @@ class TrainingApp extends Component {
   //     </div>
   //     )
   // }
+      // <div id="text-wrapper"> 
+      //   <p id="textswitch">Welcome!</p>
+      // </div>
 
   render() {
     // console.log('Render training app now')
@@ -155,14 +227,31 @@ class TrainingApp extends Component {
     const {auth} = this.props
     return (
       <div className='trainingapp'>
+      <div id="textwrap"> 
+        <p id="textswitch"></p>
+      </div>
       <div>
         <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel' >
           <TrainingCreate trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
         </div>
-        <TrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+        {this.renderList()}
       </div>
       </div>
-      )
+    )
+  }
+
+  renderList(){
+    const { auth } = this.props
+    const isAuthenticated = auth.get('isAuthenticated')
+    // console.log('navjs is authenticated '+isAuthenticated)
+    
+    console.log('trainingapp. authority '+auth.get('authority'))
+    if( auth.get('authority')=='admin' ){
+      return <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+    }
+    else{
+      return <TrainingEditList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+    }
   }
   // saveTask(oldTask, newTask) {
   //   const foundTraining = _.find(this.state.trainings, (training) => training.task === oldTask);
@@ -190,7 +279,14 @@ class TrainingApp extends Component {
   componentDidMount() {
     // console.log('trainingappjs mounted')
     TrainingApp.fetchData(this.props.actions)
+
+    window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass']
+    this.textswitcher()
   }
+  componentWillUnmount() {
+    this.isTextSwitchAnimated = false
+  }
+
   //This is a necessary call when component is fetched on server side
   static fetchData(actions) {
     actions.retrieveTrainingsDispatcher()
@@ -266,6 +362,64 @@ class TrainingApp extends Component {
   // }
 
 
+  textswitcher() {
+    var loop = function(){
+      this.isTextSwitchAnimated = true
+      setTimeout( function() {
+        // console.log('isTextSwitchAnimated = '+this.isTextSwitchAnimated )
+        this.textSwitchWrapContainer = $('#textwrap')
+        this.textSwitchContainer = $('#textswitch')
+
+
+        var animFrame = window.requestAnimationFrame ||
+                  window.webkitRequestAnimationFrame ||
+                  window.mozRequestAnimationFrame    ||
+                  window.oRequestAnimationFrame      ||
+                  window.msRequestAnimationFrame     ||
+                  null 
+        // var that = this
+        // animFrame( function() { that.textswitcher() } )
+        
+        if( this.isTextSwitchAnimated ){
+          // window.requestAnimationFrame(this.textswitcher.bind(this))
+          // textSwitchWrapContainer.removeClass('fadeOutLeft')
+          // textSwitchWrapContainer.removeClass('fadeOutLeft animated')
+          animFrame(loop.bind(this))
+        }else{
+          console.log('I m out now ' )
+          this.textSwitchWrapContainer.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+            // console.log('Remove fade out class' )
+            $(this).removeClass()
+            this.textSwitchContainer.text('')
+          })
+          return
+        }
+
+        
+        while( lastrdm === rdm )
+          rdm = Math.floor(Math.random() * window.switchTextArray.length)
+        // console.log('rdm = '+rdm +', lastrdm = '+lastrdm+' : '+window.switchTextArray[rdm]+' : ')
+        lastrdm = rdm
+          // divContainer[0].style.display = 'none'
+    //headShake 300 flash 300 fadeInLeft 300 rubberBand
+        this.textSwitchWrapContainer.removeClass().addClass('rubberBand animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          $(this).removeClass()
+        })
+        setTimeout( function() {
+          this.textSwitchContainer.shuffleLetters({
+            'text': window.switchTextArray[rdm]
+          })
+            // setTimeout( function() {
+            //   container.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+            //     $(this).removeClass()
+            //   })
+            // }, 4600 )
+        }.bind(this), 440 )
+          // await sleep(1000)
+      }.bind(this), 3000 )
+    }.bind(this)
+    loop()
+  }
 
 
 // static fetchDataOrig(actions) {  

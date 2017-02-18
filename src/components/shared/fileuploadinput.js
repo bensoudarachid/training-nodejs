@@ -48,7 +48,6 @@ export default class FileUploadInput extends Component {
     fileInput.addEventListener('change', this.changeState)
   }
 
-
   changeInputText(event) {
     event.preventDefault()
     // const fileInputTextDiv = this.refs.file_input_text_div

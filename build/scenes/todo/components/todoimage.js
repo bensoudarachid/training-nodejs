@@ -113,7 +113,7 @@ var TodoImage = function (_React$Component) {
     value: function componentDidUpdate() {
       // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
       require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered();
-      console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ');
+      // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ')   
 
       var taskid = this.props.taskid;
       var elm = (0, _jquery2.default)('#imgwrap' + taskid);
@@ -167,7 +167,7 @@ var TodoImage = function (_React$Component) {
   }, {
     key: 'handleImageErrored',
     value: function handleImageErrored() {
-      console.log('todoimage handleImageErrored ');
+      // console.log('todoimage handleImageErrored ')
       var taskid = this.props.taskid;
       var elm = (0, _jquery2.default)('#imgwrap' + taskid);
       var imgSpinner = elm.find('.mdl-spinner');

@@ -42,10 +42,10 @@ require('isomorphic-fetch');
 //   }
 
 var trainingReducer = function trainingReducer() {
-  var trainingappmap = arguments.length <= 0 || arguments[0] === undefined ? new _immutable2.default.Map({
+  var trainingappmap = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new _immutable2.default.Map({
     // loadTrainingImages: false,
     trainings: undefined //Immutable.List([])
-  }) : arguments[0];
+  });
   var action = arguments[1];
 
   // let trainingReducer = function(trainingappmap = new Immutable.Map({}), action) {

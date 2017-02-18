@@ -10,6 +10,8 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 if (process.env.BROWSER) {
   console.log('Appcomponent. environment is browser')
+  require('../../app/app.scss')
+  require('../../app/appcomponent.scss')
   require('./todoapp.scss')
 }
 
@@ -97,7 +99,7 @@ class TodoApp extends Component {
       </div>
       }
       </div>
-      )
+    )
   }
 
   handleCreate(event) {

@@ -141,7 +141,7 @@ var Nav = function (_Component) {
       // console.log('nav: isBrowser'+isBrowser)
       //&& this.props.location.pathname!='/register'
       if (auth.get('authority') == 'admin') {
-        console.log('nav: admin? authority = ' + auth.get('authority'));
+        // console.log('nav: admin? authority = '+auth.get('authority'))
         return _react2.default.createElement(_navadmin2.default, {
           actions: this.props.actions,
           auth: this.props.auth

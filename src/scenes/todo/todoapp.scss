@@ -1,21 +1,15 @@
 @import '../../styles/default.scss';
 
-div{
- text-align:center;
-}
-table{
- float:center;	
-}
+// div{
+//  text-align:center;
+// }
+// table{
+//  float:center;	
+// }
 
 .todoapp{
 	width: 95%;
 	margin: 0 auto;
-	h4 {
-		font-family: 'Dancing Script', Tahoma, sans-serif;
-		color: white;
-		float: left;
-		margin-left:10px;
-	}
 	// background-color:orange;
 	@media (min-width: 480px) {
 		// background-color:pink;
@@ -26,3 +20,4 @@ table{
 		width: 85%;
 	}	
 }
+

@@ -113,6 +113,7 @@
 			margin-bottom:3px;
 			// background-color:red;
 			@include transitionAll(.3s);
+			// @include textGlitch("example-one", 150, black, transparent, #f0f, #0ff, 170, 45);
 		}
 		h3{
 			font-family: 'Dancing Script', Tahoma, sans-serif;
@@ -125,8 +126,9 @@
 			// background-color:red;
 		  	// font-size:1.5em;
 		  	font-size:2.0em;
-		  	z-index: -1000;
+		  	z-index: -100;
 		  	@include transitionAll(.3s);
+		  	// @include textGlitch("example-one", 15, ($roya-blue,30%), transparent, #bbb, #ddd, 190, 65);
 		}
 
 		button{

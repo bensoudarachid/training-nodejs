@@ -41,9 +41,6 @@ if (process.env.BROWSER) {
 
 }
 
-
-
-
 export default class Login extends Component {
         // <li><button onClick={(event) => this.handleClick(event)} className='btn btn-primary'>
         //  <span className='glyphicon glyphicon-log-in'></span> Login

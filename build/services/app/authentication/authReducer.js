@@ -27,7 +27,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // we would also want a util to check if the token has expired.
 
 var authReducer = function authReducer() {
-  var auth = arguments.length <= 0 || arguments[0] === undefined ? new _immutable2.default.Map({
+  var auth = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new _immutable2.default.Map({
     isFetching: false,
     isRegistrationFetching: false,
     isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
@@ -39,7 +39,7 @@ var authReducer = function authReducer() {
       // password: '',
       // passwordCheck: ''
     })
-  }) : arguments[0];
+  });
   var action = arguments[1];
 
 

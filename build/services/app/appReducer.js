@@ -19,9 +19,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // we would also want a util to check if the token is expired.
 
 var appReducer = function appReducer() {
-  var app = arguments.length <= 0 || arguments[0] === undefined ? new _immutable2.default.Map({
+  var app = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new _immutable2.default.Map({
     appError: undefined
-  }) : arguments[0];
+  });
   var action = arguments[1];
 
 

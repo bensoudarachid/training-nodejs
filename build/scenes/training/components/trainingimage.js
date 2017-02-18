@@ -63,8 +63,8 @@ var TrainingImage = function (_React$Component) {
       // console.log('todimage. render now')
       var trainingid = this.props.trainingid;
       var isUploading = this.props.isUploading;
-      console.log('trainingimage render. isUploading ' + isUploading);
-      console.log('trainingimage render. this.state.imageLoaded ' + this.state.imageLoaded);
+      // console.log('trainingimage render. isUploading '+isUploading )
+      // console.log('trainingimage render. this.state.imageLoaded '+this.state.imageLoaded )
 
       // const idToken = cookie.load('jwt')
       return _react2.default.createElement(
@@ -115,8 +115,11 @@ var TrainingImage = function (_React$Component) {
       require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered();
 
       var trainingid = this.props.trainingid;
-      console.log('+++++++ trainingimage ++++++ componentDidUpdate. get img by id ' + trainingid);
-      if (this.props.isUploading) console.log('+++++++ trainingimage ++++++ componentDidUpdate. img is uploading ' + this.props.isUploading);else console.log('+++++++ trainingimage ++++++ componentDidUpdate. img is not uploading ' + this.props.isUploading);
+      // console.log('+++++++ trainingimage ++++++ componentDidUpdate. get img by id '+trainingid)
+      // if( this.props.isUploading)
+      //   console.log('+++++++ trainingimage ++++++ componentDidUpdate. img is uploading '+this.props.isUploading)
+      // else
+      //   console.log('+++++++ trainingimage ++++++ componentDidUpdate. img is not uploading '+this.props.isUploading)
 
       var elm = (0, _jquery2.default)('#trainingimgwrap' + trainingid);
       // var imgbg=elm.find('.imgbg')
@@ -153,7 +156,7 @@ var TrainingImage = function (_React$Component) {
   }, {
     key: 'handleImageLoaded',
     value: function handleImageLoaded() {
-      console.log('trainingimage handleImageLoaded ');
+      // console.log('trainingimage handleImageLoaded ')
       this.setState({ imageLoaded: true });
       // this.props.imageLoaded = true
       var trainingid = this.props.trainingid;
@@ -166,7 +169,7 @@ var TrainingImage = function (_React$Component) {
       // var img = image[0]
       if (!img.hasAttribute('data-src')) {
         // imgSpinner.remove()
-        console.log('Spinner stop');
+        // console.log('Spinner stop' )
         img.style.display = 'block';
         if (img.getAttribute('src') != './images/0.png') img.style.background = 'radial-gradient(circle closest-side at 50% 50%, white 0,  #69F 95%, transparent 100%)';
         imgSpinner[0].style.display = 'none';
@@ -176,7 +179,7 @@ var TrainingImage = function (_React$Component) {
   }, {
     key: 'handleImageErrored',
     value: function handleImageErrored() {
-      console.log('trainingimage handleImageErrored ');
+      // console.log('trainingimage handleImageErrored ')
       var trainingid = this.props.trainingid;
       var elm = (0, _jquery2.default)('#trainingimgwrap' + trainingid);
       var imgSpinner = elm.find('.mdl-spinner');

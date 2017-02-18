@@ -14,10 +14,6 @@ var _immutable = require('immutable');
 
 var _immutable2 = _interopRequireDefault(_immutable);
 
-var _traininglistitem = require('./traininglistitem');
-
-var _traininglistitem2 = _interopRequireDefault(_traininglistitem);
-
 var _reactAddonsPureRenderMixin = require('react-addons-pure-render-mixin');
 
 var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
@@ -32,24 +28,27 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 //import { ThreeBounce } from 'better-react-spinkit'
 
 
+//import TrainingEditListItem from './traininglistitem'
+
+
 if (process.env.BROWSER) {
-  require('./traininglist.scss');
+  require('./admintraininglist.scss');
 }
 
-var TrainingList = function (_React$Component) {
-  _inherits(TrainingList, _React$Component);
+var AdminTrainingList = function (_React$Component) {
+  _inherits(AdminTrainingList, _React$Component);
 
-  function TrainingList(props) {
-    _classCallCheck(this, TrainingList);
+  function AdminTrainingList(props) {
+    _classCallCheck(this, AdminTrainingList);
 
     // console.log('training list. Mixin in constructor')
-    var _this = _possibleConstructorReturn(this, (TrainingList.__proto__ || Object.getPrototypeOf(TrainingList)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (AdminTrainingList.__proto__ || Object.getPrototypeOf(AdminTrainingList)).call(this, props));
 
     _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
     return _this;
   }
 
-  _createClass(TrainingList, [{
+  _createClass(AdminTrainingList, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       require('exports?componentHandler!material-design-lite/material.js').upgradeDom();
@@ -67,32 +66,43 @@ var TrainingList = function (_React$Component) {
     //   return Immutable.List([])
     // }
 
-  }, {
-    key: 'renderItems',
-    value: function renderItems() {
-      var _this2 = this;
+    // renderItems() {
+    //   var items = this.props.trainings
+    //   // const props = _.omit(this.props, 'trainings');
+    //   // console.log('training list. render items. Size = '+items.size)
 
-      var items = this.props.trainings;
-      // const props = _.omit(this.props, 'trainings');
-      // console.log('training list. render items. Size = '+items.size)
+    //   return items.map(
+    //     (training, index) => {
+    //       // console.log('training list. index = '+index)
+    //       return <TrainingEditListItem ind={index} training={training} actions={this.props.actions}/>
+    //     }
+    //   )
+    // }
 
-      return items.map(function (training, index) {
-        // console.log('training list. index = '+index)
-        return _react2.default.createElement(_traininglistitem2.default, { ind: index, training: training, actions: _this2.props.actions });
-      });
-    }
   }, {
     key: 'render',
     value: function render() {
       // console.log('Hi there from training list List. Props: '+this.props.trainings.size)
       // <div className="mdl-layout-spacer"></div>
-
+      // const title = this.props.training.get('title')
       if (this.props.trainings == undefined) return _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner', style: { width: '55px', height: '55px' } });
 
       return _react2.default.createElement(
         'div',
         { className: 'trainingslist' },
-        this.renderItems()
+        _react2.default.createElement(
+          'div',
+          { className: 'mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
+          _react2.default.createElement(
+            'div',
+            { className: 'mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
+            _react2.default.createElement(
+              'p',
+              null,
+              'Heeee! The admin list'
+            )
+          )
+        )
       );
     }
   }, {
@@ -107,7 +117,7 @@ var TrainingList = function (_React$Component) {
     }
   }]);
 
-  return TrainingList;
+  return AdminTrainingList;
 }(_react2.default.Component);
 
-exports.default = TrainingList;
+exports.default = AdminTrainingList;

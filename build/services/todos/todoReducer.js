@@ -42,12 +42,12 @@ require('isomorphic-fetch');
 //   }
 
 var todoReducer = function todoReducer() {
-  var todoappmap = arguments.length <= 0 || arguments[0] === undefined ? new _immutable2.default.Map({
+  var todoappmap = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new _immutable2.default.Map({
     filterOpen: true,
     filterClosed: true,
     // loadTodoImages: false,
     todos: undefined //Immutable.List([])
-  }) : arguments[0];
+  });
   var action = arguments[1];
 
   // let todoReducer = function(todoappmap = new Immutable.Map({}), action) {

@@ -2,14 +2,14 @@ import React from 'react'
 //import { ThreeBounce } from 'better-react-spinkit'
 import Immutable from 'immutable'
 
-import TrainingListItem from './traininglistitem'
+import TrainingEditListItem from './trainingeditlistitem'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 if (process.env.BROWSER) {
-  require('./traininglist.scss')
+  require('./trainingeditlist.scss')
 }
 
-export default class TrainingList extends React.Component {
+export default class TrainingEditList extends React.Component {
   constructor(props) {
     super(props)
     // console.log('training list. Mixin in constructor')
@@ -40,7 +40,7 @@ export default class TrainingList extends React.Component {
     return items.map(
       (training, index) => {
         // console.log('training list. index = '+index)
-        return <TrainingListItem ind={index} training={training} actions={this.props.actions}/>
+        return <TrainingEditListItem ind={index} training={training} actions={this.props.actions}/>
       }
     )
   }

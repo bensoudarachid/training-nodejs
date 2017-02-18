@@ -78,10 +78,10 @@ var logger = (0, _reduxLogger2.default)();
 // var RegisterConn = connect(mapStateToProps, mapDispatchToProps)(Register)
 
 
-var renderIntoDocument = _reactAddonsTestUtils2.default.renderIntoDocument;
-var findRenderedDOMComponentsWithClass = _reactAddonsTestUtils2.default.findRenderedDOMComponentsWithClass;
-var scryRenderedDOMComponentsWithClass = _reactAddonsTestUtils2.default.scryRenderedDOMComponentsWithClass;
-var scryRenderedDOMComponentsWithTag = _reactAddonsTestUtils2.default.scryRenderedDOMComponentsWithTag;
+var renderIntoDocument = _reactAddonsTestUtils2.default.renderIntoDocument,
+    findRenderedDOMComponentsWithClass = _reactAddonsTestUtils2.default.findRenderedDOMComponentsWithClass,
+    scryRenderedDOMComponentsWithClass = _reactAddonsTestUtils2.default.scryRenderedDOMComponentsWithClass,
+    scryRenderedDOMComponentsWithTag = _reactAddonsTestUtils2.default.scryRenderedDOMComponentsWithTag;
 
 
 (0, _mocha.describe)('Register', function () {

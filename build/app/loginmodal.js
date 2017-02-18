@@ -94,7 +94,7 @@ var LoginModal = function (_Component) {
                 { onClick: function onClick(event) {
                     return _this2.handleClose(event);
                   }, className: 'close' },
-                '×'
+                '\xD7'
               ),
               _react2.default.createElement(
                 'p',
@@ -143,7 +143,7 @@ var LoginModal = function (_Component) {
                 { onClick: function onClick(event) {
                     return _this3.handleClose(event);
                   }, className: 'close' },
-                '×'
+                '\xD7'
               ),
               _react2.default.createElement(
                 'p',

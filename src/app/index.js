@@ -32,8 +32,6 @@ import 'bootstrap/dist/js/bootstrap.js'
 import 'material-design-lite/dist/material.brown-blue.min.css'
 
 
-
-
 import 'material-design-lite/src/material-design-lite.scss'
 
 import 'material-design-lite/src/mdlComponentHandler.js'
@@ -68,17 +66,6 @@ import rootReducer from '../services/rootreducer'
 // var componentHandler = require('exports?componentHandler!material-design-lite/dist/material')
 
 (function($) {
-  
-  /**
-   * Copyright 2012, Digital Fusion
-   * Licensed under the MIT license.
-   * http://teamdf.com/jquery-plugins/license/
-   *
-   * @author Sam Sehnert
-   * @desc A small plugin that checks whether elements are within
-   *     the user visible viewport of a web browser.
-   *     only accounts for vertical position, not horizontal.
-   */
 
   $.fn.visible = function(partial) {
     
@@ -110,27 +97,7 @@ import rootReducer from '../services/rootreducer'
   }
     
 })($)
-// let message = 'hello from entry baby'+routes[0].path;
-// console.log(message);
 
-
-// ReactDom.render(
-//   <App />,
-//   document.getElementById('root')
-// );
-
-// let initialState = {
-//   todos: [{
-//     id: 0,
-//     completed: false,
-//     text: 'Initial todo for demo purposes'
-//   }],
-//   user: {
-//     username: 'kurt',
-//     id: 13
-//   }
-// }
-//let store = configureStore(initialState)
 
 
 const initialState = window.__REDUX_STATE__ 

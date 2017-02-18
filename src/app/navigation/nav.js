@@ -92,7 +92,7 @@ class Nav extends Component {
     // console.log('nav: isBrowser'+isBrowser)
 	//&& this.props.location.pathname!='/register'
     if( auth.get('authority')=='admin' ){
-      console.log('nav: admin? authority = '+auth.get('authority'))
+      // console.log('nav: admin? authority = '+auth.get('authority'))
       return (
         <NavAdmin
           actions={this.props.actions}

@@ -43,6 +43,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 if (process.env.BROWSER) {
   console.log('Appcomponent. environment is browser');
+  require('../../app/app.scss');
+  require('../../app/appcomponent.scss');
   require('./todoapp.scss');
 }
 

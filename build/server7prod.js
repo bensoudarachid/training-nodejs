@@ -307,105 +307,101 @@ app.get(appbasename + '/*', function (req, res) {
         // we matched a ReactRouter redirect, so redirect from the server
         res.redirect(302, redirectLocation.pathname + redirectLocation.search);
       } else if (renderProps) {
-        var dispactions;
+        // if we got props, that means we found a valid component to render
+        // for the given route
+        var components = renderProps.components;
 
-        (function () {
-          // if we got props, that means we found a valid component to render
-          // for the given route
-          var components = renderProps.components;
+        // If the component being shown is our 404 component, then set appropriate status
+        if (components.some(function (c) {
+          return c && c.displayName === 'error-404';
+        })) {
+          res.status(404);
+        }
+        // console.log('components-length = ' +components.length )
+        // const Comp = components[components.length-1].WrappedComponent
+        // // console.log(components[0])
+        // // console.log(components[1])
+        // // console.log(Comp.fetchData)
+        // const fetchData = (Comp && Comp.fetchData) || (() => Promise.resolve())
+        // console.log(fetchData)
 
-          // If the component being shown is our 404 component, then set appropriate status
-          if (components.some(function (c) {
-            return c && c.displayName === 'error-404';
-          })) {
-            res.status(404);
-          }
-          // console.log('components-length = ' +components.length )
-          // const Comp = components[components.length-1].WrappedComponent
-          // // console.log(components[0])
-          // // console.log(components[1])
-          // // console.log(Comp.fetchData)
-          // const fetchData = (Comp && Comp.fetchData) || (() => Promise.resolve())
-          // console.log(fetchData)
+        // fetchData().then(data => {
+        //   console.log('server. test fetchData ' +data)
+        //   // this.props.actions.addTodos(data.todos);
+        // })
+        // .catch(err => console.log('Booooo' + err));
 
-          // fetchData().then(data => {
-          //   console.log('server. test fetchData ' +data)
-          //   // this.props.actions.addTodos(data.todos);
-          // })
-          // .catch(err => console.log('Booooo' + err));
-
-          var initialState = {};
-          // const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
-          // const store = createStore(reducers, initialState)
-          var logger = (0, _reduxLogger2.default)();
-          var store = (0, _redux.createStore)(_rootreducer2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default, logger));
-          dispactions = (0, _redux.bindActionCreators)(_actions2.default, store.dispatch);
-          var location = renderProps.location;
-          var params = renderProps.params;
-          var history = renderProps.history;
+        var initialState = {};
+        // const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
+        // const store = createStore(reducers, initialState)
+        var logger = (0, _reduxLogger2.default)();
+        var store = (0, _redux.createStore)(_rootreducer2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default, logger));
+        var dispactions = (0, _redux.bindActionCreators)(_actions2.default, store.dispatch);
+        var location = renderProps.location,
+            params = renderProps.params,
+            history = renderProps.history;
 
 
-          (0, _reactRouter.match)({
-            routes: _routes.routes,
-            location: req.url
-          }, function (error, redirectLocation, renderProps) {
-            var promises = renderProps.components.filter(function (component) {
-              return component.fetchData;
-            }).map(function (component) {
-              return component.fetchData(dispactions);
-            });
-            Promise.all(promises).then(function () {
-              // res.status(200).send(renderView())
-              console.log('resolved');
-              var body = (0, _server.renderToString)(_react2.default.createElement(
-                _reactRedux.Provider,
-                { store: store },
-                _react2.default.createElement(_reactRouter.RouterContext, renderProps)
-              ));
-              var d = new Date();
-              var hour = d.getHours();
-              console.log('hour of the day = ' + hour);
-              var style = 'http://rlearn.herokuapp.com/style.css';
-              var bundle = 'http://rlearn.herokuapp.com/bundle.js';
-              if (hour < 7 || hour > 19) {
-                style = '/style.css';
-                bundle = '/bundle.js';
-              }
-              // <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-              // <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
-              // <link rel="stylesheet" href="//storage.googleapis.com/code.getmdl.io/1.0.1/material.teal-red.min.css" />
-              // <script src="//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>                
-
-              // console.log('Server. body '+body);
-              var state = store.getState();
-              res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="' + style + '" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="' + bundle + '"></script>\n                </body>\n              </html>');
-            }).catch(function (err) {
-              return console.log('Booooo' + err);
-            });
+        (0, _reactRouter.match)({
+          routes: _routes.routes,
+          location: req.url
+        }, function (error, redirectLocation, renderProps) {
+          var promises = renderProps.components.filter(function (component) {
+            return component.fetchData;
+          }).map(function (component) {
+            return component.fetchData(dispactions);
           });
-          // <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />
-          // <script src="http://rlearn.herokuapp.com/bundle.js"></script>
-          //              <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />
-          //              <script src="http://rlearn.herokuapp.com/bundle.js"></script>
-          // const state = store.getState()
-          // console.log('Server. Render now = ' + JSON.stringify(state))
-          // const body = renderToString(
-          //   <Provider store={store}>
-          //       <RouterContext {...renderProps} />
-          //     </Provider>
-          // )
+          Promise.all(promises).then(function () {
+            // res.status(200).send(renderView())
+            console.log('resolved');
+            var body = (0, _server.renderToString)(_react2.default.createElement(
+              _reactRedux.Provider,
+              { store: store },
+              _react2.default.createElement(_reactRouter.RouterContext, renderProps)
+            ));
+            var d = new Date();
+            var hour = d.getHours();
+            console.log('hour of the day = ' + hour);
+            var style = 'http://rlearn.herokuapp.com/style.css';
+            var bundle = 'http://rlearn.herokuapp.com/bundle.js';
+            if (hour < 7 || hour > 19) {
+              style = '/style.css';
+              bundle = '/bundle.js';
+            }
+            // <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+            // <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
+            // <link rel="stylesheet" href="//storage.googleapis.com/code.getmdl.io/1.0.1/material.teal-red.min.css" />
+            // <script src="//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>                
 
-          // res.send(`<!DOCTYPE html>
-          //     <html>
-          //       <head></head>
-          //       <body>
-          //         <h4>WAHNSINN</h4>
-          //         <div id="root">${body}</div>
-          //         <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
-          //         <script src="bundle.js"></script>
-          //       </body>
-          //     </html>`)
-        })();
+            // console.log('Server. body '+body);
+            var state = store.getState();
+            res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="' + style + '" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="' + bundle + '"></script>\n                </body>\n              </html>');
+          }).catch(function (err) {
+            return console.log('Booooo' + err);
+          });
+        });
+        // <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />
+        // <script src="http://rlearn.herokuapp.com/bundle.js"></script>
+        //              <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />
+        //              <script src="http://rlearn.herokuapp.com/bundle.js"></script>
+        // const state = store.getState()
+        // console.log('Server. Render now = ' + JSON.stringify(state))
+        // const body = renderToString(
+        //   <Provider store={store}>
+        //       <RouterContext {...renderProps} />
+        //     </Provider>
+        // )
+
+        // res.send(`<!DOCTYPE html>
+        //     <html>
+        //       <head></head>
+        //       <body>
+        //         <h4>WAHNSINN</h4>
+        //         <div id="root">${body}</div>
+        //         <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
+        //         <script src="bundle.js"></script>
+        //       </body>
+        //     </html>`)
       } else {
 
         // no route match, so 404. In a real app you might render a custom

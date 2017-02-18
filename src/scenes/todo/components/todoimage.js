@@ -76,7 +76,7 @@ export default class TodoImage extends React.Component {
   componentDidUpdate() {
     // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
-    console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ')   
+    // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ')   
 
     const taskid = this.props.taskid
     var elm = $('#imgwrap'+taskid)
@@ -128,7 +128,7 @@ export default class TodoImage extends React.Component {
   }
  
   handleImageErrored() {
-    console.log('todoimage handleImageErrored ')
+    // console.log('todoimage handleImageErrored ')
     const taskid = this.props.taskid
     var elm = $('#imgwrap'+taskid)
     var imgSpinner=elm.find('.mdl-spinner')

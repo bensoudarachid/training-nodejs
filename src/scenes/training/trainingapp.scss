@@ -1,22 +1,65 @@
 @import '../../styles/default.scss';
 
-div{
- text-align:center;
-}
-table{
- float:center;	
-}
+// div{
+//  text-align:center;
+// }
+// table{
+//  float:center;	
+// }
 
 .trainingapp{
 	width: 95%;
 	margin: 0 auto;
-	h4 {
-		font-family: 'Dancing Script', Tahoma, sans-serif;
-		color: white;
-		float: left;
-		margin-left:10px;
+
+	#textwrap{
+		z-index: -850;
+		position: fixed;
+		width:0.01%;
+		height:30px;	
+		// visibility:hidden;
+		opacity:0.5;
+		// background-color: black;
+		margin-top:-30px;
+		left:10px;
+		@media (min-width: 768px) {
+			margin-top:-40px;
+			left:10px;
+		}
+		@media (min-width: 992px) {
+			left:5%;
+			margin-top:-40px;
+		}
+		p{
+			white-space: nowrap;
+	    	font-family: "Dancing Script", Tahoma, sans-serif;
+	    	font-size:25px;
+			color: white;
+			position: absolute;
+			// top:85px;
+			left:0px;
+			width:80%;
+			// height:40px;
+			opacity:1;
+			text-align:left;
+			// background-color: red;
+			// margin-top:-120px;
+			@media (min-width: 768px) {
+				// margin-top:-200px;
+				// width:60%;
+				// top:100px;
+				font-size:32px;
+				// left:2%;
+			}
+			@media (min-width: 992px) {
+				// width:60%;
+				// top:160px;
+				font-size:38px;
+				// left:6%;
+			}
+			
+		}
 	}
-	// background-color:orange;
+
 	@media (min-width: 480px) {
 		// background-color:pink;
 		width: 90%;

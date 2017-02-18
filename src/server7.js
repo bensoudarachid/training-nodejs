@@ -457,6 +457,10 @@ app.get(appbasename+'/*', (req, res) => {
                   // <div id="devmarker" style="position:fixed;height:4px;width:263px;background-color:#fff;top:165px;left:50%;"></div>
 
             const state = store.getState()
+//                  <script type="text/javascript" src="app/auroraeffect/requestanimpolyfill.js"></script>
+//                  <script type="text/javascript" src="app/auroraeffect/simplex.js"></script>
+//                  <script type="text/javascript" src="app/auroraeffect/index.js"></script>
+ // style="background-color:#2980b9"
             res.status(200).send(`<!DOCTYPE html>
               <html>
                 <head>
@@ -467,6 +471,7 @@ app.get(appbasename+'/*', (req, res) => {
                   <div id="root">${body}</div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
                   <script src="/bundle.js"></script>
+
                 </body>
               </html>`)
           }).catch(err => console.log('Booooo' + err))

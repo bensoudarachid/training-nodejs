@@ -14,13 +14,21 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _traininglist = require('./components/traininglist');
+var _trainingeditlist = require('./components/trainingeditlist');
 
-var _traininglist2 = _interopRequireDefault(_traininglist);
+var _trainingeditlist2 = _interopRequireDefault(_trainingeditlist);
+
+var _admintraininglist = require('./admin/admintraininglist');
+
+var _admintraininglist2 = _interopRequireDefault(_admintraininglist);
 
 var _reactCookie = require('react-cookie');
 
 var _reactCookie2 = _interopRequireDefault(_reactCookie);
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
 
 var _reactAddonsPureRenderMixin = require('react-addons-pure-render-mixin');
 
@@ -33,6 +41,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 // import _ from 'lodash'
 // import { ThreeBounce } from 'better-react-spinkit'
 
@@ -40,6 +49,66 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 if (process.env.BROWSER) {
   console.log('Appcomponent. environment is browser');
   require('./trainingapp.scss');
+
+  var rdm = 0;
+  var lastrdm = 0;
+  // var textSwitchId = undefined
+  // var textSwitchContainer = undefined //$('#textswitch')
+  // var textSwitchWrapContainer = undefined //$('#textswitch')
+  // window.isTextSwitchAnimated = true //$('#textswitch')
+
+  // window.textswitcher = function() {
+  //   window.isTextSwitchAnimated = true
+  //   setTimeout( function() {
+  //     console.log('isTextSwitchAnimated = '+window.isTextSwitchAnimated )
+  //     textSwitchWrapContainer = $('#textwrap')
+  //     textSwitchContainer = $('#textswitch')
+  //     if( window.isTextSwitchAnimated )
+  //       window.requestAnimationFrame(window.textswitcher)
+  //     else{
+  //       console.log('I m out now ' )
+  //       textSwitchWrapContainer.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+  //         $(this).removeClass()
+  //         textSwitchWrapContainer.text('')
+  //       })
+  //       return
+  //     }
+
+
+  //     while( lastrdm === rdm )
+  //       rdm = Math.floor(Math.random() * window.switchTextArray.length)
+  //     console.log('rdm = '+rdm +', lastrdm = '+lastrdm+' : '+window.switchTextArray[rdm]+' : ')
+  //     lastrdm = rdm
+  //       // divContainer[0].style.display = 'none'
+  // //headShake 300 flash 300 fadeInLeft 300 rubberBand
+  //     textSwitchWrapContainer.removeClass().addClass('rubberBand animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+  //       $(this).removeClass()
+  //     })
+  //     setTimeout( function() {
+  //       textSwitchContainer.shuffleLetters({
+  //         'text': window.switchTextArray[rdm]
+  //       })
+  //         // setTimeout( function() {
+  //         //   container.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+  //         //     $(this).removeClass()
+  //         //   })
+  //         // }, 4600 )
+  //     }, 450 )
+  //       // await sleep(1000)
+  //   }, 2000 )
+  // }
+
+  // $(document).ready(function() { 
+  //   // textSwitchContainer = $('#textswitch')
+  //   window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass']
+  //   window.textswitcher()
+  //   // textSwitchId = window.requestAnimationFrame(window.textswitcher)
+  //   // setTimeout( function() {
+  //   //   console.log('Cancel now : ')
+  //   //   window.isTextSwitchAnimated = false
+  //   // }, 12000 )
+
+  // })
 }
 
 // import Immutable from 'immutable'
@@ -74,6 +143,9 @@ var TrainingApp = function (_Component) {
     var _this = _possibleConstructorReturn(this, (TrainingApp.__proto__ || Object.getPrototypeOf(TrainingApp)).call(this, props));
 
     _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
+    _this.isTextSwitchAnimated = false;
+    _this.textSwitchContainer = undefined; //$('#textswitch')
+    _this.textSwitchWrapContainer = undefined; //$('#textswitch')
     // const {auth} = this.props
     // if(process.env.BROWSER && !this.props.auth.get('isAuthenticated')){
     //   console.log('trainingapp start login process')
@@ -178,6 +250,9 @@ var TrainingApp = function (_Component) {
   //     </div>
   //     )
   // }
+  // <div id="text-wrapper"> 
+  //   <p id="textswitch">Welcome!</p>
+  // </div>
 
   _createClass(TrainingApp, [{
     key: 'render',
@@ -196,15 +271,35 @@ var TrainingApp = function (_Component) {
         { className: 'trainingapp' },
         _react2.default.createElement(
           'div',
+          { id: 'textwrap' },
+          _react2.default.createElement('p', { id: 'textswitch' })
+        ),
+        _react2.default.createElement(
+          'div',
           null,
           _react2.default.createElement(
             'div',
             { className: 'mdl-grid mdl-grid--no-spacing blockborder parampanel' },
             _react2.default.createElement(_trainingcreate2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions })
           ),
-          _react2.default.createElement(_traininglist2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions })
+          this.renderList()
         )
       );
+    }
+  }, {
+    key: 'renderList',
+    value: function renderList() {
+      var auth = this.props.auth;
+
+      var isAuthenticated = auth.get('isAuthenticated');
+      // console.log('navjs is authenticated '+isAuthenticated)
+
+      console.log('trainingapp. authority ' + auth.get('authority'));
+      if (auth.get('authority') == 'admin') {
+        return _react2.default.createElement(_admintraininglist2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions });
+      } else {
+        return _react2.default.createElement(_trainingeditlist2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions });
+      }
     }
     // saveTask(oldTask, newTask) {
     //   const foundTraining = _.find(this.state.trainings, (training) => training.task === oldTask);
@@ -235,14 +330,21 @@ var TrainingApp = function (_Component) {
     value: function componentDidMount() {
       // console.log('trainingappjs mounted')
       TrainingApp.fetchData(this.props.actions);
+
+      window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass'];
+      this.textswitcher();
     }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.isTextSwitchAnimated = false;
+    }
+
     //This is a necessary call when component is fetched on server side
 
-  }], [{
-    key: 'fetchData',
-    value: function fetchData(actions) {
-      actions.retrieveTrainingsDispatcher();
-    }
+  }, {
+    key: 'textswitcher',
+
     // static fetchDataOld(actions) {
     //   var headers = {
     //     'Content-Type': 'application/x-www-form-urlencoded',
@@ -314,6 +416,58 @@ var TrainingApp = function (_Component) {
     // }
 
 
+    value: function textswitcher() {
+      var loop = function () {
+        this.isTextSwitchAnimated = true;
+        setTimeout(function () {
+          // console.log('isTextSwitchAnimated = '+this.isTextSwitchAnimated )
+          this.textSwitchWrapContainer = (0, _jquery2.default)('#textwrap');
+          this.textSwitchContainer = (0, _jquery2.default)('#textswitch');
+
+          var animFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || null;
+          // var that = this
+          // animFrame( function() { that.textswitcher() } )
+
+          if (this.isTextSwitchAnimated) {
+            // window.requestAnimationFrame(this.textswitcher.bind(this))
+            // textSwitchWrapContainer.removeClass('fadeOutLeft')
+            // textSwitchWrapContainer.removeClass('fadeOutLeft animated')
+            animFrame(loop.bind(this));
+          } else {
+            console.log('I m out now ');
+            this.textSwitchWrapContainer.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+              // console.log('Remove fade out class' )
+              (0, _jquery2.default)(this).removeClass();
+              this.textSwitchContainer.text('');
+            });
+            return;
+          }
+
+          while (lastrdm === rdm) {
+            rdm = Math.floor(Math.random() * window.switchTextArray.length);
+          } // console.log('rdm = '+rdm +', lastrdm = '+lastrdm+' : '+window.switchTextArray[rdm]+' : ')
+          lastrdm = rdm;
+          // divContainer[0].style.display = 'none'
+          //headShake 300 flash 300 fadeInLeft 300 rubberBand
+          this.textSwitchWrapContainer.removeClass().addClass('rubberBand animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+            (0, _jquery2.default)(this).removeClass();
+          });
+          setTimeout(function () {
+            this.textSwitchContainer.shuffleLetters({
+              'text': window.switchTextArray[rdm]
+            });
+            // setTimeout( function() {
+            //   container.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+            //     $(this).removeClass()
+            //   })
+            // }, 4600 )
+          }.bind(this), 440);
+          // await sleep(1000)
+        }.bind(this), 3000);
+      }.bind(this);
+      loop();
+    }
+
     // static fetchDataOrig(actions) {  
     //   console.log('trainings fetchData. Do nothing'+ JSON.stringify({
     //       param: 'abbas'
@@ -340,6 +494,11 @@ var TrainingApp = function (_Component) {
     //   .catch(err => console.log('Hooooo' + err))
     // }
 
+  }], [{
+    key: 'fetchData',
+    value: function fetchData(actions) {
+      actions.retrieveTrainingsDispatcher();
+    }
   }]);
 
   return TrainingApp;

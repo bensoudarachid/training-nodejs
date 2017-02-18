@@ -124,8 +124,8 @@ var todoactions = {
       //   ))
 
       _actions2.default.updateTodoService(representTodo).then(function (_ref) {
-        var status = _ref.status;
-        var data = _ref.data;
+        var status = _ref.status,
+            data = _ref.data;
 
         if (status === 401) {
           dispatch(_actions2.default.receiveLogout());
@@ -263,8 +263,8 @@ var todoactions = {
       dispatch(todoactions.loadingTodo(todo));
       console.log('actions. update Todo version old: ' + todoold.get('version') + '. new: ' + todo.get('version'));
       _actions2.default.uploadTodoFileService(todo, fileinput).then(function (_ref2) {
-        var status = _ref2.status;
-        var data = _ref2.data;
+        var status = _ref2.status,
+            data = _ref2.data;
 
         if (_actions2.default.disconnect(dispatch, status, data)) return;else if (status == 413) {
           console.log('Status file too large. ' + status);
@@ -368,8 +368,8 @@ var todoactions = {
       //   })
       // ))
       _actions2.default.updateTodoService(todo).then(function (_ref3) {
-        var status = _ref3.status;
-        var data = _ref3.data;
+        var status = _ref3.status,
+            data = _ref3.data;
 
         if (_actions2.default.disconnect(dispatch, status, data)) return;
 
@@ -523,8 +523,8 @@ var todoactions = {
       // dispatch(actions.loadingTodoFileOn())
 
       _actions2.default.retrieveTodosService().then(function (_ref4) {
-        var status = _ref4.status;
-        var data = _ref4.data;
+        var status = _ref4.status,
+            data = _ref4.data;
 
         if (status === 401) {
           dispatch(_actions2.default.receiveLogout());
@@ -566,8 +566,8 @@ var todoactions = {
       dispatch(todoactions.loadingTodo(todo));
       console.log('actions. toggleTodo Todo 1');
       _actions2.default.deleteTodoService(todo).then(function (_ref5) {
-        var status = _ref5.status;
-        var data = _ref5.data;
+        var status = _ref5.status,
+            data = _ref5.data;
 
         if (_actions2.default.disconnect(dispatch, status, data)) return;
         if (status >= 400) {

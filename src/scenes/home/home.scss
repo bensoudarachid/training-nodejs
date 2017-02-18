@@ -42,7 +42,7 @@
 		height: 60px;
 	}
 	img{
-		margin-left: -99px;		 
+		// margin-left: -99px;		 
 		width:100%;
 		height:100%;
 	}
@@ -107,15 +107,18 @@
 	}
 	div:nth-of-type(3n+3) > .imgwrap > .imgbg, div:nth-of-type(3n+3) > .imgwrap > .imgwraptor, div:nth-of-type(3n+3) > .imgwrap > .imgwraptoranimated{
    		// background:radial-gradient(circle closest-side at 50% 50%, #6bc1ff 0,  #003870 94%, transparent 96%);
-   		background:radial-gradient(circle closest-side at 50% 50%, #2980b9 0,  #2980b9 10%, rgba(#fff,0.15) 94%, transparent 96%);
+   		background:radial-gradient(circle closest-side at 50% 50%, #2980b9 0,  #2980b9 10%, rgba(#fff,0.20) 93%, rgba(#fff,0.5) 94%, transparent 96%);
+   		// background:radial-gradient(circle closest-side at 50% 50%, lighten(#39d5ff,19%) 0,  lighten(#39d5ff,19%) 10%, rgba(#fff,0.15) 94%, transparent 96%);
 	}
 	div:nth-of-type(3n+2) > .imgwrap  > .imgbg, div:nth-of-type(3n+2) > .imgwrap > .imgwraptor, div:nth-of-type(3n+2) > .imgwrap > .imgwraptoranimated{
    		// background:radial-gradient(circle closest-side at 50% 50%, #6bc1ff 0,  #003870 94%, transparent 96%);
-   		background:radial-gradient(circle closest-side at 50% 50%, #2980b9 0,  #2980b9 10%, rgba(#fff,0.15) 94%, transparent 96%);
+   		background:radial-gradient(circle closest-side at 50% 50%, #2980b9 0,  #2980b9 10%, rgba(#fff,0.20) 93%, rgba(#fff,0.5) 94%, transparent 96%);
+   		// background:radial-gradient(circle closest-side at 50% 50%, lighten(#39d5ff,19%) 0,  lighten(#39d5ff,19%) 10%, rgba(#fff,0.15) 94%, transparent 96%);
 	}
 	div:nth-of-type(3n+1) > .imgwrap  > .imgbg, div:nth-of-type(3n+1) > .imgwrap > .imgwraptor, div:nth-of-type(3n+1) > .imgwrap > .imgwraptoranimated{
    		// background:radial-gradient(circle closest-side at 50% 50%, #6bc1ff 0,  #003870 94%, transparent 96%);
-   		background:radial-gradient(circle closest-side at 50% 50%, #2980b9 0, #2980b9 10%, rgba(#fff,0.15) 94%, transparent 96%);
+   		background:radial-gradient(circle closest-side at 50% 50%, #2980b9 0, #2980b9 10%, rgba(#fff,0.20) 93%, rgba(#fff,0.5) 94%, transparent 96%);
+   		// background:radial-gradient(circle closest-side at 50% 50%, lighten(#39d5ff,19%) 0, lighten(#39d5ff,19%) 10%, rgba(#fff,0.15) 94%, transparent 96%);
 	}
 
 	@media (min-width: 768px) {

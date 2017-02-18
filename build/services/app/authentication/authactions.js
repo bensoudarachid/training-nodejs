@@ -121,8 +121,8 @@ var authactions = {
       dispatch(authactions.requestLogin(creds));
 
       _actions2.default.loginUserService(creds).then(function (_ref) {
-        var user = _ref.user;
-        var response = _ref.response;
+        var user = _ref.user,
+            response = _ref.response;
 
         if (!response.ok) {
           // console.log('authactions. login not ok')
@@ -243,8 +243,8 @@ var authactions = {
 
       dispatch(_actions2.default.requestRegister(creds));
       return _actions2.default.registerUserService(creds).then(function (_ref2) {
-        var status = _ref2.status;
-        var data = _ref2.data;
+        var status = _ref2.status,
+            data = _ref2.data;
 
         var error = data.error;
         console.log('Auth actions, Response: ' + util.inspect(data, false, null));

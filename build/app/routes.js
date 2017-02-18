@@ -60,8 +60,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // import UserApp from '../components/userapp'
 var Users = function Users(_ref) {
-  var params = _ref.params;
-  var location = _ref.location;
+  var params = _ref.params,
+      location = _ref.location;
   return _react2.default.createElement(
     'h3',
     null,
