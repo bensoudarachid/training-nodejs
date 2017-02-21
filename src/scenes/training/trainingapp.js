@@ -107,13 +107,8 @@ class TrainingApp extends Component {
     // console.log('training list. Mixin in constructor')
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
     this.isTextSwitchAnimated = false
-    this.textSwitchContainer = undefined //$('#textswitch')
-    this.textSwitchWrapContainer = undefined //$('#textswitch')
-    // const {auth} = this.props
-    // if(process.env.BROWSER && !this.props.auth.get('isAuthenticated')){
-    //   console.log('trainingapp start login process')
-    //   this.props.actions.loginProcessStart('No access rights!')
-    // }
+    // textSwitchContainer = undefined //$('#textswitch')
+    // textSwitchWrapContainer = undefined //$('#textswitch')
   }
 
 // constructor(props) {
@@ -243,7 +238,7 @@ class TrainingApp extends Component {
   renderList(){
     const { auth } = this.props
     const isAuthenticated = auth.get('isAuthenticated')
-    // console.log('navjs is authenticated '+isAuthenticated)
+    // console.log('navjs is authenticated '+isAuthenticated)1
     
     console.log('trainingapp. authority '+auth.get('authority'))
     if( auth.get('authority')=='admin' ){
@@ -363,12 +358,12 @@ class TrainingApp extends Component {
 
 
   textswitcher() {
+    const textSwitchWrapContainer = $('#textwrap')
+    const textSwitchContainer = $('#textswitch')
     var loop = function(){
       this.isTextSwitchAnimated = true
       setTimeout( function() {
         // console.log('isTextSwitchAnimated = '+this.isTextSwitchAnimated )
-        this.textSwitchWrapContainer = $('#textwrap')
-        this.textSwitchContainer = $('#textswitch')
 
 
         var animFrame = window.requestAnimationFrame ||
@@ -387,10 +382,10 @@ class TrainingApp extends Component {
           animFrame(loop.bind(this))
         }else{
           console.log('I m out now ' )
-          this.textSwitchWrapContainer.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          textSwitchWrapContainer.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
             // console.log('Remove fade out class' )
             $(this).removeClass()
-            this.textSwitchContainer.text('')
+            textSwitchContainer.text('')
           })
           return
         }
@@ -402,11 +397,11 @@ class TrainingApp extends Component {
         lastrdm = rdm
           // divContainer[0].style.display = 'none'
     //headShake 300 flash 300 fadeInLeft 300 rubberBand
-        this.textSwitchWrapContainer.removeClass().addClass('rubberBand animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        textSwitchWrapContainer.removeClass().addClass('rubberBand animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
           $(this).removeClass()
         })
         setTimeout( function() {
-          this.textSwitchContainer.shuffleLetters({
+          textSwitchContainer.shuffleLetters({
             'text': window.switchTextArray[rdm]
           })
             // setTimeout( function() {

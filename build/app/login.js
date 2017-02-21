@@ -116,7 +116,7 @@ var Login = function (_Component) {
                 _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'username', type: 'text', id: 'username' }),
                 _react2.default.createElement(
                   'label',
-                  { className: 'mdl-textfield__label', 'for': 'username' },
+                  { className: 'mdl-textfield__label', htmlFor: 'username' },
                   'Login'
                 )
               )
@@ -130,7 +130,7 @@ var Login = function (_Component) {
                 _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'password', type: 'password', id: 'password' }),
                 _react2.default.createElement(
                   'label',
-                  { className: 'mdl-textfield__label', 'for': 'password' },
+                  { className: 'mdl-textfield__label', htmlFor: 'password' },
                   'Password'
                 )
               )

@@ -125,7 +125,7 @@ var authactions = {
             response = _ref.response;
 
         if (!response.ok) {
-          // console.log('authactions. login not ok')
+          console.log('++++++++++++++++authactions. login not ok');
           // console.log(user)
           // console.log(response)
           // If there was a problem, we want to
@@ -142,7 +142,7 @@ var authactions = {
           // console.log('authactionsjs push this' + currentRouteName)
           // console.log('authactionsjs push this' + currentRouteName.length)// const appbasename = '/reactor'
           // const url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+'/reactor'
-          // console.log('authactionsjs push this' + url)
+          // console.log('authactionsjs push this' + url)3
           // console.log('authactionsjs push this' + url.length)
           // var currentRoute = currentRouteName.replace(url,'')
           // console.log('authactionsjs push this' + currentRoute)
@@ -152,8 +152,8 @@ var authactions = {
           // window.location.reload()
         }
       }).catch(function (err) {
-        console.log('authactionsjs. Unhandled Login Error: ', err.error_description);
-        dispatch(authactions.loginProcessStart(err.error_description));
+        console.log('++++++++++++++++++++++++++authactionsjs. Unhandled Login Error: ', err.error_description);
+        if (!err.error_description.includes('JDBCConnectionException')) dispatch(authactions.loginProcessStart(err.error_description));else dispatch(authactions.loginProcessStart('System error: Stale database connection'));
       });
     };
   },

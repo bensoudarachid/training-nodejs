@@ -144,13 +144,8 @@ var TrainingApp = function (_Component) {
 
     _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
     _this.isTextSwitchAnimated = false;
-    _this.textSwitchContainer = undefined; //$('#textswitch')
-    _this.textSwitchWrapContainer = undefined; //$('#textswitch')
-    // const {auth} = this.props
-    // if(process.env.BROWSER && !this.props.auth.get('isAuthenticated')){
-    //   console.log('trainingapp start login process')
-    //   this.props.actions.loginProcessStart('No access rights!')
-    // }
+    // textSwitchContainer = undefined //$('#textswitch')
+    // textSwitchWrapContainer = undefined //$('#textswitch')
     return _this;
   }
 
@@ -292,7 +287,7 @@ var TrainingApp = function (_Component) {
       var auth = this.props.auth;
 
       var isAuthenticated = auth.get('isAuthenticated');
-      // console.log('navjs is authenticated '+isAuthenticated)
+      // console.log('navjs is authenticated '+isAuthenticated)1
 
       console.log('trainingapp. authority ' + auth.get('authority'));
       if (auth.get('authority') == 'admin') {
@@ -417,12 +412,13 @@ var TrainingApp = function (_Component) {
 
 
     value: function textswitcher() {
+      var textSwitchWrapContainer = (0, _jquery2.default)('#textwrap');
+      var textSwitchContainer = (0, _jquery2.default)('#textswitch');
       var loop = function () {
         this.isTextSwitchAnimated = true;
         setTimeout(function () {
           // console.log('isTextSwitchAnimated = '+this.isTextSwitchAnimated )
-          this.textSwitchWrapContainer = (0, _jquery2.default)('#textwrap');
-          this.textSwitchContainer = (0, _jquery2.default)('#textswitch');
+
 
           var animFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || null;
           // var that = this
@@ -435,10 +431,10 @@ var TrainingApp = function (_Component) {
             animFrame(loop.bind(this));
           } else {
             console.log('I m out now ');
-            this.textSwitchWrapContainer.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+            textSwitchWrapContainer.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
               // console.log('Remove fade out class' )
               (0, _jquery2.default)(this).removeClass();
-              this.textSwitchContainer.text('');
+              textSwitchContainer.text('');
             });
             return;
           }
@@ -449,11 +445,11 @@ var TrainingApp = function (_Component) {
           lastrdm = rdm;
           // divContainer[0].style.display = 'none'
           //headShake 300 flash 300 fadeInLeft 300 rubberBand
-          this.textSwitchWrapContainer.removeClass().addClass('rubberBand animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+          textSwitchWrapContainer.removeClass().addClass('rubberBand animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
             (0, _jquery2.default)(this).removeClass();
           });
           setTimeout(function () {
-            this.textSwitchContainer.shuffleLetters({
+            textSwitchContainer.shuffleLetters({
               'text': window.switchTextArray[rdm]
             });
             // setTimeout( function() {

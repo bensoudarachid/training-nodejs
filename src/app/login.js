@@ -76,13 +76,13 @@ export default class Login extends Component {
         <li>
   <div className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
     <input className='mdl-textfield__input' ref='username' type='text' id='username'/>
-    <label className='mdl-textfield__label' for='username'>Login</label>
+    <label className='mdl-textfield__label' htmlFor='username'>Login</label>
   </div>
         </li>
         <li>
   <div className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
     <input className='mdl-textfield__input' ref='password' type='password' id='password'/>
-    <label className='mdl-textfield__label' for='password'>Password</label>
+    <label className='mdl-textfield__label' htmlFor='password'>Password</label>
   </div>
         </li>
         <li>

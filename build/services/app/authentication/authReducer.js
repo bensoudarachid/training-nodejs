@@ -71,7 +71,7 @@ var authReducer = function authReducer() {
 
   switch (action.type) {
     case 'LOGIN_PROCESS_START':
-      console.log('Auth reducer. +++++++++++++Login in Progress ');
+      // console.log('Auth reducer. +++++++++++++Login in Progress ')
       auth = auth.set('loginMessage', action.message);
       auth = auth.set('loginProgress', true);
       return auth;
