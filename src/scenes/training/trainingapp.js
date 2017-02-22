@@ -411,7 +411,7 @@ class TrainingApp extends Component {
             // }, 4600 )
         }.bind(this), 440 )
           // await sleep(1000)
-      }.bind(this), 3000 )
+      }.bind(this), 4000 )
     }.bind(this)
     loop()
   }
