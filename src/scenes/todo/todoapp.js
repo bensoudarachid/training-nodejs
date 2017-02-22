@@ -10,8 +10,6 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 if (process.env.BROWSER) {
   console.log('Appcomponent. environment is browser')
-  require('../../app/app.scss')
-  require('../../app/appcomponent.scss')
   require('./todoapp.scss')
 }
 
@@ -36,6 +34,7 @@ class TodoApp extends Component {
   componentDidMount() {
     // console.log('todoappjs mounted')
     TodoApp.fetchData(this.props.actions)
+    // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
   }
   //This is a necessary call when component is fetched on server side
   static fetchData(actions) {
@@ -83,7 +82,7 @@ class TodoApp extends Component {
     //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
     // deleteTask={this.deleteTask.bind(this)}
     return (
-      <div className='todoapp'>
+      <div id='todoapp'>
       {!auth.get('isAuthenticated') &&
       <div>
         No right access here. Please login

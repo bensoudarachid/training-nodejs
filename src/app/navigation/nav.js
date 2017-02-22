@@ -100,7 +100,7 @@ class Nav extends Component {
         />
       )
     }else if( auth.get('authority')=='user' ){
-      console.log('nav: user? authority = '+auth.get('authority'))
+      // console.log('nav: user? authority = '+auth.get('authority'))
       return (
         <NavUser
           actions={this.props.actions}
@@ -108,7 +108,7 @@ class Nav extends Component {
         />
       )
     }else{
-      console.log('nav: guest? authority = '+auth.get('authority'))
+      // console.log('nav: guest? authority = '+auth.get('authority'))
       return (
         <NavPublic
           actions={this.props.actions}

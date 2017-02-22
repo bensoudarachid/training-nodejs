@@ -4,6 +4,7 @@ import cookie from 'react-cookie'
 import 'jquery'
 import $ from 'jquery'
 import actions from '../../services/actions'
+// const util = require('util')
 
 // import { IndexLink, Link} from 'react-router'
 // import Login from './login.js'
@@ -17,106 +18,76 @@ import actions from '../../services/actions'
 if (process.env.BROWSER) {
   // console.log('Appcomponent. environment is browser')
   require('./home.scss')
-  // $.fn.sir3allah = function(event) {
-  //   $('.imgwrap').each(function(i, el) {
-  //     // console.log('++++++++++++++++Scroll'+el)
-  //     var elm = $(el)
-  //     var imgbg=elm.find('.imgbg')
-  //     var img=elm.find('.dataimg')
-  //     var imgSpinner=elm.find('.spinner')
-  //     if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
-  //       img[0].setAttribute('src', img[0].getAttribute('data-src'))
-  //       img[0].onload = function() {
-  //         console.log('image loaded: '+img[0].getAttribute('data-src'))
-  //         img[0].removeAttribute('data-src')
-  //         imgSpinner.remove()
-  //       }
-  //     }
-  //     if (elm.visible(true)) {
-  //       if(elm.hasClass('animated'))
-  //         return
-  //       else{
-  //         // console.log('++++++++++++++++Appcomponent is visible'+elm)
-  //         // imgSpinner.remove()
-  //         elm.addClass('animated')
-  //         var rdm = Math.floor(Math.random() * 3) + 1
-  //         var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
-  //         img.addClass('animated '+imgAnim)
-  //         imgbg.removeClass('imgbg')
-  //         rdm = Math.floor(Math.random() * 2) + 1  
-  //     // console.log('++++++++++++++++Random '+rdm)
-  //         var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm===1?'fadeInLeft':'fadeInRight'
-  //     // console.log('++++++++++++++++Random '+fadeIn)
-  //         imgbg.addClass('animated '+imgbgAnim+' imgwraptor') 
-  //       }
-  //     } 
-  //   })
-  // }
-  function imageload(event){
-    // console.log('++++++++++++++++homejs image load')
-    var idToken = cookie.load('jwt')
-    $('.imgwrap').each(function(i, el) {
+//   function imageload(event){
+//     // console.log('++++++++++++++++homejs image load')
+//     var idToken = cookie.load('jwt')
+//     $('.imgwrap').each(function(i, el) {
       
-      var elm = $(el)
-      // var imgbg=elm.find('.imgbg')
-      var img=elm.find('.dataimg')
-      var imgSpinner=elm.find('.mdl-spinner')
-      if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
-        img[0].setAttribute('src', img[0].getAttribute('data-src')+ (img[0].getAttribute('data-src').includes('/api/')?('?access_token='+ idToken):''))
-        img[0].onload = function() {
-          // console.log('image loaded: '+img[0].getAttribute('data-src'))
-          img[0].removeAttribute('data-src')
-          imgSpinner.remove()
+//       var elm = $(el)
+//       // var imgbg=elm.find('.imgbg')
+//       var img=elm.find('.dataimg')
+//       var imgSpinner=elm.find('.mdl-spinner')
+//       if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+//         img[0].setAttribute('src', img[0].getAttribute('data-src')+ (img[0].getAttribute('data-src').includes('/api/')?('?access_token='+ idToken):''))
+//         img[0].onload = function() {
+//           // console.log('image loaded: '+img[0].getAttribute('data-src'))
+//           img[0].removeAttribute('data-src')
+//           imgSpinner.remove()
 
-          if (elm.visible(true)&&!img[0].hasAttribute('data-src')) {
-            if(elm.hasClass('animated'))
-              return
-            else{
-              animate(elm)
-            }
-          }
+//           if (elm.visible(true)&&!img[0].hasAttribute('data-src')) {
+//             if(elm.hasClass('animated'))
+//               return
+//             else{
+//               animate(elm)
+//             }
+//           }
 
-        }
-      }
-      if (elm.visible(true)&&!img[0].hasAttribute('data-src')) {
-        if(elm.hasClass('animated'))
-          return
-        else{
-          animate(elm)
-        }
-      }
+//         }
+//       }
+//       if (elm.visible(true)&&!img[0].hasAttribute('data-src')) {
+//         if(elm.hasClass('animated'))
+//           return
+//         else{
+//           animate(elm)
+//         }
+//       }
 
-    })
-  }
+//     })
+//   }
   
-  function animate(elm) {
-    var imgbg=elm.find('.imgbg')
-    var img=elm.find('.dataimg')
-    // var imgSpinner=elm.find('.spinner')
-    elm.addClass('animated')
-    var rdm = Math.floor(Math.random() * 3) + 1
-    var rdm2 = Math.floor(Math.random() * 2) + 1
-    var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
-    img.addClass('animated '+imgAnim+(rdm===3&&rdm2===1?' reverseanim':''))
-    // img.addClass('animated reverseanim '+imgAnim)
-    imgbg.removeClass('imgbg')
-// console.log('++++++++++++++++Random '+rdm)
-    var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm2===1?'fadeInLeft':'fadeInRight'
-// console.log('++++++++++++++++Random '+fadeIn)
-    imgbg.addClass('animated '+imgbgAnim+' imgwraptor')
-  }
+//   function animate(elm) {
+//     var imgbg=elm.find('.imgbg')
+//     var img=elm.find('.dataimg')
+//     // var imgSpinner=elm.find('.spinner')
+//     elm.addClass('animated')
+//     var rdm = Math.floor(Math.random() * 3) + 1
+//     var rdm2 = Math.floor(Math.random() * 2) + 1
+//     var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
+//     img.addClass('animated '+imgAnim+(rdm===3&&rdm2===1?' reverseanim':''))
+//     // img.addClass('animated reverseanim '+imgAnim)
+//     imgbg.removeClass('imgbg')
+// // console.log('++++++++++++++++Random '+rdm)
+//     var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm2===1?'fadeInLeft':'fadeInRight'
+// // console.log('++++++++++++++++Random '+fadeIn)
+//     imgbg.addClass('animated '+imgbgAnim+' imgwraptor')
+//   }
 
-  $(window).scroll(imageload)
-  $(window).resize(imageload)
+  // $(window).scroll(imageload)
+  // $(window).resize(imageload)
 
 }
 
 class Home extends Component {
 
+  constructor(props){
+    super(props)
+    // this.handleScroll = this.handleScroll.bind(this)
+  }
+
   componentDidMount(){
     require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     // var idToken = cookie.load('jwt')
-    console.log('++++++++++++++++homejs. compdidmount')
+    // console.log('++++++++++++++++homejs. compdidmount')
     $('.imgwrap').each(function(i, el) {
       // console.log('++++++++++++++++Appcomponent is here'+el)
       var elm = $(el)
@@ -128,27 +99,95 @@ class Home extends Component {
       if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
         img[0].setAttribute('src', img[0].getAttribute('data-src'))
         img[0].onload = function() {
-          console.log('image loaded: '+img[0].getAttribute('data-src'))
+          console.log('image loaded on mount: '+img[0].getAttribute('data-src'))
           img[0].removeAttribute('data-src')
           imgSpinner.remove()
 
           if (elm.visible(true) &&!img[0].hasAttribute('data-src') ) {
             imgSpinner.remove()
             elm.addClass('animated') 
-            var rdm = Math.floor(Math.random() * 3) + 1
-            var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
-            img.addClass('animated '+imgAnim)
-            // img.addClass('animated rubberBand')
-            if(imgbg.hasClass('animated'))
+            // var rdm = Math.floor(Math.random() * 3) + 1
+            // var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
+            // img.addClass('animated '+imgAnim)
+            // // img.addClass('animated rubberBand')
+            // if(imgbg.hasClass('animated'))
+            //   return
+            // else{
+            //   imgbg.removeClass('imgbg')
+            //   rdm = Math.floor(Math.random() * 2) + 1
+            //   var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm===1?'fadeInLeft':'fadeInRight'
+            //   imgbg.addClass('animated '+imgbgAnim+' imgwraptor') 
+            // }
+          }
+
+        }
+      }
+    })
+    // console.log('yeah man. Add listener')
+    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('resize', this.handleScroll)
+  }
+
+// componentDidMount: function() {
+//     window.addEventListener('scroll', this.handleScroll);
+// },
+
+  componentWillUnmount() {
+    // console.log('yeah man. Remove listener')
+    window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener('resize', this.handleScroll)
+  }
+
+
+  handleScroll(event) {
+    // console.log('yeah man. i m listening'+this)
+    // console.log('yeah man. i m listening'+this)
+    // this.imageload(event)
+    var idToken = cookie.load('jwt')
+    var anim = function (elm){
+      var imgbg=elm.find('.imgbg')
+      var img=elm.find('.dataimg')
+      // var imgSpinner=elm.find('.spinner')
+      // console.log('++++++++++++++++ Add class 4 WRAP ANIMATED')
+      elm.addClass('animated')
+      var rdm = Math.floor(Math.random() * 3) + 1
+      var rdm2 = Math.floor(Math.random() * 2) + 1
+      var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
+      img.addClass('animated '+imgAnim+(rdm===3&&rdm2===1?' reverseanim':''))
+      // img.addClass('animated reverseanim '+imgAnim)
+      imgbg.removeClass('imgbg')
+      var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm2===1?'fadeInLeft':'fadeInRight'
+      imgbg.addClass('animated '+imgbgAnim+' imgwraptor')
+    }
+    $('.imgwrap').each(function(i, el) {
+      var elm = $(el)
+      // var imgbg=elm.find('.imgbg')
+      var img=elm.find('.dataimg')
+      var imgSpinner=elm.find('.mdl-spinner')
+      if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+        img[0].setAttribute('src', img[0].getAttribute('data-src')+ (img[0].getAttribute('data-src').includes('/api/')?('?access_token='+ idToken):''))
+        img[0].onload = function() {
+          console.log('image loaded on scroll: '+img[0].getAttribute('data-src'))
+          img[0].removeAttribute('data-src')
+          imgSpinner.remove()
+
+          if (elm.visible(true)&&!img[0].hasAttribute('data-src')) {
+            if(elm.hasClass('animated')){
               return
-            else{
-              imgbg.removeClass('imgbg')
-              rdm = Math.floor(Math.random() * 2) + 1
-              var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm===1?'fadeInLeft':'fadeInRight'
-              imgbg.addClass('animated '+imgbgAnim+' imgwraptor') 
+            }else{
+              // console.log('on load Animate now')
+              anim(elm)
             }
           }
 
+        }
+      }
+      if (elm.visible(true)&&!img[0].hasAttribute('data-src')) {
+        if(elm.hasClass('animated')){
+          return
+        }
+        else{
+          anim(elm)
         }
       }
     })

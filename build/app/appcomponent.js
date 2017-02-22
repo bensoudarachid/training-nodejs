@@ -149,27 +149,23 @@ var AppComponent = function (_React$Component) {
     _classCallCheck(this, AppComponent);
 
     1;
-
-    var _this = _possibleConstructorReturn(this, (AppComponent.__proto__ || Object.getPrototypeOf(AppComponent)).apply(this, arguments));
-
-    _this.constructor.childContextTypes = {
-      betterReactSpinkit: _react.PropTypes.object
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (AppComponent.__proto__ || Object.getPrototypeOf(AppComponent)).apply(this, arguments));
+    // this.constructor.childContextTypes = {
+    //   betterReactSpinkit: PropTypes.object
+    // }
   }
 
+  // getChildContext() {
+  //   return {
+  //     betterReactSpinkit: {
+  //       color: '#505050', //'black'
+  //       size: 15
+  //     // ,fade: { duration: 0.3 }
+  //     }
+  //   }
+  // }
+
   _createClass(AppComponent, [{
-    key: 'getChildContext',
-    value: function getChildContext() {
-      return {
-        betterReactSpinkit: {
-          color: '#505050', //'black'
-          size: 15
-          // ,fade: { duration: 0.3 }
-        }
-      };
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       require('exports?componentHandler!material-design-lite/material.js').upgradeDom();

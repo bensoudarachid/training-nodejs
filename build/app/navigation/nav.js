@@ -147,13 +147,13 @@ var Nav = function (_Component) {
           auth: this.props.auth
         });
       } else if (auth.get('authority') == 'user') {
-        console.log('nav: user? authority = ' + auth.get('authority'));
+        // console.log('nav: user? authority = '+auth.get('authority'))
         return _react2.default.createElement(_navuser2.default, {
           actions: this.props.actions,
           auth: this.props.auth
         });
       } else {
-        console.log('nav: guest? authority = ' + auth.get('authority'));
+        // console.log('nav: guest? authority = '+auth.get('authority'))
         return _react2.default.createElement(_navpublic2.default, {
           actions: this.props.actions,
           auth: this.props.auth

@@ -1,30 +1,32 @@
 @import '../../../styles/default.scss';
 
-.todoslist .mdl-grid
-// ,.todoslist .mdl-cell
-// ,.todoslist .mdl-cell--4-col
-{
-	margin: 0px;
-	padding: 0px;
-}
 
-.marg0{
-	margin: 0;
-}
+// .marg0{
+// 	margin: 0;
+// }
 
-.todoslist form{
- 	margin: 0px;
- 	// padding: 0px;
- 	// width:33.33%;
-}
-
-.center-items {
-  justify-content: center;
-}
+// .center-items {
+//   justify-content: center;
+// }
 
 .todoslist{
 	// @media (min-width: 768px) {
 	// 	background-color:orange;
 	// 	width: 100%;
 	// }
+	// .spinner{
+	// 	margin-left: -30px;
+	// 	margin-top: 30px;
+	// 	width: 60px;
+	// 	height: 60px;
+	// }
+	form{
+ 		margin: 0px;
+ 	// padding: 0px;
+ 	// width:33.33%;
+	}
+	.mdl-grid{
+		margin: 0px;
+		padding: 0px;
+	}
 }

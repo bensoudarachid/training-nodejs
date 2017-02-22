@@ -106,20 +106,20 @@ class AppComponent extends React.Component {
 
   constructor() {1
     super(...arguments)
-    this.constructor.childContextTypes = {
-      betterReactSpinkit: PropTypes.object
-    }
+    // this.constructor.childContextTypes = {
+    //   betterReactSpinkit: PropTypes.object
+    // }
   }
 
-  getChildContext() {
-    return {
-      betterReactSpinkit: {
-        color: '#505050', //'black'
-        size: 15
-      // ,fade: { duration: 0.3 }
-      }
-    }
-  }
+  // getChildContext() {
+  //   return {
+  //     betterReactSpinkit: {
+  //       color: '#505050', //'black'
+  //       size: 15
+  //     // ,fade: { duration: 0.3 }
+  //     }
+  //   }
+  // }
 
   componentDidMount(){
     require('exports?componentHandler!material-design-lite/material.js').upgradeDom()

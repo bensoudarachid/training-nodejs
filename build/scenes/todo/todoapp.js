@@ -43,8 +43,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 if (process.env.BROWSER) {
   console.log('Appcomponent. environment is browser');
-  require('../../app/app.scss');
-  require('../../app/appcomponent.scss');
   require('./todoapp.scss');
 }
 
@@ -75,6 +73,7 @@ var TodoApp = function (_Component) {
     value: function componentDidMount() {
       // console.log('todoappjs mounted')
       TodoApp.fetchData(this.props.actions);
+      // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     }
     //This is a necessary call when component is fetched on server side
 
@@ -125,7 +124,7 @@ var TodoApp = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'todoapp' },
+        { id: 'todoapp' },
         !auth.get('isAuthenticated') && _react2.default.createElement(
           'div',
           null,

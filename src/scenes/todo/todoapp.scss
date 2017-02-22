@@ -7,10 +7,12 @@
 //  float:center;	
 // }
 
-.todoapp{
+#todoapp{
+
 	width: 95%;
 	margin: 0 auto;
-	// background-color:orange;
+	
+
 	@media (min-width: 480px) {
 		// background-color:pink;
 		width: 90%;

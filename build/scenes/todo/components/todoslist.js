@@ -52,7 +52,14 @@ var TodosList = function (_React$Component) {
   _createClass(TodosList, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      console.log('mounted');
       require('exports?componentHandler!material-design-lite/material.js').upgradeDom();
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      console.log('updated');
+      require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered();
     }
   }, {
     key: 'getItems',
@@ -81,30 +88,40 @@ var TodosList = function (_React$Component) {
       return items.map(function (todo, index) {
         // console.log('todo list. index = '+index)
         return _react2.default.createElement(_todoslistitem2.default, { ind: index, todo: todo, actions: _this3.props.actions });
+        // return <div style={{width:'60%',margin:'auto',backgroundColor:'orange'}}>WOOOOOW {todo.get('id')}</div>
       });
     }
+
+    // renderO() {
+    //   if(this.props.todos==undefined)
+    //     return (
+    //       <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{width:'55px',height:'55px'}}></div>
+    //     )
+    //   return (
+    //     <div className='todoslist'>
+    //     {this.renderItems()}
+    //     </div>
+    //   )
+    // }
+
   }, {
     key: 'render',
     value: function render() {
       // console.log('Hi there from List. Props: '+this.props);
-      // <div className="mdl-layout-spacer"></div>
-
-      if (this.props.todos == undefined) return _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner', style: { width: '55px', height: '55px' } });
-
+      // {this.props.todos==undefined?
+      //           <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
+      //         :
+      //           <div/>
+      // }
+      // Putting <div></div> instead of <span></span> produces a ununderstandlable scroll mess!
       return _react2.default.createElement(
         'div',
         { className: 'todoslist' },
-        this.renderItems()
-      );
-    }
-  }, {
-    key: 'renderNew',
-    value: function renderNew() {
-      // console.log('Hi there from List. Props: '+this.props);
-      return _react2.default.createElement(
-        'div',
-        null,
-        this.renderItems()
+        this.props.todos == undefined ? _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active', style: { width: '55px', height: '55px' } }) : _react2.default.createElement(
+          'span',
+          null,
+          this.renderItems()
+        )
       );
     }
   }]);

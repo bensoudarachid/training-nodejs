@@ -16,9 +16,13 @@ export default class TodosList extends React.Component {
   }
   
   componentDidMount(){
+    console.log('mounted')
     require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
   }
-
+  componentDidUpdate() {
+    console.log('updated')
+    require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
+  }
   getItems() {
     // console.log('todo list filteropen ' + this.props.filteropen)
     // console.log('todo list filterclosed ' + this.props.filterclosed)
@@ -42,31 +46,38 @@ export default class TodosList extends React.Component {
       (todo, index) => {
         // console.log('todo list. index = '+index)
         return <TodosListItem ind={index} todo={todo} actions={this.props.actions}/>
+        // return <div style={{width:'60%',margin:'auto',backgroundColor:'orange'}}>WOOOOOW {todo.get('id')}</div>
       }
     )
   }
 
+  // renderO() {
+  //   if(this.props.todos==undefined)
+  //     return (
+  //       <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{width:'55px',height:'55px'}}></div>
+  //     )
+  //   return (
+  //     <div className='todoslist'>
+  //     {this.renderItems()}
+  //     </div>
+  //   )
+  // }
   render() {
     // console.log('Hi there from List. Props: '+this.props);
-      // <div className="mdl-layout-spacer"></div>
-
-    if(this.props.todos==undefined)
-      return (
-        <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>
-    )
-
+    // {this.props.todos==undefined?
+    //           <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
+    //         :
+    //           <div/>
+    // }
+    // Putting <div></div> instead of <span></span> produces a ununderstandlable scroll mess!
     return (
-      <div className='todoslist'>
-      {this.renderItems()}
-      </div>
-    )
-  }
-  renderNew() {
-    // console.log('Hi there from List. Props: '+this.props);
-    return (
-      <div>
-        {this.renderItems()}
-      </div>
+          <div className='todoslist'>
+            {this.props.todos==undefined?
+                     <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{width:'55px',height:'55px'}}></div>
+                   :
+                     <span>{this.renderItems()}</span>
+            }
+          </div>
     )
   }
 }
