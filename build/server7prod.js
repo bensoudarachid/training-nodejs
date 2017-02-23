@@ -364,7 +364,7 @@ app.get(appbasename + '/*', function (req, res) {
             console.log('hour of the day = ' + hour);
             var style = 'http://rlearn.herokuapp.com/style.css';
             var bundle = 'http://rlearn.herokuapp.com/bundle.js';
-            if (hour < 7 || hour > 19) {
+            if (hour < 7 || hour > 22) {
               style = '/style.css';
               bundle = '/bundle.js';
             }

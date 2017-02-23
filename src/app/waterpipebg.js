@@ -41,10 +41,11 @@ $(document).ready(function() {
     drawsPerFrame: 45,
     lineWidth: 1,
     speed: 1,
-    // bgColorInner: '#6bc1ff',
-    bgColorInner: '#c5d3e2',
-    // bgColorOuter: '#003870'
-    // bgColorOuter: '#004790'
+    // bgColorInner: '#c5d3e2',
+    bgColorInner: '#6bc1ff',
+    // bgColorInner: '#7bd1ff',
+    // bgColorOuter: '#003870',
+    // bgColorOuter: '#004790',
     // bgColorOuter: '#ffffff'
     bgColorOuter: '#2980b9'
     // bgColorOuter: 'white'

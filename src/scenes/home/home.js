@@ -118,6 +118,20 @@ class Home extends Component {
             //   var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm===1?'fadeInLeft':'fadeInRight'
             //   imgbg.addClass('animated '+imgbgAnim+' imgwraptor') 
             // }
+
+            // var rdm = Math.floor(Math.random() * 3) + 1
+            // var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
+            // img.addClass('animated '+imgAnim)
+            // // img.addClass('animated rubberBand')
+            if(imgbg.hasClass('animated'))
+              return
+            else{
+              imgbg.removeClass('imgbg')
+              // var rdm = Math.floor(Math.random() * 2) + 1
+              // var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm===1?'fadeInLeft':'fadeInRight'
+              imgbg.addClass('animated imgwraptor') 
+            }
+
           }
 
         }
