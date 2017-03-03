@@ -270,7 +270,7 @@
 
 	
 
-	@media (min-width: 768px) {
+	@media (min-width: 768px) { //768
 		.navbar-left, .navbar-right{
 		  	// background-color:lighten(blue,40%);
 	//	  	float: right;
@@ -418,7 +418,9 @@
 
 
 	}
-	@media (min-width: 992px) {
+
+
+	@media (min-width: 992px) {//992
 		width: 90%;
 
 		@include transitionAll(.3s);

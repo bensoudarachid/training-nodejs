@@ -14,6 +14,10 @@ var _immutable = require('immutable');
 
 var _immutable2 = _interopRequireDefault(_immutable);
 
+var _admintraininglistitem = require('./admintraininglistitem');
+
+var _admintraininglistitem2 = _interopRequireDefault(_admintraininglistitem);
+
 var _reactAddonsPureRenderMixin = require('react-addons-pure-render-mixin');
 
 var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
@@ -26,9 +30,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 //import { ThreeBounce } from 'better-react-spinkit'
-
-
-//import TrainingEditListItem from './traininglistitem'
 
 
 if (process.env.BROWSER) {
@@ -66,18 +67,26 @@ var AdminTrainingList = function (_React$Component) {
     //   return Immutable.List([])
     // }
 
-    // renderItems() {
-    //   var items = this.props.trainings
-    //   // const props = _.omit(this.props, 'trainings');
-    //   // console.log('training list. render items. Size = '+items.size)
+  }, {
+    key: 'renderItems',
+    value: function renderItems() {
+      var _this2 = this;
 
-    //   return items.map(
-    //     (training, index) => {
-    //       // console.log('training list. index = '+index)
-    //       return <TrainingEditListItem ind={index} training={training} actions={this.props.actions}/>
-    //     }
-    //   )
-    // }
+      var items = this.props.trainings;
+      // const props = _.omit(this.props, 'trainings');
+      // console.log('training list. render items. Size = '+items.size)
+
+      return items.map(function (training, index) {
+        // console.log('training list. index = '+index)
+        return _react2.default.createElement(_admintraininglistitem2.default, { ind: index, training: training, actions: _this2.props.actions });
+      });
+    }
+
+    // <div className='trainingslist'>
+    //     <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+    //       <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'><p>Heeee! The admin list</p></div>
+    //     </div>
+    // </div>
 
   }, {
     key: 'render',
@@ -85,36 +94,30 @@ var AdminTrainingList = function (_React$Component) {
       // console.log('Hi there from training list List. Props: '+this.props.trainings.size)
       // <div className="mdl-layout-spacer"></div>
       // const title = this.props.training.get('title')
-      if (this.props.trainings == undefined) return _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner', style: { width: '55px', height: '55px' } });
+      // if(this.props.trainings==undefined)
+      //   return (
+      //     <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>
+      // )
 
       return _react2.default.createElement(
         'div',
-        { className: 'trainingslist' },
-        _react2.default.createElement(
-          'div',
-          { className: 'mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
-          _react2.default.createElement(
-            'div',
-            { className: 'mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
-            _react2.default.createElement(
-              'p',
-              null,
-              'Heeee! The admin list'
-            )
-          )
+        { className: 'admintrainingslist', style: { width: '100%' } },
+        this.props.trainings == undefined ? _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active', style: { width: '55px', height: '55px' } }) : _react2.default.createElement(
+          'span',
+          { className: 'admintrainingslistwrap mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
+          this.renderItems()
         )
       );
     }
-  }, {
-    key: 'renderNew',
-    value: function renderNew() {
-      // console.log('Hi there from List. Props: '+this.props);
-      return _react2.default.createElement(
-        'div',
-        null,
-        this.renderItems()
-      );
-    }
+    // renderNew() {
+    //   // console.log('Hi there from List. Props: '+this.props);
+    //   return (
+    //     <div>
+    //       {this.renderItems()}
+    //     </div>
+    //   )
+    // }
+
   }]);
 
   return AdminTrainingList;

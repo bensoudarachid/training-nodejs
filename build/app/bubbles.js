@@ -64,10 +64,31 @@ global.jQuery = require('jquery');
       }
 
       Star.prototype = {
+        // create: function(){
+        //   context.beginPath()
+        //   context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+        //   context.fill()
+        // },
+
         create: function create() {
+          this.drawEllipse(this.x, this.y, 2.5 * this.radius * config.width / window.innerWidth, 2 * this.radius * config.height / window.innerHeight);
+        },
+        drawEllipse: function drawEllipse(centerX, centerY, width, height) {
           context.beginPath();
-          context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+
+          context.moveTo(centerX, centerY - height / 2); // A1
+
+          context.bezierCurveTo(centerX + width / 2, centerY - height / 2, // C1
+          centerX + width / 2, centerY + height / 2, // C2
+          centerX, centerY + height / 2); // A2
+
+          context.bezierCurveTo(centerX - width / 2, centerY + height / 2, // C3
+          centerX - width / 2, centerY - height / 2, // C4
+          centerX, centerY - height / 2); // A1
+
+          // context.fillStyle = 'white'
           context.fill();
+          context.closePath();
         },
 
         animate: function animate() {

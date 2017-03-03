@@ -62,7 +62,7 @@ var todoservices = {
       // 'Authorization': 'Bearer '+idToken
     };
     var idToken = _reactCookie2.default.load('jwt');
-    if (idToken !== '') {
+    if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken;
       // console.log('Ya todos fetchData.  auth id token: ' + idToken)
     }
@@ -105,7 +105,7 @@ var todoservices = {
     };
     var idToken = _reactCookie2.default.load('jwt');
     console.log('Ya todos save Data.  auth id token: ' + idToken);
-    if (idToken !== '') {
+    if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken;
     }
     // else
@@ -147,7 +147,7 @@ var todoservices = {
     };
     var idToken = _reactCookie2.default.load('jwt');
     console.log('Ya todos save Data.  todo id : ' + todo.get('id'));
-    if (idToken !== '') {
+    if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken;
     }
     // var body = JSON.stringify(todo)
@@ -196,7 +196,7 @@ var todoservices = {
     };
     var idToken = _reactCookie2.default.load('jwt');
     console.log('Ya todos save Data.  auth id token: ' + idToken);
-    if (idToken !== '') {
+    if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken;
     } else {
       console.log('todos action. Wahnsinn: no idToken');

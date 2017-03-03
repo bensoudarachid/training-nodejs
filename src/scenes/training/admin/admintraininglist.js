@@ -2,7 +2,7 @@ import React from 'react'
 //import { ThreeBounce } from 'better-react-spinkit'
 import Immutable from 'immutable'
 
-//import TrainingEditListItem from './traininglistitem'
+import AdminTrainingListItem from './admintraininglistitem'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 if (process.env.BROWSER) {
@@ -32,43 +32,52 @@ export default class AdminTrainingList extends React.Component {
   //   return Immutable.List([])
   // }
 
-  // renderItems() {
-  //   var items = this.props.trainings
-  //   // const props = _.omit(this.props, 'trainings');
-  //   // console.log('training list. render items. Size = '+items.size)
+  renderItems() {
+    var items = this.props.trainings
+    // const props = _.omit(this.props, 'trainings');
+    // console.log('training list. render items. Size = '+items.size)
     
-  //   return items.map(
-  //     (training, index) => {
-  //       // console.log('training list. index = '+index)
-  //       return <TrainingEditListItem ind={index} training={training} actions={this.props.actions}/>
-  //     }
-  //   )
-  // }
+    return items.map(
+      (training, index) => {
+        // console.log('training list. index = '+index)
+        return <AdminTrainingListItem ind={index} training={training} actions={this.props.actions}/>
+      }
+    )
+  }
 
+      // <div className='trainingslist'>
+      //     <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+      //       <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'><p>Heeee! The admin list</p></div>
+      //     </div>
+      // </div>
   render() {
     // console.log('Hi there from training list List. Props: '+this.props.trainings.size)
       // <div className="mdl-layout-spacer"></div>
     // const title = this.props.training.get('title')
-    if(this.props.trainings==undefined)
-      return (
-        <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>
-    )
+    // if(this.props.trainings==undefined)
+    //   return (
+    //     <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>
+    // )
 
     return (
-      <div className='trainingslist'>
-          <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
-            <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'><p>Heeee! The admin list</p></div>
-          </div>
+      <div className='admintrainingslist' style={{width:'100%'}}>
+        {this.props.trainings==undefined?
+          <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{width:'55px',height:'55px'}}></div>
+          :
+          <span className='admintrainingslistwrap mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+            {this.renderItems()}
+          </span>
+        }        
       </div>
     )
   }
-  renderNew() {
-    // console.log('Hi there from List. Props: '+this.props);
-    return (
-      <div>
-        {this.renderItems()}
-      </div>
-    )
-  }
+  // renderNew() {
+  //   // console.log('Hi there from List. Props: '+this.props);
+  //   return (
+  //     <div>
+  //       {this.renderItems()}
+  //     </div>
+  //   )
+  // }
 }
 

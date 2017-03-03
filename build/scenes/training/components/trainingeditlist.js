@@ -84,14 +84,6 @@ var TrainingEditList = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      // console.log('Hi there from training list List. Props: '+this.props.trainings.size)
-      // <div className="mdl-layout-spacer"></div>
-
-      // if(this.props.trainings==undefined)
-      // return (
-      //   <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>
-      // )
-      // Putting <div></div> instead of <span></span> produces a ununderstandlable scroll mess!
       return _react2.default.createElement(
         'div',
         { className: 'trainingslist' },
@@ -103,14 +95,10 @@ var TrainingEditList = function (_React$Component) {
       );
     }
   }, {
-    key: 'renderNew',
-    value: function renderNew() {
+    key: 'renderTest',
+    value: function renderTest() {
       // console.log('Hi there from List. Props: '+this.props);
-      return _react2.default.createElement(
-        'div',
-        null,
-        this.renderItems()
-      );
+      return _react2.default.createElement('span', null);
     }
   }]);
 

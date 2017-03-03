@@ -108,53 +108,53 @@
 	"buffers":
 	[
 		{
-			"contents": "Searching 125 files for \"blockborder\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\app.scss:\n   61  // }\n   62  \n   63: .blockborder{\n   64    // border: 2px solid rgba(black,0.1);\n   65    border: 3px solid rgba(white,0.3);\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\registration\\register.js:\n   89      case 1:\n   90        return (\n   91:           <div id='register' className='blockborder'>\n   92              <form onSubmit={(event) => this.handleClick(event)} novalidate>\n   93              <div className=\"container\">\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  103      return (\n  104        <div>\n  105:       <div className='mdl-grid todoslistitem blockborder center-items'>\n  106          {this.renderTaskForm()}\n  107        </div>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\traininglistitem.js:\n   26      return (\n   27        <div>\n   28:       <div className='mdl-grid trainingslistitem blockborder center-items'>\n   29          {this.renderTaskForm()}\n   30        </div>\n\n4 matches across 4 files\n\n\nSearching 126 files for \"      setTimeOut\nred\" (case sensitive)\n\n0 matches across 0 files\n\n\nSearching 126 files for \"setTimeout\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\navigation\\nav.js:\n   25      var timeout=800//rdm===1?800:350\n   26      logotitleElm2.addClass('animated '+imgAnim) //+(rdm===3&&rdm2===1?' reverseanim':'')\n   27:     setTimeout(() => {\n   28        logotitleElm2.removeClass('animated')\n   29        logotitleElm2.removeClass(imgAnim)\n   ..\n   37            function( callback ){\n   38              console.log('Halli')\n   39:             window.setTimeout(callback, 1000 / 2)\n   40            }\n   41    }\n   ..\n   45      // console.log('Halli')\n   46      sir3allah(undefined)\n   47:     setTimeout(function() {\n   48        requestAnimFrame(loop)\n   49      },(30000) ) //1000/100\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\registration\\register.js:\n   74        // mdl.mdl_open('#modal-demo')\n   75  \n   76:       // setTimeout(function(){\n   77  \n   78        //   mdl.mdl_close('#modal-demo')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  168      // var imgwrap = document.getElementById('imgwrap'+taskid)\n  169      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n  170:     // setTimeout(function() {\n  171      //   console.log('todos-list-item, set data-src')\n  172      //   // this.setState({\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\traininglistitem.js:\n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84:     // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n   86      //   // this.setState({\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\traininglistitem.js:\n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84:     // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n   86      //   // this.setState({\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\server7.js:\n  373      console.log('Timeout for '+req.url+' is '+timeout)\n  374      console.log('Timeout done '+req.url)\n  375:     setTimeout(function() {\n  376        fs.readFile(file, function(err, data) {\n  377          if (err){\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\todos\\todoactions.js:\n  188    //   console.log('todoactions. update todo' + todo.get('task'))\n  189    //   return (dispatch) => {\n  190:   //     // setTimeout(() => {\n  191    //     fetch('http://127.0.0.1:8083/api/updatetodo', {\n  192    //       method: 'POST',\n  ...\n  228          dispatch(todoactions.updateTodo(todoold))\n  229          todoold = todoold.delete('error')\n  230:         setTimeout(() => {\n  231            dispatch(todoactions.updateTodo(todoold))\n  232          }, 2500)\n  ...\n  237          dispatch(todoactions.updateTodo(todoold))\n  238          todoold = todoold.delete('error')\n  239:         setTimeout(() => {\n  240            dispatch(todoactions.updateTodo(todoold))\n  241          }, 2500)\n  ...\n  260                dispatch(todoactions.updateTodo(todoold))\n  261                todoold = todoold.delete('error')\n  262:               setTimeout(() => {\n  263                  dispatch(todoactions.updateTodo(todoold))\n  264                }, 2500)\n  ...\n  269                dispatch(todoactions.updateTodo(todoold))\n  270                todoold = todoold.delete('error')\n  271:               setTimeout(() => {\n  272                  dispatch(todoactions.updateTodo(todoold))\n  273                }, 2500)\n  ...\n  280                dispatch(todoactions.updateTodo(todoold))\n  281                todoold = todoold.delete('error')\n  282:               setTimeout(() => {\n  283                  dispatch(todoactions.updateTodo(todoold))\n  284                }, 2500)\n  ...\n  288                dispatch(todoactions.uploadingTodoImg(todo,true))\n  289                dispatch(todoactions.uploadingTodoImg(todo,false))\n  290:               // setTimeout(function() {\n  291                //   dispatch(todoactions.uploadingTodoImg(todo,false))\n  292                // },(2000) )\n  ...\n  302              todoold = todoold.delete('error')\n  303              // dispatch(todoactions.uploadingTodoImg(todo,false))\n  304:             setTimeout(() => {\n  305                dispatch(todoactions.updateTodo(todoold))\n  306              }, 2500)\n  ...\n  379                dispatch(todoactions.updateTodo(todoold))\n  380                todoold = todoold.delete('error')\n  381:               setTimeout(() => {\n  382                  dispatch(todoactions.updateTodo(todoold))\n  383                }, 2500)\n  ...\n  400                dispatch(todoactions.updateTodo(todoold))\n  401                todoold = todoold.delete('error')\n  402:               setTimeout(() => {\n  403                  dispatch(todoactions.updateTodo(todoold))\n  404                }, 2500)\n  ...\n  411              //   dispatch(todoactions.updateTodo(todoold))\n  412              //   todoold = todoold.delete('error')\n  413:             //   setTimeout(() => {\n  414              //     dispatch(todoactions.updateTodo(todoold))\n  415              //   }, 2500)\n  ...\n  453              dispatch(todoactions.updateTodo(todoold))\n  454              todoold = todoold.delete('error')\n  455:             setTimeout(() => {\n  456                dispatch(todoactions.updateTodo(todoold))\n  457              }, 2500)\n  ...\n  573                dispatch(todoactions.updateTodo(todo))\n  574                todo = todo.delete('error')\n  575:               setTimeout(() => {\n  576                  dispatch(todoactions.updateTodo(todo))\n  577                }, 2500)\n  ...\n  583                dispatch(todoactions.updateTodo(todo))\n  584                todo = todo.delete('error')\n  585:               setTimeout(() => {\n  586                  dispatch(todoactions.updateTodo(todo))\n  587                }, 2500)\n  ...\n  610              dispatch(todoactions.updateTodo(todo))\n  611              todo = todo.delete('error')\n  612:             setTimeout(() => {\n  613                dispatch(todoactions.updateTodo(todo))\n  614              }, 2500)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\trainings\\trainingactions.js:\n  191    //   console.log('trainingactions. update training' + training.get('title'))\n  192    //   return (dispatch) => {\n  193:   //     // setTimeout(() => {\n  194    //     fetch('http://127.0.0.1:8083/api/updatetraining', {\n  195    //       method: 'POST',\n  ...\n  231          dispatch(trainingactions.updateTraining(trainingold))\n  232          trainingold = trainingold.delete('error')\n  233:         setTimeout(() => {\n  234            dispatch(trainingactions.updateTraining(trainingold))\n  235          }, 2500)\n  ...\n  240          dispatch(trainingactions.updateTraining(trainingold))\n  241          trainingold = trainingold.delete('error')\n  242:         setTimeout(() => {\n  243            dispatch(trainingactions.updateTraining(trainingold))\n  244          }, 2500)\n  ...\n  263                dispatch(trainingactions.updateTraining(trainingold))\n  264                trainingold = trainingold.delete('error')\n  265:               setTimeout(() => {\n  266                  dispatch(trainingactions.updateTraining(trainingold))\n  267                }, 2500)\n  ...\n  272                dispatch(trainingactions.updateTraining(trainingold))\n  273                trainingold = trainingold.delete('error')\n  274:               setTimeout(() => {\n  275                  dispatch(trainingactions.updateTraining(trainingold))\n  276                }, 2500)\n  ...\n  283                dispatch(trainingactions.updateTraining(trainingold))\n  284                trainingold = trainingold.delete('error')\n  285:               setTimeout(() => {\n  286                  dispatch(trainingactions.updateTraining(trainingold))\n  287                }, 2500)\n  ...\n  292                dispatch(trainingactions.uploadingTrainingImg(training,true))\n  293                dispatch(trainingactions.uploadingTrainingImg(training,false))\n  294:               // setTimeout(function() {\n  295                //   dispatch(trainingactions.uploadingTrainingImg(training,false))\n  296                // },(2000) )\n  ...\n  306              trainingold = trainingold.delete('error')\n  307              // dispatch(trainingactions.uploadingTrainingImg(training,false))\n  308:             setTimeout(() => {\n  309                dispatch(trainingactions.updateTraining(trainingold))\n  310              }, 2500)\n  ...\n  383                dispatch(trainingactions.updateTraining(trainingold))\n  384                trainingold = trainingold.delete('error')\n  385:               setTimeout(() => {\n  386                  dispatch(trainingactions.updateTraining(trainingold))\n  387                }, 2500)\n  ...\n  404                dispatch(trainingactions.updateTraining(trainingold))\n  405                trainingold = trainingold.delete('error')\n  406:               setTimeout(() => {\n  407                  dispatch(trainingactions.updateTraining(trainingold))\n  408                }, 2500)\n  ...\n  415              //   dispatch(trainingactions.updateTraining(trainingold))\n  416              //   trainingold = trainingold.delete('error')\n  417:             //   setTimeout(() => {\n  418              //     dispatch(trainingactions.updateTraining(trainingold))\n  419              //   }, 2500)\n  ...\n  457              dispatch(trainingactions.updateTraining(trainingold))\n  458              trainingold = trainingold.delete('error')\n  459:             setTimeout(() => {\n  460                dispatch(trainingactions.updateTraining(trainingold))\n  461              }, 2500)\n  ...\n  535                dispatch(trainingactions.updateTraining(training))\n  536                training = training.delete('error')\n  537:               setTimeout(() => {\n  538                  dispatch(trainingactions.updateTraining(training))\n  539                }, 2500)\n  ...\n  545                dispatch(trainingactions.updateTraining(training))\n  546                training = training.delete('error')\n  547:               setTimeout(() => {\n  548                  dispatch(trainingactions.updateTraining(training))\n  549                }, 2500)\n  ...\n  572              dispatch(trainingactions.updateTraining(training))\n  573              training = training.delete('error')\n  574:             setTimeout(() => {\n  575                dispatch(trainingactions.updateTraining(training))\n  576              }, 2500)\n\n38 matches across 8 files\n\n\nSearching 126 files for \"style(\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\appcomponent.js:\n   67      var modal = document.getElementById('myModal')\n   68  \n   69:     $('#wavybg-wrapper').style()\n   70    // Get the button that opens the modal\n   71    // var btn = $('myBtn')[0]\n\n1 match in 1 file\n\n\nSearching 126 files for \"document.getElementById\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\appcomponent.js:\n   66  \n   67      // $('#wavybg-wrapper').show()\n   68:     document.getElementById('wavybg-wrapper').style.display='block'\n   69  \n   70:     var modal = document.getElementById('myModal')\n   71  \n   72    // When the user clicks anywhere outside of the modal, close it\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\appmodaldlg.js:\n    8    require('./appmodaldlg.scss')\n    9    // $(document).ready(function() { \n   10:   //   var modal = document.getElementById('myModal')\n   11  \n   12    // // Get the button that opens the modal\n   13    // // var btn = $('myBtn')[0]\n   14:   //   var btn = document.getElementById('myBtn')\n   15    //   // console.log('loginjs. myBtn '+btn)\n   16    // // Get the <span> element that closes the modal\n   ..\n   73    // handleLoginClick(event) {\n   74    //   // console.log('loginjs andle request login in progress click')\n   75:   //   // var modal = document.getElementById('myModal')\n   76    //   // modal.style.display = 'block'\n   77    //   this.props.onLoginProcessStartClick('Please login')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\index.js:\n  102  // ReactDom.render(\n  103  //   <App />,\n  104: //   document.getElementById('root')\n  105  // );\n  106  \n  ...\n  165      <Router routes={routes} history={mybrowserHistory} />\n  166    </Provider>,\n  167:   document.getElementById('root')\n  168  )\n  169  	// <Router routes={routes} history={browserHistory} />\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\login.js:\n   12  \n   13    // $(document).ready(function() { \n   14:   //   var modal = document.getElementById('myModal')\n   15  \n   16    // // Get the button that opens the modal\n   17    // // var btn = $('myBtn')[0]\n   18:   //   var btn = document.getElementById('myBtn')\n   19    //   // console.log('loginjs. myBtn '+btn)\n   20    // // Get the <span> element that closes the modal\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\loginmodal.js:\n    9    require('./loginmodal.scss')\n   10    // $(document).ready(function() { \n   11:   //   var modal = document.getElementById('myModal')\n   12  \n   13    // // Get the button that opens the modal\n   14    // // var btn = $('myBtn')[0]\n   15:   //   var btn = document.getElementById('myBtn')\n   16    //   // console.log('loginjs. myBtn '+btn)\n   17    // // Get the <span> element that closes the modal\n   ..\n  107    // handleLoginClick(event) {\n  108    //   // console.log('loginjs andle request login in progress click')\n  109:   //   // var modal = document.getElementById('myModal')\n  110    //   // modal.style.display = 'block'\n  111    //   this.props.onLoginProcessStartClick('Please login')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\navigation\\nav.js:\n   75    handleLoginClick(event) {\n   76      // console.log('loginjs andle request login in progress click')\n   77:     // var modal = document.getElementById('myModal')\n   78      // modal.style.display = 'block'\n   79      this.props.actions.loginProcessStart('Welcome to Roya')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\waterpipe.js:\n  302        imageWindow.document.close()\n  303              //copy the image into the empty img in the newly opened window:\n  304:       var exportImage = imageWindow.document.getElementById('exportImage')\n  305        exportImage.src = dataURL\n  306      }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\components\\shared\\fileuploadinput.js:\n   15      super(props)\n   16    \n   17:     // var fileInputTextDiv = document.getElementById('file_input_text_div')\n   18:     // var fileInput = document.getElementById('file_input_file')\n   19:     // var fileInputText = document.getElementById('file_input_text')\n   20      this.changeInputText = this.changeInputText.bind(this)\n   21    }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoimage.js:\n   85      // var image=$('#todolistitemimg'+taskid)\n   86      var img = image[0]\n   87:     // var img = document.getElementById('todolistitemimg'+taskid)\n   88      // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))\n   89  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  125      const index = this.props.ind\n  126      console.log('todoslistitem.js. this.props.ind '+this.props.ind)\n  127:     if( !this.state.hadFocus && document.getElementById('taskInput'+index) ){\n  128:       document.getElementById('taskInput'+index).focus()\n  129        this.setState({\n  130          hadFocus: true\n  ...\n  163      \n  164      \n  165:     // document.getElementById('todolistitemimg'+taskid).setAttribute('data-src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)\n  166:     // document.getElementById('todolistitemimg'+taskid).setAttribute('src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)\n  167      \n  168:     // var imgwrap = document.getElementById('imgwrap'+taskid)\n  169      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n  170      // setTimeout(function() {\n  ...\n  173      //   //   imageLoaded: undefined\n  174      //   // })\n  175:     //   // document.getElementById('todolistitemimg'+taskid).removeAttribute('src')\n  176:     //   document.getElementById('todolistitemimg'+taskid).setAttribute('src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)\n  177      //   // this.refs.uploadcomp.forceUpdate()\n  178      // }.bind(this),(5000) )\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingimage.js:\n   90      // var image = $('#traininglistitemimg'+trainingid)\n   91      // var img = image[0]\n   92:     var img = document.getElementById('traininglistitemimg'+trainingid)\n   93      // console.log('++++++++++++++++ trainingimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))\n   94      // var image=$('#traininglistitemimg'+trainingid)\n   ..\n  124      var elm = $('#trainingimgwrap'+trainingid)\n  125      var imgSpinner=elm.find('.mdl-spinner')\n  126:     var img = document.getElementById('traininglistitemimg'+trainingid)\n  127      // var image = $('#traininglistitemimg'+trainingid)\n  128      // var img = image[0]\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\traininglistitem.js:\n   48      const index = this.props.ind\n   49      // console.log('trainingslistitem.js. this.props.ind '+this.props.ind)\n   50:     if( !this.state.hadFocus && document.getElementById('titleInput'+index) ){\n   51:       document.getElementById('titleInput'+index).focus()\n   52        this.setState({\n   53          hadFocus: true\n   ..\n   77      \n   78      \n   79:     // document.getElementById('traininglistitemimg'+trainingid).setAttribute('data-src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   80:     // document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   81      \n   82:     // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84      // setTimeout(function() {\n   ..\n   87      //   //   imageLoaded: undefined\n   88      //   // })\n   89:     //   // document.getElementById('traininglistitemimg'+trainingid).removeAttribute('src')\n   90:     //   document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   91      //   // this.refs.uploadcomp.forceUpdate()\n   92      // }.bind(this),(5000) )\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\traininglistitem.js:\n   48      const index = this.props.ind\n   49      // console.log('trainingslistitem.js. this.props.ind '+this.props.ind)\n   50:     if( !this.state.hadFocus && document.getElementById('titleInput'+index) ){\n   51:       document.getElementById('titleInput'+index).focus()\n   52        this.setState({\n   53          hadFocus: true\n   ..\n   77      \n   78      \n   79:     // document.getElementById('traininglistitemimg'+trainingid).setAttribute('data-src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   80:     // document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   81      \n   82:     // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84      // setTimeout(function() {\n   ..\n   87      //   //   imageLoaded: undefined\n   88      //   // })\n   89:     //   // document.getElementById('traininglistitemimg'+trainingid).removeAttribute('src')\n   90:     //   document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   91      //   // this.refs.uploadcomp.forceUpdate()\n   92      // }.bind(this),(5000) )\n\n41 matches across 13 files\n\n\nSearching 126 files for \"setTimeout\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\navigation\\nav.js:\n   25      var timeout=800//rdm===1?800:350\n   26      logotitleElm2.addClass('animated '+imgAnim) //+(rdm===3&&rdm2===1?' reverseanim':'')\n   27:     setTimeout(() => {\n   28        logotitleElm2.removeClass('animated')\n   29        logotitleElm2.removeClass(imgAnim)\n   ..\n   37            function( callback ){\n   38              console.log('Halli')\n   39:             window.setTimeout(callback, 1000 / 2)\n   40            }\n   41    }\n   ..\n   45      // console.log('Halli')\n   46      sir3allah(undefined)\n   47:     setTimeout(function() {\n   48        requestAnimFrame(loop)\n   49      },(30000) ) //1000/100\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\registration\\register.js:\n   74        // mdl.mdl_open('#modal-demo')\n   75  \n   76:       // setTimeout(function(){\n   77  \n   78        //   mdl.mdl_close('#modal-demo')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todocreate.js:\n   70          error: validateInput\n   71        })\n   72:       setTimeout(function() {\n   73          this.setState({\n   74            error: null\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  168      // var imgwrap = document.getElementById('imgwrap'+taskid)\n  169      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n  170:     // setTimeout(function() {\n  171      //   console.log('todos-list-item, set data-src')\n  172      //   // this.setState({\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\traininglistitem.js:\n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84:     // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n   86      //   // this.setState({\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\traininglistitem.js:\n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83      // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84:     // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n   86      //   // this.setState({\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\server7.js:\n  373      console.log('Timeout for '+req.url+' is '+timeout)\n  374      console.log('Timeout done '+req.url)\n  375:     setTimeout(function() {\n  376        fs.readFile(file, function(err, data) {\n  377          if (err){\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\todos\\todoactions.js:\n  188    //   console.log('todoactions. update todo' + todo.get('task'))\n  189    //   return (dispatch) => {\n  190:   //     // setTimeout(() => {\n  191    //     fetch('http://127.0.0.1:8083/api/updatetodo', {\n  192    //       method: 'POST',\n  ...\n  228          dispatch(todoactions.updateTodo(todoold))\n  229          todoold = todoold.delete('error')\n  230:         setTimeout(() => {\n  231            dispatch(todoactions.updateTodo(todoold))\n  232          }, 2500)\n  ...\n  237          dispatch(todoactions.updateTodo(todoold))\n  238          todoold = todoold.delete('error')\n  239:         setTimeout(() => {\n  240            dispatch(todoactions.updateTodo(todoold))\n  241          }, 2500)\n  ...\n  260                dispatch(todoactions.updateTodo(todoold))\n  261                todoold = todoold.delete('error')\n  262:               setTimeout(() => {\n  263                  dispatch(todoactions.updateTodo(todoold))\n  264                }, 2500)\n  ...\n  269                dispatch(todoactions.updateTodo(todoold))\n  270                todoold = todoold.delete('error')\n  271:               setTimeout(() => {\n  272                  dispatch(todoactions.updateTodo(todoold))\n  273                }, 2500)\n  ...\n  280                dispatch(todoactions.updateTodo(todoold))\n  281                todoold = todoold.delete('error')\n  282:               setTimeout(() => {\n  283                  dispatch(todoactions.updateTodo(todoold))\n  284                }, 2500)\n  ...\n  288                dispatch(todoactions.uploadingTodoImg(todo,true))\n  289                dispatch(todoactions.uploadingTodoImg(todo,false))\n  290:               // setTimeout(function() {\n  291                //   dispatch(todoactions.uploadingTodoImg(todo,false))\n  292                // },(2000) )\n  ...\n  302              todoold = todoold.delete('error')\n  303              // dispatch(todoactions.uploadingTodoImg(todo,false))\n  304:             setTimeout(() => {\n  305                dispatch(todoactions.updateTodo(todoold))\n  306              }, 2500)\n  ...\n  379                dispatch(todoactions.updateTodo(todoold))\n  380                todoold = todoold.delete('error')\n  381:               setTimeout(() => {\n  382                  dispatch(todoactions.updateTodo(todoold))\n  383                }, 2500)\n  ...\n  400                dispatch(todoactions.updateTodo(todoold))\n  401                todoold = todoold.delete('error')\n  402:               setTimeout(() => {\n  403                  dispatch(todoactions.updateTodo(todoold))\n  404                }, 2500)\n  ...\n  411              //   dispatch(todoactions.updateTodo(todoold))\n  412              //   todoold = todoold.delete('error')\n  413:             //   setTimeout(() => {\n  414              //     dispatch(todoactions.updateTodo(todoold))\n  415              //   }, 2500)\n  ...\n  453              dispatch(todoactions.updateTodo(todoold))\n  454              todoold = todoold.delete('error')\n  455:             setTimeout(() => {\n  456                dispatch(todoactions.updateTodo(todoold))\n  457              }, 2500)\n  ...\n  573                dispatch(todoactions.updateTodo(todo))\n  574                todo = todo.delete('error')\n  575:               setTimeout(() => {\n  576                  dispatch(todoactions.updateTodo(todo))\n  577                }, 2500)\n  ...\n  583                dispatch(todoactions.updateTodo(todo))\n  584                todo = todo.delete('error')\n  585:               setTimeout(() => {\n  586                  dispatch(todoactions.updateTodo(todo))\n  587                }, 2500)\n  ...\n  610              dispatch(todoactions.updateTodo(todo))\n  611              todo = todo.delete('error')\n  612:             setTimeout(() => {\n  613                dispatch(todoactions.updateTodo(todo))\n  614              }, 2500)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\trainings\\trainingactions.js:\n  191    //   console.log('trainingactions. update training' + training.get('title'))\n  192    //   return (dispatch) => {\n  193:   //     // setTimeout(() => {\n  194    //     fetch('http://127.0.0.1:8083/api/updatetraining', {\n  195    //       method: 'POST',\n  ...\n  231          dispatch(trainingactions.updateTraining(trainingold))\n  232          trainingold = trainingold.delete('error')\n  233:         setTimeout(() => {\n  234            dispatch(trainingactions.updateTraining(trainingold))\n  235          }, 2500)\n  ...\n  240          dispatch(trainingactions.updateTraining(trainingold))\n  241          trainingold = trainingold.delete('error')\n  242:         setTimeout(() => {\n  243            dispatch(trainingactions.updateTraining(trainingold))\n  244          }, 2500)\n  ...\n  263                dispatch(trainingactions.updateTraining(trainingold))\n  264                trainingold = trainingold.delete('error')\n  265:               setTimeout(() => {\n  266                  dispatch(trainingactions.updateTraining(trainingold))\n  267                }, 2500)\n  ...\n  272                dispatch(trainingactions.updateTraining(trainingold))\n  273                trainingold = trainingold.delete('error')\n  274:               setTimeout(() => {\n  275                  dispatch(trainingactions.updateTraining(trainingold))\n  276                }, 2500)\n  ...\n  283                dispatch(trainingactions.updateTraining(trainingold))\n  284                trainingold = trainingold.delete('error')\n  285:               setTimeout(() => {\n  286                  dispatch(trainingactions.updateTraining(trainingold))\n  287                }, 2500)\n  ...\n  292                dispatch(trainingactions.uploadingTrainingImg(training,true))\n  293                dispatch(trainingactions.uploadingTrainingImg(training,false))\n  294:               // setTimeout(function() {\n  295                //   dispatch(trainingactions.uploadingTrainingImg(training,false))\n  296                // },(2000) )\n  ...\n  306              trainingold = trainingold.delete('error')\n  307              // dispatch(trainingactions.uploadingTrainingImg(training,false))\n  308:             setTimeout(() => {\n  309                dispatch(trainingactions.updateTraining(trainingold))\n  310              }, 2500)\n  ...\n  383                dispatch(trainingactions.updateTraining(trainingold))\n  384                trainingold = trainingold.delete('error')\n  385:               setTimeout(() => {\n  386                  dispatch(trainingactions.updateTraining(trainingold))\n  387                }, 2500)\n  ...\n  404                dispatch(trainingactions.updateTraining(trainingold))\n  405                trainingold = trainingold.delete('error')\n  406:               setTimeout(() => {\n  407                  dispatch(trainingactions.updateTraining(trainingold))\n  408                }, 2500)\n  ...\n  415              //   dispatch(trainingactions.updateTraining(trainingold))\n  416              //   trainingold = trainingold.delete('error')\n  417:             //   setTimeout(() => {\n  418              //     dispatch(trainingactions.updateTraining(trainingold))\n  419              //   }, 2500)\n  ...\n  457              dispatch(trainingactions.updateTraining(trainingold))\n  458              trainingold = trainingold.delete('error')\n  459:             setTimeout(() => {\n  460                dispatch(trainingactions.updateTraining(trainingold))\n  461              }, 2500)\n  ...\n  535                dispatch(trainingactions.updateTraining(training))\n  536                training = training.delete('error')\n  537:               setTimeout(() => {\n  538                  dispatch(trainingactions.updateTraining(training))\n  539                }, 2500)\n  ...\n  545                dispatch(trainingactions.updateTraining(training))\n  546                training = training.delete('error')\n  547:               setTimeout(() => {\n  548                  dispatch(trainingactions.updateTraining(training))\n  549                }, 2500)\n  ...\n  572              dispatch(trainingactions.updateTraining(training))\n  573              training = training.delete('error')\n  574:             setTimeout(() => {\n  575                dispatch(trainingactions.updateTraining(training))\n  576              }, 2500)\n\n39 matches across 9 files\n\n\nSearching 104 files for \"Three\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\appcomponent.js:\n   12  // import $ from 'jquery'\n   13  \n   14: // import { ThreeBounce } from 'better-react-spinkit'\n   15  import { Component, PropTypes } from 'react'\n   16  \n   ..\n  124        //   />\n  125        //   {!isBrowser &&\n  126:       //   <div style='background-color:red;height=100px;'><h2>mama</h2><ThreeBounce color='red' size={18} fade={{duration: 0.3}}/></div>\n  127        //   }  \n  128        //   <h2>Welcome to The todo homepage man!</h2>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\registration\\register.js:\n    1  import React, { Component, PropTypes } from 'react'\n    2: // import { ThreeBounce } from 'better-react-spinkit'\n    3  import Spinner from '../../components/shared/spinner'\n    4  // import 'jquery'\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslist.js:\n    1  import React from 'react'\n    2: //import { ThreeBounce } from 'better-react-spinkit'\n    3  import Immutable from 'immutable'\n    4  import TodosListItem from './todoslistitem'\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n    2  import cookie from 'react-cookie'\n    3  //import Immutable from 'immutable'\n    4: // import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'\n    5  import util from 'util'\n    6  import FileUploadInput from '../../../components/shared/fileuploadinput'\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\todoapp.js:\n    6  import cookie from 'react-cookie'\n    7  // import _ from 'lodash'\n    8: // import { ThreeBounce } from 'better-react-spinkit'\n    9  import PureRenderMixin from 'react-addons-pure-render-mixin'\n   10  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\traininglist.js:\n    1  import React from 'react'\n    2: //import { ThreeBounce } from 'better-react-spinkit'\n    3  import Immutable from 'immutable'\n    4  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\traininglistitem.js:\n    2  import cookie from 'react-cookie'\n    3  //import Immutable from 'immutable'\n    4: // import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'\n    5  import util from 'util'\n    6  import FileUploadInput from '../../../components/shared/fileuploadinput'\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\trainingapp.js:\n    6  import cookie from 'react-cookie'\n    7  // import _ from 'lodash'\n    8: // import { ThreeBounce } from 'better-react-spinkit'\n    9  import PureRenderMixin from 'react-addons-pure-render-mixin'\n   10  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\traininglistitem.js:\n    2  import cookie from 'react-cookie'\n    3  //import Immutable from 'immutable'\n    4: // import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'\n    5  import util from 'util'\n    6  import FileUploadInput from '../../components/shared/fileuploadinput'\n\n10 matches across 9 files\n",
+			"contents": "\n\nSearching 110 files for \" spinner\"\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\components\\shared\\spinner.js:\n    2  \n    3  \n    4: export default class Spinner extends React.Component {\n    5    render() {\n    6  // console.log(this.props)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\home\\home.js:\n  211            <div className='imgwrap'>\n  212              <div className='imgbg'/>\n  213:             <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n  214              <img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='dataimg' alt='coding'/>\n  215            </div>\n  ...\n  217  				</div>\n  218  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  219:         <div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'} className='dataimg' alt='coding'/></div>\n  220  				<p>2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  221  				</div>				\n  222  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  223: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral1.png'} className='dataimg' alt='coding'/></div>\n  224  				<p>3. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  225  				</div>\n  ...\n  229  			<div className=\"row\">\n  230  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  231: 				<div className='imgwrap'><div className='imgbg'/><div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral2.png'} className='dataimg' alt='coding'/></div>\n  232  				<p>4. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  233  				</div>\n  234  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  235: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral2.png'} className='dataimg' alt='coding'/></div>\n  236  				<p>5. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  237  				</div>\n  238  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  239: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral2.png'} className='dataimg' alt='coding'/></div>\n  240  				<p>6. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  241  				</div>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\registration\\register.js:\n    1  import React, { Component, PropTypes } from 'react'\n    2  // import { ThreeBounce } from 'better-react-spinkit'\n    3: import Spinner from '../../components/shared/spinner'\n    4  // import 'jquery'\n    5  import $ from 'jquery'\n    .\n   28  \n   29  export default class Register extends Component {\n   30:   //<Spinner spinnerName='three-bounce' /> circle wordpress double-bounce<p>Loading...</p>\n   31              // <input type='text' ref='email' className=\"form-control\" placeholder='Email'/>\n   32              // <input type='text' ref='username' className=\"form-control\" placeholder='Username'/>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoimage.js:\n   16              //     onLoad={this.handleImageLoaded.bind(this)}\n   17              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   18:             // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   19              // {  isUploading && this.state.imageLoaded==undefined?\n   20              // <div>HALLOOOOO</div>\n   ..\n   36      return (\n   37          <div className='imgwrapper' id={'imgwrap'+taskid} >\n   38:             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   39              <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}\n   40                  onLoad={this.handleImageLoaded.bind(this)}\n   ..\n   45      //     <div className='imgwrapper' id={'imgwrap'+taskid} >\n   46      //     {  this.state.imageLoaded==undefined?\n   47:     //         <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n   48      //         :<div/>\n   49      //     }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslist.js:\n   51      if(this.props.todos==undefined)\n   52        return (\n   53:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   54        )\n   55      return (\n   ..\n   64            <div className='todoslist'>\n   65              {this.props.todos==undefined?\n   66:               <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   67              :<div/>\n   68              }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  167      \n  168      // var imgwrap = document.getElementById('imgwrap'+taskid)\n  169:     // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n  170      // setTimeout(function() {\n  171      //   console.log('todos-list-item, set data-src')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\admin\\admintraininglist.js:\n   52      if(this.props.trainings==undefined)\n   53        return (\n   54:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   55      )\n   56  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlist.js:\n   52      if(this.props.trainings==undefined)\n   53        return (\n   54:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   55      )\n   56  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlistitem.js:\n   81      \n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83:     // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84      // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingimage.js:\n   16              //     onLoad={this.handleImageLoaded.bind(this)}\n   17              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   18:             // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   19              // {  isUploading && this.state.imageLoaded==undefined?\n   20              // <div>HALLOOOOO</div>\n   ..\n   36      return (\n   37          <div className='imgwrapper' id={'trainingimgwrap'+trainingid} >\n   38:             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   39              <img id={'traininglistitemimg'+trainingid} src={actions.apiurl+'/api/training/img/'+trainingid}\n   40                  onLoad={this.handleImageLoaded.bind(this)}\n   ..\n   45      //     <div className='imgwrapper' id={'imgwrap'+trainingid} >\n   46      //     {  this.state.imageLoaded==undefined?\n   47:     //         <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n   48      //         :<div/>\n   49      //     }\n\n21 matches across 10 files\n\n\nSearching 1 file for \" spinner\" (regex)\n\nUnable to open /D/RP/Tests/ReactToDoExp2/src/**/*.scss\n0 matches across 0 files\n\n\nSearching 1 file for \"spinner\" (regex)\n\nUnable to open /D/RP/Tests/ReactToDoExp2/src/**/*.scss\n0 matches across 0 files\n\n\nSearching 1 file for \"is-active\" (regex)\n\nUnable to open /D/RP/Tests/ReactToDoExp2/src/**/*.scss\n0 matches across 0 files\n\n\nSearching 110 files for \"is-active\" (regex)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\components\\shared\\spinner.js:\n    7  //        <p>A little bit about {this.props.params.name}!!I like {this.props.location.query.food}!</p>\n    8      return (\n    9:        <div className='mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active'></div>\n   10      )\n   11    }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\home\\home.js:\n  211            <div className='imgwrap'>\n  212              <div className='imgbg'/>\n  213:             <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n  214              <img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='dataimg' alt='coding'/>\n  215            </div>\n  ...\n  217  				</div>\n  218  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  219:         <div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'} className='dataimg' alt='coding'/></div>\n  220  				<p>2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  221  				</div>				\n  222  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  223: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral1.png'} className='dataimg' alt='coding'/></div>\n  224  				<p>3. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  225  				</div>\n  ...\n  229  			<div className=\"row\">\n  230  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  231: 				<div className='imgwrap'><div className='imgbg'/><div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral2.png'} className='dataimg' alt='coding'/></div>\n  232  				<p>4. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  233  				</div>\n  234  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  235: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral2.png'} className='dataimg' alt='coding'/></div>\n  236  				<p>5. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  237  				</div>\n  238  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  239: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral2.png'} className='dataimg' alt='coding'/></div>\n  240  				<p>6. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  241  				</div>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoimage.js:\n   16              //     onLoad={this.handleImageLoaded.bind(this)}\n   17              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   18:             // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   19              // {  isUploading && this.state.imageLoaded==undefined?\n   20              // <div>HALLOOOOO</div>\n   ..\n   36      return (\n   37          <div className='imgwrapper' id={'imgwrap'+taskid} >\n   38:             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   39              <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}\n   40                  onLoad={this.handleImageLoaded.bind(this)}\n   ..\n   45      //     <div className='imgwrapper' id={'imgwrap'+taskid} >\n   46      //     {  this.state.imageLoaded==undefined?\n   47:     //         <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n   48      //         :<div/>\n   49      //     }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslist.js:\n   51      if(this.props.todos==undefined)\n   52        return (\n   53:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   54        )\n   55      return (\n   ..\n   64            <div className='todoslist'>\n   65              {this.props.todos==undefined?\n   66:               <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   67              :<div/>\n   68              }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  167      \n  168      // var imgwrap = document.getElementById('imgwrap'+taskid)\n  169:     // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n  170      // setTimeout(function() {\n  171      //   console.log('todos-list-item, set data-src')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\admin\\admintraininglist.js:\n   52      if(this.props.trainings==undefined)\n   53        return (\n   54:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   55      )\n   56  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlist.js:\n   52      if(this.props.trainings==undefined)\n   53        return (\n   54:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   55      )\n   56  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlistitem.js:\n   81      \n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83:     // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84      // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingimage.js:\n   16              //     onLoad={this.handleImageLoaded.bind(this)}\n   17              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   18:             // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   19              // {  isUploading && this.state.imageLoaded==undefined?\n   20              // <div>HALLOOOOO</div>\n   ..\n   36      return (\n   37          <div className='imgwrapper' id={'trainingimgwrap'+trainingid} >\n   38:             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   39              <img id={'traininglistitemimg'+trainingid} src={actions.apiurl+'/api/training/img/'+trainingid}\n   40                  onLoad={this.handleImageLoaded.bind(this)}\n   ..\n   45      //     <div className='imgwrapper' id={'imgwrap'+trainingid} >\n   46      //     {  this.state.imageLoaded==undefined?\n   47:     //         <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n   48      //         :<div/>\n   49      //     }\n\n19 matches across 9 files\n\n\nSearching 110 files for \"spinner\"\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\components\\shared\\spinner.js:\n    2  \n    3  \n    4: export default class Spinner extends React.Component {\n    5    render() {\n    6  // console.log(this.props)\n    7  //        <p>A little bit about {this.props.params.name}!!I like {this.props.location.query.food}!</p>\n    8      return (\n    9:        <div className='mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active'></div>\n   10      )\n   11    }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\components\\unsorted\\image.js:\n   33      // // var imgbg=elm.find('.imgbg')\n   34      // var img=elm.find('.dataimg')\n   35:     // // var imgSpinner=elm.find('.mdl-spinner')\n   36  \n   37      // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n   ..\n   39      //   img[0].onload = function() {\n   40      //     img[0].removeAttribute('data-src')\n   41:     //     // imgSpinner.remove()\n   42      //     this.setState({\n   43      //       imageLoaded: true\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\home\\home.js:\n   27  //       // var imgbg=elm.find('.imgbg')\n   28  //       var img=elm.find('.dataimg')\n   29: //       var imgSpinner=elm.find('.mdl-spinner')\n   30  //       if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n   31  //         img[0].setAttribute('src', img[0].getAttribute('data-src')+ (img[0].getAttribute('data-src').includes('/api/')?('?access_token='+ idToken):''))\n   ..\n   33  //           // console.log('image loaded: '+img[0].getAttribute('data-src'))\n   34  //           img[0].removeAttribute('data-src')\n   35: //           imgSpinner.remove()\n   36  \n   37  //           if (elm.visible(true)&&!img[0].hasAttribute('data-src')) {\n   ..\n   59  //     var imgbg=elm.find('.imgbg')\n   60  //     var img=elm.find('.dataimg')\n   61: //     // var imgSpinner=elm.find('.spinner')\n   62  //     elm.addClass('animated')\n   63  //     var rdm = Math.floor(Math.random() * 3) + 1\n   ..\n   94        var imgbg=elm.find('.imgbg')\n   95        var img=elm.find('.dataimg')\n   96:       var imgSpinner=elm.find('.mdl-spinner')\n   97        \n   98  \n   ..\n  102            console.log('image loaded on mount: '+img[0].getAttribute('data-src'))\n  103            img[0].removeAttribute('data-src')\n  104:           imgSpinner.remove()\n  105  \n  106            if (elm.visible(true) &&!img[0].hasAttribute('data-src') ) {\n  107:             imgSpinner.remove()\n  108              elm.addClass('animated') \n  109              // var rdm = Math.floor(Math.random() * 3) + 1\n  ...\n  148        var imgbg=elm.find('.imgbg')\n  149        var img=elm.find('.dataimg')\n  150:       // var imgSpinner=elm.find('.spinner')\n  151        // console.log('++++++++++++++++ Add class 4 WRAP ANIMATED')\n  152        elm.addClass('animated')\n  ...\n  164        // var imgbg=elm.find('.imgbg')\n  165        var img=elm.find('.dataimg')\n  166:       var imgSpinner=elm.find('.mdl-spinner')\n  167        if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n  168          img[0].setAttribute('src', img[0].getAttribute('data-src')+ (img[0].getAttribute('data-src').includes('/api/')?('?access_token='+ idToken):''))\n  ...\n  170            console.log('image loaded on scroll: '+img[0].getAttribute('data-src'))\n  171            img[0].removeAttribute('data-src')\n  172:           imgSpinner.remove()\n  173  \n  174            if (elm.visible(true)&&!img[0].hasAttribute('data-src')) {\n  ...\n  194    }\n  195  \n  196: // <div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./api/todo/img/1234'} className='dataimg' alt='coding'/></div>\n  197: // <div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./api/todo/img/1234'} className='dataimg' alt='coding'/></div>\n  198:         // <div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='dataimg' alt='coding'/></div>\n  199: // <FadingCircle className='spinner' size={60}/>\n  200  \n  201    render() {\n  ...\n  211            <div className='imgwrap'>\n  212              <div className='imgbg'/>\n  213:             <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n  214              <img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='dataimg' alt='coding'/>\n  215            </div>\n  ...\n  217  				</div>\n  218  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  219:         <div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'} className='dataimg' alt='coding'/></div>\n  220  				<p>2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  221  				</div>				\n  222  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  223: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral1.png'} className='dataimg' alt='coding'/></div>\n  224  				<p>3. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  225  				</div>\n  ...\n  229  			<div className=\"row\">\n  230  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  231: 				<div className='imgwrap'><div className='imgbg'/><div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral2.png'} className='dataimg' alt='coding'/></div>\n  232  				<p>4. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  233  				</div>\n  234  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  235: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral2.png'} className='dataimg' alt='coding'/></div>\n  236  				<p>5. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  237  				</div>\n  238  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  239: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral2.png'} className='dataimg' alt='coding'/></div>\n  240  				<p>6. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  241  				</div>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\home\\home.scss:\n   36  	}\n   37  \n   38: 	.spinner{\n   39  		margin-left: -30px;\n   40  		margin-top: 50px;\n   ..\n   47  		height:100%;\n   48  	}\n   49: 	img, .spinner{\n   50  		// margin-left: -74px ;\n   51  		// margin: 0 auto;\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\registration\\register.js:\n    1  import React, { Component, PropTypes } from 'react'\n    2  // import { ThreeBounce } from 'better-react-spinkit'\n    3: import Spinner from '../../components/shared/spinner'\n    4  // import 'jquery'\n    5  import $ from 'jquery'\n    .\n   28  \n   29  export default class Register extends Component {\n   30:   //<Spinner spinnerName='three-bounce' /> circle wordpress double-bounce<p>Loading...</p>\n   31              // <input type='text' ref='email' className=\"form-control\" placeholder='Email'/>\n   32              // <input type='text' ref='username' className=\"form-control\" placeholder='Username'/>\n   ..\n  135              }\n  136              {isRegistrationFetching &&\n  137:             <Spinner/>\n  138              }\n  139              </div>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoimage.js:\n   16              //     onLoad={this.handleImageLoaded.bind(this)}\n   17              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   18:             // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   19              // {  isUploading && this.state.imageLoaded==undefined?\n   20              // <div>HALLOOOOO</div>\n   ..\n   36      return (\n   37          <div className='imgwrapper' id={'imgwrap'+taskid} >\n   38:             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   39              <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}\n   40                  onLoad={this.handleImageLoaded.bind(this)}\n   ..\n   45      //     <div className='imgwrapper' id={'imgwrap'+taskid} >\n   46      //     {  this.state.imageLoaded==undefined?\n   47:     //         <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n   48      //         :<div/>\n   49      //     }\n   ..\n   64      // // var imgbg=elm.find('.imgbg')\n   65      // var img=elm.find('.dataimg')\n   66:     // // var imgSpinner=elm.find('.mdl-spinner')\n   67      // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n   68      //   img[0].removeAttribute('src')\n   ..\n   94        img.setAttribute('data-src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))\n   95      }        \n   96:     // var imgSpinner=elm.find('.mdl-spinner')\n   97      if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n   98        // img[0].removeAttribute('src')\n   99:       var imgSpinner=elm.find('.mdl-spinner')\n  100:       // imgSpinner.remove()\n  101:       imgSpinner[0].style.display = 'block'\n  102        img.style.display = 'none'\n  103        img.setAttribute('src', img.getAttribute('data-src'))\n  ...\n  114      const taskid = this.props.taskid\n  115      var elm = $('#imgwrap'+taskid)\n  116:     var imgSpinner=elm.find('.mdl-spinner')\n  117  \n  118      var image=elm.find('.dataimg')\n  119      var img = image[0]\n  120      if (!img.hasAttribute('data-src')) {\n  121:       // imgSpinner.remove()\n  122        // console.log('++++++++++++++++ todoimage ++++++ handleImageLoaded set background now' )\n  123        img.style.display = 'block'\n  124        if(img.getAttribute('src') != './images/0.png')\n  125          img.style.background = 'radial-gradient(circle closest-side at 50% 50%, white 0,  #69F 95%, transparent 100%)'\n  126:       imgSpinner[0].style.display = 'none'\n  127      }\n  128    }\n  ...\n  132      const taskid = this.props.taskid\n  133      var elm = $('#imgwrap'+taskid)\n  134:     var imgSpinner=elm.find('.mdl-spinner')\n  135      var image=elm.find('.dataimg')\n  136      var img = image[0]\n  137:     imgSpinner[0].style.display = 'none'\n  138      img.setAttribute('src', './images/0.png')\n  139  \n  ...\n  157    //   // var imgbg=elm.find('.imgbg')\n  158    //   var img=elm.find('.dataimg')\n  159:   //   // var imgSpinner=elm.find('.mdl-spinner')\n  160  \n  161    //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n  ...\n  163    //     img[0].onload = function() {\n  164    //       img[0].removeAttribute('data-src')\n  165:   //       // imgSpinner.remove()\n  166    //       this.setState({\n  167    //         imageLoaded: true\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslist.js:\n   51      if(this.props.todos==undefined)\n   52        return (\n   53:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   54        )\n   55      return (\n   ..\n   64            <div className='todoslist'>\n   65              {this.props.todos==undefined?\n   66:               <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   67              :<div/>\n   68              }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  167      \n  168      // var imgwrap = document.getElementById('imgwrap'+taskid)\n  169:     // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n  170      // setTimeout(function() {\n  171      //   console.log('todos-list-item, set data-src')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.scss:\n   44  		// }\n   45  	}\n   46: 	.spinner{\n   47  		margin-top: 12px;\n   48  		margin-left: -116px;\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\admin\\admintraininglist.js:\n   52      if(this.props.trainings==undefined)\n   53        return (\n   54:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   55      )\n   56  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlist.js:\n   52      if(this.props.trainings==undefined)\n   53        return (\n   54:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   55      )\n   56  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlistitem.js:\n   81      \n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83:     // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84      // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlistitem.scss:\n   59  	// 	height:100%;\n   60  	// }\n   61: 	.spinner{\n   62  		margin-top: 12px;\n   63  		margin-left: -116px;\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingimage.js:\n   16              //     onLoad={this.handleImageLoaded.bind(this)}\n   17              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   18:             // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   19              // {  isUploading && this.state.imageLoaded==undefined?\n   20              // <div>HALLOOOOO</div>\n   ..\n   36      return (\n   37          <div className='imgwrapper' id={'trainingimgwrap'+trainingid} >\n   38:             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   39              <img id={'traininglistitemimg'+trainingid} src={actions.apiurl+'/api/training/img/'+trainingid}\n   40                  onLoad={this.handleImageLoaded.bind(this)}\n   ..\n   45      //     <div className='imgwrapper' id={'imgwrap'+trainingid} >\n   46      //     {  this.state.imageLoaded==undefined?\n   47:     //         <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n   48      //         :<div/>\n   49      //     }\n   ..\n   64      // // var imgbg=elm.find('.imgbg')\n   65      // var img=elm.find('.dataimg')\n   66:     // // var imgSpinner=elm.find('.mdl-spinner')\n   67      // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n   68      //   img[0].removeAttribute('src')\n   ..\n  102        // img.setAttribute('data-src', './images/Blog-CodingNeutral1.png')\n  103      }        \n  104:     // var imgSpinner=elm.find('.mdl-spinner')\n  105      if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n  106        // img[0].removeAttribute('src')\n  107:       console.log('Spinner go')\n  108:       var imgSpinner=elm.find('.mdl-spinner')\n  109:       // imgSpinner.remove()\n  110:       imgSpinner[0].style.display = 'block'\n  111        img.style.display = 'none'\n  112        console.log('Set src to ' + img.getAttribute('data-src') +' by '+ img.getAttribute('id'))\n  ...\n  123      const trainingid = this.props.trainingid\n  124      var elm = $('#trainingimgwrap'+trainingid)\n  125:     var imgSpinner=elm.find('.mdl-spinner')\n  126      var img = document.getElementById('traininglistitemimg'+trainingid)\n  127      // var image = $('#traininglistitemimg'+trainingid)\n  ...\n  130      // var img = image[0]\n  131      if (!img.hasAttribute('data-src')) {\n  132:       // imgSpinner.remove()\n  133:       // console.log('Spinner stop' )\n  134        img.style.display = 'block'\n  135        if(img.getAttribute('src') != './images/0.png')\n  136          img.style.background = 'radial-gradient(circle closest-side at 50% 50%, white 0,  #69F 95%, transparent 100%)'\n  137:       imgSpinner[0].style.display = 'none'\n  138:       // imgSpinner[0].style.display = 'none'\n  139      }\n  140    }\n  ...\n  144      const trainingid = this.props.trainingid\n  145      var elm = $('#trainingimgwrap'+trainingid)\n  146:     var imgSpinner=elm.find('.mdl-spinner')\n  147      var image=elm.find('.dataimg')\n  148      var img = image[0]\n  149:     imgSpinner[0].style.display = 'none'\n  150      img.setAttribute('src', './images/0.png')\n  151  \n  ...\n  169    //   // var imgbg=elm.find('.imgbg')\n  170    //   var img=elm.find('.dataimg')\n  171:   //   // var imgSpinner=elm.find('.mdl-spinner')\n  172  \n  173    //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n  ...\n  175    //     img[0].onload = function() {\n  176    //       img[0].removeAttribute('data-src')\n  177:   //       // imgSpinner.remove()\n  178    //       this.setState({\n  179    //         imageLoaded: true\n\n145 matches across 14 files\n\n\nSearching 110 files for \"is-active\"\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\components\\shared\\spinner.js:\n    7  //        <p>A little bit about {this.props.params.name}!!I like {this.props.location.query.food}!</p>\n    8      return (\n    9:        <div className='mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active'></div>\n   10      )\n   11    }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\home\\home.js:\n  211            <div className='imgwrap'>\n  212              <div className='imgbg'/>\n  213:             <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n  214              <img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='dataimg' alt='coding'/>\n  215            </div>\n  ...\n  217  				</div>\n  218  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  219:         <div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'} className='dataimg' alt='coding'/></div>\n  220  				<p>2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  221  				</div>				\n  222  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  223: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral1.png'} className='dataimg' alt='coding'/></div>\n  224  				<p>3. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  225  				</div>\n  ...\n  229  			<div className=\"row\">\n  230  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  231: 				<div className='imgwrap'><div className='imgbg'/><div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral2.png'} className='dataimg' alt='coding'/></div>\n  232  				<p>4. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  233  				</div>\n  234  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  235: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral2.png'} className='dataimg' alt='coding'/></div>\n  236  				<p>5. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  237  				</div>\n  238  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  239: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral2.png'} className='dataimg' alt='coding'/></div>\n  240  				<p>6. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  241  				</div>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoimage.js:\n   16              //     onLoad={this.handleImageLoaded.bind(this)}\n   17              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   18:             // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   19              // {  isUploading && this.state.imageLoaded==undefined?\n   20              // <div>HALLOOOOO</div>\n   ..\n   36      return (\n   37          <div className='imgwrapper' id={'imgwrap'+taskid} >\n   38:             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   39              <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}\n   40                  onLoad={this.handleImageLoaded.bind(this)}\n   ..\n   45      //     <div className='imgwrapper' id={'imgwrap'+taskid} >\n   46      //     {  this.state.imageLoaded==undefined?\n   47:     //         <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n   48      //         :<div/>\n   49      //     }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslist.js:\n   51      if(this.props.todos==undefined)\n   52        return (\n   53:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   54        )\n   55      return (\n   ..\n   64            <div className='todoslist'>\n   65              {this.props.todos==undefined?\n   66:               <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{width:'55px',height:'55px'}}></div>\n   67              :<div/>\n   68              }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  167      \n  168      // var imgwrap = document.getElementById('imgwrap'+taskid)\n  169:     // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n  170      // setTimeout(function() {\n  171      //   console.log('todos-list-item, set data-src')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\admin\\admintraininglist.js:\n   52      if(this.props.trainings==undefined)\n   53        return (\n   54:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   55      )\n   56  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlist.js:\n   52      if(this.props.trainings==undefined)\n   53        return (\n   54:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   55      )\n   56  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlistitem.js:\n   81      \n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83:     // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84      // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingimage.js:\n   16              //     onLoad={this.handleImageLoaded.bind(this)}\n   17              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   18:             // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   19              // {  isUploading && this.state.imageLoaded==undefined?\n   20              // <div>HALLOOOOO</div>\n   ..\n   36      return (\n   37          <div className='imgwrapper' id={'trainingimgwrap'+trainingid} >\n   38:             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   39              <img id={'traininglistitemimg'+trainingid} src={actions.apiurl+'/api/training/img/'+trainingid}\n   40                  onLoad={this.handleImageLoaded.bind(this)}\n   ..\n   45      //     <div className='imgwrapper' id={'imgwrap'+trainingid} >\n   46      //     {  this.state.imageLoaded==undefined?\n   47:     //         <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n   48      //         :<div/>\n   49      //     }\n\n19 matches across 9 files\n\n\nSearching 110 files for \"mdl-spinner\"\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\components\\shared\\spinner.js:\n    7  //        <p>A little bit about {this.props.params.name}!!I like {this.props.location.query.food}!</p>\n    8      return (\n    9:        <div className='mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active'></div>\n   10      )\n   11    }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\components\\unsorted\\image.js:\n   33      // // var imgbg=elm.find('.imgbg')\n   34      // var img=elm.find('.dataimg')\n   35:     // // var imgSpinner=elm.find('.mdl-spinner')\n   36  \n   37      // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\home\\home.js:\n   27  //       // var imgbg=elm.find('.imgbg')\n   28  //       var img=elm.find('.dataimg')\n   29: //       var imgSpinner=elm.find('.mdl-spinner')\n   30  //       if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n   31  //         img[0].setAttribute('src', img[0].getAttribute('data-src')+ (img[0].getAttribute('data-src').includes('/api/')?('?access_token='+ idToken):''))\n   ..\n   94        var imgbg=elm.find('.imgbg')\n   95        var img=elm.find('.dataimg')\n   96:       var imgSpinner=elm.find('.mdl-spinner')\n   97        \n   98  \n   ..\n  164        // var imgbg=elm.find('.imgbg')\n  165        var img=elm.find('.dataimg')\n  166:       var imgSpinner=elm.find('.mdl-spinner')\n  167        if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n  168          img[0].setAttribute('src', img[0].getAttribute('data-src')+ (img[0].getAttribute('data-src').includes('/api/')?('?access_token='+ idToken):''))\n  ...\n  211            <div className='imgwrap'>\n  212              <div className='imgbg'/>\n  213:             <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n  214              <img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='dataimg' alt='coding'/>\n  215            </div>\n  ...\n  217  				</div>\n  218  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  219:         <div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'} className='dataimg' alt='coding'/></div>\n  220  				<p>2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  221  				</div>				\n  222  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  223: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral1.png'} className='dataimg' alt='coding'/></div>\n  224  				<p>3. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  225  				</div>\n  ...\n  229  			<div className=\"row\">\n  230  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  231: 				<div className='imgwrap'><div className='imgbg'/><div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral2.png'} className='dataimg' alt='coding'/></div>\n  232  				<p>4. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  233  				</div>\n  234  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  235: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral2.png'} className='dataimg' alt='coding'/></div>\n  236  				<p>5. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  237  				</div>\n  238  				<div className=\"col-xs-12 col-md-4 col-lg-4\">\n  239: 				<div className='imgwrap'><div className='imgbg'/><div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral2.png'} className='dataimg' alt='coding'/></div>\n  240  				<p>6. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>\n  241  				</div>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoimage.js:\n   16              //     onLoad={this.handleImageLoaded.bind(this)}\n   17              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   18:             // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   19              // {  isUploading && this.state.imageLoaded==undefined?\n   20              // <div>HALLOOOOO</div>\n   ..\n   36      return (\n   37          <div className='imgwrapper' id={'imgwrap'+taskid} >\n   38:             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   39              <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}\n   40                  onLoad={this.handleImageLoaded.bind(this)}\n   ..\n   45      //     <div className='imgwrapper' id={'imgwrap'+taskid} >\n   46      //     {  this.state.imageLoaded==undefined?\n   47:     //         <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n   48      //         :<div/>\n   49      //     }\n   ..\n   64      // // var imgbg=elm.find('.imgbg')\n   65      // var img=elm.find('.dataimg')\n   66:     // // var imgSpinner=elm.find('.mdl-spinner')\n   67      // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n   68      //   img[0].removeAttribute('src')\n   ..\n   94        img.setAttribute('data-src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))\n   95      }        \n   96:     // var imgSpinner=elm.find('.mdl-spinner')\n   97      if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n   98        // img[0].removeAttribute('src')\n   99:       var imgSpinner=elm.find('.mdl-spinner')\n  100        // imgSpinner.remove()\n  101        imgSpinner[0].style.display = 'block'\n  ...\n  114      const taskid = this.props.taskid\n  115      var elm = $('#imgwrap'+taskid)\n  116:     var imgSpinner=elm.find('.mdl-spinner')\n  117  \n  118      var image=elm.find('.dataimg')\n  ...\n  132      const taskid = this.props.taskid\n  133      var elm = $('#imgwrap'+taskid)\n  134:     var imgSpinner=elm.find('.mdl-spinner')\n  135      var image=elm.find('.dataimg')\n  136      var img = image[0]\n  ...\n  157    //   // var imgbg=elm.find('.imgbg')\n  158    //   var img=elm.find('.dataimg')\n  159:   //   // var imgSpinner=elm.find('.mdl-spinner')\n  160  \n  161    //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslist.js:\n   51      if(this.props.todos==undefined)\n   52        return (\n   53:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{width:'55px',height:'55px'}}></div>\n   54        )\n   55      return (\n   ..\n   64            <div className='todoslist'>\n   65              {this.props.todos==undefined?\n   66:               <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{width:'55px',height:'55px'}}></div>\n   67              :<div/>\n   68              }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n  167      \n  168      // var imgwrap = document.getElementById('imgwrap'+taskid)\n  169:     // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n  170      // setTimeout(function() {\n  171      //   console.log('todos-list-item, set data-src')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\admin\\admintraininglist.js:\n   52      if(this.props.trainings==undefined)\n   53        return (\n   54:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   55      )\n   56  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlist.js:\n   52      if(this.props.trainings==undefined)\n   53        return (\n   54:         <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>\n   55      )\n   56  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlistitem.js:\n   81      \n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   83:     // imgwrap.innerHTML = '<div class=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>'+imgwrap.innerHTML\n   84      // setTimeout(function() {\n   85      //   console.log('trainings-list-item, set data-src')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingimage.js:\n   16              //     onLoad={this.handleImageLoaded.bind(this)}\n   17              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   18:             // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   19              // {  isUploading && this.state.imageLoaded==undefined?\n   20              // <div>HALLOOOOO</div>\n   ..\n   36      return (\n   37          <div className='imgwrapper' id={'trainingimgwrap'+trainingid} >\n   38:             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   39              <img id={'traininglistitemimg'+trainingid} src={actions.apiurl+'/api/training/img/'+trainingid}\n   40                  onLoad={this.handleImageLoaded.bind(this)}\n   ..\n   45      //     <div className='imgwrapper' id={'imgwrap'+trainingid} >\n   46      //     {  this.state.imageLoaded==undefined?\n   47:     //         <div className=\"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner\"></div>\n   48      //         :<div/>\n   49      //     }\n   ..\n   64      // // var imgbg=elm.find('.imgbg')\n   65      // var img=elm.find('.dataimg')\n   66:     // // var imgSpinner=elm.find('.mdl-spinner')\n   67      // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n   68      //   img[0].removeAttribute('src')\n   ..\n  102        // img.setAttribute('data-src', './images/Blog-CodingNeutral1.png')\n  103      }        \n  104:     // var imgSpinner=elm.find('.mdl-spinner')\n  105      if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n  106        // img[0].removeAttribute('src')\n  107        console.log('Spinner go')\n  108:       var imgSpinner=elm.find('.mdl-spinner')\n  109        // imgSpinner.remove()\n  110        imgSpinner[0].style.display = 'block'\n  ...\n  123      const trainingid = this.props.trainingid\n  124      var elm = $('#trainingimgwrap'+trainingid)\n  125:     var imgSpinner=elm.find('.mdl-spinner')\n  126      var img = document.getElementById('traininglistitemimg'+trainingid)\n  127      // var image = $('#traininglistitemimg'+trainingid)\n  ...\n  144      const trainingid = this.props.trainingid\n  145      var elm = $('#trainingimgwrap'+trainingid)\n  146:     var imgSpinner=elm.find('.mdl-spinner')\n  147      var image=elm.find('.dataimg')\n  148      var img = image[0]\n  ...\n  169    //   // var imgbg=elm.find('.imgbg')\n  170    //   var img=elm.find('.dataimg')\n  171:   //   // var imgSpinner=elm.find('.mdl-spinner')\n  172  \n  173    //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object \n\n54 matches across 10 files\n\n\nSearching 110 files for \"marg0\"\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslist.scss:\n    2  \n    3  \n    4: .marg0{\n    5  	margin: 0;\n    6  }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\admin\\admintraininglist.scss:\n   17  	background-color: !important;\n   18  }\n   19: .marg0{\n   20  	margin: 0;\n   21  }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlist.scss:\n   17  	background-color: !important;\n   18  }\n   19: .marg0{\n   20  	margin: 0;\n   21  }\n\n3 matches across 3 files\n\n\nSearching 112 files for \"center-items\"\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslist.scss:\n    6  // }\n    7  \n    8: // .center-items {\n    9  //   justify-content: center;\n   10  // }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.js:\n   23    }\n   24  \n   25:       // <form className='mdl-grid mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet mdl-cell--4-col-phone center-items' onSubmit={this.onSaveClick.bind(this)}>\n   26        //   <div className='mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet mdl-cell--4-col-phone' style={taskStyle} onClick={this.handleToggle.bind(this)}>{task}</div>\n   27        //   <div className='mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--2-col-phone'><button className='editbutton active' onClick={this.onEditClick.bind(this)}>Edit</button></div>\n   ..\n   51    //   const disabled = loading||error\n   52    //   const errorClass = error?'error':''\n   53:   //   const loadingClass = loading?'center-items loading':''\n   54    //   const loadingContent = loading?<div className=\"loadingbar mdl-progress mdl-js-progress mdl-progress__indeterminate\"></div>:''\n   55  \n   ..\n  103      return (\n  104        <div>\n  105:       <div className='mdl-grid todoslistitem blockborder center-items'>\n  106          {this.renderTaskForm()}\n  107        </div>\n  ...\n  262      const disabled = loading||error\n  263      const errorClass = error?'error':''\n  264:     const loadingClass = loading?'center-items loading':''\n  265      const loadingContent = loading?<div className=\"loadingbar mdl-progress mdl-js-progress mdl-progress__indeterminate\"></div>:''\n  266  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\components\\todoslistitem.scss:\n   90  \n   91  \n   92: .center-items {\n   93    justify-content: center;\n   94  }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\admin\\admintraininglist.scss:\n   27  }\n   28  \n   29: // .center-items {\n   30  //   justify-content: center;\n   31  // }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\admin\\admintraininglistitem.js:\n   38      const title = this.props.training.get('title')\n   39      return (\n   40:       <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone trainingslistitem blockborder center-items'>\n   41            <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone'><p>{title}</p></div>\n   42            <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone'><p>{title+' Long version Long version Long version'}</p></div>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlist.scss:\n   27  }\n   28  \n   29: // .center-items {\n   30  //   justify-content: center;\n   31  // }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlistitem.js:\n   26      return (\n   27        <div>\n   28:       <div className='mdl-grid trainingslistitem blockborder center-items'>\n   29          {this.renderTaskForm()}\n   30        </div>\n   ..\n  174      const disabled = loading||error\n  175      const errorClass = error?'error':''\n  176:     const loadingClass = loading?'center-items loading':''\n  177      const loadingContent = loading?<div className=\"loadingbar mdl-progress mdl-js-progress mdl-progress__indeterminate\"></div>:''\n  178  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\components\\trainingeditlistitem.scss:\n   88  \n   89  \n   90: .center-items {\n   91    justify-content: center;\n   92  }\n\n12 matches across 8 files\n",
 			"settings":
 			{
-				"buffer_size": 35410,
+				"buffer_size": 63687,
 				"line_ending": "Windows",
 				"name": "Find Results",
 				"scratch": true
 			}
 		},
 		{
-			"file": "src/scenes/training/components/trainingcreate.scss",
+			"file": "src/scenes/training/components/trainingeditlistitem.js",
 			"settings":
 			{
-				"buffer_size": 761,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/scenes/training/components/trainingcreate.js",
-			"settings":
-			{
-				"buffer_size": 2841,
+				"buffer_size": 11931,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/scenes/training/trainingapp.js",
+			"file": "src/services/trainings/trainingactions.js",
 			"settings":
 			{
-				"buffer_size": 10840,
+				"buffer_size": 24096,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/scenes/training/trainingapp.scss",
+			"file": "src/services/trainings/trainingReducer.js",
 			"settings":
 			{
-				"buffer_size": 709,
-				"line_ending": "Windows"
+				"buffer_size": 7160,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/scenes/todo/todoapp.scss",
+			"file": "src/scenes/training/components/trainingeditlist.js",
 			"settings":
 			{
-				"buffer_size": 705,
-				"line_ending": "Windows"
+				"buffer_size": 1945,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/scenes/training/admin/admintraininglist.js",
+			"settings":
+			{
+				"buffer_size": 2944,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -297,47 +297,82 @@
 	},
 	"file_history":
 	[
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/trainingapp.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/trainingeditlistitem.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/admintraininglistitem.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/admintraininglistitem.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/appcomponent.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/admintraininglist.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/home/home.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/home/home.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslistitem.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslistitem.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoimage.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/shared/trainingimage.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/trainingeditlist.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/admintraininglist.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/app.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/trainingeditlistitem.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/trainingapp.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/navigation/nav.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/trainingeditlist.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/trainingimage.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todosfilter.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/waterpipebg.js",
+		"/D/RP/Tests/ReactToDoExp2/src/server7prod.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslist.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslist.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/todoapp.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/components/shared/spinner.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/todoapp.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/appcomponent.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/navigation/nav.js",
+		"/D/RP/Tests/ReactToDoExp2/src/components/shared/fileuploadinput.js",
+		"/D/RP/Tests/ReactToDoExp2/src/services/app/authentication/authactions.js",
+		"/D/RP/Tests/ReactToDoExp2/src/services/app/authentication/authReducer.js",
+		"/D/RP/Tests/ReactToDoExp2/src/services/app/authentication/authservices.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/loginmodal.js",
+		"/D/RP/Tests/ReactToDoExp2/src/services/todos/todoservices.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/login.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/registration/register.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/registration/register.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/bubbles.js",
+		"/D/RP/Tests/ReactToDoExp2/src/server7.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todocreate.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/app/index.js",
+		"/D/RP/Tests/ReactToDoExp2/src/styles/default.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/app/jquery.shuffleLetters.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/textswitcher.js",
+		"/D/RP/Tests/ReactToDoExp2/package.json",
+		"/D/RP/Tests/ReactToDoExp2/.babelrc",
+		"/D/RP/Tests/ReactToDoExp2/webpack.config.js",
+		"/D/RP/Tests/ReactToDoExp2/src/styles/animate.css",
+		"/D/RP/Tests/ReactToDoExp2/src/app/auroraeffect/index.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/auroraeffect/simplex.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/auroraeffect/requestanimpolyfill.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/waterpipe.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/aurorasimplex.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/aurorarequestanimpolyfill.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/aurorastart.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/navigation/navpublic.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/navigation/navadmin.js",
+		"/D/RP/Tests/ReactToDoExp2/src/app/navigation/navuser.js",
+		"/D/RP/Tests/ReactToDoExp2/src/components/shared/fileuploadinput.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/trainingcreate.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/trainingcreate.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todocreate.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/trainings/trainingReducer.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/traininglist.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslist.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/todos/todoReducer.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/todoapp.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslistitem.js",
-		"/D/RP/Tests/ReactToDoExp2/src/app/appcomponent.js",
-		"/D/RP/Tests/ReactToDoExp2/src/app/appcomponent.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/app/app.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoimage.js",
-		"/D/RP/Tests/ReactToDoExp2/src/services/todos/todoservices.js",
-		"/D/RP/Tests/ReactToDoExp2/package.json",
-		"/D/RP/Tests/ReactToDoExp2/src/server7.js",
-		"/D/RP/Tests/ReactToDoExp2/src/server7prod.js",
-		"/D/RP/Tests/ReactToDoExp2/src/app/navigation/nav.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todosfilter.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todocreate.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslistitem.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/todoapp.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todosfilter.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslist.scss",
 		"/C/Programm/SublimeText3/Data/Packages/User/ZenTabs.sublime-settings",
 		"/C/Programm/SublimeText3/Data/Packages/Zen Tabs/ZenTabs.sublime-settings",
 		"/C/Programm/SublimeText3/Data/Packages/Zen Tabs/TODO.todo",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/home/home.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/home/home.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/registration/register.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/registration/register.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/traininglistitem.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/app/index.js",
-		"/D/RP/Tests/ReactToDoExp2/src/app/navigation/nav.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/trainingapp.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/styles/app.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/components/shared/fileuploadinput.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todos-list.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todos-list-item.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/traininglistitem.js",
-		"/D/RP/Tests/ReactToDoExp2/src/styles/default.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/app/waterpipe.js",
-		"/D/RP/Tests/ReactToDoExp2/src/services/app/authentication/authactions.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/app/userReducer.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/unsorted/image.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/rootreducer.js",
@@ -346,11 +381,8 @@
 		"/D/RP/Tests/ReactToDoExp2/src/test/components/TodosListItem_spec.jsx",
 		"/D/RP/Tests/ReactToDoExp2/src/test/components/Register_spec.jsx",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/traininglistitem.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/trainingimage.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todos-list-item.js",
-		"/D/RP/Tests/ReactToDoExp2/src/services/app/authentication/authservices.js",
 		"/D/RP/Tests/ReactToDoExp2/src/redux/store.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/trainingapp.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/routes.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/todos-list-item.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/home.js",
@@ -359,17 +391,14 @@
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/trainingcreate.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/fileuploadinput.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/traininglist.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/components/shared/fileuploadinput.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/trainingimage.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/trainingimage.js",
-		"/D/RP/Tests/ReactToDoExp2/src/components/shared/spinner.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/todoimage.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/trainingapp.js",
 		"/D/RP/Tests/ReactToDoExp2/src/redux/actions/trainingactions.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/traininglist.js",
 		"/D/RP/Tests/ReactToDoExp2/src/redux/reducers/trainingReducer.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/traininglistitem.js",
-		"/D/RP/Tests/ReactToDoExp2/webpack.config.js",
 		"/D/RP/Tests/ReactToDoExp2/webpack-production.config.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/appcomponent.js",
 		"/D/RP/Tests/ReactToDoExp2/src/client/index.html",
@@ -395,36 +424,7 @@
 		"/D/RP/Tests/ReactToDoExp2/src/components/todos-list-item.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/components/todoapp.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/redux/reducers/todoReducer.js",
-		"/D/RP/Tests/ReactToDoExp2/src/components/image.js",
-		"/D/RP/Tests/ReactToDoExp2/src/components/home.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/components/fileuploadinput.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/components/appcomponent.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/components/loginmodal.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/components/userapp.js",
-		"/D/RP/Tests/ReactToDoExp2/src/components/registerconfirm.js",
-		"/D/RP/Tests/ReactToDoExp2/src/redux/actions/authactions.js",
-		"/D/RP/Tests/ReactToDoExp2/src/redux/reducers/authReducer.js",
-		"/D/RP/Tests/ReactToDoExp2/src/redux/actions/registeractions.js",
-		"/D/RP/Tests/ReactToDoExp2/Procfile",
-		"/D/RP/Tests/ReactToDoExp2/.gitignore",
-		"/D/RP/Tests/ReactToDoExp2/app.json",
-		"/D/RP/Tests/ReactToDoExp2/src/redux/reducers/appReducer.js",
-		"/D/RP/Tests/ReactToDoExp2/src/components/register.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/components/nav.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/components/loginmodal - Old.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/components/appmodaldlg.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/components/login.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/components/login.js",
-		"/D/RP/Tests/ReactToDoExp2/src/components/loginmodal.js",
-		"/D/RP/Tests/ReactToDoExp2/build/server7.js",
-		"/D/RP/Tests/ReactToDoExp2/build/server7prod.js",
-		"/D/RP/Tests/ReactToDoExp2/src/components/appmodaldlg.js",
-		"/D/RP/Tests/ReactToDoExp2/src/components/appdialog.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/redux/actions/appactions.js",
-		"/D/RP/Tests/ReactToDoExp2/src/js/mdl.js",
-		"/D/RP/Tests/ReactToDoExp2/src/components/appdialog.js",
-		"/D/RP/Tests/ReactToDoExp2/src/components/create-todo.js",
-		"/D/RP/Tests/ReactToDoExp2/src/components/snackbar.js"
+		"/D/RP/Tests/ReactToDoExp2/src/components/image.js"
 	],
 	"find":
 	{
@@ -435,6 +435,8 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"D:\\RP\\Tests\\ReactToDoExp2\\src\\",
+			"D:\\RP\\Tests\\ReactToDoExp2\\src\\**\\*.scss",
 			"D:\\RP\\Tests\\ReactToDoExp2\\src",
 			"D:\\RP\\Tests\\ReactToDoExp2\\src,D:\\RP\\Tests\\ReactToDoExp2\\node_modules\\materialize-css\\",
 			"D:\\RP\\Tests\\ReactToDoExp2\\src,D:\\RP\\Tests\\ReactToDoExp2\\node_modules\\materialize-css\\fonts",
@@ -462,9 +464,103 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"imgwrap",
+			"todolistitemimg",
+			"center-items",
+			"what",
+			"TrainingImage",
+			"marg0",
+			"mdl-spinner",
+			"is-active",
+			".scss",
+			"spinner",
+			"is-active",
+			"spinner",
+			" spinner",
+			"%",
+			"todoapp",
+			"appsnackbar",
+			"getChildContext",
+			"util",
+			"constructor",
+			"animate",
+			"this.",
+			"for",
+			"#root",
+			"textswitcher()",
+			"this.textSwitchContainer",
+			"this.textSwitchWrapContainer",
+			"textSwitchContainer",
+			"equestAnimationFrame",
+			"this.",
+			"scroll",
+			"body{",
+			"body",
+			"window.switcharray",
+			"window",
+			"es7",
+			"es5",
+			"babel-plug",
+			"sleep",
+			".style",
+			"shake",
+			"requestanimationframe",
+			"random",
+			"font-size",
+			"background-color: red;",
+			"font-size",
+			"animateText",
+			"ctx.",
+			"create",
+			"createStars",
+			"new",
+			"destr",
+			"canvs2",
+			"canvs",
+			"context",
+			"time",
+			"requestAnimationFrame",
+			"loop",
+			"requestAnimationFrame",
+			"loop",
+			"canvas",
+			"render",
+			"createCloudTexture",
+			"Simplex",
+			"simplexNoiseInst",
+			"Simplex",
+			"gradient",
+			"simplexNoise",
+			"simplex",
+			"simple",
+			"line",
+			"location",
+			"isAuthenticated",
+			"errorMessage",
+			"navbar-toggle",
+			"togg",
+			"tog",
+			"navbar",
+			"arc",
+			"color",
+			"requestAnim",
+			"requestAnimationFrame",
+			"requestAnimFrame",
+			"callback",
+			"timeout",
+			"tick",
+			"tick.svg",
+			"FileUploadInput",
+			"disabled",
+			"taskStyle",
+			"handleToggle",
+			"getMdlColor",
+			"$beige",
+			"beige",
+			"import",
 			"todo",
 			"ThreeBounce",
 			"spinkit",
@@ -498,101 +594,7 @@
 			"/spinner",
 			"UserApp",
 			"AboutComponent",
-			"Timout done",
-			"input",
-			"cookie.load('jwt')",
-			"random",
-			"trainingid",
-			"#",
-			"uploadingTrainingImg",
-			"isUploading",
-			"../styles/animate",
-			"client",
-			"client/",
-			"/client",
-			"client",
-			"isAuthenticated",
-			"retrieveUserTrainingsDispatcher",
-			"ask",
-			"odo",
-			"TRAININGS_LOADED",
-			"createTrainingInit",
-			"save",
-			"createTodoInit",
-			"save",
-			"/training/save",
-			"actions",
-			"odo",
-			"TrainingsListHeader",
-			"TrainingsListItem",
-			"TrainingsFilter",
-			"title",
-			"task",
-			"odo",
-			"header",
-			"titleid",
-			"task",
-			"titleInput",
-			"newTask",
-			"titleInput",
-			"taskInput",
-			"task",
-			"train",
-			"odo",
-			"task",
-			"odo",
-			"filter",
-			"title",
-			"task",
-			"TODO",
-			"odo",
-			"saveTodo",
-			"saveTraining",
-			"title",
-			"task",
-			"\ntask",
-			"task",
-			"Training_",
-			"_Training",
-			"odo",
-			"Todo",
-			"actions.",
-			"actions",
-			"url-loader",
-			"ThreeBounce",
-			"FadingCircle\n",
-			"ThreeBounce",
-			"fileinput",
-			"Parameter not present",
-			"taskInput",
-			"hadFocus",
-			"edit",
-			"focus",
-			"remove",
-			"loading",
-			"remove",
-			"LOADING",
-			"loading",
-			"isUpload",
-			"updateTodo",
-			"uploadingTodoImg",
-			"Loadi",
-			"Loading",
-			"timeout",
-			"isUploading",
-			"spinner",
-			"mdl-spinner",
-			"spinner",
-			"data-src",
-			"'loading'",
-			"imageLoaded",
-			"aaa",
-			"really",
-			"isEditing",
-			"really",
-			"isEditing",
-			"START_LOADING_TODO_FILE",
-			"loadingTodoFile"
+			"Timout done"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -600,6 +602,13 @@
 		"regex": false,
 		"replace_history":
 		[
+			"textSwitchContainer",
+			"textSwitchWrapContainer",
+			"window.switchTextArray",
+			"context.",
+			"getMdlColor($color-primary)",
+			"unquote(\"rgb(#{$color-primary})\")",
+			"color-primary",
 			"training",
 			"#003870",
 			"#6bc1ff",
@@ -679,7 +688,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -687,7 +696,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 35410,
+						"buffer_size": 63687,
 						"regions":
 						{
 							"match":
@@ -696,536 +705,1100 @@
 								"regions":
 								[
 									[
-										128,
-										139
+										141,
+										149
 									],
 									[
-										384,
-										395
+										466,
+										474
 									],
 									[
-										691,
-										702
+										858,
+										866
 									],
 									[
-										951,
-										962
+										1551,
+										1559
 									],
 									[
-										1416,
-										1426
+										2277,
+										2285
 									],
 									[
-										1645,
-										1655
+										2963,
+										2971
 									],
 									[
-										1790,
-										1800
+										3651,
+										3659
 									],
 									[
-										2016,
-										2026
+										4342,
+										4350
 									],
 									[
-										2395,
-										2405
+										4536,
+										4544
 									],
 									[
-										2827,
-										2837
+										5164,
+										5172
 									],
 									[
-										3252,
-										3262
+										5489,
+										5497
 									],
 									[
-										3540,
-										3550
+										5955,
+										5963
 									],
 									[
-										3833,
-										3843
+										6248,
+										6256
 									],
 									[
-										4077,
-										4087
+										6536,
+										6544
 									],
 									[
-										4306,
-										4316
+										6901,
+										6909
 									],
 									[
-										4553,
-										4563
+										7273,
+										7281
 									],
 									[
-										4812,
-										4822
+										7589,
+										7597
 									],
 									[
-										5071,
-										5081
+										7942,
+										7950
 									],
 									[
-										5358,
-										5368
+										8432,
+										8440
 									],
 									[
-										5645,
-										5655
+										8769,
+										8777
 									],
 									[
-										5900,
-										5910
+										9203,
+										9211
 									],
 									[
-										6159,
-										6169
+										9987,
+										9996
 									],
 									[
-										6427,
-										6437
+										10256,
+										10265
 									],
 									[
-										6686,
-										6696
+										10648,
+										10657
 									],
 									[
-										6932,
-										6942
+										11341,
+										11350
 									],
 									[
-										7179,
-										7189
+										12067,
+										12076
 									],
 									[
-										7420,
-										7430
+										12753,
+										12762
 									],
 									[
-										7739,
-										7749
+										13441,
+										13450
 									],
 									[
-										8007,
-										8017
+										14278,
+										14287
 									],
 									[
-										8268,
-										8278
+										14603,
+										14612
 									],
 									[
-										8547,
-										8557
+										15069,
+										15078
 									],
 									[
-										8838,
-										8848
+										15362,
+										15371
 									],
 									[
-										9129,
-										9139
+										15650,
+										15659
 									],
 									[
-										9452,
-										9462
+										16015,
+										16024
 									],
 									[
-										9771,
-										9781
+										16387,
+										16396
 									],
 									[
-										10058,
-										10068
+										16703,
+										16712
 									],
 									[
-										10349,
-										10359
+										17056,
+										17065
 									],
 									[
-										10649,
-										10659
+										17546,
+										17555
 									],
 									[
-										10940,
-										10950
+										17883,
+										17892
 									],
 									[
-										11218,
-										11228
+										18317,
+										18326
 									],
 									[
-										11497,
-										11507
-									],
-									[
-										11770,
-										11780
-									],
-									[
-										12118,
-										12124
-									],
-									[
-										12411,
-										12434
-									],
-									[
-										12506,
-										12529
-									],
-									[
-										12782,
-										12805
-									],
-									[
-										12939,
-										12962
-									],
-									[
-										13235,
-										13258
-									],
-									[
-										13488,
-										13511
-									],
-									[
-										13643,
-										13666
-									],
-									[
-										13870,
-										13893
-									],
-									[
-										14027,
-										14050
-									],
-									[
-										14330,
-										14353
-									],
-									[
-										14487,
-										14510
-									],
-									[
-										14783,
-										14806
-									],
-									[
-										15121,
-										15144
-									],
-									[
-										15484,
-										15507
-									],
-									[
-										15715,
-										15738
-									],
-									[
-										15792,
-										15815
-									],
-									[
-										15869,
-										15892
-									],
-									[
-										16164,
-										16187
-									],
-									[
-										16592,
-										16615
-									],
-									[
-										16651,
-										16674
-									],
-									[
-										16805,
-										16828
-									],
-									[
-										16960,
-										16983
-									],
-									[
-										17136,
-										17159
-									],
-									[
-										17452,
-										17475
-									],
-									[
-										17541,
-										17564
-									],
-									[
-										17960,
-										17983
-									],
-									[
-										18359,
-										18382
-									],
-									[
-										18753,
-										18776
+										18561,
+										18568
 									],
 									[
 										18813,
-										18836
+										18820
 									],
 									[
-										18968,
-										18991
+										18828,
+										18835
 									],
 									[
-										19139,
-										19162
+										18840,
+										18847
 									],
 									[
-										19331,
-										19354
+										19078,
+										19085
 									],
 									[
-										19651,
-										19674
+										19101,
+										19108
 									],
 									[
-										19748,
-										19771
+										19368,
+										19375
 									],
 									[
-										20219,
-										20242
+										19625,
+										19632
 									],
 									[
-										20279,
-										20302
+										19648,
+										19655
 									],
 									[
-										20434,
-										20457
+										20112,
+										20119
 									],
 									[
-										20605,
-										20628
+										20332,
+										20339
 									],
 									[
-										20797,
-										20820
+										20351,
+										20358
 									],
 									[
-										21117,
-										21140
+										20568,
+										20575
 									],
 									[
-										21214,
-										21237
+										20591,
+										20598
 									],
 									[
-										21745,
-										21755
+										20789,
+										20796
 									],
 									[
-										21974,
-										21984
+										20914,
+										20921
 									],
 									[
-										22119,
-										22129
+										21155,
+										21162
 									],
 									[
-										22345,
-										22355
+										21174,
+										21181
 									],
 									[
-										22557,
-										22567
+										21409,
+										21416
 									],
 									[
-										22942,
-										22952
+										21432,
+										21439
 									],
 									[
-										23374,
-										23384
+										21888,
+										21895
 									],
 									[
-										23799,
-										23809
+										22098,
+										22105
 									],
 									[
-										24087,
-										24097
+										22304,
+										22311
 									],
 									[
-										24380,
-										24390
+										22518,
+										22525
 									],
 									[
-										24624,
-										24634
+										22688,
+										22695
 									],
 									[
-										24853,
-										24863
+										22869,
+										22876
 									],
 									[
-										25100,
-										25110
+										22881,
+										22888
 									],
 									[
-										25359,
-										25369
+										22910,
+										22917
 									],
 									[
-										25618,
-										25628
+										22928,
+										22935
 									],
 									[
-										25905,
-										25915
+										23261,
+										23268
 									],
 									[
-										26192,
-										26202
+										23273,
+										23280
 									],
 									[
-										26447,
-										26457
+										23302,
+										23309
 									],
 									[
-										26706,
-										26716
+										23320,
+										23327
 									],
 									[
-										26974,
-										26984
+										23954,
+										23961
 									],
 									[
-										27233,
-										27243
+										23966,
+										23973
 									],
 									[
-										27479,
-										27489
+										23995,
+										24002
 									],
 									[
-										27726,
-										27736
+										24013,
+										24020
 									],
 									[
-										27967,
-										27977
+										24680,
+										24687
 									],
 									[
-										28286,
-										28296
+										24692,
+										24699
 									],
 									[
-										28554,
-										28564
+										24721,
+										24728
 									],
 									[
-										28815,
-										28825
+										24739,
+										24746
 									],
 									[
-										29094,
-										29104
+										25366,
+										25373
 									],
 									[
-										29385,
-										29395
+										25378,
+										25385
 									],
 									[
-										29676,
-										29686
+										25407,
+										25414
 									],
 									[
-										29999,
-										30009
+										25425,
+										25432
 									],
 									[
-										30318,
-										30328
+										26054,
+										26061
 									],
 									[
-										30605,
-										30615
+										26066,
+										26073
 									],
 									[
-										30896,
-										30906
+										26095,
+										26102
 									],
 									[
-										31196,
-										31206
+										26113,
+										26120
 									],
 									[
-										31487,
-										31497
+										26687,
+										26694
 									],
 									[
-										31765,
-										31775
+										26804,
+										26811
 									],
 									[
-										32044,
-										32054
+										27072,
+										27079
 									],
 									[
-										32317,
-										32327
+										27110,
+										27117
 									],
 									[
-										32626,
-										32631
+										27258,
+										27265
 									],
 									[
-										32868,
-										32873
+										27266,
+										27273
 									],
 									[
-										33158,
-										33163
+										27643,
+										27650
 									],
 									[
-										33406,
-										33411
+										27985,
+										27992
 									],
 									[
-										33735,
-										33740
+										27997,
+										28004
 									],
 									[
-										34050,
-										34055
+										28026,
+										28033
 									],
 									[
-										34294,
-										34299
+										28044,
+										28051
 									],
 									[
-										34587,
-										34592
+										28310,
+										28317
 									],
 									[
-										34910,
-										34915
+										28322,
+										28329
 									],
 									[
-										35219,
-										35224
+										28351,
+										28358
+									],
+									[
+										28369,
+										28376
+									],
+									[
+										28776,
+										28783
+									],
+									[
+										28788,
+										28795
+									],
+									[
+										28817,
+										28824
+									],
+									[
+										28835,
+										28842
+									],
+									[
+										29020,
+										29027
+									],
+									[
+										29043,
+										29050
+									],
+									[
+										29421,
+										29428
+									],
+									[
+										29444,
+										29451
+									],
+									[
+										29617,
+										29624
+									],
+									[
+										29640,
+										29647
+									],
+									[
+										29669,
+										29676
+									],
+									[
+										29702,
+										29709
+									],
+									[
+										29954,
+										29961
+									],
+									[
+										29977,
+										29984
+									],
+									[
+										30134,
+										30141
+									],
+									[
+										30498,
+										30505
+									],
+									[
+										30666,
+										30673
+									],
+									[
+										30689,
+										30696
+									],
+									[
+										30785,
+										30792
+									],
+									[
+										30999,
+										31006
+									],
+									[
+										31022,
+										31029
+									],
+									[
+										31289,
+										31296
+									],
+									[
+										31546,
+										31553
+									],
+									[
+										31558,
+										31565
+									],
+									[
+										31587,
+										31594
+									],
+									[
+										31605,
+										31612
+									],
+									[
+										31834,
+										31841
+									],
+									[
+										31846,
+										31853
+									],
+									[
+										31875,
+										31882
+									],
+									[
+										31893,
+										31900
+									],
+									[
+										32199,
+										32206
+									],
+									[
+										32211,
+										32218
+									],
+									[
+										32240,
+										32247
+									],
+									[
+										32258,
+										32265
+									],
+									[
+										32499,
+										32506
+									],
+									[
+										32744,
+										32751
+									],
+									[
+										32756,
+										32763
+									],
+									[
+										32785,
+										32792
+									],
+									[
+										32803,
+										32810
+									],
+									[
+										33060,
+										33067
+									],
+									[
+										33072,
+										33079
+									],
+									[
+										33101,
+										33108
+									],
+									[
+										33119,
+										33126
+									],
+									[
+										33413,
+										33420
+									],
+									[
+										33425,
+										33432
+									],
+									[
+										33454,
+										33461
+									],
+									[
+										33472,
+										33479
+									],
+									[
+										33742,
+										33749
+									],
+									[
+										34101,
+										34108
+									],
+									[
+										34113,
+										34120
+									],
+									[
+										34142,
+										34149
+									],
+									[
+										34160,
+										34167
+									],
+									[
+										34438,
+										34445
+									],
+									[
+										34450,
+										34457
+									],
+									[
+										34479,
+										34486
+									],
+									[
+										34497,
+										34504
+									],
+									[
+										34872,
+										34879
+									],
+									[
+										34884,
+										34891
+									],
+									[
+										34913,
+										34920
+									],
+									[
+										34931,
+										34938
+									],
+									[
+										35116,
+										35123
+									],
+									[
+										35139,
+										35146
+									],
+									[
+										35445,
+										35452
+									],
+									[
+										35468,
+										35475
+									],
+									[
+										35647,
+										35654
+									],
+									[
+										35680,
+										35687
+									],
+									[
+										35703,
+										35710
+									],
+									[
+										35732,
+										35739
+									],
+									[
+										35765,
+										35772
+									],
+									[
+										36073,
+										36080
+									],
+									[
+										36096,
+										36103
+									],
+									[
+										36354,
+										36361
+									],
+									[
+										36400,
+										36407
+									],
+									[
+										36660,
+										36667
+									],
+									[
+										36713,
+										36720
+									],
+									[
+										36901,
+										36908
+									],
+									[
+										36924,
+										36931
+									],
+									[
+										37020,
+										37027
+									],
+									[
+										37234,
+										37241
+									],
+									[
+										37257,
+										37264
+									],
+									[
+										37524,
+										37531
+									],
+									[
+										37954,
+										37963
+									],
+									[
+										38223,
+										38232
+									],
+									[
+										38615,
+										38624
+									],
+									[
+										39308,
+										39317
+									],
+									[
+										40034,
+										40043
+									],
+									[
+										40720,
+										40729
+									],
+									[
+										41408,
+										41417
+									],
+									[
+										42245,
+										42254
+									],
+									[
+										42570,
+										42579
+									],
+									[
+										43036,
+										43045
+									],
+									[
+										43329,
+										43338
+									],
+									[
+										43617,
+										43626
+									],
+									[
+										43974,
+										43983
+									],
+									[
+										44346,
+										44355
+									],
+									[
+										44662,
+										44671
+									],
+									[
+										45015,
+										45024
+									],
+									[
+										45505,
+										45514
+									],
+									[
+										45842,
+										45851
+									],
+									[
+										46276,
+										46285
+									],
+									[
+										46640,
+										46651
+									],
+									[
+										46667,
+										46678
+									],
+									[
+										46928,
+										46939
+									],
+									[
+										47258,
+										47269
+									],
+									[
+										47686,
+										47697
+									],
+									[
+										47854,
+										47865
+									],
+									[
+										48275,
+										48286
+									],
+									[
+										48287,
+										48298
+									],
+									[
+										48667,
+										48678
+									],
+									[
+										48679,
+										48690
+									],
+									[
+										49360,
+										49371
+									],
+									[
+										49372,
+										49383
+									],
+									[
+										50086,
+										50097
+									],
+									[
+										50098,
+										50109
+									],
+									[
+										50772,
+										50783
+									],
+									[
+										50784,
+										50795
+									],
+									[
+										51460,
+										51471
+									],
+									[
+										51472,
+										51483
+									],
+									[
+										52297,
+										52308
+									],
+									[
+										52309,
+										52320
+									],
+									[
+										52622,
+										52633
+									],
+									[
+										52634,
+										52645
+									],
+									[
+										53088,
+										53099
+									],
+									[
+										53100,
+										53111
+									],
+									[
+										53355,
+										53366
+									],
+									[
+										53756,
+										53767
+									],
+									[
+										53952,
+										53963
+									],
+									[
+										54182,
+										54193
+									],
+									[
+										54375,
+										54386
+									],
+									[
+										54599,
+										54610
+									],
+									[
+										54906,
+										54917
+									],
+									[
+										54918,
+										54929
+									],
+									[
+										55186,
+										55197
+									],
+									[
+										55198,
+										55209
+									],
+									[
+										55543,
+										55554
+									],
+									[
+										55555,
+										55566
+									],
+									[
+										55915,
+										55926
+									],
+									[
+										55927,
+										55938
+									],
+									[
+										56231,
+										56242
+									],
+									[
+										56243,
+										56254
+									],
+									[
+										56584,
+										56595
+									],
+									[
+										56596,
+										56607
+									],
+									[
+										57074,
+										57085
+									],
+									[
+										57086,
+										57097
+									],
+									[
+										57411,
+										57422
+									],
+									[
+										57423,
+										57434
+									],
+									[
+										57845,
+										57856
+									],
+									[
+										57857,
+										57868
+									],
+									[
+										58112,
+										58123
+									],
+									[
+										58441,
+										58452
+									],
+									[
+										58676,
+										58687
+									],
+									[
+										58926,
+										58937
+									],
+									[
+										59231,
+										59242
+									],
+									[
+										59455,
+										59466
+									],
+									[
+										59754,
+										59759
+									],
+									[
+										59921,
+										59926
+									],
+									[
+										60092,
+										60097
+									],
+									[
+										60295,
+										60307
+									],
+									[
+										60562,
+										60574
+									],
+									[
+										61138,
+										61150
+									],
+									[
+										61420,
+										61432
+									],
+									[
+										61631,
+										61643
+									],
+									[
+										61899,
+										61911
+									],
+									[
+										62062,
+										62074
+									],
+									[
+										62442,
+										62454
+									],
+									[
+										62858,
+										62870
+									],
+									[
+										63112,
+										63124
+									],
+									[
+										63323,
+										63335
+									],
+									[
+										63602,
+										63614
+									],
+									[
+										63687,
+										63687
 									]
 								],
 								"scope": ""
@@ -1234,15 +1807,15 @@
 						"selection":
 						[
 							[
-								33789,
-								33769
+								63601,
+								63601
 							]
 						],
 						"settings":
 						{
 							"detect_indentation": false,
 							"line_numbers": false,
-							"output_tag": 7,
+							"output_tag": 35,
 							"result_base_dir": "",
 							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
 							"result_line_regex": "^ +([0-9]+):",
@@ -1250,32 +1823,33 @@
 							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 9711.0,
+						"translation.y": 14774.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/scenes/training/components/trainingcreate.scss",
+					"file": "src/scenes/training/components/trainingeditlistitem.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 761,
+						"buffer_size": 11931,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								50,
-								43
+								1931,
+								1931
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1285,19 +1859,48 @@
 				},
 				{
 					"buffer": 2,
-					"file": "src/scenes/training/components/trainingcreate.js",
+					"file": "src/services/trainings/trainingactions.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2841,
+						"buffer_size": 24096,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								101,
-								101
+								19678,
+								19678
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5902.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/services/trainings/trainingReducer.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 7160,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1313,20 +1916,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/scenes/training/trainingapp.js",
+					"buffer": 4,
+					"file": "src/scenes/training/components/trainingeditlist.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10840,
+						"buffer_size": 1945,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4233,
-								4233
+								1373,
+								1393
 							]
 						],
 						"settings":
@@ -1334,34 +1937,6 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1560.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/scenes/training/trainingapp.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 709,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								560,
-								560
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1371,28 +1946,29 @@
 				},
 				{
 					"buffer": 5,
-					"file": "src/scenes/todo/todoapp.scss",
-					"semi_transient": true,
+					"file": "src/scenes/training/admin/admintraininglist.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 705,
+						"buffer_size": 2944,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								274,
-								556
+								2327,
+								2305
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 661.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1402,7 +1978,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 21.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -1472,7 +2048,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 244.0,
+	"side_bar_width": 249.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

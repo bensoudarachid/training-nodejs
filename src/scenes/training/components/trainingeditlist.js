@@ -46,30 +46,20 @@ export default class TrainingEditList extends React.Component {
   }
 
   render() {
-    // console.log('Hi there from training list List. Props: '+this.props.trainings.size)
-      // <div className="mdl-layout-spacer"></div>
-
-    // if(this.props.trainings==undefined)
-      // return (
-      //   <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>
-      // )
-    // Putting <div></div> instead of <span></span> produces a ununderstandlable scroll mess!
     return (
       <div className='trainingslist'>
         {this.props.trainings==undefined?
-                 <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{width:'55px',height:'55px'}}></div>
-               :
-                 <span>{this.renderItems()}</span>
+             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{width:'55px',height:'55px'}}></div>
+           :
+             <span>{this.renderItems()}</span>
         }        
       </div>
     )
   }
-  renderNew() {
+  renderTest() {
     // console.log('Hi there from List. Props: '+this.props);
     return (
-      <div>
-        {this.renderItems()}
-      </div>
+      <span></span>
     )
   }
 }

@@ -219,35 +219,42 @@ class TrainingApp extends Component {
       return <div/>
     }
     // console.log('+++++++++++++++++++++++++Trainingapp. environment is browser')
+        // {this.renderList()}
     const {auth} = this.props
     return (
-      <div className='trainingapp'>
-      <div id="textwrap"> 
-        <p id="textswitch"></p>
-      </div>
       <div>
-        <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel' >
-          <TrainingCreate trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+        <span id="textwrap"> 
+          <p id="textswitch"></p>
+        </span>
+        <div className='trainingapp'>
+          { auth.get('authority')=='admin'?
+            <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+          :
+            <div>
+              <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel'>
+                <TrainingCreate trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+              </div>
+              <TrainingEditList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+            </div>
+          }
         </div>
-        {this.renderList()}
-      </div>
       </div>
     )
   }
 
-  renderList(){
-    const { auth } = this.props
-    const isAuthenticated = auth.get('isAuthenticated')
-    // console.log('navjs is authenticated '+isAuthenticated)1
+  // renderList(){
+  //   const { auth } = this.props
+  //   const isAuthenticated = auth.get('isAuthenticated')
+  //   // console.log('navjs is authenticated '+isAuthenticated)1
     
-    console.log('trainingapp. authority '+auth.get('authority'))
-    if( auth.get('authority')=='admin' ){
-      return <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
-    }
-    else{
-      return <TrainingEditList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
-    }
-  }
+  //   console.log('trainingapp. authority '+auth.get('authority'))
+  //   if( auth.get('authority')=='admin' ){
+  //     return <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+  //   }
+  //   else{
+  //     return <TrainingEditList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+  //   }
+  // }
   // saveTask(oldTask, newTask) {
   //   const foundTraining = _.find(this.state.trainings, (training) => training.task === oldTask);
   //   foundTraining.task = newTask;

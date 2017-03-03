@@ -30,7 +30,7 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _trainingimage = require('./trainingimage');
+var _trainingimage = require('../shared/trainingimage');
 
 var _trainingimage2 = _interopRequireDefault(_trainingimage);
 

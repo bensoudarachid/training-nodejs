@@ -483,15 +483,18 @@ const trainingactions = {
             if (status === 401) {
               console.log('Status looks bad. Unauthorized')
               // dispatch(actions.receiveLogout())
+              dispatch(actions.loadTrainings([]))
             } else if (status >= 400) {
               var error = data
               console.log('Status looks bad. ' + status + '. error message = ' + error.message)
               // dispatch(actions.receiveLogout())
+              dispatch(actions.loadTrainings([]))
             } else if (data.error) {
               // var error = data.error
               var errorDescription = data.error_description
               console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
               // dispatch(actions.receiveLogout())
+              dispatch(actions.loadTrainings([]))
             } else {
               dispatch(actions.loadTrainings(data))
               // dispatch(actions.loadingTrainingFileOff())

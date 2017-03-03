@@ -6,7 +6,7 @@ import util from 'util'
 import FileUploadInput from '../../../components/shared/fileuploadinput'
 import actions from '../../../services/actions'
 import $ from 'jquery'
-import TrainingImage from './trainingimage'
+import TrainingImage from '../shared/trainingimage'
 
 if (process.env.BROWSER) {
   require('./trainingeditlistitem.scss')
@@ -29,7 +29,7 @@ export default class TrainingsEditListItem extends React.Component {
         {this.renderTaskForm()}
       </div>
       </div>
-      )
+    )
   }
 
   componentDidMount(){
@@ -57,7 +57,7 @@ export default class TrainingsEditListItem extends React.Component {
   }
   
 
-  handleDelete() {
+  handleDelete() { 
     // console.log('trainings-list-item, please delete training ' + this.props.training.get('id'))
     this.props.actions.deleteTrainingSrv(this.props.training)
   }
@@ -217,8 +217,7 @@ export default class TrainingsEditListItem extends React.Component {
             </form>
           </div>
         </div>
-        )
-
+    )
   }
 }
 

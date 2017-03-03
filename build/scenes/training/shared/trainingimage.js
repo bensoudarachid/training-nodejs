@@ -62,16 +62,26 @@ var TrainingImage = function (_React$Component) {
     value: function render() {
       // console.log('todimage. render now')
       var trainingid = this.props.trainingid;
-      var isUploading = this.props.isUploading;
-      // console.log('trainingimage render. isUploading '+isUploading )
+      // const isUploading  = this.props.isUploading 
+      var idToken = _reactCookie2.default.load('jwt');
+      // img[0].removeAttribute('src')
+
+      var accesstokenparam = '';
+      if (idToken != undefined) accesstokenparam = 'access_token=' + idToken + '&';
+      // img.setAttribute('data-src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))
+      // img.setAttribute('data-src', actions.apiurl+'/api/training/img/'+trainingid+'?'+ accesstokenparam+'param='+ Math.floor(Math.random() * 10000))
+
+
+      console.log('trainingimage render. get ' + _actions2.default.apiurl + '/api/training/img/' + trainingid);
       // console.log('trainingimage render. this.state.imageLoaded '+this.state.imageLoaded )
 
+      // <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={actions.apiurl+'/api/training/img/'+trainingid}
       // const idToken = cookie.load('jwt')
       return _react2.default.createElement(
         'div',
         { className: 'imgwrapper', id: 'trainingimgwrap' + trainingid },
         _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-        _react2.default.createElement('img', { id: 'traininglistitemimg' + trainingid, src: _actions2.default.apiurl + '/api/training/img/' + trainingid,
+        _react2.default.createElement('img', { id: 'traininglistitemimg' + trainingid, src: './images/0.png', 'data-src': _actions2.default.apiurl + '/api/training/img/' + trainingid + '?' + accesstokenparam + 'param=' + Math.floor(Math.random() * 10000),
           onLoad: this.handleImageLoaded.bind(this),
           onError: this.handleImageErrored.bind(this), className: 'dataimg', alt: 'coding' })
       );
@@ -115,7 +125,7 @@ var TrainingImage = function (_React$Component) {
       require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered();
 
       var trainingid = this.props.trainingid;
-      // console.log('+++++++ trainingimage ++++++ componentDidUpdate. get img by id '+trainingid)
+      console.log('+++++++ trainingimage ++++++ componentDidUpdate. get img by id ' + trainingid);
       // if( this.props.isUploading)
       //   console.log('+++++++ trainingimage ++++++ componentDidUpdate. img is uploading '+this.props.isUploading)
       // else
@@ -131,14 +141,17 @@ var TrainingImage = function (_React$Component) {
       // var image=$('#traininglistitemimg'+trainingid)
 
 
-      if (this.props.isUploading) {
-        //img is a jquery object img[0] is the dom object 
-        var idToken = _reactCookie2.default.load('jwt');
-        // img[0].removeAttribute('src')
-        // console.log('Set data-src to ' + actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
-        img.setAttribute('data-src', _actions2.default.apiurl + '/api/training/img/' + trainingid + '?access_token=' + idToken + '&param=' + Math.floor(Math.random() * 10000));
-        // img.setAttribute('data-src', './images/Blog-CodingNeutral1.png')
-      }
+      // if (this.props.isUploading) {//img is a jquery object img[0] is the dom object 
+      //   const idToken = cookie.load('jwt')
+      //   // img[0].removeAttribute('src')
+
+      //   var accesstokenparam = ''
+      //   if (idToken != undefined)
+      //     accesstokenparam = 'access_token='+ idToken+'&'
+      //   // img.setAttribute('data-src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))
+      //   img.setAttribute('data-src', actions.apiurl+'/api/training/img/'+trainingid+'?'+ accesstokenparam+'param='+ Math.floor(Math.random() * 10000))
+      //   console.log('Set data-src to ' + actions.apiurl+'/api/training/img/'+trainingid+'?'+ accesstokenparam+'param='+ Math.floor(Math.random() * 10000))
+      // }        
       // var imgSpinner=elm.find('.mdl-spinner')
       if (img.hasAttribute('data-src')) {
         //img is a jquery object img[0] is the dom object 
@@ -157,30 +170,34 @@ var TrainingImage = function (_React$Component) {
     key: 'handleImageLoaded',
     value: function handleImageLoaded() {
       // console.log('trainingimage handleImageLoaded ')
-      this.setState({ imageLoaded: true });
-      // this.props.imageLoaded = true
       var trainingid = this.props.trainingid;
+      console.log('trainingimage handleImageLoaded ' + trainingid);
       var elm = (0, _jquery2.default)('#trainingimgwrap' + trainingid);
       var imgSpinner = elm.find('.mdl-spinner');
       var img = document.getElementById('traininglistitemimg' + trainingid);
-      // var image = $('#traininglistitemimg'+trainingid)
-      // var img = image[0]
-      // var image=elm.find('.dataimg')
-      // var img = image[0]
       if (!img.hasAttribute('data-src')) {
+
+        // this.props.imageLoaded = true
+        // var image = $('#traininglistitemimg'+trainingid)
+        // var img = image[0]
+        // var image=elm.find('.dataimg')
+        // var img = image[0]
+        // if (!img.hasAttribute('data-src')) {
         // imgSpinner.remove()
         // console.log('Spinner stop' )
         img.style.display = 'block';
         if (img.getAttribute('src') != './images/0.png') img.style.background = 'radial-gradient(circle closest-side at 50% 50%, white 0,  #69F 95%, transparent 100%)';
         imgSpinner[0].style.display = 'none';
         // imgSpinner[0].style.display = 'none'
+      } else {
+        this.setState({ imageLoaded: true }); //just  a trigger to rerender
       }
     }
   }, {
     key: 'handleImageErrored',
     value: function handleImageErrored() {
-      // console.log('trainingimage handleImageErrored ')
       var trainingid = this.props.trainingid;
+      console.log('trainingimage handleImageErrored ' + trainingid);
       var elm = (0, _jquery2.default)('#trainingimgwrap' + trainingid);
       var imgSpinner = elm.find('.mdl-spinner');
       var image = elm.find('.dataimg');
@@ -195,8 +212,11 @@ var TrainingImage = function (_React$Component) {
     key: 'shouldComponentUpdate',
     value: function shouldComponentUpdate(nextProps, nextState) {
       var isUploading = this.props.isUploading;
-      // console.log('++++++++++++++++ trainingimage ++++++ shouldComponentUpdate'+ isUploading)
-      if (!this.props.isUploading) {
+      console.log('++++++++++++++++ trainingimage ++++++ shouldComponentUpdate' + isUploading);
+      var trainingid = this.props.trainingid;
+      var img = document.getElementById('traininglistitemimg' + trainingid);
+      if (img.hasAttribute('data-src')) {
+        // if (!this.props.isUploading) {
         return true;
       }
       return false;

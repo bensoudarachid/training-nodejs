@@ -57,8 +57,8 @@ var TodosFilter = function (_React$Component) {
             { className: 'mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone checkboxinput' },
             _react2.default.createElement(
               'label',
-              { className: 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect', htmlFor: 'checkbox2' },
-              _react2.default.createElement('input', { type: 'checkbox', id: 'checkbox1', className: 'mdl-checkbox__input', ref: 'filterOpen', defaultChecked: this.props.filteropen, onClick: this.handleFilterOpen.bind(this) }),
+              { className: 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect', htmlFor: 'checkbox1' },
+              _react2.default.createElement('input', { type: 'checkbox', id: 'checkbox1', className: 'bgo mdl-checkbox__input', ref: 'filterTodosOpen', defaultChecked: this.props.filteropen, onClick: this.handleFilterOpen.bind(this) }),
               _react2.default.createElement(
                 'span',
                 { className: 'mdl-checkbox__label' },
@@ -72,7 +72,7 @@ var TodosFilter = function (_React$Component) {
             _react2.default.createElement(
               'label',
               { className: 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect checkboxinput', htmlFor: 'checkbox2' },
-              _react2.default.createElement('input', { type: 'checkbox', id: 'checkbox2', className: 'mdl-checkbox__input', ref: 'filterTodosClosed', defaultChecked: this.props.filterclosed, onClick: this.handleFilterClosed.bind(this) }),
+              _react2.default.createElement('input', { type: 'checkbox', id: 'checkbox2', className: 'bgr mdl-checkbox__input', ref: 'filterTodosClosed', defaultChecked: this.props.filterclosed, onClick: this.handleFilterClosed.bind(this) }),
               _react2.default.createElement(
                 'span',
                 { className: 'mdl-checkbox__label' },
@@ -118,7 +118,7 @@ var TodosFilter = function (_React$Component) {
       // var filter = undefined
       // if (filterAllChecked)
       //   filter = 'all'
-      // console.log('filter todos. Open. Checkbox'+ event.target.checked+', Filter '+filterOpen)
+      console.log('filter todos. Open. Checkbox' + event.target.checked + ', Filter ' + filterOpen);
       this.props.actions.filterTodosOpen(filterOpen);
     }
   }, {
@@ -131,7 +131,7 @@ var TodosFilter = function (_React$Component) {
       // var filter = undefined
       // if (filterAllChecked)
       //   filter = 'all'
-      // console.log('filter todos. handle toggle all. Checkbox'+ event.target.checked+', Filter '+filterClosed)
+      console.log('filter todos. Closed. Checkbox' + event.target.checked + ', Filter ' + filterClosed);
       this.props.actions.filterTodosClosed(filterClosed);
     }
   }, {

@@ -259,43 +259,47 @@ var TrainingApp = function (_Component) {
         return _react2.default.createElement('div', null);
       }
       // console.log('+++++++++++++++++++++++++Trainingapp. environment is browser')
+      // {this.renderList()}
       var auth = this.props.auth;
 
       return _react2.default.createElement(
         'div',
-        { className: 'trainingapp' },
+        null,
         _react2.default.createElement(
-          'div',
+          'span',
           { id: 'textwrap' },
           _react2.default.createElement('p', { id: 'textswitch' })
         ),
         _react2.default.createElement(
           'div',
-          null,
-          _react2.default.createElement(
+          { className: 'trainingapp' },
+          auth.get('authority') == 'admin' ? _react2.default.createElement(_admintraininglist2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions }) : _react2.default.createElement(
             'div',
-            { className: 'mdl-grid mdl-grid--no-spacing blockborder parampanel' },
-            _react2.default.createElement(_trainingcreate2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions })
-          ),
-          this.renderList()
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: 'mdl-grid mdl-grid--no-spacing blockborder parampanel' },
+              _react2.default.createElement(_trainingcreate2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions })
+            ),
+            _react2.default.createElement(_trainingeditlist2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions })
+          )
         )
       );
     }
-  }, {
-    key: 'renderList',
-    value: function renderList() {
-      var auth = this.props.auth;
 
-      var isAuthenticated = auth.get('isAuthenticated');
-      // console.log('navjs is authenticated '+isAuthenticated)1
+    // renderList(){
+    //   const { auth } = this.props
+    //   const isAuthenticated = auth.get('isAuthenticated')
+    //   // console.log('navjs is authenticated '+isAuthenticated)1
 
-      console.log('trainingapp. authority ' + auth.get('authority'));
-      if (auth.get('authority') == 'admin') {
-        return _react2.default.createElement(_admintraininglist2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions });
-      } else {
-        return _react2.default.createElement(_trainingeditlist2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions });
-      }
-    }
+    //   console.log('trainingapp. authority '+auth.get('authority'))
+    //   if( auth.get('authority')=='admin' ){
+    //     return <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+    //   }
+    //   else{
+    //     return <TrainingEditList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+    //   }
+    // }
     // saveTask(oldTask, newTask) {
     //   const foundTraining = _.find(this.state.trainings, (training) => training.task === oldTask);
     //   foundTraining.task = newTask;

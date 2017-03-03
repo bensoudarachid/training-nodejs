@@ -148,8 +148,6 @@ var TodoImage = function (_React$Component) {
     key: 'handleImageLoaded',
     value: function handleImageLoaded() {
       // console.log('todoimage handleImageLoaded ')
-      this.setState({ imageLoaded: true });
-      // this.props.imageLoaded = true
       var taskid = this.props.taskid;
       var elm = (0, _jquery2.default)('#imgwrap' + taskid);
       var imgSpinner = elm.find('.mdl-spinner');
@@ -157,12 +155,13 @@ var TodoImage = function (_React$Component) {
       var image = elm.find('.dataimg');
       var img = image[0];
       if (!img.hasAttribute('data-src')) {
+        // this.props.imageLoaded = true
         // imgSpinner.remove()
         // console.log('++++++++++++++++ todoimage ++++++ handleImageLoaded set background now' )
         img.style.display = 'block';
         if (img.getAttribute('src') != './images/0.png') img.style.background = 'radial-gradient(circle closest-side at 50% 50%, white 0,  #69F 95%, transparent 100%)';
         imgSpinner[0].style.display = 'none';
-      }
+      } else this.setState({ imageLoaded: true });
     }
   }, {
     key: 'handleImageErrored',
@@ -183,8 +182,14 @@ var TodoImage = function (_React$Component) {
     key: 'shouldComponentUpdate',
     value: function shouldComponentUpdate(nextProps, nextState) {
       var isUploading = this.props.isUploading;
-      // console.log('++++++++++++++++ todoimage ++++++ shouldComponentUpdate'+ isUploading)
-      if (!this.props.isUploading) {
+      console.log('++++++++++++++++ todoimage ++++++ shouldComponentUpdate' + isUploading);
+      var taskid = this.props.taskid;
+      var elm = (0, _jquery2.default)('#imgwrap' + taskid);
+      var imgSpinner = elm.find('.mdl-spinner');
+      var image = elm.find('.dataimg');
+      var img = image[0];
+      if (img.hasAttribute('data-src')) {
+        // if (!this.props.isUploading) {
         return true;
       }
       return false;

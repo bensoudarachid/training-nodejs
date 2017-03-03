@@ -39,9 +39,10 @@ var trainingservices = {
       // 'Authorization': 'Bearer '+idToken
     };
     var idToken = _reactCookie2.default.load('jwt');
-    if (idToken !== '') {
+    console.log('Ya trainings fetchData.  auth id token: ' + idToken);
+    if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken;
-      console.log('Ya trainings fetchData.  auth id token: ' + idToken);
+      console.log('Ya trainings fetchData.  auth id token: ' + headers.Authorization);
     } else {
       console.log('Service retrieve trainings fetchData. Wahnsinn: no idToken');
     }
@@ -81,7 +82,7 @@ var trainingservices = {
     };
     var idToken = _reactCookie2.default.load('jwt');
     console.log('Ya trainings save Data.  auth id token: ' + idToken);
-    if (idToken !== '') {
+    if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken;
     }
     // else
@@ -123,7 +124,7 @@ var trainingservices = {
     };
     var idToken = _reactCookie2.default.load('jwt');
     console.log('Ya trainings save Data.  training id : ' + training.get('id'));
-    if (idToken !== '') {
+    if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken;
     }
     // var body = JSON.stringify(training)
@@ -172,7 +173,7 @@ var trainingservices = {
     };
     var idToken = _reactCookie2.default.load('jwt');
     console.log('Ya trainings save Data.  auth id token: ' + idToken);
-    if (idToken !== '') {
+    if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken;
     } else {
       console.log('trainings action. Wahnsinn: no idToken');

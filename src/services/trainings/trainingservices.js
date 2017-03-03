@@ -21,9 +21,10 @@ const trainingservices = {
     // 'Authorization': 'Bearer '+idToken
     }
     var idToken = cookie.load('jwt')
-    if (idToken !== '') {
+    console.log('Ya trainings fetchData.  auth id token: ' + idToken)
+    if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken
-      console.log('Ya trainings fetchData.  auth id token: ' + idToken)
+      console.log('Ya trainings fetchData.  auth id token: ' + headers.Authorization)
     }
     else {
       console.log('Service retrieve trainings fetchData. Wahnsinn: no idToken')
@@ -66,7 +67,7 @@ const trainingservices = {
     }
     var idToken = cookie.load('jwt')
     console.log('Ya trainings save Data.  auth id token: ' + idToken)
-    if (idToken !== '') {
+    if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken
     }
     // else
@@ -106,7 +107,7 @@ const trainingservices = {
     }
     var idToken = cookie.load('jwt')
     console.log('Ya trainings save Data.  training id : ' + training.get('id'))
-    if (idToken !== '') {
+    if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken
     }
     // var body = JSON.stringify(training)
@@ -154,7 +155,7 @@ const trainingservices = {
     }
     var idToken = cookie.load('jwt')
     console.log('Ya trainings save Data.  auth id token: ' + idToken)
-    if (idToken !== '') {
+    if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken
     }
     else{

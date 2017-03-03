@@ -2,9 +2,10 @@
 
 .trainingslistitem{
 	// background: #ddd;
-	padding:100px;
-	margin: 25px 0 !important;
+	// padding:-100px !important;
+	margin: 15px 0;
 	background-color: lighten($roya-blue,30%);
+	// background-color: lighten(red,30%);
 	-moz-background-clip: padding; /* Firefox 3.6 */
 	-webkit-background-clip: padding; /* Safari 4? Chrome 6? */
 	background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
@@ -81,7 +82,6 @@
 			right:110px;
 		}
 	}
-
 
 }
 
