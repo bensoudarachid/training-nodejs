@@ -19,6 +19,10 @@ export default class FileUploadInput extends Component {
     // var fileInputText = document.getElementById('file_input_text')
     this.changeInputText = this.changeInputText.bind(this)
   }
+              // <button className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored schedulebutton">
+              //   <span className='glyphicon glyphicon-upload '></span>
+              // </button>
+              // <input ref='file_input_file' onChange={this.changeInputText} className='none' type='file' id={id} disabled={this.props.disabled}/>
   render() {
     const id = this.props.id
     const disabled=this.props.disabled?'disabled':''
@@ -37,7 +41,7 @@ export default class FileUploadInput extends Component {
   }
         // <input ref='file_input_text' name='file_input_text' className="mdl-textfield mdl-js-textfield" type="text" disabled readonly/> 
         // <div ref='file_input_text_div' className='bgr mdl-textfield mdl-js-textfield'>
-        //   <input ref='file_input_text' name='file_input_text' className='bgp file_input_text mdl-textfield__input' type='text' disabled readonly />       
+        //   <input ref='file_input_text' name='file_input_text' className='bgp file_input_text mdl-textfield__input' type='text' disabled readonly />
         // </div>
 //<label className='mdl-textfield__label' htmlFor='file_input_text'></label>
 

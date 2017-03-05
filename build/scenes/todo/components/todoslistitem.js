@@ -313,7 +313,7 @@ var TodosListItem = function (_React$Component) {
       };
       var loading = this.props.todo.get('loading');
       var isUploading = this.props.todo.get('isUploading');
-      // console.log('todolistitem. isUploading'+isUploading)
+      console.log('todolistitem. id: ' + taskid + ', todo.isUploading: ' + isUploading);
 
       var disabled = loading || error;
       var errorClass = error ? 'error' : '';

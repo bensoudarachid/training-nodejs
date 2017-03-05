@@ -45,11 +45,13 @@ export default class TrainingImage extends React.Component {
             // <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={actions.apiurl+'/api/training/img/'+trainingid}
     // const idToken = cookie.load('jwt')
     return (
-        <div className='imgwrapper' id={'trainingimgwrap'+trainingid} >
-            <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
-            <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={actions.apiurl+'/api/training/img/'+trainingid+'?'+ accesstokenparam+'param='+ Math.floor(Math.random() * 10000)}
-                onLoad={this.handleImageLoaded.bind(this)}
-                onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
+        <div className='imgwrapperheight' >
+          <span className='imgwrapper' id={'trainingimgwrap'+trainingid} >
+              <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
+              <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={actions.apiurl+'/api/training/img/'+trainingid+'?'+ accesstokenparam+'param='+ Math.floor(Math.random() * 10000)}
+                  onLoad={this.handleImageLoaded.bind(this)}
+                  onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
+          </span>
         </div>
     )
     // return (
@@ -150,7 +152,8 @@ export default class TrainingImage extends React.Component {
       // console.log('Spinner stop' )
       img.style.display = 'block'
       if(img.getAttribute('src') != './images/0.png')
-        img.style.background = 'radial-gradient(circle closest-side at 50% 50%, white 0,  #69F 95%, transparent 100%)'
+        img.style.background = 'radial-gradient(circle closest-side at 50% 50%, #d6e5f2 0%,  #d6e5f2 95%, transparent 100%)'
+        // img.style.background='radial-gradient(ellipse farthest-corner at 45px 45px , #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)'
       imgSpinner[0].style.display = 'none'
       // imgSpinner[0].style.display = 'none'
     }else{

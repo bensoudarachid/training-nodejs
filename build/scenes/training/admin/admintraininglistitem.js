@@ -65,6 +65,12 @@ var AdminTrainingListItem = function (_React$Component) {
     //   }
     // }
 
+    // <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored schedulebutton'>
+    //   <img src={'./images/Blog-CodingNeutral1.png'} alt='coding'/>
+    // </button>
+    // <span className='glyphicon glyphicon-upload '></span>
+    // <img src={'../../../images/Blog-CodingNeutral1.png'} alt='coding'/>
+
   }, {
     key: 'render',
     value: function render() {
@@ -73,7 +79,9 @@ var AdminTrainingListItem = function (_React$Component) {
       var trainingid = this.props.training.get('id');
       var isUploading = this.props.training.get('isUploading');
       var duration = this.props.training.get('duration') ? this.props.training.get('duration') / 8 : '0';
-
+      var onlydays = Math.round(duration);
+      var dayString = '';
+      if (onlydays < 2) dayString = 'day';else dayString = 'days';
       return _react2.default.createElement(
         'div',
         { className: 'mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone' },
@@ -101,16 +109,12 @@ var AdminTrainingListItem = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
-            _react2.default.createElement(
-              'p',
-              null,
-              shortDescription
-            )
+            { className: 'mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone ellipsis multiline shortdescription' },
+            shortDescription
           ),
           _react2.default.createElement(
             'div',
-            { className: 'mdl-cell mdl-cell--3-col mdl-cell--1-col-tablet mdl-cell--1-col-phone' },
+            { className: 'mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone' },
             _react2.default.createElement(
               'span',
               { className: 'promo' },
@@ -121,22 +125,35 @@ var AdminTrainingListItem = function (_React$Component) {
             'div',
             { className: 'mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone' },
             _react2.default.createElement(
-              'p',
-              null,
-              'Edit'
+              'div',
+              { className: 'buttonwrap' },
+              _react2.default.createElement('button', { className: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored editbutton', onClick: this.handleEdit.bind(this) }),
+              _react2.default.createElement('button', { className: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored schedulebutton' })
             )
           ),
           _react2.default.createElement(
             'div',
-            { className: 'mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--1-col-phone' },
+            { className: 'mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone' },
             _react2.default.createElement(
               'span',
               { className: 'duration' },
-              duration + ' jours'
+              duration + '' + dayString
             )
           )
         )
       );
+    }
+  }, {
+    key: 'handleSchedule',
+    value: function handleSchedule(event) {
+      console.log('Call Schedule for this Training' + this.props.training.get('id'));
+      // this.props.actions.appError(undefined)
+    }
+  }, {
+    key: 'handleEdit',
+    value: function handleEdit(event) {
+      console.log('Call Edit for this Training' + this.props.training.get('id'));
+      // this.props.actions.appError(undefined)
     }
   }]);
 

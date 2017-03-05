@@ -106,7 +106,7 @@ export default class TodosListItem extends React.Component {
         {this.renderTaskForm()}
       </div>
       </div>
-      )
+    )
   }
 
   componentDidMount(){
@@ -257,7 +257,7 @@ export default class TodosListItem extends React.Component {
     }
     const loading = this.props.todo.get('loading')
     const isUploading = this.props.todo.get('isUploading')
-    // console.log('todolistitem. isUploading'+isUploading)
+    console.log('todolistitem. id: '+taskid+', todo.isUploading: '+isUploading)
 
     const disabled = loading||error
     const errorClass = error?'error':''
@@ -308,7 +308,7 @@ export default class TodosListItem extends React.Component {
             </form>
           </div>
         </div>
-        )
+    )
 
   }
 }

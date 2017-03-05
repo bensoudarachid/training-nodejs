@@ -63,8 +63,15 @@ var TodoImage = function (_React$Component) {
       // console.log('todimage. render now')
       var taskid = this.props.taskid;
       var isUploading = this.props.isUploading;
-      // console.log('todoimage render. isUploading '+isUploading )
+      console.log('todoimage render. isUploading ' + isUploading);
       // console.log('todoimage render. this.state.imageLoaded '+this.state.imageLoaded )
+      // if( isUploading == false){
+      //   const taskid = this.props.taskid
+      //   var elm = $('#imgwrap'+taskid)
+      //   var image=elm.find('.dataimg')
+      //   var img = image[0]
+      //   img.setAttribute('data-src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))
+      // }
 
       var idToken = _reactCookie2.default.load('jwt');
       return _react2.default.createElement(
@@ -113,7 +120,7 @@ var TodoImage = function (_React$Component) {
     value: function componentDidUpdate() {
       // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
       require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered();
-      // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ')   
+      console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ' + this.props.isUploading);
 
       var taskid = this.props.taskid;
       var elm = (0, _jquery2.default)('#imgwrap' + taskid);
@@ -125,7 +132,7 @@ var TodoImage = function (_React$Component) {
       // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))
 
 
-      if (this.props.isUploading) {
+      if (this.props.isUploading == false) {
         //img is a jquery object img[0] is the dom object 
         var idToken = _reactCookie2.default.load('jwt');
         // img[0].removeAttribute('src')
@@ -181,14 +188,15 @@ var TodoImage = function (_React$Component) {
   }, {
     key: 'shouldComponentUpdate',
     value: function shouldComponentUpdate(nextProps, nextState) {
-      var isUploading = this.props.isUploading;
-      console.log('++++++++++++++++ todoimage ++++++ shouldComponentUpdate' + isUploading);
+
+      // const isUploading  = this.props.isUploading
       var taskid = this.props.taskid;
       var elm = (0, _jquery2.default)('#imgwrap' + taskid);
-      var imgSpinner = elm.find('.mdl-spinner');
+      // var imgSpinner=elm.find('.mdl-spinner')
       var image = elm.find('.dataimg');
       var img = image[0];
-      if (img.hasAttribute('data-src')) {
+      console.log('++++++++++++++++ todoimage ++++++ img.hasAttribute(data-src): ' + img.hasAttribute('data-src') + ', id: ' + taskid + '  this.props.isUploading: ' + this.props.isUploading);
+      if (img.hasAttribute('data-src') || this.props.isUploading && !img.hasAttribute('data-src')) {
         // if (!this.props.isUploading) {
         return true;
       }

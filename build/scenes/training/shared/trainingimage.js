@@ -79,11 +79,15 @@ var TrainingImage = function (_React$Component) {
       // const idToken = cookie.load('jwt')
       return _react2.default.createElement(
         'div',
-        { className: 'imgwrapper', id: 'trainingimgwrap' + trainingid },
-        _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-        _react2.default.createElement('img', { id: 'traininglistitemimg' + trainingid, src: './images/0.png', 'data-src': _actions2.default.apiurl + '/api/training/img/' + trainingid + '?' + accesstokenparam + 'param=' + Math.floor(Math.random() * 10000),
-          onLoad: this.handleImageLoaded.bind(this),
-          onError: this.handleImageErrored.bind(this), className: 'dataimg', alt: 'coding' })
+        { className: 'imgwrapperheight' },
+        _react2.default.createElement(
+          'span',
+          { className: 'imgwrapper', id: 'trainingimgwrap' + trainingid },
+          _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
+          _react2.default.createElement('img', { id: 'traininglistitemimg' + trainingid, src: './images/0.png', 'data-src': _actions2.default.apiurl + '/api/training/img/' + trainingid + '?' + accesstokenparam + 'param=' + Math.floor(Math.random() * 10000),
+            onLoad: this.handleImageLoaded.bind(this),
+            onError: this.handleImageErrored.bind(this), className: 'dataimg', alt: 'coding' })
+        )
       );
       // return (
       //     <div className='imgwrapper' id={'imgwrap'+trainingid} >
@@ -186,7 +190,8 @@ var TrainingImage = function (_React$Component) {
         // imgSpinner.remove()
         // console.log('Spinner stop' )
         img.style.display = 'block';
-        if (img.getAttribute('src') != './images/0.png') img.style.background = 'radial-gradient(circle closest-side at 50% 50%, white 0,  #69F 95%, transparent 100%)';
+        if (img.getAttribute('src') != './images/0.png') img.style.background = 'radial-gradient(circle closest-side at 50% 50%, #d6e5f2 0%,  #d6e5f2 95%, transparent 100%)';
+        // img.style.background='radial-gradient(ellipse farthest-corner at 45px 45px , #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)'
         imgSpinner[0].style.display = 'none';
         // imgSpinner[0].style.display = 'none'
       } else {

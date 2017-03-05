@@ -84,7 +84,7 @@ var todoReducer = function todoReducer() {
       });
       // console.log('todoreducer uploading image. todo index = '+index)
       var todo = action.todo.set('isUploading', action.isUploading);
-      console.log('todoreducer uploading image: ' + todo.get('isUploading'));
+      console.log('todoreducer uploading image: ' + todo.get('isUploading') + ', todo id: ' + todo.get('id'));
       todos = todos.set(index, todo);
       todoappmap = todoappmap.set('todos', todos);
       // console.log('todoreducer uploading image. todo isUploading from todos = '+todos.get(index).get('isUploading') )

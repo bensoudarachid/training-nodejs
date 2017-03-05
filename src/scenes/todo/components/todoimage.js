@@ -29,8 +29,15 @@ export default class TodoImage extends React.Component {
     // console.log('todimage. render now')
     const taskid = this.props.taskid
     const isUploading  = this.props.isUploading 
-    // console.log('todoimage render. isUploading '+isUploading )
+    console.log('todoimage render. isUploading '+isUploading )
     // console.log('todoimage render. this.state.imageLoaded '+this.state.imageLoaded )
+    // if( isUploading == false){
+    //   const taskid = this.props.taskid
+    //   var elm = $('#imgwrap'+taskid)
+    //   var image=elm.find('.dataimg')
+    //   var img = image[0]
+    //   img.setAttribute('data-src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))
+    // }
 
     const idToken = cookie.load('jwt')
     return (
@@ -76,7 +83,7 @@ export default class TodoImage extends React.Component {
   componentDidUpdate() {
     // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
-    // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate ')   
+    console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate '+this.props.isUploading)   
 
     const taskid = this.props.taskid
     var elm = $('#imgwrap'+taskid)
@@ -88,7 +95,7 @@ export default class TodoImage extends React.Component {
     // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))
 
 
-    if (this.props.isUploading) {//img is a jquery object img[0] is the dom object 
+    if (this.props.isUploading == false) {//img is a jquery object img[0] is the dom object 
       const idToken = cookie.load('jwt')
       // img[0].removeAttribute('src')
       img.setAttribute('data-src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))
@@ -141,14 +148,15 @@ export default class TodoImage extends React.Component {
     // this.props.imageLoaded = false
   }
   shouldComponentUpdate(nextProps, nextState) {
-    const isUploading  = this.props.isUploading
-    console.log('++++++++++++++++ todoimage ++++++ shouldComponentUpdate'+ isUploading)
+
+    // const isUploading  = this.props.isUploading
     const taskid = this.props.taskid
     var elm = $('#imgwrap'+taskid)
-    var imgSpinner=elm.find('.mdl-spinner')
+    // var imgSpinner=elm.find('.mdl-spinner')
     var image=elm.find('.dataimg')
     var img = image[0]
-    if (img.hasAttribute('data-src')) {
+    console.log('++++++++++++++++ todoimage ++++++ img.hasAttribute(data-src): '+ img.hasAttribute('data-src')+', id: '+taskid+'  this.props.isUploading: '+ this.props.isUploading)
+    if (img.hasAttribute('data-src') || (this.props.isUploading&&!img.hasAttribute('data-src')) ) {
     // if (!this.props.isUploading) {
       return true
     }

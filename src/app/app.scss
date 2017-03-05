@@ -121,7 +121,15 @@ body{
   src: url('../styles/Roboto-Regular.ttf') format("truetype");
 }
 
+//These are being used with jquery ellipse function in index.js to limit text in Training short description
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+}
 
+.ellipsis.multiline {
+    white-space: normal;
+}
 
 .bgo{
   background-color: orange !important;

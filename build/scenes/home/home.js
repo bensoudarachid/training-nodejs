@@ -263,7 +263,7 @@ var Home = function (_Component) {
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
                 _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-CodingNeutral1.png', className: 'dataimg', alt: 'coding' })
+                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-Coding.svg', className: 'dataimg', alt: 'coding' })
               ),
               _react2.default.createElement(
                 'p',
@@ -279,7 +279,7 @@ var Home = function (_Component) {
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
                 _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-DeployingNeutral1.png', className: 'dataimg', alt: 'coding' })
+                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-Deploying.svg', className: 'dataimg', alt: 'coding' })
               ),
               _react2.default.createElement(
                 'p',
@@ -295,7 +295,7 @@ var Home = function (_Component) {
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
                 _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-PlanningNeutral1.png', className: 'dataimg', alt: 'coding' })
+                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-Planning.svg', className: 'dataimg', alt: 'coding' })
               ),
               _react2.default.createElement(
                 'p',
@@ -316,7 +316,7 @@ var Home = function (_Component) {
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
                 _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-CodingNeutral2.png', className: 'dataimg', alt: 'coding' })
+                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-CodingNeutral1.png', className: 'dataimg', alt: 'coding' })
               ),
               _react2.default.createElement(
                 'p',
@@ -332,7 +332,7 @@ var Home = function (_Component) {
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
                 _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-PlanningNeutral2.png', className: 'dataimg', alt: 'coding' })
+                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-PlanningNeutral1.png', className: 'dataimg', alt: 'coding' })
               ),
               _react2.default.createElement(
                 'p',
@@ -348,7 +348,7 @@ var Home = function (_Component) {
                 { className: 'imgwrap' },
                 _react2.default.createElement('div', { className: 'imgbg' }),
                 _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-DeployingNeutral2.png', className: 'dataimg', alt: 'coding' })
+                _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-DeployingNeutral1.png', className: 'dataimg', alt: 'coding' })
               ),
               _react2.default.createElement(
                 'p',

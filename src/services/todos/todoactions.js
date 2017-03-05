@@ -34,7 +34,7 @@ const todoactions = {
     }
   },
   uploadingTodoImg: function(todo, isUploading) {
-    console.log('todo actions upload todo file')
+    // console.log('todo actions upload todo file')
     return {
       type: 'UPLOADING_TODO_IMAGE',
       todo,

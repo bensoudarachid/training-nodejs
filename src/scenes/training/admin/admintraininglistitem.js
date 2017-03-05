@@ -33,14 +33,25 @@ export default class AdminTrainingListItem extends React.Component {
   //     dialogInputs[i].MaterialTextfield.checkDirty()
   //   }
   // }
-  
+
+              // <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored schedulebutton'>
+              //   <img src={'./images/Blog-CodingNeutral1.png'} alt='coding'/>
+              // </button>
+  // <span className='glyphicon glyphicon-upload '></span>
+     // <img src={'../../../images/Blog-CodingNeutral1.png'} alt='coding'/>
+
   render() {
     const title = this.props.training.get('title')
     const shortDescription = this.props.training.get('shortDescription')?this.props.training.get('shortDescription'):''
     const trainingid = this.props.training.get('id')
     const isUploading = this.props.training.get('isUploading')
     const duration = this.props.training.get('duration')?this.props.training.get('duration')/8:'0'
-
+    const onlydays=Math.round(duration)
+    var dayString = ''
+    if(onlydays<2)
+      dayString = 'day'
+    else
+      dayString = 'days'
     return (
       <div className='mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone'>
         <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone blockborder admintrainingslistitem'>
@@ -48,20 +59,34 @@ export default class AdminTrainingListItem extends React.Component {
               <TrainingImage ref='uploadcomp' trainingid={trainingid} isUploading={isUploading}/>
             </div>
             <div className='mdl-cell mdl-cell--11-col mdl-cell--7-col-tablet mdl-cell--3-col-phone'><h4>{title}</h4><h5>Introduction a la belle vie</h5></div>
-            <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'><p>{shortDescription}</p></div>
-            <div className='mdl-cell mdl-cell--3-col mdl-cell--1-col-tablet mdl-cell--1-col-phone'>
+            <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone ellipsis multiline shortdescription'>{shortDescription}</div>
+            <div className='mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
               <span className='promo'>20%</span>
             </div>
             <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone'>
-              <p>Edit</p>
+              <div className='buttonwrap'>
+                <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored editbutton' onClick={this.handleEdit.bind(this)}>
+                </button>
+                <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored schedulebutton'>
+                </button>
+              </div>
             </div>
-            <div className='mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--1-col-phone'>
-              <span className='duration'>{duration+' jours'}</span>
+            <div className='mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
+              <span className='duration'>{duration+''+dayString}</span>
             </div>
         </div>
       </div>
     )
   }
+  handleSchedule(event) {
+    console.log('Call Schedule for this Training'+this.props.training.get('id'))
+    // this.props.actions.appError(undefined)
+  }
+  handleEdit(event) {
+    console.log('Call Edit for this Training'+this.props.training.get('id'))
+    // this.props.actions.appError(undefined)
+  }
+
 }
 
 
