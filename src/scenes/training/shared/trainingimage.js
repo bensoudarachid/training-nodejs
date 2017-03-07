@@ -1,6 +1,7 @@
 import React from 'react'
 import cookie from 'react-cookie'
 import actions from '../../../services/actions'
+//import LogoSpinner from '../../../components/shared/logospinner'
 import $ from 'jquery'
 
 export default class TrainingImage extends React.Component {
@@ -44,6 +45,8 @@ export default class TrainingImage extends React.Component {
 
             // <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={actions.apiurl+'/api/training/img/'+trainingid}
     // const idToken = cookie.load('jwt')
+              // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
+              // <LogoSpinner/>
     return (
         <div className='imgwrapperheight' >
           <span className='imgwrapper' id={'trainingimgwrap'+trainingid} >
@@ -122,7 +125,7 @@ export default class TrainingImage extends React.Component {
     if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
       // img[0].removeAttribute('src')
       console.log('Spinner go')
-      var imgSpinner=elm.find('.mdl-spinner')
+      var imgSpinner=elm.find('.spinner')
       // imgSpinner.remove()
       imgSpinner[0].style.display = 'block'
       img.style.display = 'none'
@@ -138,7 +141,7 @@ export default class TrainingImage extends React.Component {
     const trainingid = this.props.trainingid
     console.log('trainingimage handleImageLoaded '+trainingid)
     var elm = $('#trainingimgwrap'+trainingid)
-    var imgSpinner=elm.find('.mdl-spinner')
+    var imgSpinner=elm.find('.spinner')
     var img = document.getElementById('traininglistitemimg'+trainingid)
     if (!img.hasAttribute('data-src')) {
       
@@ -165,7 +168,7 @@ export default class TrainingImage extends React.Component {
     const trainingid = this.props.trainingid
     console.log('trainingimage handleImageErrored '+trainingid)
     var elm = $('#trainingimgwrap'+trainingid)
-    var imgSpinner=elm.find('.mdl-spinner')
+    var imgSpinner=elm.find('.Spinner')
     var image=elm.find('.dataimg')
     var img = image[0]
     imgSpinner[0].style.display = 'none'

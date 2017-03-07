@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 // import { ThreeBounce } from 'better-react-spinkit'
-import Spinner from '../../components/shared/spinner'
+import LogoSpinner from '../../components/shared/logospinner'
 // import 'jquery'
 import $ from 'jquery'
 // import Snackbar from './snackbar'
@@ -134,7 +134,7 @@ export default class Register extends Component {
             </button>
             }
             {isRegistrationFetching &&
-            <Spinner/>
+            <LogoSpinner/>
             }
             </div>
             </form>

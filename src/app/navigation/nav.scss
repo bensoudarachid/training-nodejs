@@ -73,6 +73,7 @@
 		&:hover,&:focus{
 			background:radial-gradient(circle closest-side at 19px 20px, lighten(getMdlColor($color-primary),30%) 0,  lighten(getMdlColor($color-primary),30%) 17px, transparent 19px);
 			// background-color: lighten(getMdlColor($color-primary),30%);
+			box-shadow: none;
 		}
 	}
     // border: none;

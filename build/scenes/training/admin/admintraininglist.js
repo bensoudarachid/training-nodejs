@@ -22,6 +22,10 @@ var _reactAddonsPureRenderMixin = require('react-addons-pure-render-mixin');
 
 var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
 
+var _logospinner = require('../../../components/shared/logospinner');
+
+var _logospinner2 = _interopRequireDefault(_logospinner);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -99,10 +103,14 @@ var AdminTrainingList = function (_React$Component) {
       //     <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>
       // )
 
+      // <div style={{backgroundColor:'red',width:'55px',height:'55px'}}><LogoSpinner/></div>
+
       return _react2.default.createElement(
         'div',
-        { className: 'admintrainingslist', style: { width: '100%' } },
-        this.props.trainings == undefined ? _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active', style: { width: '55px', height: '55px' } }) : _react2.default.createElement(
+        { className: 'admintrainingslist' },
+        this.props.trainings == undefined ? _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active', style: { width: '55px', height: '55px' } })
+        //<div className='spinnerwrap'><LogoSpinner/></div>
+        : _react2.default.createElement(
           'span',
           { className: 'admintrainingslistwrap mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
           this.renderItems()

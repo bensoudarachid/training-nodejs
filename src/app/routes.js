@@ -7,6 +7,14 @@ import Register from '../scenes/registration/register'
 import RegisterConfirmation from '../scenes/registration/registerconfirm'
 import Home from '../scenes/home/home'
 import React from 'react'
+// import { Route, IndexRoute, Link, hashHistory, DefaultRoute,NotFoundRoute } from 'react-router'
+var ReactRouter = require('react-router')
+var Route = ReactRouter.Route
+var IndexRoute = ReactRouter.IndexRoute
+var Link = ReactRouter.Link
+var hashHistory = ReactRouter.hashHistory
+var DefaultRoute = ReactRouter.DefaultRoute
+var NotFoundRoute = ReactRouter.NotFoundRoute
 
 // const Title = (props) => (
 //       <div>
@@ -43,7 +51,7 @@ const Users = ( { params, location } ) => (
 // const store = configureStore(initialState)
 const NotFound = () => ( <h1>404.... This page is not found!</h1> )
 
-const routes = {
+const routesold = {
   path: '',
   component: AppComponent,
   childRoutes: [
@@ -75,38 +83,27 @@ const routes = {
       path: '/registerconfirm(/:username)',
       component: RegisterConfirmation
     },
-/*
-    ,
-    {
-      path: '/reactor/',
-      component: Home
-    },
-    {
-      path: '/reactor/todos(/:param)',
-      component: TodoApp
-    },
-    {
-      path: '/reactor/users(/:name)',
-      component: Users
-    },    
-    {
-      path: '/reactor/about(/:name)',
-      component: AboutComponent
-    },
-    {
-      path: '/reactor/register(/:name)',
-      component: Register
-    },
-    {
-      path: '/reactor/registerconfirm(/:username)',
-      component: RegisterConfirmation
-    },
-*/
     {
       path: '*',
       component: NotFound
     }
   ]
 }
+
+      // <Route name="training" path="training/:trainingid" handler={TrainingApp} />
+      // <Route name="traininglist" path="/trainings" handler={TrainingApp} />
+      // <Redirect from="company" to="about" />
+const routes = (
+  <Route handler={AppComponent} path="/">
+    <DefaultRoute handler={Home} />
+    <Route name="register" handler={Register} />
+    <Route name="/registerconfirm(/:username" handler={RegisterConfirmation} />
+    <Route name="todos" handler={TodoApp} />
+    <Route name="trainings" handler={TrainingApp}>
+    </Route>
+    <NotFoundRoute handler={NotFound}/>
+    
+  </Route>
+)
 
 export { routes }

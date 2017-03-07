@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _spinner = require('../../components/shared/spinner');
+var _logospinner = require('../../components/shared/logospinner');
 
-var _spinner2 = _interopRequireDefault(_spinner);
+var _logospinner2 = _interopRequireDefault(_logospinner);
 
 var _jquery = require('jquery');
 
@@ -239,7 +239,7 @@ var Register = function (_Component) {
                   { type: 'submit', className: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' },
                   'Submit'
                 ),
-                isRegistrationFetching && _react2.default.createElement(_spinner2.default, null)
+                isRegistrationFetching && _react2.default.createElement(_logospinner2.default, null)
               )
             )
           );

@@ -67,7 +67,7 @@ export default class AdminTrainingListItem extends React.Component {
               <div className='buttonwrap'>
                 <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored editbutton' onClick={this.handleEdit.bind(this)}>
                 </button>
-                <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored schedulebutton'>
+                <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored schedulebutton' onClick={this.handleSchedule.bind(this)}>
                 </button>
               </div>
             </div>
@@ -80,11 +80,13 @@ export default class AdminTrainingListItem extends React.Component {
   }
   handleSchedule(event) {
     console.log('Call Schedule for this Training'+this.props.training.get('id'))
+    window.routerHistory.push('trainings/item/'+this.props.training.get('id'))
     // this.props.actions.appError(undefined)
   }
   handleEdit(event) {
     console.log('Call Edit for this Training'+this.props.training.get('id'))
     // this.props.actions.appError(undefined)
+    window.routerHistory.push('/todos')
   }
 
 }

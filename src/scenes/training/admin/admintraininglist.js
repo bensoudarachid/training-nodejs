@@ -4,6 +4,7 @@ import Immutable from 'immutable'
 
 import AdminTrainingListItem from './admintraininglistitem'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import LogoSpinner from '../../../components/shared/logospinner'
 
 if (process.env.BROWSER) {
   require('./admintraininglist.scss')
@@ -59,10 +60,13 @@ export default class AdminTrainingList extends React.Component {
     //     <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>
     // )
 
+          // <div style={{backgroundColor:'red',width:'55px',height:'55px'}}><LogoSpinner/></div>
+
     return (
-      <div className='admintrainingslist' style={{width:'100%'}}>
+      <div className='admintrainingslist'>
         {this.props.trainings==undefined?
           <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{width:'55px',height:'55px'}}></div>
+          //<div className='spinnerwrap'><LogoSpinner/></div>
           :
           <span className='admintrainingslistwrap mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
             {this.renderItems()}

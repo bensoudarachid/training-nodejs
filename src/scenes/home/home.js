@@ -4,6 +4,7 @@ import cookie from 'react-cookie'
 import 'jquery'
 import $ from 'jquery'
 import actions from '../../services/actions'
+import LogoSpinner from '../../components/shared/logospinner'
 // const util = require('util')
 
 // import { IndexLink, Link} from 'react-router'

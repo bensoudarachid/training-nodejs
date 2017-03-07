@@ -35,6 +35,18 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import { Route, IndexRoute, Link, hashHistory, DefaultRoute,NotFoundRoute } from 'react-router'
+
+// import UserApp from '../components/userapp'
+var ReactRouter = require('react-router'); // import AboutComponent from '../components/about'
+
+var Route = ReactRouter.Route;
+var IndexRoute = ReactRouter.IndexRoute;
+var Link = ReactRouter.Link;
+var hashHistory = ReactRouter.hashHistory;
+var DefaultRoute = ReactRouter.DefaultRoute;
+var NotFoundRoute = ReactRouter.NotFoundRoute;
+
 // const Title = (props) => (
 //       <div>
 //         <h2>Welcome to my App</h2>
@@ -58,7 +70,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //   <h3>Howdy.</h3>
 // );
 
-// import UserApp from '../components/userapp'
 var Users = function Users(_ref) {
   var params = _ref.params,
       location = _ref.location;
@@ -79,7 +90,6 @@ var Users = function Users(_ref) {
 //   </div>
 // )
 // const store = configureStore(initialState)
-// import AboutComponent from '../components/about'
 var NotFound = function NotFound() {
   return _react2.default.createElement(
     'h1',
@@ -88,7 +98,7 @@ var NotFound = function NotFound() {
   );
 };
 
-var routes = {
+var routesold = {
   path: '',
   component: _appcomponent2.default,
   childRoutes: [{
@@ -114,38 +124,24 @@ var routes = {
   }, {
     path: '/registerconfirm(/:username)',
     component: _registerconfirm2.default
-  },
-  /*
-      ,
-      {
-        path: '/reactor/',
-        component: Home
-      },
-      {
-        path: '/reactor/todos(/:param)',
-        component: TodoApp
-      },
-      {
-        path: '/reactor/users(/:name)',
-        component: Users
-      },    
-      {
-        path: '/reactor/about(/:name)',
-        component: AboutComponent
-      },
-      {
-        path: '/reactor/register(/:name)',
-        component: Register
-      },
-      {
-        path: '/reactor/registerconfirm(/:username)',
-        component: RegisterConfirmation
-      },
-  */
-  {
+  }, {
     path: '*',
     component: NotFound
   }]
 };
+
+// <Route name="training" path="training/:trainingid" handler={TrainingApp} />
+// <Route name="traininglist" path="/trainings" handler={TrainingApp} />
+// <Redirect from="company" to="about" />
+var routes = _react2.default.createElement(
+  Route,
+  { handler: _appcomponent2.default, path: '/' },
+  _react2.default.createElement(DefaultRoute, { handler: _home2.default }),
+  _react2.default.createElement(Route, { name: 'register', handler: _register2.default }),
+  _react2.default.createElement(Route, { name: '/registerconfirm(/:username', handler: _registerconfirm2.default }),
+  _react2.default.createElement(Route, { name: 'todos', handler: _todoapp2.default }),
+  _react2.default.createElement(Route, { name: 'trainings', handler: _trainingapp2.default }),
+  _react2.default.createElement(NotFoundRoute, { handler: NotFound })
+);
 
 exports.routes = routes;

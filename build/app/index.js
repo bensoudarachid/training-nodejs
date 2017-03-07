@@ -28,6 +28,30 @@ var _actions = require('../services/actions');
 
 var _actions2 = _interopRequireDefault(_actions);
 
+var _appcomponent = require('../app/appcomponent');
+
+var _appcomponent2 = _interopRequireDefault(_appcomponent);
+
+var _todoapp = require('../scenes/todo/todoapp');
+
+var _todoapp2 = _interopRequireDefault(_todoapp);
+
+var _trainingapp = require('../scenes/training/trainingapp');
+
+var _trainingapp2 = _interopRequireDefault(_trainingapp);
+
+var _register = require('../scenes/registration/register');
+
+var _register2 = _interopRequireDefault(_register);
+
+var _registerconfirm = require('../scenes/registration/registerconfirm');
+
+var _registerconfirm2 = _interopRequireDefault(_registerconfirm);
+
+var _home = require('../scenes/home/home');
+
+var _home2 = _interopRequireDefault(_home);
+
 require('../styles/animate.css');
 
 require('./app.scss');
@@ -69,6 +93,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import AppComponent from '../components/appcomponent';
 
 // import '../styles/default.scss'
+
+// import UserApp from '../components/userapp'
 
 // import configureStore from '../redux/store'
 
@@ -160,6 +186,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // var ReactDom = require('react-dom');
 
 
+var NotFound = function NotFound() {
+  return _react2.default.createElement(
+    'h1',
+    null,
+    '404.... This page is not found!'
+  );
+};
+var Training = function Training() {
+  console.log('here i am');
+  return _react2.default.createElement(
+    'h1',
+    null,
+    'Training.... This page is under construction!'
+  );
+};
+
 var initialState = window.__REDUX_STATE__;
 var store = '';
 if (process.env.NODE_ENV === 'production') store = (0, _redux.createStore)(_rootreducer2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default));else {
@@ -201,10 +243,28 @@ $('.ellipsis').ellipsis();
 // })
 
 // store={store}
+// <Router routes={routes} history={mybrowserHistory} />
 _reactDom2.default.render(_react2.default.createElement(
   _reactRedux.Provider,
   { store: store },
-  _react2.default.createElement(_reactRouter.Router, { routes: _routes.routes, history: mybrowserHistory })
+  _react2.default.createElement(
+    _reactRouter.Router,
+    { history: mybrowserHistory },
+    _react2.default.createElement(
+      _reactRouter.Route,
+      { path: '/', component: _appcomponent2.default },
+      _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'register', component: _register2.default }),
+      _react2.default.createElement(
+        _reactRouter.Route,
+        { path: 'trainings' },
+        _react2.default.createElement(_reactRouter.IndexRoute, { component: _trainingapp2.default }),
+        _react2.default.createElement(_reactRouter.Route, { path: 'item/:id', component: Training })
+      ),
+      _react2.default.createElement(_reactRouter.Route, { path: 'todos', component: _todoapp2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: '*', component: NotFound })
+    )
+  )
 ), document.getElementById('root'));
 // <Router routes={routes} history={browserHistory} />
 // <Router children={routes} history={browserHistory} />
@@ -214,4 +274,14 @@ _reactDom2.default.render(_react2.default.createElement(
 // <Provider store={store}>
 //  <App />
 // </Provider>,
-//
+// 
+
+// <Route handler={AppComponent} path="/">
+//   <DefaultRoute handler={Home} />
+//   <Route name="register" handler={Register} />
+//   <Route name="/registerconfirm(/:username" handler={RegisterConfirmation} />
+//   <Route name="todos" handler={TodoApp} />
+//   <Route name="trainings" handler={TrainingApp}>
+//   </Route>
+//   <NotFoundRoute handler={NotFound}/>        
+// </Route>

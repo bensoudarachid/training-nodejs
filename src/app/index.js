@@ -2,7 +2,7 @@ import React from 'react'
 // var React = require('react');
 import ReactDom from 'react-dom'
 // var ReactDom = require('react-dom');
-import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
+import { Router, Route, Link, IndexRoute,NotFoundRoute, hashHistory, browserHistory } from 'react-router'
 // import { createHistory, useBasename } from 'history'
 import { createHistory } from 'history'
 import { useRouterHistory } from 'react-router'
@@ -17,6 +17,15 @@ import actions from '../services/actions'
 // global.jQuery = require('jquery')
 // require('material-design-lite/dist//material.css')
 // require('material-design-lite/dist/material.js')
+
+import AppComponent from '../app/appcomponent'
+import TodoApp from '../scenes/todo/todoapp'
+import TrainingApp from '../scenes/training/trainingapp'
+// import UserApp from '../components/userapp'
+import Register from '../scenes/registration/register'
+import RegisterConfirmation from '../scenes/registration/registerconfirm'
+import Home from '../scenes/home/home'
+
 
 import '../styles/animate.css'
 // import '../styles/default.scss'
@@ -134,7 +143,13 @@ import rootReducer from '../services/rootreducer'
     
 })($)
 
-
+const NotFound = () => ( <h1>404.... This page is not found!</h1> )
+const Training = () => {
+  console.log('here i am')
+  return(
+        <h1>Training.... This page is under construction!</h1>
+  )
+}
 
 const initialState = window.__REDUX_STATE__ 
 var store = ''
@@ -179,9 +194,21 @@ $('.ellipsis').ellipsis()
 // })
 
 // store={store}
+// <Router routes={routes} history={mybrowserHistory} />
 ReactDom.render(
   <Provider store={store}>
-    <Router routes={routes} history={mybrowserHistory} />
+    <Router history={mybrowserHistory} >
+      <Route path="/" component={AppComponent}>
+        <IndexRoute component={Home} />
+        <Route path="register" component={Register} />
+        <Route path="trainings">
+          <IndexRoute component={TrainingApp}/>
+          <Route path="item/:id" component={Training} />
+        </Route>
+        <Route path="todos" component={TodoApp} />
+        <Route path='*' component={NotFound} />
+      </Route>
+    </Router>
   </Provider>,
   document.getElementById('root')
 )
@@ -195,3 +222,12 @@ ReactDom.render(
   // </Provider>,
   // 
 
+      // <Route handler={AppComponent} path="/">
+      //   <DefaultRoute handler={Home} />
+      //   <Route name="register" handler={Register} />
+      //   <Route name="/registerconfirm(/:username" handler={RegisterConfirmation} />
+      //   <Route name="todos" handler={TodoApp} />
+      //   <Route name="trainings" handler={TrainingApp}>
+      //   </Route>
+      //   <NotFoundRoute handler={NotFound}/>        
+      // </Route>

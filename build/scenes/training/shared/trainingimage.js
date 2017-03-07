@@ -29,6 +29,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import LogoSpinner from '../../../components/shared/logospinner'
+
 
 var TrainingImage = function (_React$Component) {
   _inherits(TrainingImage, _React$Component);
@@ -77,6 +79,8 @@ var TrainingImage = function (_React$Component) {
 
       // <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={actions.apiurl+'/api/training/img/'+trainingid}
       // const idToken = cookie.load('jwt')
+      // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
+      // <LogoSpinner/>
       return _react2.default.createElement(
         'div',
         { className: 'imgwrapperheight' },
@@ -161,7 +165,7 @@ var TrainingImage = function (_React$Component) {
         //img is a jquery object img[0] is the dom object 
         // img[0].removeAttribute('src')
         console.log('Spinner go');
-        var imgSpinner = elm.find('.mdl-spinner');
+        var imgSpinner = elm.find('.spinner');
         // imgSpinner.remove()
         imgSpinner[0].style.display = 'block';
         img.style.display = 'none';
@@ -177,7 +181,7 @@ var TrainingImage = function (_React$Component) {
       var trainingid = this.props.trainingid;
       console.log('trainingimage handleImageLoaded ' + trainingid);
       var elm = (0, _jquery2.default)('#trainingimgwrap' + trainingid);
-      var imgSpinner = elm.find('.mdl-spinner');
+      var imgSpinner = elm.find('.spinner');
       var img = document.getElementById('traininglistitemimg' + trainingid);
       if (!img.hasAttribute('data-src')) {
 
@@ -204,7 +208,7 @@ var TrainingImage = function (_React$Component) {
       var trainingid = this.props.trainingid;
       console.log('trainingimage handleImageErrored ' + trainingid);
       var elm = (0, _jquery2.default)('#trainingimgwrap' + trainingid);
-      var imgSpinner = elm.find('.mdl-spinner');
+      var imgSpinner = elm.find('.Spinner');
       var image = elm.find('.dataimg');
       var img = image[0];
       imgSpinner[0].style.display = 'none';
