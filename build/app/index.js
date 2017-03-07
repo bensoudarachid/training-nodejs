@@ -78,7 +78,46 @@ var _rootreducer2 = _interopRequireDefault(_rootreducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// var componentHandler = require('exports?componentHandler!material-design-lite/dist/material')
+// var React = require('react');
+var ReactRouter = require('react-router');
+// var ReactDom = require('react-dom');
+// import { Router, Route, Link, IndexRoute,NotFoundRoute, hashHistory, browserHistory } from 'react-router'
+
+var Router = ReactRouter.Router;
+var Route = ReactRouter.Route;
+var Link = ReactRouter.Link;
+var IndexRoute = ReactRouter.IndexRoute;
+var NotFoundRoute = ReactRouter.NotFoundRoute;
+
+// import { createHistory, useBasename } from 'history'
+
+// import configureStore from '../redux/store'
+
+// import 'jquery'
+// import $ from 'jquery'
+// global.jQuery = require('jquery')
+// require('material-design-lite/dist//material.css')
+// require('material-design-lite/dist/material.js')
+
+// import UserApp from '../components/userapp'
+
+// import '../styles/default.scss'
+
+
+// import 'material-design-lite/src/_variables.scss'
+// import 'material-design-lite/dist/material.css'
+// import 'material-design-lite/dist/material.blue-pink.min.css'
+// import 'material-design-lite/dist/material.blue-red.min.css'
+
+// import '../../node_modules/materialize-css/dist/js/materialize.min.js'
+// import '../../node_modules/materialize-css/dist/css/materialize.min.css'
+// import injectTapEventPlugin from 'react-tap-event-plugin'
+
+// Needed for onTouchTap 
+// http://stackoverflow.com/a/34015469/988941 
+// injectTapEventPlugin()
+
+// import '../styles/default.scss'
 
 // import { FetchData, reducer as fetching } from 'redux-fetch-data';
 
@@ -92,15 +131,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import App from '../components/app.jsx';
 // import AppComponent from '../components/appcomponent';
 
-// import '../styles/default.scss'
 
-// import UserApp from '../components/userapp'
+// var componentHandler = require('exports?componentHandler!material-design-lite/dist/material')
 
-// import configureStore from '../redux/store'
-
-// import { createHistory, useBasename } from 'history'
-
-// var React = require('react');
 (function ($) {
 
   $.fn.visible = function (partial) {
@@ -162,30 +195,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   };
 })($);
 
-// import '../../node_modules/materialize-css/dist/js/materialize.min.js'
-// import '../../node_modules/materialize-css/dist/css/materialize.min.css'
-// import injectTapEventPlugin from 'react-tap-event-plugin'
-
-// Needed for onTouchTap 
-// http://stackoverflow.com/a/34015469/988941 
-// injectTapEventPlugin()
-
-// import '../styles/default.scss'
-
-// import 'material-design-lite/src/_variables.scss'
-// import 'material-design-lite/dist/material.css'
-// import 'material-design-lite/dist/material.blue-pink.min.css'
-// import 'material-design-lite/dist/material.blue-red.min.css'
-
-// import 'jquery'
-// import $ from 'jquery'
-// global.jQuery = require('jquery')
-// require('material-design-lite/dist//material.css')
-// require('material-design-lite/dist/material.js')
-
-// var ReactDom = require('react-dom');
-
-
 var NotFound = function NotFound() {
   return _react2.default.createElement(
     'h1',
@@ -193,14 +202,12 @@ var NotFound = function NotFound() {
     '404.... This page is not found!'
   );
 };
-var Training = function Training() {
-  console.log('here i am');
-  return _react2.default.createElement(
-    'h1',
-    null,
-    'Training.... This page is under construction!'
-  );
-};
+// const Training = () => {
+//   console.log('here i am')
+//   return(
+//         <h1>Training.... This page is under construction!</h1>
+//   )
+// }
 
 var initialState = window.__REDUX_STATE__;
 var store = '';
@@ -222,50 +229,33 @@ window.routerHistory = mybrowserHistory;
 
 $('.ellipsis').ellipsis();
 
-// $(window).scroll(function() {
-
-//   if ($('.navbar').offset().top > 10) {
-//     console.log('add collapse')
-//     $('#bs-example-navbar-collapse-1').addClass('collapse')
-//   } else {
-//     console.log('remove collapse')
-//     $('#bs-example-navbar-collapse-1').removeClass('collapse')
-//   }
-// })
-
-// $(document).ready(function() { 
-//   $('body').click(function(event) {
-//         // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
-//     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
-//       $('.navbar-collapse').collapse('toggle')
-//     }
-//   })
-// })
-
-// store={store}
 // <Router routes={routes} history={mybrowserHistory} />
+
+
 _reactDom2.default.render(_react2.default.createElement(
   _reactRedux.Provider,
   { store: store },
-  _react2.default.createElement(
-    _reactRouter.Router,
-    { history: mybrowserHistory },
-    _react2.default.createElement(
-      _reactRouter.Route,
-      { path: '/', component: _appcomponent2.default },
-      _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
-      _react2.default.createElement(_reactRouter.Route, { path: 'register', component: _register2.default }),
-      _react2.default.createElement(
-        _reactRouter.Route,
-        { path: 'trainings' },
-        _react2.default.createElement(_reactRouter.IndexRoute, { component: _trainingapp2.default }),
-        _react2.default.createElement(_reactRouter.Route, { path: 'item/:id', component: Training })
-      ),
-      _react2.default.createElement(_reactRouter.Route, { path: 'todos', component: _todoapp2.default }),
-      _react2.default.createElement(_reactRouter.Route, { path: '*', component: NotFound })
-    )
-  )
+  _react2.default.createElement(Router, { routes: _routes.routes, history: mybrowserHistory })
 ), document.getElementById('root'));
+
+// ReactDom.render(
+//   <Provider store={store}>
+//     <Router history={mybrowserHistory} >
+//       <Route path="/" component={AppComponent}>
+//         <IndexRoute component={Home} />
+//         <Route path="register" component={Register} />
+//         <Route path="trainings">
+//           <IndexRoute component={TrainingApp}/>
+//           <Route path="item/:id" component={Training} />
+//         </Route>
+//         <Route path="todos" component={TodoApp} />
+//         <Route path='*' component={NotFound} />
+//       </Route>
+//     </Router>
+//   </Provider>,
+//   document.getElementById('root')
+// )
+
 // <Router routes={routes} history={browserHistory} />
 // <Router children={routes} history={browserHistory} />
 // <AppComponent />

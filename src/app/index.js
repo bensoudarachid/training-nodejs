@@ -2,7 +2,16 @@ import React from 'react'
 // var React = require('react');
 import ReactDom from 'react-dom'
 // var ReactDom = require('react-dom');
-import { Router, Route, Link, IndexRoute,NotFoundRoute, hashHistory, browserHistory } from 'react-router'
+// import { Router, Route, Link, IndexRoute,NotFoundRoute, hashHistory, browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
+
+var ReactRouter = require('react-router')
+var Router = ReactRouter.Router
+var Route = ReactRouter.Route
+var Link = ReactRouter.Link
+var IndexRoute = ReactRouter.IndexRoute
+var NotFoundRoute = ReactRouter.NotFoundRoute
+
 // import { createHistory, useBasename } from 'history'
 import { createHistory } from 'history'
 import { useRouterHistory } from 'react-router'
@@ -144,12 +153,12 @@ import rootReducer from '../services/rootreducer'
 })($)
 
 const NotFound = () => ( <h1>404.... This page is not found!</h1> )
-const Training = () => {
-  console.log('here i am')
-  return(
-        <h1>Training.... This page is under construction!</h1>
-  )
-}
+// const Training = () => {
+//   console.log('here i am')
+//   return(
+//         <h1>Training.... This page is under construction!</h1>
+//   )
+// }
 
 const initialState = window.__REDUX_STATE__ 
 var store = ''
@@ -173,45 +182,35 @@ window.routerHistory = mybrowserHistory
 
 $('.ellipsis').ellipsis()
 
-// $(window).scroll(function() {
 
-//   if ($('.navbar').offset().top > 10) {
-//     console.log('add collapse')
-//     $('#bs-example-navbar-collapse-1').addClass('collapse')
-//   } else {
-//     console.log('remove collapse')
-//     $('#bs-example-navbar-collapse-1').removeClass('collapse')
-//   }
-// })
-
-// $(document).ready(function() { 
-//   $('body').click(function(event) {
-//         // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
-//     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
-//       $('.navbar-collapse').collapse('toggle')
-//     }
-//   })
-// })
-
-// store={store}
 // <Router routes={routes} history={mybrowserHistory} />
+
+
 ReactDom.render(
   <Provider store={store}>
-    <Router history={mybrowserHistory} >
-      <Route path="/" component={AppComponent}>
-        <IndexRoute component={Home} />
-        <Route path="register" component={Register} />
-        <Route path="trainings">
-          <IndexRoute component={TrainingApp}/>
-          <Route path="item/:id" component={Training} />
-        </Route>
-        <Route path="todos" component={TodoApp} />
-        <Route path='*' component={NotFound} />
-      </Route>
-    </Router>
+    <Router routes={routes} history={mybrowserHistory} />
   </Provider>,
   document.getElementById('root')
 )
+
+// ReactDom.render(
+//   <Provider store={store}>
+//     <Router history={mybrowserHistory} >
+//       <Route path="/" component={AppComponent}>
+//         <IndexRoute component={Home} />
+//         <Route path="register" component={Register} />
+//         <Route path="trainings">
+//           <IndexRoute component={TrainingApp}/>
+//           <Route path="item/:id" component={Training} />
+//         </Route>
+//         <Route path="todos" component={TodoApp} />
+//         <Route path='*' component={NotFound} />
+//       </Route>
+//     </Router>
+//   </Provider>,
+//   document.getElementById('root')
+// )
+
 	// <Router routes={routes} history={browserHistory} />
 // <Router children={routes} history={browserHistory} />
 // <AppComponent />

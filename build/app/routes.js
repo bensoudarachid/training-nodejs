@@ -97,6 +97,14 @@ var NotFound = function NotFound() {
     '404.... This page is not found!'
   );
 };
+var Training = function Training() {
+  console.log('here i am');
+  return _react2.default.createElement(
+    'h1',
+    null,
+    'Training.... This page is under construction!'
+  );
+};
 
 var routesold = {
   path: '',
@@ -135,13 +143,17 @@ var routesold = {
 // <Redirect from="company" to="about" />
 var routes = _react2.default.createElement(
   Route,
-  { handler: _appcomponent2.default, path: '/' },
-  _react2.default.createElement(DefaultRoute, { handler: _home2.default }),
-  _react2.default.createElement(Route, { name: 'register', handler: _register2.default }),
-  _react2.default.createElement(Route, { name: '/registerconfirm(/:username', handler: _registerconfirm2.default }),
-  _react2.default.createElement(Route, { name: 'todos', handler: _todoapp2.default }),
-  _react2.default.createElement(Route, { name: 'trainings', handler: _trainingapp2.default }),
-  _react2.default.createElement(NotFoundRoute, { handler: NotFound })
+  { path: '/', component: _appcomponent2.default },
+  _react2.default.createElement(IndexRoute, { component: _home2.default }),
+  _react2.default.createElement(Route, { path: 'register', component: _register2.default }),
+  _react2.default.createElement(
+    Route,
+    { path: 'trainings' },
+    _react2.default.createElement(IndexRoute, { component: _trainingapp2.default }),
+    _react2.default.createElement(Route, { path: 'item/:id', component: Training })
+  ),
+  _react2.default.createElement(Route, { path: 'todos', component: _todoapp2.default }),
+  _react2.default.createElement(Route, { path: '*', component: NotFound })
 );
 
 exports.routes = routes;

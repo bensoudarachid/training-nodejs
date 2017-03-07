@@ -50,6 +50,12 @@ const Users = ( { params, location } ) => (
 // )
 // const store = configureStore(initialState)
 const NotFound = () => ( <h1>404.... This page is not found!</h1> )
+const Training = () => {
+  console.log('here i am')
+  return(
+        <h1>Training.... This page is under construction!</h1>
+  )
+}
 
 const routesold = {
   path: '',
@@ -94,16 +100,16 @@ const routesold = {
       // <Route name="traininglist" path="/trainings" handler={TrainingApp} />
       // <Redirect from="company" to="about" />
 const routes = (
-  <Route handler={AppComponent} path="/">
-    <DefaultRoute handler={Home} />
-    <Route name="register" handler={Register} />
-    <Route name="/registerconfirm(/:username" handler={RegisterConfirmation} />
-    <Route name="todos" handler={TodoApp} />
-    <Route name="trainings" handler={TrainingApp}>
-    </Route>
-    <NotFoundRoute handler={NotFound}/>
-    
-  </Route>
+      <Route path="/" component={AppComponent}>
+        <IndexRoute component={Home} />
+        <Route path="register" component={Register} />
+        <Route path="trainings">
+          <IndexRoute component={TrainingApp}/>
+          <Route path="item/:id" component={Training} />
+        </Route>
+        <Route path="todos" component={TodoApp} />
+        <Route path='*' component={NotFound} />
+      </Route>
 )
 
 export { routes }
