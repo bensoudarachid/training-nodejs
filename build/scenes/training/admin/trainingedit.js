@@ -39,7 +39,7 @@ var TrainingEdit = function (_React$Component) {
       return _react2.default.createElement(
         'h1',
         null,
-        'Training.... This page is under construction! yes'
+        'Training.... This page is under construction!'
       );
     }
   }, {

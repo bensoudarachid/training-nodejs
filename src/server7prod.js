@@ -341,9 +341,11 @@ app.get(appbasename+'/*', (req, res) => {
             console.log('hour of the day = '+hour)
             var style = 'http://rlearn.herokuapp.com/style.css'
             var bundle = 'http://rlearn.herokuapp.com/bundle.js'
+            var vendorBundle = 'http://rlearn.herokuapp.com/vendor.bundle.js'
             if(hour < 7 || hour > 22){
               style = '/style.css'
               bundle = '/bundle.js'
+              vendorBundle = '/vendor.bundle.js'
             }
                 // <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
                 // <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -361,6 +363,7 @@ app.get(appbasename+'/*', (req, res) => {
                 <body style="background-color:#2980b9">
                   <div id="root">${body}</div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
+                  <script src="${vendorBundle}"></script>
                   <script src="${bundle}"></script>
                 </body>
               </html>`)

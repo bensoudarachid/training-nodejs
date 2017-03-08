@@ -9,7 +9,7 @@ export default class TrainingEdit extends React.Component {
 
   render() {
     return (
-        <h1>Training.... This page is under construction! yes</h1>
+        <h1>Training.... This page is under construction!</h1>
     )
   }
   

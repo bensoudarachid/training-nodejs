@@ -11,11 +11,30 @@ module.exports = {
   // devtool: 'inline-source-map',
   // devtool: 'cheap-module-eval-source-map',
   devtool: 'cheap-module-source-map',
-  entry: [
-    // 'webpack-hot-middleware/client?path=http://localhost:8081/__webpack_hmr',
-    // './src/client/indexprod.js'
-    './src/app'
-  ],
+  entry: {
+    app: './src/app'
+    // ,vendor: ['material-design-lite','react-dom','bootstrap','jquery','jquery','immutable','react','lodash','react-router','validator','html-entities','history','buffer','fbjs','es6-promise','redux','react-proxy','react-redux','redbox-react','util','redux-logger','whatwg-fetch']
+    ,vendor: ['bootstrap','cookie-parser','dialog-polyfill','es6-promise','escape-html',
+      'form-data','immutable','isomorphic-fetch','jquery','lodash.clonedeep','material-design-lite',
+      'react','react-addons-pure-render-mixin','react-cookie','react-dom','react-redux','react-router',
+      'react-router-redux','react-tap-event-plugin','redux','redux-logger','redux-thunk','stats-js','validator']
+  },
+    // ,vendor: ['body-parser','bootstrap','compression','cookie-parser','dialog-polyfill','es6-promise','escape-html',
+    //   'form-data','immutable','inline-style-prefixer','isomorphic-fetch','jquery','lodash.clonedeep','material-design-lite',
+    //   'path','react','react-addons-pure-render-mixin','react-cookie','react-dom','react-redux','react-router',
+    //   'react-router-redux','react-tap-event-plugin','redux','redux-logger','redux-thunk','stats-js','validator']
+
+      // 'babel','babel-cli','babel-core','babel-loader','babel-preset-es2015','babel-preset-react-hmre','babel-preset-stage-2',
+      // 'babel-register','body-parser','bootstrap','compression','cookie-parser','dialog-polyfill','ejs','es6-promise','escape-html',
+      // 'express','form-data','immutable','inline-style-prefixer','isomorphic-fetch','jquery','lodash.clonedeep','material-design-lite',
+      // 'multer','node-jsx','path','react','react-addons-pure-render-mixin','react-cookie','react-dom','react-redux','react-router',
+      // 'react-router-redux','react-tap-event-plugin','redux','redux-logger','redux-thunk','serve-favicon','stats-js','traceur','validator'
+
+    
+
+  // entry: [
+  //   './src/app'
+  // ],
   output: {
     // path: path.join(__dirname, 'build/reactor'),
     path: path.join(__dirname, 'build'),
@@ -32,7 +51,7 @@ module.exports = {
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [ 'file?hash=sha512&digest=hex&name=[hash].[ext]',
-            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false, pngquant:{quality: "65-90", speed: 4}'
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false, pngquant:{quality: "65-90", speed: 4}'
         ]
       },
       {
@@ -59,6 +78,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js'),
     new ExtractTextPlugin('style.css', {allChunks: true}),
     new OptimizeCssAssetsPlugin({
       // assetNameRegExp: /\.optimize\.css$/g,
