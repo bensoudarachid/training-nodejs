@@ -144,15 +144,15 @@ var AdminTrainingListItem = function (_React$Component) {
       );
     }
   }, {
-    key: 'handleSchedule',
-    value: function handleSchedule(event) {
+    key: 'handleEdit',
+    value: function handleEdit(event) {
       console.log('Call Schedule for this Training' + this.props.training.get('id'));
       window.routerHistory.push('trainings/item/' + this.props.training.get('id'));
       // this.props.actions.appError(undefined)
     }
   }, {
-    key: 'handleEdit',
-    value: function handleEdit(event) {
+    key: 'handleSchedule',
+    value: function handleSchedule(event) {
       console.log('Call Edit for this Training' + this.props.training.get('id'));
       // this.props.actions.appError(undefined)
       window.routerHistory.push('/todos');

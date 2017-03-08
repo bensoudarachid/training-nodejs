@@ -321,7 +321,12 @@ app.get(appbasename+'/*', (req, res) => {
           location: req.url
         }, (error, redirectLocation, renderProps) => {
           const promises = renderProps.components
-          .filter((component) => component.fetchData)
+          // .filter((component) => component.fetchData)
+          .filter((component) => {
+            console.log('filter component = '+util.inspect(component, false, null))
+            return component!=undefined?component.fetchData:false
+            // return component.fetchData
+          })          
           .map((component) => component.fetchData(dispactions))
           Promise.all(promises).then(() => {
           // res.status(200).send(renderView())

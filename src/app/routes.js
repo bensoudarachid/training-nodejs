@@ -2,6 +2,7 @@
 import AppComponent from '../app/appcomponent'
 import TodoApp from '../scenes/todo/todoapp'
 import TrainingApp from '../scenes/training/trainingapp'
+import TrainingEdit from '../scenes/training/admin/trainingedit'
 // import UserApp from '../components/userapp'
 import Register from '../scenes/registration/register'
 import RegisterConfirmation from '../scenes/registration/registerconfirm'
@@ -50,12 +51,12 @@ const Users = ( { params, location } ) => (
 // )
 // const store = configureStore(initialState)
 const NotFound = () => ( <h1>404.... This page is not found!</h1> )
-const Training = () => {
-  console.log('here i am')
-  return(
-        <h1>Training.... This page is under construction!</h1>
-  )
-}
+// const Training = () => {
+//   console.log('here i am')
+//   return(
+//         <h1>Training.... This page is under construction!</h1>
+//   )
+// }
 
 const routesold = {
   path: '',
@@ -95,6 +96,10 @@ const routesold = {
     }
   ]
 }
+//        <Route path="trainings">
+//          <IndexRoute component={TrainingApp}/>
+          // <Route path="item/:id" component={Training} />
+        // </Route>
 
       // <Route name="training" path="training/:trainingid" handler={TrainingApp} />
       // <Route name="traininglist" path="/trainings" handler={TrainingApp} />
@@ -105,8 +110,9 @@ const routes = (
         <Route path="register" component={Register} />
         <Route path="trainings">
           <IndexRoute component={TrainingApp}/>
-          <Route path="item/:id" component={Training} />
+          <Route path="item/:id" component={TrainingEdit} />
         </Route>
+        
         <Route path="todos" component={TodoApp} />
         <Route path='*' component={NotFound} />
       </Route>

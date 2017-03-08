@@ -17,6 +17,10 @@ var _trainingapp = require('../scenes/training/trainingapp');
 
 var _trainingapp2 = _interopRequireDefault(_trainingapp);
 
+var _trainingedit = require('../scenes/training/admin/trainingedit');
+
+var _trainingedit2 = _interopRequireDefault(_trainingedit);
+
 var _register = require('../scenes/registration/register');
 
 var _register2 = _interopRequireDefault(_register);
@@ -38,8 +42,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import { Route, IndexRoute, Link, hashHistory, DefaultRoute,NotFoundRoute } from 'react-router'
 
 // import UserApp from '../components/userapp'
-var ReactRouter = require('react-router'); // import AboutComponent from '../components/about'
-
+// import AboutComponent from '../components/about'
+var ReactRouter = require('react-router');
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 var Link = ReactRouter.Link;
@@ -97,14 +101,12 @@ var NotFound = function NotFound() {
     '404.... This page is not found!'
   );
 };
-var Training = function Training() {
-  console.log('here i am');
-  return _react2.default.createElement(
-    'h1',
-    null,
-    'Training.... This page is under construction!'
-  );
-};
+// const Training = () => {
+//   console.log('here i am')
+//   return(
+//         <h1>Training.... This page is under construction!</h1>
+//   )
+// }
 
 var routesold = {
   path: '',
@@ -137,6 +139,10 @@ var routesold = {
     component: NotFound
   }]
 };
+//        <Route path="trainings">
+//          <IndexRoute component={TrainingApp}/>
+// <Route path="item/:id" component={Training} />
+// </Route>
 
 // <Route name="training" path="training/:trainingid" handler={TrainingApp} />
 // <Route name="traininglist" path="/trainings" handler={TrainingApp} />
@@ -150,7 +156,7 @@ var routes = _react2.default.createElement(
     Route,
     { path: 'trainings' },
     _react2.default.createElement(IndexRoute, { component: _trainingapp2.default }),
-    _react2.default.createElement(Route, { path: 'item/:id', component: Training })
+    _react2.default.createElement(Route, { path: 'item/:id', component: _trainingedit2.default })
   ),
   _react2.default.createElement(Route, { path: 'todos', component: _todoapp2.default }),
   _react2.default.createElement(Route, { path: '*', component: NotFound })

@@ -78,12 +78,12 @@ export default class AdminTrainingListItem extends React.Component {
       </div>
     )
   }
-  handleSchedule(event) {
+  handleEdit(event) {
     console.log('Call Schedule for this Training'+this.props.training.get('id'))
     window.routerHistory.push('trainings/item/'+this.props.training.get('id'))
     // this.props.actions.appError(undefined)
   }
-  handleEdit(event) {
+  handleSchedule(event) {
     console.log('Call Edit for this Training'+this.props.training.get('id'))
     // this.props.actions.appError(undefined)
     window.routerHistory.push('/todos')

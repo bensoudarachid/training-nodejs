@@ -437,7 +437,9 @@ app.get(appbasename + '/*', function (req, res) {
           location: req.url
         }, function (error, redirectLocation, renderProps) {
           var promises = renderProps.components.filter(function (component) {
-            return component.fetchData;
+            console.log('filter component = ' + util.inspect(component, false, null));
+            return component != undefined ? component.fetchData : false;
+            // return component.fetchData
           }).map(function (component) {
             return component.fetchData(dispactions);
           });
@@ -450,46 +452,13 @@ app.get(appbasename + '/*', function (req, res) {
               _react2.default.createElement(_reactRouter.RouterContext, renderProps)
             ));
 
-            // <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-            // <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
-            // <link rel="stylesheet" href="//storage.googleapis.com/code.getmdl.io/1.0.1/material.light_blue-red.min.css" />
-            // <script src="//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>                
-            // console.log('Server. body '+body);
-            // <div id="devmarker" style="position:fixed;height:4px;width:263px;background-color:#fff;top:165px;left:50%;"></div>
-
             var state = store.getState();
-            //                  <script type="text/javascript" src="app/auroraeffect/requestanimpolyfill.js"></script>
-            //                  <script type="text/javascript" src="app/auroraeffect/simplex.js"></script>
-            //                  <script type="text/javascript" src="app/auroraeffect/index.js"></script>
-            // style="background-color:#2980b9"
             res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="/style.css" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="/bundle.js"></script>\n\n                </body>\n              </html>');
           }).catch(function (err) {
             return console.log('Booooo' + err);
           });
         });
-
-        // const state = store.getState()
-        // console.log('Server. Render now = ' + JSON.stringify(state))
-        // const body = renderToString(
-        //   <Provider store={store}>
-        //       <RouterContext {...renderProps} />
-        //     </Provider>
-        // )
-
-        // res.send(`<!DOCTYPE html>
-        //     <html>
-        //       <head></head>
-        //       <body>
-        //         <h4>WAHNSINN</h4>
-        //         <div id="root">${body}</div>
-        //         <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
-        //         <script src="bundle.js"></script>
-        //       </body>
-        //     </html>`)
       } else {
-
-        // no route match, so 404. In a real app you might render a custom
-        // 404 view here
         res.sendStatus(404);
       }
     });
@@ -504,18 +473,6 @@ setInterval(function () {
   _http2.default.get('http://abbaslearn.royasoftware.com/todos');
 }, 1000000);
 
-// function get() {
-//     http.request(extServerOptions, function (res) {
-//         res.setEncoding('utf8');
-//         res.on('data', function (data) {
-//             emp = JSON.parse(data);
-//             emp.foreach(function (e) {
-//                 console.log(e.EmpNo + "\t" + e.EmpName + "\t" + e.Salary + "\t" + e.DeptName + "\t" + e.Designation);
-//             });
-//         });
-
-//     }).end();
-// };
 var port = process.env.PORT || _actions2.default.port;
 app.listen(port, function (error) {
   if (error) throw error;

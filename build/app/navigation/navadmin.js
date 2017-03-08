@@ -207,8 +207,8 @@ var NavAdmin = function (_Component) {
 							null,
 							_react2.default.createElement(
 								_reactRouter.Link,
-								{ activeClassName: 'active', to: '/trainingschedule' },
-								'Schedule'
+								{ activeClassName: 'active', to: '/users' },
+								'User'
 							)
 						)
 					),

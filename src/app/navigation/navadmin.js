@@ -111,7 +111,7 @@ class NavAdmin extends Component {
       <li><Link activeClassName='active' to='/todos'>Todos</Link></li>
       }
       <li><Link activeClassName='active' to='/trainings'>Training</Link></li>
-      <li><Link activeClassName='active' to='/trainingschedule'>Schedule</Link></li>
+      <li><Link activeClassName='active' to='/users'>User</Link></li>
 			</ul>
 			<ul className="nav navbar-nav navbar-right">
 {isBrowser && !isAuthenticated &&
@@ -125,7 +125,7 @@ class NavAdmin extends Component {
 			</ul>
 		</div>
 	</nav>
-	)
+    )
   }
 }
 			// <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>

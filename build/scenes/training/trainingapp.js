@@ -344,6 +344,7 @@ var TrainingApp = function (_Component) {
   }, {
     key: 'textswitcher',
 
+
     // static fetchDataOld(actions) {
     //   var headers = {
     //     'Content-Type': 'application/x-www-form-urlencoded',
@@ -497,6 +498,7 @@ var TrainingApp = function (_Component) {
   }], [{
     key: 'fetchData',
     value: function fetchData(actions) {
+      console.log('Training list. get all trainings now!');
       actions.retrieveTrainingsDispatcher();
     }
   }]);

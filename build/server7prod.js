@@ -346,8 +346,12 @@ app.get(appbasename + '/*', function (req, res) {
           routes: _routes.routes,
           location: req.url
         }, function (error, redirectLocation, renderProps) {
-          var promises = renderProps.components.filter(function (component) {
-            return component.fetchData;
+          var promises = renderProps.components
+          // .filter((component) => component.fetchData)
+          .filter(function (component) {
+            console.log('filter component = ' + util.inspect(component, false, null));
+            return component != undefined ? component.fetchData : false;
+            // return component.fetchData
           }).map(function (component) {
             return component.fetchData(dispactions);
           });

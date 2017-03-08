@@ -291,8 +291,10 @@ class TrainingApp extends Component {
 
   //This is a necessary call when component is fetched on server side
   static fetchData(actions) {
+    console.log('Training list. get all trainings now!')
     actions.retrieveTrainingsDispatcher()
   }
+
   // static fetchDataOld(actions) {
   //   var headers = {
   //     'Content-Type': 'application/x-www-form-urlencoded',
