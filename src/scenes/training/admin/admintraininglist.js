@@ -68,9 +68,9 @@ export default class AdminTrainingList extends React.Component {
           <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{width:'55px',height:'55px'}}></div>
           //<div className='spinnerwrap'><LogoSpinner/></div>
           :
-          <span className='admintrainingslistwrap mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+          <div className='admintrainingslistwrap mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
             {this.renderItems()}
-          </span>
+          </div>
         }        
       </div>
     )

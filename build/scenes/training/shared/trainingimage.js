@@ -208,7 +208,7 @@ var TrainingImage = function (_React$Component) {
       var trainingid = this.props.trainingid;
       console.log('trainingimage handleImageErrored ' + trainingid);
       var elm = (0, _jquery2.default)('#trainingimgwrap' + trainingid);
-      var imgSpinner = elm.find('.Spinner');
+      var imgSpinner = elm.find('.spinner');
       var image = elm.find('.dataimg');
       var img = image[0];
       imgSpinner[0].style.display = 'none';

@@ -111,7 +111,7 @@ var AdminTrainingList = function (_React$Component) {
         this.props.trainings == undefined ? _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active', style: { width: '55px', height: '55px' } })
         //<div className='spinnerwrap'><LogoSpinner/></div>
         : _react2.default.createElement(
-          'span',
+          'div',
           { className: 'admintrainingslistwrap mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
           this.renderItems()
         )
