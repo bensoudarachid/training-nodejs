@@ -174,21 +174,54 @@ class AppComponent extends React.Component {
       />
       </div>
       }
-
-        <div id='contt'>
-  
-        { children }
-        </div>
-        {appError &&
         <div>
-          <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: '+appError}/>
+          <div id='contt'>
+          {loginMessage?
+            <div>
+              <h1>{loginMessage}</h1>
+            </div>
+            :
+            <div>
+            { children }
+            </div>
+          }
+          </div>
+          {appError &&
+          <div>
+            <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: '+appError}/>
+          </div>
+          }
         </div>
-        }
+
 
       </div>
     )
   }
 }
+
+      // {loginMessage?
+      //   <div>
+      //     <h1>{loginMessage}</h1>
+      //     <h1>{loginMessage}</h1>
+      //     <h1>{loginMessage}</h1>
+      //     <h1>{loginMessage}</h1>
+      //     <h1>{loginMessage}</h1>
+      //     <h1>{loginMessage}</h1>
+      //     <h1>{loginMessage}</h1>
+      //     <h1>{loginMessage}</h1>
+      //   </div>
+      //   :
+      //   <div>
+      //     <div id='contt'>
+      //     { children }
+      //     </div>
+      //     {appError &&
+      //     <div>
+      //       <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: '+appError}/>
+      //     </div>
+      //     }
+      //   </div>
+      // }
 
 
 function updateChildren(children, props) {

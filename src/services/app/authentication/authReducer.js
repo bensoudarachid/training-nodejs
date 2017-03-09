@@ -55,6 +55,7 @@ let authReducer = function(auth = new Immutable.Map({
     // console.log('Auth reducer. +++++++++++++Login in Progress ')
     auth=auth.set('loginMessage',action.message)
     auth=auth.set('loginProgress',true)
+    auth=auth.set('loginactualurl',action.actualurl)
     return auth
     // return Object.assign({}, auth, {
     //   loginMessage: action.message,
@@ -64,6 +65,7 @@ let authReducer = function(auth = new Immutable.Map({
     console.log('authreducerjs. login progress end')
     auth=auth.remove('loginMessage')
     auth=auth.remove('loginProgress')
+    auth=auth.remove('loginactualurl')
     return auth
     // return Object.assign({}, _.omit(auth, ['loginMessage','loginProgress']), {})  
     
@@ -80,12 +82,16 @@ let authReducer = function(auth = new Immutable.Map({
     //   usercreds: action.creds
     // })
   case 'LOGIN_SUCCESS':
-      // console.log('+++++++++++++++++++++++++++++++++++++Reducer Authentication ')
+    console.log('+++++++++++++++++++++++++++++++++++++Reducer Authentication success. go back to url: '+auth.get('loginactualurl'))
       // console.log(action.id_token)
     auth=auth.set('isFetching',false)
     auth=auth.set('errorMessage','')
     auth=auth.set('isAuthenticated',authenticated)
     auth=auth.remove('usercreds')
+    auth=auth.remove('loginMessage')
+    auth=auth.remove('loginProgress')
+    auth=auth.remove('loginactualurl')
+
     return auth
 //     return Object.assign({}, _.omit(auth, ['usercreds']), {
 //       isFetching: false,
@@ -97,6 +103,9 @@ let authReducer = function(auth = new Immutable.Map({
     auth=auth.set('isFetching',false)
     auth=auth.set('errorMessage', action.message)
     auth=auth.remove('usercreds')
+    // auth=auth.remove('loginMessage')
+    auth=auth.remove('loginProgress')
+    auth=auth.remove('loginactualurl')
     return auth
 //  
     // return Object.assign({}, _.omit(auth, ['usercreds']), {
@@ -116,6 +125,9 @@ let authReducer = function(auth = new Immutable.Map({
   case 'LOGOUT_SUCCESS':
     auth=auth.set('isFetching',false)
     auth=auth.set('isAuthenticated', authenticated)
+    auth=auth.remove('loginMessage')
+    auth=auth.remove('loginProgress')
+    auth=auth.remove('loginactualurl')
     return auth
     // return Object.assign({}, auth, {
     //   isFetching: false,

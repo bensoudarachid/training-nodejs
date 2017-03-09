@@ -52,18 +52,17 @@ var TodoApp = function (_Component) {
   function TodoApp(props) {
     _classCallCheck(this, TodoApp);
 
-    // console.log('todo list. Mixin in constructor')
     var _this = _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).call(this, props));
 
     _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
-    // const {auth} = this.props
-    if (process.env.BROWSER && !_this.props.auth.get('isAuthenticated')) {
-      console.log('todoapp start login process');
-      _this.props.actions.loginProcessStart('No access rights!');
-    }
-    _this.state = {
-      error: null
-    };
+
+    // if(process.env.BROWSER && !this.props.auth.get('isAuthenticated')){
+    //   console.log('todoapp start login process')
+    //   this.props.actions.loginProcessStart('No access rights!')
+    // }
+    // this.state = {
+    //   error: null
+    // }
 
     return _this;
   }
@@ -71,44 +70,47 @@ var TodoApp = function (_Component) {
   _createClass(TodoApp, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      // console.log('todoappjs mounted')
+      console.log('todoappjs mounted. Call fetchdata');
       TodoApp.fetchData(this.props.actions);
       // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     }
+
     //This is a necessary call when component is fetched on server side
 
   }, {
     key: 'render',
-
-
-    // renderOld() {
-
-    //   const isBrowser = process.env.BROWSER//typeof window !== 'undefined';
-    //   if (!isBrowser) {
-    //     return <div/>
-    //   }
-    //   const {auth} = this.props
-    //   return (
-    //     <div className='todoapp'>
-    //     {!auth.get('isAuthenticated') &&
-    //     <div>
-    //       No right access here. Please login
-    //     </div>
-    //     }
-    //     {auth.get('isAuthenticated') &&
-    //     <div>
-    //       <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
-    //         <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions}/>
-    //         <TodoCreate todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
-    //       </div>
-    //       <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>
-    //     </div>
-    //     }
-    //     </div>
-    //     )
-    // }
     value: function render() {
-
+      var isBrowser = process.env.BROWSER; //typeof window !== 'undefined';
+      if (!isBrowser) {
+        // console.log('+++++++++++++++++++++++++Todoapp. environment is server')
+        return _react2.default.createElement('div', null);
+      }
+      // console.log('+++++++++++++++++++++++++Todoapp. environment is browser')
+      // const {auth} = this.props
+      // console.log('Render todoapp authenticated ? ' + auth.get('isAuthenticated'))
+      //  alert("Hi "+test);
+      // createTask={this.createTask.bind(this)}
+      //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
+      // deleteTask={this.deleteTask.bind(this)}
+      return _react2.default.createElement(
+        'div',
+        { id: 'todoapp' },
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'mdl-grid mdl-grid--no-spacing blockborder parampanel' },
+            _react2.default.createElement(_todosfilter2.default, { filteropen: this.props.todoappmap.get('filterOpen'), filterclosed: this.props.todoappmap.get('filterClosed'), actions: this.props.actions }),
+            _react2.default.createElement(_todocreate2.default, { todos: this.props.todoappmap.get('todos'), actions: this.props.actions })
+          ),
+          _react2.default.createElement(_todoslist2.default, { todos: this.props.todoappmap.get('todos'), filteropen: this.props.todoappmap.get('filterOpen'), filterclosed: this.props.todoappmap.get('filterClosed'), actions: this.props.actions })
+        )
+      );
+    }
+  }, {
+    key: 'renderOld',
+    value: function renderOld() {
       var isBrowser = process.env.BROWSER; //typeof window !== 'undefined';
       if (!isBrowser) {
         // console.log('+++++++++++++++++++++++++Todoapp. environment is server')

@@ -101,6 +101,7 @@ var NotFound = function NotFound() {
     '404.... This page is not found!'
   );
 };
+// const LoginInProgress = () => ( <h1>Login in progress</h1> )
 // const Training = () => {
 //   console.log('here i am')
 //   return(
@@ -147,6 +148,7 @@ var routesold = {
 // <Route name="training" path="training/:trainingid" handler={TrainingApp} />
 // <Route name="traininglist" path="/trainings" handler={TrainingApp} />
 // <Redirect from="company" to="about" />
+//        <Route path="logininprogress" component={LoginInProgress} />
 var routes = _react2.default.createElement(
   Route,
   { path: '/', component: _appcomponent2.default },

@@ -215,7 +215,13 @@ class Home extends Component {
 
   render() {
     // console.log('homejs. props.actions.url = '+this.props.actions.apiurl)
-    // console.log('homejs. actions.url = '+actions.apiurl)
+    console.log('homejs. actual url = '+this.props.auth.get('loginactualurl'))
+    let authenticated = cookie.load('jwt') ? true : false
+    if( !authenticated && this.props.auth.get('loginactualurl')!=undefined && this.props.auth.get('loginactualurl')!='/')
+      return (
+        <div></div>
+      )
+
     return (
 		<div id='home'>
 		

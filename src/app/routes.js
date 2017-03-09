@@ -51,6 +51,7 @@ const Users = ( { params, location } ) => (
 // )
 // const store = configureStore(initialState)
 const NotFound = () => ( <h1>404.... This page is not found!</h1> )
+// const LoginInProgress = () => ( <h1>Login in progress</h1> )
 // const Training = () => {
 //   console.log('here i am')
 //   return(
@@ -104,6 +105,7 @@ const routesold = {
       // <Route name="training" path="training/:trainingid" handler={TrainingApp} />
       // <Route name="traininglist" path="/trainings" handler={TrainingApp} />
       // <Redirect from="company" to="about" />
+//        <Route path="logininprogress" component={LoginInProgress} />
 const routes = (
       <Route path="/" component={AppComponent}>
         <IndexRoute component={Home} />

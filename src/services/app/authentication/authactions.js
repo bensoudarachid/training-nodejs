@@ -3,7 +3,7 @@
 // export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 // export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 import { browserHistory } from 'react-router'
-// import { getIsFetching } from '../reducers/rootreducer'
+// import store  from '../../store'
 import cookie from 'react-cookie'
 import actions from '../../actions'
 
@@ -21,18 +21,23 @@ let authactions = {
   },
 
   receiveLogin: function(user) {
-    console.log('auth actions user : ' + util.inspect(user, false, null))
-    cookie.save('jwt', user.access_token, {
-      path: '/'
-    })
-    cookie.save('authority', user.authority, {
-      path: '/'
-    })
-    return {
-      type: 'LOGIN_SUCCESS',
-      isFetching: false,
-      isAuthenticated: cookie.load('jwt') ? true : false
-    // id_token: user.access_token
+    return (dispatch, getState) => {
+      console.log('auth actions user : ' + util.inspect(user, false, null))
+      cookie.save('jwt', user.access_token, {
+        path: '/'
+      })
+      cookie.save('authority', user.authority, {
+        path: '/'
+      })
+      window.routerHistory.push(getState().auth.get('loginactualurl'))
+      // window.routerHistory.push('/todos')
+
+      return {
+        type: 'LOGIN_SUCCESS',
+        isFetching: false,
+        isAuthenticated: cookie.load('jwt') ? true : false
+      // id_token: user.access_token
+      }
     }
   },
 
@@ -90,9 +95,12 @@ let authactions = {
     }
   },
   loginProcessStart: function(message) {
+    const actualurl=window.location.pathname
+    window.routerHistory.push('/')
     return {
       type: 'LOGIN_PROCESS_START',
-      message
+      message,
+      actualurl
     }
   },
   loginProcessEnd: function() {
@@ -124,21 +132,17 @@ let authactions = {
             // localStorage.setItem('access_token', user.id_token)
             // Dispatch the success action
             dispatch(authactions.receiveLogin(user))
-            var currentRouteName = window.location.pathname.replace('/reactor','')
-            // console.log('authactionsjs push this' + currentRouteName)
-            // console.log('authactionsjs push this' + currentRouteName.length)// const appbasename = '/reactor'
-            // const url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+'/reactor'
-            // console.log('authactionsjs push this' + url)3
-            // console.log('authactionsjs push this' + url.length)
-            // var currentRoute = currentRouteName.replace(url,'')
-            // console.log('authactionsjs push this' + currentRoute)
-            // cannot find a reload action below
-            window.routerHistory.push('/')
-            window.routerHistory.push(currentRouteName)
-            // window.location.reload()
+            // var currentRouteName = window.location.pathname.replace('/reactor','')
+            // window.routerHistory.push('/')
+            // window.routerHistory.push(currentRouteName)
           }
         }).catch(err => {
           console.log('++++++++++++++++++++++++++authactionsjs. Unhandled Login Error: ', err.error_description)
+
+          if(err.error_description==undefined){
+            console.log('Auth actions, Response: '+util.inspect(err, false, null))
+            return
+          }
           if(!err.error_description.includes('JDBCConnectionException') )
             dispatch(authactions.loginProcessStart(err.error_description))
           else

@@ -49,7 +49,7 @@ let actions = {
   ...authactions,
   // ...registeractions,
   ...todoactions,
-  ...trainingactions
+  ...trainingactions 
 }
 console.log('actionsjs. actions.url = '+actions.apiurl)
 export default actions

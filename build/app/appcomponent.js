@@ -245,13 +245,29 @@ var AppComponent = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          { id: 'contt' },
-          children
-        ),
-        appError && _react2.default.createElement(
-          'div',
           null,
-          _react2.default.createElement(_appmodaldlg2.default, { actions: this.props.actions, errorMessage: 'Error occured: ' + appError })
+          _react2.default.createElement(
+            'div',
+            { id: 'contt' },
+            loginMessage ? _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h1',
+                null,
+                loginMessage
+              )
+            ) : _react2.default.createElement(
+              'div',
+              null,
+              children
+            )
+          ),
+          appError && _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(_appmodaldlg2.default, { actions: this.props.actions, errorMessage: 'Error occured: ' + appError })
+          )
         )
       );
     }
@@ -259,6 +275,31 @@ var AppComponent = function (_React$Component) {
 
   return AppComponent;
 }(_react2.default.Component);
+
+// {loginMessage?
+//   <div>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//   </div>
+//   :
+//   <div>
+//     <div id='contt'>
+//     { children }
+//     </div>
+//     {appError &&
+//     <div>
+//       <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: '+appError}/>
+//     </div>
+//     }
+//   </div>
+// }
+
 
 function updateChildren(children, props) {
   var childrenBack = _react2.default.Children.map(children, function (child) {

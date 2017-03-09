@@ -474,53 +474,12 @@ const todoactions = {
   retrieveUserTodosDispatcher: function() {
     return (dispatch) => {
 
-      // var headers = {
-      //   'Content-Type': 'application/x-www-form-urlencoded',
-      //   'Content-Type': 'application/json'
-      // // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
-      // // 'Authorization': 'Bearer '+id_token
-      // }
-      // var id_token = cookie.load('jwt')
-      // if (id_token != '') {
-      //   headers.Authorization = 'Bearer ' + id_token
-      //   console.log('Ya todos fetchData.  auth id token: ' + id_token)
-      // }
-      // else
-      //   console.log('Ya todos fetchData. Wahnsinn: no id_token')
-      // var test = 'This is abbas in the hood!'
-
-      // return fetch('http://127.0.0.1:8081/api/todos/2373'
-      //   , {
-      //     method: 'GET',
-      //     headers
-      //   // headers: {
-      //   //   'Content-Type': 'application/x-www-form-urlencoded',
-      //   //   'Content-Type': 'application/json',
-      //   //   // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
-      //   //   'Authorization': 'Bearer '+id_token
-      //   // }
-      //   // ,
-      //   // body: JSON.stringify({
-      //   //   testparam: test
-      //   // })
-      //   // body: 'testparam='+test //if no json in header
-      //   }
-      // )
-      //   .then(response => response.json().then(data => {
-      //     console.log('Response Status = ' + response.status)
-      //     return ({
-      //       status: response.status,
-      //       data
-      //     })
-      //   }
-      //   ))
-      // dispatch(actions.loadingTodoFileOn())
-      
       actions.retrieveTodosService()
         .then(
           ({status, data}) => {
             if (status === 401) {
-              dispatch(actions.receiveLogout())
+              // dispatch(actions.receiveLogout())
+              dispatch(actions.loginProcessStart('No access rights!'))
             } else if (status >= 400) {
               var error = data
               console.log('Status looks bad. ' + status + '. error message = ' + error.message)

@@ -16,7 +16,7 @@ var _actions2 = _interopRequireDefault(_actions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import { getIsFetching } from '../reducers/rootreducer'
+// import store  from '../../store'
 var util = require('util'); // export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 // export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 // export const LOGIN_FAILURE = 'LOGIN_FAILURE'
@@ -34,18 +34,23 @@ var authactions = {
   },
 
   receiveLogin: function receiveLogin(user) {
-    console.log('auth actions user : ' + util.inspect(user, false, null));
-    _reactCookie2.default.save('jwt', user.access_token, {
-      path: '/'
-    });
-    _reactCookie2.default.save('authority', user.authority, {
-      path: '/'
-    });
-    return {
-      type: 'LOGIN_SUCCESS',
-      isFetching: false,
-      isAuthenticated: _reactCookie2.default.load('jwt') ? true : false
-      // id_token: user.access_token
+    return function (dispatch, getState) {
+      console.log('auth actions user : ' + util.inspect(user, false, null));
+      _reactCookie2.default.save('jwt', user.access_token, {
+        path: '/'
+      });
+      _reactCookie2.default.save('authority', user.authority, {
+        path: '/'
+      });
+      window.routerHistory.push(getState().auth.get('loginactualurl'));
+      // window.routerHistory.push('/todos')
+
+      return {
+        type: 'LOGIN_SUCCESS',
+        isFetching: false,
+        isAuthenticated: _reactCookie2.default.load('jwt') ? true : false
+        // id_token: user.access_token
+      };
     };
   },
 
@@ -102,9 +107,12 @@ var authactions = {
     };
   },
   loginProcessStart: function loginProcessStart(message) {
+    var actualurl = window.location.pathname;
+    window.routerHistory.push('/');
     return {
       type: 'LOGIN_PROCESS_START',
-      message: message
+      message: message,
+      actualurl: actualurl
     };
   },
   loginProcessEnd: function loginProcessEnd() {
@@ -138,21 +146,17 @@ var authactions = {
           // localStorage.setItem('access_token', user.id_token)
           // Dispatch the success action
           dispatch(authactions.receiveLogin(user));
-          var currentRouteName = window.location.pathname.replace('/reactor', '');
-          // console.log('authactionsjs push this' + currentRouteName)
-          // console.log('authactionsjs push this' + currentRouteName.length)// const appbasename = '/reactor'
-          // const url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+'/reactor'
-          // console.log('authactionsjs push this' + url)3
-          // console.log('authactionsjs push this' + url.length)
-          // var currentRoute = currentRouteName.replace(url,'')
-          // console.log('authactionsjs push this' + currentRoute)
-          // cannot find a reload action below
-          window.routerHistory.push('/');
-          window.routerHistory.push(currentRouteName);
-          // window.location.reload()
+          // var currentRouteName = window.location.pathname.replace('/reactor','')
+          // window.routerHistory.push('/')
+          // window.routerHistory.push(currentRouteName)
         }
       }).catch(function (err) {
         console.log('++++++++++++++++++++++++++authactionsjs. Unhandled Login Error: ', err.error_description);
+
+        if (err.error_description == undefined) {
+          console.log('Auth actions, Response: ' + util.inspect(err, false, null));
+          return;
+        }
         if (!err.error_description.includes('JDBCConnectionException')) dispatch(authactions.loginProcessStart(err.error_description));else dispatch(authactions.loginProcessStart('System error: Stale database connection'));
       });
     };
