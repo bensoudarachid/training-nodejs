@@ -78,14 +78,25 @@ if (process.env.BROWSER) {
 	//     },(30000) ) //1000/100
 	//   })()
 
-	(0, _jquery2.default)(document).ready(function () {
-		(0, _jquery2.default)('body').click(function (event) {
-			// only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
-			if ((0, _jquery2.default)('.navbar-collapse').is(':visible') && (0, _jquery2.default)('.navbar-toggle').is(':visible')) {
-				(0, _jquery2.default)('.navbar-collapse').collapse('toggle');
-			}
-		});
-	});
+	// $(document).ready(function () {
+	//   $(document).click(function (event) {
+	//     var clickover = $(event.target)
+	//     var _opened = $('.navbar-collapse').hasClass('navbar-collapse in')
+	//     if (_opened === true && !clickover.hasClass('navbar-toggle')) {
+	//       $('button.navbar-toggle').click()
+	//     }
+	//   })
+	// })
+
+	// $(document).ready(function() { 
+	//   $('body').click(function(event) {
+	//   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
+	//     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
+	//       $('.navbar-collapse').collapse('toggle')
+	//     }
+	//   })
+	// })
+
 }
 //require('./nav.scss')
 
@@ -137,7 +148,7 @@ var NavPublic = function (_Component) {
 					_react2.default.createElement(
 						'li',
 						null,
-						_react2.default.createElement('img', { id: 'logo', src: './images/RoyaLogoNeutralH120.png', className: 'logo', alt: 'Roya logo' })
+						_react2.default.createElement('img', { id: 'logo', src: '/images/RoyaLogoNeutralH120.png', className: 'logo', alt: 'Roya logo' })
 					),
 					_react2.default.createElement(
 						'li',

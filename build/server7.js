@@ -103,6 +103,14 @@ var upload = (0, _multer2.default)({ storage: storage });
 //       done=true
 //     }
 // }).single('todoimage')
+
+
+app.use('/bootstrap', _express2.default.static(__dirname + '/../node_modules/bootstrap/dist/'));
+app.use('/mdl', _express2.default.static(__dirname + '/../node_modules/material-design-lite/dist/'));
+app.use('/jquery', _express2.default.static(__dirname + '/../node_modules/jquery/dist/'));
+app.use('/react', _express2.default.static(__dirname + '/../node_modules/react/dist/'));
+app.use('/reactdom', _express2.default.static(__dirname + '/../node_modules/react-dom/dist/'));
+
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -119,8 +127,7 @@ app.use(webpackHotMiddleware(compiler));
 app.use(favicon('./images/favicon.ico'));
 
 console.log('dirname = ' + __dirname);
-// app.use(express.static(__dirname ))
-
+console.log('dirname bootstrap= ' + __dirname + '/node_modules/bootstrap/dist/');
 
 //important to prevent server from crashing. But it s not recommended. 
 process.on('uncaughtException', function (err) {
@@ -452,8 +459,30 @@ app.get(appbasename + '/*', function (req, res) {
               _react2.default.createElement(_reactRouter.RouterContext, renderProps)
             ));
 
+            // <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+            // <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">
+            // <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+            // import 'material-design-lite/dist/material.brown-blue.min.css'
+            // import 'material-design-lite/src/material-design-lite.scss'
+            // import 'material-design-lite/src/mdlComponentHandler.js'
+            // import 'material-design-lite/dist/material.js'
+            // import 'bootstrap/dist/css/bootstrap.css'
+            // import 'bootstrap/dist/js/bootstrap.js'
+
+            // <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+            // <script src="/bootstrap/js/bootstrap.js"></script>                
+            // <link rel="stylesheet" type="text/css" href="/mdl/material.brown-blue.min.css">
+            // <script defer src="/mdl/material.js"></script>                
+
+            // <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+            // <script src="/bootstrap/js/bootstrap.js"></script>                
+            // <link rel="stylesheet" type="text/css" href="/mdl/material.grey-blue.min.css">
+            // <script defer src="/mdl/material.js"></script>                
+
             var state = store.getState();
-            res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <link rel="stylesheet" type="text/css" href="/style.css" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="/bundle.js"></script>\n\n                </body>\n              </html>');
+            res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <script src="/jquery/jquery.min.js"></script>\n                <script src="/bootstrap/js/bootstrap.min.js"></script>\n                <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">\n                <script defer src="/mdl/material.js"></script>\n                <link rel="stylesheet" type="text/css" href="/mdl/material.brown-blue.min.css">\n                <script src="/reactdom/react-dom.min.js"></script>\n                <script src="/react/react.min.js"></script>\n                <link rel="stylesheet" type="text/css" href="/style.css" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="/bundle.js"></script>\n\n                </body>\n              </html>');
           }).catch(function (err) {
             return console.log('Booooo' + err);
           });

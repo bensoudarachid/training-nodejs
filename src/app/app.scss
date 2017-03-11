@@ -99,6 +99,36 @@ body{
 .mdl-textfield__label{  
    margin-bottom:0px;
 }
+.mdl-spinner__layer-1,.mdl-spinner__layer-2,.mdl-spinner__layer-3,.mdl-spinner__layer-4{
+  border-color: darken(getMdlColor($color-primary),20%) !important;
+  // .mdl-spinner--single-color & {
+  //   border-color: red !important;
+  // }
+}
+
+// .mdl-color-text--brown{color:darken(getMdlColor($color-primary),50%) !important}
+// .mdl-color--brown{background-color:darken(getMdlColor($color-primary),50%) !important}
+// .mdl-color-text--brown-50{color:lighten(getMdlColor($color-primary),40%) !important}
+// .mdl-color--brown-50{background-color:lighten(getMdlColor($color-primary),40%) !important}
+// .mdl-color-text--brown-100{color:lighten(getMdlColor($color-primary),30%) !important}
+// .mdl-color--brown-100{background-color:lighten(getMdlColor($color-primary),30%) !important}
+// .mdl-color-text--brown-200{color:lighten(getMdlColor($color-primary),20%) !important}
+// .mdl-color--brown-200{background-color:lighten(getMdlColor($color-primary),20%) !important}
+// .mdl-color-text--brown-300{color:lighten(getMdlColor($color-primary),10%) !important}
+// .mdl-color--brown-300{background-color:lighten(getMdlColor($color-primary),10%) !important}
+// .mdl-color-text--brown-400{color:lighten(getMdlColor($color-primary),0%) !important}
+// .mdl-color--brown-400{background-color:lighten(getMdlColor($color-primary),0%) !important}
+// .mdl-color-text--brown-500{color:darken(getMdlColor($color-primary),10%) !important}
+// .mdl-color--brown-500{background-color:darken(getMdlColor($color-primary),10%) !important}
+// .mdl-color-text--brown-600{color:darken(getMdlColor($color-primary),20%) !important}
+// .mdl-color--brown-600{background-color:darken(getMdlColor($color-primary),20%) !important}
+// .mdl-color-text--brown-700{color:darken(getMdlColor($color-primary),30%) !important}
+// .mdl-color--brown-700{background-color:darken(getMdlColor($color-primary),30%) !important}
+// .mdl-color-text--brown-800{color:darken(getMdlColor($color-primary),40%) !important}
+// .mdl-color--brown-800{background-color:darken(getMdlColor($color-primary),40%) !important}
+// .mdl-color-text--brown-900{color:darken(getMdlColor($color-primary),50%) !important}
+// .mdl-color--brown-900{background-color:darken(getMdlColor($color-primary),50%) !important}
+
 
 @font-face {
   // src: url('../styles/RBNo2Light.otf') format("truetype");
@@ -116,12 +146,123 @@ body{
   // src: url('../styles/Oranienbaum.ttf') format("truetype");
 }
 
-@font-face {
-  font-family: 'Roboto Regular';
-  src: url('../styles/Roboto-Regular.ttf') format("truetype");
-}
+// @font-face {
+//   font-family: 'Roboto';
+//   // src: url('../styles/Roboto-Regular.ttf') format("truetype");
+//   src: url('https://fonts.googleapis.com/css?family=Roboto');
+// }
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+// @font-face {
+//     font-family: 'Roboto';
+//     src: url('../styles/fonts/Roboto-Regular-webfont.eot');
+//     src: url('../styles/fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../styles/fonts/Roboto-Regular-webfont.woff') format('woff'),
+//          url('../styles/fonts/Roboto-Regular-webfont.ttf') format('truetype'),
+//          url('../styles/fonts/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+ 
+// @font-face {
+//     font-family: 'Roboto';
+//     src: url('../styles/fonts/Roboto-Italic-webfont.eot');
+//     src: url('../styles/fonts/Roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../styles/fonts/Roboto-Italic-webfont.woff') format('woff'),
+//          url('../styles/fonts/Roboto-Italic-webfont.ttf') format('truetype'),
+//          url('../styles/fonts/Roboto-Italic-webfont.svg#RobotoItalic') format('svg');
+//     font-weight: normal;
+//     font-style: italic;
+// }
+ 
+// @font-face {
+//     font-family: 'Roboto';
+//     src: url('../styles/fonts/Roboto-Bold-webfont.eot');
+//     src: url('../styles/fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../styles/fonts/Roboto-Bold-webfont.woff') format('woff'),
+//          url('../styles/fonts/Roboto-Bold-webfont.ttf') format('truetype'),
+//          url('../styles/fonts/Roboto-Bold-webfont.svg#RobotoBold') format('svg');
+//     font-weight: bold;
+//     font-style: normal;
+// }
+ 
+// @font-face {
+//     font-family: 'Roboto';
+//     src: url('../styles/fonts/Roboto-BoldItalic-webfont.eot');
+//     src: url('../styles/fonts/Roboto-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../styles/fonts/Roboto-BoldItalic-webfont.woff') format('woff'),
+//          url('../styles/fonts/Roboto-BoldItalic-webfont.ttf') format('truetype'),
+//          url('../styles/fonts/Roboto-BoldItalic-webfont.svg#RobotoBoldItalic') format('svg');
+//     font-weight: bold;
+//     font-style: italic;
+// }
+ 
+// @font-face {
+//     font-family: 'Roboto';
+//     src: url('../styles/fonts/Roboto-Thin-webfont.eot');
+//     src: url('../styles/fonts/Roboto-Thin-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../styles/fonts/Roboto-Thin-webfont.woff') format('woff'),
+//          url('../styles/fonts/Roboto-Thin-webfont.ttf') format('truetype'),
+//          url('../styles/fonts/Roboto-Thin-webfont.svg#RobotoThin') format('svg');
+//     font-weight: 200;
+//     font-style: normal;
+// }
+ 
+// @font-face {
+//     font-family: 'Roboto';
+//     src: url('../styles/fonts/Roboto-ThinItalic-webfont.eot');
+//     src: url('../styles/fonts/Roboto-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../styles/fonts/Roboto-ThinItalic-webfont.woff') format('woff'),
+//          url('../styles/fonts/Roboto-ThinItalic-webfont.ttf') format('truetype'),
+//          url('../styles/fonts/Roboto-ThinItalic-webfont.svg#RobotoThinItalic') format('svg'); 
+//     font-weight: 200;
+//     font-style: italic;
+// }
+ 
+// @font-face {
+//     font-family: 'Roboto';
+//     src: url('../styles/fonts/Roboto-Light-webfont.eot');
+//     src: url('../styles/fonts/Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../styles/fonts/Roboto-Light-webfont.woff') format('woff'),
+//          url('../styles/fonts/Roboto-Light-webfont.ttf') format('truetype'),
+//          url('../styles/fonts/Roboto-Light-webfont.svg#RobotoLight') format('svg');
+//     font-weight: 100;
+//     font-style: normal;
+// }
+ 
+// @font-face {
+//     font-family: 'Roboto';
+//     src: url('../styles/fonts/Roboto-LightItalic-webfont.eot');
+//     src: url('../styles/fonts/Roboto-LightItalic-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../styles/fonts/Roboto-LightItalic-webfont.woff') format('woff'),
+//          url('../styles/fonts/Roboto-LightItalic-webfont.ttf') format('truetype'),
+//          url('../styles/fonts/Roboto-LightItalic-webfont.svg#RobotoLightItalic') format('svg');
+//     font-weight: 100;
+//     font-style: italic;
+// }
+ 
+// @font-face {
+//     font-family: 'Roboto';
+//     src: url('../styles/fonts/Roboto-Medium-webfont.eot');
+//     src: url('../styles/fonts/Roboto-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../styles/fonts/Roboto-Medium-webfont.woff') format('woff'),
+//          url('../styles/fonts/Roboto-Medium-webfont.ttf') format('truetype'),
+//          url('../styles/fonts/Roboto-Medium-webfont.svg#RobotoMedium') format('svg');
+//     font-weight: 300;
+//     font-style: normal;
+// }
+ 
+// @font-face {
+//     font-family: 'Roboto';
+//     src: url('../styles/fonts/Roboto-MediumItalic-webfont.eot');
+//     src: url('../styles/fonts/Roboto-MediumItalic-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../styles/fonts/Roboto-MediumItalic-webfont.woff') format('woff'),
+//          url('../styles/fonts/Roboto-MediumItalic-webfont.ttf') format('truetype'),
+//          url('../styles/fonts/Roboto-MediumItalic-webfont.svg#RobotoMediumItalic') format('svg');
+//     font-weight: 300;
+//     font-style: italic;
+// }
 
-//These are being used with jquery ellipse function in index.js to limit text in Training short description
+//These are being used with jquery ellipse function in index.js to limit text in Training short description in list
 .ellipsis {
     white-space: nowrap;
     overflow: hidden;

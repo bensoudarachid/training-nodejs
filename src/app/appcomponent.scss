@@ -102,7 +102,7 @@
 
 	// background-color: rgba(black,0.4);
 	// background-color: red;
-	// font-family: 'Roboto Regular', Tahoma, sans-serif;
+	// font-family: 'Roboto', Tahoma, sans-serif;
 
 	button{
 	    font-family: 'Dancing Script', Tahoma, sans-serif;
@@ -114,6 +114,8 @@
 	  	font-size:1.0em;
 	  	letter-spacing: -1px;
 		// font-size:1.5em;
+		// background-color: getMdlColor($color-primary);
+		
 		&:disabled{
 			color: lighten($roya-blue,10%);
 		}
@@ -123,7 +125,7 @@
 	}
 }
 #contt{
-	font-family: 'Roboto Regular', Tahoma, sans-serif;
+	font-family: 'Roboto', Tahoma, sans-serif;
 	font-size:1.15em;
 	letter-spacing: -0.75px;
 	// background-color: rgba(white,0.2);
@@ -163,10 +165,10 @@
 // }
 
 // #appdialog{
-// 	font-family: 'Roboto Regular', Tahoma, sans-serif;
+// 	font-family: 'Roboto', Tahoma, sans-serif;
 // 	font-size:1.5em;
 // 	p{
-// 		font-family: 'Roboto Regular', Tahoma, sans-serif;
+// 		font-family: 'Roboto', Tahoma, sans-serif;
 // 		font-size:1.5em;
 // 	}
 // 	button{

@@ -58,19 +58,6 @@ var AdminTrainingList = function (_React$Component) {
     value: function componentDidMount() {
       require('exports?componentHandler!material-design-lite/material.js').upgradeDom();
     }
-
-    // getItems() {
-    //   if (this.props.trainings) {
-    //     return this.props.trainings.filter(
-    //       (item) => 
-    //         item.get('completed') && this.props.filterclosed ||
-    //         !item.get('completed') && this.props.filteropen
-    //     )
-    //     // console.log('training list get items. render items. Size = '+listtrainings.size)
-    //   }
-    //   return Immutable.List([])
-    // }
-
   }, {
     key: 'renderItems',
     value: function renderItems() {
@@ -79,53 +66,28 @@ var AdminTrainingList = function (_React$Component) {
       var items = this.props.trainings;
       // const props = _.omit(this.props, 'trainings');
       // console.log('training list. render items. Size = '+items.size)
-
+      if (items == undefined) return _react2.default.createElement('div', null);
       return items.map(function (training, index) {
         // console.log('training list. index = '+index)
         return _react2.default.createElement(_admintraininglistitem2.default, { ind: index, training: training, actions: _this2.props.actions });
       });
     }
-
-    // <div className='trainingslist'>
-    //     <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
-    //       <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'><p>Heeee! The admin list</p></div>
-    //     </div>
-    // </div>
-
   }, {
     key: 'render',
     value: function render() {
-      // console.log('Hi there from training list List. Props: '+this.props.trainings.size)
-      // <div className="mdl-layout-spacer"></div>
-      // const title = this.props.training.get('title')
-      // if(this.props.trainings==undefined)
-      //   return (
-      //     <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' style={{width:'55px',height:'55px'}}></div>
-      // )
-
-      // <div style={{backgroundColor:'red',width:'55px',height:'55px'}}><LogoSpinner/></div>
 
       return _react2.default.createElement(
         'div',
         { className: 'admintrainingslist' },
-        this.props.trainings == undefined ? _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active', style: { width: '55px', height: '55px' } })
-        //<div className='spinnerwrap'><LogoSpinner/></div>
-        : _react2.default.createElement(
+        this.props.trainings == undefined ?
+        //if i use div instead of span, big parts of the view are not clickable!
+        _react2.default.createElement('span', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap', style: { width: '55px', height: '55px' } }) : _react2.default.createElement(
           'div',
           { className: 'admintrainingslistwrap mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
           this.renderItems()
         )
       );
     }
-    // renderNew() {
-    //   // console.log('Hi there from List. Props: '+this.props);
-    //   return (
-    //     <div>
-    //       {this.renderItems()}
-    //     </div>
-    //   )
-    // }
-
   }]);
 
   return AdminTrainingList;

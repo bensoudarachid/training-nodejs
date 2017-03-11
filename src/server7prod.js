@@ -43,6 +43,9 @@ var favicon = require('serve-favicon')
 var storage = multer.memoryStorage()
 var upload = multer({ storage: storage })
 
+app.use('/bootstrap', express.static(__dirname + '/../node_modules/bootstrap/dist/'))
+app.use('/mdl', express.static(__dirname + '/../node_modules/material-design-lite/dist/'))
+
 app.use(compression())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
@@ -342,15 +345,23 @@ app.get(appbasename+'/*', (req, res) => {
             var style = 'http://rlearn.herokuapp.com/style.css'
             var bundle = 'http://rlearn.herokuapp.com/bundle.js'
             var vendorBundle = 'http://rlearn.herokuapp.com/vendor.bundle.js'
-            if(hour < 7 || hour > 22){
-              style = '/style.css'
-              bundle = '/bundle.js'
-              vendorBundle = '/vendor.bundle.js'
-            }
+            // if(hour < 7 || hour > 22){
+            style = '/style.css'
+            bundle = '/bundle.js'
+            vendorBundle = '/vendor.bundle.js'
+            // }
+                  // <script src='material-design-lite/dist/material.brown-blue.min.css'></script>
+                  // <script src='material-design-lite/src/material-design-lite.scss'></script>
+                  // <script src='material-design-lite/src/mdlComponentHandler.js'></script>
+                  // <script src='material-design-lite/dist/material.js'"></script>
                 // <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
                 // <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
                 // <link rel="stylesheet" href="//storage.googleapis.com/code.getmdl.io/1.0.1/material.teal-red.min.css" />
                 // <script src="//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>                
+// <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+// <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+// <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+// <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
           // console.log('Server. body '+body);
             const state = store.getState()
@@ -358,6 +369,13 @@ app.get(appbasename+'/*', (req, res) => {
               <html>
                 <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+                <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+                <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">
+                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>
                 <link rel="stylesheet" type="text/css" href="${style}" />
                 </head>
                 <body style="background-color:#2980b9">

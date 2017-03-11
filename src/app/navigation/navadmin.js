@@ -49,14 +49,26 @@ if (process.env.BROWSER) {
 //     },(30000) ) //1000/100
 //   })()
 
-  $(document).ready(function() { 
-    $('body').click(function(event) {
-    // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
-      if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
-        $('.navbar-collapse').collapse('toggle')
-      }
-    })
-  })
+  // $(document).ready(function () {
+  //   $(document).click(function (event) {
+  //     var clickover = $(event.target)
+  //     var _opened = $('.navbar-collapse').hasClass('navbar-collapse in')
+  //     if (_opened === true && !clickover.hasClass('navbar-toggle')) {
+  //       $('button.navbar-toggle').click()
+  //     }
+  //   })
+  // })
+
+  // $(document).ready(function() { 
+
+  //   $('body').click(function(event) {
+  //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
+  //     console.log('loginjs andle request login in progress click')
+  //     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
+  //       $('.navbar-collapse').collapse('toggle')
+  //     }
+  //   })
+  // })
 
 }
 //require('./nav.scss')
@@ -89,7 +101,7 @@ class NavAdmin extends Component {
     return (
     <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
     <ul className='navbar-header logoblock'>
-		<li><img id='logo' src={'./images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/></li>
+		<li><img id='logo' src={'/images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/></li>
 		<li>
 			<div>
 			<h2>Roya</h2>

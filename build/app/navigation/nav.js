@@ -90,14 +90,36 @@ if (process.env.BROWSER) {
   //     },(30000) ) //1000/100
   //   })()
 
+  // $(document).ready(function () {
+  //   $(document).click(function (event) {
+  //     console.log('click somewhere in browser should close toggle menu')
+  //     var clickover = $(event.target)
+  //     var _opened = $('.navbar-collapse').hasClass('navbar-collapse in')
+  //     if (_opened === true && !clickover.hasClass('navbar-toggle')) {
+  //       $('button.navbar-toggle').click()
+  //     }
+  //   })
+  // })
+
   (0, _jquery2.default)(document).ready(function () {
-    (0, _jquery2.default)('body').click(function (event) {
-      // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
-      if ((0, _jquery2.default)('.navbar-collapse').is(':visible') && (0, _jquery2.default)('.navbar-toggle').is(':visible')) {
-        (0, _jquery2.default)('.navbar-collapse').collapse('toggle');
+    (0, _jquery2.default)(document).click(function (event) {
+      console.log('click somewhere in browser should close toggle menu');
+      var clickover = (0, _jquery2.default)(event.target);
+
+      if ((0, _jquery2.default)('.navbar-collapse').is(':visible') && (0, _jquery2.default)('.navbar-toggle').is(':visible') && !clickover.hasClass('navbar-toggle')) {
+        (0, _jquery2.default)('button.navbar-toggle').click();
       }
     });
   });
+
+  // $(document).ready(function() { 
+  //   $('body').click(function(event) {
+  //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
+  //     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
+  //       $('.navbar-collapse').collapse('toggle')
+  //     }
+  //   })
+  // })
 }
 //require('./nav.scss')
 

@@ -72,7 +72,7 @@
 	#togg{
 		&:hover,&:focus{
 			background:radial-gradient(circle closest-side at 19px 20px, lighten(getMdlColor($color-primary),30%) 0,  lighten(getMdlColor($color-primary),30%) 17px, transparent 19px);
-			// background-color: lighten(getMdlColor($color-primary),30%);
+			
 			box-shadow: none;
 		}
 	}
@@ -164,11 +164,8 @@
 
 
 	.active{
-			// color: darken(getMdlColor($color-primary),65%);
 			color: darken(getMdlColor($color-primary),30%);
 			background:radial-gradient(circle closest-side at 35px 21px, lighten(getMdlColor($color-primary),30%) 0, lighten(getMdlColor($color-primary),30%) 18px, transparent 19px);
-		  	// background:radial-gradient(circle closest-side at 35px 21px, lighten($roya-blue,19%) 0,  lighten($roya-blue,19%) 18px, transparent 19px);
-			
 
 			border: 1px solid transparent;
 	    	// width: 40px;
@@ -200,7 +197,7 @@
 	}
 
 	.navbar-nav {
-		// font-family: 'Roboto Regular', Tahoma, sans-serif;
+		// font-family: 'Roboto', Tahoma, sans-serif;
 		//border: none;
 	    float: none;
 	//    margin-bottom: 0px;
@@ -236,7 +233,7 @@
 	// 	  	padding-bottom: 10px;
 	// }
 	a, li{
-		// font-family: 'Roboto Regular', Tahoma, sans-serif;
+		// font-family: 'Roboto', Tahoma, sans-serif;
 		font-family: 'Dancing Script', Tahoma, sans-serif;
 		letter-spacing: -2px;
 		span{
@@ -370,14 +367,6 @@
 		    	border: 0px solid transparent;
 		    	background:radial-gradient(circle closest-side at 35px 30px, lighten(getMdlColor($color-primary),30%) 0, lighten(getMdlColor($color-primary),30%) 18px, transparent 20px);
 
-		    	//width: 150px;
-		    	//height: 10px;
-		    	//border-radius: 50px 0 50px 0;
-	        	// border-radius: 1px/3px;
-	        	// border-top-left-radius: 70px;
-	        	// border-bottom-right-radius: 70px;
-	        	// margin: 38px 0px 0px -20px;  
-	        	// margin-top: 50px;  	
 		}
 		a{
 			width: 100%;
@@ -390,15 +379,8 @@
 				// color: black;// darken($roya-blue,30%);
 				// background-color:white;
 				border: 0px solid transparent;
-				background:radial-gradient(circle closest-side at 35px 30px, lighten(getMdlColor($color-primary),30%) 0, lighten(getMdlColor($color-primary),30%) 18px, transparent 20px);
-		    	//width: 150px;
-		    	//height: 10px;
-		    	//border-radius: 50px 0 50px 0;
-	        	// border-radius: 1px/3px;
-	        	// border-top-left-radius: 70px;
-	        	// border-bottom-right-radius: 70px;
-	        	// margin-left: -2px;
-	        	// margin-right: -2px;	    	
+				// background:radial-gradient(circle closest-side at 35px 30px, lighten(getMdlColor($color-primary),30%) 0, lighten(getMdlColor($color-primary),30%) 18px, transparent 20px);
+		    	
 			}
 		}
 		

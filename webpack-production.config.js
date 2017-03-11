@@ -1,7 +1,9 @@
 
 var webpack = require('webpack')
 var path = require('path')
+// const glob = require('glob')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+// const PurifyCSSPlugin = require('purifycss-webpack')
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 var WebpackCleanupPlugin = require('webpack-cleanup-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -14,11 +16,23 @@ module.exports = {
   entry: {
     app: './src/app'
     // ,vendor: ['material-design-lite','react-dom','bootstrap','jquery','jquery','immutable','react','lodash','react-router','validator','html-entities','history','buffer','fbjs','es6-promise','redux','react-proxy','react-redux','redbox-react','util','redux-logger','whatwg-fetch']
-    ,vendor: ['bootstrap','cookie-parser','dialog-polyfill','es6-promise','escape-html',
-      'form-data','immutable','isomorphic-fetch','jquery','lodash.clonedeep','material-design-lite',
-      'react','react-addons-pure-render-mixin','react-cookie','react-dom','react-redux','react-router',
+    ,vendor: ['cookie-parser','dialog-polyfill','es6-promise','escape-html',
+      'form-data','immutable','isomorphic-fetch','lodash.clonedeep',
+      'react-addons-pure-render-mixin','react-cookie','react-redux','react-router',
       'react-router-redux','react-tap-event-plugin','redux','redux-logger','redux-thunk','stats-js','validator']
   },
+    // ,vendor: ['cookie-parser','dialog-polyfill','es6-promise','escape-html',
+    //   'form-data','immutable','isomorphic-fetch','lodash.clonedeep',
+    //   'react','react-addons-pure-render-mixin','react-cookie','react-dom','react-redux','react-router',
+    //   'react-router-redux','react-tap-event-plugin','redux','redux-logger','redux-thunk','stats-js','validator']
+    // ,vendor: ['cookie-parser','dialog-polyfill','es6-promise','escape-html',
+    //   'form-data','immutable','isomorphic-fetch','jquery','lodash.clonedeep',
+    //   'react','react-addons-pure-render-mixin','react-cookie','react-dom','react-redux','react-router',
+    //   'react-router-redux','react-tap-event-plugin','redux','redux-logger','redux-thunk','stats-js','validator']
+    // ,vendor: ['bootstrap','cookie-parser','dialog-polyfill','es6-promise','escape-html',
+    //   'form-data','immutable','isomorphic-fetch','jquery','lodash.clonedeep','material-design-lite',
+    //   'react','react-addons-pure-render-mixin','react-cookie','react-dom','react-redux','react-router',
+    //   'react-router-redux','react-tap-event-plugin','redux','redux-logger','redux-thunk','stats-js','validator']
     // ,vendor: ['body-parser','bootstrap','compression','cookie-parser','dialog-polyfill','es6-promise','escape-html',
     //   'form-data','immutable','inline-style-prefixer','isomorphic-fetch','jquery','lodash.clonedeep','material-design-lite',
     //   'path','react','react-addons-pure-render-mixin','react-cookie','react-dom','react-redux','react-router',
@@ -80,6 +94,12 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js'),
     new ExtractTextPlugin('style.css', {allChunks: true}),
+    // new ExtractTextPlugin('[name].css'),
+    // new PurifyCSSPlugin({
+    //   // Give paths to parse for rules. These should be absolute! 
+    //   paths: glob.sync(path.join(__dirname, 'src/app/*.js')),
+    // }),
+
     new OptimizeCssAssetsPlugin({
       // assetNameRegExp: /\.optimize\.css$/g,
       cssProcessor: require('cssnano'),

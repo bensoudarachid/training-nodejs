@@ -56,17 +56,9 @@ require('../styles/animate.css');
 
 require('./app.scss');
 
-require('bootstrap/dist/css/bootstrap.css');
-
-require('bootstrap/dist/js/bootstrap.js');
-
-require('material-design-lite/dist/material.brown-blue.min.css');
+require('material-design-lite/src/_variables.scss');
 
 require('material-design-lite/src/material-design-lite.scss');
-
-require('material-design-lite/src/mdlComponentHandler.js');
-
-require('material-design-lite/dist/material.js');
 
 var _reactRouterRedux = require('react-router-redux');
 
@@ -99,16 +91,20 @@ var NotFoundRoute = ReactRouter.NotFoundRoute;
 // require('material-design-lite/dist//material.css')
 // require('material-design-lite/dist/material.js')
 
+// import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap/dist/js/bootstrap.js'
+// import 'material-design-lite/dist/material.brown-blue.min.css'
+// import 'material-design-lite/dist/material.js'
+// import 'material-design-lite/src/material-design-lite.scss'
+// import 'material-design-lite/src/mdlComponentHandler.js'
+
 // import UserApp from '../components/userapp'
 
 // import '../styles/default.scss'
 
-
-// import 'material-design-lite/src/_variables.scss'
 // import 'material-design-lite/dist/material.css'
 // import 'material-design-lite/dist/material.blue-pink.min.css'
 // import 'material-design-lite/dist/material.blue-red.min.css'
-
 // import '../../node_modules/materialize-css/dist/js/materialize.min.js'
 // import '../../node_modules/materialize-css/dist/css/materialize.min.css'
 // import injectTapEventPlugin from 'react-tap-event-plugin'
