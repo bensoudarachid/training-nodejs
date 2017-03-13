@@ -29,6 +29,9 @@ require('./waterpipe.js');
     // gradientEnd: '#bccad9',
     // gradientEnd: '#ffffff',
     gradientEnd: '#dfefff',
+    // gradientEnd: '#76ff93', //vert
+    // gradientEnd: '#ffffff', 
+
 
     smokeOpacity: 0.05,
     smokeSize: 0.2,

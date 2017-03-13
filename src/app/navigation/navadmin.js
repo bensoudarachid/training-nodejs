@@ -104,8 +104,8 @@ class NavAdmin extends Component {
 		<li><img id='logo' src={'/images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/></li>
 		<li>
 			<div>
-			<h2>Roya</h2>
-			<h3>Software</h3>
+      <h2>ROYA</h2>
+      <h3>SOFTWARE</h3>
 			</div>
 		</li>
 		<li>

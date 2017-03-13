@@ -369,14 +369,18 @@ app.get(appbasename + '/*', function (req, res) {
             var d = new Date();
             var hour = d.getHours();
             console.log('hour of the day = ' + hour);
-            var style = 'http://rlearn.herokuapp.com/style.css';
-            var bundle = 'http://rlearn.herokuapp.com/bundle.js';
+            // var style = 'http://rlearn.herokuapp.com/style.css'
+            // var bundle = 'http://rlearn.herokuapp.com/bundle.js'
             var vendorBundle = 'http://rlearn.herokuapp.com/vendor.bundle.js';
             // if(hour < 7 || hour > 22){
-            style = '/style.css';
-            bundle = '/bundle.js';
-            vendorBundle = '/vendor.bundle.js';
-            // }
+            // var appcss = '/app.css'
+            var style = '/app.css';
+            var bundle = '/app.js';
+            // style = '/style.css'
+            // bundle = '/bundle.js'
+            if (hour < 7 || hour > 22) {
+              vendorBundle = '/vendor.bundle.js';
+            }
             // <script src='material-design-lite/dist/material.brown-blue.min.css'></script>
             // <script src='material-design-lite/src/material-design-lite.scss'></script>
             // <script src='material-design-lite/src/mdlComponentHandler.js'></script>
@@ -392,7 +396,7 @@ app.get(appbasename + '/*', function (req, res) {
 
             // console.log('Server. body '+body);
             var state = store.getState();
-            res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>\n                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">\n                <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>\n                <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">\n                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>\n                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>\n                <link rel="stylesheet" type="text/css" href="' + style + '" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script src="' + vendorBundle + '"></script>\n                  <script src="' + bundle + '"></script>\n                </body>\n              </html>');
+            res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <script defer src="https://code.jquery.com/jquery-2.2.0.min.js"></script>\n                <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">\n                <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>\n                <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">\n                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>\n                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>\n                \n                <link rel="stylesheet" type="text/css" href="' + style + '" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script defer src="' + vendorBundle + '"></script>\n                  <script defer src="' + bundle + '"></script>\n                </body>\n              </html>');
           }).catch(function (err) {
             return console.log('Booooo' + err);
           });

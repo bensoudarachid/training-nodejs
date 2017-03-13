@@ -491,19 +491,19 @@ app.get(appbasename+'/*', (req, res) => {
               <html>
                 <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-                <script src="/jquery/jquery.min.js"></script>
-                <script src="/bootstrap/js/bootstrap.min.js"></script>
+                <script defer src="/jquery/jquery.min.js"></script>
+                <script defer src="/bootstrap/js/bootstrap.min.js"></script>
                 <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
                 <script defer src="/mdl/material.js"></script>
                 <link rel="stylesheet" type="text/css" href="/mdl/material.brown-blue.min.css">
-                <script src="/reactdom/react-dom.min.js"></script>
-                <script src="/react/react.min.js"></script>
+                <script defer src="/reactdom/react-dom.min.js"></script>
+                <script defer src="/react/react.min.js"></script>
                 <link rel="stylesheet" type="text/css" href="/style.css" />
                 </head>
                 <body style="background-color:#2980b9">
                   <div id="root">${body}</div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
-                  <script src="/bundle.js"></script>
+                  <script defer src="/bundle.js"></script>
 
                 </body>
               </html>`)

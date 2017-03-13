@@ -28,37 +28,9 @@ var _actions = require('../services/actions');
 
 var _actions2 = _interopRequireDefault(_actions);
 
-var _appcomponent = require('../app/appcomponent');
-
-var _appcomponent2 = _interopRequireDefault(_appcomponent);
-
-var _todoapp = require('../scenes/todo/todoapp');
-
-var _todoapp2 = _interopRequireDefault(_todoapp);
-
-var _trainingapp = require('../scenes/training/trainingapp');
-
-var _trainingapp2 = _interopRequireDefault(_trainingapp);
-
-var _register = require('../scenes/registration/register');
-
-var _register2 = _interopRequireDefault(_register);
-
-var _registerconfirm = require('../scenes/registration/registerconfirm');
-
-var _registerconfirm2 = _interopRequireDefault(_registerconfirm);
-
-var _home = require('../scenes/home/home');
-
-var _home2 = _interopRequireDefault(_home);
-
 require('../styles/animate.css');
 
 require('./app.scss');
-
-require('material-design-lite/src/_variables.scss');
-
-require('material-design-lite/src/material-design-lite.scss');
 
 var _reactRouterRedux = require('react-router-redux');
 
@@ -98,10 +70,19 @@ var NotFoundRoute = ReactRouter.NotFoundRoute;
 // import 'material-design-lite/src/material-design-lite.scss'
 // import 'material-design-lite/src/mdlComponentHandler.js'
 
+// import AppComponent from '../app/appcomponent'
+// import TodoApp from '../scenes/todo/todoapp'
+// import TrainingApp from '../scenes/training/trainingapp'
 // import UserApp from '../components/userapp'
+// import Register from '../scenes/registration/register'
+// import RegisterConfirmation from '../scenes/registration/registerconfirm'
+// import Home from '../scenes/home/home'
 
 // import '../styles/default.scss'
 
+// import '../styles/_variables.scss'
+//import 'material-design-lite/src/material-design-lite.scss'
+//import '../styles/material-design-lite.scss'
 // import 'material-design-lite/dist/material.css'
 // import 'material-design-lite/dist/material.blue-pink.min.css'
 // import 'material-design-lite/dist/material.blue-red.min.css'

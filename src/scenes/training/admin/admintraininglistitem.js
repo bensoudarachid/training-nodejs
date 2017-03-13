@@ -49,9 +49,9 @@ export default class AdminTrainingListItem extends React.Component {
     const onlydays=Math.round(duration)
     var dayString = ''
     if(onlydays<2)
-      dayString = 'day'
+      dayString = ' day'
     else
-      dayString = 'days'
+      dayString = ' days'
     return (
       <div className='mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone'>
         <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone blockborder admintrainingslistitem'>

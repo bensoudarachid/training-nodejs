@@ -160,12 +160,12 @@ var NavAdmin = function (_Component) {
               _react2.default.createElement(
                 'h2',
                 null,
-                'Roya'
+                'ROYA'
               ),
               _react2.default.createElement(
                 'h3',
                 null,
-                'Software'
+                'SOFTWARE'
               )
             )
           ),

@@ -47,7 +47,7 @@
 		<circle fill="#FBB934" cx="159.001" cy="108.621" r="65.277"/>
 		<circle fill="#FDF1D0" cx="159.001" cy="108.621" r="52.222"/>
 	</g>
-	<text transform="matrix(1 0 0 1 123.3078 139.4015)" display="none" fill="#FBB934" font-family="'Arkhip'" font-size="78.8331">€</text>
+	<text transform="matrix(1 0 0 1 123.3078 139.4015)" display="none" fill="#FBB934" font-family="$RoyaMainFont" font-size="78.8331">€</text>
 	<g>
 		<path fill="#FBB934" d="M172.503,103.657l-1.104,5.755h-31.77c-0.053,0.264-0.079,0.552-0.079,0.867s0,0.605,0,0.867
 			c0,1.261,0.079,2.444,0.236,3.547h30.587l-1.104,5.676H141.6c0.946,1.933,2.155,3.683,3.626,5.25

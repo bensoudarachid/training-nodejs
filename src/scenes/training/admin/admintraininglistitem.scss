@@ -84,27 +84,27 @@
 	}
 
 	h4{
-	    font-family: 'Dancing Script', Tahoma, sans-serif;
+	    font-family: $RoyaMainFont;
 		// background-color: darken($roya-blue,30%);
 		// color:darken($roya-blue,30%);
-		margin:25px 10px 0px 0px;
+		margin:12px 10px 5px 0px;
 		padding: 0;
 		text-transform: none;
 	  	font-size:1.3em;
 		letter-spacing: -1.5px;
-	  	line-height: 18px;
+	  	line-height: 22px;
 	  	text-align:right;
 	}
 	h5{
-	    font-family: 'Dancing Script', Tahoma, sans-serif;
+	    font-family: $RoyaMainFont;
 		// background-color: darken($roya-blue,30%);
 		// color:darken($roya-blue,30%);
 		margin:0px 10px 0px 0px;
 		padding: 0;
 		text-transform: none;
-	  	font-size:1.0em;
+	  	font-size:1.1em;
 		letter-spacing: -1.5px;
-	  	line-height: 12px;
+	  	line-height: 15px;
 	  	text-align:right;
 	}
 	.buttonwrap{
@@ -147,21 +147,21 @@
 
 	// } 
 	.promo{
-	    font-family: 'Dancing Script', Tahoma, sans-serif;
-	  	font-size:1.0em;
+	    font-family: $RoyaMainFont;
+	  	font-size:1.1em;
 		// background-color: darken($roya-blue,30%);
 		color:darken($redlight,0%);
 		margin:2px 0px 0px 10px;
 		padding: 0;
 		text-transform: none;
-		letter-spacing: -1.5px;
+		// letter-spacing: -1.5px;
 	  	// line-height: 15px;
 	  	float:left;
 	}
 	.duration{ //duration
-	    font-family: 'Dancing Script', Tahoma, sans-serif;
+	    font-family: $RoyaMainFont;
 		// background-color: pink !important;
-	  	font-size:1.0em;
+	  	font-size:1.1em;
 	  	margin-right:12px;
 		margin-top:2px;
 		// margin-bottom:6px;
@@ -169,7 +169,7 @@
 		float:right;
 		// text-align:right;
 		// margin:15px 10px 15px 10px;
-		letter-spacing: -0.75px;
+		// letter-spacing: -0.75px;
 		white-space: nowrap;
 	}
 	// img{

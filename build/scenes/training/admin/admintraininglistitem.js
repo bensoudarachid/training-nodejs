@@ -81,7 +81,7 @@ var AdminTrainingListItem = function (_React$Component) {
       var duration = this.props.training.get('duration') ? this.props.training.get('duration') / 8 : '0';
       var onlydays = Math.round(duration);
       var dayString = '';
-      if (onlydays < 2) dayString = 'day';else dayString = 'days';
+      if (onlydays < 2) dayString = ' day';else dayString = ' days';
       return _react2.default.createElement(
         'div',
         { className: 'mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone' },

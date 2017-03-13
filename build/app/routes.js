@@ -5,30 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.routes = undefined;
 
-var _appcomponent = require('../app/appcomponent');
-
-var _appcomponent2 = _interopRequireDefault(_appcomponent);
-
-var _todoapp = require('../scenes/todo/todoapp');
-
-var _todoapp2 = _interopRequireDefault(_todoapp);
-
-var _trainingapp = require('../scenes/training/trainingapp');
-
-var _trainingapp2 = _interopRequireDefault(_trainingapp);
-
-var _trainingedit = require('../scenes/training/admin/trainingedit');
-
-var _trainingedit2 = _interopRequireDefault(_trainingedit);
-
-var _register = require('../scenes/registration/register');
-
-var _register2 = _interopRequireDefault(_register);
-
-var _registerconfirm = require('../scenes/registration/registerconfirm');
-
-var _registerconfirm2 = _interopRequireDefault(_registerconfirm);
-
 var _home = require('../scenes/home/home');
 
 var _home2 = _interopRequireDefault(_home);
@@ -40,9 +16,16 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import { Route, IndexRoute, Link, hashHistory, DefaultRoute,NotFoundRoute } from 'react-router'
-
-// import UserApp from '../components/userapp'
 // import AboutComponent from '../components/about'
+// import AppComponent from '../app/appcomponent'
+// import TodoApp from '../scenes/todo/todoapp'
+// import TrainingApp from '../scenes/training/trainingapp'
+// import TrainingEdit from '../scenes/training/admin/trainingedit'
+// import Register from '../scenes/registration/register'
+// import UserApp from '../components/userapp'
+// import RegisterConfirmation from '../scenes/registration/registerconfirm'
+
+
 var ReactRouter = require('react-router');
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
@@ -51,28 +34,9 @@ var hashHistory = ReactRouter.hashHistory;
 var DefaultRoute = ReactRouter.DefaultRoute;
 var NotFoundRoute = ReactRouter.NotFoundRoute;
 
-// const Title = (props) => (
-//       <div>
-//         <h2>Welcome to my App</h2>
-//         { this.props.children }
-//       </div>
-// )
-
-// import configureStore from '../redux/store'
-// let initialState = {
-//   todos: [{
-//     id: 0,
-//     completed: false,
-//     text: 'Initial todo for demo purposes'
-//   }],
-//   user: {
-//     username: 'kurt',
-//     id: 13
-//   }
-// }
-// const Users = () => (
-//   <h3>Howdy.</h3>
-// );
+if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
+  return c(require);
+};
 
 var Users = function Users(_ref) {
   var params = _ref.params,
@@ -87,13 +51,6 @@ var Users = function Users(_ref) {
     '.'
   );
 };
-// const Home = () => (
-//   <div>
-//   <h3>Welcome home!!</h3>
-//   <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-//   </div>
-// )
-// const store = configureStore(initialState)
 var NotFound = function NotFound() {
   return _react2.default.createElement(
     'h1',
@@ -101,66 +58,96 @@ var NotFound = function NotFound() {
     '404.... This page is not found!'
   );
 };
-// const LoginInProgress = () => ( <h1>Login in progress</h1> )
-// const Training = () => {
-//   console.log('here i am')
-//   return(
-//         <h1>Training.... This page is under construction!</h1>
-//   )
+
+// const routesold = {
+//   path: '',
+//   component: AppComponent,
+//   childRoutes: [
+//     {
+//       path: '/',
+//       component: Home
+//     },
+//     {
+//       path: '/todos(/:param)',
+//       component: TodoApp
+//     },
+//     {
+//       path: '/trainings(/:param)',
+//       component: TrainingApp
+//     },
+//     {
+//       path: '/users(/:name)',
+//       component: Users
+//     },    
+//     // {
+//     //   path: '/about(/:name)',
+//     //   component: AboutComponent
+//     // },
+//     {
+//       path: '/register(/:name)',
+//       component: Register
+//     },
+//     {
+//       path: '/registerconfirm(/:username)',
+//       component: RegisterConfirmation
+//     },
+//     {
+//       path: '*',
+//       component: NotFound
+//     }
+//   ]
 // }
 
-var routesold = {
-  path: '',
-  component: _appcomponent2.default,
-  childRoutes: [{
-    path: '/',
-    component: _home2.default
-  }, {
-    path: '/todos(/:param)',
-    component: _todoapp2.default
-  }, {
-    path: '/trainings(/:param)',
-    component: _trainingapp2.default
-  }, {
-    path: '/users(/:name)',
-    component: Users
-  },
-  // {
-  //   path: '/about(/:name)',
-  //   component: AboutComponent
-  // },
-  {
-    path: '/register(/:name)',
-    component: _register2.default
-  }, {
-    path: '/registerconfirm(/:username)',
-    component: _registerconfirm2.default
-  }, {
-    path: '*',
-    component: NotFound
-  }]
-};
-//        <Route path="trainings">
-//          <IndexRoute component={TrainingApp}/>
-// <Route path="item/:id" component={Training} />
-// </Route>
+// const routes = (
+//       <Route path="/" component={AppComponent}>
+//         <IndexRoute component={Home} />
+//         <Route path="register" component={Register} />
+//         <Route path="trainings">
+//           <IndexRoute component={TrainingApp}/>
+//           <Route path="item/:id" component={TrainingEdit} />
+//         </Route>
 
-// <Route name="training" path="training/:trainingid" handler={TrainingApp} />
-// <Route name="traininglist" path="/trainings" handler={TrainingApp} />
-// <Redirect from="company" to="about" />
-//        <Route path="logininprogress" component={LoginInProgress} />
+//         <Route path="todos" component={TodoApp} />
+//         <Route path='*' component={NotFound} />
+//       </Route>
+// )
+
 var routes = _react2.default.createElement(
   Route,
-  { path: '/', component: _appcomponent2.default },
-  _react2.default.createElement(IndexRoute, { component: _home2.default }),
-  _react2.default.createElement(Route, { path: 'register', component: _register2.default }),
+  { path: '/', getComponent: function getComponent(location, cb) {
+      require.ensure([], function (require) {
+        cb(null, require('../app/appcomponent').default);
+      });
+    } },
+  _react2.default.createElement(IndexRoute, { getComponent: function getComponent(location, cb) {
+      require.ensure([], function (require) {
+        cb(null, require('../scenes/home/home').default);
+      });
+    } }),
+  _react2.default.createElement(Route, { path: 'register', getComponent: function getComponent(location, cb) {
+      require.ensure([], function (require) {
+        cb(null, require('../scenes/registration/register').default);
+      });
+    } }),
   _react2.default.createElement(
     Route,
     { path: 'trainings' },
-    _react2.default.createElement(IndexRoute, { component: _trainingapp2.default }),
-    _react2.default.createElement(Route, { path: 'item/:id', component: _trainingedit2.default })
+    _react2.default.createElement(IndexRoute, { getComponent: function getComponent(location, cb) {
+        require.ensure([], function (require) {
+          cb(null, require('../scenes/training/trainingapp').default);
+        });
+      } }),
+    _react2.default.createElement(Route, { path: 'item/:id', getComponent: function getComponent(location, cb) {
+        require.ensure([], function (require) {
+          cb(null, require('../scenes/training/admin/trainingedit').default);
+        });
+      } })
   ),
-  _react2.default.createElement(Route, { path: 'todos', component: _todoapp2.default }),
+  _react2.default.createElement(Route, { path: 'todos', getComponent: function getComponent(location, cb) {
+      require.ensure([], function (require) {
+        cb(null, require('../scenes/todo/todoapp').default);
+      });
+    } }),
   _react2.default.createElement(Route, { path: '*', component: NotFound })
 );
 

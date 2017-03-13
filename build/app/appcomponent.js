@@ -66,16 +66,26 @@ global.jQuery = require('jquery');
 // import waterpipe from './waterpipe.js'
 
 // require('../styles/default.scss')
-
+if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
+  return c(require);
+};
 
 if (process.env.BROWSER) {
   // window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass']  
   // require('./waterpipe.js')
   require('./appcomponent.scss');
-  require('./bubbles.js');
-  require('./waterpipebg.js');
+  // require('./bubbles.js')
+  // require('./waterpipebg.js')
+
+  require.ensure([], function (require) {
+    require('./bubbles.js').default;
+  });
+  require.ensure([], function (require) {
+    require('./waterpipebg.js').default;
+  });
+
   // require('./textswitcher.js')  
-  require('./jquery.shuffleLetters.js');
+
 
   var modal = document.getElementById('myModal');
   window.onclick = function (event) {

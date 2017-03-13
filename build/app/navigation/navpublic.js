@@ -158,13 +158,13 @@ var NavPublic = function (_Component) {
 							null,
 							_react2.default.createElement(
 								'h2',
-								{ 'data-text': 'Roya' },
-								'Roya'
+								null,
+								'ROYA'
 							),
 							_react2.default.createElement(
 								'h3',
-								{ 'data-text': 'Software' },
-								'Software'
+								null,
+								'SOFTWARE'
 							)
 						)
 					),

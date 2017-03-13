@@ -46,8 +46,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // import { ThreeBounce } from 'better-react-spinkit'
 
 
+if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
+  return c(require);
+};
+
 if (process.env.BROWSER) {
   console.log('Appcomponent. environment is browser');
+  // require('../../app/jquery.shuffleLetters.js')
+  require.ensure([], function (require) {
+    require('../../app/jquery.shuffleLetters.js').default;
+  });
   require('./trainingapp.scss');
 
   var rdm = 0;
@@ -327,7 +335,7 @@ var TrainingApp = function (_Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      // console.log('trainingappjs mounted')
+      console.log('trainingappjs mounted. get data and start text animation');
       TrainingApp.fetchData(this.props.actions);
 
       window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass'];

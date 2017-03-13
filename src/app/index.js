@@ -34,23 +34,22 @@ import actions from '../services/actions'
 // import 'material-design-lite/src/material-design-lite.scss'
 // import 'material-design-lite/src/mdlComponentHandler.js'
 
-import AppComponent from '../app/appcomponent'
-import TodoApp from '../scenes/todo/todoapp'
-import TrainingApp from '../scenes/training/trainingapp'
+// import AppComponent from '../app/appcomponent'
+// import TodoApp from '../scenes/todo/todoapp'
+// import TrainingApp from '../scenes/training/trainingapp'
 // import UserApp from '../components/userapp'
-import Register from '../scenes/registration/register'
-import RegisterConfirmation from '../scenes/registration/registerconfirm'
-import Home from '../scenes/home/home'
+// import Register from '../scenes/registration/register'
+// import RegisterConfirmation from '../scenes/registration/registerconfirm'
+// import Home from '../scenes/home/home'
 
 import '../styles/animate.css'
 // import '../styles/default.scss'
+
 import './app.scss'
 
-
-
-
-import 'material-design-lite/src/_variables.scss'
-import 'material-design-lite/src/material-design-lite.scss'
+// import '../styles/_variables.scss'
+//import 'material-design-lite/src/material-design-lite.scss'
+//import '../styles/material-design-lite.scss'
 // import 'material-design-lite/dist/material.css'
 // import 'material-design-lite/dist/material.blue-pink.min.css'
 // import 'material-design-lite/dist/material.blue-red.min.css'
