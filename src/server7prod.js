@@ -373,6 +373,7 @@ app.get(appbasename+'/*', (req, res) => {
               <html>
                 <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+                <script defer src="${vendorBundle}"></script>
                 <script defer src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
                 <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -386,7 +387,6 @@ app.get(appbasename+'/*', (req, res) => {
                 <body style="background-color:#2980b9">
                   <div id="root">${body}</div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
-                  <script defer src="${vendorBundle}"></script>
                   <script defer src="${bundle}"></script>
                 </body>
               </html>`)
