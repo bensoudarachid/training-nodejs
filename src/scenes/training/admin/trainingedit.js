@@ -8,6 +8,8 @@ if (process.env.BROWSER) {
 export default class TrainingEdit extends React.Component {
 
   render() {
+    console.log('trainingedit render')
+    
     return (
         <h1>Training.... This page is under construction!</h1>
     )
@@ -15,7 +17,7 @@ export default class TrainingEdit extends React.Component {
   
 
   componentDidMount() {
-    // console.log('trainingappjs mounted')
+    console.log('trainingedit mounted')
     // TrainingEdit.fetchData(this.props.actions)
   }
   

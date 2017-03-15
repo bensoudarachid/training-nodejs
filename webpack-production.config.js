@@ -160,7 +160,12 @@ module.exports = {
       jquery: 'jquery'
     }),
 
+
     // new webpack.optimize.AggressiveMergingPlugin(),
+    // new webpack.optimize.AggressiveMergingPlugin({
+    //   minSizeReduce: 2,
+    //   moveToParents: true,
+    // }),
     // new webpack.optimize.OccurrenceOrderPlugin(),
     // new webpack.optimize.DedupePlugin(),
 

@@ -36,6 +36,8 @@ var TrainingEdit = function (_React$Component) {
   _createClass(TrainingEdit, [{
     key: 'render',
     value: function render() {
+      console.log('trainingedit render');
+
       return _react2.default.createElement(
         'h1',
         null,
@@ -44,10 +46,10 @@ var TrainingEdit = function (_React$Component) {
     }
   }, {
     key: 'componentDidMount',
-    value: function componentDidMount() {}
-    // console.log('trainingappjs mounted')
-    // TrainingEdit.fetchData(this.props.actions)
-
+    value: function componentDidMount() {
+      console.log('trainingedit mounted');
+      // TrainingEdit.fetchData(this.props.actions)
+    }
 
     // static fetchData(actions) {
     //   console.log('Training edit. do nothing man!')

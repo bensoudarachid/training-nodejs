@@ -65,7 +65,7 @@ if (process.env.BROWSER) {
 
   $(document).ready(function () {
     $(document).click(function (event) {
-      console.log('click somewhere in browser should close toggle menu')
+      // console.log('click somewhere in browser should close toggle menu')
       var clickover = $(event.target)
 
       if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') && !clickover.hasClass('navbar-toggle')) {

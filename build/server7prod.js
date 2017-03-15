@@ -378,9 +378,9 @@ app.get(appbasename + '/*', function (req, res) {
             var bundle = '/app.js';
             // style = '/style.css'
             // bundle = '/bundle.js'
-            if (hour < 7 || hour > 22) {
-              vendorBundle = '/vendor.bundle.js';
-            }
+            // if(hour < 7 || hour > 22){
+            vendorBundle = '/vendor.bundle.js';
+            // }
             // <script src='material-design-lite/dist/material.brown-blue.min.css'></script>
             // <script src='material-design-lite/src/material-design-lite.scss'></script>
             // <script src='material-design-lite/src/mdlComponentHandler.js'></script>

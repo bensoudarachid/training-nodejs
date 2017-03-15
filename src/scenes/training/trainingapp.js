@@ -4,6 +4,8 @@ import TrainingCreate from './components/trainingcreate'
 import React, { Component } from 'react'
 import TrainingEditList from './components/trainingeditlist'
 import AdminTrainingList from './admin/admintraininglist'
+
+
 import cookie from 'react-cookie'
 import $ from 'jquery'
 
@@ -17,10 +19,10 @@ if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
 
 if (process.env.BROWSER) {
   console.log('Appcomponent. environment is browser')
-  // require('../../app/jquery.shuffleLetters.js')
-  require.ensure([], function (require) {
-    require('../../app/jquery.shuffleLetters.js').default
-  })
+  require('../../app/jquery.shuffleLetters.js')
+  // require.ensure([], function (require) {
+  //   require('../../app/jquery.shuffleLetters.js').default
+  // })
   require('./trainingapp.scss')
   
   var rdm = 0
@@ -245,6 +247,7 @@ class TrainingApp extends Component {
               <TrainingEditList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
             </div>
           }
+          
         </div>
       </div>
     )
