@@ -32,8 +32,8 @@ if (process.env.BROWSER) {
   // window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass']  
   // require('./waterpipe.js')
   require('./appcomponent.scss')
-  require('./bubbles.js')
-  require('./waterpipebg.js')
+  // require('./bubbles.js')
+  // require('./waterpipebg.js')
 
   // require.ensure([], function (require) {
   //   require('./bubbles.js').default
@@ -133,6 +133,10 @@ class AppComponent extends React.Component {
 
   componentDidMount(){
     require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+    if (process.env.BROWSER) {
+      require('./bubbles.js')
+      require('./waterpipebg.js')
+    }
   }
 
         // <Nav
