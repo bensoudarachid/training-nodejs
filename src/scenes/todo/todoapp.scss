@@ -7,11 +7,10 @@
 //  float:center;	
 // }
 
-#todoapp{
-
-	width: 95%;
-	margin: 0 auto;
-	
+.todoapp{
+	width: 100%;
+	margin: 0 auto !important;
+	// background-color:pink;
 
 	@media (min-width: 480px) {
 		// background-color:pink;

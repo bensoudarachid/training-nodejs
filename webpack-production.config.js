@@ -21,7 +21,8 @@ module.exports = {
     // ,todos:['./src/scenes/todo/todoapp.js']
     // ,trainings:['./src/scenes/training/trainingapp.js']
     // ,vendor  : Object.keys(pkg.dependencies)
-    ,vendor:['immutable','lodash','react-router','validator','html-entities',
+    ,vendor:[
+      'immutable','lodash','react-router','validator','html-entities',
       'es6-promise','redux','react-proxy','react-redux','redbox-react','util','redux-logger','whatwg-fetch',
       'react-router-redux','react-hot-api',
       'react-hot-loader','cookie','react-transform-hmr','react-cookie',
@@ -82,8 +83,11 @@ module.exports = {
     // path: path.join(__dirname, 'build/reactor'),
     path: path.join(__dirname, 'build'),
     filename: '[name].js',
+    publicPath: '/', //code bundes will always be served from here. If not specified 'http://abbaslearning.royasoftware.com/trainings/item/2' is serving 1.bundle.js from wrong path
     // chunkFilename: '[name]-[chunkhash].js', 
-    chunkFilename: '[name].js'
+    // '[name].js'
+    chunkFilename: '[name].bundle.js'
+
   },
   resolve: {
     modulesDirectories: ['node_modules', 'src'],
@@ -214,7 +218,9 @@ module.exports = {
     new CopyWebpackPlugin([
             // Copy directory contents to {output}/to/directory/ 
             // { from: 'src/reactor/images', to: 'images' }
-            { from: 'src/images', to: 'images' }
+      { from: 'src/images', to: 'images' }
+      // ,{ from: 'vendor.bundle.js', to: 'vendor.bundle.js', force:true }
+      // ,{ from: 'vendor.bundle.js.map', to: 'vendor.bundle.js.map', force:true }
     ])
   ]
   // ,

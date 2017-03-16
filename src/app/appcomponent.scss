@@ -1,7 +1,92 @@
 // @import '../styles/default';
 @import '../styles/default.scss';
 
+$transition-duration: 200ms;
 
+.page-enter {
+	position: absolute;
+  	opacity: 0;
+  	// background-color:rgba(orange,0.8);
+	width:100%;
+	margin: auto;
+  	// transform: translateY(-10rem);
+  	transition: opacity $transition-duration ease-in $transition-duration;
+  	transition-delay: $transition-duration;
+}
+
+.page-enter.page-enter-active {
+	position: absolute;
+  	opacity: 1;
+  	transform: none;
+}
+
+.page-leave {
+	position: absolute;
+	width:100%;
+	opacity: 1;
+	transition: opacity $transition-duration ease-in;
+}
+
+.page-leave.page-leave-active {
+	position: absolute;
+	// width:100%;
+	opacity: 0;
+}
+.page-appear {
+	position: absolute;
+	width:100%;
+	opacity: 0.01;
+	// background-color:rgba(red,0.5);
+	transition: opacity $transition-duration ease-in;
+}
+
+.page-appear.example-appear-active {
+	position: absolute;
+	// width:100%;
+	opacity: 1;
+	// background-color:none;
+}
+
+
+
+.example-enter {
+	position: absolute;
+  opacity: 0.01;
+  background-color:rgba(magenta,0.5);
+  transition: opacity $transition-duration ease-in $transition-duration;
+}
+
+.example-enter.example-enter-active {
+	position: absolute;
+  opacity: 1;
+  background-color:none;
+}
+
+.example-leave {
+	position: absolute;
+  opacity: 1;
+  background-color:rgba(red,0.5);
+  transition: opacity $transition-duration ease-in;
+}
+
+.example-leave.example-leave-active {
+	position: absolute;
+  opacity: 0.01;
+  background-color:none;
+}
+
+.example-appear {
+	position: absolute;
+  opacity: 0.01;
+  background-color:rgba(white,0.5);
+  transition: opacity $transition-duration ease-in;
+}
+
+.example-appear.example-appear-active {
+	position: absolute;
+  opacity: 1;
+  background-color:none;
+}
 
 // canvas{
 // 	z-index: -900;

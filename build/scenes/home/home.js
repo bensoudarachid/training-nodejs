@@ -249,7 +249,7 @@ var Home = function (_Component) {
     key: 'render',
     value: function render() {
       // console.log('homejs. props.actions.url = '+this.props.actions.apiurl)
-      console.log('homejs. actual url = ' + this.props.auth.get('loginactualurl'));
+      // console.log('homejs. actual url = '+this.props.auth.get('loginactualurl'))
       var authenticated = _reactCookie2.default.load('jwt') ? true : false;
       if (!authenticated && this.props.auth.get('loginactualurl') != undefined && this.props.auth.get('loginactualurl') != '/') return _react2.default.createElement('div', null);
 

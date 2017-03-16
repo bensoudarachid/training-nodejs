@@ -30,6 +30,10 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _reactAddonsCssTransitionGroup = require('react-addons-css-transition-group');
+
+var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
 var _nav = require('./navigation/nav');
 
 var _nav2 = _interopRequireDefault(_nav);
@@ -218,7 +222,10 @@ var AppComponent = function (_React$Component) {
       var loginProgress = auth.get('loginProgress');
       var registererror = this.props.auth.get('registererror');
       var appError = this.props.app.get('appError');
-      var children = updateChildren(this.props.children, this.props);
+      var children = this.updateChildren(this.props.children, this.props);
+
+      var path = this.props.location.pathname;
+      var segment = path.split('/')[1] || 'root';
 
       return _react2.default.createElement(
         'div',
@@ -274,7 +281,19 @@ var AppComponent = function (_React$Component) {
             ) : _react2.default.createElement(
               'div',
               null,
-              children
+              _react2.default.createElement(
+                _reactAddonsCssTransitionGroup2.default,
+                {
+                  transitionName: 'example',
+                  transitionEnterTimeout: 300,
+                  transitionLeaveTimeout: 200,
+                  transitionAppear: true,
+                  transitionAppearTimeout: 300,
+                  transitionEnter: true,
+                  transitionLeave: true
+                },
+                children
+              )
             )
           ),
           appError && _react2.default.createElement(
@@ -285,11 +304,29 @@ var AppComponent = function (_React$Component) {
         )
       );
     }
+  }, {
+    key: 'updateChildren',
+    value: function updateChildren(children, props) {
+      var childrenBack = _react2.default.Children.map(children, function (child) {
+        // return React.cloneElement(child, {
+        //   actions: props.actions,
+        //   todos: props.todos
+        // })
+        var path = this.props.location.pathname;
+        var segment = path.split('/')[1] || 'root';
+
+        return _react2.default.cloneElement(child, _extends({}, props, {
+          key: segment
+        }));
+      }.bind(this));
+      return childrenBack;
+    }
   }]);
 
   return AppComponent;
 }(_react2.default.Component);
-
+// {React.cloneElement(this.props.children, { key: segment })}
+// {children}
 // {loginMessage?
 //   <div>
 //     <h1>{loginMessage}</h1>
@@ -314,17 +351,6 @@ var AppComponent = function (_React$Component) {
 //   </div>
 // }
 
-
-function updateChildren(children, props) {
-  var childrenBack = _react2.default.Children.map(children, function (child) {
-    // return React.cloneElement(child, {
-    //   actions: props.actions,
-    //   todos: props.todos
-    // })
-    return _react2.default.cloneElement(child, _extends({}, props));
-  });
-  return childrenBack;
-}
 
 function mapStateToProps(state) {
   return state;

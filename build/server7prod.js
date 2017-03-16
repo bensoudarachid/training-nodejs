@@ -278,26 +278,12 @@ app.get(appbasename + '/*', function (req, res) {
     console.log('Send File: ' + __dirname + req.url);
     // res.status(200).sendFile(__dirname + req.url)
     var file = __dirname + req.url;
-
-    // res.writeHead(200, {
-    //   'Content-Type': 'text/html'
-    // })
     _fs2.default.readFile(file, function (err, data) {
       if (err) {
         console.log('Error file not found. Send error File: ' + errorfile);
         res.status(200).sendFile(errorfile);
-      } else
-        // res.contentLength = stat.size
-        res.end(data, 'binary');
+      } else res.end(data, 'binary');
     });
-
-    // var file = __dirname + req.url
-    // fs.stat(file, function (err, stat) {
-    //   var img = fs.readFileSync(file)
-    //   // res.contentType = 'image/png'
-    //   res.contentLength = stat.size
-    //   res.end(img, 'binary')
-    // })
   } else {
     (0, _reactRouter.match)({
       routes: _routes.routes,

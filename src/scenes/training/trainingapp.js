@@ -233,9 +233,6 @@ class TrainingApp extends Component {
     const {auth} = this.props
     return (
       <div>
-        <span id="textwrap"> 
-          <p id="textswitch"></p>
-        </span>
         <div className='trainingapp'>
           { auth.get('authority')=='admin'?
             <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
@@ -247,7 +244,6 @@ class TrainingApp extends Component {
               <TrainingEditList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
             </div>
           }
-          
         </div>
       </div>
     )

@@ -92,8 +92,8 @@ app.use(webpackHotMiddleware(compiler))
 
 app.use(favicon('./images/favicon.ico'))
 
-console.log('dirname = '+__dirname )
-console.log('dirname bootstrap= '+__dirname + '/node_modules/bootstrap/dist/')
+// console.log('dirname = '+__dirname )
+// console.log('dirname bootstrap= '+__dirname + '/node_modules/bootstrap/dist/')
 
 
 

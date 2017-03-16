@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import Immutable from 'immutable'
 import actions from '../services/actions'
 import 'jquery'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 // import Stats from 'stats-js'
 import $ from 'jquery'
 
@@ -163,7 +164,10 @@ class AppComponent extends React.Component {
     const loginProgress = auth.get('loginProgress')
     const registererror = this.props.auth.get('registererror')
     const appError = this.props.app.get('appError')
-    var children = updateChildren(this.props.children, this.props)
+    var children = this.updateChildren(this.props.children, this.props)
+
+    var path = this.props.location.pathname
+    var segment = path.split('/')[1] || 'root'
 
     return (
       <div id='appcomp'>
@@ -196,7 +200,17 @@ class AppComponent extends React.Component {
             </div>
             :
             <div>
-            { children }
+              <ReactCSSTransitionGroup
+                transitionName="page"
+                transitionEnterTimeout={400}
+                transitionLeaveTimeout={200}
+                transitionAppear={true}
+                transitionAppearTimeout={400}
+                transitionEnter={true}
+                transitionLeave={true}                
+              >              
+              {children}
+              </ReactCSSTransitionGroup>            
             </div>
           }
           </div>
@@ -209,10 +223,29 @@ class AppComponent extends React.Component {
 
 
       </div>
+
     )
   }
-}
+  updateChildren(children, props) {
+    var childrenBack = React.Children.map(children, function(child) {
+      // return React.cloneElement(child, {
+      //   actions: props.actions,
+      //   todos: props.todos
+      // })
+      const path = this.props.location.pathname
+      const segment = path.split('/')[1] || 'root'
 
+      return React.cloneElement(child, {
+        ...props,
+        key: segment 
+      })
+    }.bind(this))
+    return childrenBack
+  }
+
+}
+              // {React.cloneElement(this.props.children, { key: segment })}
+// {children}
       // {loginMessage?
       //   <div>
       //     <h1>{loginMessage}</h1>
@@ -238,18 +271,6 @@ class AppComponent extends React.Component {
       // }
 
 
-function updateChildren(children, props) {
-  var childrenBack = React.Children.map(children, function(child) {
-    // return React.cloneElement(child, {
-    //   actions: props.actions,
-    //   todos: props.todos
-    // })
-    return React.cloneElement(child, {
-      ...props
-    })
-  })
-  return childrenBack
-}
 
 function mapStateToProps(state) {
   return state

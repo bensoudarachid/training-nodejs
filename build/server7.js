@@ -126,8 +126,9 @@ app.use(webpackHotMiddleware(compiler));
 
 app.use(favicon('./images/favicon.ico'));
 
-console.log('dirname = ' + __dirname);
-console.log('dirname bootstrap= ' + __dirname + '/node_modules/bootstrap/dist/');
+// console.log('dirname = '+__dirname )
+// console.log('dirname bootstrap= '+__dirname + '/node_modules/bootstrap/dist/')
+
 
 //important to prevent server from crashing. But it s not recommended. 
 process.on('uncaughtException', function (err) {

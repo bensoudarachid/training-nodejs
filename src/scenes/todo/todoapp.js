@@ -54,13 +54,13 @@ class TodoApp extends Component {
     //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
     // deleteTask={this.deleteTask.bind(this)}
     return (
-      <div id='todoapp'>
       <div>
-      <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel' >
-        <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions}/>
-        <TodoCreate todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
-      </div>
-      <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>
+      <div className='todoapp'>
+        <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel' >
+          <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions}/>
+          <TodoCreate todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
+        </div>
+        <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>
       </div>
       </div>
     )
