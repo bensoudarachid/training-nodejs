@@ -503,7 +503,7 @@ app.get(appbasename+'/*', (req, res) => {
                 <body style="background-color:#2980b9">
                   <div id="root">${body}</div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
-                  <script defer src="/bundle.js"></script>
+                  <script defer src="/bundl.js"></script>
 
                 </body>
               </html>`)

@@ -37,6 +37,8 @@ var ReactRouter = require('react-router');
 
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
+var IndexRedirect = ReactRouter.IndexRedirect;
+
 var Link = ReactRouter.Link;
 var hashHistory = ReactRouter.hashHistory;
 var DefaultRoute = ReactRouter.DefaultRoute;
@@ -146,14 +148,17 @@ var NotFound = function NotFound() {
 
 var routes = _react2.default.createElement(
   Route,
-  { path: '/', component: _appcomponent2.default, getChildRoutes: function getChildRoutes(location, cb) {
+  { path: '/', component: _appcomponent2.default,
+    getChildRoutes: function getChildRoutes(location, cb) {
       require.ensure([], function (require) {
         cb(null, [//require('./routes/todoroutes.js').default,
         _react2.default.createElement(Route, { path: 'todos', component: require('../scenes/todo/todoapp').default }), _react2.default.createElement(Route, { path: 'register', component: require('../scenes/registration/register').default }), require('./routes/trainingroutes.js').default, _react2.default.createElement(Route, { path: '*', component: NotFound })]);
       });
-    } },
+    }
+  },
   _react2.default.createElement(IndexRoute, { component: _home2.default })
 );
+// <Route path="home" component={Home} />
 
 // const routes = (
 //       <Route path="/" component={AppComponent}>

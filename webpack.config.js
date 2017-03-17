@@ -15,7 +15,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundl.js'
   },
   resolve: {
     modulesDirectories: ['node_modules', 'src'],

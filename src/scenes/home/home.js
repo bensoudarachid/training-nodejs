@@ -5,6 +5,7 @@ import 'jquery'
 import $ from 'jquery'
 import actions from '../../services/actions'
 import LogoSpinner from '../../components/shared/logospinner'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 // const util = require('util')
 
 // import { IndexLink, Link} from 'react-router'
@@ -96,47 +97,50 @@ class Home extends Component {
       var img=elm.find('.dataimg')
       var imgSpinner=elm.find('.mdl-spinner')
       
-
-      if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
-        img[0].setAttribute('src', img[0].getAttribute('data-src'))
-        img[0].onload = function() {
-          console.log('image loaded on mount: '+img[0].getAttribute('data-src'))
-          img[0].removeAttribute('data-src')
-          imgSpinner.remove()
-
-          if (elm.visible(true) &&!img[0].hasAttribute('data-src') ) {
+      setTimeout(() => {
+        if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+          img[0].setAttribute('src', img[0].getAttribute('data-src'))
+          img[0].onload = function() {
+            console.log('image loaded on mount: '+img[0].getAttribute('data-src'))
+            img[0].removeAttribute('data-src')
             imgSpinner.remove()
-            elm.addClass('animated') 
-            // var rdm = Math.floor(Math.random() * 3) + 1
-            // var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
-            // img.addClass('animated '+imgAnim)
-            // // img.addClass('animated rubberBand')
-            // if(imgbg.hasClass('animated'))
-            //   return
-            // else{
-            //   imgbg.removeClass('imgbg')
-            //   rdm = Math.floor(Math.random() * 2) + 1
-            //   var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm===1?'fadeInLeft':'fadeInRight'
-            //   imgbg.addClass('animated '+imgbgAnim+' imgwraptor') 
-            // }
 
-            // var rdm = Math.floor(Math.random() * 3) + 1
-            // var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
-            // img.addClass('animated '+imgAnim)
-            // // img.addClass('animated rubberBand')
-            if(imgbg.hasClass('animated'))
-              return
-            else{
-              imgbg.removeClass('imgbg')
-              // var rdm = Math.floor(Math.random() * 2) + 1
-              // var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm===1?'fadeInLeft':'fadeInRight'
-              imgbg.addClass('animated imgwraptor') 
+            if (elm.visible(true) &&!img[0].hasAttribute('data-src') ) {
+              imgSpinner.remove()
+              elm.addClass('animated') 
+              // var rdm = Math.floor(Math.random() * 3) + 1
+              // var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
+              // img.addClass('animated '+imgAnim)
+              // // img.addClass('animated rubberBand')
+              // if(imgbg.hasClass('animated'))
+              //   return
+              // else{
+              //   imgbg.removeClass('imgbg')
+              //   rdm = Math.floor(Math.random() * 2) + 1
+              //   var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm===1?'fadeInLeft':'fadeInRight'
+              //   imgbg.addClass('animated '+imgbgAnim+' imgwraptor') 
+              // }
+
+              // var rdm = Math.floor(Math.random() * 3) + 1
+              // var imgAnim = rdm===1?'rubberBand':rdm===2?'jello':'flip'
+              // img.addClass('animated '+imgAnim)
+              // // img.addClass('animated rubberBand')
+              if(imgbg.hasClass('animated'))
+                return
+              else{
+                imgbg.removeClass('imgbg')
+                // var rdm = Math.floor(Math.random() * 2) + 1
+                // var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm===1?'fadeInLeft':'fadeInRight'
+                imgbg.addClass('animated imgwraptor') 
+              }
+
             }
 
           }
-
         }
-      }
+
+      }, 50)
+
     })
     // console.log('yeah man. Add listener')
     window.addEventListener('scroll', this.handleScroll)
@@ -212,6 +216,17 @@ class Home extends Component {
 // <div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./api/todo/img/1234'} className='dataimg' alt='coding'/></div>
         // <div className='imgwrap'><div className='imgbg'/><FadingCircle className='spinner' size={60}/><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='dataimg' alt='coding'/></div>
 // <FadingCircle className='spinner' size={60}/>
+    // <ReactCSSTransitionGroup
+    //   component='div'
+    //   transitionName="page"
+    //   transitionEnterTimeout={800}
+    //   transitionLeaveTimeout={500}
+    //   transitionAppear={true}
+    //   transitionAppearTimeout={800}
+    //   transitionEnter={true}
+    //   transitionLeave={true}                
+    // >              
+    // </ReactCSSTransitionGroup>            
 
   render() {
     // console.log('homejs. props.actions.url = '+this.props.actions.apiurl)
@@ -223,8 +238,9 @@ class Home extends Component {
       )
 
     return (
-		<div id='home'>
-		
+    <div>
+		<div className='home'>
+
 		<div className="container">
 			
 			<div className="row">
@@ -266,8 +282,8 @@ class Home extends Component {
 
 
 		</div>
-        
 		</div>
+    </div>
     )
   }
 }

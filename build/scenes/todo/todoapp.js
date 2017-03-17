@@ -94,10 +94,10 @@ var TodoApp = function (_Component) {
       // deleteTask={this.deleteTask.bind(this)}
       return _react2.default.createElement(
         'div',
-        { id: 'todoapp' },
+        null,
         _react2.default.createElement(
           'div',
-          null,
+          { className: 'todoapp' },
           _react2.default.createElement(
             'div',
             { className: 'mdl-grid mdl-grid--no-spacing blockborder parampanel' },

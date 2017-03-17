@@ -274,13 +274,13 @@ var TrainingApp = function (_Component) {
         'div',
         null,
         _react2.default.createElement(
-          'span',
-          { id: 'textwrap' },
-          _react2.default.createElement('p', { id: 'textswitch' })
-        ),
-        _react2.default.createElement(
           'div',
           { className: 'trainingapp' },
+          _react2.default.createElement(
+            'span',
+            { id: 'textwrap' },
+            _react2.default.createElement('p', { id: 'textswitch' })
+          ),
           auth.get('authority') == 'admin' ? _react2.default.createElement(_admintraininglist2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions }) : _react2.default.createElement(
             'div',
             null,

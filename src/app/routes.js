@@ -17,6 +17,8 @@ import React from 'react'
 var ReactRouter = require('react-router')
 var Route = ReactRouter.Route
 var IndexRoute = ReactRouter.IndexRoute
+var IndexRedirect = ReactRouter.IndexRedirect
+
 var Link = ReactRouter.Link
 var hashHistory = ReactRouter.hashHistory
 var DefaultRoute = ReactRouter.DefaultRoute
@@ -109,7 +111,8 @@ const NotFound = () => ( <h1>404.... This page is not found!</h1> )
 // )
 
 const routes = (
-      <Route path="/" component={AppComponent} getChildRoutes={(location, cb) => 
+      <Route path="/" component={AppComponent} 
+        getChildRoutes={(location, cb) => 
           {require.ensure([], require => 
             {cb(null, 
               [ //require('./routes/todoroutes.js').default,
@@ -120,10 +123,12 @@ const routes = (
               ]
             )}
           )}  
-        }>
+        }
+        >
         <IndexRoute component={Home} />
       </Route>
 )
+                // <Route path="home" component={Home} />
 
 // const routes = (
 //       <Route path="/" component={AppComponent}>

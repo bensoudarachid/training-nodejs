@@ -234,6 +234,9 @@ class TrainingApp extends Component {
     return (
       <div>
         <div className='trainingapp'>
+        <span id="textwrap"> 
+          <p id="textswitch"></p>
+        </span>
           { auth.get('authority')=='admin'?
             <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
           :

@@ -188,24 +188,18 @@ var AppComponent = function (_React$Component) {
         require('./waterpipebg.js');
       }
     }
-
-    // <Nav
-    //   actions={this.props.actions}
-    //   isAuthenticated={auth.get('isAuthenticated')}
-    //   errorMessage={auth.get('errorMessage')}
-    //   auth={this.props.auth}
-    //   location={this.props.location}
-    // />
-    // <div id="wavybg-wrapper"> 
-    //     <canvas id="canvs1">Your browser does not support HTML5 canvas.</canvas>
-    // </div>
-    // <div id="starbg-wrapper"> 
-    //     <canvas id="canvs2">Your browser does not support HTML5 canvas.</canvas>
-    // </div>
-
-    // <div id="text-wrapper"> 
-    //     <p id="textswitch">Welcome!</p>
-    // </div>
+    // <ReactCSSTransitionGroup
+    //   component='div'
+    //   transitionName="page"
+    //   transitionEnterTimeout={1000}
+    //   transitionLeaveTimeout={400}
+    //   transitionAppear={true}
+    //   transitionAppearTimeout={1000}
+    //   transitionEnter={true}
+    //   transitionLeave={true}                
+    // >              
+    // {children}
+    // </ReactCSSTransitionGroup>            
 
   }, {
     key: 'render',
@@ -225,7 +219,7 @@ var AppComponent = function (_React$Component) {
       var children = this.updateChildren(this.props.children, this.props);
 
       var path = this.props.location.pathname;
-      var segment = path.split('/')[1] || 'root';
+      // var segment = path.split('/')[1] || 'root'
 
       return _react2.default.createElement(
         'div',
@@ -284,11 +278,11 @@ var AppComponent = function (_React$Component) {
               _react2.default.createElement(
                 _reactAddonsCssTransitionGroup2.default,
                 {
-                  transitionName: 'example',
-                  transitionEnterTimeout: 300,
+                  component: 'div',
+                  transitionName: 'page',
+                  transitionEnterTimeout: 500,
                   transitionLeaveTimeout: 200,
-                  transitionAppear: true,
-                  transitionAppearTimeout: 300,
+                  transitionAppear: false,
                   transitionEnter: true,
                   transitionLeave: true
                 },
@@ -312,14 +306,19 @@ var AppComponent = function (_React$Component) {
         //   actions: props.actions,
         //   todos: props.todos
         // })
-        var path = this.props.location.pathname;
-        var segment = path.split('/')[1] || 'root';
-
-        return _react2.default.cloneElement(child, _extends({}, props, {
-          key: segment
+        // const segment = this.props.location.pathname
+        // const segment = this.props.location.pathname.split('/')[1] || 'root'
+        var segment = this.getSubstringUntilNth(props.location.pathname, '/', 2);
+        // console.log('child '+this.props.location.pathname+ ' segement '+segment+' path '+this.props.location.pathname)
+        return _react2.default.cloneElement(child, _extends({}, props, { key: segment
         }));
       }.bind(this));
       return childrenBack;
+    }
+  }, {
+    key: 'getSubstringUntilNth',
+    value: function getSubstringUntilNth(str, pattern, n) {
+      return str.split(pattern, n).join(pattern);
     }
   }]);
 
