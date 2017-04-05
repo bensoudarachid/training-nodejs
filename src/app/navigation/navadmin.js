@@ -89,7 +89,7 @@ class NavAdmin extends Component {
     // var modal = document.getElementById('myModal')
     // modal.style.display = 'block'
     this.props.actions.loginProcessStart('Welcome to Roya')
-  }     
+  }
 
   render() {
     const isBrowser = typeof window !== 'undefined'
@@ -120,9 +120,9 @@ class NavAdmin extends Component {
 			<ul className="nav navbar-nav navbar-left">
 			<li><IndexLink activeClassName='active' to='/'>Home</IndexLink></li>
       {(process.env.NODE_ENV!='production' || process.env.NODE_ENV=='production') &&
-      <li><Link activeClassName='active' to='/todos'>Todos</Link></li>
+      <li><Link activeClassName='active' to='/admin/todos'>Todos</Link></li>
       }
-      <li><Link activeClassName='active' to='/trainings'>Training</Link></li>
+      <li><Link activeClassName='active' to='/admin/trainings'>Training</Link></li>
       <li><Link activeClassName='active' to='/users'>User</Link></li>
 			</ul>
 			<ul className="nav navbar-nav navbar-right">
@@ -133,7 +133,7 @@ class NavAdmin extends Component {
 	<li>
 	<a href='#' onClick={(event) => this.props.actions.logoutUser()}><span className='glyphicon glyphicon-log-out'></span> Logout</a>
 	</li>
-}			
+}
 			</ul>
 		</div>
 	</nav>

@@ -14,28 +14,28 @@ import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 import fs from 'fs'
 import multer from 'multer'
-
+import Immutable from 'immutable'
 import { Provider } from 'react-redux'
 
 import { bindActionCreators } from 'redux'
 import actions from './services/actions'
+import ApiConnection from './services/apiconnection'
+
 
 var FormData = require('form-data')
 const util = require('util')
 var compression = require('compression')
 // import { fetchDataOnServer, reducer as fetching } from 'redux-fetch-data';
-
 // var fetch = require('node-fetch');
 
 var bodyParser = require('body-parser') // is used for POST requests
 
-const appbasename=actions.appbasename
+const appbasename=ApiConnection.appbasename
 
 var config = require('../webpack.config.js')
 var webpack = require('webpack')
 
 const app = express()
-
 
 
 var favicon = require('serve-favicon')
@@ -435,7 +435,7 @@ app.get(appbasename+'/*', (req, res) => {
       // })
       // .catch(err => console.log('Booooo' + err));
 
-        const initialState = {}
+        const initialState = {auth: {url:'Abbas'}}
       // const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
       // const store = createStore(reducers, initialState)
         const logger = createLogger()
@@ -453,40 +453,22 @@ app.get(appbasename+'/*', (req, res) => {
             return component!=undefined?component.fetchData:false
             // return component.fetchData
           })
-          .map((component) => component.fetchData(dispactions))
+          .map((component) => component.fetchData(dispactions,params,req.headers.host))
           Promise.all(promises).then(() => {
           // res.status(200).send(renderView())
             console.log('resolved')
+
+            // sleep(8000).then(() => {
+
             const body = renderToString(
-            <Provider store={store}>
-                <RouterContext {...renderProps} />
-              </Provider>
-          )
-
-
-                // <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-                // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-                // <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">
-                // <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
-// import 'material-design-lite/dist/material.brown-blue.min.css'
-// import 'material-design-lite/src/material-design-lite.scss'
-// import 'material-design-lite/src/mdlComponentHandler.js'
-// import 'material-design-lite/dist/material.js'
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap/dist/js/bootstrap.js'
-
-                // <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
-                // <script src="/bootstrap/js/bootstrap.js"></script>                
-                // <link rel="stylesheet" type="text/css" href="/mdl/material.brown-blue.min.css">
-                // <script defer src="/mdl/material.js"></script>                
-
-                // <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
-                // <script src="/bootstrap/js/bootstrap.js"></script>                
-                // <link rel="stylesheet" type="text/css" href="/mdl/material.grey-blue.min.css">
-                // <script defer src="/mdl/material.js"></script>                
+                <Provider store={store}>
+                  <RouterContext {...renderProps} />
+                </Provider>
+              )
 
             const state = store.getState()
+              // console.log('state before stringify ='+require('util').inspect(state, false, null))
+            console.log('State paased to client = '+JSON.stringify(state))
             res.status(200).send(`<!DOCTYPE html>
               <html>
                 <head>
@@ -501,12 +483,16 @@ app.get(appbasename+'/*', (req, res) => {
                 <link rel="stylesheet" type="text/css" href="/style.css" />
                 </head>
                 <body style="background-color:#2980b9">
-                  <div id="root">${body}</div>
+                  <div id="root"><div>${body}</div></div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
-                  <script defer src="/bundl.js"></script>
+                  <script defer src="/bundle.js"></script>
 
                 </body>
               </html>`)
+
+            // }) 
+
+
           }).catch(err => console.log('Booooo' + err))
         })
       } else {
@@ -525,7 +511,18 @@ setInterval(function() {
 }, 1000000)
 
 
-var port = (process.env.PORT || actions.port)
+// function sleep (time) {
+//   return new Promise((resolve) => setTimeout(resolve, time))
+// }
+
+var spawn = require('child_process').spawn
+var child = spawn('C:\\Programme\\AutoIt3\\AutoIt3.exe', ['D:\\RP\\Tests\\SpringBoot_Training\\relaunchwebapp.au3'])
+child.stdout.on('data', function(chunk) {
+  console.log('chunk='+require('util').inspect(chunk, false, null))
+})
+child.stdout.pipe(process.stdout)
+
+var port = (process.env.PORT || ApiConnection.port)
 app.listen(port, function(error) {
   if (error)
     throw error

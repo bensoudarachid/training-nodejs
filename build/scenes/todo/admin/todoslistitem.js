@@ -22,9 +22,9 @@ var _fileuploadinput = require('../../../components/shared/fileuploadinput');
 
 var _fileuploadinput2 = _interopRequireDefault(_fileuploadinput);
 
-var _actions = require('../../../services/actions');
+var _apiconnection = require('../../../services/apiconnection');
 
-var _actions2 = _interopRequireDefault(_actions);
+var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
 var _jquery = require('jquery');
 
@@ -43,6 +43,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 //import Immutable from 'immutable'
 // import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'
+
+// import actions from '../../../services/actions'
 
 
 if (process.env.BROWSER) {
@@ -209,11 +211,11 @@ var TodosListItem = function (_React$Component) {
       var todo = this.props.todo.set('mama', 'i m here');
 
       this.props.actions.uploadTodoFileDispatcher(todo, this.props.todo, fileinput.files[0]);
-      // console.log('todos-list-item, set src to ' + actions.apiurl+'/api/todo/img/'+'12'+'?access_token='+ idToken)
+      // console.log('todos-list-item, set src to ' + ApiConnection.apiurl+'/api/todo/img/'+'12'+'?access_token='+ idToken)
 
 
-      // document.getElementById('todolistitemimg'+taskid).setAttribute('data-src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
-      // document.getElementById('todolistitemimg'+taskid).setAttribute('src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
+      // document.getElementById('todolistitemimg'+taskid).setAttribute('data-src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
+      // document.getElementById('todolistitemimg'+taskid).setAttribute('src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
 
       // var imgwrap = document.getElementById('imgwrap'+taskid)
       // imgwrap.innerHTML = '<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>'+imgwrap.innerHTML
@@ -223,7 +225,7 @@ var TodosListItem = function (_React$Component) {
       //   //   imageLoaded: undefined
       //   // })
       //   // document.getElementById('todolistitemimg'+taskid).removeAttribute('src')
-      //   document.getElementById('todolistitemimg'+taskid).setAttribute('src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
+      //   document.getElementById('todolistitemimg'+taskid).setAttribute('src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
       //   // this.refs.uploadcomp.forceUpdate()
       // }.bind(this),(5000) )
     }
@@ -313,7 +315,7 @@ var TodosListItem = function (_React$Component) {
       };
       var loading = this.props.todo.get('loading');
       var isUploading = this.props.todo.get('isUploading');
-      console.log('todolistitem. id: ' + taskid + ', todo.isUploading: ' + isUploading);
+      //    console.log('todolistitem. id: '+taskid+', todo.isUploading: '+isUploading)
 
       var disabled = loading || error;
       var errorClass = error ? 'error' : '';

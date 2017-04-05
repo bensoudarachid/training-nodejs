@@ -1,6 +1,7 @@
 import React from 'react'
 // var React = require('react');
 import ReactDom from 'react-dom'
+import Immutable from 'immutable'
 // var ReactDom = require('react-dom');
 // import { Router, Route, Link, IndexRoute,NotFoundRoute, hashHistory, browserHistory } from 'react-router'
 import { browserHistory } from 'react-router'
@@ -157,7 +158,15 @@ const NotFound = () => ( <h1>404.... This page is not found!</h1> )
 //   )
 // }
 
-const initialState = window.__REDUX_STATE__ 
+const initialState = window.__REDUX_STATE__
+// console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----initialState='+require('util').inspect(initialState, false, null))
+
+Object
+  .keys(initialState)
+  .forEach(key => {
+    initialState[key] = Immutable.fromJS(initialState[key])
+  })
+
 var store = ''
 if( process.env.NODE_ENV === 'production' )
   store = createStore(rootReducer, initialState, applyMiddleware(thunk))
@@ -165,6 +174,7 @@ else{
   const logger = createLogger()
   store = createStore(rootReducer, initialState, applyMiddleware(thunk, logger))
 }
+// console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----after create Store State='+require('util').inspect(store.getState(), false, null))
 
 // const mybrowserHistory = browserHistory
 // const mybrowserHistory = useBasename(createHistory)({

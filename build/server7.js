@@ -45,11 +45,19 @@ var _multer = require('multer');
 
 var _multer2 = _interopRequireDefault(_multer);
 
+var _immutable = require('immutable');
+
+var _immutable2 = _interopRequireDefault(_immutable);
+
 var _reactRedux = require('react-redux');
 
 var _actions = require('./services/actions');
 
 var _actions2 = _interopRequireDefault(_actions);
+
+var _apiconnection = require('./services/apiconnection');
+
+var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -61,12 +69,11 @@ var FormData = require('form-data'); // require('babel-core/register')
 var util = require('util');
 var compression = require('compression');
 // import { fetchDataOnServer, reducer as fetching } from 'redux-fetch-data';
-
 // var fetch = require('node-fetch');
 
 var bodyParser = require('body-parser'); // is used for POST requests
 
-var appbasename = _actions2.default.appbasename;
+var appbasename = _apiconnection2.default.appbasename;
 
 var config = require('../webpack.config.js');
 var webpack = require('webpack');
@@ -429,7 +436,7 @@ app.get(appbasename + '/*', function (req, res) {
         // })
         // .catch(err => console.log('Booooo' + err));
 
-        var initialState = {};
+        var initialState = { auth: { url: 'Abbas' } };
         // const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
         // const store = createStore(reducers, initialState)
         var logger = (0, _reduxLogger2.default)();
@@ -449,41 +456,27 @@ app.get(appbasename + '/*', function (req, res) {
             return component != undefined ? component.fetchData : false;
             // return component.fetchData
           }).map(function (component) {
-            return component.fetchData(dispactions);
+            return component.fetchData(dispactions, params, req.headers.host);
           });
           Promise.all(promises).then(function () {
             // res.status(200).send(renderView())
             console.log('resolved');
+
+            // sleep(8000).then(() => {
+
             var body = (0, _server.renderToString)(_react2.default.createElement(
               _reactRedux.Provider,
               { store: store },
               _react2.default.createElement(_reactRouter.RouterContext, renderProps)
             ));
 
-            // <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-            // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-            // <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">
-            // <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
-            // import 'material-design-lite/dist/material.brown-blue.min.css'
-            // import 'material-design-lite/src/material-design-lite.scss'
-            // import 'material-design-lite/src/mdlComponentHandler.js'
-            // import 'material-design-lite/dist/material.js'
-            // import 'bootstrap/dist/css/bootstrap.css'
-            // import 'bootstrap/dist/js/bootstrap.js'
-
-            // <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
-            // <script src="/bootstrap/js/bootstrap.js"></script>                
-            // <link rel="stylesheet" type="text/css" href="/mdl/material.brown-blue.min.css">
-            // <script defer src="/mdl/material.js"></script>                
-
-            // <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
-            // <script src="/bootstrap/js/bootstrap.js"></script>                
-            // <link rel="stylesheet" type="text/css" href="/mdl/material.grey-blue.min.css">
-            // <script defer src="/mdl/material.js"></script>                
-
             var state = store.getState();
-            res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <script defer src="/jquery/jquery.min.js"></script>\n                <script defer src="/bootstrap/js/bootstrap.min.js"></script>\n                <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">\n                <script defer src="/mdl/material.js"></script>\n                <link rel="stylesheet" type="text/css" href="/mdl/material.brown-blue.min.css">\n                <script defer src="/reactdom/react-dom.min.js"></script>\n                <script defer src="/react/react.min.js"></script>\n                <link rel="stylesheet" type="text/css" href="/style.css" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root">' + body + '</div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script defer src="/bundl.js"></script>\n\n                </body>\n              </html>');
+            // console.log('state before stringify ='+require('util').inspect(state, false, null))
+            console.log('State paased to client = ' + JSON.stringify(state));
+            res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <script defer src="/jquery/jquery.min.js"></script>\n                <script defer src="/bootstrap/js/bootstrap.min.js"></script>\n                <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">\n                <script defer src="/mdl/material.js"></script>\n                <link rel="stylesheet" type="text/css" href="/mdl/material.brown-blue.min.css">\n                <script defer src="/reactdom/react-dom.min.js"></script>\n                <script defer src="/react/react.min.js"></script>\n                <link rel="stylesheet" type="text/css" href="/style.css" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root"><div>' + body + '</div></div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script defer src="/bundle.js"></script>\n\n                </body>\n              </html>');
+
+            // }) 
+
           }).catch(function (err) {
             return console.log('Booooo' + err);
           });
@@ -503,7 +496,18 @@ setInterval(function () {
   _http2.default.get('http://abbaslearn.royasoftware.com/todos');
 }, 1000000);
 
-var port = process.env.PORT || _actions2.default.port;
+// function sleep (time) {
+//   return new Promise((resolve) => setTimeout(resolve, time))
+// }
+
+var spawn = require('child_process').spawn;
+var child = spawn('C:\\Programme\\AutoIt3\\AutoIt3.exe', ['D:\\RP\\Tests\\SpringBoot_Training\\relaunchwebapp.au3']);
+child.stdout.on('data', function (chunk) {
+  console.log('chunk=' + require('util').inspect(chunk, false, null));
+});
+child.stdout.pipe(process.stdout);
+
+var port = process.env.PORT || _apiconnection2.default.port;
 app.listen(port, function (error) {
   if (error) throw error;
   console.log('Express server listening on port', port);

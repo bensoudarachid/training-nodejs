@@ -15,7 +15,6 @@
 	}
 	.tf{
 		margin: -30px -10px -40px -10px;
-		width:100%;
 	}
 	.editsaveblock{
 		margin-top:-10px !important;
@@ -67,24 +66,24 @@
 		// }
 	}
 
-	.error{
-		margin: 2px 0 0 auto !important;
-		// margin: auto !important;
-		// padding:6px 0;
-		z-index:10;
-		left:15%;
-		width:70%;
-		height:30px;
-		color: white;
-		// margin: 0 auto;	
-		position:absolute;
-		// justify-content: center;	
-		background-color: $reddark;
-		border: 3px solid rgba(black,0.1);
-		-webkit-border-radius: 25px;
-		-moz-border-radius: 25px;
-		border-radius: 25px;
-	}
+	// .error{
+	// 	margin: 2px 0 0 auto !important;
+	// 	// margin: auto !important;
+	// 	// padding:6px 0;
+	// 	z-index:10;
+	// 	left:15%;
+	// 	width:70%;
+	// 	height:30px;
+	// 	color: white;
+	// 	// margin: 0 auto;	
+	// 	position:absolute;
+	// 	// justify-content: center;	
+	// 	background-color: $reddark;
+	// 	border: 3px solid rgba(black,0.1);
+	// 	-webkit-border-radius: 25px;
+	// 	-moz-border-radius: 25px;
+	// 	border-radius: 25px;
+	// }
 }
 
 

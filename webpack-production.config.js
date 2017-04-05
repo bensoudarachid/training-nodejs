@@ -13,8 +13,8 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
   // devtool: 'inline-source-map',
   // devtool: 'cheap-module-eval-source-map',
-  devtool: 'cheap-module-source-map',
-  // devtool: 'source-map',
+  //devtool: 'cheap-module-source-map', //original
+  devtool: 'source-map',
   entry: {
     // app: ['./src/app','./src/scenes/todo/todoapp.js','./src/scenes/training/trainingapp.js']
     app: './src/app'

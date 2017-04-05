@@ -49,13 +49,15 @@ let authReducer = function(auth = new Immutable.Map({
   // console.log('Auth Reducer cookie is there: ' + (authenticated))
   //auth=auth.set('',)
   //auth=auth.remove('')
-  
+
   switch (action.type) {
   case 'LOGIN_PROCESS_START':
     // console.log('Auth reducer. +++++++++++++Login in Progress ')
     auth=auth.set('loginMessage',action.message)
     auth=auth.set('loginProgress',true)
     auth=auth.set('loginactualurl',action.actualurl)
+    auth=auth.set('loginrequest',action.promise)
+    auth=auth.set('loginrequestparams',action.params)
     return auth
     // return Object.assign({}, auth, {
     //   loginMessage: action.message,
@@ -87,10 +89,12 @@ let authReducer = function(auth = new Immutable.Map({
     auth=auth.set('isFetching',false)
     auth=auth.set('errorMessage','')
     auth=auth.set('isAuthenticated',authenticated)
+    auth=auth.set('authority',authority)
     auth=auth.remove('usercreds')
     auth=auth.remove('loginMessage')
     auth=auth.remove('loginProgress')
     auth=auth.remove('loginactualurl')
+    auth=auth.remove('loginrequest')
 
     return auth
 //     return Object.assign({}, _.omit(auth, ['usercreds']), {
@@ -106,6 +110,7 @@ let authReducer = function(auth = new Immutable.Map({
     // auth=auth.remove('loginMessage')
     auth=auth.remove('loginProgress')
     auth=auth.remove('loginactualurl')
+    auth=auth.remove('loginrequest')
     return auth
 //  
     // return Object.assign({}, _.omit(auth, ['usercreds']), {
@@ -128,6 +133,7 @@ let authReducer = function(auth = new Immutable.Map({
     auth=auth.remove('loginMessage')
     auth=auth.remove('loginProgress')
     auth=auth.remove('loginactualurl')
+    auth=auth.remove('loginrequest')
     return auth
     // return Object.assign({}, auth, {
     //   isFetching: false,

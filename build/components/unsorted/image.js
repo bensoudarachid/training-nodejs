@@ -14,9 +14,9 @@ var _reactCookie = require('react-cookie');
 
 var _reactCookie2 = _interopRequireDefault(_reactCookie);
 
-var _actions = require('../services/actions');
+var _apiconnection = require('../services/apiconnection');
 
-var _actions2 = _interopRequireDefault(_actions);
+var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
 var _jquery = require('jquery');
 
@@ -29,6 +29,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import actions from '../services/actions'
+
 
 var TodoImage = function (_React$Component) {
   _inherits(TodoImage, _React$Component);
@@ -49,7 +51,7 @@ var TodoImage = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'imgwrap', id: 'imgwrap' + taskid },
-        _react2.default.createElement('img', { id: 'todolistitemimg' + taskid, src: _actions2.default.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken, className: 'dataimg', alt: 'coding' })
+        _react2.default.createElement('img', { id: 'todolistitemimg' + taskid, src: _apiconnection2.default.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken, className: 'dataimg', alt: 'coding' })
       );
     }
   }, {

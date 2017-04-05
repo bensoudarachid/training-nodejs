@@ -1,12 +1,15 @@
 import React from 'react'
 import { Route, IndexRoute, Link, hashHistory, DefaultRoute,NotFoundRoute } from 'react-router'
 
-import TrainingApp from '../../scenes/training/trainingapp'
+import AdminTrainingApp from '../../scenes/training/admin/admintrainingapp'
 // import TrainingEdit from '../../scenes/training/admin/trainingedit'
 
 const trainingRoutes = (
-	<Route path="trainings" getChildRoutes={(location, cb) => {cb(null, [<Route path="item/:id" component={require('../../scenes/training/admin/trainingedit.js').default} />])}}>
-		<IndexRoute component={TrainingApp}/>
+	<Route path="trainings" getChildRoutes={(location, cb) => {cb(null, [
+  <Route path="item/:id" component={require('../../scenes/training/admin/trainingedit.js').default} />,
+  <Route path="item/new" component={require('../../scenes/training/admin/trainingedit.js').default} />
+])}}>
+		<IndexRoute component={AdminTrainingApp}/>
 	</Route>
 )
 // const trainingRoutes = {

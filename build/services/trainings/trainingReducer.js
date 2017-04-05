@@ -8,12 +8,18 @@ var _immutable = require('immutable');
 
 var _immutable2 = _interopRequireDefault(_immutable);
 
+var _validator = require('validator');
+
+var _validator2 = _interopRequireDefault(_validator);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import cookie from 'react-cookie'
-require('es6-promise').polyfill(); // import _ from 'lodash'
-
+// import _ from 'lodash'
+require('es6-promise').polyfill();
 require('isomorphic-fetch');
+
+var util = require('util');
 
 // function getId(trainings) {
 //   return trainings.reduce((maxId, training) => {
@@ -44,7 +50,9 @@ require('isomorphic-fetch');
 var trainingReducer = function trainingReducer() {
   var trainingappmap = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new _immutable2.default.Map({
     // loadTrainingImages: false,
-    trainings: undefined //Immutable.List([])
+    trainings: undefined, //Immutable.List([])
+    trainingEditError: _immutable2.default.Map({}),
+    isTrainingEditFetching: false
   });
   var action = arguments[1];
 
@@ -56,11 +64,14 @@ var trainingReducer = function trainingReducer() {
       filterOpen: true,
       filterClosed: true,
       // loadTrainingImages: false,
-      trainings: undefined //Immutable.List([])      
+      trainings: undefined, //Immutable.List([])
+      trainingEditError: _immutable2.default.Map({}),
+      isTrainingEditFetching: false
     });
   }
   // console.log('Training reducer. Filter open: ' + trainingappmap.get('filterOpen'))
   var trainings = trainingappmap.get('trainings');
+  var edittraining = trainingappmap.get('edittraining');
   var index = void 0;
   switch (action.type) {
     case 'CREATE_TRAINING_INIT':
@@ -68,25 +79,27 @@ var trainingReducer = function trainingReducer() {
       // console.log(action.training)
       trainingappmap = trainingappmap.set('trainings', trainings.push(action.training));
       return trainingappmap;
-    case 'LOADING_TRAINING':
-      index = trainings.findIndex(function (item) {
-        return item.get('id') === action.training.get('id');
-      });
-      training = action.training.set('loading', true);
-      trainings = trainings.set(index, training);
-      trainingappmap = trainingappmap.set('trainings', trainings);
-      return trainingappmap;
-    case 'UPLOADING_TRAINING_IMAGE':
-      index = trainings.findIndex(function (item) {
-        return item.get('id') === action.training.get('id');
-      });
-      // console.log('trainingreducer uploading image. training index = '+index)
-      var training = action.training.set('isUploading', action.isUploading);
-      // console.log('trainingreducer uploading image: '+training.get('isUploading')+' action isUploading = '+action.isUploading)
-      trainings = trainings.set(index, training);
-      trainingappmap = trainingappmap.set('trainings', trainings);
-      // console.log('trainingreducer uploading image. training isUploading from trainings = '+trainings.get(index).get('isUploading') )
-      return trainingappmap;
+    // case 'LOADING_TRAINING':
+    //   if( trainings == undefined)
+    //     return trainingappmap
+    //   index = trainings.findIndex(function(item) {
+    //     return item.get('id') === action.training.get('id')
+    //   })
+    //   training = action.training.set('loading', true)
+    //   trainings = trainings.set(index, training)
+    //   trainingappmap = trainingappmap.set('trainings', trainings)
+    //   return trainingappmap
+    // case 'UPLOADING_TRAINING_IMAGE':
+    //   index = trainings.findIndex(function(item) {
+    //     return item.get('id') === action.training.get('id')
+    //   })
+    //   // console.log('trainingreducer uploading image. training index = '+index)
+    //   var training = action.training.set('isUploading',action.isUploading)
+    //   // console.log('trainingreducer uploading image: '+training.get('isUploading')+' action isUploading = '+action.isUploading)
+    //   trainings = trainings.set(index, training)
+    //   trainingappmap = trainingappmap.set('trainings', trainings)
+    //   // console.log('trainingreducer uploading image. training isUploading from trainings = '+trainings.get(index).get('isUploading') )
+    //   return trainingappmap
     // case 'FINISH_LOADING_TRAINING_FILE':
     //   trainingappmap = trainingappmap.set('loadTrainingImages', false)
     //   return trainingappmap
@@ -113,11 +126,57 @@ var trainingReducer = function trainingReducer() {
       // }).push(action.training)
       trainingappmap = trainingappmap.set('trainings', trainings);
       return trainingappmap;
-    case 'TRAININGS_LOADED':
+    case 'TRAINING_LOADED':
 
-      trainingappmap = trainingappmap.set('trainings', _immutable2.default.List(action.trainings.map(function (training) {
+      // trainingappmap = trainingappmap.set('trainings', Immutable.List(action.trainings.map((training) => {
+      //   return Immutable.Map(training)
+      // })))
+      // console.log('trainings reducer. training loaded. Do something with it' )
+      return trainingappmap;
+    case 'HANDLE_TRAINING_CHANGE':
+      edittraining = trainingappmap.get('edittraining');
+      edittraining = edittraining.set(action.attribute, action.value);
+      trainingappmap = trainingappmap.set('edittraining', edittraining);
+      return trainingappmap;
+
+    case 'EDIT_TRAINING_SAVING':
+      var editTraining = action.training; //trainingappmap.get('edittraining')
+      editTraining = editTraining.set('saving', true);
+      console.log('Training reducer edit training is being saved. Check: ' + require('util').inspect(editTraining, false, null));
+      trainingappmap = trainingappmap.set('edittraining', editTraining);
+      return trainingappmap;
+    case 'EDIT_TRAINING_LOADED':
+      if (action.training == undefined) trainingappmap = trainingappmap.set('edittraining', undefined);else trainingappmap = trainingappmap.set('edittraining', _immutable2.default.Map(action.training));
+      // console.log('trainings reducer. training loaded. Do something with it' +util.inspect( action.training, false, null))
+      return trainingappmap;
+
+    case 'EDIT_TRAINING_VALIDATE':
+      var userInputErrors = {};
+      // console.log('action.editTraining='+require('util').inspect(action.editTraining, false, null))
+      if (action.editTraining.get('title').length == 0)
+        // registrationError = registrationError.set('email','email required')
+        userInputErrors.title = 'required';
+
+      if (action.editTraining.get('shortDescription').length == 0) {
+        console.log('required');
+        // registrationError = registrationError.set('username','user name required')
+        userInputErrors.shortDescription = 'required';
+      }
+      if (!_validator2.default.isLength(action.editTraining.get('title').trim(), 0, 40)) userInputErrors.title = 'too long (40 chars max)';
+
+      if (!_validator2.default.isLength(action.editTraining.get('shortDescription').trim(), 0, 255)) userInputErrors.shortDescription = 'too long (255 chars max)';
+
+      // console.log('Training reducer userInputErrors.title'+userInputErrors.title)
+      // console.log('Training reducer userInputErrors.shortDescription'+userInputErrors.shortDescription)
+
+      trainingappmap = trainingappmap.set('trainingEditError', new _immutable2.default.Map(userInputErrors));
+      return trainingappmap;
+
+    case 'TRAININGS_LOADED':
+      if (action.trainings == undefined) trainingappmap = trainingappmap.set('trainings', undefined);else trainingappmap = trainingappmap.set('trainings', _immutable2.default.List(action.trainings.map(function (training) {
         return _immutable2.default.Map(training);
       })));
+      // trainingappmap = trainingappmap.set('edittraining', undefined)
       // console.log('trainings reducer. trainings loaded '+trainingappmap.get('trainings').size )
       return trainingappmap;
     // return action.trainings
@@ -135,8 +194,9 @@ var trainingReducer = function trainingReducer() {
       }));
       return trainingappmap;
 
-    case 'UPDATE_TRAINING':
-      console.log('training reducer. update training : completed? ' + action.training.get('completed'));
+    case 'UPDATE_TRAINING_IN_LIST':
+      // console.log('training reducer. update training : completed? ' + action.training.get('completed'))
+      if (trainings == undefined) return trainingappmap;
       index = trainings.findIndex(function (item) {
         return item.get('id') === action.training.get('id');
       });

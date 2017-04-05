@@ -4,9 +4,13 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 //window.React = require('react');
 
 module.exports = {
-  devtool: 'inline-source-map',
+  //devtool: 'inline-source-map',
   // devtool: 'cheap-module-source-map',
-  // devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
+  // devtool: 'eval-cheap-module-source-map',
+  // devtool:'#inline-source-map',
+  // devtool: 'eval-source-map',
+  // devtool: 'source-map',
   
   entry: [
     'webpack-hot-middleware/client?path=http://127.0.0.1:8081/__webpack_hmr',
@@ -15,7 +19,15 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     publicPath: '/',
-    filename: 'bundl.js'
+    filename: 'bundle.js',
+    // devtoolModuleFilenameTemplate: '[absolute-resource-path]'
+    devtoolModuleFilenameTemplate: function(info){
+      const str = 'file:///'+info.absoluteResourcePath.replace(/\\/g, '\/')
+      // const str = info.absoluteResourcePath.replace(/\\/g, '\/')
+//      console.log('*******'+info.absoluteResourcePath+'------>'+str)
+      return str
+    }
+//    devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]?[hash]'    
   },
   resolve: {
     modulesDirectories: ['node_modules', 'src'],
@@ -74,6 +86,7 @@ module.exports = {
       $: 'jquery',
       jquery: 'jquery'
     }),
+    //new webpack.SourceMapDevToolPlugin('bundle.js.map', null,'[absolute-resource-path]', '[absolute-resource-path]'),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()

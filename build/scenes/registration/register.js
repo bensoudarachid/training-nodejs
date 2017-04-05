@@ -10,10 +10,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _logospinner = require('../../components/shared/logospinner');
-
-var _logospinner2 = _interopRequireDefault(_logospinner);
-
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
@@ -26,7 +22,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 // import { ThreeBounce } from 'better-react-spinkit'
-
+//import LogoSpinner from '../../components/shared/logospinner'
 // import 'jquery'
 
 
@@ -140,106 +136,110 @@ var Register = function (_Component) {
         case 1:
           return _react2.default.createElement(
             'div',
-            { id: 'register', className: 'blockborder' },
+            null,
             _react2.default.createElement(
-              'form',
-              { onSubmit: function onSubmit(event) {
-                  return _this2.handleClick(event);
-                }, novalidate: true },
+              'div',
+              { className: 'register blockborder' },
               _react2.default.createElement(
-                'div',
-                { className: 'container' },
+                'form',
+                { onSubmit: function onSubmit(event) {
+                    return _this2.handleClick(event);
+                  }, noValidate: true },
                 _react2.default.createElement(
                   'div',
-                  { className: 'row' },
+                  { className: 'container' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'col-xs-12 col-md-6 col-lg-6' },
+                    { className: 'row' },
                     _react2.default.createElement(
                       'div',
-                      { className: textInputClassnames },
-                      _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'username', type: 'text', id: 'username', name: 'username' }),
+                      { className: 'col-xs-12 col-md-6 col-lg-6' },
                       _react2.default.createElement(
-                        'label',
-                        { className: 'mdl-textfield__label', htmlFor: 'username' },
-                        'User name'
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'mdl-textfield__error', htmlFor: 'username' },
-                        registrationError.get('username')
+                        'div',
+                        { className: textInputClassnames },
+                        _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'username', type: 'text', id: 'username', name: 'username' }),
+                        _react2.default.createElement(
+                          'label',
+                          { className: 'mdl-textfield__label', htmlFor: 'username' },
+                          'User name'
+                        ),
+                        _react2.default.createElement(
+                          'span',
+                          { className: 'mdl-textfield__error', htmlFor: 'username' },
+                          registrationError.get('username')
+                        )
                       )
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-xs-12 col-md-6 col-lg-6' },
+                    ),
                     _react2.default.createElement(
                       'div',
-                      { className: textInputClassnames },
-                      _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'email', type: 'text', id: 'email', name: 'email' }),
+                      { className: 'col-xs-12 col-md-6 col-lg-6' },
                       _react2.default.createElement(
-                        'label',
-                        { className: 'mdl-textfield__label', htmlFor: 'email' },
-                        'Email'
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'mdl-textfield__error', htmlFor: 'email' },
-                        registrationError.get('email')
+                        'div',
+                        { className: textInputClassnames },
+                        _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'email', type: 'text', id: 'email', name: 'email' }),
+                        _react2.default.createElement(
+                          'label',
+                          { className: 'mdl-textfield__label', htmlFor: 'email' },
+                          'Email'
+                        ),
+                        _react2.default.createElement(
+                          'span',
+                          { className: 'mdl-textfield__error', htmlFor: 'email' },
+                          registrationError.get('email')
+                        )
                       )
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-xs-12 col-md-6 col-lg-6' },
+                    ),
                     _react2.default.createElement(
                       'div',
-                      { className: textInputClassnames },
-                      _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'password', type: 'password', id: 'password', name: 'password' }),
+                      { className: 'col-xs-12 col-md-6 col-lg-6' },
                       _react2.default.createElement(
-                        'label',
-                        { className: 'mdl-textfield__label', htmlFor: 'password' },
-                        'Password'
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'mdl-textfield__error', htmlFor: 'password' },
-                        registrationError.get('password')
+                        'div',
+                        { className: textInputClassnames },
+                        _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'password', type: 'password', id: 'password', name: 'password' }),
+                        _react2.default.createElement(
+                          'label',
+                          { className: 'mdl-textfield__label', htmlFor: 'password' },
+                          'Password'
+                        ),
+                        _react2.default.createElement(
+                          'span',
+                          { className: 'mdl-textfield__error', htmlFor: 'password' },
+                          registrationError.get('password')
+                        )
                       )
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-xs-12 col-md-6 col-lg-6' },
+                    ),
                     _react2.default.createElement(
                       'div',
-                      { className: textInputClassnames },
-                      _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'passwordCheck', type: 'password', id: 'passwordCheck', name: 'passwordCheck' }),
+                      { className: 'col-xs-12 col-md-6 col-lg-6' },
                       _react2.default.createElement(
-                        'label',
-                        { className: 'mdl-textfield__label', htmlFor: 'passwordCheck' },
-                        'Password check'
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'mdl-textfield__error', htmlFor: 'passwordCheck' },
-                        registrationError.get('passwordCheck')
+                        'div',
+                        { className: textInputClassnames },
+                        _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'passwordCheck', type: 'password', id: 'passwordCheck', name: 'passwordCheck' }),
+                        _react2.default.createElement(
+                          'label',
+                          { className: 'mdl-textfield__label', htmlFor: 'passwordCheck' },
+                          'Password check'
+                        ),
+                        _react2.default.createElement(
+                          'span',
+                          { className: 'mdl-textfield__error', htmlFor: 'passwordCheck' },
+                          registrationError.get('passwordCheck')
+                        )
                       )
                     )
                   )
-                )
-              ),
-              _react2.default.createElement('br', null),
-              _react2.default.createElement(
-                'div',
-                { className: 'footer' },
-                !isRegistrationFetching && _react2.default.createElement(
-                  'button',
-                  { type: 'submit', className: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' },
-                  'Submit'
                 ),
-                isRegistrationFetching && _react2.default.createElement(_logospinner2.default, null)
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'footer' },
+                  !isRegistrationFetching && _react2.default.createElement(
+                    'button',
+                    { type: 'submit', className: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' },
+                    'Submit'
+                  ),
+                  isRegistrationFetching && _react2.default.createElement('span', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap', style: { width: '55px', height: '55px' } })
+                )
               )
             )
           );
@@ -288,7 +288,7 @@ var Register = function (_Component) {
         dialogInputs[i].MaterialTextfield.checkDirty();
         if (registrationError.get(dialogInputs[i].MaterialTextfield.input_.id) !== undefined) dialogInputs[i].className += ' is-invalid';else {
           dialogInputs[i].className = dialogInputs[i].className.replace(' is-invalid', ' ');
-          console.log('Register. dialogInputs[i].className - invalid ' + dialogInputs[i].className);
+          // console.log('Register. dialogInputs[i].className - invalid '+dialogInputs[i].className)
         }
       }
     }

@@ -19,6 +19,7 @@ import { Provider } from 'react-redux'
 
 import { bindActionCreators } from 'redux'
 import actions from './services/actions'
+import ApiConnection from './services/apiconnection'
 
 var FormData = require('form-data')
 const util = require('util')
@@ -29,7 +30,7 @@ var compression = require('compression')
 
 var bodyParser = require('body-parser') // is used for POST requests
 
-const appbasename=actions.appbasename
+const appbasename=ApiConnection.appbasename
 
 // var config = require('../webpack.config.js')
 // var webpack = require('webpack')
@@ -318,7 +319,7 @@ app.get(appbasename+'/*', (req, res) => {
             return component!=undefined?component.fetchData:false
             // return component.fetchData
           })          
-          .map((component) => component.fetchData(dispactions))
+          .map((component) => component.fetchData(dispactions,params,req.headers.host))
           Promise.all(promises).then(() => {
           // res.status(200).send(renderView())
             console.log('resolved')
@@ -326,10 +327,10 @@ app.get(appbasename+'/*', (req, res) => {
             <Provider store={store}>
                 <RouterContext {...renderProps} />
               </Provider>
-          )
+            )
             var d = new Date()
             var hour = d.getHours()
-            console.log('hour of the day = '+hour)
+            // console.log('hour of the day = '+hour)
             // var style = 'http://rlearn.herokuapp.com/style.css'
             // var bundle = 'http://rlearn.herokuapp.com/bundle.js'
             var vendorBundle = 'http://rlearn.herokuapp.com/vendor.bundle.js'
@@ -357,6 +358,8 @@ app.get(appbasename+'/*', (req, res) => {
 
           // console.log('Server. body '+body);
             const state = store.getState()
+            console.log('State paased to client = '+JSON.stringify(state))
+            
             res.status(200).send(`<!DOCTYPE html>
               <html>
                 <head>
@@ -373,7 +376,7 @@ app.get(appbasename+'/*', (req, res) => {
                 <link rel="stylesheet" type="text/css" href="${style}" />
                 </head>
                 <body style="background-color:#2980b9">
-                  <div id="root">${body}</div>
+                  <div id="root"><div>${body}</div></div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
                   <script defer src="${bundle}"></script>
                 </body>
@@ -431,7 +434,7 @@ app.get(appbasename+'/*', (req, res) => {
 // };
 // var port = isProduction ? 3000 : 8081
 
-var port = (process.env.PORT || actions.port)
+var port = (process.env.PORT || ApiConnection.port)
 
 app.listen(port, function(error) {
   if (error)

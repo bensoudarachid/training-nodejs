@@ -402,7 +402,7 @@ const todoactions = {
               setTimeout(() => {
                 dispatch(todoactions.updateTodo(todoold))
               }, 2500)
-            } 
+            }
             // else if(data.exception !== undefined){
             //   // console.log('Status looks good. See if there is an exception message'+data.message)
             //   // if(data.exception !== undefined)
@@ -472,6 +472,7 @@ const todoactions = {
     }
   },
   retrieveUserTodosDispatcher: function() {
+//    console.log('todo actions. call retrieveUserTodosDispatcher')
     return (dispatch) => {
 
       actions.retrieveTodosService()
@@ -479,7 +480,8 @@ const todoactions = {
           ({status, data}) => {
             if (status === 401) {
               // dispatch(actions.receiveLogout())
-              dispatch(actions.loginProcessStart('No access rights!'))
+              dispatch(actions.loginProcessStart('No access rights!',actions.retrieveUserTodosDispatcher))
+
             } else if (status >= 400) {
               var error = data
               console.log('Status looks bad. ' + status + '. error message = ' + error.message)
@@ -505,7 +507,7 @@ const todoactions = {
         // })
         .catch(err => {
           dispatch(actions.receiveLogout())
-          console.log('todoactions.js Error retrieving data. Status = ' + status + ', error = ' + err)
+          console.log('todoactions.js Error retrieving data. error = ' + err)
           
         })
     }

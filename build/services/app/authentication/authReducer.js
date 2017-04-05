@@ -75,6 +75,8 @@ var authReducer = function authReducer() {
       auth = auth.set('loginMessage', action.message);
       auth = auth.set('loginProgress', true);
       auth = auth.set('loginactualurl', action.actualurl);
+      auth = auth.set('loginrequest', action.promise);
+      auth = auth.set('loginrequestparams', action.params);
       return auth;
     // return Object.assign({}, auth, {
     //   loginMessage: action.message,
@@ -106,10 +108,12 @@ var authReducer = function authReducer() {
       auth = auth.set('isFetching', false);
       auth = auth.set('errorMessage', '');
       auth = auth.set('isAuthenticated', authenticated);
+      auth = auth.set('authority', authority);
       auth = auth.remove('usercreds');
       auth = auth.remove('loginMessage');
       auth = auth.remove('loginProgress');
       auth = auth.remove('loginactualurl');
+      auth = auth.remove('loginrequest');
 
       return auth;
     //     return Object.assign({}, _.omit(auth, ['usercreds']), {
@@ -125,6 +129,7 @@ var authReducer = function authReducer() {
       // auth=auth.remove('loginMessage')
       auth = auth.remove('loginProgress');
       auth = auth.remove('loginactualurl');
+      auth = auth.remove('loginrequest');
       return auth;
     //  
     // return Object.assign({}, _.omit(auth, ['usercreds']), {
@@ -147,6 +152,7 @@ var authReducer = function authReducer() {
       auth = auth.remove('loginMessage');
       auth = auth.remove('loginProgress');
       auth = auth.remove('loginactualurl');
+      auth = auth.remove('loginrequest');
       return auth;
     // return Object.assign({}, auth, {
     //   isFetching: false,

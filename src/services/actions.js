@@ -15,33 +15,32 @@ import trainingservices from'./trainings/trainingservices'
 import authactions from'./app/authentication/authactions'
 import appactions from'./app/appactions'
 
-var port = -12
-if (process.env.NODE_ENV === 'production')
-  port=8082
-else
-  port=8081
-var isBrowser = typeof window !== 'undefined'
-var url = ''
-var authurl = ''
-// const appbasename = '/reactor'
-const appbasename = ''
-if( isBrowser ){
-  authurl= window.location.protocol+'//'+window.location.hostname+':8083'
-  // authurl= 'http:'+'//'+'abbaslearning.royasoftware.com'+':8083'
-  // url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+appbasename
-  url = authurl
-  // authurl= window.location.protocol+'//'+window.location.hostname+':8083'
-  console.log('services call url '+url)
-}else{
-  url = 'http:'+'//'+'127.0.0.1'+(port ? ':'+port: '')+appbasename
-  authurl= 'http:'+'//'+'127.0.0.1'+':8083'
-  console.log('services call local url '+url)
-}
+// var port = -12
+// if (process.env.NODE_ENV === 'production')
+//   port=8082
+// else
+//   port=8081
+// var isBrowser = typeof window !== 'undefined'
+// var url = ''
+// var authurl = ''
+// const appbasename = ''
+// if( isBrowser ){
+//   authurl= window.location.protocol+'//'+window.location.hostname+':8083'
+//   // authurl= 'http:'+'//'+'abbaslearning.royasoftware.com'+':8083'
+//   // url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+appbasename
+//   url = authurl
+//   // authurl= window.location.protocol+'//'+window.location.hostname+':8083'
+//   console.log('services call url '+url)
+// }else{
+//   url = 'http:'+'//'+'127.0.0.1'+(port ? ':'+port: '')+appbasename
+//   authurl= 'http:'+'//'+'127.0.0.1'+':8083'
+//   console.log('services call local url '+url)
+// }
 
 let actions = {
-  apiurl:url,
-  port:port,
-  appbasename:appbasename,
+  // apiurl:url,
+  // port:port,
+  // appbasename:appbasename,
   ...authservices,
   ...todoservices,
   ...trainingservices,
@@ -49,7 +48,7 @@ let actions = {
   ...authactions,
   // ...registeractions,
   ...todoactions,
-  ...trainingactions 
+  ...trainingactions
 }
-console.log('actionsjs. actions.url = '+actions.apiurl)
+
 export default actions

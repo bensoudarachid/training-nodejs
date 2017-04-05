@@ -131,6 +131,9 @@ var todoservices = {
     // var todo = null;
     return fetch(url + '/api/todo/updatetodo', config).then(function (response) {
       return response.json().then(function (data) {
+        console.log('Print status now');
+        console.log('Response Status = ' + response.status);
+
         return {
           status: response.status,
           data: data

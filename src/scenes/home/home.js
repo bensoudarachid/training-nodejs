@@ -4,7 +4,7 @@ import cookie from 'react-cookie'
 import 'jquery'
 import $ from 'jquery'
 import actions from '../../services/actions'
-import LogoSpinner from '../../components/shared/logospinner'
+// import LogoSpinner from '../../components/shared/logospinner'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 // const util = require('util')
 
@@ -101,7 +101,7 @@ class Home extends Component {
         if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
           img[0].setAttribute('src', img[0].getAttribute('data-src'))
           img[0].onload = function() {
-            console.log('image loaded on mount: '+img[0].getAttribute('data-src'))
+            // console.log('image loaded on mount: '+img[0].getAttribute('data-src'))
             img[0].removeAttribute('data-src')
             imgSpinner.remove()
 
@@ -229,59 +229,60 @@ class Home extends Component {
     // </ReactCSSTransitionGroup>            
 
   render() {
-    // console.log('homejs. props.actions.url = '+this.props.actions.apiurl)
-    // console.log('homejs. actual url = '+this.props.auth.get('loginactualurl'))
-    let authenticated = cookie.load('jwt') ? true : false
-    if( !authenticated && this.props.auth.get('loginactualurl')!=undefined && this.props.auth.get('loginactualurl')!='/')
-      return (
-        <div></div>
-      )
+    // let authenticated = cookie.load('jwt') ? true : false
+    // if( !authenticated && this.props.auth.get('loginactualurl')!=undefined && this.props.auth.get('loginactualurl')!='/')
+    //   return (
+    //     <div></div>
+    //   )
+
+      // {this.props.auth.get('loginProgress')?
+      //   <div>
+      //     <h1>Please login home</h1>
+      //   </div>
+      // :        
 
     return (
     <div>
 		<div className='home'>
-
-		<div className="container">
-			
-			<div className="row">
-				<div className="col-xs-12 col-md-4 col-lg-4">
-          <div className='imgwrap'>
-            <div className='imgbg'/>
-            <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
-            <img src={'./images/0.png'} data-src={'./images/Blog-Coding.svg'} className='dataimg' alt='coding'/>
-          </div>
-          <p>1. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
-				</div>
-				<div className="col-xs-12 col-md-4 col-lg-4">
-        <div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-Deploying.svg'} className='dataimg' alt='coding'/></div>
-				<p>2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
-				</div>				
-				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-Planning.svg'} className='dataimg' alt='coding'/></div>
-				<p>3. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
-				</div>
-				<div className="clearfix visible-md visible-lg"></div>
-								
-			</div>
-			<div className="row">
-				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='dataimg' alt='coding'/></div>
-				<p>4. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
-				</div>
-				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral1.png'} className='dataimg' alt='coding'/></div>
-				<p>5. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
-				</div>
-				<div className="col-xs-12 col-md-4 col-lg-4">
-				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'} className='dataimg' alt='coding'/></div>
-				<p>6. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
-				</div>
-				<div className="clearfix visible-md visible-lg"></div>
-								
-			</div>	
-
-
-		</div>
+    		<div className="container">
+    			
+    			<div className="row">
+    				<div className="col-xs-12 col-md-4 col-lg-4">
+              <div className='imgwrap'>
+                <div className='imgbg'/>
+                <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
+                <img src={'./images/0.png'} data-src={'./images/Blog-Coding.svg'} className='dataimg' alt='coding'/>
+              </div>
+              <p>1. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
+    				</div>
+    				<div className="col-xs-12 col-md-4 col-lg-4">
+            <div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-Deploying.svg'} className='dataimg' alt='coding'/></div>
+    				<p>2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
+    				</div>				
+    				<div className="col-xs-12 col-md-4 col-lg-4">
+    				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-Planning.svg'} className='dataimg' alt='coding'/></div>
+    				<p>3. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
+    				</div>
+    				<div className="clearfix visible-md visible-lg"></div>
+    								
+    			</div>
+    			<div className="row">
+    				<div className="col-xs-12 col-md-4 col-lg-4">
+    				<div className='imgwrap'><div className='imgbg'/><div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div><img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='dataimg' alt='coding'/></div>
+    				<p>4. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
+    				</div>
+    				<div className="col-xs-12 col-md-4 col-lg-4">
+    				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral1.png'} className='dataimg' alt='coding'/></div>
+    				<p>5. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
+    				</div>
+    				<div className="col-xs-12 col-md-4 col-lg-4">
+    				<div className='imgwrap'><div className='imgbg'/><div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div><img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'} className='dataimg' alt='coding'/></div>
+    				<p>6. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
+    				</div>
+    				<div className="clearfix visible-md visible-lg"></div>
+    								
+    			</div>	
+    		</div>
 		</div>
     </div>
     )

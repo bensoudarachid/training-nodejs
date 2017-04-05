@@ -118,10 +118,15 @@ const todoservices = {
     // console.log(config)
     // var todo = null;
     return fetch(url+'/api/todo/updatetodo', config).then(response => response.json()
-      .then(data => ({
-        status: response.status,
-        data
-      })
+      .then(data => {
+        console.log('Print status now')
+        console.log('Response Status = ' + response.status)
+
+        return ({
+          status: response.status,
+          data
+        })
+      }
     ))
   },
   uploadTodoFileService: function(todo, inputfile) {

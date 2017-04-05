@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _trainingcreate = require('./components/trainingcreate');
+var _trainingcreate = require('./public/trainingcreate');
 
 var _trainingcreate2 = _interopRequireDefault(_trainingcreate);
 
@@ -14,13 +14,17 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _trainingeditlist = require('./components/trainingeditlist');
+var _trainingeditlist = require('./public/trainingeditlist');
 
 var _trainingeditlist2 = _interopRequireDefault(_trainingeditlist);
 
 var _admintraininglist = require('./admin/admintraininglist');
 
 var _admintraininglist2 = _interopRequireDefault(_admintraininglist);
+
+var _trainingcommandpanel = require('./admin/trainingcommandpanel');
+
+var _trainingcommandpanel2 = _interopRequireDefault(_trainingcommandpanel);
 
 var _reactCookie = require('react-cookie');
 
@@ -46,12 +50,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // import { ThreeBounce } from 'better-react-spinkit'
 
 
+var util = require('util');
+
 if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
   return c(require);
 };
 
 if (process.env.BROWSER) {
-  console.log('Appcomponent. environment is browser');
+  //  console.log('Appcomponent. environment is browser')
   require('../../app/jquery.shuffleLetters.js');
   // require.ensure([], function (require) {
   //   require('../../app/jquery.shuffleLetters.js').default
@@ -147,7 +153,7 @@ var TrainingApp = function (_Component) {
   function TrainingApp(props) {
     _classCallCheck(this, TrainingApp);
 
-    // console.log('training list. Mixin in constructor')
+    //    console.log('training list. Mixin in constructor')
     var _this = _possibleConstructorReturn(this, (TrainingApp.__proto__ || Object.getPrototypeOf(TrainingApp)).call(this, props));
 
     _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
@@ -257,18 +263,26 @@ var TrainingApp = function (_Component) {
   //   <p id="textswitch">Welcome!</p>
   // </div>
 
+  // {auth.get('loginProgress')?
+  //   <div>
+  //     <h1>Wahnsinn training app</h1>
+  //   </div>
+  // :
+  // }
+
+
   _createClass(TrainingApp, [{
     key: 'render',
     value: function render() {
-      // console.log('Render training app now')
       var isBrowser = process.env.BROWSER; //typeof window !== 'undefined';
       if (!isBrowser) {
         // console.log('+++++++++++++++++++++++++Trainingapp. environment is server')
         return _react2.default.createElement('div', null);
       }
-      // console.log('+++++++++++++++++++++++++Trainingapp. environment is browser')
+      console.log('+++++++++++++++++++++++++Trainingapp. render');
       // {this.renderList()}
       var auth = this.props.auth;
+      //    console.log('Render training app now authority = '+auth.get('authority'))
 
       return _react2.default.createElement(
         'div',
@@ -281,7 +295,16 @@ var TrainingApp = function (_Component) {
             { id: 'textwrap' },
             _react2.default.createElement('p', { id: 'textswitch' })
           ),
-          auth.get('authority') == 'admin' ? _react2.default.createElement(_admintraininglist2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions }) : _react2.default.createElement(
+          auth.get('isAuthenticated') && auth.get('authority') == 'admin' ? _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: 'blockborder parampanel commandpanel' },
+              _react2.default.createElement(_trainingcommandpanel2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions })
+            ),
+            _react2.default.createElement(_admintraininglist2.default, { trainings: this.props.trainingappmap.get('trainings'), actions: this.props.actions })
+          ) : _react2.default.createElement(
             'div',
             null,
             _react2.default.createElement(
@@ -335,16 +358,21 @@ var TrainingApp = function (_Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      console.log('trainingappjs mounted. get data and start text animation');
+      //    console.log('trainingappjs mounted. get data and start text animation')
       TrainingApp.fetchData(this.props.actions);
-
       window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass'];
       this.textswitcher();
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      //console.log('trainingappjs update. ')
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       this.isTextSwitchAnimated = false;
+      this.props.actions.loadTrainings(undefined);
     }
 
     //This is a necessary call when component is fetched on server side
@@ -443,7 +471,7 @@ var TrainingApp = function (_Component) {
             // textSwitchWrapContainer.removeClass('fadeOutLeft animated')
             animFrame(loop.bind(this));
           } else {
-            console.log('I m out now ');
+            // console.log('I m out now ' )
             textSwitchWrapContainer.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
               // console.log('Remove fade out class' )
               (0, _jquery2.default)(this).removeClass();
@@ -505,9 +533,14 @@ var TrainingApp = function (_Component) {
 
   }], [{
     key: 'fetchData',
-    value: function fetchData(actions) {
-      console.log('Training list. get all trainings now!');
-      actions.retrieveTrainingsDispatcher();
+    value: function fetchData(actions, params, hostname) {
+      //    console.log('Training list fetch data for hostname='+require('util').inspect(hostname, false, null))
+      //    console.log('Training list. get all trainings now! '+util.inspect( params, false, null))
+      return actions.retrieveTrainingsDispatcher(hostname);
+      // const promises = []
+      // promises.push(actions.retrieveTrainingsDispatcher(hostname))
+      // return Promise.all(promises)
+      // return Promise.resolve(actions.retrieveTrainingsDispatcher(hostname))
     }
   }]);
 

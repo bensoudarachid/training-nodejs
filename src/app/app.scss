@@ -62,14 +62,16 @@ body{
 .parampanel{
   // padding:100px;
 
-  margin: 30px 0 !important;
-  background-color: lighten(getMdlColor($color-primary),40%);
+  margin: 30px auto !important;
+  // background-color: lighten(getMdlColor($color-primary),40%);
+  background-color: lighten($roya-blue,30%);
   -moz-background-clip: padding; /* Firefox 3.6 */
   -webkit-background-clip: padding; /* Safari 4? Chrome 6? */
   background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 
 .blockborder{
+  background-color: lighten($roya-blue,30%);
   // border: 2px solid rgba(black,0.1);
   border: 3px solid rgba(white,0.3);
   // border: 3px solid rgba(red,0.9);
@@ -81,11 +83,17 @@ body{
   border-radius: 15px;
   // margin: 4px 0 !important;
 }
-
+// .mdl-grid,.mdl-cell{
+//   width:100%;
+// }
 
 //fix the gap created with bootstrap. See http://stackoverflow.com/questions/39535700/material-design-lite-bottom-line-in-text-field-has-a-slight-gap-with-colored-l
 .mdl-textfield__label{  
-   margin-bottom:0px;
+  margin-bottom:0px;
+  margin-top:-2px;
+  font-family: 'Roboto', Tahoma, sans-serif;
+  font-size:0.9em !important;
+
 }
 .mdl-spinner__layer-1,.mdl-spinner__layer-2,.mdl-spinner__layer-3,.mdl-spinner__layer-4{
   border-color: darken(getMdlColor($color-primary),20%) !important;

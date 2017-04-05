@@ -4,7 +4,7 @@ import cookie from 'react-cookie'
 // import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'
 // import util from 'util'
 // import FileUploadInput from '../../../components/shared/fileuploadinput'
-// import actions from '../../../services/actions'
+import AppImage from '../../../components/shared/appimage'
 // import $ from 'jquery'
 import TrainingImage from '../shared/trainingimage'
 
@@ -39,12 +39,14 @@ export default class AdminTrainingListItem extends React.Component {
               // </button>
   // <span className='glyphicon glyphicon-upload '></span>
      // <img src={'../../../images/Blog-CodingNeutral1.png'} alt='coding'/>
-
+ // isUploading={isUploading}
   render() {
     const title = this.props.training.get('title')
+    const secondaryTitle = this.props.training.get('secondaryTitle')?this.props.training.get('secondaryTitle'):''
     const shortDescription = this.props.training.get('shortDescription')?this.props.training.get('shortDescription'):''
     const trainingid = this.props.training.get('id')
-    const isUploading = this.props.training.get('isUploading')
+    var isUploading = this.props.training.get('isUploading')
+    isUploading = isUploading==undefined?false:true
     const duration = this.props.training.get('duration')?this.props.training.get('duration')/8:'0'
     const onlydays=Math.round(duration)
     var dayString = ''
@@ -52,14 +54,17 @@ export default class AdminTrainingListItem extends React.Component {
       dayString = ' day'
     else
       dayString = ' days'
+    // <TrainingImage ref='uploadcomp' trainingid={trainingid} isUploading={isUploading}/>
     return (
-      <div className='mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone'>
-        <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone blockborder admintrainingslistitem'>
+      <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone'>
+        <div className='mdl-grid mdl-grid--no-spacing blockborder admintrainingslistitem'>
             <div className='mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--1-col-phone'>
-              <TrainingImage ref='uploadcomp' trainingid={trainingid} isUploading={isUploading}/>
+              <AppImage ref='uploadcomp' api='training' imgid={trainingid} isUploading={isUploading}/>
             </div>
-            <div className='mdl-cell mdl-cell--11-col mdl-cell--7-col-tablet mdl-cell--3-col-phone'><h4>{title}</h4><h5>Introduction a la belle vie</h5></div>
+            <div className='mdl-cell mdl-cell--11-col mdl-cell--7-col-tablet mdl-cell--3-col-phone'><h4>{title}</h4><h5>{secondaryTitle}</h5></div>
+            <hr/>
             <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone ellipsis multiline shortdescription'>{shortDescription}</div>
+            <hr/>
             <div className='mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
               <span className='promo'>20%</span>
             </div>
@@ -78,15 +83,17 @@ export default class AdminTrainingListItem extends React.Component {
       </div>
     )
   }
+
   handleEdit(event) {
-    console.log('Call Schedule for this Training'+this.props.training.get('id'))
-    window.routerHistory.push('trainings/item/'+this.props.training.get('id'))
+//    console.log('Call Schedule for this Training'+this.props.training.get('id'))
+    window.routerHistory.push('/admin/trainings/item/'+this.props.training.get('id'))
     // this.props.actions.appError(undefined)
   }
+  
   handleSchedule(event) {
     console.log('Call Edit for this Training'+this.props.training.get('id'))
     // this.props.actions.appError(undefined)
-    window.routerHistory.push('/todos')
+    window.routerHistory.push('/admin/todos')
   }
 
 }

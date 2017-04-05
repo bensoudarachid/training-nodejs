@@ -1,9 +1,10 @@
-import TrainingCreate from './components/trainingcreate'
+import TrainingCreate from './public/trainingcreate'
 
 
 import React, { Component } from 'react'
-import TrainingEditList from './components/trainingeditlist'
+import TrainingEditList from './public/trainingeditlist'
 import AdminTrainingList from './admin/admintraininglist'
+import TrainingCommandPanel from './admin/trainingcommandpanel'
 
 
 import cookie from 'react-cookie'
@@ -13,12 +14,14 @@ import $ from 'jquery'
 // import { ThreeBounce } from 'better-react-spinkit'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
+var util = require('util')
+
 if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
   return c(require)
 }
 
 if (process.env.BROWSER) {
-  console.log('Appcomponent. environment is browser')
+//  console.log('Appcomponent. environment is browser')
   require('../../app/jquery.shuffleLetters.js')
   // require.ensure([], function (require) {
   //   require('../../app/jquery.shuffleLetters.js').default
@@ -114,7 +117,7 @@ if (process.env.BROWSER) {
 class TrainingApp extends Component {
   constructor(props) {
     super(props)
-    // console.log('training list. Mixin in constructor')
+//    console.log('training list. Mixin in constructor')
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
     this.isTextSwitchAnimated = false
     // textSwitchContainer = undefined //$('#textswitch')
@@ -221,24 +224,35 @@ class TrainingApp extends Component {
       //   <p id="textswitch">Welcome!</p>
       // </div>
 
+      // {auth.get('loginProgress')?
+      //   <div>
+      //     <h1>Wahnsinn training app</h1>
+      //   </div>
+      // :
+    // }
   render() {
-    // console.log('Render training app now')
     const isBrowser = process.env.BROWSER//typeof window !== 'undefined';
     if (!isBrowser) {
       // console.log('+++++++++++++++++++++++++Trainingapp. environment is server')
       return <div/>
     }
-    // console.log('+++++++++++++++++++++++++Trainingapp. environment is browser')
+    console.log('+++++++++++++++++++++++++Trainingapp. render')
         // {this.renderList()}
     const {auth} = this.props
+//    console.log('Render training app now authority = '+auth.get('authority'))
     return (
       <div>
         <div className='trainingapp'>
         <span id="textwrap"> 
           <p id="textswitch"></p>
         </span>
-          { auth.get('authority')=='admin'?
-            <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+          { auth.get('isAuthenticated') && auth.get('authority')=='admin'?
+            <div>
+              <div className='blockborder parampanel commandpanel'>
+                <TrainingCommandPanel trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+              </div>
+              <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+            </div>
           :
             <div>
               <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel'>
@@ -288,21 +302,32 @@ class TrainingApp extends Component {
   //     trainings: this.state.trainings
   //   });
   // }
+  
   componentDidMount() {
-    console.log('trainingappjs mounted. get data and start text animation')
+//    console.log('trainingappjs mounted. get data and start text animation')
     TrainingApp.fetchData(this.props.actions)
-
     window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass']
     this.textswitcher()
   }
+  
+  componentDidUpdate(){
+    //console.log('trainingappjs update. ')
+  }
+  
   componentWillUnmount() {
     this.isTextSwitchAnimated = false
+    this.props.actions.loadTrainings(undefined)
   }
 
   //This is a necessary call when component is fetched on server side
-  static fetchData(actions) {
-    console.log('Training list. get all trainings now!')
-    actions.retrieveTrainingsDispatcher()
+  static fetchData(actions, params, hostname) {
+//    console.log('Training list fetch data for hostname='+require('util').inspect(hostname, false, null))
+//    console.log('Training list. get all trainings now! '+util.inspect( params, false, null))
+    return actions.retrieveTrainingsDispatcher(hostname)
+    // const promises = []
+    // promises.push(actions.retrieveTrainingsDispatcher(hostname))
+    // return Promise.all(promises)
+    // return Promise.resolve(actions.retrieveTrainingsDispatcher(hostname))
   }
 
   // static fetchDataOld(actions) {
@@ -400,7 +425,7 @@ class TrainingApp extends Component {
           // textSwitchWrapContainer.removeClass('fadeOutLeft animated')
           animFrame(loop.bind(this))
         }else{
-          console.log('I m out now ' )
+          // console.log('I m out now ' )
           textSwitchWrapContainer.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
             // console.log('Remove fade out class' )
             $(this).removeClass()

@@ -22,10 +22,6 @@ var _actions = require('../../services/actions');
 
 var _actions2 = _interopRequireDefault(_actions);
 
-var _logospinner = require('../../components/shared/logospinner');
-
-var _logospinner2 = _interopRequireDefault(_logospinner);
-
 var _reactAddonsCssTransitionGroup = require('react-addons-css-transition-group');
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
@@ -38,6 +34,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 // import {FadingCircle} from 'better-react-spinkit'
+
+// import LogoSpinner from '../../components/shared/logospinner'
 
 
 // const util = require('util')
@@ -140,7 +138,7 @@ var Home = function (_Component) {
             //img is a jquery object img[0] is the dom object 
             img[0].setAttribute('src', img[0].getAttribute('data-src'));
             img[0].onload = function () {
-              console.log('image loaded on mount: ' + img[0].getAttribute('data-src'));
+              // console.log('image loaded on mount: '+img[0].getAttribute('data-src'))
               img[0].removeAttribute('data-src');
               imgSpinner.remove();
 
@@ -265,10 +263,17 @@ var Home = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      // console.log('homejs. props.actions.url = '+this.props.actions.apiurl)
-      // console.log('homejs. actual url = '+this.props.auth.get('loginactualurl'))
-      var authenticated = _reactCookie2.default.load('jwt') ? true : false;
-      if (!authenticated && this.props.auth.get('loginactualurl') != undefined && this.props.auth.get('loginactualurl') != '/') return _react2.default.createElement('div', null);
+      // let authenticated = cookie.load('jwt') ? true : false
+      // if( !authenticated && this.props.auth.get('loginactualurl')!=undefined && this.props.auth.get('loginactualurl')!='/')
+      //   return (
+      //     <div></div>
+      //   )
+
+      // {this.props.auth.get('loginProgress')?
+      //   <div>
+      //     <h1>Please login home</h1>
+      //   </div>
+      // :        
 
       return _react2.default.createElement(
         'div',

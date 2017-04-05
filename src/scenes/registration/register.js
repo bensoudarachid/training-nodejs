@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 // import { ThreeBounce } from 'better-react-spinkit'
-import LogoSpinner from '../../components/shared/logospinner'
+//import LogoSpinner from '../../components/shared/logospinner'
 // import 'jquery'
 import $ from 'jquery'
 // import Snackbar from './snackbar'
@@ -88,8 +88,9 @@ export default class Register extends Component {
     switch (registrationStep) {
     case 1:
       return (
-          <div id='register' className='blockborder'>
-            <form onSubmit={(event) => this.handleClick(event)} novalidate>
+          <div>
+          <div className='register blockborder'>
+            <form onSubmit={(event) => this.handleClick(event)} noValidate>
             <div className="container">
             <div className='row'>
               <div className='col-xs-12 col-md-6 col-lg-6'>
@@ -134,10 +135,11 @@ export default class Register extends Component {
             </button>
             }
             {isRegistrationFetching &&
-            <LogoSpinner/>
+              <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap' style={{width:'55px',height:'55px'}}></span>
             }
             </div>
             </form>
+          </div>
           </div>
       )
     case 2:
@@ -179,7 +181,7 @@ export default class Register extends Component {
         dialogInputs[i].className += ' is-invalid'
       else{
         dialogInputs[i].className = dialogInputs[i].className.replace(' is-invalid', ' ')
-        console.log('Register. dialogInputs[i].className - invalid '+dialogInputs[i].className)
+        // console.log('Register. dialogInputs[i].className - invalid '+dialogInputs[i].className)
       }
     }
 

@@ -11,15 +11,17 @@
 	width: 100%;
 	margin: 0 auto;
 	// background-color:red;
-
-	@media (min-width: 768px) {
-		// background-color:pink;
+	.commandpanel{
 		width: 95%;
+		// margin: 0 auto !important;
+		@media (min-width: 768px) { //768
+			width:90%;
+		}
+		@media (min-width: 992px) { //992
+			width:85%;
+		}
 	}
-	@media (min-width: 992px) {
-		// background-color:red;
-		// width: 90%;
-	}	
+	
 }
 
 #textwrap{
@@ -30,16 +32,16 @@
 	// visibility:hidden;
 	opacity:0.5;
 	// background-color: black;
-	margin-top:-22px;
+	margin-top:-28px;
 	left:10px;
 	@media (min-width: 768px) { //768
-		margin-top:-28px;
+		margin-top:-32px;
 		left:10px;
 		// background-color: black;
 	}
 	@media (min-width: 992px) { //992
 		left:6%;
-		margin-top:-32px;
+		margin-top:-36px;
 	}
 	p{
 		white-space: nowrap;

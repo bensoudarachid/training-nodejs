@@ -1,6 +1,7 @@
 import React from 'react'
 import cookie from 'react-cookie'
-import actions from '../../../services/actions'
+// import actions from '../../../services/actions'
+import ApiConnection from '../../../services/apiconnection'
 import $ from 'jquery'
 
 export default class TodoImage extends React.Component {
@@ -12,7 +13,7 @@ export default class TodoImage extends React.Component {
     }
   }
 
-            // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           
+            // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           
             //     onLoad={this.handleImageLoaded.bind(this)}
             //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
             // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
@@ -21,7 +22,7 @@ export default class TodoImage extends React.Component {
             // :<div>weg</div>
             // }
 
-            // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           
+            // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           
             //     onLoad={this.handleImageLoaded.bind(this)}
             //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
 
@@ -29,21 +30,21 @@ export default class TodoImage extends React.Component {
     // console.log('todimage. render now')
     const taskid = this.props.taskid
     const isUploading  = this.props.isUploading 
-    console.log('todoimage render. isUploading '+isUploading )
+//    console.log('todoimage render. isUploading '+isUploading )
     // console.log('todoimage render. this.state.imageLoaded '+this.state.imageLoaded )
     // if( isUploading == false){
     //   const taskid = this.props.taskid
     //   var elm = $('#imgwrap'+taskid)
     //   var image=elm.find('.dataimg')
     //   var img = image[0]
-    //   img.setAttribute('data-src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))
+    //   img.setAttribute('data-src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))
     // }
 
     const idToken = cookie.load('jwt')
     return (
         <div className='imgwrapper' id={'imgwrap'+taskid} >
             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
-            <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}
+            <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}
                 onLoad={this.handleImageLoaded.bind(this)}
                 onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
         </div>
@@ -54,7 +55,7 @@ export default class TodoImage extends React.Component {
     //         <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
     //         :<div/>
     //     }
-    //         <img id={'todolistitemimg'+taskid} src={actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           
+    //         <img id={'todolistitemimg'+taskid} src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           
     //             onLoad={this.handleImageLoaded.bind(this)}
     //             onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
     //     </div>
@@ -64,7 +65,7 @@ export default class TodoImage extends React.Component {
   componentDidMount() {
     require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-    console.log('++++++++++++++++ todoimage ++++++ componentDidMount ')
+//    console.log('++++++++++++++++ todoimage ++++++ componentDidMount ')
     // this.loadImage()
     // const taskid = this.props.taskid
     // var elm = $('#imgwrap'+taskid)
@@ -83,7 +84,7 @@ export default class TodoImage extends React.Component {
   componentDidUpdate() {
     // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
-    console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate '+this.props.isUploading)   
+//    console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate '+this.props.isUploading)   
 
     const taskid = this.props.taskid
     var elm = $('#imgwrap'+taskid)
@@ -98,7 +99,7 @@ export default class TodoImage extends React.Component {
     if (this.props.isUploading == false) {//img is a jquery object img[0] is the dom object 
       const idToken = cookie.load('jwt')
       // img[0].removeAttribute('src')
-      img.setAttribute('data-src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))
+      img.setAttribute('data-src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&rdparam='+ Math.floor(Math.random() * 10000))
     }        
     // var imgSpinner=elm.find('.mdl-spinner')
     if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
@@ -155,7 +156,7 @@ export default class TodoImage extends React.Component {
     // var imgSpinner=elm.find('.mdl-spinner')
     var image=elm.find('.dataimg')
     var img = image[0]
-    console.log('++++++++++++++++ todoimage ++++++ img.hasAttribute(data-src): '+ img.hasAttribute('data-src')+', id: '+taskid+'  this.props.isUploading: '+ this.props.isUploading)
+//    console.log('++++++++++++++++ todoimage ++++++ img.hasAttribute(data-src): '+ img.hasAttribute('data-src')+', id: '+taskid+'  this.props.isUploading: '+ this.props.isUploading)
     if (img.hasAttribute('data-src') || (this.props.isUploading&&!img.hasAttribute('data-src')) ) {
     // if (!this.props.isUploading) {
       return true

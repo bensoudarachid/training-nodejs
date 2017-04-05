@@ -4,7 +4,8 @@ import cookie from 'react-cookie'
 // import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'
 import util from 'util'
 import FileUploadInput from '../../../components/shared/fileuploadinput'
-import actions from '../../../services/actions'
+// import actions from '../../../services/actions'
+import ApiConnection from '../../../services/apiconnection'
 import $ from 'jquery'
 import TrainingImage from '../shared/trainingimage'
 
@@ -59,7 +60,7 @@ export default class TrainingsEditListItem extends React.Component {
 
   handleDelete() { 
     // console.log('trainings-list-item, please delete training ' + this.props.training.get('id'))
-    this.props.actions.deleteTrainingSrv(this.props.training)
+    this.props.actions.deleteTrainingDispatcher(this.props.training)
   }
 
   handleUploadFile(event){
@@ -71,13 +72,12 @@ export default class TrainingsEditListItem extends React.Component {
     var fileinput = document.querySelector('#uploadfile-'+trainingid)
     console.log('trainings-list-item, upload training file ' + fileinput.files[0])
     var training = this.props.training.set('mama', 'i m here')
-
     this.props.actions.uploadTrainingFileDispatcher(training, this.props.training, fileinput.files[0])
-    // console.log('trainings-list-item, set src to ' + actions.apiurl+'/api/training/img/'+'12'+'?access_token='+ idToken)
+    // console.log('trainings-list-item, set src to ' + ApiConnection.apiurl+'/api/training/img/'+'12'+'?access_token='+ idToken)
     
     
-    // document.getElementById('traininglistitemimg'+trainingid).setAttribute('data-src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
-    // document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
+    // document.getElementById('traininglistitemimg'+trainingid).setAttribute('data-src', ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
+    // document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
     
     // var imgwrap = document.getElementById('imgwrap'+trainingid)
     // imgwrap.innerHTML = '<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>'+imgwrap.innerHTML
@@ -87,7 +87,7 @@ export default class TrainingsEditListItem extends React.Component {
     //   //   imageLoaded: undefined
     //   // })
     //   // document.getElementById('traininglistitemimg'+trainingid).removeAttribute('src')
-    //   document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
+    //   document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
     //   // this.refs.uploadcomp.forceUpdate()
     // }.bind(this),(5000) )
   }

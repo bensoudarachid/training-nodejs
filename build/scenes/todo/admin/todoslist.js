@@ -52,13 +52,13 @@ var TodosList = function (_React$Component) {
   _createClass(TodosList, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      console.log('mounted');
+      //    console.log('mounted')
       require('exports?componentHandler!material-design-lite/material.js').upgradeDom();
     }
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate() {
-      console.log('updated');
+      //    console.log('updated')
       require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered();
     }
   }, {

@@ -4,7 +4,7 @@ import $ from 'jquery'
 
 
 if (process.env.BROWSER) {
-  console.log('Appcomponent. environment is browser')
+//  console.log('Login Component. environment is browser')
   require('./login.scss')
   // require('materialize-css/sass/materialize.scss')
   // require('materialize-css/sass/style.scss')

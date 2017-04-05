@@ -4,7 +4,8 @@ import cookie from 'react-cookie'
 // import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'
 import util from 'util'
 import FileUploadInput from '../../../components/shared/fileuploadinput'
-import actions from '../../../services/actions'
+// import actions from '../../../services/actions'
+import ApiConnection from '../../../services/apiconnection'
 import $ from 'jquery'
 import TodoImage from './todoimage'
 
@@ -159,11 +160,11 @@ export default class TodosListItem extends React.Component {
     var todo = this.props.todo.set('mama', 'i m here')
 
     this.props.actions.uploadTodoFileDispatcher(todo, this.props.todo, fileinput.files[0])
-    // console.log('todos-list-item, set src to ' + actions.apiurl+'/api/todo/img/'+'12'+'?access_token='+ idToken)
+    // console.log('todos-list-item, set src to ' + ApiConnection.apiurl+'/api/todo/img/'+'12'+'?access_token='+ idToken)
     
     
-    // document.getElementById('todolistitemimg'+taskid).setAttribute('data-src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
-    // document.getElementById('todolistitemimg'+taskid).setAttribute('src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
+    // document.getElementById('todolistitemimg'+taskid).setAttribute('data-src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
+    // document.getElementById('todolistitemimg'+taskid).setAttribute('src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
     
     // var imgwrap = document.getElementById('imgwrap'+taskid)
     // imgwrap.innerHTML = '<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>'+imgwrap.innerHTML
@@ -173,7 +174,7 @@ export default class TodosListItem extends React.Component {
     //   //   imageLoaded: undefined
     //   // })
     //   // document.getElementById('todolistitemimg'+taskid).removeAttribute('src')
-    //   document.getElementById('todolistitemimg'+taskid).setAttribute('src', actions.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
+    //   document.getElementById('todolistitemimg'+taskid).setAttribute('src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
     //   // this.refs.uploadcomp.forceUpdate()
     // }.bind(this),(5000) )
   }
@@ -257,7 +258,7 @@ export default class TodosListItem extends React.Component {
     }
     const loading = this.props.todo.get('loading')
     const isUploading = this.props.todo.get('isUploading')
-    console.log('todolistitem. id: '+taskid+', todo.isUploading: '+isUploading)
+//    console.log('todolistitem. id: '+taskid+', todo.isUploading: '+isUploading)
 
     const disabled = loading||error
     const errorClass = error?'error':''

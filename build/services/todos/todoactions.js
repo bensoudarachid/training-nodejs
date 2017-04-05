@@ -478,6 +478,7 @@ var todoactions = {
     };
   },
   retrieveUserTodosDispatcher: function retrieveUserTodosDispatcher() {
+    //    console.log('todo actions. call retrieveUserTodosDispatcher')
     return function (dispatch) {
 
       _actions2.default.retrieveTodosService().then(function (_ref4) {
@@ -486,7 +487,7 @@ var todoactions = {
 
         if (status === 401) {
           // dispatch(actions.receiveLogout())
-          dispatch(_actions2.default.loginProcessStart('No access rights!'));
+          dispatch(_actions2.default.loginProcessStart('No access rights!', _actions2.default.retrieveUserTodosDispatcher));
         } else if (status >= 400) {
           var error = data;
           console.log('Status looks bad. ' + status + '. error message = ' + error.message);
@@ -512,7 +513,7 @@ var todoactions = {
       // })
       .catch(function (err) {
         dispatch(_actions2.default.receiveLogout());
-        console.log('todoactions.js Error retrieving data. Status = ' + status + ', error = ' + err);
+        console.log('todoactions.js Error retrieving data. error = ' + err);
       });
     };
   },

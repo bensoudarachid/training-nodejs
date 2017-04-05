@@ -16,11 +16,11 @@ export default class TodosList extends React.Component {
   }
   
   componentDidMount(){
-    console.log('mounted')
+//    console.log('mounted')
     require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
   }
   componentDidUpdate() {
-    console.log('updated')
+//    console.log('updated')
     require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
   }
   getItems() {

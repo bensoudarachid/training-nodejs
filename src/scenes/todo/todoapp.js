@@ -1,15 +1,18 @@
-import TodoCreate from './components/todocreate'
-import TodosFilter from './components/todosfilter'
+import TodoCreate from './admin/todocreate'
+import TodosFilter from './admin/todosfilter'
+
 
 import React, { Component } from 'react'
-import TodosList from './components/todoslist'
+import TodosList from './admin/todoslist'
 import cookie from 'react-cookie'
 // import _ from 'lodash'
 // import { ThreeBounce } from 'better-react-spinkit'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
+var util = require('util')
+
 if (process.env.BROWSER) {
-  console.log('Appcomponent. environment is browser')
+//  console.log('Appcomponent. environment is browser')
   require('./todoapp.scss')
 }
 
@@ -30,38 +33,49 @@ class TodoApp extends Component {
   }
 
   componentDidMount() {
-    console.log('todoappjs mounted. Call fetchdata')
+    //console.log('todoappjs mounted. Call fetchdata')
     TodoApp.fetchData(this.props.actions)
     // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
   }
 
   //This is a necessary call when component is fetched on server side
-  static fetchData(actions) {
+  static fetchData(actions, params, hostname) {
+//    console.log('Todo list fetch data for hostname='+require('util').inspect(hostname, false, null))
+//    console.log('todoappjs fetchdata'+util.inspect( params, false, null))
     actions.retrieveUserTodosDispatcher()
   }
 
   render() {
+    const {auth} = this.props
     const isBrowser = process.env.BROWSER//typeof window !== 'undefined';
     if (!isBrowser) {
-      // console.log('+++++++++++++++++++++++++Todoapp. environment is server')
+//      console.log('+++++++++++++++++++++++++Todoapp render. environment is server')
       return <div/>
     }
-    // console.log('+++++++++++++++++++++++++Todoapp. environment is browser')
+    //console.log('+++++++++++++++++++++++++Todoapp render. environment is browser')
     // const {auth} = this.props
     // console.log('Render todoapp authenticated ? ' + auth.get('isAuthenticated'))
     //  alert("Hi "+test);
     // createTask={this.createTask.bind(this)}
     //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
     // deleteTask={this.deleteTask.bind(this)}
+
+      // {auth.get('loginProgress')?
     return (
       <div>
-      <div className='todoapp'>
-        <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel' >
-          <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions}/>
-          <TodoCreate todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
+      {!auth.get('isAuthenticated')?
+        <div>
+          <h1>Needs authentication</h1>
         </div>
-        <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>
-      </div>
+        :
+        <div className='todoapp'>
+          <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel' >
+            <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions}/>
+            <TodoCreate todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
+          </div>
+          <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>
+        </div>
+      }
       </div>
     )
   }

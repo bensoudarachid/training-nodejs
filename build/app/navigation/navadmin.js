@@ -201,7 +201,7 @@ var NavAdmin = function (_Component) {
               null,
               _react2.default.createElement(
                 _reactRouter.Link,
-                { activeClassName: 'active', to: '/todos' },
+                { activeClassName: 'active', to: '/admin/todos' },
                 'Todos'
               )
             ),
@@ -210,7 +210,7 @@ var NavAdmin = function (_Component) {
               null,
               _react2.default.createElement(
                 _reactRouter.Link,
-                { activeClassName: 'active', to: '/trainings' },
+                { activeClassName: 'active', to: '/admin/trainings' },
                 'Training'
               )
             ),

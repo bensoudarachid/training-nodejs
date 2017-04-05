@@ -8,14 +8,13 @@ import 'jquery'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 // import Stats from 'stats-js'
 import $ from 'jquery'
-
+import ConfirmationModal from '../components/shared/confirmationmodal'
 
 global.jQuery = require('jquery')
 
 // global.$ = require('jquery')
 // import $ from 'jquery'
 
-// import { ThreeBounce } from 'better-react-spinkit'
 import { Component, PropTypes } from 'react'
 
 import Nav from './navigation/nav'
@@ -134,18 +133,43 @@ class AppComponent extends React.Component {
 
   componentDidMount(){
     require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+    // console.log('window width = '+$(window).width())
+
     if (process.env.BROWSER) {
-      require('./bubbles.js')
       require('./waterpipebg.js')
+      require('./bubbles.js')
+    }
+    this.handleBubblesVisibility()
+    window.addEventListener('scroll', this.handleBubblesVisibility)
+    window.addEventListener('resize', this.handleBubblesVisibility)
+  }
+
+
+
+  componentWillReceiveProps(nextProps) {
+    // console.log('app. this.props.location='+require('util').inspect(this.props.location, false, null))
+    //console.log('app. nextProps.location='+require('util').inspect(nextProps.location, false, null))
+    if (nextProps.location !== this.props.location && process.env.BROWSER) {
+      this.props.actions.savePreviousLocation(this.props.location.pathname)
     }
   }
+
+
+  handleBubblesVisibility(event) {
+    if( $(window).width() < 480 )
+      // $('#starbg-wrapper')[0].style.display = 'none'  
+      $('#starbg-wrapper')[0].style.visibility='hidden'
+    else
+      // $('#starbg-wrapper')[0].style.display = 'block'
+      $('#starbg-wrapper')[0].style.visibility='visible'
+  }
+
               // <ReactCSSTransitionGroup
               //   component='div'
               //   transitionName="page"
-              //   transitionEnterTimeout={1000}
-              //   transitionLeaveTimeout={400}
-              //   transitionAppear={true}
-              //   transitionAppearTimeout={1000}
+              //   transitionEnterTimeout={500}
+              //   transitionLeaveTimeout={200}
+              //   transitionAppear={false}
               //   transitionEnter={true}
               //   transitionLeave={true}                
               // >              
@@ -158,10 +182,11 @@ class AppComponent extends React.Component {
     const loginProgress = auth.get('loginProgress')
     const registererror = this.props.auth.get('registererror')
     const appError = this.props.app.get('appError')
+    const confirmationActionFunction=this.props.app.get('confirmationActionFunction')
+
     var children = this.updateChildren(this.props.children, this.props)
 
-    var path = this.props.location.pathname
-    // var segment = path.split('/')[1] || 'root'
+    
 
     return (
       <div id='appcomp'>
@@ -186,27 +211,27 @@ class AppComponent extends React.Component {
       />
       </div>
       }
+      {confirmationActionFunction &&
+      <div>
+        <ConfirmationModal actions={this.props.actions}/>
+      </div>
+      }
+
         <div>
           <div id='contt'>
-          {loginMessage?
-            <div>
-              <h1>{loginMessage}</h1>
-            </div>
-            :
-            <div>
-              <ReactCSSTransitionGroup
-                component='div'
-                transitionName="page"
-                transitionEnterTimeout={500}
-                transitionLeaveTimeout={200}
-                transitionAppear={false}
-                transitionEnter={true}
-                transitionLeave={true}                
-              >              
-              {children}
-              </ReactCSSTransitionGroup>            
-            </div>
-          }
+              <div>
+                <ReactCSSTransitionGroup
+                  component='div'
+                  transitionName="page"
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={200}
+                  transitionAppear={false}
+                  transitionEnter={true}
+                  transitionLeave={true}                
+                >              
+                {children}
+                </ReactCSSTransitionGroup>            
+              </div>
           </div>
           {appError &&
           <div>
@@ -220,6 +245,83 @@ class AppComponent extends React.Component {
 
     )
   }
+  // renderOld() {
+  //   const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
+  //   const isBrowser = typeof window !== 'undefined'
+  //   const loginMessage = auth.get('loginMessage') 
+  //   const loginProgress = auth.get('loginProgress')
+  //   const registererror = this.props.auth.get('registererror')
+  //   const appError = this.props.app.get('appError')
+  //   var children = this.updateChildren(this.props.children, this.props)
+
+    
+
+  //   return (
+  //     <div id='appcomp'>
+  //     <div id="wavybg-wrapper"> 
+  //         <canvas id="canvs1">Your browser does not support HTML5 canvas.</canvas>
+  //     </div>
+  //     <div id="starbg-wrapper"> 
+  //         <canvas id="canvs2">Your browser does not support HTML5 canvas.</canvas>
+  //     </div>
+
+  //     <div>
+  //       <Nav
+  //         actions={this.props.actions}
+  //         auth={this.props.auth}
+  //       />
+  //     </div>
+  //     {loginProgress &&
+  //     <div>
+  //     <LoginModal
+  //         actions={this.props.actions}
+  //         auth={this.props.auth}
+  //     />
+  //     </div>
+  //     }
+  //       <div>
+  //         <div id='contt'>
+  //           {loginMessage?
+
+  //             <div>
+  //               <h1>{loginMessage}</h1>
+  //             </div>
+  //             :
+  //             <div>
+  //               <ReactCSSTransitionGroup
+  //                 component='div'
+  //                 transitionName="page"
+  //                 transitionEnterTimeout={500}
+  //                 transitionLeaveTimeout={200}
+  //                 transitionAppear={false}
+  //                 transitionEnter={true}
+  //                 transitionLeave={true}                
+  //               >              
+  //               {children}
+  //               </ReactCSSTransitionGroup>            
+  //             </div>
+  //           }
+  //         </div>
+  //         {appError &&
+  //         <div>
+  //           <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: '+appError}/>
+  //         </div>
+  //         }
+  //       </div>
+
+
+  //     </div>
+
+  //   )
+  // }
+
+          // { auth.get('loginProgress')?
+          //   <div>
+          //       <h1>WAHNSINNWAHNSINNWAHNSINNWAHNSINNWAHNSINNWAHNSINNWAHNSINN</h1>
+          //   </div>
+          //   :
+          // }
+
   updateChildren(children, props) {
     var childrenBack = React.Children.map(children, function(child) {
       // return React.cloneElement(child, {

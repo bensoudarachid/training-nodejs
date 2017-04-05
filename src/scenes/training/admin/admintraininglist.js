@@ -4,7 +4,7 @@ import Immutable from 'immutable'
 
 import AdminTrainingListItem from './admintraininglistitem'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import LogoSpinner from '../../../components/shared/logospinner'
+//import LogoSpinner from '../../../components/shared/logospinner'
 
 if (process.env.BROWSER) {
   require('./admintraininglist.scss')

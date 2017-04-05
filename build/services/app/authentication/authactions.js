@@ -28,12 +28,23 @@ var authactions = {
     return {
       type: 'LOGIN_REQUEST',
       isFetching: true,
-      isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
+      // isAuthenticated: cookie.load('jwt') ? true : false,
       creds: creds
     };
   },
 
+  loginSuccess: function loginSuccess() {
+    return {
+      type: 'LOGIN_SUCCESS',
+      isFetching: false,
+      isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
+      authority: _reactCookie2.default.load('authority')
+    };
+  },
+
   receiveLogin: function receiveLogin(user) {
+    var _this = this;
+
     return function (dispatch, getState) {
       console.log('auth actions user : ' + util.inspect(user, false, null));
       _reactCookie2.default.save('jwt', user.access_token, {
@@ -42,15 +53,20 @@ var authactions = {
       _reactCookie2.default.save('authority', user.authority, {
         path: '/'
       });
-      window.routerHistory.push(getState().auth.get('loginactualurl'));
-      // window.routerHistory.push('/todos')
 
-      return {
-        type: 'LOGIN_SUCCESS',
-        isFetching: false,
-        isAuthenticated: _reactCookie2.default.load('jwt') ? true : false
-        // id_token: user.access_token
-      };
+      // window.routerHistory.push('/')
+      // window.routerHistory.push(getState().auth.get('loginactualurl'))
+      // dispatch(actions.retrieveUserTodosDispatcher()) //maybe we can save the action before login and dipatch here instead of pushing '/'
+      var req = getState().auth.get('loginrequest');
+      if (req != undefined) dispatch(req(getState().auth.get('loginrequestparams')));
+      dispatch(_this.loginSuccess());
+      // return {
+      //   type: 'LOGIN_SUCCESS',
+      //   isFetching: false,
+      //   isAuthenticated: cookie.load('jwt') ? true : false,
+      //   authority:cookie.load('authority')
+      // // id_token: user.access_token
+      // }
     };
   },
 
@@ -106,21 +122,27 @@ var authactions = {
       });
     };
   },
-  loginProcessStart: function loginProcessStart(message) {
+
+  loginProcessStart: function loginProcessStart(message, promise, params) {
     var actualurl = window.location.pathname;
-    window.routerHistory.push('/');
+    // window.routerHistory.push('/')
     return {
       type: 'LOGIN_PROCESS_START',
       message: message,
-      actualurl: actualurl
+      actualurl: actualurl,
+      promise: promise,
+      params: params
     };
   },
+
   loginProcessEnd: function loginProcessEnd() {
     console.log('authactionsjs close modal');
+    window.routerHistory.push('/');
     return {
       type: 'LOGIN_PROCESS_END'
     };
   },
+
   loginUser: function loginUser(creds) {
     // console.log('actions login user ' + creds.username + ' .pass ' + creds.password)
     return function (dispatch) {
@@ -161,6 +183,7 @@ var authactions = {
       });
     };
   },
+
   disconnect: function disconnect(dispatch, status, data) {
     if (status === 401 || data.error === 'invalid_token') {
       dispatch(_actions2.default.receiveLogout());

@@ -12,13 +12,24 @@
 	// 	// width:100%;
 	// margin: 0 auto;
 	// 	// padding: 0px;
-	// }	
+	// }
+	margin: 0 auto;
 	width:100%;
+	@media (min-width: 768px) {
+//		background-color:pink;
+		// width: %;
+	}
+	@media (min-width: 992px) {
+		// background-color:red;
+		width: 90%;
+	}	
+
 	form{
 	 	margin: 0px;
 	 	// padding: 0px;
 	 	// width:33.33%;
 	}
+
 	.admintrainingslistwrap{
 		// background-color:yellow;
 		width:100%;

@@ -8,6 +8,10 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _immutable = require('immutable');
+
+var _immutable2 = _interopRequireDefault(_immutable);
+
 var _reactRouter = require('react-router');
 
 var _history = require('history');
@@ -42,10 +46,11 @@ var _rootreducer2 = _interopRequireDefault(_rootreducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// var React = require('react');
 var ReactRouter = require('react-router');
 // var ReactDom = require('react-dom');
 // import { Router, Route, Link, IndexRoute,NotFoundRoute, hashHistory, browserHistory } from 'react-router'
+
+// var React = require('react');
 
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
@@ -187,11 +192,18 @@ var NotFound = function NotFound() {
 // }
 
 var initialState = window.__REDUX_STATE__;
+// console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----initialState='+require('util').inspect(initialState, false, null))
+
+Object.keys(initialState).forEach(function (key) {
+  initialState[key] = _immutable2.default.fromJS(initialState[key]);
+});
+
 var store = '';
 if (process.env.NODE_ENV === 'production') store = (0, _redux.createStore)(_rootreducer2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default));else {
   var logger = (0, _reduxLogger2.default)();
   store = (0, _redux.createStore)(_rootreducer2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default, logger));
 }
+// console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----after create Store State='+require('util').inspect(store.getState(), false, null))
 
 // const mybrowserHistory = browserHistory
 // const mybrowserHistory = useBasename(createHistory)({

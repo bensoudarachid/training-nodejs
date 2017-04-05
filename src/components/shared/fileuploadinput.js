@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 
 if (process.env.BROWSER) {
-  console.log('Appcomponent. environment is browser')
+//  console.log('Appcomponent. environment is browser')
   require('./fileuploadinput.scss')
 }
 

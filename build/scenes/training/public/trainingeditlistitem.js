@@ -22,9 +22,9 @@ var _fileuploadinput = require('../../../components/shared/fileuploadinput');
 
 var _fileuploadinput2 = _interopRequireDefault(_fileuploadinput);
 
-var _actions = require('../../../services/actions');
+var _apiconnection = require('../../../services/apiconnection');
 
-var _actions2 = _interopRequireDefault(_actions);
+var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
 var _jquery = require('jquery');
 
@@ -43,6 +43,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 //import Immutable from 'immutable'
 // import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'
+
+// import actions from '../../../services/actions'
 
 
 if (process.env.BROWSER) {
@@ -107,7 +109,7 @@ var TrainingsEditListItem = function (_React$Component) {
     key: 'handleDelete',
     value: function handleDelete() {
       // console.log('trainings-list-item, please delete training ' + this.props.training.get('id'))
-      this.props.actions.deleteTrainingSrv(this.props.training);
+      this.props.actions.deleteTrainingDispatcher(this.props.training);
     }
   }, {
     key: 'handleUploadFile',
@@ -120,13 +122,12 @@ var TrainingsEditListItem = function (_React$Component) {
       var fileinput = document.querySelector('#uploadfile-' + trainingid);
       console.log('trainings-list-item, upload training file ' + fileinput.files[0]);
       var training = this.props.training.set('mama', 'i m here');
-
       this.props.actions.uploadTrainingFileDispatcher(training, this.props.training, fileinput.files[0]);
-      // console.log('trainings-list-item, set src to ' + actions.apiurl+'/api/training/img/'+'12'+'?access_token='+ idToken)
+      // console.log('trainings-list-item, set src to ' + ApiConnection.apiurl+'/api/training/img/'+'12'+'?access_token='+ idToken)
 
 
-      // document.getElementById('traininglistitemimg'+trainingid).setAttribute('data-src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
-      // document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
+      // document.getElementById('traininglistitemimg'+trainingid).setAttribute('data-src', ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
+      // document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
 
       // var imgwrap = document.getElementById('imgwrap'+trainingid)
       // imgwrap.innerHTML = '<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>'+imgwrap.innerHTML
@@ -136,7 +137,7 @@ var TrainingsEditListItem = function (_React$Component) {
       //   //   imageLoaded: undefined
       //   // })
       //   // document.getElementById('traininglistitemimg'+trainingid).removeAttribute('src')
-      //   document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', actions.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
+      //   document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)
       //   // this.refs.uploadcomp.forceUpdate()
       // }.bind(this),(5000) )
     }

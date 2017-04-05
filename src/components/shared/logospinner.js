@@ -1,7 +1,7 @@
 import React from 'react'
 
 if (process.env.BROWSER) {
-  console.log('Appcomponent. environment is browser')
+  console.log('LogoSpinner. environment is browser')
   require('./logospinner.scss')
 }
 

@@ -15,8 +15,17 @@ let authactions = {
     return {
       type: 'LOGIN_REQUEST',
       isFetching: true,
-      isAuthenticated: cookie.load('jwt') ? true : false,
+      // isAuthenticated: cookie.load('jwt') ? true : false,
       creds
+    }
+  },
+
+  loginSuccess: function() {
+    return {
+      type: 'LOGIN_SUCCESS',
+      isFetching: false,
+      isAuthenticated: cookie.load('jwt') ? true : false,
+      authority:cookie.load('authority')
     }
   },
 
@@ -29,15 +38,21 @@ let authactions = {
       cookie.save('authority', user.authority, {
         path: '/'
       })
-      window.routerHistory.push(getState().auth.get('loginactualurl'))
-      // window.routerHistory.push('/todos')
 
-      return {
-        type: 'LOGIN_SUCCESS',
-        isFetching: false,
-        isAuthenticated: cookie.load('jwt') ? true : false
-      // id_token: user.access_token
-      }
+      // window.routerHistory.push('/')
+      // window.routerHistory.push(getState().auth.get('loginactualurl'))
+      // dispatch(actions.retrieveUserTodosDispatcher()) //maybe we can save the action before login and dipatch here instead of pushing '/'
+      const req = getState().auth.get('loginrequest')
+      if(req!=undefined)
+        dispatch(req(getState().auth.get('loginrequestparams')))
+      dispatch(this.loginSuccess())
+      // return {
+      //   type: 'LOGIN_SUCCESS',
+      //   isFetching: false,
+      //   isAuthenticated: cookie.load('jwt') ? true : false,
+      //   authority:cookie.load('authority')
+      // // id_token: user.access_token
+      // }
     }
   },
 
@@ -94,21 +109,27 @@ let authactions = {
         })
     }
   },
-  loginProcessStart: function(message) {
+
+  loginProcessStart: function(message,promise,params) {
     const actualurl=window.location.pathname
-    window.routerHistory.push('/')
+    // window.routerHistory.push('/')
     return {
       type: 'LOGIN_PROCESS_START',
       message,
-      actualurl
+      actualurl,
+      promise,
+      params
     }
   },
+
   loginProcessEnd: function() {
     console.log('authactionsjs close modal')
+    window.routerHistory.push('/')
     return {
       type: 'LOGIN_PROCESS_END'
     }
   },
+
   loginUser: function(creds) {
     // console.log('actions login user ' + creds.username + ' .pass ' + creds.password)
     return dispatch => {
@@ -150,6 +171,7 @@ let authactions = {
         })
     }
   },
+
   disconnect: function(dispatch,status, data) {
     if (status === 401 || data.error === 'invalid_token') {
       dispatch(actions.receiveLogout())

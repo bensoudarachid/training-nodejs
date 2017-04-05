@@ -14,6 +14,10 @@ var _reactCookie = require('react-cookie');
 
 var _reactCookie2 = _interopRequireDefault(_reactCookie);
 
+var _appimage = require('../../../components/shared/appimage');
+
+var _appimage2 = _interopRequireDefault(_appimage);
+
 var _trainingimage = require('../shared/trainingimage');
 
 var _trainingimage2 = _interopRequireDefault(_trainingimage);
@@ -29,7 +33,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'
 // import util from 'util'
 // import FileUploadInput from '../../../components/shared/fileuploadinput'
-// import actions from '../../../services/actions'
+
 // import $ from 'jquery'
 
 
@@ -70,28 +74,32 @@ var AdminTrainingListItem = function (_React$Component) {
     // </button>
     // <span className='glyphicon glyphicon-upload '></span>
     // <img src={'../../../images/Blog-CodingNeutral1.png'} alt='coding'/>
+    // isUploading={isUploading}
 
   }, {
     key: 'render',
     value: function render() {
       var title = this.props.training.get('title');
+      var secondaryTitle = this.props.training.get('secondaryTitle') ? this.props.training.get('secondaryTitle') : '';
       var shortDescription = this.props.training.get('shortDescription') ? this.props.training.get('shortDescription') : '';
       var trainingid = this.props.training.get('id');
       var isUploading = this.props.training.get('isUploading');
+      isUploading = isUploading == undefined ? false : true;
       var duration = this.props.training.get('duration') ? this.props.training.get('duration') / 8 : '0';
       var onlydays = Math.round(duration);
       var dayString = '';
       if (onlydays < 2) dayString = ' day';else dayString = ' days';
+      // <TrainingImage ref='uploadcomp' trainingid={trainingid} isUploading={isUploading}/>
       return _react2.default.createElement(
         'div',
-        { className: 'mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone' },
+        { className: 'mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone' },
         _react2.default.createElement(
           'div',
-          { className: 'mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone blockborder admintrainingslistitem' },
+          { className: 'mdl-grid mdl-grid--no-spacing blockborder admintrainingslistitem' },
           _react2.default.createElement(
             'div',
             { className: 'mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--1-col-phone' },
-            _react2.default.createElement(_trainingimage2.default, { ref: 'uploadcomp', trainingid: trainingid, isUploading: isUploading })
+            _react2.default.createElement(_appimage2.default, { ref: 'uploadcomp', api: 'training', imgid: trainingid, isUploading: isUploading })
           ),
           _react2.default.createElement(
             'div',
@@ -104,14 +112,16 @@ var AdminTrainingListItem = function (_React$Component) {
             _react2.default.createElement(
               'h5',
               null,
-              'Introduction a la belle vie'
+              secondaryTitle
             )
           ),
+          _react2.default.createElement('hr', null),
           _react2.default.createElement(
             'div',
             { className: 'mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone ellipsis multiline shortdescription' },
             shortDescription
           ),
+          _react2.default.createElement('hr', null),
           _react2.default.createElement(
             'div',
             { className: 'mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone' },
@@ -146,8 +156,8 @@ var AdminTrainingListItem = function (_React$Component) {
   }, {
     key: 'handleEdit',
     value: function handleEdit(event) {
-      console.log('Call Schedule for this Training' + this.props.training.get('id'));
-      window.routerHistory.push('trainings/item/' + this.props.training.get('id'));
+      //    console.log('Call Schedule for this Training'+this.props.training.get('id'))
+      window.routerHistory.push('/admin/trainings/item/' + this.props.training.get('id'));
       // this.props.actions.appError(undefined)
     }
   }, {
@@ -155,7 +165,7 @@ var AdminTrainingListItem = function (_React$Component) {
     value: function handleSchedule(event) {
       console.log('Call Edit for this Training' + this.props.training.get('id'));
       // this.props.actions.appError(undefined)
-      window.routerHistory.push('/todos');
+      window.routerHistory.push('/admin/todos');
     }
   }]);
 

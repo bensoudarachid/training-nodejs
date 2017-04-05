@@ -6,11 +6,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _todocreate = require('./components/todocreate');
+var _todocreate = require('./admin/todocreate');
 
 var _todocreate2 = _interopRequireDefault(_todocreate);
 
-var _todosfilter = require('./components/todosfilter');
+var _todosfilter = require('./admin/todosfilter');
 
 var _todosfilter2 = _interopRequireDefault(_todosfilter);
 
@@ -18,7 +18,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _todoslist = require('./components/todoslist');
+var _todoslist = require('./admin/todoslist');
 
 var _todoslist2 = _interopRequireDefault(_todoslist);
 
@@ -41,8 +41,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // import { ThreeBounce } from 'better-react-spinkit'
 
 
+var util = require('util');
+
 if (process.env.BROWSER) {
-  console.log('Appcomponent. environment is browser');
+  //  console.log('Appcomponent. environment is browser')
   require('./todoapp.scss');
 }
 
@@ -70,7 +72,7 @@ var TodoApp = function (_Component) {
   _createClass(TodoApp, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      console.log('todoappjs mounted. Call fetchdata');
+      //console.log('todoappjs mounted. Call fetchdata')
       TodoApp.fetchData(this.props.actions);
       // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
     }
@@ -80,22 +82,34 @@ var TodoApp = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var auth = this.props.auth;
+
       var isBrowser = process.env.BROWSER; //typeof window !== 'undefined';
       if (!isBrowser) {
-        // console.log('+++++++++++++++++++++++++Todoapp. environment is server')
+        //      console.log('+++++++++++++++++++++++++Todoapp render. environment is server')
         return _react2.default.createElement('div', null);
       }
-      // console.log('+++++++++++++++++++++++++Todoapp. environment is browser')
+      //console.log('+++++++++++++++++++++++++Todoapp render. environment is browser')
       // const {auth} = this.props
       // console.log('Render todoapp authenticated ? ' + auth.get('isAuthenticated'))
       //  alert("Hi "+test);
       // createTask={this.createTask.bind(this)}
       //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
       // deleteTask={this.deleteTask.bind(this)}
+
+      // {auth.get('loginProgress')?
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(
+        !auth.get('isAuthenticated') ? _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Needs authentication'
+          )
+        ) : _react2.default.createElement(
           'div',
           { className: 'todoapp' },
           _react2.default.createElement(
@@ -240,7 +254,9 @@ var TodoApp = function (_Component) {
     }
   }], [{
     key: 'fetchData',
-    value: function fetchData(actions) {
+    value: function fetchData(actions, params, hostname) {
+      //    console.log('Todo list fetch data for hostname='+require('util').inspect(hostname, false, null))
+      //    console.log('todoappjs fetchdata'+util.inspect( params, false, null))
       actions.retrieveUserTodosDispatcher();
     }
   }]);
