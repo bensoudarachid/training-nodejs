@@ -18,6 +18,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // import TrainingEdit from '../../scenes/training/admin/trainingedit'
 
+if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
+  return c(require);
+};
+
 var adminRoutes = _react2.default.createElement(
   _reactRouter.Route,
   { path: 'admin',

@@ -4,6 +4,8 @@ import {Route,IndexRoute,Link,hashHistory,DefaultRoute,NotFoundRoute } from 'rea
 import AdminTrainingApp from '../../scenes/training/admin/admintrainingapp'
 // import TrainingEdit from '../../scenes/training/admin/trainingedit'
 
+if (typeof require.ensure !== 'function') require.ensure = (d, c) => c(require)
+
 const adminRoutes = (
 	<Route path="admin" 
         

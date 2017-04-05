@@ -29,7 +29,7 @@ class ApiConnection {
     this.appbasename=appbasename
   }
   getApiConnection(hostname){
-    if( window.location.hostname=='rlearn.herokuapp.com')
+    if( hostname=='rlearn.herokuapp.com')
       return 'http://abbaslearning.royasoftware.com:8083'
     else
       return 'http://'+hostname+':8083'

@@ -37,7 +37,7 @@ var ApiConnection = function () {
   _createClass(ApiConnection, [{
     key: 'getApiConnection',
     value: function getApiConnection(hostname) {
-      if (window.location.hostname == 'rlearn.herokuapp.com') return 'http://abbaslearning.royasoftware.com:8083';else return 'http://' + hostname + ':8083';
+      if (hostname == 'rlearn.herokuapp.com') return 'http://abbaslearning.royasoftware.com:8083';else return 'http://' + hostname + ':8083';
       // return 'http://127.0.0.1:8083' //not helpful to resolve single tenants on server side calls
     }
   }]);
