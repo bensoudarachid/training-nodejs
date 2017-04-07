@@ -507,7 +507,7 @@ app.get(appbasename+'/*', (req, res) => {
 app.use(express.static(__dirname ))
 
 setInterval(function() {
-  http.get('http://abbaslearn.royasoftware.com/todos')
+  http.get('http://abbaslearn.royasoftware.com/admin/todos')
 }, 1000000)
 
 

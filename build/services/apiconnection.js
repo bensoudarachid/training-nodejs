@@ -14,13 +14,18 @@ var ApiConnection = function () {
 
     var port = -12;
     if (process.env.NODE_ENV === 'production') port = 8082;else port = 8081;
+    var apiport = -12;
+
     var isBrowser = typeof window !== 'undefined';
     var url = '';
     var authurl = '';
     // const appbasename = '/reactor'
     var appbasename = '';
     if (isBrowser) {
-      if (window.location.hostname == 'rlearn.herokuapp.com') authurl = window.location.protocol + '//abbaslearning.royasoftware.com:8083';else authurl = window.location.protocol + '//' + window.location.hostname + ':8083';
+      console.log('APIConnection. Window.location.protocol=' + require('util').inspect(window.location.protocol, false, null));
+      if (window.location.protocol == 'https:') apiport = 9083;else apiport = 8083;
+
+      if (window.location.hostname == 'rlearn.herokuapp.com') authurl = window.location.protocol + '//reactlearning.royasoftware.com:' + apiport;else authurl = window.location.protocol + '//' + window.location.hostname + ':' + apiport;
       // url = authurl
       //      console.log('services call url '+url)
     } else {
@@ -32,12 +37,13 @@ var ApiConnection = function () {
     this.apiurl = url;
     this.port = port;
     this.appbasename = appbasename;
+    // this.apiport=apiport
   }
 
   _createClass(ApiConnection, [{
     key: 'getApiConnection',
     value: function getApiConnection(hostname) {
-      if (hostname == 'rlearn.herokuapp.com') return 'http://abbaslearning.royasoftware.com:8083';else return 'http://' + hostname + ':8083';
+      if (hostname == 'rlearn.herokuapp.com') return 'https://reactlearning.royasoftware.com:9083';else return 'http://' + hostname + ':8083';
       // return 'http://127.0.0.1:8083' //not helpful to resolve single tenants on server side calls
     }
   }]);

@@ -493,7 +493,7 @@ app.get(appbasename + '/*', function (req, res) {
 app.use(_express2.default.static(__dirname));
 
 setInterval(function () {
-  _http2.default.get('http://abbaslearn.royasoftware.com/todos');
+  _http2.default.get('http://abbaslearn.royasoftware.com/admin/todos');
 }, 1000000);
 
 // function sleep (time) {
