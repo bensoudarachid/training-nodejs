@@ -21,7 +21,8 @@ class ApiConnection {
         apiport = 8083
 
       if( window.location.hostname=='rlearn.herokuapp.com')
-        authurl= window.location.protocol+'//reactlearning.royasoftware.com:'+apiport
+        // authurl= window.location.protocol+'//reactlearning.royasoftware.com:'+apiport
+        authurl= window.location.protocol+'//reactlearning.school.royasoftware.com:'+apiport
       else
         authurl= window.location.protocol+'//'+window.location.hostname+':'+apiport
       // url = authurl
@@ -39,7 +40,8 @@ class ApiConnection {
   }
   getApiConnection(hostname){
     if( hostname=='rlearn.herokuapp.com')
-      return 'https://reactlearning.royasoftware.com:9083'
+      // return 'https://reactlearning.royasoftware.com:9083'
+      return 'https://reactlearning.school.royasoftware.com:9083'
     else
       return 'http://'+hostname+':8083'
     // return 'http://127.0.0.1:8083' //not helpful to resolve single tenants on server side calls

@@ -90,6 +90,7 @@ var AdminTrainingListItem = function (_React$Component) {
       var dayString = '';
       if (onlydays < 2) dayString = ' day';else dayString = ' days';
       // <TrainingImage ref='uploadcomp' trainingid={trainingid} isUploading={isUploading}/>
+      //<AppImage ref='uploadcomp' api='training' imgid={trainingid} isUploading={isUploading}/>
       return _react2.default.createElement(
         'div',
         { className: 'mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone' },

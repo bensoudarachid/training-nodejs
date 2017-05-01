@@ -10,10 +10,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _trainingeditlist = require('../public/trainingeditlist');
-
-var _trainingeditlist2 = _interopRequireDefault(_trainingeditlist);
-
 var _admintraininglist = require('./admintraininglist');
 
 var _admintraininglist2 = _interopRequireDefault(_admintraininglist);
@@ -41,6 +37,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //import TrainingCreate from '../public/trainingcreate'
+
+
+// import TrainingEditList from '../public/trainingeditlist'
 
 
 // import _ from 'lodash'
@@ -359,6 +358,7 @@ var AdminTrainingApp = function (_Component) {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       this.isTextSwitchAnimated = false;
+      // console.log('load empty training list')
       this.props.actions.loadTrainings(undefined);
     }
 

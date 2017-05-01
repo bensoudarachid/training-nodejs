@@ -9,7 +9,7 @@ var _appcomponent = require('../app/appcomponent');
 
 var _appcomponent2 = _interopRequireDefault(_appcomponent);
 
-var _trainingapp = require('../scenes/training/trainingapp');
+var _trainingapp = require('../scenes/training/public/trainingapp');
 
 var _trainingapp2 = _interopRequireDefault(_trainingapp);
 

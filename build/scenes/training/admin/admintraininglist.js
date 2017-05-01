@@ -81,7 +81,7 @@ var AdminTrainingList = function (_React$Component) {
         //if i use div instead of span, big parts of the view are not clickable!
         _react2.default.createElement('span', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap', style: { width: '55px', height: '55px' } }) : _react2.default.createElement(
           'div',
-          { className: 'admintrainingslistwrap mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
+          { className: 'admintrainingslistwrap mdl-grid mdl-grid--no-spacing' },
           this.renderItems()
         )
       );

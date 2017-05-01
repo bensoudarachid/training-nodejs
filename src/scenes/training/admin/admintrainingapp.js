@@ -2,7 +2,7 @@
 
 
 import React, { Component } from 'react'
-import TrainingEditList from '../public/trainingeditlist'
+// import TrainingEditList from '../public/trainingeditlist'
 import AdminTrainingList from './admintraininglist'
 import TrainingCommandPanel from './trainingcommandpanel'
 
@@ -307,6 +307,7 @@ export default class AdminTrainingApp extends Component {
   
   componentWillUnmount() {
     this.isTextSwitchAnimated = false
+    // console.log('load empty training list')
     this.props.actions.loadTrainings(undefined)
   }
 

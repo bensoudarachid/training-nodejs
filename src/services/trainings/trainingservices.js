@@ -33,7 +33,7 @@ const trainingservices = {
     //   console.log('Service retrieve trainings fetchData. Wahnsinn: no idToken')
     // }
     //var test = 'This is abbas in the hood!';
-//    console.log('Call server fetch now!')
+    // console.log('Call training server fetch now!. URL = '+requesturl+'/api/training/item/'+id)
     return fetch(requesturl+'/api/training/item/'+id,
       {
         method: 'GET',
@@ -83,7 +83,7 @@ const trainingservices = {
     //   console.log('Service retrieve trainings fetchData. Wahnsinn: no idToken')
     // }
     //var test = 'This is abbas in the hood!';
-//    console.log('------------------Call retrieveTrainingsService fetch data now from '+ requesturl+'/api/trainings/2373')
+    // console.log('------------------Call retrieveTrainingsService fetch data now from '+ requesturl+'/api/trainings/2373')
     return fetch(requesturl+'/api/trainings/2373',
       {
         method: 'GET',

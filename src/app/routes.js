@@ -1,7 +1,7 @@
 import AppComponent from '../app/appcomponent'
 
 // import TodoApp from '../scenes/todo/todoapp'
-import TrainingApp from '../scenes/training/trainingapp'
+import TrainingApp from '../scenes/training/public/trainingapp'
 // import TrainingEdit from '../scenes/training/admin/trainingedit'
 // import Register from '../scenes/registration/register'
 

@@ -55,6 +55,7 @@ export default class AdminTrainingListItem extends React.Component {
     else
       dayString = ' days'
     // <TrainingImage ref='uploadcomp' trainingid={trainingid} isUploading={isUploading}/>
+    //<AppImage ref='uploadcomp' api='training' imgid={trainingid} isUploading={isUploading}/>
     return (
       <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone'>
         <div className='mdl-grid mdl-grid--no-spacing blockborder admintrainingslistitem'>
