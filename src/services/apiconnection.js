@@ -26,7 +26,7 @@ class ApiConnection {
       else
         authurl= window.location.protocol+'//'+window.location.hostname+':'+apiport
       // url = authurl
-//      console.log('services call url '+url)
+      console.log('services call url '+url)
     }else{
       authurl= undefined
       // url = 'http:'+'//'+'127.0.0.1'+(port ? ':'+port: '')+appbasename
