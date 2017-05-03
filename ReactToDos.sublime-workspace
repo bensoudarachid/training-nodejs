@@ -130,14 +130,6 @@
 			}
 		},
 		{
-			"file": "src/scenes/training/public/trainingapp.scss",
-			"settings":
-			{
-				"buffer_size": 1326,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"contents": "Package Control Messages\n========================\n\nSublimeLinter\n-------------\n\n  SublimeLinter 3.8.0\n  ---------------------\n    🎊 INLINE TOOLTIPS HAVE BEEN ADDED! 🎉\n  \n    To use this new feature, go to your SublimeLinter.sublime-settings file and add or change the \"tooltips\" setting to true, like below.\n    \n    \"tooltips\": true\n    \n    ----\n    \n    We will now be accepting some themes for tooltips as well, please add them to the SublimeLinter3 repository at https://github.com/SublimeLinter/SublimeLinter3 and make a pull request.\n    \n    ----\n    \n    Thank you for supporting SublimeLinter! We extremely appreciate your usage, support, and contributions.\n",
 			"settings":
 			{
@@ -154,6 +146,22 @@
 			{
 				"buffer_size": 4772,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/services/apiconnection.js",
+			"settings":
+			{
+				"buffer_size": 1702,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/services/trainings/trainingservices.js",
+			"settings":
+			{
+				"buffer_size": 11736,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -312,6 +320,7 @@
 	},
 	"file_history":
 	[
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/public/trainingapp.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/public/traininglist.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/services/trainings/trainingactions.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/public/traininglist.js",
@@ -438,8 +447,7 @@
 		"/D/RP/Tests/ReactToDoExp2/src/styles/animate.css",
 		"/D/RP/Tests/ReactToDoExp2/src/app/auroraeffect/index.js",
 		"/D/RP/Tests/ReactToDoExp2/src/app/auroraeffect/simplex.js",
-		"/D/RP/Tests/ReactToDoExp2/src/app/auroraeffect/requestanimpolyfill.js",
-		"/D/RP/Tests/ReactToDoExp2/src/app/waterpipe.js"
+		"/D/RP/Tests/ReactToDoExp2/src/app/auroraeffect/requestanimpolyfill.js"
 	],
 	"find":
 	{
@@ -15220,34 +15228,6 @@
 				},
 				{
 					"buffer": 1,
-					"file": "src/scenes/training/public/trainingapp.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1326,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								18,
-								18
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"semi_transient": false,
 					"settings":
 					{
@@ -15276,7 +15256,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": "package.json",
 					"semi_transient": false,
 					"settings":
@@ -15288,8 +15268,8 @@
 						"selection":
 						[
 							[
-								1611,
-								1592
+								2712,
+								2712
 							]
 						],
 						"settings":
@@ -15305,7 +15285,65 @@
 					"type": "text"
 				},
 				{
+					"buffer": 3,
+					"file": "src/services/apiconnection.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1702,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								942,
+								942
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
 					"buffer": 4,
+					"file": "src/services/trainings/trainingservices.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11736,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2497,
+								2497
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "src/scenes/training/admin/admintrainingapp.js",
 					"semi_transient": false,
 					"settings":
@@ -15334,7 +15372,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "src/scenes/training/public/traininglistitem.js",
 					"semi_transient": false,
 					"settings":
