@@ -1,9 +1,9 @@
 # project folders and files
-bundle.js #we have to let it in because of heroku. Now its out
+#bundle.js #we have to let it in because of heroku. Now its out
 *.au3
 node_modules
 old
-build #we have to let it in because of heroku. Now its out
+#build #we have to let it in because of heroku. Now its out
 # webstorm
 .idea/
 
