@@ -201,7 +201,7 @@ var NavPublic = function (_Component) {
 							_react2.default.createElement(
 								_reactRouter.Link,
 								{ activeClassName: 'active', to: '/trainings' },
-								'Training'
+								'TrainingPub'
 							)
 						)
 					),
