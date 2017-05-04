@@ -141,26 +141,26 @@
 			}
 		},
 		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 4772,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "src/services/apiconnection.js",
 			"settings":
 			{
-				"buffer_size": 1702,
+				"buffer_size": 1700,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/services/trainings/trainingservices.js",
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 11736,
+				"buffer_size": 2653,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/app/navigation/nav.js",
+			"settings":
+			{
+				"buffer_size": 6647,
 				"line_ending": "Unix"
 			}
 		},
@@ -320,6 +320,8 @@
 	},
 	"file_history":
 	[
+		"/D/RP/Tests/ReactToDoExp2/src/services/trainings/trainingservices.js",
+		"/D/RP/Tests/ReactToDoExp2/package.json",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/public/trainingapp.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/public/traininglist.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/services/trainings/trainingactions.js",
@@ -338,7 +340,6 @@
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/admintrainingapp.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/components/shared/appimage.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/admintraininglistitem.js",
-		"/D/RP/Tests/ReactToDoExp2/src/services/trainings/trainingservices.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/apiconnection.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/app/authentication/authservices.js",
 		"/D/RP/Tests/ReactToDoExp2/src/server7.js",
@@ -412,7 +413,6 @@
 		"/D/RP/Tests/ReactToDoExp2/src/app/navigation/navpublic.js",
 		"/D/RP/Tests/ReactToDoExp2/src/app/navigation/nav.scss",
 		"/D/RP/Tests/ReactToDoExp2/old/src/app/appcomponent.scss",
-		"/D/RP/Tests/ReactToDoExp2/package.json",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/todoapp.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/components/todoslist.scss",
 		"/D/RP/Tests/ReactToDoExp2/build/app/routes/trainingroutes.js",
@@ -746,7 +746,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -15257,25 +15257,25 @@
 				},
 				{
 					"buffer": 2,
-					"file": "package.json",
+					"file": "src/services/apiconnection.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4772,
+						"buffer_size": 1700,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2712,
-								2712
+								940,
+								940
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -15286,26 +15286,24 @@
 				},
 				{
 					"buffer": 3,
-					"file": "src/services/apiconnection.js",
+					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1702,
+						"buffer_size": 2653,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								942,
-								942
+								473,
+								473
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -15315,19 +15313,19 @@
 				},
 				{
 					"buffer": 4,
-					"file": "src/services/trainings/trainingservices.js",
+					"file": "src/app/navigation/nav.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11736,
+						"buffer_size": 6647,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2497,
-								2497
+								2462,
+								2462
 							]
 						],
 						"settings":
@@ -15337,7 +15335,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 884.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
