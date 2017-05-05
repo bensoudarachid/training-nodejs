@@ -117,7 +117,7 @@ class NavPublic extends Component {
 	</ul>
 		<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul className="nav navbar-nav navbar-left">
-			<li><IndexLink activeClassName='active' to='/'>Casa</IndexLink></li>
+			<li><IndexLink activeClassName='active' to='/'>LaCasa</IndexLink></li>
       <li><Link activeClassName='active' to='/trainings'>Training</Link></li>
 			</ul>
 			<ul className="nav navbar-nav navbar-right">
