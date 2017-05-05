@@ -122,7 +122,7 @@ var NavPublic = function (_Component) {
 
 
 		value: function handleLoginClick(event) {
-			// console.log('loginjs andle request login in progress click')
+			console.log('loginjs andle request login in progress click');
 			// var modal = document.getElementById('myModal')
 			// modal.style.display = 'block'
 			this.props.actions.loginProcessStart('Welcome to Roya');
@@ -192,7 +192,7 @@ var NavPublic = function (_Component) {
 							_react2.default.createElement(
 								_reactRouter.IndexLink,
 								{ activeClassName: 'active', to: '/' },
-								'Casa'
+								'Amor'
 							)
 						),
 						_react2.default.createElement(

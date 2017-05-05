@@ -84,7 +84,7 @@ class NavPublic extends Component {
 
 
   handleLoginClick(event) {
-    // console.log('loginjs andle request login in progress click')
+    console.log('loginjs andle request login in progress click')
     // var modal = document.getElementById('myModal')
     // modal.style.display = 'block'
     this.props.actions.loginProcessStart('Welcome to Roya')
@@ -117,7 +117,7 @@ class NavPublic extends Component {
 	</ul>
 		<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul className="nav navbar-nav navbar-left">
-			<li><IndexLink activeClassName='active' to='/'>Casa</IndexLink></li>
+			<li><IndexLink activeClassName='active' to='/'>Amor</IndexLink></li>
       <li><Link activeClassName='active' to='/trainings'>Training</Link></li>
 			</ul>
 			<ul className="nav navbar-nav navbar-right">
