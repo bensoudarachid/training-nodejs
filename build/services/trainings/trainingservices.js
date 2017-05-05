@@ -41,7 +41,7 @@ var trainingservices = {
       // 'Authorization': 'Bearer '+idToken
     };
     var idToken = _reactCookie2.default.load('jwt');
-    // console.log('training fetchData. url: ' + url+'/api/training/item/'+id)
+    console.log('training fetchData. url: ' + url + '/api/training/item/' + id);
     if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken;
       // console.log('Ya trainings fetchData.  auth id token: ' + headers.Authorization)
@@ -50,7 +50,7 @@ var trainingservices = {
     //   console.log('Service retrieve trainings fetchData. Wahnsinn: no idToken')
     // }
     //var test = 'This is abbas in the hood!';
-    // console.log('Call training server fetch now!. URL = '+requesturl+'/api/training/item/'+id)
+    console.log('Call training server fetch now!. URL = ' + requesturl + '/api/training/item/' + id);
     return fetch(requesturl + '/api/training/item/' + id, {
       method: 'GET',
       headers: headers
