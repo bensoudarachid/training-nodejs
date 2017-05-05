@@ -1,4 +1,4 @@
-#npm run build
+npm run build
 git add .
 git commit -m "$*"
-#git push httpsorigin master
+git push httpsorigin master
