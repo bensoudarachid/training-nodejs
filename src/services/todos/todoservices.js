@@ -10,7 +10,9 @@ import cookie from 'react-cookie'
 // import { getIsFetching } from '../reducers'
 
 import ApiConnection from '../apiconnection'
-const url = ApiConnection.apiurl
+// const url = ApiConnection.apiurl
+const url = ApiConnection.apiurl+ApiConnection.appbasename
+
 
 
 // var port = -12

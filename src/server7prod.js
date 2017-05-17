@@ -20,7 +20,7 @@ import { Provider } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import actions from './services/actions'
 import ApiConnection from './services/apiconnection'
-
+var assets = require('../assets/assets.json') 
 var FormData = require('form-data')
 const util = require('util')
 var compression = require('compression')
@@ -30,7 +30,8 @@ var compression = require('compression')
 
 var bodyParser = require('body-parser') // is used for POST requests
 
-const appbasename=ApiConnection.appbasename
+// const appbasename=ApiConnection.appbasename
+const appbasename=''
 
 // var config = require('../webpack.config.js')
 // var webpack = require('webpack')
@@ -251,7 +252,7 @@ var errorfile = __dirname + '/images/0.png'
 app.get(appbasename+'/*', (req, res) => {
   // routes is our object of React routes defined above
   console.log('');console.log('');console.log('')
-  console.log('*********************************************')
+  console.log('********************************************* 14')
   console.log('Get request now just came: ' + req.url)
   // console.log(routes)
   if( req.url.indexOf('.') !== -1){
@@ -336,12 +337,14 @@ app.get(appbasename+'/*', (req, res) => {
             var vendorBundle = 'http://rlearn.herokuapp.com/vendor.bundle.js'
             // if(hour < 7 || hour > 22){
             // var appcss = '/app.css'
-            var style = '/app.css'
-            var bundle = '/app.js'
+            console.log('assets='+require('util').inspect(assets, false, null))
+            var style = assets.app.css // '/app.css'
+            var bundle = assets.app.js //'/app.js'
+
             // style = '/style.css'
             // bundle = '/bundle.js'
             // if(hour < 7 || hour > 22){
-            vendorBundle = '/vendor.bundle.js'
+            vendorBundle = assets.vendor.js //'/vendor.bundle.js'
             // }
                   // <script src='material-design-lite/dist/material.brown-blue.min.css'></script>
                   // <script src='material-design-lite/src/material-design-lite.scss'></script>
@@ -372,7 +375,7 @@ app.get(appbasename+'/*', (req, res) => {
                 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">
                 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
                 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>
-                
+
                 <link rel="stylesheet" type="text/css" href="${style}" />
                 </head>
                 <body style="background-color:#2980b9">
@@ -437,11 +440,19 @@ app.get(appbasename+'/*', (req, res) => {
 var port = (process.env.PORT || ApiConnection.port)
 
 app.listen(port, function(error) {
+  console.log('Start Express server 1')
   if (error)
     throw error
-  console.log('Express server listening on port', port)
+  if (process.send) process.send('online')
+  console.log('Express server listening on port', port)  
 })
 
+process.on('message', function(message) {
+  if (message === 'shutdown') {
+    // performCleanup()
+    process.exit(0)
+  }
+})
 // const server = http.createServer(app);
 
 // server.listen(8080);

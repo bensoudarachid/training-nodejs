@@ -14,9 +14,10 @@ var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// const url = ApiConnection.apiurl
 // import Immutable from 'immutable';
 // import Immutable from 'immutable'
-var url = _apiconnection2.default.apiurl;
+var url = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename;
 
 // var port = -12
 // if (process.env.NODE_ENV === 'production')

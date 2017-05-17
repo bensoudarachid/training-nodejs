@@ -56,6 +56,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // require('babel-register')({
 //   'presets': ['es2015']
 // })
+var assets = require('../assets/assets.json');
 var FormData = require('form-data');
 var util = require('util');
 var compression = require('compression');
@@ -65,7 +66,8 @@ var compression = require('compression');
 
 var bodyParser = require('body-parser'); // is used for POST requests
 
-var appbasename = _apiconnection2.default.appbasename;
+// const appbasename=ApiConnection.appbasename
+var appbasename = '';
 
 // var config = require('../webpack.config.js')
 // var webpack = require('webpack')
@@ -275,7 +277,7 @@ var errorfile = __dirname + '/images/0.png';
 app.get(appbasename + '/*', function (req, res) {
   // routes is our object of React routes defined above
   console.log('');console.log('');console.log('');
-  console.log('*********************************************');
+  console.log('********************************************* 14');
   console.log('Get request now just came: ' + req.url);
   // console.log(routes)
   if (req.url.indexOf('.') !== -1) {
@@ -364,12 +366,14 @@ app.get(appbasename + '/*', function (req, res) {
             var vendorBundle = 'http://rlearn.herokuapp.com/vendor.bundle.js';
             // if(hour < 7 || hour > 22){
             // var appcss = '/app.css'
-            var style = '/app.css';
-            var bundle = '/app.js';
+            console.log('assets=' + require('util').inspect(assets, false, null));
+            var style = assets.app.css; // '/app.css'
+            var bundle = assets.app.js; //'/app.js'
+
             // style = '/style.css'
             // bundle = '/bundle.js'
             // if(hour < 7 || hour > 22){
-            vendorBundle = '/vendor.bundle.js';
+            vendorBundle = assets.vendor.js; //'/vendor.bundle.js'
             // }
             // <script src='material-design-lite/dist/material.brown-blue.min.css'></script>
             // <script src='material-design-lite/src/material-design-lite.scss'></script>
@@ -388,7 +392,7 @@ app.get(appbasename + '/*', function (req, res) {
             var state = store.getState();
             console.log('State paased to client = ' + JSON.stringify(state));
 
-            res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <script defer src="' + vendorBundle + '"></script>\n                <script defer src="https://code.jquery.com/jquery-2.2.0.min.js"></script>\n                <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">\n                <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>\n                <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">\n                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>\n                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>\n                \n                <link rel="stylesheet" type="text/css" href="' + style + '" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root"><div>' + body + '</div></div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script defer src="' + bundle + '"></script>\n                </body>\n              </html>');
+            res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <script defer src="' + vendorBundle + '"></script>\n                <script defer src="https://code.jquery.com/jquery-2.2.0.min.js"></script>\n                <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">\n                <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>\n                <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">\n                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>\n                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>\n\n                <link rel="stylesheet" type="text/css" href="' + style + '" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root"><div>' + body + '</div></div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script defer src="' + bundle + '"></script>\n                </body>\n              </html>');
           }).catch(function (err) {
             return console.log('Booooo' + err);
           });
@@ -446,10 +450,18 @@ app.get(appbasename + '/*', function (req, res) {
 var port = process.env.PORT || _apiconnection2.default.port;
 
 app.listen(port, function (error) {
+  console.log('Start Express server 1');
   if (error) throw error;
+  if (process.send) process.send('online');
   console.log('Express server listening on port', port);
 });
 
+process.on('message', function (message) {
+  if (message === 'shutdown') {
+    // performCleanup()
+    process.exit(0);
+  }
+});
 // const server = http.createServer(app);
 
 // server.listen(8080);

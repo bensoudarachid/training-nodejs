@@ -18,7 +18,8 @@ var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var authurl = _apiconnection2.default.apiurl;
+// const authurl = ApiConnection.apiurl
+var authurl = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename;
 // import {port} from '../../server7'
 // export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 // export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'

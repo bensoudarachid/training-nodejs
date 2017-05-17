@@ -1,6 +1,10 @@
 
 var webpack = require('webpack')
 var path = require('path')
+
+var AssetsPlugin = require('assets-webpack-plugin')
+var assetsPluginInstance = new AssetsPlugin({filename: 'assets.json',path: path.join(__dirname, 'assets')})
+// var assetsPluginInstance = new AssetsPlugin({filename: 'assets.json'})
 // var pkg = require('./package.json')
 // const glob = require('glob')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -82,11 +86,11 @@ module.exports = {
   output: {
     // path: path.join(__dirname, 'build/reactor'),
     path: path.join(__dirname, 'build'),
-    filename: '[name].js',
+    filename: '[name].[chunkhash].js',
     publicPath: '/', //code bundes will always be served from here. If not specified 'http://abbaslearning.royasoftware.com/trainings/item/2' is serving 1.bundle.js from wrong path
-    // chunkFilename: '[name]-[chunkhash].js', 
+    chunkFilename: '[name].[chunkhash].bundle.js', 
     // '[name].js'
-    chunkFilename: '[name].bundle.js'
+    // chunkFilename: '[name].bundle.js'
 
   },
   resolve: {
@@ -132,15 +136,16 @@ module.exports = {
     ]
   },
   plugins: [
+    assetsPluginInstance,
     // new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js'),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity }),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.[chunkhash].bundle.js', minChunks: Infinity }),
     // new webpack.optimize.CommonsChunkPlugin({
     //   name: 'commons',
     //   filename: 'commons.js',
     //   chunks: ['todos', 'trainings']
     // }),
     // new ExtractTextPlugin('[name].css'),
-    new ExtractTextPlugin('[name].css', {allChunks: true}),
+    new ExtractTextPlugin('[name].[chunkhash].css', {allChunks: true}),
     // new ExtractTextPlugin('[name].css'),
     // new PurifyCSSPlugin({
     //   paths: glob.sync(path.join(__dirname, '**', '*'),{ nodir: true }),
@@ -220,7 +225,7 @@ module.exports = {
             // { from: 'src/reactor/images', to: 'images' }
       { from: 'src/images', to: 'images' }
       // ,{ from: 'vendor.bundle.js', to: 'vendor.bundle.js', force:true }
-      // ,{ from: 'vendor.bundle.js.map', to: 'vendor.bundle.js.map', force:true }
+      // ,{ from: 'assets/assets.json' }
     ])
   ]
   // ,

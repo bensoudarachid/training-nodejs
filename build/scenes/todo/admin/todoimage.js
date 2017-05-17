@@ -80,7 +80,7 @@ var TodoImage = function (_React$Component) {
         'div',
         { className: 'imgwrapper', id: 'imgwrap' + taskid },
         _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-        _react2.default.createElement('img', { id: 'todolistitemimg' + taskid, src: './images/0.png', 'data-src': _apiconnection2.default.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken,
+        _react2.default.createElement('img', { id: 'todolistitemimg' + taskid, src: './images/0.png', 'data-src': _apiconnection2.default.apiurl + _apiconnection2.default.appbasename + '/api/todo/img/' + taskid + '?access_token=' + idToken,
           onLoad: this.handleImageLoaded.bind(this),
           onError: this.handleImageErrored.bind(this), className: 'dataimg', alt: 'coding' })
       );
@@ -138,7 +138,7 @@ var TodoImage = function (_React$Component) {
         //img is a jquery object img[0] is the dom object 
         var idToken = _reactCookie2.default.load('jwt');
         // img[0].removeAttribute('src')
-        img.setAttribute('data-src', _apiconnection2.default.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken + '&rdparam=' + Math.floor(Math.random() * 10000));
+        img.setAttribute('data-src', _apiconnection2.default.apiurl + _apiconnection2.default.appbasename + '/api/todo/img/' + taskid + '?access_token=' + idToken + '&rdparam=' + Math.floor(Math.random() * 10000));
       }
       // var imgSpinner=elm.find('.mdl-spinner')
       if (img.hasAttribute('data-src')) {

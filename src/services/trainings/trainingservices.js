@@ -9,14 +9,15 @@ import cookie from 'react-cookie'
 // import {browserHistory} from 'react-router';
 // import { getIsFetching } from '../reducers'
 import ApiConnection from '../apiconnection'
-const url = ApiConnection.apiurl
+const url = ApiConnection.apiurl+ApiConnection.appbasename
+// const url = ApiConnection.apiurl
 
 const trainingservices = {
   retrieveTrainingService: function(id,hostname) {
     
     let requesturl = url
     if( hostname != undefined)
-      requesturl = ApiConnection.getApiConnection(hostname)
+      requesturl = ApiConnection.getApiConnection(hostname)+ApiConnection.appbasename
     var headers = {
       // 'Content-Type': 'application/x-www-form-urlencoded',
       'Content-Type': 'application/json'
@@ -24,6 +25,7 @@ const trainingservices = {
     // 'Authorization': 'Bearer '+idToken
     }
     var idToken = cookie.load('jwt')
+
     console.log('training fetchData. url: ' + url+'/api/training/item/'+id)
     if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken
@@ -63,10 +65,12 @@ const trainingservices = {
       ))
   },
   retrieveTrainingsService: function(hostname) {
-    // console.log('Service retrieve trainings fetchData call '+ url)
+    var sessionId = cookie.load('JSESSIONID')
+    console.log('Service retrieve trainings fetchData call '+ url +' session id: '+sessionId)
     let requesturl = url
     if( hostname != undefined)
-      requesturl = ApiConnection.getApiConnection(hostname)
+      // requesturl = ApiConnection.getApiConnection(hostname)
+      requesturl = ApiConnection.getApiConnection(hostname)+ApiConnection.appbasename
     var headers = {
       // 'Content-Type': 'application/x-www-form-urlencoded',
       'Content-Type': 'application/json'

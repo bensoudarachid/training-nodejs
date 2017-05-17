@@ -44,7 +44,7 @@ export default class TodoImage extends React.Component {
     return (
         <div className='imgwrapper' id={'imgwrap'+taskid} >
             <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
-            <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}
+            <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+ApiConnection.appbasename+'/api/todo/img/'+taskid+'?access_token='+ idToken}
                 onLoad={this.handleImageLoaded.bind(this)}
                 onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
         </div>
@@ -99,7 +99,7 @@ export default class TodoImage extends React.Component {
     if (this.props.isUploading == false) {//img is a jquery object img[0] is the dom object 
       const idToken = cookie.load('jwt')
       // img[0].removeAttribute('src')
-      img.setAttribute('data-src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&rdparam='+ Math.floor(Math.random() * 10000))
+      img.setAttribute('data-src', ApiConnection.apiurl+ApiConnection.appbasename+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&rdparam='+ Math.floor(Math.random() * 10000))
     }        
     // var imgSpinner=elm.find('.mdl-spinner')
     if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 

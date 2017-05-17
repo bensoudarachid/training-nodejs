@@ -18,7 +18,9 @@ var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var url = _apiconnection2.default.apiurl;
+var url = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename;
+// const url = ApiConnection.apiurl
+
 // import {port} from '../../server7'
 // export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 // export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
@@ -27,13 +29,11 @@ var url = _apiconnection2.default.apiurl;
 // import {browserHistory} from 'react-router';
 // import { getIsFetching } from '../reducers'
 // import Immutable from 'immutable';
-
-
 var trainingservices = {
   retrieveTrainingService: function retrieveTrainingService(id, hostname) {
 
     var requesturl = url;
-    if (hostname != undefined) requesturl = _apiconnection2.default.getApiConnection(hostname);
+    if (hostname != undefined) requesturl = _apiconnection2.default.getApiConnection(hostname) + _apiconnection2.default.appbasename;
     var headers = {
       // 'Content-Type': 'application/x-www-form-urlencoded',
       'Content-Type': 'application/json'
@@ -41,6 +41,7 @@ var trainingservices = {
       // 'Authorization': 'Bearer '+idToken
     };
     var idToken = _reactCookie2.default.load('jwt');
+
     console.log('training fetchData. url: ' + url + '/api/training/item/' + id);
     if (idToken != undefined) {
       headers.Authorization = 'Bearer ' + idToken;
@@ -78,9 +79,12 @@ var trainingservices = {
     });
   },
   retrieveTrainingsService: function retrieveTrainingsService(hostname) {
-    // console.log('Service retrieve trainings fetchData call '+ url)
+    var sessionId = _reactCookie2.default.load('JSESSIONID');
+    console.log('Service retrieve trainings fetchData call ' + url + ' session id: ' + sessionId);
     var requesturl = url;
-    if (hostname != undefined) requesturl = _apiconnection2.default.getApiConnection(hostname);
+    if (hostname != undefined)
+      // requesturl = ApiConnection.getApiConnection(hostname)
+      requesturl = _apiconnection2.default.getApiConnection(hostname) + _apiconnection2.default.appbasename;
     var headers = {
       // 'Content-Type': 'application/x-www-form-urlencoded',
       'Content-Type': 'application/json'
