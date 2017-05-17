@@ -9,7 +9,8 @@ import cookie from 'react-cookie'
 // import {browserHistory} from 'react-router';
 // import { getIsFetching } from '../reducers'
 import ApiConnection from '../../apiconnection'
-const authurl = ApiConnection.apiurl
+// const authurl = ApiConnection.apiurl
+const authurl = ApiConnection.apiurl+ApiConnection.appbasename
 
 const authservices = {
   // apiurl:url,

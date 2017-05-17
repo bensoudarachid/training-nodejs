@@ -30,7 +30,8 @@ var compression = require('compression')
 
 var bodyParser = require('body-parser') // is used for POST requests
 
-const appbasename=ApiConnection.appbasename
+// const appbasename=ApiConnection.appbasename
+const appbasename=''
 
 var config = require('../webpack.config.js')
 var webpack = require('webpack')

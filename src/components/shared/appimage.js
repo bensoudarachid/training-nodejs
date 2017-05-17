@@ -71,7 +71,7 @@ export default class AppImage extends React.Component {
             <div className='spinnerwrap'>
               <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
             </div>
-            <img id={'applicationimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/'+api+'/img/'+imgid+'?width='+width+'&height='+height+''+idTokenParam}
+            <img id={'applicationimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+ApiConnection.appbasename+'/api/'+api+'/img/'+imgid+'?width='+width+'&height='+height+''+idTokenParam}
                 onLoad={this.handleImageLoaded.bind(this)}
                 onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
         </div>
@@ -137,7 +137,7 @@ export default class AppImage extends React.Component {
       const idTokenParam = idToken==undefined?'':'&access_token='+ idToken
       // img[0].removeAttribute('src')
       // img.setAttribute('data-src', ApiConnection.apiurl+'/api/'+api+'/img/'+imgid+'?width='+width+'&height='+height+'&access_token='+ idToken+'&rdparam='+ Math.floor(Math.random() * 10000))
-      img.setAttribute('data-src', ApiConnection.apiurl+'/api/'+api+'/img/'+imgid+'?width='+width+'&height='+height+''+idTokenParam+'&rdparam='+ Math.floor(Math.random() * 10000))
+      img.setAttribute('data-src', ApiConnection.apiurl+ApiConnection.appbasename+'/api/'+api+'/img/'+imgid+'?width='+width+'&height='+height+''+idTokenParam+'&rdparam='+ Math.floor(Math.random() * 10000))
     }        
     // var imgSpinner=elm.find('.mdl-spinner')
     if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 

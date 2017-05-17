@@ -348,7 +348,7 @@ class TrainingApp extends Component {
 
   //This is a necessary call when component is fetched on server side
   static fetchData(actions, params, hostname) {
-//    console.log('Training list fetch data for hostname='+require('util').inspect(hostname, false, null))
+    console.log('Training list fetch data for hostname='+require('util').inspect(hostname, false, null))
 //    console.log('Training list. get all trainings now! '+util.inspect( params, false, null))
     return actions.retrieveTrainingsDispatcher(hostname)
     // const promises = []

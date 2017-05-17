@@ -108,7 +108,7 @@ var AppImage = function (_React$Component) {
           { className: 'spinnerwrap' },
           _react2.default.createElement('div', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' })
         ),
-        _react2.default.createElement('img', { id: 'applicationimg' + imgid, src: './images/0.png', 'data-src': _apiconnection2.default.apiurl + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam,
+        _react2.default.createElement('img', { id: 'applicationimg' + imgid, src: './images/0.png', 'data-src': _apiconnection2.default.apiurl + _apiconnection2.default.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam,
           onLoad: this.handleImageLoaded.bind(this),
           onError: this.handleImageErrored.bind(this), className: 'dataimg', alt: 'coding' })
       );
@@ -177,7 +177,7 @@ var AppImage = function (_React$Component) {
         var idTokenParam = idToken == undefined ? '' : '&access_token=' + idToken;
         // img[0].removeAttribute('src')
         // img.setAttribute('data-src', ApiConnection.apiurl+'/api/'+api+'/img/'+imgid+'?width='+width+'&height='+height+'&access_token='+ idToken+'&rdparam='+ Math.floor(Math.random() * 10000))
-        img.setAttribute('data-src', _apiconnection2.default.apiurl + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam + '&rdparam=' + Math.floor(Math.random() * 10000));
+        img.setAttribute('data-src', _apiconnection2.default.apiurl + _apiconnection2.default.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam + '&rdparam=' + Math.floor(Math.random() * 10000));
       }
       // var imgSpinner=elm.find('.mdl-spinner')
       if (img.hasAttribute('data-src')) {

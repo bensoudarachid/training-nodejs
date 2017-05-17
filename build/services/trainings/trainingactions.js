@@ -486,7 +486,7 @@ var trainingactions = {
   },
 
   retrieveTrainingsDispatcher: function retrieveTrainingsDispatcher(hostname) {
-    console.log('actions. retrieveTrainingsDispatcher ');
+    console.log('actions. retrieveTrainingsDispatcher ' + hostname);
     return function (dispatch, getState) {
       // if(!process.env.BROWSER || (process.env.BROWSER && getState().app.get('previouslocation')!=undefined))
       if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched')) return;
