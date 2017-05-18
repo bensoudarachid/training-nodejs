@@ -1,9 +1,9 @@
-const version = require('./version.js') 
+// const version = require('./version.js') 
 var apiport = 8083 // default for development
 
 class ApiConnection {
   constructor() {
-    console.log('version='+require('util').inspect(version, false, null))
+    // console.log('version='+require('util').inspect(version, false, null))
 
     var port = -12
     var appbasename = ''
@@ -13,7 +13,6 @@ class ApiConnection {
     }
     else{
       port=8081
-      // appbasename = '/training-'+version.appversion
     }
     var isBrowser = typeof window !== 'undefined'
 

@@ -8,14 +8,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var version = require('./version.js');
+// const version = require('./version.js') 
 var apiport = 8083; // default for development
 
 var ApiConnection = function () {
   function ApiConnection() {
     _classCallCheck(this, ApiConnection);
 
-    console.log('version=' + require('util').inspect(version, false, null));
+    // console.log('version='+require('util').inspect(version, false, null))
 
     var port = -12;
     var appbasename = '';
@@ -24,7 +24,6 @@ var ApiConnection = function () {
       // appbasename = '/training-'+version.appversion
     } else {
       port = 8081;
-      // appbasename = '/training-'+version.appversion
     }
     var isBrowser = typeof window !== 'undefined';
 
