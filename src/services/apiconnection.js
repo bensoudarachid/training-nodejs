@@ -9,7 +9,7 @@ class ApiConnection {
     var appbasename = ''
     if (process.env.NODE_ENV === 'production'){
       port=8082
-      appbasename = '/training-'+version.appversion
+      // appbasename = '/training-'+version.appversion
     }
     else{
       port=8081
