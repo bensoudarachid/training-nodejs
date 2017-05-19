@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "Training App",
+      "script": "./build/server7prod.js",
+      "instances": 1,
+      "exec_mode": "cluster",
+	  "cwd": "C:/Programme/TrainingNodeApp",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": "8082",
+      }
+    }
+  ]
+}
