@@ -192,7 +192,7 @@ var NavPublic = function (_Component) {
 							_react2.default.createElement(
 								_reactRouter.IndexLink,
 								{ activeClassName: 'active', to: '/' },
-								'Hobb'
+								'Balala'
 							)
 						),
 						_react2.default.createElement(
