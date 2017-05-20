@@ -193,7 +193,7 @@ var NavAdmin = function (_Component) {
               _react2.default.createElement(
                 _reactRouter.IndexLink,
                 { activeClassName: 'active', to: '/' },
-                'Home'
+                'Homeas'
               )
             ),
             (process.env.NODE_ENV != 'production' || process.env.NODE_ENV == 'production') && _react2.default.createElement(
