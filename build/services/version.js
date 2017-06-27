@@ -3,4 +3,4 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var appversion = exports.appversion = '2017-05-20-15-49-59-4959';
+var appversion = exports.appversion = '2017-06-27-08-01-11-111';

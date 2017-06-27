@@ -25,11 +25,12 @@ module.exports = {
     // ,todos:['./src/scenes/todo/todoapp.js']
     // ,trainings:['./src/scenes/training/trainingapp.js']
     // ,vendor  : Object.keys(pkg.dependencies)
+
     ,vendor:[
-      'immutable','lodash','react-router','validator','html-entities',
-      'es6-promise','redux','react-proxy','react-redux','redbox-react','util','redux-logger','whatwg-fetch',
+      'es6-promise','html-entities','fullcalendar','immutable','lodash','react-router','validator',
+      'redux','react-proxy','react-redux','redbox-react','util','redux-logger','whatwg-fetch',
       'react-router-redux','react-hot-api',
-      'react-hot-loader','cookie','react-transform-hmr','react-cookie',
+      'react-hot-loader','cookie','react-transform-hmr','react-big-calendar','react-cookie','react-dnd','react-dnd-html5-backend',
       'react-transform-catch-errors','hoist-non-react-statics',
       'react-deep-force-update','redux-thunk','global','isomorphic-fetch',
       'react-addons-pure-render-mixin'],
