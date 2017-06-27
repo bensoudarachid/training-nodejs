@@ -499,9 +499,11 @@ const trainingactions = {
         .then(
           ({status, data}) => {
             if (status === 401) {
+
               console.log('Status looks bad. Unauthorized')
                   // dispatch(actions.receiveLogout())
-              dispatch(actions.loadTrainings([]))
+              dispatch(actions.loginProcessStart('No access rights!',actions.retrieveTrainingsDispatcher))
+              // dispatch(actions.loadTrainings([]))
             } else if (status >= 400) {
               var error = data
               console.log('Status looks bad. ' + status + '. error message = ' + error.message)

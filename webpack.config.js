@@ -84,7 +84,9 @@ module.exports = {
     new webpack.ProvidePlugin({   
       jQuery: 'jquery',
       $: 'jquery',
-      jquery: 'jquery'
+      jquery: 'jquery',
+      moment: 'moment',
+      fullCalendar: 'fullcalendar'
     }),
     //new webpack.SourceMapDevToolPlugin('bundle.js.map', null,'[absolute-resource-path]', '[absolute-resource-path]'),
     new webpack.optimize.OccurrenceOrderPlugin(),

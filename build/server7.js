@@ -61,6 +61,8 @@ var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// var $ = require('jquery')
+
 var FormData = require('form-data'); // require('babel-core/register')
 // require('babel-register')({
 //   'presets': ['es2015']

@@ -497,9 +497,11 @@ var trainingactions = {
             data = _ref4.data;
 
         if (status === 401) {
+
           console.log('Status looks bad. Unauthorized');
           // dispatch(actions.receiveLogout())
-          dispatch(_actions2.default.loadTrainings([]));
+          dispatch(_actions2.default.loginProcessStart('No access rights!', _actions2.default.retrieveTrainingsDispatcher));
+          // dispatch(actions.loadTrainings([]))
         } else if (status >= 400) {
           var error = data;
           console.log('Status looks bad. ' + status + '. error message = ' + error.message);

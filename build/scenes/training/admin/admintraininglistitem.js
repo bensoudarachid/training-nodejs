@@ -166,7 +166,8 @@ var AdminTrainingListItem = function (_React$Component) {
     value: function handleSchedule(event) {
       console.log('Call Edit for this Training' + this.props.training.get('id'));
       // this.props.actions.appError(undefined)
-      window.routerHistory.push('/admin/todos');
+      // window.routerHistory.push('/admin/todos')
+      window.routerHistory.push('/admin/trainings/item/' + this.props.training.get('id') + '/schedule');
     }
   }]);
 

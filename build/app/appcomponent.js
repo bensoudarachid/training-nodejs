@@ -26,13 +26,13 @@ var _actions = require('../services/actions');
 
 var _actions2 = _interopRequireDefault(_actions);
 
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
 var _reactAddonsCssTransitionGroup = require('react-addons-css-transition-group');
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
 
 var _confirmationmodal = require('../components/shared/confirmationmodal');
 

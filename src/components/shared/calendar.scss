@@ -1,0 +1,36 @@
+@import '../../styles/default.scss';
+
+
+.calendar {
+	// margin: 0 0 0 8px;
+	// background-color: red;
+	// width:80%;
+	// height:80%;
+	// margin:10% auto 10% auto;
+	// height:60px;
+	position:relative;
+	// display: flex;
+ //    flex-flow: logospinner mdlspinnerwrap;
+
+	.rbc-time-column .rbc-timeslot-group {
+	-webkit-flex: 1;
+	  	-ms-flex: 1;
+	    	flex: 1;
+	}
+	.rbc-timeslot-group {
+	  // border-bottom: 1px solid #DDD;
+	  border-bottom: 0px solid red;
+	  min-height: 5px;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -ms-flex-flow: column nowrap;
+	      flex-flow: column nowrap;
+	  height: 5px;
+	  // background-color: red;
+	}
+
+}
+ //  	.rbc-row {
+ //    	height: 10px;
+	// }
+

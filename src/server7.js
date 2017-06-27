@@ -21,6 +21,7 @@ import { bindActionCreators } from 'redux'
 import actions from './services/actions'
 import ApiConnection from './services/apiconnection'
 
+// var $ = require('jquery')
 
 var FormData = require('form-data')
 const util = require('util')
