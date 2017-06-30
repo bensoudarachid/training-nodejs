@@ -5,7 +5,7 @@ import FileUploadInput from '../../../components/shared/fileuploadinput'
 // import TrainingImage from '../shared/trainingimage'
 import AppImage from '../../../components/shared/appimage'
 import BigCalendarEdit from '../../../components/shared/bigcalendaredit'
-import FullCalendarEdit from '../../../components/shared/fullcalendaredit'
+// import FullCalendarEdit from '../../../components/shared/fullcalendaredit'
 // import ConfirmationModal from './confirmationmodal'
 
 
@@ -66,8 +66,9 @@ export default class TrainingSchedule extends React.Component {
             // </div>
             // }
     {
-      let events= [
+      let events= Immutable.List([
         {
+          'id':1,
           'title':'React 1',
           // 'date': Date.now(),
           'start': new Date(2001, 0, 2, 10, 30, 0, 0),
@@ -75,13 +76,14 @@ export default class TrainingSchedule extends React.Component {
           // 'allDay': true
         },
         {
+          'id':2,
           'title':'React 2',
           // 'date': Date.now(),
           'start': new Date(2001, 0, 4, 14, 30, 0, 0),
           'end': new Date(2001, 0, 4, 16, 30, 0, 0),
           // 'allDay': true
         }
-      ]
+      ])
 
       return (
         <div className='trainingschedule blockborder'>

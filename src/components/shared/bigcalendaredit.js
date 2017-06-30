@@ -1,5 +1,7 @@
 import React from 'react'
 import 'jquery'
+import Immutable from 'immutable'
+
 // import $ from 'jquery'
 
 // import '../../../node_modules/fullcalendar/dist/fullcalendar.js'
@@ -55,14 +57,37 @@ class BigCalendarEdit extends React.Component{
     return <strong>Hi</strong>
   }
 
+      // <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--7-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+
+      //     <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--7-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+      //       <form className='pad mdl-grid mdl-cell mdl-cell--7-col mdl-cell--5-col-tablet mdl-cell--4-col-phone' onSubmit={this.onSaveClick.bind(this)}>
+      //         <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+      //             <div className='mdl-textfield tf mdl-js-textfield'>
+      //               <input className='mdl-textfield__input' type='text' defaultValue={title} name={'eventInput'+index} ref='eventInput' id={'eventInput'+index}/>
+      //               <label className='mdl-textfield__label' htmlFor={'eventInput'+index}>Event...</label>
+      //             </div>            
+      //         </div>
+      //       </form>
+      //       <div className='editsaveblock pad mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
+      //         <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items' onClick={this.onCancelClick.bind(this)} disabled={disabled}>Cancel</button>
+      //         <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored savebutton right-items' onClick={this.onSaveClick.bind(this)} disabled={disabled}>Save</button>
+      //       </div>
+      //     </div>
+
+      // </div>
+
   render() {
     // console.log('calendar render. events='+require('util').inspect(this.props.events, false, null))
+    // const title = this.state.event.title
+    // const id = this.state.event.get('id')
+    // const index = this.state.event.id
 
     // let today = moment()
     // let am8 = today.set('hour', 8).set('minutes', 0).toDate()
     // let pm8 = today.set('hour', 21).set('minutes', 0).toDate()
     return (
     <div className='calendar'>
+
       <DragAndDropCalendar
         selectable
         defaultDate={new Date(2001, 0, 7, 12, 30, 0, 0)}
@@ -142,12 +167,33 @@ class BigCalendarEdit extends React.Component{
 
     // alert(`${event.title} was dropped onto ${event.start}`)
   }
+
   selectEvent(event) {
-    // const events = this.props.events
-    // alert('wow '+event.title)
+    const { localevents } = this.state
+    const nextEvents = [...localevents]
+
+    // const idx = nextEvents.indexOf(event)
+    // const updatedEvent = { ...event }
+    // updatedEvent.title = 'Thomas'
+    // nextEvents.splice(idx, 1, updatedEvent)
+    // this.setState({
+    //   localevents: nextEvents
+    // })
+
+
+    console.log('event.id='+require('util').inspect(event.id, false, null))
+    for (var i=0; i<nextEvents.length; i++) {
+      if (nextEvents[i].id == event.id) {
+        nextEvents[i].title = 'Thomas'
+        break
+      }
+    }
+    this.setState({
+      localevents: nextEvents
+    })
   }
   eventStyleGetter(event, start, end, isSelected) {
-    // console.log('event.title='+require('util').inspect(event.title, false, null)+', isSelected='+require('util').inspect(isSelected, false, null))
+    console.log('eventStyleGetter ='+require('util').inspect(event.title, false, null)+', isSelected='+require('util').inspect(isSelected, false, null))
     // var backgroundColor = '#' + event.hexColor
     // var backgroundColor = '#aaf'
     var borderColor = 'transparent'

@@ -30,10 +30,6 @@ var _bigcalendaredit = require('../../../components/shared/bigcalendaredit');
 
 var _bigcalendaredit2 = _interopRequireDefault(_bigcalendaredit);
 
-var _fullcalendaredit = require('../../../components/shared/fullcalendaredit');
-
-var _fullcalendaredit2 = _interopRequireDefault(_fullcalendaredit);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44,6 +40,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // import TrainingImage from '../shared/trainingimage'
 
 
+// import FullCalendarEdit from '../../../components/shared/fullcalendaredit'
 // import ConfirmationModal from './confirmationmodal'
 
 
@@ -114,17 +111,19 @@ var TrainingSchedule = function (_React$Component) {
         // </div>
         // }
         {
-          var events = [{
+          var events = _immutable2.default.List([{
+            'id': 1,
             'title': 'React 1',
             // 'date': Date.now(),
             'start': new Date(2001, 0, 2, 10, 30, 0, 0),
             'end': new Date(2001, 0, 2, 12, 30, 0, 0)
           }, {
+            'id': 2,
             'title': 'React 2',
             // 'date': Date.now(),
             'start': new Date(2001, 0, 4, 14, 30, 0, 0),
             'end': new Date(2001, 0, 4, 16, 30, 0, 0)
-          }];
+          }]);
 
           return _react2.default.createElement(
             'div',
