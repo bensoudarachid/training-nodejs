@@ -10,7 +10,12 @@ if (process.env.BROWSER) {
     require('./admintraininglist.scss')
 }
 
+<<<<<<< HEAD
 export default class AdminTrainingList extends React.Component {
+=======
+export default
+class AdminTrainingList extends React.Component {
+>>>>>>> 6e3ff02... webstorm big changes crash
     constructor(props) {
         super(props)
         // console.log('training list. Mixin in constructor')
@@ -18,7 +23,11 @@ export default class AdminTrainingList extends React.Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+=======
+        componentHandler.upgradeDom()
+>>>>>>> 6e3ff02... webstorm big changes crash
     }
 
     renderItems() {
@@ -39,6 +48,7 @@ export default class AdminTrainingList extends React.Component {
 
         return (
             <div className='admintrainingslist'>
+<<<<<<< HEAD
                 {this.props.trainings == undefined ?
                     //if i use div instead of span, big parts of the view are not clickable!
                     <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap'
@@ -48,6 +58,19 @@ export default class AdminTrainingList extends React.Component {
                         {this.renderItems()}
                     </div>
                 }
+=======
+        {this.props.trainings == undefined ?
+            //if i use div instead of span, big parts of the view are not clickable!
+            <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap' style={{
+                width: '55px',
+                height: '55px'
+            }}></span>
+            :
+            <div className='admintrainingslistwrap mdl-grid mdl-grid--no-spacing'>
+            {this.renderItems()}
+            </div>
+            }
+>>>>>>> 6e3ff02... webstorm big changes crash
             </div>
         )
     }

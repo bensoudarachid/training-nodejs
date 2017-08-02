@@ -87,7 +87,11 @@ class Home extends Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+=======
+        componentHandler.upgradeDom()
+>>>>>>> 6e3ff02... webstorm big changes crash
         // var idToken = cookie.load('jwt')
         // console.log('++++++++++++++++homejs. compdidmount')
         $('.imgwrap').each(function (i, el) {
@@ -98,7 +102,11 @@ class Home extends Component {
             var imgSpinner = elm.find('.mdl-spinner')
 
             setTimeout(() => {
+<<<<<<< HEAD
                 if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+=======
+                if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
+>>>>>>> 6e3ff02... webstorm big changes crash
                     img[0].setAttribute('src', img[0].getAttribute('data-src'))
                     img[0].onload = function () {
                         // console.log('image loaded on mount: '+img[0].getAttribute('data-src'))
@@ -118,7 +126,11 @@ class Home extends Component {
                             //   imgbg.removeClass('imgbg')
                             //   rdm = Math.floor(Math.random() * 2) + 1
                             //   var imgbgAnim = imgAnim==='jello'?'rubberBand':imgAnim==='rubberBand'?'jello':rdm===1?'fadeInLeft':'fadeInRight'
+<<<<<<< HEAD
                             //   imgbg.addClass('animated '+imgbgAnim+' imgwraptor') 
+=======
+                            //   imgbg.addClass('animated '+imgbgAnim+' imgwraptor')
+>>>>>>> 6e3ff02... webstorm big changes crash
                             // }
 
                             // var rdm = Math.floor(Math.random() * 3) + 1
@@ -183,7 +195,11 @@ class Home extends Component {
             // var imgbg=elm.find('.imgbg')
             var img = elm.find('.dataimg')
             var imgSpinner = elm.find('.mdl-spinner')
+<<<<<<< HEAD
             if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+=======
+            if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
+>>>>>>> 6e3ff02... webstorm big changes crash
                 img[0].setAttribute('src', img[0].getAttribute('data-src') + (img[0].getAttribute('data-src').includes('/api/') ? ('?access_token=' + idToken) : ''))
                 img[0].onload = function () {
                     console.log('image loaded on scroll: ' + img[0].getAttribute('data-src'))
@@ -239,7 +255,11 @@ class Home extends Component {
         //   <div>
         //     <h1>Please login home</h1>
         //   </div>
+<<<<<<< HEAD
         // :        
+=======
+        // :
+>>>>>>> 6e3ff02... webstorm big changes crash
 
         return (
             <div>
@@ -250,6 +270,7 @@ class Home extends Component {
                             <div className="col-xs-12 col-md-4 col-lg-4">
                                 <div className='imgwrap'>
                                     <div className='imgbg'/>
+<<<<<<< HEAD
                                     <div
                                         className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
                                     <img src={'./images/0.png'} data-src={'./images/Blog-Coding.svg'}
@@ -260,10 +281,17 @@ class Home extends Component {
                                     support our customers from analysis and the conception, through development,
                                     integration and adaptation until the deployment and the maintenance of these
                                     systems. </p>
+=======
+                                    <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
+                                    <img src={'./images/0.png'} data-src={'./images/Blog-Coding.svg'} className='dataimg' alt='coding'/>
+                                </div>
+                                <p>1. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
+>>>>>>> 6e3ff02... webstorm big changes crash
                             </div>
                             <div className="col-xs-12 col-md-4 col-lg-4">
                                 <div className='imgwrap'>
                                     <div className='imgbg'/>
+<<<<<<< HEAD
                                     <div
                                         className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
                                     <img src={'./images/0.png'} data-src={'./images/Blog-Deploying.svg'}
@@ -273,10 +301,17 @@ class Home extends Component {
                                     support our customers from analysis and the conception, through development,
                                     integration and adaptation until the deployment and the maintenance of these
                                     systems. </p>
+=======
+                                    <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
+                                    <img src={'./images/0.png'} data-src={'./images/Blog-Deploying.svg'} className='dataimg' alt='coding'/>
+                                </div>
+                                <p>2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
+>>>>>>> 6e3ff02... webstorm big changes crash
                             </div>
                             <div className="col-xs-12 col-md-4 col-lg-4">
                                 <div className='imgwrap'>
                                     <div className='imgbg'/>
+<<<<<<< HEAD
                                     <div
                                         className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
                                     <img src={'./images/0.png'} data-src={'./images/Blog-Planning.svg'}
@@ -286,6 +321,12 @@ class Home extends Component {
                                     support our customers from analysis and the conception, through development,
                                     integration and adaptation until the deployment and the maintenance of these
                                     systems. </p>
+=======
+                                    <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
+                                    <img src={'./images/0.png'} data-src={'./images/Blog-Planning.svg'} className='dataimg' alt='coding'/>
+                                </div>
+                                <p>3. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
+>>>>>>> 6e3ff02... webstorm big changes crash
                             </div>
                             <div className="clearfix visible-md visible-lg"></div>
 
@@ -294,6 +335,7 @@ class Home extends Component {
                             <div className="col-xs-12 col-md-4 col-lg-4">
                                 <div className='imgwrap'>
                                     <div className='imgbg'/>
+<<<<<<< HEAD
                                     <div
                                         className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
                                     <img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'}
@@ -303,10 +345,17 @@ class Home extends Component {
                                     support our customers from analysis and the conception, through development,
                                     integration and adaptation until the deployment and the maintenance of these
                                     systems. </p>
+=======
+                                    <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
+                                    <img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'} className='dataimg' alt='coding'/>
+                                </div>
+                                <p>4. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
+>>>>>>> 6e3ff02... webstorm big changes crash
                             </div>
                             <div className="col-xs-12 col-md-4 col-lg-4">
                                 <div className='imgwrap'>
                                     <div className='imgbg'/>
+<<<<<<< HEAD
                                     <div
                                         className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
                                     <img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral1.png'}
@@ -316,10 +365,17 @@ class Home extends Component {
                                     support our customers from analysis and the conception, through development,
                                     integration and adaptation until the deployment and the maintenance of these
                                     systems. </p>
+=======
+                                    <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
+                                    <img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral1.png'} className='dataimg' alt='coding'/>
+                                </div>
+                                <p>5. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
+>>>>>>> 6e3ff02... webstorm big changes crash
                             </div>
                             <div className="col-xs-12 col-md-4 col-lg-4">
                                 <div className='imgwrap'>
                                     <div className='imgbg'/>
+<<<<<<< HEAD
                                     <div
                                         className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
                                     <img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'}
@@ -329,6 +385,12 @@ class Home extends Component {
                                     support our customers from analysis and the conception, through development,
                                     integration and adaptation until the deployment and the maintenance of these
                                     systems. </p>
+=======
+                                    <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
+                                    <img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'} className='dataimg' alt='coding'/>
+                                </div>
+                                <p>6. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. </p>
+>>>>>>> 6e3ff02... webstorm big changes crash
                             </div>
                             <div className="clearfix visible-md visible-lg"></div>
 
@@ -343,13 +405,21 @@ class Home extends Component {
 export default Home
 
 
+<<<<<<< HEAD
 // <div className="row"> 
+=======
+// <div className="row">
+>>>>>>> 6e3ff02... webstorm big changes crash
 //   <ul className='mdl-list'>
 //     <li className="mdl-list__item">
 //       <span className="mdl-list__item-primary-content">
 //         <span className='glyphicon  glyphicon-user'></span>
 //         User 1
+<<<<<<< HEAD
 //       </span> 
+=======
+//       </span>
+>>>>>>> 6e3ff02... webstorm big changes crash
 //       <a className="mdl-list__item-primary-action" href="#"><span className='glyphicon glyphicon-leaf'></span></a>
 //     </li>
 

@@ -439,7 +439,11 @@ app.get(appbasename + '/*', (req, res) => {
 
                         const state = store.getState()
                         // console.log('state before stringify ='+require('util').inspect(state, false, null))
+<<<<<<< HEAD
                         console.log('State paased to client = ' + JSON.stringify(state))
+=======
+                        console.log('State passed to client = ' + JSON.stringify(state))
+>>>>>>> 6e3ff02... webstorm big changes crash
                         res.status(200).send(`<!DOCTYPE html>
               <html>
                 <head>

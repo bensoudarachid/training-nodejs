@@ -71,10 +71,17 @@ const authservices = {
 
         return fetch(authurl + '/oauth/token', config)
             .then(response => response.json().then(user => ({
+<<<<<<< HEAD
                     user,
                     response
                 }))
             )
+=======
+                user,
+                response
+            }))
+        )
+>>>>>>> 6e3ff02... webstorm big changes crash
             .catch(function (err) {
                 console.log('hahaaaaaa' + err)
                 throw {error: 'connectionfailure', error_description: 'Failed to connect. Please try later'} //new Error('failed to connect')

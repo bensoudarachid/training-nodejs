@@ -1,6 +1,10 @@
 @import '../../styles/default.scss';
+
+<<<<<<< HEAD
+=======
 // @import "../../../node_modules/material-design-lite/src/_variables.scss";
 
+>>>>>>> 6e3ff02... webstorm big changes crash
 #bsnavi {
   #bg {
     position: absolute;
@@ -277,7 +281,12 @@
   //	background-color:red;
   //}
 
+<<<<<<< HEAD
   @media (min-width: 768px) { //768
+=======
+  @media (min-width: 768px) {
+    //768
+>>>>>>> 6e3ff02... webstorm big changes crash
     .navbar-left, .navbar-right {
       // background-color:lighten(blue,40%);
       //	  	float: right;
@@ -409,7 +418,12 @@
 
   }
 
+<<<<<<< HEAD
   @media (min-width: 992px) { //992
+=======
+  @media (min-width: 992px) {
+    //992
+>>>>>>> 6e3ff02... webstorm big changes crash
     width: 90%;
 
     @include transitionAll(.3s);

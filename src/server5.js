@@ -5,7 +5,6 @@ import {RouterContext, match} from 'react-router'
 import {renderToString} from 'react-dom/server'
 import {routes} from '../components/routes';
 
-
 var config = require('../webpack.config.js');
 var webpack = require('webpack');
 

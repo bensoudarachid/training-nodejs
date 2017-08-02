@@ -14,8 +14,13 @@ $(document).ready(function () {
 
 
     /*
+<<<<<<< HEAD
     * requestAnimationFrame pollyfill
     */
+=======
+     * requestAnimationFrame pollyfill
+     */
+>>>>>>> 6e3ff02... webstorm big changes crash
 
     // var context = document.querySelector('#canvs3').getContext('2d')
 
@@ -28,7 +33,11 @@ $(document).ready(function () {
         // gradientEnd: '#ffffff',
         gradientEnd: '#dfefff',
         // gradientEnd: '#76ff93', //vert
+<<<<<<< HEAD
         // gradientEnd: '#ffffff', 
+=======
+        // gradientEnd: '#ffffff',
+>>>>>>> 6e3ff02... webstorm big changes crash
 
 
         smokeOpacity: 0.05,

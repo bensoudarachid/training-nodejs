@@ -1,4 +1,5 @@
 import React from 'react'
+require('../../node_modules/babel-polyfill/dist/polyfill.js')
 // var React = require('react');
 import ReactDom from 'react-dom'
 import Immutable from 'immutable'
@@ -196,7 +197,11 @@ $('.ellipsis').ellipsis()
 
 ReactDom.render(
     <Provider store={store}>
+<<<<<<< HEAD
         <Router routes={routes} history={mybrowserHistory}/>
+=======
+        <Router routes={routes} history={mybrowserHistory} />
+>>>>>>> 6e3ff02... webstorm big changes crash
     </Provider>,
     document.getElementById('root')
 )
@@ -227,7 +232,11 @@ ReactDom.render(
 // <Provider store={store}>
 //  <App />
 // </Provider>,
+<<<<<<< HEAD
 // 
+=======
+//
+>>>>>>> 6e3ff02... webstorm big changes crash
 
 // <Route handler={AppComponent} path="/">
 //   <DefaultRoute handler={Home} />
@@ -236,5 +245,9 @@ ReactDom.render(
 //   <Route name="todos" handler={TodoApp} />
 //   <Route name="trainings" handler={TrainingApp}>
 //   </Route>
+<<<<<<< HEAD
 //   <NotFoundRoute handler={NotFound}/>        
+=======
+//   <NotFoundRoute handler={NotFound}/>
+>>>>>>> 6e3ff02... webstorm big changes crash
 // </Route>

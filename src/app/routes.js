@@ -26,8 +26,13 @@ var NotFoundRoute = ReactRouter.NotFoundRoute
 
 if (typeof require.ensure !== 'function') require.ensure = (d, c) => c(require)
 
+<<<<<<< HEAD
 const Users = ({params, location}) => (
     <h3>Howdy Wa fin {params.name}! You like Food: {location.query.food}.</h3>
+=======
+const Users = ({ params, location }) => (
+    <h3>Howdy Wa fin { params.name }! You like Food: { location.query.food }.</h3>
+>>>>>>> 6e3ff02... webstorm big changes crash
 )
 const NotFound = () => ( <h1>404.... This page is not found!</h1> )
 
@@ -101,6 +106,7 @@ const NotFound = () => ( <h1>404.... This page is not found!</h1> )
 
 const routes = (
     <Route path="/" component={AppComponent}
+<<<<<<< HEAD
            getChildRoutes={(location, cb) => {
                cb(null, [
 
@@ -112,6 +118,19 @@ const routes = (
            }}>
         >
         <IndexRoute component={Home}/>
+=======
+        getChildRoutes={(location, cb) => {
+            cb(null, [
+
+                <Route path="register" component={require('../scenes/registration/register').default}/>,
+                require('./routes/adminroutes.js').default,
+                <Route path='trainings' component={TrainingApp}/>,
+                <Route path='*' component={NotFound}/>
+            ])
+        }}>
+    >
+        <IndexRoute component={Home} />
+>>>>>>> 6e3ff02... webstorm big changes crash
     </Route>
 )
 

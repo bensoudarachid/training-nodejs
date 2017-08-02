@@ -29,10 +29,17 @@ if (process.env.BROWSER) {
 
 let MyCustomHeader = React.createClass({
     render() {
+<<<<<<< HEAD
         const {label} = this.props
         return (
             <div>
                 <div>{label.substring(0, 3)}</div>
+=======
+        const { label } = this.props
+        return (
+            <div>
+                <div>{ label.substring(0, 3) }</div>
+>>>>>>> 6e3ff02... webstorm big changes crash
             </div>
         )
     }
@@ -70,7 +77,11 @@ class Calendar extends React.Component {
                     min={new Date(2001, 0, 7, 8, 0, 0, 0)}
                     max={new Date(2001, 0, 7, 22, 0, 0, 0)}
                     // min={moment().startOf('day').toDate()}
+<<<<<<< HEAD
                     // max={moment().endOf('day').toDate()}      
+=======
+                    // max={moment().endOf('day').toDate()}
+>>>>>>> 6e3ff02... webstorm big changes crash
                     culture='en-GB'
                     // events={myevents}
                     // style={{height: '420px'}}
@@ -95,7 +106,11 @@ class Calendar extends React.Component {
 
     componentDidMount() {
         // console.log('events='+require('util').inspect(this.props.events, false, null))
+<<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+=======
+        componentHandler.upgradeDom()
+>>>>>>> 6e3ff02... webstorm big changes crash
         // const {calendar} = this.refs
         // $(calendar).fullCalendar({
 
@@ -103,7 +118,11 @@ class Calendar extends React.Component {
         //   timezone:'local',
         //   defaultView: 'agendaWeek',
         //   header: { center: 'Time Sheet',right:'agendaWeek'},
+<<<<<<< HEAD
         //   navLinks: false, 
+=======
+        //   navLinks: false,
+>>>>>>> 6e3ff02... webstorm big changes crash
         //   editable: true,
         //   eventLimit: true,
         //   // allDaySlot: false,
@@ -111,7 +130,11 @@ class Calendar extends React.Component {
         //   minTime : '08:00:00',
         //   maxTime : '22:00:00',
         //   // defaultdate: dateFormat(Date(),"yyyy-mm-dd"),
+<<<<<<< HEAD
         //   contentHeight: 'auto',         
+=======
+        //   contentHeight: 'auto',
+>>>>>>> 6e3ff02... webstorm big changes crash
 
         //   events:this.props.events,
         // })
@@ -124,6 +147,7 @@ class Calendar extends React.Component {
         // $(calendar).fullCalendar('destroy')
     }
 
+<<<<<<< HEAD
     moveEvent({event, start, end}) {
         // const events = this.props.events
         const {localevents} = this.state
@@ -140,6 +164,35 @@ class Calendar extends React.Component {
 
         // alert(`${event.title} was dropped onto ${event.start}`)
     }
+=======
+    moveEvent({ event, start, end }) {
+        // const events = this.props.events
+        const { localevents } = this.state
+
+        const idx = localevents.indexOf(event)
+        const updatedEvent = {
+    ...
+        event, start, end
+    }
+
+    const nextEvents = [...localevents]
+    nextEvents
+.
+    splice(idx,
+
+1,
+    updatedEvent
+)
+
+        this
+.
+    setState({
+        localevents: nextEvents
+        })
+
+    // alert(`${event.title} was dropped onto ${event.start}`)
+}
+>>>>>>> 6e3ff02... webstorm big changes crash
 
 }
 

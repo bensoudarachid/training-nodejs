@@ -125,7 +125,11 @@ $(document).ready(function () {
             //   context.font = '110px Dancing Script'
             //   context.fillStyle = 'white'
             //   context.textAlign = 'center'
+<<<<<<< HEAD
             //   context.fillText('JAVA', canvas.width/6, 1.0*canvas.height/3.7)         
+=======
+            //   context.fillText('JAVA', canvas.width/6, 1.0*canvas.height/3.7)
+>>>>>>> 6e3ff02... webstorm big changes crash
             // }
 
             this.animateStars = function () {

@@ -10,7 +10,8 @@ if (process.env.BROWSER) {
     require('./appimage.scss')
 }
 
-export default class AppImage extends React.Component {
+export default
+class AppImage extends React.Component {
 
     constructor(props) {
         super(props)
@@ -20,7 +21,11 @@ export default class AppImage extends React.Component {
         }
     }
 
+<<<<<<< HEAD
     // <img id={'applicationlistitemimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}           
+=======
+    // <img id={'applicationlistitemimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}
+>>>>>>> 6e3ff02... webstorm big changes crash
     //     onLoad={this.handleImageLoaded.bind(this)}
     //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
     // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
@@ -29,7 +34,11 @@ export default class AppImage extends React.Component {
     // :<div>weg</div>
     // }
 
+<<<<<<< HEAD
     // <img id={'applicationlistitemimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}           
+=======
+    // <img id={'applicationlistitemimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}
+>>>>>>> 6e3ff02... webstorm big changes crash
     //     onLoad={this.handleImageLoaded.bind(this)}
     //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
 
@@ -67,6 +76,7 @@ export default class AppImage extends React.Component {
         const idTokenParam = idToken == undefined ? '' : '&access_token=' + idToken
         console.log('app image idTokenParam=' + require('util').inspect(idTokenParam, false, null))
         return (
+<<<<<<< HEAD
             <div className='imgwrapper' id={'imgwrap' + imgid}>
                 <div className='spinnerwrap'>
                     <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
@@ -75,6 +85,15 @@ export default class AppImage extends React.Component {
                      data-src={ApiConnection.apiurl + ApiConnection.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam}
                      onLoad={this.handleImageLoaded.bind(this)}
                      onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
+=======
+            <div className='imgwrapper' id={'imgwrap' + imgid} >
+                <div className='spinnerwrap'>
+                    <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
+                </div>
+                <img id={'applicationimg' + imgid} src='./images/0.png' data-src={ApiConnection.apiurl + ApiConnection.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam}
+                    onLoad={this.handleImageLoaded.bind(this)}
+                    onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
+>>>>>>> 6e3ff02... webstorm big changes crash
             </div>
         )
         // return (
@@ -83,7 +102,11 @@ export default class AppImage extends React.Component {
         //         <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
         //         :<div/>
         //     }
+<<<<<<< HEAD
         //         <img id={'applicationlistitemimg'+imgid} src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}           
+=======
+        //         <img id={'applicationlistitemimg'+imgid} src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}
+>>>>>>> 6e3ff02... webstorm big changes crash
         //             onLoad={this.handleImageLoaded.bind(this)}
         //             onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
         //     </div>
@@ -91,8 +114,13 @@ export default class AppImage extends React.Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
         // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+=======
+        componentHandler.upgradeDom()
+        // componentHandler.upgradeDom()
+>>>>>>> 6e3ff02... webstorm big changes crash
         // console.log('++++++++++++++++ applicationimage ++++++ componentDidMount ')
         // this.loadImage()
         // const imgid = this.props.imgid
@@ -100,13 +128,18 @@ export default class AppImage extends React.Component {
         // // var imgbg=elm.find('.imgbg')
         // var img=elm.find('.dataimg')
         // // var imgSpinner=elm.find('.mdl-spinner')
+<<<<<<< HEAD
         // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+=======
+        // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
+>>>>>>> 6e3ff02... webstorm big changes crash
         //   img[0].removeAttribute('src')
         //   img[0].setAttribute('src', img[0].getAttribute('data-src'))
         //   img[0].removeAttribute('data-src')
         //   this.setState({
         //     imageLoaded: undefined
         //   })
+<<<<<<< HEAD
         // }        
     }
 
@@ -114,6 +147,15 @@ export default class AppImage extends React.Component {
         // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
         require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
         // console.log('++++++++++++++++ applicationimage ++++++ componentDidUpdate '+this.props.isUploading)   
+=======
+        // }
+    }
+
+    componentDidUpdate() {
+        // componentHandler.upgradeDom()
+        componentHandler.upgradeAllRegistered()
+        // console.log('++++++++++++++++ applicationimage ++++++ componentDidUpdate '+this.props.isUploading)
+>>>>>>> 6e3ff02... webstorm big changes crash
 
         const imgid = this.props.imgid
         const api = this.props.api
@@ -134,7 +176,11 @@ export default class AppImage extends React.Component {
         // console.log('++++++++++++++++ applicationimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))
 
 
+<<<<<<< HEAD
         if (this.props.isUploading == false) {//img is a jquery object img[0] is the dom object 
+=======
+        if (this.props.isUploading == false) {//img is a jquery object img[0] is the dom object
+>>>>>>> 6e3ff02... webstorm big changes crash
             const idToken = cookie.load('jwt')
             const idTokenParam = idToken == undefined ? '' : '&access_token=' + idToken
             // img[0].removeAttribute('src')
@@ -142,7 +188,11 @@ export default class AppImage extends React.Component {
             img.setAttribute('data-src', ApiConnection.apiurl + ApiConnection.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam + '&rdparam=' + Math.floor(Math.random() * 10000))
         }
         // var imgSpinner=elm.find('.mdl-spinner')
+<<<<<<< HEAD
         if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+=======
+        if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
+>>>>>>> 6e3ff02... webstorm big changes crash
             // img[0].removeAttribute('src')
             var imgSpinner = elm.find('.mdl-spinner')
             // imgSpinner.remove()
@@ -222,7 +272,11 @@ export default class AppImage extends React.Component {
     //   var img=elm.find('.dataimg')
     //   // var imgSpinner=elm.find('.mdl-spinner')
 
+<<<<<<< HEAD
     //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+=======
+    //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
+>>>>>>> 6e3ff02... webstorm big changes crash
     //     img[0].setAttribute('src', img[0].getAttribute('data-src'))
     //     img[0].onload = function() {
     //       img[0].removeAttribute('data-src')
@@ -237,7 +291,11 @@ export default class AppImage extends React.Component {
     //         imageLoaded: true
     //       })
     //     }.bind(this)
+<<<<<<< HEAD
     //   }    
+=======
+    //   }
+>>>>>>> 6e3ff02... webstorm big changes crash
     // }
 
 }

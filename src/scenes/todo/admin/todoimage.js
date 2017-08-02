@@ -4,7 +4,12 @@ import cookie from 'react-cookie'
 import ApiConnection from '../../../services/apiconnection'
 import $ from 'jquery'
 
+<<<<<<< HEAD
 export default class TodoImage extends React.Component {
+=======
+export default
+class TodoImage extends React.Component {
+>>>>>>> 6e3ff02... webstorm big changes crash
 
     constructor(props) {
         super(props)
@@ -13,7 +18,11 @@ export default class TodoImage extends React.Component {
         }
     }
 
+<<<<<<< HEAD
     // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           
+=======
+    // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}
+>>>>>>> 6e3ff02... webstorm big changes crash
     //     onLoad={this.handleImageLoaded.bind(this)}
     //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
     // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
@@ -22,7 +31,11 @@ export default class TodoImage extends React.Component {
     // :<div>weg</div>
     // }
 
+<<<<<<< HEAD
     // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           
+=======
+    // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}
+>>>>>>> 6e3ff02... webstorm big changes crash
     //     onLoad={this.handleImageLoaded.bind(this)}
     //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
 
@@ -42,12 +55,20 @@ export default class TodoImage extends React.Component {
 
         const idToken = cookie.load('jwt')
         return (
+<<<<<<< HEAD
             <div className='imgwrapper' id={'imgwrap' + taskid}>
                 <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
                 <img id={'todolistitemimg' + taskid} src='./images/0.png'
                      data-src={ApiConnection.apiurl + ApiConnection.appbasename + '/api/todo/img/' + taskid + '?access_token=' + idToken}
                      onLoad={this.handleImageLoaded.bind(this)}
                      onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
+=======
+            <div className='imgwrapper' id={'imgwrap' + taskid} >
+                <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
+                <img id={'todolistitemimg' + taskid} src='./images/0.png' data-src={ApiConnection.apiurl + ApiConnection.appbasename + '/api/todo/img/' + taskid + '?access_token=' + idToken}
+                    onLoad={this.handleImageLoaded.bind(this)}
+                    onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
+>>>>>>> 6e3ff02... webstorm big changes crash
             </div>
         )
         // return (
@@ -56,7 +77,11 @@ export default class TodoImage extends React.Component {
         //         <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
         //         :<div/>
         //     }
+<<<<<<< HEAD
         //         <img id={'todolistitemimg'+taskid} src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           
+=======
+        //         <img id={'todolistitemimg'+taskid} src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}
+>>>>>>> 6e3ff02... webstorm big changes crash
         //             onLoad={this.handleImageLoaded.bind(this)}
         //             onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
         //     </div>
@@ -64,6 +89,7 @@ export default class TodoImage extends React.Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
         // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
 //    console.log('++++++++++++++++ todoimage ++++++ componentDidMount ')
@@ -86,6 +112,18 @@ export default class TodoImage extends React.Component {
     componentDidUpdate() {
         // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
         require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
+=======
+        componentHandler.upgradeDom()
+        // componentHandler.upgradeDom()
+    }
+
+    componentDidUpdate() {
+        componentHandler.upgradeAllRegistered()
+        // componentHandler.upgradeDom()
+        // componentHandler.upgradeAllRegistered()
+        // componentHandler.upgradeDom()
+        // componentHandler.upgradeAllRegistered()
+>>>>>>> 6e3ff02... webstorm big changes crash
 //    console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate '+this.props.isUploading)   
 
         const taskid = this.props.taskid
@@ -98,13 +136,21 @@ export default class TodoImage extends React.Component {
         // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))
 
 
+<<<<<<< HEAD
         if (this.props.isUploading == false) {//img is a jquery object img[0] is the dom object 
+=======
+        if (this.props.isUploading == false) {//img is a jquery object img[0] is the dom object
+>>>>>>> 6e3ff02... webstorm big changes crash
             const idToken = cookie.load('jwt')
             // img[0].removeAttribute('src')
             img.setAttribute('data-src', ApiConnection.apiurl + ApiConnection.appbasename + '/api/todo/img/' + taskid + '?access_token=' + idToken + '&rdparam=' + Math.floor(Math.random() * 10000))
         }
         // var imgSpinner=elm.find('.mdl-spinner')
+<<<<<<< HEAD
         if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+=======
+        if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
+>>>>>>> 6e3ff02... webstorm big changes crash
             // img[0].removeAttribute('src')
             var imgSpinner = elm.find('.mdl-spinner')
             // imgSpinner.remove()
@@ -176,7 +222,11 @@ export default class TodoImage extends React.Component {
     //   var img=elm.find('.dataimg')
     //   // var imgSpinner=elm.find('.mdl-spinner')
 
+<<<<<<< HEAD
     //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+=======
+    //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
+>>>>>>> 6e3ff02... webstorm big changes crash
     //     img[0].setAttribute('src', img[0].getAttribute('data-src'))
     //     img[0].onload = function() {
     //       img[0].removeAttribute('data-src')
@@ -191,7 +241,11 @@ export default class TodoImage extends React.Component {
     //         imageLoaded: true
     //       })
     //     }.bind(this)
+<<<<<<< HEAD
     //   }    
+=======
+    //   }
+>>>>>>> 6e3ff02... webstorm big changes crash
     // }
 
 }

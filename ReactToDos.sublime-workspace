@@ -120,54 +120,84 @@
 	"buffers":
 	[
 		{
-			"contents": "Searching 302 files for \"appbasename\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\index.js:\n  179  // const mybrowserHistory = browserHistory\n  180  // const mybrowserHistory = useBasename(createHistory)({\n  181: //   basename: actions.appbasename\n  182  // })\n  183  const mybrowserHistory = useRouterHistory(createHistory)({\n  184:   basename: actions.appbasename\n  185  })\n  186  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\server7.js:\n   31  var bodyParser = require('body-parser') // is used for POST requests\n   32  \n   33: const appbasename=ApiConnection.appbasename\n   34  \n   35  var config = require('../webpack.config.js')\n   ..\n  110  \n  111  \n  112: app.post(appbasename+'/api/*/fileupload/*', upload.single('uploadfile'), function(req, res) {\n  113    // const dataSend =  JSON.stringify(req.body)\n  114    // console.log('POST API. data = '+dataSend)\n  ...\n  177  \n  178  \n  179: app.get(appbasename+'/api/*', (req, res) => {\n  180    console.log('GET API '+req.url)\n  181    // console.log('GET API. '+req.headers.host)\n  ...\n  265  \n  266  \n  267: app.post(appbasename+'/api/*', function(req, res) {\n  268    console.log('POST API. '+req.url)\n  269    // console.log('POST API. '+req.headers.host)\n  ...\n  359  var errorfile = __dirname + '/images/0.png'\n  360  \n  361: app.get(appbasename+'/*', (req, res) => {\n  362    // routes is our object of React routes defined above\n  363    console.log('');console.log('');console.log('')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\server7prod.js:\n   31  var bodyParser = require('body-parser') // is used for POST requests\n   32  \n   33: const appbasename=ApiConnection.appbasename\n   34  \n   35  // var config = require('../webpack.config.js')\n   ..\n   84  })\n   85  \n   86: app.post(appbasename+'/api/*/fileupload/*', upload.single('uploadfile'), function(req, res) {\n   87    // const dataSend =  JSON.stringify(req.body)\n   88    // console.log('POST API. data = '+dataSend)\n   ..\n  144  })\n  145  \n  146: app.get(appbasename+'/api/*', (req, res) => {\n  147    console.log('GET API '+req.url)\n  148    console.log('GET API. '+req.headers.host)\n  ...\n  187  })\n  188  \n  189: app.post(appbasename+'/api/*', function(req, res) {\n  190    // var param = req.body.param;\n  191    console.log('POST API. '+req.url)\n  ...\n  249  var errorfile = __dirname + '/images/0.png'\n  250  \n  251: app.get(appbasename+'/*', (req, res) => {\n  252    // routes is our object of React routes defined above\n  253    console.log('');console.log('');console.log('')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\actions.js:\n   24  // var url = ''\n   25  // var authurl = ''\n   26: // const appbasename = ''\n   27  // if( isBrowser ){\n   28  //   authurl= window.location.protocol+'//'+window.location.hostname+':8083'\n   29  //   // authurl= 'http:'+'//'+'abbaslearning.royasoftware.com'+':8083'\n   30: //   // url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+appbasename\n   31  //   url = authurl\n   32  //   // authurl= window.location.protocol+'//'+window.location.hostname+':8083'\n   33  //   console.log('services call url '+url)\n   34  // }else{\n   35: //   url = 'http:'+'//'+'127.0.0.1'+(port ? ':'+port: '')+appbasename\n   36  //   authurl= 'http:'+'//'+'127.0.0.1'+':8083'\n   37  //   console.log('services call local url '+url)\n   ..\n   41    // apiurl:url,\n   42    // port:port,\n   43:   // appbasename:appbasename,\n   44    ...authservices,\n   45    ...todoservices,\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\apiconnection.js:\n    4    constructor() {\n    5      var port = -12\n    6:     var appbasename = ''\n    7      if (process.env.NODE_ENV === 'production'){\n    8        port=8082\n    9:       appbasename = 'training-'+version.appversion\n   10      }\n   11      else\n   ..\n   16      var url = ''\n   17      var authurl = ''\n   18: 	// const appbasename = '/reactor'\n   19:     // const appbasename = version.\n   20      if( isBrowser ){\n   21        console.log('APIConnection. Window.location.protocol='+require('util').inspect(window.location.protocol, false, null))\n   ..\n   34      }else{\n   35        authurl= undefined\n   36:       // url = 'http:'+'//'+'127.0.0.1'+(port ? ':'+port: '')+appbasename\n   37        console.log('services call local url. we dont have that because we need a subdomain')\n   38      }\n   ..\n   40      this.apiurl = url\n   41      this.port=port\n   42:     this.appbasename=appbasename\n   43      // this.apiport=apiport\n   44    }\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\app\\authentication\\authactions.js:\n  103              dispatch(authactions.receiveLogout())\n  104              window.routerHistory.push('/')\n  105:             // browserHistory.push(actions.appbasename+'/')\n  106            }\n  107          }).catch(err => {\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\app\\authentication\\authservices.js:\n   15    // apiurl:url,\n   16    // port:port,\n   17:   // appbasename:appbasename,\n   18  \n   19    registerUserService: function(user) {\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\todos\\todoservices.js:\n   22  // var url = ''\n   23  // var authurl = ''\n   24: // // const appbasename = '/reactor'\n   25: // const appbasename = ''\n   26  // if( isBrowser ){\n   27  //   authurl= window.location.protocol+'//'+window.location.hostname+':8083'\n   28  //   // authurl= 'http:'+'//'+'abbaslearning.royasoftware.com'+':8083'\n   29: //   // url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+appbasename\n   30  //   url = authurl\n   31  //   // authurl= window.location.protocol+'//'+window.location.hostname+':8083'\n   32  //   console.log('services call url '+url)\n   33  // }else{\n   34: //   url = 'http:'+'//'+'127.0.0.1'+(port ? ':'+port: '')+appbasename\n   35  //   authurl= 'http:'+'//'+'127.0.0.1'+':8083'\n   36  //   console.log('services call local url '+url)\n   ..\n   39    // apiurl:url,\n   40    // port:port,\n   41:   // appbasename:appbasename,\n   42    retrieveTodosService: function() {\n   43      // console.log('Service retrieve todos fetchData call '+ url)\n\n35 matches across 8 files\n\n\nSearching 303 files for \"Service retrieve trainings fetchData call\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\trainings\\trainingservices.js:\n   67    retrieveTrainingsService: function(hostname) {\n   68      var sessionId = cookie.load('JSESSIONID')\n   69:     console.log('Service retrieve trainings fetchData call '+ url +' session id: '+sessionId)\n   70      let requesturl = url\n   71      if( hostname != undefined)\n\n1 match in 1 file\n\n\nSearching 303 files for \"ApiConnection.appbasename\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\server7.js:\n   31  var bodyParser = require('body-parser') // is used for POST requests\n   32  \n   33: // const appbasename=ApiConnection.appbasename\n   34  const appbasename=''\n   35  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\server7prod.js:\n   31  var bodyParser = require('body-parser') // is used for POST requests\n   32  \n   33: // const appbasename=ApiConnection.appbasename\n   34  const appbasename=''\n   35  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\app\\authentication\\authservices.js:\n   11  import ApiConnection from '../../apiconnection'\n   12  // const authurl = ApiConnection.apiurl\n   13: const authurl = ApiConnection.apiurl+'/'+ApiConnection.appbasename\n   14  \n   15  const authservices = {\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\todos\\todoservices.js:\n   12  import ApiConnection from '../apiconnection'\n   13  // const url = ApiConnection.apiurl\n   14: const url = ApiConnection.apiurl+'/'+ApiConnection.appbasename\n   15  \n   16  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\trainings\\trainingservices.js:\n   10  // import { getIsFetching } from '../reducers'\n   11  import ApiConnection from '../apiconnection'\n   12: const url = ApiConnection.apiurl+'/'+ApiConnection.appbasename\n   13  // const url = ApiConnection.apiurl\n   14  \n   ..\n   18      let requesturl = url\n   19      if( hostname != undefined)\n   20:       requesturl = ApiConnection.getApiConnection(hostname)+'/'+ApiConnection.appbasename\n   21      var headers = {\n   22        // 'Content-Type': 'application/x-www-form-urlencoded',\n   ..\n   71      if( hostname != undefined)\n   72        // requesturl = ApiConnection.getApiConnection(hostname)\n   73:       requesturl = ApiConnection.getApiConnection(hostname)+'/'+ApiConnection.appbasename\n   74      var headers = {\n   75        // 'Content-Type': 'application/x-www-form-urlencoded',\n\n7 matches across 5 files\n\n\nSearching 303 files for \"ApiConnection.getApiConnection(hostname)\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\trainings\\trainingservices.js:\n   18      let requesturl = url\n   19      if( hostname != undefined)\n   20:       requesturl = ApiConnection.getApiConnection(hostname)+ApiConnection.appbasename\n   21      var headers = {\n   22        // 'Content-Type': 'application/x-www-form-urlencoded',\n   ..\n   70      let requesturl = url\n   71      if( hostname != undefined)\n   72:       // requesturl = ApiConnection.getApiConnection(hostname)\n   73:       requesturl = ApiConnection.getApiConnection(hostname)+ApiConnection.appbasename\n   74      var headers = {\n   75        // 'Content-Type': 'application/x-www-form-urlencoded',\n\n3 matches in 1 file\n\n\nSearching 303 files for \"ApiConnection.apiurl\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\components\\shared\\appimage.js:\n   21    }\n   22  \n   23:             // <img id={'applicationlistitemimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}           \n   24              //     onLoad={this.handleImageLoaded.bind(this)}\n   25              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n   30              // }\n   31  \n   32:             // <img id={'applicationlistitemimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}           \n   33              //     onLoad={this.handleImageLoaded.bind(this)}\n   34              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n   61      //   var image=elm.find('.dataimg')\n   62      //   var img = image[0]\n   63:     //   img.setAttribute('data-src', ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))\n   64      // }\n   65  \n   ..\n   72                <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   73              </div>\n   74:             <img id={'applicationimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+ApiConnection.appbasename+'/api/'+api+'/img/'+imgid+'?width='+width+'&height='+height+''+idTokenParam}\n   75                  onLoad={this.handleImageLoaded.bind(this)}\n   76                  onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n   83      //         :<div/>\n   84      //     }\n   85:     //         <img id={'applicationlistitemimg'+imgid} src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}           \n   86      //             onLoad={this.handleImageLoaded.bind(this)}\n   87      //             onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n  137        const idTokenParam = idToken==undefined?'':'&access_token='+ idToken\n  138        // img[0].removeAttribute('src')\n  139:       // img.setAttribute('data-src', ApiConnection.apiurl+'/api/'+api+'/img/'+imgid+'?width='+width+'&height='+height+'&access_token='+ idToken+'&rdparam='+ Math.floor(Math.random() * 10000))\n  140:       img.setAttribute('data-src', ApiConnection.apiurl+'/api/'+api+'/img/'+imgid+'?width='+width+'&height='+height+''+idTokenParam+'&rdparam='+ Math.floor(Math.random() * 10000))\n  141      }        \n  142      // var imgSpinner=elm.find('.mdl-spinner')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\components\\unsorted\\image.js:\n   14      return (\n   15  		<div className='imgwrap' id={'imgwrap'+taskid} >\n   16: 			<img id={'todolistitemimg'+taskid} src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken} className='dataimg' alt='coding'/>\n   17  		</div>\n   18      )\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\admin\\todoimage.js:\n   14    }\n   15  \n   16:             // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           \n   17              //     onLoad={this.handleImageLoaded.bind(this)}\n   18              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n   23              // }\n   24  \n   25:             // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           \n   26              //     onLoad={this.handleImageLoaded.bind(this)}\n   27              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n   38      //   var image=elm.find('.dataimg')\n   39      //   var img = image[0]\n   40:     //   img.setAttribute('data-src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))\n   41      // }\n   42  \n   ..\n   45          <div className='imgwrapper' id={'imgwrap'+taskid} >\n   46              <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   47:             <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}\n   48                  onLoad={this.handleImageLoaded.bind(this)}\n   49                  onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n   56      //         :<div/>\n   57      //     }\n   58:     //         <img id={'todolistitemimg'+taskid} src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           \n   59      //             onLoad={this.handleImageLoaded.bind(this)}\n   60      //             onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n  100        const idToken = cookie.load('jwt')\n  101        // img[0].removeAttribute('src')\n  102:       img.setAttribute('data-src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&rdparam='+ Math.floor(Math.random() * 10000))\n  103      }        \n  104      // var imgSpinner=elm.find('.mdl-spinner')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\admin\\todoslistitem.js:\n  161  \n  162      this.props.actions.uploadTodoFileDispatcher(todo, this.props.todo, fileinput.files[0])\n  163:     // console.log('todos-list-item, set src to ' + ApiConnection.apiurl+'/api/todo/img/'+'12'+'?access_token='+ idToken)\n  164      \n  165      \n  166:     // document.getElementById('todolistitemimg'+taskid).setAttribute('data-src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)\n  167:     // document.getElementById('todolistitemimg'+taskid).setAttribute('src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)\n  168      \n  169      // var imgwrap = document.getElementById('imgwrap'+taskid)\n  ...\n  175      //   // })\n  176      //   // document.getElementById('todolistitemimg'+taskid).removeAttribute('src')\n  177:     //   document.getElementById('todolistitemimg'+taskid).setAttribute('src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)\n  178      //   // this.refs.uploadcomp.forceUpdate()\n  179      // }.bind(this),(5000) )\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\todo\\shared\\todoimage.js:\n   14    }\n   15  \n   16:             // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           \n   17              //     onLoad={this.handleImageLoaded.bind(this)}\n   18              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n   23              // }\n   24  \n   25:             // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           \n   26              //     onLoad={this.handleImageLoaded.bind(this)}\n   27              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n   38      //   var image=elm.find('.dataimg')\n   39      //   var img = image[0]\n   40:     //   img.setAttribute('data-src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))\n   41      // }\n   42  \n   ..\n   45          <div className='imgwrapper' id={'imgwrap'+taskid} >\n   46              <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   47:             <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}\n   48                  onLoad={this.handleImageLoaded.bind(this)}\n   49                  onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n   56      //         :<div/>\n   57      //     }\n   58:     //         <img id={'todolistitemimg'+taskid} src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}           \n   59      //             onLoad={this.handleImageLoaded.bind(this)}\n   60      //             onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n  100        const idToken = cookie.load('jwt')\n  101        // img[0].removeAttribute('src')\n  102:       img.setAttribute('data-src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&rdparam='+ Math.floor(Math.random() * 10000))\n  103      }        \n  104      // var imgSpinner=elm.find('.mdl-spinner')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\public\\old\\trainingeditlistitem.js:\n   74      var training = this.props.training.set('mama', 'i m here')\n   75      this.props.actions.uploadTrainingFileDispatcher(training, this.props.training, fileinput.files[0])\n   76:     // console.log('trainings-list-item, set src to ' + ApiConnection.apiurl+'/api/training/img/'+'12'+'?access_token='+ idToken)\n   77      \n   78      \n   79:     // document.getElementById('traininglistitemimg'+trainingid).setAttribute('data-src', ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   80:     // document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   81      \n   82      // var imgwrap = document.getElementById('imgwrap'+trainingid)\n   ..\n   88      //   // })\n   89      //   // document.getElementById('traininglistitemimg'+trainingid).removeAttribute('src')\n   90:     //   document.getElementById('traininglistitemimg'+trainingid).setAttribute('src', ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken)\n   91      //   // this.refs.uploadcomp.forceUpdate()\n   92      // }.bind(this),(5000) )\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\training\\shared\\trainingimage.js:\n   19    }\n   20  \n   21:             // <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken}           \n   22              //     onLoad={this.handleImageLoaded.bind(this)}\n   23              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n   28              // }\n   29  \n   30:             // <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken}           \n   31              //     onLoad={this.handleImageLoaded.bind(this)}\n   32              //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n   43      //   var image=elm.find('.dataimg')\n   44      //   var img = image[0]\n   45:     //   img.setAttribute('data-src', ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))\n   46      // }\n   47  \n   ..\n   52                <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>\n   53              </div>\n   54:             <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken}\n   55                  onLoad={this.handleImageLoaded.bind(this)}\n   56                  onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n   63      //         :<div/>\n   64      //     }\n   65:     //         <img id={'traininglistitemimg'+trainingid} src={ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken}           \n   66      //             onLoad={this.handleImageLoaded.bind(this)}\n   67      //             onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>\n   ..\n  107        const idToken = cookie.load('jwt')\n  108        // img[0].removeAttribute('src')\n  109:       img.setAttribute('data-src', ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken+'&rdparam='+ Math.floor(Math.random() * 10000))\n  110      }        \n  111      // var imgSpinner=elm.find('.mdl-spinner')\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\app\\authentication\\authservices.js:\n   10  // import { getIsFetching } from '../reducers'\n   11  import ApiConnection from '../../apiconnection'\n   12: // const authurl = ApiConnection.apiurl\n   13: const authurl = ApiConnection.apiurl+ApiConnection.appbasename\n   14  \n   15  const authservices = {\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\todos\\todoservices.js:\n   11  \n   12  import ApiConnection from '../apiconnection'\n   13: // const url = ApiConnection.apiurl\n   14: const url = ApiConnection.apiurl+ApiConnection.appbasename\n   15  \n   16  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\trainings\\trainingservices.js:\n   10  // import { getIsFetching } from '../reducers'\n   11  import ApiConnection from '../apiconnection'\n   12: const url = ApiConnection.apiurl+ApiConnection.appbasename\n   13: // const url = ApiConnection.apiurl\n   14  \n   15  const trainingservices = {\n\n40 matches across 10 files\n\n\nSearching 302 files for \"123456\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\jquery.shuffleLetters.js:\n  128  		\n  129      if (type == 'lowerLetter'){\n  130:       pool = 'abcdefghijklmnopqrstuvwxyz0123456789'\n  131      }\n  132      else if (type == 'upperLetter'){\n  133:       pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'\n  134      }\n  135      else if (type == 'symbol'){\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\services\\app\\authentication\\authservices.js:\n   51    },\n   52    loginUserService: function(creds) {\n   53:     var body = 'grant_type=password&username=' + creds.username + '&password=' + creds.password + '&client_id=clientapp&client_secret=123456'\n   54      //&scope=read%20write\n   55      // console.log('body '+body)\n   ..\n   59          'Accept': 'application/json',\n   60          'Content-Type': 'application/x-www-form-urlencoded',\n   61:         'Authorization': 'Basic ' + new Buffer('clientapp:123456').toString('base64')\n   62:       //      `username=${creds.username}&password=${creds.password}&client_id=clientapp&client_secret=123456&grant_type=password&scope=read%20write`\n   63        },\n   64        body: body\n   ..\n   67        //   })\n   68  \n   69:     // , 'body': `username=${creds.username}&password=${creds.password}&client_id=clientapp&client_secret=123456&grant_type=password&scope=read%20write`\n   70      }\n   71  \n   ..\n   88          'Content-Type': 'application/x-www-form-urlencoded',\n   89          'Authorization': 'Bearer ' + idToken\n   90:       //      `username=${creds.username}&password=${creds.password}&client_id=clientapp&client_secret=123456&grant_type=password&scope=read%20write`\n   91        }\n   92        // , body: body\n   ..\n   95        //   })\n   96  \n   97:     // , 'body': `username=${creds.username}&password=${creds.password}&client_id=clientapp&client_secret=123456&grant_type=password&scope=read%20write`\n   98      }\n   99      return fetch(authurl+'/oauth/logout', config)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\Arkhip_font.otf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\Azedo-Bold.otf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\Roboto-Black-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\Roboto-BlackItalic-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\Roboto-Bold-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\Roboto-BoldItalic-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\Roboto-Italic-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\Roboto-Light-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\Roboto-LightItalic-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\Roboto-Medium-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\Roboto-MediumItalic-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\Roboto-Regular-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\Roboto-Thin-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\Roboto-ThinItalic-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\RobotoCondensed-Bold-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\RobotoCondensed-BoldItalic-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\RobotoCondensed-Italic-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\RobotoCondensed-Light-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\RobotoCondensed-LightItalic-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\fonts\\RobotoCondensed-Regular-webfont.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\MANIFESTO.ttf:\n    <binary>\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_black_macroman\\Roboto-Black-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_blackitalic_macroman\\Roboto-BlackItalic-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_bold_macroman\\Roboto-Bold-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_boldcondensed_macroman\\RobotoCondensed-Bold-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_boldcondenseditalic_macroman\\RobotoCondensed-BoldItalic-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_bolditalic_macroman\\Roboto-BoldItalic-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_condensed_macroman\\RobotoCondensed-Regular-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_condenseditalic_macroman\\RobotoCondensed-Italic-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_italic_macroman\\Roboto-Italic-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_light_macroman\\Roboto-Light-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_lightcondensed_macroman\\RobotoCondensed-Light-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_lightcondenseditalic_macroman\\RobotoCondensed-LightItalic-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_lightitalic_macroman\\Roboto-LightItalic-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_medium_macroman\\Roboto-Medium-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_mediumitalic_macroman\\Roboto-MediumItalic-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_regular_macroman\\Roboto-Regular-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_thin_macroman\\Roboto-Thin-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\web fonts\\roboto_thinitalic_macroman\\Roboto-ThinItalic-demo.html:\n   62  					<div class=\"grid12 firstcol\">\n   63  						<table class=\"sample_table\">\n   64: 							<tr><td>10</td><td class=\"size10\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   65: 							<tr><td>11</td><td class=\"size11\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   66: 							<tr><td>12</td><td class=\"size12\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   67: 							<tr><td>13</td><td class=\"size13\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   68: 							<tr><td>14</td><td class=\"size14\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   69: 							<tr><td>16</td><td class=\"size16\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   70: 							<tr><td>18</td><td class=\"size18\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   71: 							<tr><td>20</td><td class=\"size20\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   72: 							<tr><td>24</td><td class=\"size24\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   73: 							<tr><td>30</td><td class=\"size30\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   74: 							<tr><td>36</td><td class=\"size36\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   75: 							<tr><td>48</td><td class=\"size48\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   76: 							<tr><td>60</td><td class=\"size60\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   77: 							<tr><td>72</td><td class=\"size72\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   78: 							<tr><td>90</td><td class=\"size90\">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>\n   79  						</table>\n   80  				\n\n389 matches across 41 files\n\n\nSearching 306 files for \"node_modules\" (case sensitive)\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\index.js:\n   55  // import 'material-design-lite/dist/material.blue-pink.min.css'\n   56  // import 'material-design-lite/dist/material.blue-red.min.css'\n   57: // import '../../node_modules/materialize-css/dist/js/materialize.min.js'\n   58: // import '../../node_modules/materialize-css/dist/css/materialize.min.css'\n   59  // import injectTapEventPlugin from 'react-tap-event-plugin'\n   60   \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\navigation\\nav.js:\n    7  import NavAdmin from './navadmin'\n    8  import { LogoutUser} from '../../services/actions.js'\n    9: // import Bootstrap from '!style!css!../node_modules/bootstrap/dist/css/bootstrap.css'\n   10: // require('!style!css!../node_modules/bootstrap/dist/css/bootstrap.min.css')\n   11  // import { Button } from 'react-bootstrap'\n   12  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\navigation\\nav.scss:\n    1  @import '../../styles/default.scss';\n    2: // @import \"../../../node_modules/material-design-lite/src/_variables.scss\";\n    3  \n    4  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\navigation\\navadmin.js:\n    4  import Logout from '../logout.js'\n    5  import { LogoutUser} from '../../services/actions.js'\n    6: // import Bootstrap from '!style!css!../node_modules/bootstrap/dist/css/bootstrap.css'\n    7: // require('!style!css!../node_modules/bootstrap/dist/css/bootstrap.min.css')\n    8  // import { Button } from 'react-bootstrap'\n    9  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\navigation\\navpublic.js:\n    4  import Logout from '../logout.js'\n    5  import { LogoutUser} from '../../services/actions.js'\n    6: // import Bootstrap from '!style!css!../node_modules/bootstrap/dist/css/bootstrap.css'\n    7: // require('!style!css!../node_modules/bootstrap/dist/css/bootstrap.min.css')\n    8  // import { Button } from 'react-bootstrap'\n    9  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\app\\navigation\\navuser.js:\n    4  import Logout from '../logout.js'\n    5  import { LogoutUser} from '../../services/actions.js'\n    6: // import Bootstrap from '!style!css!../node_modules/bootstrap/dist/css/bootstrap.css'\n    7: // require('!style!css!../node_modules/bootstrap/dist/css/bootstrap.min.css')\n    8  // import { Button } from 'react-bootstrap'\n    9  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\scenes\\home\\home.js:\n   13  // import Logout from './logout.js'\n   14  // import { LogoutUser} from '../services/actions.js'\n   15: // import Bootstrap from '!style!css!../node_modules/bootstrap/dist/css/bootstrap.css'\n   16: // require('!style!css!../node_modules/bootstrap/dist/css/bootstrap.min.css')\n   17  // import { Button } from 'react-bootstrap'\n   18  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\server3.js:\n    2  \n    3  function compileBackEnd(callback) {\n    4: require('babel-register')({ignore: ['/node_modules/','wahnsinn'], presets: ['es2015']});\n    5  callback();\n    6  };\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\server7.js:\n   72  \n   73  \n   74: app.use('/bootstrap', express.static(__dirname + '/../node_modules/bootstrap/dist/'))\n   75: app.use('/mdl', express.static(__dirname + '/../node_modules/material-design-lite/dist/'))\n   76: app.use('/jquery', express.static(__dirname + '/../node_modules/jquery/dist/'))\n   77: app.use('/react', express.static(__dirname + '/../node_modules/react/dist/'))\n   78: app.use('/reactdom', express.static(__dirname + '/../node_modules/react-dom/dist/'))\n   79  \n   80  \n   ..\n   95  \n   96  // console.log('dirname = '+__dirname )\n   97: // console.log('dirname bootstrap= '+__dirname + '/node_modules/bootstrap/dist/')\n   98  \n   99  \n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\server7prod.js:\n   46  var upload = multer({ storage: storage })\n   47  \n   48: app.use('/bootstrap', express.static(__dirname + '/../node_modules/bootstrap/dist/'))\n   49: app.use('/mdl', express.static(__dirname + '/../node_modules/material-design-lite/dist/'))\n   50  \n   51  app.use(compression())\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\_variables.scss:\n   77  **/\n   78  \n   79: @import \"node_modules/material-design-lite/src/color-definitions\";\n   80: @import \"node_modules/material-design-lite/src/functions\";\n   81  \n   82  /* ==========  IMAGES  ========== */\n\nD:\\RP\\Tests\\ReactToDoExp2\\src\\styles\\default.scss:\n    1  \n    2: // @import \"../../node_modules/material-design-lite/src/_color-definitions.scss\";\n    3  // $color-primary: \"233,149,150\";\n    4  // $color-primary-dark: \"33,49,50\";\n    .\n   18  $color-accent: $color-primary;\n   19  \n   20: @import \"../../node_modules/material-design-lite/src/material-design-lite.scss\";\n   21  \n   22: // @import \"node_modules/material-design-lite/src/_variables.scss\";\n   23  \n   24  // $color-primary: \"233,149,150\";\n   ..\n   29  \n   30  \n   31: // @import \"../../node_modules/materialize-css/sass/components/mixins\";\n   32: // @import \"../../node_modules/materialize-css/sass/components/color\";\n   33  \n   34  // Variables;\n   35: // @import \"../../node_modules/materialize-css/sass/components/variables\";\n   36  \n   37  // Reset\n   38: // @import \"../../node_modules/materialize-css/sass/components/normalize\";\n   39  \n   40  // components\n   41: // @import \"../../node_modules/materialize-css/sass/components/global\";\n   42  // @import \"materialize-css/sass/components/icons-material-design\";\n   43  // @import \"materialize-css/sass/components/grid\";\n   ..\n   49  // @import \"materialize-css/sass/components/tabs\";\n   50  // @import \"materialize-css/sass/components/tooltip\";\n   51: // @import \"../../node_modules/materialize-css/sass/components/buttons\";\n   52: // @import \"../../node_modules/materialize-css/sass/components/waves\";\n   53: // @import \"../../node_modules/materialize-css/sass/materialize\";\n   54: //@import '../../node_modules/materialize-css/sass/components/_buttons.scss';\n   55: //@import '../../node_modules/materialize-css/sass/components/_waves.scss';\n   56  \n   57  \n\n37 matches across 12 files\n",
+			"file": "src/components/shared/bigcalendaredit.js",
 			"settings":
 			{
-				"buffer_size": 88529,
+				"buffer_size": 10480,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 5144,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/server7.js",
+			"settings":
+			{
+				"buffer_size": 17747,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Programm/SublimeText3/Data/Packages/User/swi.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 440,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "[DBG] ---:73 Download the React DevTools for a better development experience: https://fb.me/react-devtools\n[LOG] ---:8 version={ appversion: '2017-07-01-15-31-36-3136' }\n[LOG] ---:35 APIConnection. Window.location.protocol='http:'\n[LOG] ---:48 services call url \n[LOG] ---:100 %c action @ 23:35:56.110 @@router/LOCATION_CHANGE\n[LOG] ---:112 %c prev state\n[LOG] ---:116 %c action\n[LOG] ---:124 %c next state\n[LOG] ---:132 console.groupEnd\n[LOG] ---:67 [HMR] connected\n[LOG] ---:24 Calendar. environment is browser\n[LOG] ---:35 training schedule render!\n[LOG] ---:42 ###################################Training schedule render=3\n[LOG] ---:95 eventTitle='Nothing'\n[ERR] ---:36 Warning: Failed prop type: Invalid prop `events` of type `object` supplied to `Calendar`, expected an array.\n    in Calendar (created by Uncontrolled(Calendar))\n    in Uncontrolled(Calendar) (created by DragAndDropCalendar)\n    in DragAndDropCalendar (created by DragDropContext(DragAndDropCalendar))\n    in DragDropContext(DragAndDropCalendar) (created by BigCalendarEdit)\n    in div (created by BigCalendarEdit)\n    in BigCalendarEdit (created by DragDropContext(BigCalendarEdit))\n    in DragDropContext(BigCalendarEdit) (created by TrainingSchedule)\n    in div (created by TrainingSchedule)\n    in TrainingSchedule (created by RouterContext)\n    in ReactCSSTransitionGroupChild (created by ReactTransitionGroup)\n    in div (created by ReactTransitionGroup)\n    in ReactTransitionGroup (created by ReactCSSTransitionGroup)\n    in ReactCSSTransitionGroup (created by AppComponent)\n    in div (created by AppComponent)\n    in div (created by AppComponent)\n    in div (created by AppComponent)\n    in div (created by AppComponent)\n    in AppComponent (created by Connect(AppComponent))\n    in Connect(AppComponent) (created by RouterContext)\n    in RouterContext (created by Router)\n    in Router\n    in Provider\n[ERR] ---:36 Warning: Failed prop type: Invalid prop `events` of type `object` supplied to `TimeGrid`, expected `array`.\n    in TimeGrid (created by Week)\n    in Week (created by Calendar)\n    in div (created by Calendar)\n    in Calendar (created by Uncontrolled(Calendar))\n    in Uncontrolled(Calendar) (created by DragAndDropCalendar)\n    in DragAndDropCalendar (created by DragDropContext(DragAndDropCalendar))\n    in DragDropContext(DragAndDropCalendar) (created by BigCalendarEdit)\n    in div (created by BigCalendarEdit)\n    in BigCalendarEdit (created by DragDropContext(BigCalendarEdit))\n    in DragDropContext(BigCalendarEdit) (created by TrainingSchedule)\n    in div (created by TrainingSchedule)\n    in TrainingSchedule (created by RouterContext)\n    in ReactCSSTransitionGroupChild (created by ReactTransitionGroup)\n    in div (created by ReactTransitionGroup)\n    in ReactTransitionGroup (created by ReactCSSTransitionGroup)\n    in ReactCSSTransitionGroup (created by AppComponent)\n    in div (created by AppComponent)\n    in div (created by AppComponent)\n    in div (created by AppComponent)\n    in div (created by AppComponent)\n    in AppComponent (created by Connect(AppComponent))\n    in Connect(AppComponent) (created by RouterContext)\n    in RouterContext (created by Router)\n    in Router\n    in Provider\n[LOG] ---:259 event - Style Getter ='React 2', isSelected=false\n[ERR] ---:36 Warning: Unsupported style property border-style. Did you mean borderStyle? Check the render method of `DraggableEventWrapper`.\n[ERR] ---:36 Warning: Unsupported style property border-radius. Did you mean borderRadius? Check the render method of `DraggableEventWrapper`.\n[ERR] ---:36 Warning: Unsupported style property border-color. Did you mean borderColor? Check the render method of `DraggableEventWrapper`.\n[LOG] ---:259 event - Style Getter ='React 1', isSelected=false\n[LOG] ---:259 event - Style Getter ='React 2', isSelected=false\n[LOG] ---:259 event - Style Getter ='React 1', isSelected=false\n[LOG] ---:95 eventTitle='TshashSat Jan 06 2001 10:30:00 GMT+0000 (Marokko Normalzeit)'\n[ERR] ---:36 Warning: Failed prop type: Invalid prop `selected` of type `object` supplied to `EventRow`, expected `array`.\n    in EventRow (created by DateContentRow)\n    in DateContentRow (created by TimeGrid)\n    in div (created by TimeGrid)\n    in div (created by TimeGrid)\n    in div (created by TimeGrid)\n    in TimeGrid (created by Week)\n    in Week (created by Calendar)\n    in div (created by Calendar)\n    in Calendar (created by Uncontrolled(Calendar))\n    in Uncontrolled(Calendar) (created by DragAndDropCalendar)\n    in DragAndDropCalendar (created by DragDropContext(DragAndDropCalendar))\n    in DragDropContext(DragAndDropCalendar) (created by BigCalendarEdit)\n    in div (created by BigCalendarEdit)\n    in BigCalendarEdit (created by DragDropContext(BigCalendarEdit))\n    in DragDropContext(BigCalendarEdit) (created by TrainingSchedule)\n    in div (created by TrainingSchedule)\n    in TrainingSchedule (created by RouterContext)\n    in ReactCSSTransitionGroupChild (created by ReactTransitionGroup)\n    in div (created by ReactTransitionGroup)\n    in ReactTransitionGroup (created by ReactCSSTransitionGroup)\n    in ReactCSSTransitionGroup (created by AppComponent)\n    in div (created by AppComponent)\n    in div (created by AppComponent)\n    in div (created by AppComponent)\n    in div (created by AppComponent)\n    in AppComponent (created by Connect(AppComponent))\n    in Connect(AppComponent) (created by RouterContext)\n    in RouterContext (created by Router)\n    in Router\n    in Provider\n[LOG] ---:259 event - Style Getter ='React 2', isSelected=false\n[LOG] ---:259 event - Style Getter ='TshashSat Jan 06 2001 10:30:00 GMT+0000 (Marokko Normalzeit)', isSelected=true\n[LOG] ---:95 eventTitle='TshashSat Jan 06 2001 10:30:00 GMT+0000 (Marokko Normalzeit)'\n[LOG] ---:259 event - Style Getter ='React 2', isSelected=false\n[LOG] ---:259 event - Style Getter ='TshashSat Jan 06 2001 10:30:00 GMT+0000 (Marokko Normalzeit)', isSelected=true\n[LOG] ---:95 eventTitle='TshashThu Jan 04 2001 14:30:00 GMT+0000 (Marokko Normalzeit)'\n[LOG] ---:259 event - Style Getter ='TshashThu Jan 04 2001 14:30:00 GMT+0000 (Marokko Normalzeit)', isSelected=true\n[LOG] ---:259 event - Style Getter ='TshashSat Jan 06 2001 10:30:00 GMT+0000 (Marokko Normalzeit)', isSelected=false\n[LOG] ---:95 eventTitle='TshashSat Jan 06 2001 10:30:00 GMT+0000 (Marokko Normalzeit)'\n[LOG] ---:259 event - Style Getter ='TshashThu Jan 04 2001 14:30:00 GMT+0000 (Marokko Normalzeit)', isSelected=false\n[LOG] ---:259 event - Style Getter ='TshashSat Jan 06 2001 10:30:00 GMT+0000 (Marokko Normalzeit)', isSelected=true\n[LOG] ---:95 eventTitle='TshashThu Jan 04 2001 14:30:00 GMT+0000 (Marokko Normalzeit)'\n[LOG] ---:259 event - Style Getter ='TshashThu Jan 04 2001 14:30:00 GMT+0000 (Marokko Normalzeit)', isSelected=true\n[LOG] ---:259 event - Style Getter ='TshashSat Jan 06 2001 10:30:00 GMT+0000 (Marokko Normalzeit)', isSelected=false\n[LOG] ---:95 eventTitle='TshashSat Jan 06 2001 10:30:00 GMT+0000 (Marokko Normalzeit)'\n[LOG] ---:259 event - Style Getter ='TshashThu Jan 04 2001 14:30:00 GMT+0000 (Marokko Normalzeit)', isSelected=false\n[LOG] ---:259 event - Style Getter ='TshashSat Jan 06 2001 10:30:00 GMT+0000 (Marokko Normalzeit)', isSelected=true\n[LOG] ---:95 eventTitle='TshashThu Jan 04 2001 14:30:00 GMT+0000 (Marokko Normalzeit)'\n[LOG] ---:259 event - Style Getter ='TshashThu Jan 04 2001 14:30:00 GMT+0000 (Marokko Normalzeit)', isSelected=true\n[LOG] ---:259 event - Style Getter ='TshashSat Jan 06 2001 10:30:00 GMT+0000 (Marokko Normalzeit)', isSelected=false\n",
+			"settings":
+			{
+				"buffer_size": 7540,
 				"line_ending": "Windows",
-				"name": "Find Results",
+				"name": "Javascript Console",
 				"scratch": true
 			}
 		},
 		{
-			"file": "src/components/shared/bigcalendaredit.js",
+			"contents": "isSelected\n\nstack: ReferenceError: isSelected is not defined\n    at <anonymous>:1:1\nmessage: isSelected is not defined\n__proto__: Error\n",
 			"settings":
 			{
-				"buffer_size": 5361,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/services/trainings/trainingactions.js",
-			"settings":
-			{
-				"buffer_size": 28630,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/services/todos/todoactions.js",
-			"settings":
-			{
-				"buffer_size": 22278,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/scenes/training/admin/trainingschedule.js",
-			"settings":
-			{
-				"buffer_size": 5087,
-				"line_ending": "Unix"
+				"buffer_size": 136,
+				"line_ending": "Windows",
+				"name": "Javascript Scope",
+				"scratch": true
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 104.0,
+		"height": 81.0,
 		"selected_items":
 		[
+			[
+				"packageinsta",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"web",
+				"Web Inspector"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
 			[
 				"Package Control: install",
 				"Package Control: Advanced Install Package"
@@ -187,10 +217,6 @@
 			[
 				"pack",
 				"Package Control: Install Package"
-			],
-			[
-				"packa",
-				"Package Control: List Packages"
 			],
 			[
 				"Pac",
@@ -301,17 +327,31 @@
 	},
 	"file_history":
 	[
+		"/C/Programm/SublimeText3/Data/Packages/Web Inspector/swi.sublime-settings",
+		"/C/Programm/SublimeText3/Data/Packages/User/swi.sublime-settings",
+		"/D/RP/Tests/ReactToDoExp2/src/test/components/TodosList_spec.jsx",
+		"/D/RP/Tests/ReactToDoExp2/src/test/components/TodoApp_spec.jsx",
+		"/D/RP/Tests/ReactToDoExp2/src/test/components/TodosListItem_spec.jsx",
+		"/D/RP/Tests/ReactToDoExp2/src/test/components/Register_spec.jsx",
+		"/D/RP/Tests/ReactToDoExp2/package.json",
+		"/D/RP/Tests/ReactToDoExp2/src/components/shared/bigcalendaredit.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/trainingedit.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/admin/todoslistitem.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/trainingschedule.js",
+		"/D/RP/Tests/ReactToDoExp2/src/components/shared/bigcalendaredit.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/public/traininglist.js",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/trainingedit.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/trainingschedule.scss",
+		"/D/RP/Tests/ReactToDoExp2/src/services/todos/todoReducer.js",
+		"/D/RP/Tests/ReactToDoExp2/webpack-production.config.js",
+		"/D/RP/Tests/ReactToDoExp2/webpack.config.js",
+		"/D/RP/Tests/ReactToDoExp2/src/services/trainings/trainingactions.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/shared/calendar.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/shared/calendar - Kopie.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/shared/calendar.scss",
-		"/D/RP/Tests/ReactToDoExp2/webpack-production.config.js",
 		"/D/RP/Tests/ReactToDoExp2/src/server7.js",
 		"/D/RP/Tests/ReactToDoExp2/src/app/appcomponent.js",
-		"/D/RP/Tests/ReactToDoExp2/package.json",
-		"/D/RP/Tests/ReactToDoExp2/webpack.config.js",
 		"/D/RP/Tests/ReactToDoExp2/src/components/shared/fileuploadinput.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/trainingschedule.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/trainingschedule.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/app/routes/trainingroutes.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/admintraininglistitem.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/version.js",
@@ -324,9 +364,7 @@
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/public/traininglistitem.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/trainings/trainingservices.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/todos/todoservices.js",
-		"/D/RP/Tests/ReactToDoExp2/src/services/trainings/trainingactions.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/public/trainingapp.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/public/traininglist.js",
 		"/D/RP/Tests/ReactToDoExp2/src/server7prod.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/version.json",
 		"/D/RP/Tests/ReactToDoExp2/src/server.js",
@@ -346,8 +384,6 @@
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/public/trainingeditlist.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/admintrainingapp.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/app/routes/adminroutes.js",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/trainingedit.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/trainingedit.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/todo/admin/todoslist.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/admin/trainingcommandpanel.js",
 		"/D/RP/Tests/ReactToDoExp2/src/app/routes/todoroutes.js",
@@ -389,7 +425,6 @@
 		"/D/RP/Tests/ReactToDoExp2/src/components/unsorted/image.js",
 		"/D/RP/Tests/ReactToDoExp2/src/services/actions.js",
 		"/D/RP/Tests/ReactToDoExp2/src/scenes/registration/register.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/services/todos/todoReducer.js",
 		"/D/RP/Tests/ReactToDoExp2/build/scenes/training/admin/trainingedit.js",
 		"/D/RP/Tests/ReactToDoExp2/src/app/index.js",
 		"/D/RP/Tests/ReactToDoExp2/node_modules/redux-thunk/README.md",
@@ -417,18 +452,9 @@
 		"/D/RP/Tests/ReactToDoExp2/build/images/Blog-Planning.svg",
 		"/D/RP/Tests/ReactToDoExp2/build/images/Blog-Coding.svg",
 		"/D/RP/Tests/ReactToDoExp2/src/images/Blog-Planning.svg",
-		"/D/RP/Tests/ReactToDoExp2/src/test/components/TodoApp_spec.jsx",
 		"/D/RP/Tests/ReactToDoExp2/src/styles/_variables.scss",
 		"/D/RP/Tests/ReactToDoExp2/src/app/appmodaldlg.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/app/loginmodal.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/components/shared/logospinner.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/services/store.js",
-		"/D/RP/Tests/ReactToDoExp2/src/test/components/Register_spec.jsx",
-		"/D/RP/Tests/ReactToDoExp2/src/server6.js",
-		"/D/RP/Tests/ReactToDoExp2/src/app/appmodaldlg.js",
-		"/D/RP/Tests/ReactToDoExp2/src/components/shared/fileuploadinput.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/trainingeditlistitem.scss",
-		"/D/RP/Tests/ReactToDoExp2/src/scenes/training/components/trainingeditlist.js"
+		"/D/RP/Tests/ReactToDoExp2/src/app/loginmodal.scss"
 	],
 	"find":
 	{
@@ -475,6 +501,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"es6",
+			"profile",
+			"mapping",
+			"chrome_url",
+			"BigCalendarEdit",
+			"date",
+			"List",
+			"new Immutable",
 			"Calendar",
 			"onEventDrop",
 			"2017, 6,",
@@ -594,15 +628,7 @@
 			"isUploading",
 			"uploadingTodoImg",
 			"accept",
-			"multipa",
-			"FormData",
-			"updateTrainingDispatcher",
-			"uploadTrainingFileDispatcher",
-			"uploadTrainingFileService",
-			"FileUploadInput",
-			" tf",
-			"tf",
-			"loginrequest"
+			"multipa"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -720,7 +746,7 @@
 			"React.Component",
 			""
 		],
-		"reverse": false,
+		"reverse": true,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -729,2058 +755,82 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "src/components/shared/bigcalendaredit.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 88529,
+						"buffer_size": 10480,
 						"regions":
 						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										244,
-										255
-									],
-									[
-										362,
-										373
-									],
-									[
-										532,
-										543
-									],
-									[
-										558,
-										569
-									],
-									[
-										668,
-										679
-									],
-									[
-										899,
-										910
-									],
-									[
-										1070,
-										1081
-									],
-									[
-										1291,
-										1302
-									],
-									[
-										1589,
-										1600
-									],
-									[
-										1615,
-										1626
-									],
-									[
-										1730,
-										1741
-									],
-									[
-										1963,
-										1974
-									],
-									[
-										2133,
-										2144
-									],
-									[
-										2339,
-										2350
-									],
-									[
-										2611,
-										2622
-									],
-									[
-										2940,
-										2951
-									],
-									[
-										3197,
-										3208
-									],
-									[
-										3384,
-										3395
-									],
-									[
-										3396,
-										3407
-									],
-									[
-										3585,
-										3596
-									],
-									[
-										3693,
-										3704
-									],
-									[
-										3842,
-										3853
-									],
-									[
-										3887,
-										3898
-									],
-									[
-										4195,
-										4206
-									],
-									[
-										4396,
-										4407
-									],
-									[
-										4408,
-										4419
-									],
-									[
-										4698,
-										4709
-									],
-									[
-										4902,
-										4913
-									],
-									[
-										4914,
-										4925
-									],
-									[
-										5114,
-										5125
-									],
-									[
-										5155,
-										5166
-									],
-									[
-										5484,
-										5495
-									],
-									[
-										5741,
-										5752
-									],
-									[
-										5928,
-										5939
-									],
-									[
-										5940,
-										5951
-									],
-									[
-										6388,
-										6429
-									],
-									[
-										6780,
-										6805
-									],
-									[
-										7001,
-										7026
-									],
-									[
-										7289,
-										7314
-									],
-									[
-										7555,
-										7580
-									],
-									[
-										7818,
-										7843
-									],
-									[
-										8042,
-										8067
-									],
-									[
-										8349,
-										8374
-									],
-									[
-										8750,
-										8790
-									],
-									[
-										9018,
-										9058
-									],
-									[
-										9085,
-										9125
-									],
-									[
-										9510,
-										9530
-									],
-									[
-										9906,
-										9926
-									],
-									[
-										10303,
-										10323
-									],
-									[
-										10681,
-										10701
-									],
-									[
-										11098,
-										11118
-									],
-									[
-										11541,
-										11561
-									],
-									[
-										11738,
-										11758
-									],
-									[
-										12147,
-										12167
-									],
-									[
-										12453,
-										12473
-									],
-									[
-										12837,
-										12857
-									],
-									[
-										13228,
-										13248
-									],
-									[
-										13641,
-										13661
-									],
-									[
-										14000,
-										14020
-									],
-									[
-										14400,
-										14420
-									],
-									[
-										14826,
-										14846
-									],
-									[
-										15009,
-										15029
-									],
-									[
-										15165,
-										15185
-									],
-									[
-										15525,
-										15545
-									],
-									[
-										15858,
-										15878
-									],
-									[
-										16242,
-										16262
-									],
-									[
-										16633,
-										16653
-									],
-									[
-										17046,
-										17066
-									],
-									[
-										17405,
-										17425
-									],
-									[
-										17805,
-										17825
-									],
-									[
-										18325,
-										18345
-									],
-									[
-										18520,
-										18540
-									],
-									[
-										18692,
-										18712
-									],
-									[
-										19080,
-										19100
-									],
-									[
-										19437,
-										19457
-									],
-									[
-										19837,
-										19857
-									],
-									[
-										20236,
-										20256
-									],
-									[
-										20626,
-										20646
-									],
-									[
-										21001,
-										21021
-									],
-									[
-										21409,
-										21429
-									],
-									[
-										21822,
-										21842
-									],
-									[
-										21866,
-										21886
-									],
-									[
-										22096,
-										22116
-									],
-									[
-										22136,
-										22156
-									],
-									[
-										22395,
-										22415
-									],
-									[
-										22464,
-										22484
-									],
-									[
-										22765,
-										22771
-									],
-									[
-										22881,
-										22887
-									],
-									[
-										23218,
-										23224
-									],
-									[
-										23483,
-										23489
-									],
-									[
-										23621,
-										23627
-									],
-									[
-										23856,
-										23862
-									],
-									[
-										24160,
-										24166
-									],
-									[
-										24399,
-										24405
-									],
-									[
-										26588,
-										26594
-									],
-									[
-										26650,
-										26656
-									],
-									[
-										26823,
-										26829
-									],
-									[
-										26885,
-										26891
-									],
-									[
-										27058,
-										27064
-									],
-									[
-										27120,
-										27126
-									],
-									[
-										27293,
-										27299
-									],
-									[
-										27355,
-										27361
-									],
-									[
-										27528,
-										27534
-									],
-									[
-										27590,
-										27596
-									],
-									[
-										27763,
-										27769
-									],
-									[
-										27936,
-										27942
-									],
-									[
-										28109,
-										28115
-									],
-									[
-										28282,
-										28288
-									],
-									[
-										28455,
-										28461
-									],
-									[
-										28628,
-										28634
-									],
-									[
-										28801,
-										28807
-									],
-									[
-										28974,
-										28980
-									],
-									[
-										29147,
-										29153
-									],
-									[
-										29320,
-										29326
-									],
-									[
-										29717,
-										29723
-									],
-									[
-										29779,
-										29785
-									],
-									[
-										29952,
-										29958
-									],
-									[
-										30014,
-										30020
-									],
-									[
-										30187,
-										30193
-									],
-									[
-										30249,
-										30255
-									],
-									[
-										30422,
-										30428
-									],
-									[
-										30484,
-										30490
-									],
-									[
-										30657,
-										30663
-									],
-									[
-										30719,
-										30725
-									],
-									[
-										30892,
-										30898
-									],
-									[
-										31065,
-										31071
-									],
-									[
-										31238,
-										31244
-									],
-									[
-										31411,
-										31417
-									],
-									[
-										31584,
-										31590
-									],
-									[
-										31757,
-										31763
-									],
-									[
-										31930,
-										31936
-									],
-									[
-										32103,
-										32109
-									],
-									[
-										32276,
-										32282
-									],
-									[
-										32449,
-										32455
-									],
-									[
-										32832,
-										32838
-									],
-									[
-										32894,
-										32900
-									],
-									[
-										33067,
-										33073
-									],
-									[
-										33129,
-										33135
-									],
-									[
-										33302,
-										33308
-									],
-									[
-										33364,
-										33370
-									],
-									[
-										33537,
-										33543
-									],
-									[
-										33599,
-										33605
-									],
-									[
-										33772,
-										33778
-									],
-									[
-										33834,
-										33840
-									],
-									[
-										34007,
-										34013
-									],
-									[
-										34180,
-										34186
-									],
-									[
-										34353,
-										34359
-									],
-									[
-										34526,
-										34532
-									],
-									[
-										34699,
-										34705
-									],
-									[
-										34872,
-										34878
-									],
-									[
-										35045,
-										35051
-									],
-									[
-										35218,
-										35224
-									],
-									[
-										35391,
-										35397
-									],
-									[
-										35564,
-										35570
-									],
-									[
-										35965,
-										35971
-									],
-									[
-										36027,
-										36033
-									],
-									[
-										36200,
-										36206
-									],
-									[
-										36262,
-										36268
-									],
-									[
-										36435,
-										36441
-									],
-									[
-										36497,
-										36503
-									],
-									[
-										36670,
-										36676
-									],
-									[
-										36732,
-										36738
-									],
-									[
-										36905,
-										36911
-									],
-									[
-										36967,
-										36973
-									],
-									[
-										37140,
-										37146
-									],
-									[
-										37313,
-										37319
-									],
-									[
-										37486,
-										37492
-									],
-									[
-										37659,
-										37665
-									],
-									[
-										37832,
-										37838
-									],
-									[
-										38005,
-										38011
-									],
-									[
-										38178,
-										38184
-									],
-									[
-										38351,
-										38357
-									],
-									[
-										38524,
-										38530
-									],
-									[
-										38697,
-										38703
-									],
-									[
-										39110,
-										39116
-									],
-									[
-										39172,
-										39178
-									],
-									[
-										39345,
-										39351
-									],
-									[
-										39407,
-										39413
-									],
-									[
-										39580,
-										39586
-									],
-									[
-										39642,
-										39648
-									],
-									[
-										39815,
-										39821
-									],
-									[
-										39877,
-										39883
-									],
-									[
-										40050,
-										40056
-									],
-									[
-										40112,
-										40118
-									],
-									[
-										40285,
-										40291
-									],
-									[
-										40458,
-										40464
-									],
-									[
-										40631,
-										40637
-									],
-									[
-										40804,
-										40810
-									],
-									[
-										40977,
-										40983
-									],
-									[
-										41150,
-										41156
-									],
-									[
-										41323,
-										41329
-									],
-									[
-										41496,
-										41502
-									],
-									[
-										41669,
-										41675
-									],
-									[
-										41842,
-										41848
-									],
-									[
-										42237,
-										42243
-									],
-									[
-										42299,
-										42305
-									],
-									[
-										42472,
-										42478
-									],
-									[
-										42534,
-										42540
-									],
-									[
-										42707,
-										42713
-									],
-									[
-										42769,
-										42775
-									],
-									[
-										42942,
-										42948
-									],
-									[
-										43004,
-										43010
-									],
-									[
-										43177,
-										43183
-									],
-									[
-										43239,
-										43245
-									],
-									[
-										43412,
-										43418
-									],
-									[
-										43585,
-										43591
-									],
-									[
-										43758,
-										43764
-									],
-									[
-										43931,
-										43937
-									],
-									[
-										44104,
-										44110
-									],
-									[
-										44277,
-										44283
-									],
-									[
-										44450,
-										44456
-									],
-									[
-										44623,
-										44629
-									],
-									[
-										44796,
-										44802
-									],
-									[
-										44969,
-										44975
-									],
-									[
-										45369,
-										45375
-									],
-									[
-										45431,
-										45437
-									],
-									[
-										45604,
-										45610
-									],
-									[
-										45666,
-										45672
-									],
-									[
-										45839,
-										45845
-									],
-									[
-										45901,
-										45907
-									],
-									[
-										46074,
-										46080
-									],
-									[
-										46136,
-										46142
-									],
-									[
-										46309,
-										46315
-									],
-									[
-										46371,
-										46377
-									],
-									[
-										46544,
-										46550
-									],
-									[
-										46717,
-										46723
-									],
-									[
-										46890,
-										46896
-									],
-									[
-										47063,
-										47069
-									],
-									[
-										47236,
-										47242
-									],
-									[
-										47409,
-										47415
-									],
-									[
-										47582,
-										47588
-									],
-									[
-										47755,
-										47761
-									],
-									[
-										47928,
-										47934
-									],
-									[
-										48101,
-										48107
-									],
-									[
-										48506,
-										48512
-									],
-									[
-										48568,
-										48574
-									],
-									[
-										48741,
-										48747
-									],
-									[
-										48803,
-										48809
-									],
-									[
-										48976,
-										48982
-									],
-									[
-										49038,
-										49044
-									],
-									[
-										49211,
-										49217
-									],
-									[
-										49273,
-										49279
-									],
-									[
-										49446,
-										49452
-									],
-									[
-										49508,
-										49514
-									],
-									[
-										49681,
-										49687
-									],
-									[
-										49854,
-										49860
-									],
-									[
-										50027,
-										50033
-									],
-									[
-										50200,
-										50206
-									],
-									[
-										50373,
-										50379
-									],
-									[
-										50546,
-										50552
-									],
-									[
-										50719,
-										50725
-									],
-									[
-										50892,
-										50898
-									],
-									[
-										51065,
-										51071
-									],
-									[
-										51238,
-										51244
-									],
-									[
-										51625,
-										51631
-									],
-									[
-										51687,
-										51693
-									],
-									[
-										51860,
-										51866
-									],
-									[
-										51922,
-										51928
-									],
-									[
-										52095,
-										52101
-									],
-									[
-										52157,
-										52163
-									],
-									[
-										52330,
-										52336
-									],
-									[
-										52392,
-										52398
-									],
-									[
-										52565,
-										52571
-									],
-									[
-										52627,
-										52633
-									],
-									[
-										52800,
-										52806
-									],
-									[
-										52973,
-										52979
-									],
-									[
-										53146,
-										53152
-									],
-									[
-										53319,
-										53325
-									],
-									[
-										53492,
-										53498
-									],
-									[
-										53665,
-										53671
-									],
-									[
-										53838,
-										53844
-									],
-									[
-										54011,
-										54017
-									],
-									[
-										54184,
-										54190
-									],
-									[
-										54357,
-										54363
-									],
-									[
-										54742,
-										54748
-									],
-									[
-										54804,
-										54810
-									],
-									[
-										54977,
-										54983
-									],
-									[
-										55039,
-										55045
-									],
-									[
-										55212,
-										55218
-									],
-									[
-										55274,
-										55280
-									],
-									[
-										55447,
-										55453
-									],
-									[
-										55509,
-										55515
-									],
-									[
-										55682,
-										55688
-									],
-									[
-										55744,
-										55750
-									],
-									[
-										55917,
-										55923
-									],
-									[
-										56090,
-										56096
-									],
-									[
-										56263,
-										56269
-									],
-									[
-										56436,
-										56442
-									],
-									[
-										56609,
-										56615
-									],
-									[
-										56782,
-										56788
-									],
-									[
-										56955,
-										56961
-									],
-									[
-										57128,
-										57134
-									],
-									[
-										57301,
-										57307
-									],
-									[
-										57474,
-										57480
-									],
-									[
-										57877,
-										57883
-									],
-									[
-										57939,
-										57945
-									],
-									[
-										58112,
-										58118
-									],
-									[
-										58174,
-										58180
-									],
-									[
-										58347,
-										58353
-									],
-									[
-										58409,
-										58415
-									],
-									[
-										58582,
-										58588
-									],
-									[
-										58644,
-										58650
-									],
-									[
-										58817,
-										58823
-									],
-									[
-										58879,
-										58885
-									],
-									[
-										59052,
-										59058
-									],
-									[
-										59225,
-										59231
-									],
-									[
-										59398,
-										59404
-									],
-									[
-										59571,
-										59577
-									],
-									[
-										59744,
-										59750
-									],
-									[
-										59917,
-										59923
-									],
-									[
-										60090,
-										60096
-									],
-									[
-										60263,
-										60269
-									],
-									[
-										60436,
-										60442
-									],
-									[
-										60609,
-										60615
-									],
-									[
-										61024,
-										61030
-									],
-									[
-										61086,
-										61092
-									],
-									[
-										61259,
-										61265
-									],
-									[
-										61321,
-										61327
-									],
-									[
-										61494,
-										61500
-									],
-									[
-										61556,
-										61562
-									],
-									[
-										61729,
-										61735
-									],
-									[
-										61791,
-										61797
-									],
-									[
-										61964,
-										61970
-									],
-									[
-										62026,
-										62032
-									],
-									[
-										62199,
-										62205
-									],
-									[
-										62372,
-										62378
-									],
-									[
-										62545,
-										62551
-									],
-									[
-										62718,
-										62724
-									],
-									[
-										62891,
-										62897
-									],
-									[
-										63064,
-										63070
-									],
-									[
-										63237,
-										63243
-									],
-									[
-										63410,
-										63416
-									],
-									[
-										63583,
-										63589
-									],
-									[
-										63756,
-										63762
-									],
-									[
-										64153,
-										64159
-									],
-									[
-										64215,
-										64221
-									],
-									[
-										64388,
-										64394
-									],
-									[
-										64450,
-										64456
-									],
-									[
-										64623,
-										64629
-									],
-									[
-										64685,
-										64691
-									],
-									[
-										64858,
-										64864
-									],
-									[
-										64920,
-										64926
-									],
-									[
-										65093,
-										65099
-									],
-									[
-										65155,
-										65161
-									],
-									[
-										65328,
-										65334
-									],
-									[
-										65501,
-										65507
-									],
-									[
-										65674,
-										65680
-									],
-									[
-										65847,
-										65853
-									],
-									[
-										66020,
-										66026
-									],
-									[
-										66193,
-										66199
-									],
-									[
-										66366,
-										66372
-									],
-									[
-										66539,
-										66545
-									],
-									[
-										66712,
-										66718
-									],
-									[
-										66885,
-										66891
-									],
-									[
-										67272,
-										67278
-									],
-									[
-										67334,
-										67340
-									],
-									[
-										67507,
-										67513
-									],
-									[
-										67569,
-										67575
-									],
-									[
-										67742,
-										67748
-									],
-									[
-										67804,
-										67810
-									],
-									[
-										67977,
-										67983
-									],
-									[
-										68039,
-										68045
-									],
-									[
-										68212,
-										68218
-									],
-									[
-										68274,
-										68280
-									],
-									[
-										68447,
-										68453
-									],
-									[
-										68620,
-										68626
-									],
-									[
-										68793,
-										68799
-									],
-									[
-										68966,
-										68972
-									],
-									[
-										69139,
-										69145
-									],
-									[
-										69312,
-										69318
-									],
-									[
-										69485,
-										69491
-									],
-									[
-										69658,
-										69664
-									],
-									[
-										69831,
-										69837
-									],
-									[
-										70004,
-										70010
-									],
-									[
-										70403,
-										70409
-									],
-									[
-										70465,
-										70471
-									],
-									[
-										70638,
-										70644
-									],
-									[
-										70700,
-										70706
-									],
-									[
-										70873,
-										70879
-									],
-									[
-										70935,
-										70941
-									],
-									[
-										71108,
-										71114
-									],
-									[
-										71170,
-										71176
-									],
-									[
-										71343,
-										71349
-									],
-									[
-										71405,
-										71411
-									],
-									[
-										71578,
-										71584
-									],
-									[
-										71751,
-										71757
-									],
-									[
-										71924,
-										71930
-									],
-									[
-										72097,
-										72103
-									],
-									[
-										72270,
-										72276
-									],
-									[
-										72443,
-										72449
-									],
-									[
-										72616,
-										72622
-									],
-									[
-										72789,
-										72795
-									],
-									[
-										72962,
-										72968
-									],
-									[
-										73135,
-										73141
-									],
-									[
-										73524,
-										73530
-									],
-									[
-										73586,
-										73592
-									],
-									[
-										73759,
-										73765
-									],
-									[
-										73821,
-										73827
-									],
-									[
-										73994,
-										74000
-									],
-									[
-										74056,
-										74062
-									],
-									[
-										74229,
-										74235
-									],
-									[
-										74291,
-										74297
-									],
-									[
-										74464,
-										74470
-									],
-									[
-										74526,
-										74532
-									],
-									[
-										74699,
-										74705
-									],
-									[
-										74872,
-										74878
-									],
-									[
-										75045,
-										75051
-									],
-									[
-										75218,
-										75224
-									],
-									[
-										75391,
-										75397
-									],
-									[
-										75564,
-										75570
-									],
-									[
-										75737,
-										75743
-									],
-									[
-										75910,
-										75916
-									],
-									[
-										76083,
-										76089
-									],
-									[
-										76256,
-										76262
-									],
-									[
-										76639,
-										76645
-									],
-									[
-										76701,
-										76707
-									],
-									[
-										76874,
-										76880
-									],
-									[
-										76936,
-										76942
-									],
-									[
-										77109,
-										77115
-									],
-									[
-										77171,
-										77177
-									],
-									[
-										77344,
-										77350
-									],
-									[
-										77406,
-										77412
-									],
-									[
-										77579,
-										77585
-									],
-									[
-										77641,
-										77647
-									],
-									[
-										77814,
-										77820
-									],
-									[
-										77987,
-										77993
-									],
-									[
-										78160,
-										78166
-									],
-									[
-										78333,
-										78339
-									],
-									[
-										78506,
-										78512
-									],
-									[
-										78679,
-										78685
-									],
-									[
-										78852,
-										78858
-									],
-									[
-										79025,
-										79031
-									],
-									[
-										79198,
-										79204
-									],
-									[
-										79371,
-										79377
-									],
-									[
-										79766,
-										79772
-									],
-									[
-										79828,
-										79834
-									],
-									[
-										80001,
-										80007
-									],
-									[
-										80063,
-										80069
-									],
-									[
-										80236,
-										80242
-									],
-									[
-										80298,
-										80304
-									],
-									[
-										80471,
-										80477
-									],
-									[
-										80533,
-										80539
-									],
-									[
-										80706,
-										80712
-									],
-									[
-										80768,
-										80774
-									],
-									[
-										80941,
-										80947
-									],
-									[
-										81114,
-										81120
-									],
-									[
-										81287,
-										81293
-									],
-									[
-										81460,
-										81466
-									],
-									[
-										81633,
-										81639
-									],
-									[
-										81806,
-										81812
-									],
-									[
-										81979,
-										81985
-									],
-									[
-										82152,
-										82158
-									],
-									[
-										82325,
-										82331
-									],
-									[
-										82498,
-										82504
-									],
-									[
-										82903,
-										82915
-									],
-									[
-										82984,
-										82996
-									],
-									[
-										83323,
-										83335
-									],
-									[
-										83403,
-										83415
-									],
-									[
-										83642,
-										83654
-									],
-									[
-										83922,
-										83934
-									],
-									[
-										84002,
-										84014
-									],
-									[
-										84322,
-										84334
-									],
-									[
-										84402,
-										84414
-									],
-									[
-										84720,
-										84732
-									],
-									[
-										84800,
-										84812
-									],
-									[
-										85114,
-										85126
-									],
-									[
-										85194,
-										85206
-									],
-									[
-										85444,
-										85456
-									],
-									[
-										85644,
-										85656
-									],
-									[
-										85731,
-										85743
-									],
-									[
-										85832,
-										85844
-									],
-									[
-										85918,
-										85930
-									],
-									[
-										86006,
-										86018
-									],
-									[
-										86173,
-										86185
-									],
-									[
-										86385,
-										86397
-									],
-									[
-										86472,
-										86484
-									],
-									[
-										86643,
-										86655
-									],
-									[
-										86717,
-										86729
-									],
-									[
-										86904,
-										86916
-									],
-									[
-										87126,
-										87138
-									],
-									[
-										87219,
-										87231
-									],
-									[
-										87371,
-										87383
-									],
-									[
-										87450,
-										87462
-									],
-									[
-										87557,
-										87569
-									],
-									[
-										87663,
-										87675
-									],
-									[
-										87774,
-										87786
-									],
-									[
-										88111,
-										88123
-									],
-									[
-										88191,
-										88203
-									],
-									[
-										88269,
-										88281
-									],
-									[
-										88341,
-										88353
-									],
-									[
-										88426,
-										88438
-									]
-								],
-								"scope": ""
-							}
 						},
 						"selection":
 						[
 							[
-								82897,
-								82916
+								9916,
+								9916
 							]
 						],
 						"settings":
 						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 7,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 16458.0,
+						"translation.y": 2177.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/components/shared/bigcalendaredit.js",
+					"file": "package.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5361,
+						"buffer_size": 5144,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2816,
-								2816
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 753.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/services/trainings/trainingactions.js",
+					"file": "src/server7.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 28630,
+						"buffer_size": 17747,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								20983,
-								20983
+								2301,
+								2301
 							]
 						],
 						"settings":
@@ -2790,69 +840,104 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5953.0,
+						"translation.y": 533.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "src/services/todos/todoactions.js",
-					"semi_transient": true,
+					"file": "/C/Programm/SublimeText3/Data/Packages/User/swi.sublime-settings",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22278,
+						"buffer_size": 440,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								18203,
-								18310
+								114,
+								114
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5823.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7540,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7540,
+								7540
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Web Inspector/swi_log.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1437.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "src/scenes/training/admin/trainingschedule.js",
+					"buffer": 5,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5087,
+						"buffer_size": 136,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3404,
-								3404
+								136,
+								136
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Web Inspector/swi_log.tmLanguage",
+							"word_wrap": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 839.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				}
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
@@ -2871,18 +956,32 @@
 			[
 				0,
 				0,
-				1,
+				2,
 				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.6,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
+			0.7,
 			1.0
 		]
 	},
@@ -2952,7 +1051,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 265.0,
+	"side_bar_width": 240.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -4,7 +4,12 @@ import cookie from 'react-cookie'
 import ApiConnection from '../../../services/apiconnection'
 import $ from 'jquery'
 
+<<<<<<< HEAD
 export default class TodoImage extends React.Component {
+=======
+export default
+class TodoImage extends React.Component {
+>>>>>>> 6e3ff02... webstorm big changes crash
 
     constructor(props) {
         super(props)
@@ -42,12 +47,20 @@ export default class TodoImage extends React.Component {
 
         const idToken = cookie.load('jwt')
         return (
+<<<<<<< HEAD
             <div className='imgwrapper' id={'imgwrap' + taskid}>
                 <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
                 <img id={'todolistitemimg' + taskid} src='./images/0.png'
                      data-src={ApiConnection.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken}
                      onLoad={this.handleImageLoaded.bind(this)}
                      onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
+=======
+            <div className='imgwrapper' id={'imgwrap' + taskid} >
+                <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
+                <img id={'todolistitemimg' + taskid} src='./images/0.png' data-src={ApiConnection.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken}
+                    onLoad={this.handleImageLoaded.bind(this)}
+                    onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
+>>>>>>> 6e3ff02... webstorm big changes crash
             </div>
         )
         // return (
@@ -64,8 +77,14 @@ export default class TodoImage extends React.Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
         // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+=======
+        // componentHandler.upgradeDom()
+        componentHandler.upgradeDom()
+        // componentHandler.upgradeDom()
+>>>>>>> 6e3ff02... webstorm big changes crash
 //    console.log('++++++++++++++++ todoimage ++++++ componentDidMount ')
         // this.loadImage()
         // const taskid = this.props.taskid
@@ -84,8 +103,14 @@ export default class TodoImage extends React.Component {
     }
 
     componentDidUpdate() {
+<<<<<<< HEAD
         // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
         require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
+=======
+        // componentHandler.upgradeDom()
+        // componentHandler.upgradeAllRegistered()
+        componentHandler.upgradeAllRegistered()
+>>>>>>> 6e3ff02... webstorm big changes crash
 //    console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate '+this.props.isUploading)   
 
         const taskid = this.props.taskid

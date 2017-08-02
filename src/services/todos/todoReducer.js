@@ -46,7 +46,11 @@ let todoReducer = function (todoappmap = new Immutable.Map({
             filterOpen: true,
             filterClosed: true,
             // loadTodoImages: false,
+<<<<<<< HEAD
             todos: undefined//Immutable.List([])      
+=======
+            todos: undefined//Immutable.List([])
+>>>>>>> 6e3ff02... webstorm big changes crash
         })
     }
     // console.log('Todo reducer. Filter open: ' + todoappmap.get('filterOpen'))

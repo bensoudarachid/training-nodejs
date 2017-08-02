@@ -6,7 +6,11 @@ import {IndexLink, Link} from 'react-router'
 if (process.env.BROWSER) {
     // console.log('Appcomponent. environment is browser')
     require('./appmodaldlg.scss')
+<<<<<<< HEAD
     // $(document).ready(function() { 
+=======
+    // $(document).ready(function() {
+>>>>>>> 6e3ff02... webstorm big changes crash
     //   var modal = document.getElementById('myModal')
 
     // // Get the button that opens the modal
@@ -16,7 +20,11 @@ if (process.env.BROWSER) {
     // // Get the <span> element that closes the modal
     //   var span = document.getElementsByClassName('close')[0]
 
+<<<<<<< HEAD
     // // When the user clicks the button, open the modal 
+=======
+    // // When the user clicks the button, open the modal
+>>>>>>> 6e3ff02... webstorm big changes crash
     //   btn.onclick = function() {
     //     modal.style.display = 'block'
     //   }
@@ -37,8 +45,19 @@ if (process.env.BROWSER) {
 
 }
 
-export default class AppModalDlg extends Component {
+export default
+class AppModalDlg extends Component {
 
+    render() {
+        // const { errorMessage } = this.props
+        // var myStyle = {fontSize: 100, color: '#FF0000'}
+        // console.log('appmodaldlgjs render')
+        // <span onClick={(event) => this.handleClose(event)} className='close'>×</span>
+        return (
+            <div id='appmodaldlg' >
+                <div className='modal'>
+
+<<<<<<< HEAD
     render() {
         // const { errorMessage } = this.props
         // var myStyle = {fontSize: 100, color: '#FF0000'}
@@ -48,6 +67,8 @@ export default class AppModalDlg extends Component {
             <div id='appmodaldlg'>
                 <div className='modal'>
 
+=======
+>>>>>>> 6e3ff02... webstorm big changes crash
                     <div className='modal-content'>
                         <div className='modal-header'>
 
@@ -57,9 +78,13 @@ export default class AppModalDlg extends Component {
                             <p>{this.props.errorMessage}</p>
                         </div>
                         <div className='modal-footer'>
+<<<<<<< HEAD
                             <button onClick={(event) => this.handleClose(event)}
                                     className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>Ok
                             </button>
+=======
+                            <button onClick={(event) => this.handleClose(event)} className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>Ok</button>
+>>>>>>> 6e3ff02... webstorm big changes crash
                         </div>
                     </div>
                 </div>

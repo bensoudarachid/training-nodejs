@@ -5,7 +5,11 @@ import {Route, IndexRoute, Link, hashHistory, DefaultRoute, NotFoundRoute} from 
 
 const todoRoutes = (
     // <Route path="todos" component={TodoApp} />
+<<<<<<< HEAD
     <Route path="todos" component={require('../../scenes/todo/todoapp').default}/>
+=======
+    <Route path="todos" component={require('../../scenes/todo/todoapp').default} />
+>>>>>>> 6e3ff02... webstorm big changes crash
 )
 // const trainingRoutes = {
 //   path: 'item/:id',

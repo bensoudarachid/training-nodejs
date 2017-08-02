@@ -20,7 +20,10 @@ import {Provider} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import actions from './services/actions'
 import ApiConnection from './services/apiconnection'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6e3ff02... webstorm big changes crash
 var assets = require('../assets/assets.json')
 var FormData = require('form-data')
 const util = require('util')
@@ -311,7 +314,11 @@ app.get(appbasename + '/*', (req, res) => {
                     location: req.url
                 }, (error, redirectLocation, renderProps) => {
                     const promises = renderProps.components
+<<<<<<< HEAD
                     // .filter((component) => component.fetchData)
+=======
+                        // .filter((component) => component.fetchData)
+>>>>>>> 6e3ff02... webstorm big changes crash
                         .filter((component) => {
                             console.log('filter component = ' + util.inspect(component, false, null))
                             return component != undefined ? component.fetchData : false
@@ -335,8 +342,15 @@ app.get(appbasename + '/*', (req, res) => {
                         // if(hour < 7 || hour > 22){
                         // var appcss = '/app.css'
                         console.log('assets=' + require('util').inspect(assets, false, null))
+<<<<<<< HEAD
                         var style = assets.app.css // '/app.css'
                         var bundle = assets.app.js //'/app.js'
+=======
+                        // var publicstyle = assets.publicapp.css // '/app.css'
+                        var publicbundle = assets.publicapp.js //'/app.js'
+                        var appstyle = assets.app.css // '/app.css'
+
+>>>>>>> 6e3ff02... webstorm big changes crash
 
                         // style = '/style.css'
                         // bundle = '/bundle.js'
@@ -355,6 +369,7 @@ app.get(appbasename + '/*', (req, res) => {
 // <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 // <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 // <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+//              <link rel="stylesheet" type="text/css" href="${adminappstyle}" />
 
                         // console.log('Server. body '+body);
                         const state = store.getState()
@@ -373,12 +388,13 @@ app.get(appbasename + '/*', (req, res) => {
                 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
                 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>
 
-                <link rel="stylesheet" type="text/css" href="${style}" />
+                <link rel="stylesheet" type="text/css" href="${appstyle}" />                
+
                 </head>
                 <body style="background-color:#2980b9">
                   <div id="root"><div>${body}</div></div>
                   <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
-                  <script defer src="${bundle}"></script>
+                  <script defer src="${publicbundle}"></script>
                 </body>
               </html>`)
                     }).catch(err => console.log('Booooo' + err))

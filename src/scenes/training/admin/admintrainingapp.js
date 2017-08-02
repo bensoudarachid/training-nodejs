@@ -27,6 +27,11 @@ if (process.env.BROWSER) {
     //   require('../../app/jquery.shuffleLetters.js').default
     // })
     require('./admintrainingapp.scss')
+<<<<<<< HEAD
+=======
+    // require('./trainingedit.scss')
+    // require('./trainingschedule.scss')
+>>>>>>> 6e3ff02... webstorm big changes crash
 
     var rdm = 0
     var lastrdm = 0
@@ -113,7 +118,12 @@ if (process.env.BROWSER) {
 // ];
 // import 'node-fetch'
 
+<<<<<<< HEAD
 export default class AdminTrainingApp extends Component {
+=======
+export default
+class AdminTrainingApp extends Component {
+>>>>>>> 6e3ff02... webstorm big changes crash
     constructor(props) {
         super(props)
 //    console.log('training list. Mixin in constructor')
@@ -242,6 +252,7 @@ export default class AdminTrainingApp extends Component {
         return (
             <div>
                 <div className='admintrainingapp'>
+<<<<<<< HEAD
         <span id="textwrap"> 
           <p id="textswitch"></p>
         </span>
@@ -252,6 +263,16 @@ export default class AdminTrainingApp extends Component {
                         </div>
                         <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')}
                                            actions={this.props.actions}/>
+=======
+                    <span id="textwrap">
+                        <p id="textswitch"></p>
+                    </span>
+                    <div>
+                        <div className='blockborder parampanel commandpanel'>
+                            <TrainingCommandPanel trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+                        </div>
+                        <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+>>>>>>> 6e3ff02... webstorm big changes crash
                     </div>
                 </div>
             </div>

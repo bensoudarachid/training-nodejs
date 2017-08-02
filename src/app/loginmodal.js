@@ -7,7 +7,11 @@ import {IndexLink, Link} from 'react-router'
 if (process.env.BROWSER) {
     // console.log('Appcomponent. environment is browser')
     require('./loginmodal.scss')
+<<<<<<< HEAD
     // $(document).ready(function() { 
+=======
+    // $(document).ready(function() {
+>>>>>>> 6e3ff02... webstorm big changes crash
     //   var modal = document.getElementById('myModal')
 
     // // Get the button that opens the modal
@@ -17,7 +21,11 @@ if (process.env.BROWSER) {
     // // Get the <span> element that closes the modal
     //   var span = document.getElementsByClassName('close')[0]
 
+<<<<<<< HEAD
     // // When the user clicks the button, open the modal 
+=======
+    // // When the user clicks the button, open the modal
+>>>>>>> 6e3ff02... webstorm big changes crash
     //   btn.onclick = function() {
     //     modal.style.display = 'block'
     //   }
@@ -39,12 +47,22 @@ if (process.env.BROWSER) {
 }
 
 
+<<<<<<< HEAD
 export default class LoginModal extends Component {
 
     render() {
         const {errorMessage} = this.props
         return (
             <div id='loginmodal'>
+=======
+export default
+class LoginModal extends Component {
+
+    render() {
+        const { errorMessage } = this.props
+        return (
+            <div id='loginmodal' >
+>>>>>>> 6e3ff02... webstorm big changes crash
                 <div className='modal'>
 
                     <div className='modal-content'>
@@ -55,7 +73,11 @@ export default class LoginModal extends Component {
                         <div className='modal-body'>
                             <Login
                                 errorMessage={errorMessage}
+<<<<<<< HEAD
                                 onLoginClick={creds => this.props.actions.loginUser(creds)}
+=======
+                                onLoginClick={ creds => this.props.actions.loginUser(creds) }
+>>>>>>> 6e3ff02... webstorm big changes crash
                                 onLoginProcessStartClick={this.props.actions.loginProcessStart}
                             />
                         </div>
@@ -70,10 +92,17 @@ export default class LoginModal extends Component {
     }
 
     renderOld() {
+<<<<<<< HEAD
         const {errorMessage} = this.props
 
         return (
             <div id='loginmodal'>
+=======
+        const { errorMessage } = this.props
+
+        return (
+            <div id='loginmodal' >
+>>>>>>> 6e3ff02... webstorm big changes crash
                 <div className='modal'>
 
                     <div className='modal-content'>
@@ -85,7 +114,11 @@ export default class LoginModal extends Component {
                         <div className='modal-body'>
                             <Login
                                 errorMessage={errorMessage}
+<<<<<<< HEAD
                                 onLoginClick={creds => this.props.actions.loginUser(creds)}
+=======
+                                onLoginClick={ creds => this.props.actions.loginUser(creds) }
+>>>>>>> 6e3ff02... webstorm big changes crash
                                 onLoginProcessStartClick={this.props.actions.loginProcessStart}
                             />
                         </div>
@@ -109,7 +142,11 @@ export default class LoginModal extends Component {
     //   // var modal = document.getElementById('myModal')
     //   // modal.style.display = 'block'
     //   this.props.onLoginProcessStartClick('Please login')
+<<<<<<< HEAD
     // }     
+=======
+    // }
+>>>>>>> 6e3ff02... webstorm big changes crash
 }
 
 // Login.propTypes = {

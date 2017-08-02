@@ -26,7 +26,12 @@ if (process.env.BROWSER) {
 }
 
 
+<<<<<<< HEAD
 export default class Register extends Component {
+=======
+export default
+class Register extends Component {
+>>>>>>> 6e3ff02... webstorm big changes crash
     //<Spinner spinnerName='three-bounce' /> circle wordpress double-bounce<p>Loading...</p>
     // <input type='text' ref='email' className="form-control" placeholder='Email'/>
     // <input type='text' ref='username' className="form-control" placeholder='Username'/>
@@ -95,44 +100,68 @@ export default class Register extends Component {
                                     <div className='row'>
                                         <div className='col-xs-12 col-md-6 col-lg-6'>
                                             <div className={textInputClassnames}>
+<<<<<<< HEAD
                                                 <input className='mdl-textfield__input' ref='username' type='text'
                                                        id='username' name='username'/>
                                                 <label className='mdl-textfield__label' htmlFor='username'>User
                                                     name</label>
                                                 <span className="mdl-textfield__error"
                                                       htmlFor='username'>{registrationError.get('username')}</span>
+=======
+                                                <input className='mdl-textfield__input' ref='username' type='text' id='username' name='username'/>
+                                                <label className='mdl-textfield__label' htmlFor='username'>User name</label>
+                                                <span className="mdl-textfield__error" htmlFor='username'>{registrationError.get('username')}</span>
+>>>>>>> 6e3ff02... webstorm big changes crash
                                             </div>
                                         </div>
 
                                         <div className='col-xs-12 col-md-6 col-lg-6'>
                                             <div className={textInputClassnames}>
+<<<<<<< HEAD
                                                 <input className='mdl-textfield__input' ref='email' type='text'
                                                        id='email' name='email'/>
                                                 <label className='mdl-textfield__label' htmlFor='email'>Email</label>
                                                 <span className="mdl-textfield__error"
                                                       htmlFor='email'>{registrationError.get('email')}</span>
+=======
+                                                <input className='mdl-textfield__input' ref='email' type='text' id='email' name='email'/>
+                                                <label className='mdl-textfield__label' htmlFor='email'>Email</label>
+                                                <span className="mdl-textfield__error"htmlFor='email'>{registrationError.get('email')}</span>
+>>>>>>> 6e3ff02... webstorm big changes crash
                                             </div>
                                         </div>
 
                                         <div className='col-xs-12 col-md-6 col-lg-6'>
                                             <div className={textInputClassnames}>
+<<<<<<< HEAD
                                                 <input className='mdl-textfield__input' ref='password' type='password'
                                                        id='password' name='password'/>
                                                 <label className='mdl-textfield__label'
                                                        htmlFor='password'>Password</label>
                                                 <span className="mdl-textfield__error"
                                                       htmlFor='password'>{registrationError.get('password')}</span>
+=======
+                                                <input className='mdl-textfield__input' ref='password' type='password' id='password' name='password'/>
+                                                <label className='mdl-textfield__label' htmlFor='password'>Password</label>
+                                                <span className="mdl-textfield__error" htmlFor='password'>{registrationError.get('password')}</span>
+>>>>>>> 6e3ff02... webstorm big changes crash
                                             </div>
                                         </div>
 
                                         <div className='col-xs-12 col-md-6 col-lg-6'>
                                             <div className={textInputClassnames}>
+<<<<<<< HEAD
                                                 <input className='mdl-textfield__input' ref='passwordCheck'
                                                        type='password' id='passwordCheck' name='passwordCheck'/>
                                                 <label className='mdl-textfield__label' htmlFor='passwordCheck'>Password
                                                     check</label>
                                                 <span className="mdl-textfield__error"
                                                       htmlFor='passwordCheck'>{registrationError.get('passwordCheck')}</span>
+=======
+                                                <input className='mdl-textfield__input' ref='passwordCheck' type='password' id='passwordCheck' name='passwordCheck'/>
+                                                <label className='mdl-textfield__label' htmlFor='passwordCheck'>Password check</label>
+                                                <span className="mdl-textfield__error" htmlFor='passwordCheck'>{registrationError.get('passwordCheck')}</span>
+>>>>>>> 6e3ff02... webstorm big changes crash
                                             </div>
                                         </div>
 
@@ -140,6 +169,7 @@ export default class Register extends Component {
                                 </div>
                                 <br/>
                                 <div className='footer'>
+<<<<<<< HEAD
                                     {!isRegistrationFetching &&
                                     <button type='submit'
                                             className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
@@ -151,21 +181,41 @@ export default class Register extends Component {
                                         className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap'
                                         style={{width: '55px', height: '55px'}}></span>
                                     }
+=======
+            {!isRegistrationFetching &&
+            <button type='submit' className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
+            Submit
+            </button>
+                }
+            {isRegistrationFetching &&
+            <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap' style={{
+                width: '55px',
+                height: '55px'
+            }}></span>
+                }
+>>>>>>> 6e3ff02... webstorm big changes crash
                                 </div>
                             </form>
                         </div>
                     </div>
                 )
             case 2:
+<<<<<<< HEAD
                 return <RegSuccessful/>
             case 3:
                 return <RegError/>
+=======
+                return <RegSuccessful />
+            case 3:
+                return <RegError />
+>>>>>>> 6e3ff02... webstorm big changes crash
         }
         return (
             <div>
                 <p>Nothing returned</p>
             </div>
         )
+<<<<<<< HEAD
     }
 
     // {registererror &&
@@ -208,6 +258,50 @@ export default class Register extends Component {
         this.props.actions.registerInit()
     }
 
+=======
+    }
+
+    // {registererror &&
+    // <AppDialog/>
+    // }
+
+    componentDidMount() {
+        componentHandler.upgradeDom()
+        // const isRegistrationFetching = this.props.auth.get('isRegistrationFetching')
+        // console.log('Registeration. mount')
+        this.props.actions.registerInit()
+
+        // var dialogInputs = document.querySelectorAll('.mdl-textfield__input')
+        // for (var i = 0, l = dialogInputs.length; i < l; i++) {
+        //   dialogInputs[i].MaterialTextfield.checkDirty()
+        // }
+    }
+
+    componentDidUpdate() {
+        let registrationError = this.props.auth.get('registrationError')
+        // console.log('Registeration. comp update')
+        // componentHandler.upgradeDom()
+        // $('#usernameid').get(0).MaterialTextfield.checkDirty()
+        //Need this code to get correct placeholderfloating  behaviour. otherwise content and placeholder overlap
+        var dialogInputs = document.querySelectorAll('.mdl-textfield')
+        for (var i = 0, l = dialogInputs.length; i < l; i++) {
+            dialogInputs[i].MaterialTextfield.checkDirty()
+            if (registrationError.get(dialogInputs[i].MaterialTextfield.input_.id) !== undefined)
+                dialogInputs[i].className += ' is-invalid'
+            else {
+                dialogInputs[i].className = dialogInputs[i].className.replace(' is-invalid', ' ')
+                // console.log('Register. dialogInputs[i].className - invalid '+dialogInputs[i].className)
+            }
+        }
+
+    }
+
+    componentWillUnmount() {
+        console.log('Registeration. unmount')
+        this.props.actions.registerInit()
+    }
+
+>>>>>>> 6e3ff02... webstorm big changes crash
     handleClick(event) {
         event.preventDefault()
         // const usernameref = this.refs.username

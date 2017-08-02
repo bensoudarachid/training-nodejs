@@ -9,7 +9,12 @@ if (process.env.BROWSER) {
     require('./traininglist.scss')
 }
 
+<<<<<<< HEAD
 export default class TrainingList extends React.Component {
+=======
+export default
+class TrainingList extends React.Component {
+>>>>>>> 6e3ff02... webstorm big changes crash
     constructor(props) {
         super(props)
         // console.log('training list. Mixin in constructor')
@@ -17,13 +22,21 @@ export default class TrainingList extends React.Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+=======
+        componentHandler.upgradeDom()
+>>>>>>> 6e3ff02... webstorm big changes crash
     }
 
     // getItems() {
     //   if (this.props.trainings) {
     //     return this.props.trainings.filter(
+<<<<<<< HEAD
     //       (item) => 
+=======
+    //       (item) =>
+>>>>>>> 6e3ff02... webstorm big changes crash
     //         item.get('completed') && this.props.filterclosed ||
     //         !item.get('completed') && this.props.filteropen
     //     )
@@ -49,6 +62,7 @@ export default class TrainingList extends React.Component {
         return (
             // key={'traininglist'+Math.random()}
             <div className='traininglist'>
+<<<<<<< HEAD
                 {this.props.trainings == undefined ?
                     <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active'
                           style={{width: '55px', height: '55px'}}></span>
@@ -57,6 +71,18 @@ export default class TrainingList extends React.Component {
                         {this.renderItems()}
                     </div>
                 }
+=======
+        {this.props.trainings == undefined ?
+            <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{
+                width: '55px',
+                height: '55px'
+            }}></span>
+            :
+            <div className='traininglistwrap mdl-grid mdl-grid--no-spacing'>
+            {this.renderItems()}
+            </div>
+            }
+>>>>>>> 6e3ff02... webstorm big changes crash
             </div>
         )
     }

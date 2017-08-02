@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import React, {Component} from 'react'
+=======
+import React, { Component } from 'react'
+// require('../../../node_modules/material-design-lite/dist//material.css')
+// require('../../../node_modules/material-design-lite/dist/material.js')
+>>>>>>> 6e3ff02... webstorm big changes crash
 
 
 if (process.env.BROWSER) {
@@ -7,7 +13,12 @@ if (process.env.BROWSER) {
 }
 
 
+<<<<<<< HEAD
 export default class FileUploadInput extends Component {
+=======
+export default
+class FileUploadInput extends Component {
+>>>>>>> 6e3ff02... webstorm big changes crash
 
     constructor(props) {
         super(props)
@@ -17,6 +28,7 @@ export default class FileUploadInput extends Component {
         // var fileInputText = document.getElementById('file_input_text')
         this.changeInputText = this.changeInputText.bind(this)
     }
+<<<<<<< HEAD
 
     // <button className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored schedulebutton">
     //   <span className='glyphicon glyphicon-upload '></span>
@@ -42,13 +54,43 @@ export default class FileUploadInput extends Component {
     }
 
     // <input ref='file_input_text' name='file_input_text' className="mdl-textfield mdl-js-textfield" type="text" disabled readonly/> 
+=======
+
+    // <button className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored schedulebutton">
+    //   <span className='glyphicon glyphicon-upload '></span>
+    // </button>
+    // <input ref='file_input_file' onChange={this.changeInputText} className='none' type='file' id={id} disabled={this.props.disabled}/>
+    render() {
+        const id = this.props.id
+        const disabled = this.props.disabled ? 'disabled' : ''
+
+        return (
+            <div className='file_input_div'>
+                <div className='file_input'>
+                    <label className={'justify image_input_button mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored' + disabled}>
+                        <span className={'glyphicon glyphicon-upload ' + disabled}></span>
+                        <input ref='file_input_file' onChange={this.changeInputText} className='none' type='file' id={id} disabled={this.props.disabled}/>
+                    </label>
+                    <label className='uploadlabel' ref='file_input_text' name='file_input_text'>No image</label>
+                </div>
+            </div>
+        )
+    }
+
+    // <input ref='file_input_text' name='file_input_text' className="mdl-textfield mdl-js-textfield" type="text" disabled readonly/>
+>>>>>>> 6e3ff02... webstorm big changes crash
     // <div ref='file_input_text_div' className='bgr mdl-textfield mdl-js-textfield'>
     //   <input ref='file_input_text' name='file_input_text' className='bgp file_input_text mdl-textfield__input' type='text' disabled readonly />
     // </div>
 //<label className='mdl-textfield__label' htmlFor='file_input_text'></label>
 
     componentDidMount() {
+<<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+=======
+        componentHandler.upgradeDom()
+        // componentHandler.upgradeDom()
+>>>>>>> 6e3ff02... webstorm big changes crash
         var fileInput = this.refs.file_input_file
         fileInput.addEventListener('change', this.changeInputText)
         fileInput.addEventListener('change', this.changeState)

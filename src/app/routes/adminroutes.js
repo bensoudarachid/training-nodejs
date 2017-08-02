@@ -8,6 +8,7 @@ if (typeof require.ensure !== 'function') require.ensure = (d, c) => c(require)
 
 const adminRoutes = (
     <Route path="admin"
+<<<<<<< HEAD
 
            getChildRoutes={(location, cb) => {
                require.ensure([], require => {
@@ -21,6 +22,29 @@ const adminRoutes = (
                )
            }
            }
+=======
+        // getChildRoutes={(location, cb) =>
+        //   {cb(null,
+        //     [
+        //       <Route path="todos" component={require('../../scenes/todo/todoapp').default} />,
+        //       require('./trainingroutes.js').default
+        //     ]
+        //   )}
+        // }
+
+        getChildRoutes={ (location, cb) => {
+            require.ensure([], require => {
+                    cb(null,
+                        [
+                            <Route path="todos" component={require('../../scenes/todo/todoapp').default} />,
+                            require('./trainingroutes.js').default
+                        ]
+                    )
+                }
+            )
+        }
+            }
+>>>>>>> 6e3ff02... webstorm big changes crash
 
     >
         <IndexRoute component={AdminTrainingApp}/>
@@ -39,9 +63,20 @@ export default adminRoutes
 // ])}}
 
 
+<<<<<<< HEAD
 //    getChildRoutes={ (location, cb) => 
 //        {require.ensure([], require => 
 //          {cb(null, 
+=======
+// getChildRoutes={(location, cb) => {cb(null, [
+// 	require('./trainingroutes.js').default
+// ])}}
+
+
+//    getChildRoutes={ (location, cb) =>
+//        {require.ensure([], require =>
+//          {cb(null,
+>>>>>>> 6e3ff02... webstorm big changes crash
 //            [
 //              <Route path="todos" component={require('../../scenes/todo/todoapp').default} />,
 //              require('./trainingroutes.js').default

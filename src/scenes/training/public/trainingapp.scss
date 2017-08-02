@@ -14,10 +14,19 @@
   .commandpanel {
     width: 95%;
     // margin: 0 auto !important;
+<<<<<<< HEAD
     @media (min-width: 768px) { //768
       width: 90%;
     }
     @media (min-width: 992px) { //992
+=======
+    @media (min-width: 768px) {
+      //768
+      width: 90%;
+    }
+    @media (min-width: 992px) {
+      //992
+>>>>>>> 6e3ff02... webstorm big changes crash
       width: 85%;
     }
   }
@@ -34,12 +43,22 @@
   // background-color: black;
   margin-top: -28px;
   left: 10px;
+<<<<<<< HEAD
   @media (min-width: 768px) { //768
+=======
+  @media (min-width: 768px) {
+    //768
+>>>>>>> 6e3ff02... webstorm big changes crash
     margin-top: -32px;
     left: 10px;
     // background-color: black;
   }
+<<<<<<< HEAD
   @media (min-width: 992px) { //992
+=======
+  @media (min-width: 992px) {
+    //992
+>>>>>>> 6e3ff02... webstorm big changes crash
     left: 6%;
     margin-top: -36px;
   }

@@ -7,7 +7,11 @@ import {IndexLink, Link} from 'react-router'
 if (process.env.BROWSER) {
     // console.log('Appcomponent. environment is browser')
     require('./confirmationmodal.scss')
+<<<<<<< HEAD
     // $(document).ready(function() { 
+=======
+    // $(document).ready(function() {
+>>>>>>> 6e3ff02... webstorm big changes crash
     //   var modal = document.getElementById('myModal')
 
     // // Get the button that opens the modal
@@ -17,7 +21,11 @@ if (process.env.BROWSER) {
     // // Get the <span> element that closes the modal
     //   var span = document.getElementsByClassName('close')[0]
 
+<<<<<<< HEAD
     // // When the user clicks the button, open the modal 
+=======
+    // // When the user clicks the button, open the modal
+>>>>>>> 6e3ff02... webstorm big changes crash
     //   btn.onclick = function() {
     //     modal.style.display = 'block'
     //   }
@@ -39,12 +47,22 @@ if (process.env.BROWSER) {
 }
 
 
+<<<<<<< HEAD
 export default class ConfirmationModal extends Component {
 
     render() {
         const {errorMessage} = this.props
         return (
             <div id='confirmationmodal'>
+=======
+export default
+class ConfirmationModal extends Component {
+
+    render() {
+        const { errorMessage } = this.props
+        return (
+            <div id='confirmationmodal' >
+>>>>>>> 6e3ff02... webstorm big changes crash
                 <div className='modal'>
 
                     <div className='modal-content'>
@@ -56,6 +74,7 @@ export default class ConfirmationModal extends Component {
                             <p>Do you wanna do this?</p>
                         </div>
                         <div className='modal-footer'>
+<<<<<<< HEAD
                             <button onClick={(event) => this.handleConfirm(event)}
                                     className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
                                 Confirm
@@ -63,6 +82,13 @@ export default class ConfirmationModal extends Component {
                             <button onClick={(event) => this.handleCancel(event)}
                                     className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
                                 Cancel
+=======
+                            <button onClick={(event) => this.handleConfirm(event)} className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
+                            Confirm
+                            </button>
+                            <button onClick={(event) => this.handleCancel(event)} className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
+                            Cancel
+>>>>>>> 6e3ff02... webstorm big changes crash
                             </button>
                         </div>
                     </div>
@@ -91,7 +117,11 @@ export default class ConfirmationModal extends Component {
     //   // var modal = document.getElementById('myModal')
     //   // modal.style.display = 'block'
     //   this.props.onConfirmationProcessStartClick('Please confirmation')
+<<<<<<< HEAD
     // }     
+=======
+    // }
+>>>>>>> 6e3ff02... webstorm big changes crash
 }
 
 // Confirmation.propTypes = {

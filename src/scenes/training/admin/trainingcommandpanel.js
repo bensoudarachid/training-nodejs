@@ -5,7 +5,12 @@ if (process.env.BROWSER) {
     require('./trainingcommandpanel.scss')
 }
 
+<<<<<<< HEAD
 export default class TrainingCommandPanel extends React.Component {
+=======
+export default
+class TrainingCommandPanel extends React.Component {
+>>>>>>> 6e3ff02... webstorm big changes crash
     constructor(props) {
         super(props)
 
@@ -37,6 +42,7 @@ export default class TrainingCommandPanel extends React.Component {
         const errorClass = this.state.error ? 'error' : ''
 
         return (
+<<<<<<< HEAD
             <div id='trainingcommandpanel'
                  className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
                 <form
@@ -45,6 +51,12 @@ export default class TrainingCommandPanel extends React.Component {
 
                     <div
                         className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--9-col mdl-cell--6-col-tablet mdl-cell--3-col-phone'>
+=======
+            <div id='trainingcommandpanel' className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+                <form className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' onSubmit={this.handleSearch.bind(this)}>
+
+                    <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--9-col mdl-cell--6-col-tablet mdl-cell--3-col-phone'>
+>>>>>>> 6e3ff02... webstorm big changes crash
                         <div className='mdl-cell mdl-cell--10-col mdl-cell--7-col-tablet mdl-cell--3-col-phone'>
                             <div className='mdl-textfield tf mdl-js-textfield'>
                                 <input className='mdl-textfield__input' type='text' ref="searchInput" id='searchInput'/>
@@ -52,13 +64,18 @@ export default class TrainingCommandPanel extends React.Component {
                             </div>
                         </div>
                         <div className='mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--1-col-phone'>
+<<<<<<< HEAD
                             <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored '>
                                 Search
                             </button>
+=======
+                            <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored '>Search</button>
+>>>>>>> 6e3ff02... webstorm big changes crash
                         </div>
                     </div>
 
                     <div className='mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
+<<<<<<< HEAD
                         <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items'
                                 onClick={this.handleNew.bind(this)}>New
                         </button>
@@ -66,6 +83,12 @@ export default class TrainingCommandPanel extends React.Component {
                 </form>
                 <div
                     className='bgp editsaveblock pad mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+=======
+                        <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items' onClick={this.handleNew.bind(this)}>New</button>
+                    </div>
+                </form>
+                <div className='bgp editsaveblock pad mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+>>>>>>> 6e3ff02... webstorm big changes crash
                     <div className={errorClass}>{this.state.error}</div>
                 </div>
             </div>

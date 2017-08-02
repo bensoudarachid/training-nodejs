@@ -1,10 +1,19 @@
 import express from 'express'
+<<<<<<< HEAD
 import {match} from 'react-router'
 import {renderToString} from 'react-dom/server'
 import {RouterContext} from 'react-router'
 import {createStore, applyMiddleware} from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import {Provider} from 'react-redux'
+=======
+import { match } from 'react-router'
+import { renderToString } from 'react-dom/server'
+import { RouterContext } from 'react-router'
+import { createStore, applyMiddleware } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import { Provider } from 'react-redux'
+>>>>>>> 6e3ff02... webstorm big changes crash
 import routes from '../components/routes'
 import reducers from '../services/rootreducer'
 
@@ -34,7 +43,11 @@ app.get('*', (req, res, next) => {
 
         const initialState = {}
         const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
+<<<<<<< HEAD
         const {location, params, history} = renderProps
+=======
+        const { location, params, history } = renderProps
+>>>>>>> 6e3ff02... webstorm big changes crash
 
         fetchData({store, location, params, history})
             .then(() => {

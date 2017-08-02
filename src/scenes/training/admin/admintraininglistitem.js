@@ -13,7 +13,12 @@ if (process.env.BROWSER) {
 
 }
 
+<<<<<<< HEAD
 export default class AdminTrainingListItem extends React.Component {
+=======
+export default
+class AdminTrainingListItem extends React.Component {
+>>>>>>> 6e3ff02... webstorm big changes crash
     constructor(props) {
         super(props)
 
@@ -23,12 +28,20 @@ export default class AdminTrainingListItem extends React.Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+=======
+        componentHandler.upgradeDom()
+>>>>>>> 6e3ff02... webstorm big changes crash
         // this.loadImage()
     }
 
     // componentDidUpdate() {
+<<<<<<< HEAD
     //   require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+=======
+    //   componentHandler.upgradeDom()
+>>>>>>> 6e3ff02... webstorm big changes crash
     //   var dialogInputs = document.querySelectorAll('.mdl-textfield')
     //   for (var i = 0, l = dialogInputs.length; i < l; i++) {
     //     dialogInputs[i].MaterialTextfield.checkDirty()
@@ -64,22 +77,36 @@ export default class AdminTrainingListItem extends React.Component {
                         <AppImage ref='uploadcomp' api='training' imgid={trainingid} isUploading={isUploading}/>
                     </div>
                     <div className='mdl-cell mdl-cell--11-col mdl-cell--7-col-tablet mdl-cell--3-col-phone'>
+<<<<<<< HEAD
                         <h4>{title}</h4><h5>{secondaryTitle}</h5></div>
                     <hr/>
                     <div
                         className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone ellipsis multiline shortdescription'>{shortDescription}</div>
+=======
+                        <h4>{title}</h4>
+                        <h5>{secondaryTitle}</h5>
+                    </div>
+                    <hr/>
+                    <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone ellipsis multiline shortdescription'>{shortDescription}</div>
+>>>>>>> 6e3ff02... webstorm big changes crash
                     <hr/>
                     <div className='mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
                         <span className='promo'>20%</span>
                     </div>
                     <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone'>
                         <div className='buttonwrap'>
+<<<<<<< HEAD
                             <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored editbutton'
                                     onClick={this.handleEdit.bind(this)}>
                             </button>
                             <button
                                 className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored schedulebutton'
                                 onClick={this.handleSchedule.bind(this)}>
+=======
+                            <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored editbutton' onClick={this.handleEdit.bind(this)}>
+                            </button>
+                            <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored schedulebutton' onClick={this.handleSchedule.bind(this)}>
+>>>>>>> 6e3ff02... webstorm big changes crash
                             </button>
                         </div>
                     </div>

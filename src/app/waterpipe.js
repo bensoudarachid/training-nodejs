@@ -300,10 +300,17 @@
             //write some html into the new window, creating an empty image:
             imageWindow.document.write('<title>Export Image</title>')
             imageWindow.document.write('<img id=\'exportImage\''
+<<<<<<< HEAD
                 + ' alt=\'\''
                 + ' height=\'' + height + '\''
                 + ' width=\'' + width + '\''
                 + ' style=\'position:absolute;left:0;top:0\'/>')
+=======
+            + ' alt=\'\''
+            + ' height=\'' + height + '\''
+            + ' width=\'' + width + '\''
+            + ' style=\'position:absolute;left:0;top:0\'/>')
+>>>>>>> 6e3ff02... webstorm big changes crash
             imageWindow.document.close()
             //copy the image into the empty img in the newly opened window:
             var exportImage = imageWindow.document.getElementById('exportImage')

@@ -1,28 +1,17 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _immutable = require('immutable');
-
-var _immutable2 = _interopRequireDefault(_immutable);
-
-var _actions = require('../actions');
-
-var _actions2 = _interopRequireDefault(_actions);
-
-var _rootreducer = require('../rootreducer');
-
-var _rootreducer2 = _interopRequireDefault(_rootreducer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+// export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+// export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+// export const LOGIN_FAILURE = 'LOGIN_FAILURE'
+// export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
+// import { browserHistory } from 'react-router'
+// import { getIsFetching } from '../reducers'
+import Immutable from 'immutable';
+import actions from '../actions';
+import rootreducer from '../rootreducer';
 // import cookie from 'react-cookie'
 
-var trainingactions = {
+const trainingactions = {
 
-  createTrainingInit: function createTrainingInit(representTraining) {
+  createTrainingInit: function (representTraining) {
     // console.log('Actions. Init registration: ')
     // var newTraining = Immutable.Map({"id":-1,"title":text,"userId":-1, "isCompleted":false})
     return {
@@ -30,35 +19,35 @@ var trainingactions = {
       training: representTraining
     };
   },
-  rejectTraining: function rejectTraining(representTraining) {
+  rejectTraining: function (representTraining) {
     console.log('Actions. Init registration: ');
     return {
       type: 'REJECT_TRAINING_INIT',
       representTraining: representTraining
     };
   },
-  updateTrainingInList: function updateTrainingInList(training) {
+  updateTrainingInList: function (training) {
     // console.log('training actions update training')
     // console.log(training)
     return {
       type: 'UPDATE_TRAINING_IN_LIST',
-      training: training
+      training
     };
   },
-  uploadingTrainingImg: function uploadingTrainingImg(training, isUploading) {
+  uploadingTrainingImg: function (training, isUploading) {
     // console.log('training actions upload training file')
     return {
       type: 'UPLOADING_TRAINING_IMAGE',
-      training: training,
-      isUploading: isUploading
+      training,
+      isUploading
     };
   },
 
-  handleTrainingEditChange: function handleTrainingEditChange(attribute, value) {
+  handleTrainingEditChange: function (attribute, value) {
     return {
       type: 'HANDLE_TRAINING_CHANGE',
-      attribute: attribute,
-      value: value
+      attribute,
+      value
     };
   },
   // loadingTrainingFileOff: function() {
@@ -75,8 +64,8 @@ var trainingactions = {
   //   }
   // },
 
-  newTraining: function newTraining() {
-    return function (dispatch) {
+  newTraining: function () {
+    return dispatch => {
       var newTraining = {
         id: -1,
         title: '',
@@ -88,15 +77,15 @@ var trainingactions = {
         loading: false
       };
       console.log('loadEditTraining newTraining=' + require('util').inspect(newTraining, false, null));
-      dispatch(_actions2.default.loadEditTraining(newTraining));
+      dispatch(actions.loadEditTraining(newTraining));
       window.routerHistory.push('admin/trainings/item/new');
     };
   },
-  createTraining: function createTraining(title) {
+  createTraining: function (title) {
     // console.log('actions. AddTraining')
 
-    return function (dispatch) {
-      var representTraining = _immutable2.default.Map({
+    return dispatch => {
+      var representTraining = Immutable.Map({
         id: -1,
         title: title,
         shortDescription: title,
@@ -149,12 +138,9 @@ var trainingactions = {
       //   })
       //   ))
 
-      _actions2.default.updateTrainingService(representTraining).then(function (_ref) {
-        var status = _ref.status,
-            data = _ref.data;
-
+      actions.updateTrainingService(representTraining).then(({ status, data }) => {
         if (status === 401) {
-          dispatch(_actions2.default.receiveLogout());
+          dispatch(actions.receiveLogout());
         } else if (status >= 400) {
           var error = data;
           console.log('Status looks bad. ' + status + '. error message = ' + error.message);
@@ -163,7 +149,7 @@ var trainingactions = {
           // var error = data.error
           var errorDescription = data.error_description;
           console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription);
-          dispatch(_actions2.default.receiveLogout());
+          dispatch(actions.receiveLogout());
         } else if (data.error) {
           // var error = data.error
           var errorDescription = data.error_description;
@@ -183,10 +169,10 @@ var trainingactions = {
           // console.log('training actions. training representant : ')
           // console.log(representTraining)
 
-          dispatch(trainingactions.addTraining(_immutable2.default.Map(data), representTraining));
+          dispatch(trainingactions.addTraining(Immutable.Map(data), representTraining));
           // return newtrainings;
         }
-      }, function (err) {
+      }, err => {
         console.log('Status looks not good at all!' + err);
         dispatch(trainingactions.rejectTraining(representTraining));
       });
@@ -198,7 +184,7 @@ var trainingactions = {
     // }
   },
 
-  addTraining: function addTraining(training, representTraining) {
+  addTraining: function (training, representTraining) {
     console.log('actions. AddTraining completed? ' + training.get('completed'));
     return {
       type: 'ADD_TRAINING',
@@ -207,7 +193,7 @@ var trainingactions = {
     };
   },
 
-  addTrainings: function addTrainings(trainings) {
+  addTrainings: function (trainings) {
     console.log('actions. AddTrainings');
     return {
       type: 'ADD_TRAININGS',
@@ -254,15 +240,15 @@ var trainingactions = {
   //   }
   // },
 
-  completeTraining: function completeTraining(id) {
+  completeTraining: function (id) {
     return {
       type: 'COMPLETE_TRAINING',
       id: id
     };
   },
-  uploadTrainingFileDispatcher: function uploadTrainingFileDispatcher(training, trainingold, fileinput) {
+  uploadTrainingFileDispatcher: function (training, trainingold, fileinput) {
     console.log('trainingactions. uploadTrainingFileDispatcher');
-    return function (dispatch) {
+    return dispatch => {
       if (fileinput == undefined) {
         return handleError(dispatch, 'No file parameter provided', training, trainingold);
         // trainingold = trainingold.set('error', 'No file parameter provided')
@@ -292,11 +278,8 @@ var trainingactions = {
       // dispatch(trainingactions.savingEditTraining())
 
       console.log('actions. update Training version old: ' + trainingold.get('version') + '. new: ' + training.get('version'));
-      _actions2.default.uploadTrainingFileService(training, fileinput).then(function (_ref2) {
-        var status = _ref2.status,
-            data = _ref2.data;
-
-        if (_actions2.default.disconnect(dispatch, status, data)) return;else if (status == 413) {
+      actions.uploadTrainingFileService(training, fileinput).then(({ status, data }) => {
+        if (actions.disconnect(dispatch, status, data)) return;else if (status == 413) {
           console.log('Status file too large. ' + status);
           return handleError(dispatch, 'File too large (200kb max)', training, trainingold);
           // trainingold = trainingold.set('error', 'File is too large')
@@ -336,7 +319,7 @@ var trainingactions = {
           // dispatch(trainingactions.loadingTrainingFileOn())
         }
         // dispatch(trainingactions.uploadingTrainingImg(training,false))
-      }, function (err) {
+      }, err => {
         console.log('Status looks not good at all!' + err);
         console.log('Status looks not good at all! training completed? ' + trainingold.get('completed'));
         return handleError(dispatch, 'System error', training, trainingold);
@@ -350,9 +333,9 @@ var trainingactions = {
       });
     };
   },
-  updateTrainingDispatcher: function updateTrainingDispatcher(training, trainingold, fileinput) {
+  updateTrainingDispatcher: function (training, trainingold, fileinput) {
     console.log('+++++++++++++++++++++++++++++++++++trainingactions. updateTrainingDispatcher old title' + trainingold.get('title'));
-    return function (dispatch, getState) {
+    return (dispatch, getState) => {
       if (fileinput != undefined && fileinput.size > 250000) {
         return handleError(dispatch, 'File is too large (250 kb max)', training, trainingold);
 
@@ -371,8 +354,8 @@ var trainingactions = {
         return;
       }
 
-      dispatch(_actions2.default.validateEditTraining(training));
-      var trainingEditError = getState().trainingappmap.get('trainingEditError');
+      dispatch(actions.validateEditTraining(training));
+      const trainingEditError = getState().trainingappmap.get('trainingEditError');
       if (trainingEditError.get('title') != undefined || trainingEditError.get('shortDescription') != undefined) {
         console.log('trainingEditError.get(title)=' + require('util').inspect(trainingEditError.get('title'), false, null));
         console.log('trainingEditError.get(shortDescription)=' + require('util').inspect(trainingEditError.get('shortDescription'), false, null));
@@ -387,11 +370,8 @@ var trainingactions = {
       //Needs to be done correctly
       training = training.set('duration', 12);
 
-      _actions2.default.updateTrainingService(training, fileinput).then(function (_ref3) {
-        var status = _ref3.status,
-            data = _ref3.data;
-
-        if (_actions2.default.disconnect(dispatch, status, data)) return;else if (status == 413) {
+      actions.updateTrainingService(training, fileinput).then(({ status, data }) => {
+        if (actions.disconnect(dispatch, status, data)) return;else if (status == 413) {
           return handleError(dispatch, 'File is too large (250 kb max)', training, trainingold);
           // training = training.set('error', 'File is too large')
           // dispatch(trainingactions.loadEditTraining(training))
@@ -428,13 +408,13 @@ var trainingactions = {
           //   dispatch(trainingactions.updateTrainingInList(trainingold))
           // }, 2500)
         } else {
-          var updEditTraining = _immutable2.default.Map(data);
+          const updEditTraining = Immutable.Map(data);
           //              console.log('Training actions. updEditTraining='+require('util').inspect(updEditTraining, false, null))
           // dispatch(trainingactions.updateTrainingInList(updEditTraining))
           dispatch(trainingactions.loadEditTraining(updEditTraining));
           // return newtrainings;
         }
-      }, function (err) {
+      }, err => {
         console.log('Status looks not good at all!' + err);
         console.log('Status looks not good at all! training completed? ' + trainingold.get('completed'));
         return handleError(dispatch, 'System error', training, trainingold);
@@ -447,126 +427,122 @@ var trainingactions = {
       });
     };
   },
-  deleteTraining: function deleteTraining(id) {
+  deleteTraining: function (id) {
     return {
       type: 'DELETE_TRAINING',
       id: id
     };
   },
-  loadTrainings: function loadTrainings(trainingsraw) {
+  loadTrainings: function (trainingsraw) {
     return {
       type: 'TRAININGS_LOADED',
       trainings: trainingsraw
     };
   },
-  loadTraining: function loadTraining(trainingraw) {
+  loadTraining: function (trainingraw) {
     return {
       type: 'TRAINING_LOADED',
       training: trainingraw
     };
   },
-  savingEditTraining: function savingEditTraining(trainingraw) {
+  savingEditTraining: function (trainingraw) {
     return {
       type: 'EDIT_TRAINING_SAVING',
       training: trainingraw
     };
   },
-  loadEditTraining: function loadEditTraining(trainingraw) {
+  loadEditTraining: function (trainingraw) {
     return {
       type: 'EDIT_TRAINING_LOADED',
       training: trainingraw
     };
   },
-  validateEditTraining: function validateEditTraining(editTraining) {
+  validateEditTraining: function (editTraining) {
     // console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++registrationactions validate user')
     return {
       type: 'EDIT_TRAINING_VALIDATE',
-      editTraining: editTraining
+      editTraining
     };
   },
 
-  retrieveTrainingsDispatcher: function retrieveTrainingsDispatcher(hostname) {
+  retrieveTrainingsDispatcher: function (hostname) {
     console.log('actions. retrieveTrainingsDispatcher ' + hostname);
-    return function (dispatch, getState) {
+    return (dispatch, getState) => {
       // if(!process.env.BROWSER || (process.env.BROWSER && getState().app.get('previouslocation')!=undefined))
       if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched')) return;
 
       //      console.log('actions. retrieveTrainingsDispatcher calls service now')
-      return _actions2.default.retrieveTrainingsService(hostname).then(function (_ref4) {
-        var status = _ref4.status,
-            data = _ref4.data;
-
+      return actions.retrieveTrainingsService(hostname).then(({ status, data }) => {
         if (status === 401) {
 
           console.log('Status looks bad. Unauthorized');
           // dispatch(actions.receiveLogout())
-          dispatch(_actions2.default.loginProcessStart('No access rights!', _actions2.default.retrieveTrainingsDispatcher));
+          dispatch(actions.loginProcessStart('No access rights!', actions.retrieveTrainingsDispatcher));
           // dispatch(actions.loadTrainings([]))
         } else if (status >= 400) {
           var error = data;
           console.log('Status looks bad. ' + status + '. error message = ' + error.message);
           // dispatch(actions.receiveLogout())
-          dispatch(_actions2.default.loadTrainings([]));
+          dispatch(actions.loadTrainings([]));
         } else if (data.error) {
           // var error = data.error
           var errorDescription = data.error_description;
           console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription);
           // dispatch(actions.receiveLogout())
-          dispatch(_actions2.default.loadTrainings([]));
+          dispatch(actions.loadTrainings([]));
         } else {
-          dispatch(_actions2.default.loadTrainings(data));
+          dispatch(actions.loadTrainings(data));
           // dispatch(actions.loadingTrainingFileOff())
         }
-      }).catch(function (err) {
+      }).catch(err => {
         console.log('trainingactions.js retrieveTrainingsDispatcher Error retrieving data. error = ' + require('util').inspect(err, false, null));
         if (err.code == 'ENOENT') {
           console.log('trainingactions.js. YEAH! getaddrinfo ENOENT error is there');
-          dispatch(_actions2.default.serverDataFetch(false));
+          dispatch(actions.serverDataFetch(false));
         }
       });
     };
   },
 
-  retrieveTrainingDispatcher: function retrieveTrainingDispatcher(params, hostname) {
+  retrieveTrainingDispatcher: function (params, hostname) {
+    console.log('Call retrieveTrainingDispatcher  <-----------------------------');
+
     // console.log('training actions. retrieveTrainingDispatcher')
     // console.log('rootreducer='+require('util').inspect(rootreducer, false, null))
-    return function (dispatch, getState) {
+    return (dispatch, getState) => {
       // if(!process.env.BROWSER || (process.env.BROWSER && getState().app.get('previouslocation')!=undefined))
       if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched')) return;
       if (params == undefined || isNaN(params.id)) {
         console.log('training actions. retrieveTrainingDispatcher do nothing');
         return;
       }
-      return _actions2.default.retrieveTrainingService(params.id, hostname).then(function (_ref5) {
-        var status = _ref5.status,
-            data = _ref5.data;
-
+      return actions.retrieveTrainingService(params.id, hostname).then(({ status, data }) => {
         if (status == 401) {
           console.log('Status looks bad. Unauthorized');
-          if (!process.env.BROWSER) dispatch(_actions2.default.serverDataFetch(false));
+          if (!process.env.BROWSER) dispatch(actions.serverDataFetch(false));
           // dispatch(actions.receiveLogout())
-          dispatch(_actions2.default.loadEditTraining({}));
-          dispatch(_actions2.default.loginProcessStart('No access rights!', _actions2.default.retrieveTrainingDispatcher, params));
+          dispatch(actions.loadEditTraining({}));
+          dispatch(actions.loginProcessStart('No access rights!', actions.retrieveTrainingDispatcher, params));
         } else if (status >= 400) {
           var error = data;
           console.log('Status looks bad. ' + status + '. error message = ' + error.message);
           // dispatch(actions.receiveLogout())
-          dispatch(_actions2.default.loadEditTraining({}));
+          dispatch(actions.loadEditTraining({}));
         } else if (data.error) {
           // var error = data.error
           var errorDescription = data.error_description;
           console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription);
           // dispatch(actions.receiveLogout())
-          dispatch(_actions2.default.loadEditTraining({}));
+          dispatch(actions.loadEditTraining({}));
         } else {
-          dispatch(_actions2.default.loadEditTraining(data));
+          dispatch(actions.loadEditTraining(data));
           // dispatch(actions.loadingTrainingFileOff())
         }
-      }).catch(function (err) {
+      }).catch(err => {
         console.log('trainingactions.js retrieveTrainingDispatcher Error retrieving data. error = ' + require('util').inspect(err, false, null));
         if (err.code == 'ENOENT') {
           console.log('trainingactions.js. YEAH! getaddrinfo ENOENT error is there');
-          dispatch(_actions2.default.serverDataFetch(false));
+          dispatch(actions.serverDataFetch(false));
         }
       });
     };
@@ -579,10 +555,10 @@ var trainingactions = {
   //     dispatch(trainingactions.needActionConfirmation(false))
   //   }
   // },
-  deleteEditTrainingDispatcher: function deleteEditTrainingDispatcher() {
+  deleteEditTrainingDispatcher: function () {
 
-    return function (dispatch, getState) {
-      var training = getState().trainingappmap.get('edittraining');
+    return (dispatch, getState) => {
+      const training = getState().trainingappmap.get('edittraining');
       if (training.get('loading') || training.get('error')) {
         console.log('training actions toggle training. Is loading or Error displaying. So no action');
         return;
@@ -591,11 +567,8 @@ var trainingactions = {
 
       dispatch(trainingactions.loadEditTraining(training));
       console.log('actions. toggleTraining Training 1');
-      _actions2.default.deleteTrainingService(training).then(function (_ref6) {
-        var status = _ref6.status,
-            data = _ref6.data;
-
-        if (_actions2.default.disconnect(dispatch, status, data)) return;
+      actions.deleteTrainingService(training).then(({ status, data }) => {
+        if (actions.disconnect(dispatch, status, data)) return;
         if (status >= 400) {
           var error = data;
           console.log('Status looks bad. ' + status + '. error message = ' + error.message);
@@ -633,7 +606,7 @@ var trainingactions = {
           window.routerHistory.push('/admin/trainings');
           // return newtrainings;
         }
-      }, function (err) {
+      }, err => {
         console.log('Status looks not good at all!' + err);
         console.log('Status looks not good at all! training completed? ' + training.get('completed'));
         return handleError(dispatch, 'System error', training, training);
@@ -647,37 +620,31 @@ var trainingactions = {
     };
   },
 
-  filterTrainingsOpen: function filterTrainingsOpen(filterTrainings) {
+  filterTrainingsOpen: function (filterTrainings) {
     return {
       type: 'FILTER_TRAININGS_OPEN',
       filterOpen: filterTrainings
     };
   },
 
-  filterTrainingsClosed: function filterTrainingsClosed(filterTrainings) {
+  filterTrainingsClosed: function (filterTrainings) {
     return {
       type: 'FILTER_TRAININGS_CLOSED',
       filterClosed: filterTrainings
     };
   }
 
-}; // export const LOGIN_REQUEST = 'LOGIN_REQUEST'
-// export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-// export const LOGIN_FAILURE = 'LOGIN_FAILURE'
-// export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
-// import { browserHistory } from 'react-router'
-// import { getIsFetching } from '../reducers'
-
+};
 
 function handleError(dispatch, errormsg, training, trainingold) {
   training = training.set('error', errormsg);
   dispatch(trainingactions.loadEditTraining(training));
   console.log('training=' + require('util').inspect(training.get('title'), false, null));
   // training = training.delete('error')
-  setTimeout(function () {
+  setTimeout(() => {
     dispatch(trainingactions.loadEditTraining(trainingold));
   }, 2500);
   return;
 }
 
-exports.default = trainingactions;
+export default trainingactions;

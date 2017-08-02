@@ -1,44 +1,15 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = require('react-router');
-
-var _login = require('../login.js');
-
-var _login2 = _interopRequireDefault(_login);
-
-var _logout = require('../logout.js');
-
-var _logout2 = _interopRequireDefault(_logout);
-
-var _actions = require('../../services/actions.js');
-
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+import React, { Component, PropTypes } from 'react';
+import { IndexLink, Link } from 'react-router';
+import Login from '../login.js';
+import Logout from '../logout.js';
+import { LogoutUser } from '../../services/actions.js';
 // import Bootstrap from '!style!css!../node_modules/bootstrap/dist/css/bootstrap.css'
 // require('!style!css!../node_modules/bootstrap/dist/css/bootstrap.min.css')
 // import { Button } from 'react-bootstrap'
 
 //import 'bootstrap/dist/css/bootstrap.css'
 
+import $ from 'jquery';
 //import 'bootstrap/dist/js/bootstrap.js'
 // import '../styles/default.scss'
 
@@ -101,157 +72,135 @@ if (process.env.BROWSER) {
 //require('./nav.scss')
 
 
-var NavPublic = function (_Component) {
-	_inherits(NavPublic, _Component);
+class NavPublic extends Component {
+	// <div>
+	//    </div>    
+	// {this.props.location.pathname!='/register' &&
+	//     	<Link activeClassName='active' to='/register'>Register</Link>
+	// }
+	//	<Button>Click me!</Button>
 
-	function NavPublic() {
-		_classCallCheck(this, NavPublic);
 
-		return _possibleConstructorReturn(this, (NavPublic.__proto__ || Object.getPrototypeOf(NavPublic)).apply(this, arguments));
+	handleLoginClick(event) {
+		console.log('loginjs andle request login in progress click');
+		// var modal = document.getElementById('myModal')
+		// modal.style.display = 'block'
+		this.props.actions.loginProcessStart('Welcome to Roya');
 	}
 
-	_createClass(NavPublic, [{
-		key: 'handleLoginClick',
+	render() {
+		const isBrowser = typeof window !== 'undefined';
+		const { auth } = this.props;
+		const isAuthenticated = auth.get('isAuthenticated');
 
-		// <div>
-		//    </div>    
-		// {this.props.location.pathname!='/register' &&
-		//     	<Link activeClassName='active' to='/register'>Register</Link>
-		// }
-		//	<Button>Click me!</Button>
-
-
-		value: function handleLoginClick(event) {
-			console.log('loginjs andle request login in progress click');
-			// var modal = document.getElementById('myModal')
-			// modal.style.display = 'block'
-			this.props.actions.loginProcessStart('Welcome to Roya');
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			var _this2 = this;
-
-			var isBrowser = typeof window !== 'undefined';
-			var auth = this.props.auth;
-
-			var isAuthenticated = auth.get('isAuthenticated');
-
-			// console.log('nav: isBrowser'+isBrowser)
-			//&& this.props.location.pathname!='/register'
-			return _react2.default.createElement(
-				'nav',
-				{ id: 'bsnavi', className: 'navbar navbar-default navbar-fixed-top', role: 'navigation' },
-				_react2.default.createElement(
-					'ul',
-					{ className: 'navbar-header logoblock' },
-					_react2.default.createElement(
-						'li',
+		// console.log('nav: isBrowser'+isBrowser)
+		//&& this.props.location.pathname!='/register'
+		return React.createElement(
+			'nav',
+			{ id: 'bsnavi', className: 'navbar navbar-default navbar-fixed-top', role: 'navigation' },
+			React.createElement(
+				'ul',
+				{ className: 'navbar-header logoblock' },
+				React.createElement(
+					'li',
+					null,
+					React.createElement('img', { id: 'logo', src: '/images/RoyaLogoNeutralH120.png', className: 'logo', alt: 'Roya logo' })
+				),
+				React.createElement(
+					'li',
+					null,
+					React.createElement(
+						'div',
 						null,
-						_react2.default.createElement('img', { id: 'logo', src: '/images/RoyaLogoNeutralH120.png', className: 'logo', alt: 'Roya logo' })
-					),
-					_react2.default.createElement(
-						'li',
-						null,
-						_react2.default.createElement(
-							'div',
+						React.createElement(
+							'h2',
 							null,
-							_react2.default.createElement(
-								'h2',
-								null,
-								'ROYA'
-							),
-							_react2.default.createElement(
-								'h3',
-								null,
-								'SOFTWARE'
-							)
-						)
-					),
-					_react2.default.createElement(
-						'li',
-						null,
-						_react2.default.createElement(
-							'button',
-							{ id: 'togg', type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1' },
-							_react2.default.createElement('span', { className: 'icon-bar' }),
-							_react2.default.createElement('span', { className: 'icon-bar' }),
-							_react2.default.createElement('span', { className: 'icon-bar' })
+							'ROYA'
+						),
+						React.createElement(
+							'h3',
+							null,
+							'SOFTWARE'
 						)
 					)
 				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
-					_react2.default.createElement(
-						'ul',
-						{ className: 'nav navbar-nav navbar-left' },
-						_react2.default.createElement(
-							'li',
-							null,
-							_react2.default.createElement(
-								_reactRouter.IndexLink,
-								{ activeClassName: 'active', to: '/' },
-								'Home'
-							)
-						),
-						_react2.default.createElement(
-							'li',
-							null,
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ activeClassName: 'active', to: '/trainings' },
-								'Training'
-							)
+				React.createElement(
+					'li',
+					null,
+					React.createElement(
+						'button',
+						{ id: 'togg', type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1' },
+						React.createElement('span', { className: 'icon-bar' }),
+						React.createElement('span', { className: 'icon-bar' }),
+						React.createElement('span', { className: 'icon-bar' })
+					)
+				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
+				React.createElement(
+					'ul',
+					{ className: 'nav navbar-nav navbar-left' },
+					React.createElement(
+						'li',
+						null,
+						React.createElement(
+							IndexLink,
+							{ activeClassName: 'active', to: '/' },
+							'Home'
 						)
 					),
-					_react2.default.createElement(
-						'ul',
-						{ className: 'nav navbar-nav navbar-right' },
-						_react2.default.createElement(
-							'li',
-							null,
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ activeClassName: 'active', to: '/register' },
-								'Register'
-							)
-						),
-						isBrowser && !isAuthenticated && _react2.default.createElement(
-							'li',
-							null,
-							_react2.default.createElement(
-								'a',
-								{ href: '#', onClick: function onClick(event) {
-										return _this2.handleLoginClick(event);
-									} },
-								_react2.default.createElement('span', { className: 'glyphicon glyphicon-log-in' }),
-								' Login'
-							)
-						),
-						isAuthenticated && _react2.default.createElement(
-							'li',
-							null,
-							_react2.default.createElement(
-								'a',
-								{ href: '#', onClick: function onClick(event) {
-										return _this2.props.actions.logoutUser();
-									} },
-								_react2.default.createElement('span', { className: 'glyphicon glyphicon-log-out' }),
-								' Logout'
-							)
+					React.createElement(
+						'li',
+						null,
+						React.createElement(
+							Link,
+							{ activeClassName: 'active', to: '/trainings' },
+							'Training'
+						)
+					)
+				),
+				React.createElement(
+					'ul',
+					{ className: 'nav navbar-nav navbar-right' },
+					React.createElement(
+						'li',
+						null,
+						React.createElement(
+							Link,
+							{ activeClassName: 'active', to: '/register' },
+							'Register'
+						)
+					),
+					isBrowser && !isAuthenticated && React.createElement(
+						'li',
+						null,
+						React.createElement(
+							'a',
+							{ href: '#', onClick: event => this.handleLoginClick(event) },
+							React.createElement('span', { className: 'glyphicon glyphicon-log-in' }),
+							' Login'
+						)
+					),
+					isAuthenticated && React.createElement(
+						'li',
+						null,
+						React.createElement(
+							'a',
+							{ href: '#', onClick: event => this.props.actions.logoutUser() },
+							React.createElement('span', { className: 'glyphicon glyphicon-log-out' }),
+							' Logout'
 						)
 					)
 				)
-			);
-		}
-	}]);
-
-	return NavPublic;
-}(_react.Component);
+			)
+		);
+	}
+}
 // <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 
-exports.default = NavPublic;
+export default NavPublic;
 // <div>
 
 //   {!isAuthenticated &&

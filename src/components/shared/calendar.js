@@ -12,7 +12,12 @@ if (process.env.BROWSER) {
     require('./calendar.scss')
 }
 
+<<<<<<< HEAD
 export default class FullCalendarEdit extends React.Component {
+=======
+export default
+class FullCalendarEdit extends React.Component {
+>>>>>>> 6e3ff02... webstorm big changes crash
     render() {
         return (
             <div className='calendar' ref='calendar'/>
@@ -21,7 +26,11 @@ export default class FullCalendarEdit extends React.Component {
 
     componentDidMount() {
         console.log('events=' + require('util').inspect(this.props.events, false, null))
+<<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+=======
+        componentHandler.upgradeDom()
+>>>>>>> 6e3ff02... webstorm big changes crash
         const {calendar} = this.refs
         $(calendar).fullCalendar({
 

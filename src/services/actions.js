@@ -38,6 +38,7 @@ import appactions from './app/appactions'
 // }
 
 let actions = {
+<<<<<<< HEAD
     // apiurl:url,
     // port:port,
     // appbasename:appbasename,
@@ -49,6 +50,26 @@ let actions = {
     // ...registeractions,
     ...todoactions,
     ...trainingactions
+=======
+// apiurl:url,
+// port:port,
+// appbasename:appbasename,
+...
+authservices,
+...
+todoservices,
+...
+trainingservices,
+...
+appactions,
+...
+authactions,
+// ...registeractions,
+...
+todoactions,
+...
+trainingactions
+>>>>>>> 6e3ff02... webstorm big changes crash
 }
 
 export default actions

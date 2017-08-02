@@ -1,10 +1,21 @@
 var webpack = require('webpack')
 var path = require('path')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+console.log('path to src ='+require('util').inspect(path.resolve('./src'), false, null))
+// console.log('path.resolve(__dirname,src)='+require('util').inspect(path.resolve(__dirname,'src'), false, null))
+
 //window.React = require('react');
 
+// config.resolve = {
+//     root: [path.resolve(__dirname,'src')],
+//     // modules: [path.resolve(__dirname, 'src'),'node_modules'],
+//     // root: ['src'],
+//     // modulesDirectories: [path.resolve(__dirname,'src'),'node_modules'],
+//     extensions: ['', '.js']
+// }
+
 module.exports = {
-  //devtool: 'inline-source-map',
+  // devtool: 'inline-source-map',
   // devtool: 'cheap-module-source-map',
   devtool: 'cheap-module-eval-source-map',
   // devtool: 'eval-cheap-module-source-map',
@@ -29,49 +40,97 @@ module.exports = {
     }
 //    devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]?[hash]'    
   },
+  // resolve: {
+  //   extensions: ['', '.js', '.jsx'],
+  //   root: [
+  //     path.resolve(__dirname, 'src'),
+  //     path.resolve(__dirname, 'src/test')
+  //   ]
+  // },
   resolve: {
-    modulesDirectories: ['node_modules', 'src'],
-    extensions: ['', '.js']
+    // root: [path.resolve(__dirname,'src')],
+    modules: [path.resolve(__dirname, 'src'),'node_modules']
+    // root: ['src'],
+    // modulesDirectories: [path.resolve(__dirname,'src'),'node_modules'],
+    // extensions: ['', '.js']
+    // extensions: ['', '.js', '.es6']
   },
+  // resolve: {
+  //   modulesDirectories: [ path.join(__dirname, 'src')],
+  //   extensions: ['', '.js']
+  // },
+
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel?retainLines=true,presets[]=react,presets[]=es2015,presets[]=react-hmre,presets[]=stage-2']
+        loaders: ['react-hot-loader', 'babel-loader?retainLines=true,presets[]=react,presets[]=es2015,presets[]=react-hmre,presets[]=stage-2']
       },
-      { test: /\.js$/, loader: 'exports-loader' },
-      // { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.wav$|\.mp3$/, 
-      //   loader: 'file-loader?name=images/[name].[ext]' 
-      // },      
+                  // { test: /\.js$/, loader: 'exports-loader' },
+                  // { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.wav$|\.mp3$/, 
+                  //   loader: 'file-loader?name=images/[name].[ext]' 
+                  // },      
       { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.wav$|\.mp3$/,
         loader: 'url-loader?limit=150192'
       },
-      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader' },
       // {
       //   test: /\.scss$/,
-      //   loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+      //   loader: ExtractTextPlugin.extract('style-loader', 'css-loader','sass-loader')
+      //   // loader: ExtractTextPlugin.extract('css-loader!sass-loader')
+      //   // loader: ExtractTextPlugin.extract({
+      //   //   fallback: 'style-loader',
+      //   //   use: 'css-loader!sass-loader'
+      //   // })
+
       // },
-      { test: /\.css$/, loader: 'style!css' },
-      { test: /\.(woff|woff2|ttf|eot)$/, loader: 'url'}, //important also for twitter bootstrap
-      // {
-      //   test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, 
-      //   loader: 'url?limit=10000&mimetype=application/font-woff'
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      // { test: /\.css$/, 
+      //   loader: ExtractTextPlugin.extract({
+      //     fallback: 'style-loader',
+      //     use: 'css-loader'
+      //   })
       // },
-      // {
-      //   test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, 
-      //   loader: 'url?limit=10000&mimetype=application/octet-stream'
-      // },
-      // {
-      //   test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, 
-      //   loader: 'file'
-      // },
-      // {
-      //   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, 
-      //   loader: 'url?limit=10000&mimetype=image/svg+xml'
-      // },
-      { test: require.resolve('react'), loader: 'expose?React' }
+        
+
+
+      { test: /\.(woff|woff2|ttf|eot)$/, loader: 'url-loader'}, //important also for twitter bootstrap
+                  // {
+                  //   test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, 
+                  //   loader: 'url?limit=10000&mimetype=application/font-woff'
+                  // },
+                  // {
+                  //   test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, 
+                  //   loader: 'url?limit=10000&mimetype=application/octet-stream'
+                  // },
+                  // {
+                  //   test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, 
+                  //   loader: 'file'
+                  // },
+                  // {
+                  //   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, 
+                  //   loader: 'url?limit=10000&mimetype=image/svg+xml'
+                  // },
+      { test: require.resolve('react'), loader: 'expose-loader?React' }
     ]
+    // ,    
+    // rules: [
+    //   {
+    //     test: /\.css$/,
+    //     use: ExtractTextPlugin.extract({
+    //       fallback: 'style-loader',
+    //       use: 'css-loader'
+    //     })
+    //   },
+    //   {
+    //     test: /\.scss$/,
+    //     use: ExtractTextPlugin.extract({
+    //       fallback: 'style-loader',
+    //       use: 'css-loader!sass-loader'
+    //     })
+    //   }      
+    // ]    
   },
   plugins: [
     // new ExtractTextPlugin('style.css'),
@@ -90,8 +149,8 @@ module.exports = {
     }),
     //new webpack.SourceMapDevToolPlugin('bundle.js.map', null,'[absolute-resource-path]', '[absolute-resource-path]'),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin()
+    // new webpack.NoErrorsPlugin()
   ]
 }
 

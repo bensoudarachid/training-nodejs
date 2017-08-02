@@ -59,10 +59,17 @@ if (process.env.BROWSER) {
     //   })
     // })
 
+<<<<<<< HEAD
     // $(document).ready(function() { 
 
     //   $('body').click(function(event) {
     //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
+=======
+    // $(document).ready(function() {
+
+    //   $('body').click(function(event) {
+    //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called
+>>>>>>> 6e3ff02... webstorm big changes crash
     //     console.log('loginjs andle request login in progress click')
     //     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
     //       $('.navbar-collapse').collapse('toggle')
@@ -74,10 +81,13 @@ if (process.env.BROWSER) {
 
 //require('./nav.scss')
 
-
 class NavAdmin extends Component {
     // <div>
+<<<<<<< HEAD
     //    </div>    
+=======
+    //    </div>
+>>>>>>> 6e3ff02... webstorm big changes crash
     // {this.props.location.pathname!='/register' &&
 //     	<Link activeClassName='active' to='/register'>Register</Link>
 // }
@@ -93,7 +103,11 @@ class NavAdmin extends Component {
 
     render() {
         const isBrowser = typeof window !== 'undefined'
+<<<<<<< HEAD
         const {auth} = this.props
+=======
+        const { auth } = this.props
+>>>>>>> 6e3ff02... webstorm big changes crash
         const isAuthenticated = auth.get('isAuthenticated')
 
         // console.log('nav: isBrowser'+isBrowser)
@@ -101,7 +115,13 @@ class NavAdmin extends Component {
         return (
             <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
                 <ul className='navbar-header logoblock'>
+<<<<<<< HEAD
                     <li><img id='logo' src={'/images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/></li>
+=======
+                    <li>
+                        <img id='logo' src={'/images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/>
+                    </li>
+>>>>>>> 6e3ff02... webstorm big changes crash
                     <li>
                         <div>
                             <h2>ROYA</h2>
@@ -109,8 +129,12 @@ class NavAdmin extends Component {
                         </div>
                     </li>
                     <li>
+<<<<<<< HEAD
                         <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse"
                                 data-target="#bs-example-navbar-collapse-1">
+=======
+                        <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
+>>>>>>> 6e3ff02... webstorm big changes crash
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
@@ -119,6 +143,7 @@ class NavAdmin extends Component {
                 </ul>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul className="nav navbar-nav navbar-left">
+<<<<<<< HEAD
                         <li><IndexLink activeClassName='active' to='/'>Home</IndexLink></li>
                         {(process.env.NODE_ENV != 'production' || process.env.NODE_ENV == 'production') &&
                         <li><Link activeClassName='active' to='/admin/todos'>Todos</Link></li>
@@ -137,13 +162,48 @@ class NavAdmin extends Component {
                                 className='glyphicon glyphicon-log-out'></span> Logout</a>
                         </li>
                         }
+=======
+                        <li>
+                            <IndexLink activeClassName='active' to='/'>Home</IndexLink>
+                        </li>
+      {(process.env.NODE_ENV != 'production' || process.env.NODE_ENV == 'production') &&
+      <li>
+          <Link activeClassName='active' to='/admin/todos'>Todos</Link>
+      </li>
+          }
+                        <li>
+                            <Link activeClassName='active' to='/admin/trainings'>Training</Link>
+                        </li>
+                        <li>
+                            <Link activeClassName='active' to='/users'>User</Link>
+                        </li>
+                    </ul>
+                    <ul className="nav navbar-nav navbar-right">
+{isBrowser && !isAuthenticated &&
+<li>
+    <a href='#' onClick={(event) => this.handleLoginClick(event)}>
+        <span className='glyphicon glyphicon-log-in'></span>
+    Login</a>
+</li>
+    }
+{isAuthenticated &&
+<li>
+    <a href='#' onClick={(event) => this.props.actions.logoutUser()}>
+        <span className='glyphicon glyphicon-log-out'></span>
+    Logout</a>
+</li>
+    }
+>>>>>>> 6e3ff02... webstorm big changes crash
                     </ul>
                 </div>
             </nav>
         )
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6e3ff02... webstorm big changes crash
 // <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 
 export default NavAdmin
@@ -160,4 +220,8 @@ export default NavAdmin
 //   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
 //   }
 
+<<<<<<< HEAD
 //    </div>    
+=======
+//    </div>
+>>>>>>> 6e3ff02... webstorm big changes crash

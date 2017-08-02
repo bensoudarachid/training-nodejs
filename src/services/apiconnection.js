@@ -20,7 +20,11 @@ class ApiConnection {
         if (process.env.NODE_ENV === 'production') {
             if (isBrowser && window.location.protocol == 'https:') // both the same: isBrowser in production means also window.location.protocol has to be == 'https:'
                 apiport = 9083 //Apache cluster ssl port
+<<<<<<< HEAD
             else //the node server wants to call apache 
+=======
+            else //the node server wants to call apache
+>>>>>>> 6e3ff02... webstorm big changes crash
                 apiport = 8088 //Apache cluster normal port
         }
 

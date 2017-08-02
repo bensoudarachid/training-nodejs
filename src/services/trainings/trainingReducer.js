@@ -1,7 +1,6 @@
 // import _ from 'lodash'
 import Immutable from 'immutable'
 import validator from 'validator'
-
 // import cookie from 'react-cookie'
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
@@ -130,11 +129,21 @@ let trainingReducer = function (trainingappmap = new Immutable.Map({
             trainingappmap = trainingappmap.set('edittraining', editTraining)
             return trainingappmap
         case 'EDIT_TRAINING_LOADED':
+<<<<<<< HEAD
             if (action.training == undefined)
                 trainingappmap = trainingappmap.set('edittraining', undefined)
             else
                 trainingappmap = trainingappmap.set('edittraining', Immutable.Map(action.training))
             // console.log('trainings reducer. training loaded. Do something with it' +util.inspect( action.training, false, null))
+=======
+            console.log('trainings reducer EDIT_TRAINING_LOADED  <-----------------------------')
+            if (action.training == undefined)
+                trainingappmap = trainingappmap.set('edittraining', undefined)
+            else {
+                trainingappmap = trainingappmap.set('edittraining', Immutable.Map(action.training))
+                console.log('trainings reducer. training loaded. Do something with it' + util.inspect(action.training, false, null))
+            }
+>>>>>>> 6e3ff02... webstorm big changes crash
             return trainingappmap
 
 

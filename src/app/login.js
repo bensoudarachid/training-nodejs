@@ -10,7 +10,11 @@ if (process.env.BROWSER) {
     // require('materialize-css/sass/style.scss')
     // require('materialize-css/sass/components/_color.scss')
 
+<<<<<<< HEAD
     // $(document).ready(function() { 
+=======
+    // $(document).ready(function() {
+>>>>>>> 6e3ff02... webstorm big changes crash
     //   var modal = document.getElementById('myModal')
 
     // // Get the button that opens the modal
@@ -20,7 +24,11 @@ if (process.env.BROWSER) {
     // // Get the <span> element that closes the modal
     //   var span = document.getElementsByClassName('close')[0]
 
+<<<<<<< HEAD
     // // When the user clicks the button, open the modal 
+=======
+    // // When the user clicks the button, open the modal
+>>>>>>> 6e3ff02... webstorm big changes crash
     //   btn.onclick = function() {
     //     modal.style.display = 'block'
     //   }
@@ -41,7 +49,12 @@ if (process.env.BROWSER) {
 
 }
 
+<<<<<<< HEAD
 export default class Login extends Component {
+=======
+export default
+class Login extends Component {
+>>>>>>> 6e3ff02... webstorm big changes crash
     // <li><button onClick={(event) => this.handleClick(event)} className='btn btn-primary'>
     //  <span className='glyphicon glyphicon-log-in'></span> Login
     // </button></li>
@@ -60,11 +73,19 @@ export default class Login extends Component {
     // <TextField type='text' ref='username' className='inputfield' hintText='type your login here' floatingLabelText='Login'/>
     // </li>
     // <li>
+<<<<<<< HEAD
     // <TextField type='password' ref='password' className='inputfield' hintText='type your password here' floatingLabelText='Password'/>        
     // </li>
 
     render() {
         const {errorMessage} = this.props
+=======
+    // <TextField type='password' ref='password' className='inputfield' hintText='type your password here' floatingLabelText='Password'/>
+    // </li>
+
+    render() {
+        const { errorMessage } = this.props
+>>>>>>> 6e3ff02... webstorm big changes crash
         // var myStyle = {fontSize: 100, color: '#FF0000'}
         //       <li><input type='text' ref='username' className='form-control' placeholder='Username'/></li>
         //<input type='password' ref='password' className='form-control' placeholder='Password'/>
@@ -86,6 +107,7 @@ export default class Login extends Component {
                             </div>
                         </li>
                         <li>
+<<<<<<< HEAD
                             <button type='submit'
                                     className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored button'>
                                 <span className='glyphicon glyphicon-log-in'></span> Login
@@ -95,6 +117,16 @@ export default class Login extends Component {
                     {errorMessage &&
                     <p style={{fontSize: 25, color: '#FF0000'}}>{errorMessage}</p>
                     }
+=======
+                            <button type='submit' className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored button'>
+                                <span className='glyphicon glyphicon-log-in'></span>
+                            Login</button>
+                        </li>
+                    </ul>
+        {errorMessage &&
+        <p style={{fontSize: 25, color: '#FF0000'}}>{errorMessage}</p>
+            }
+>>>>>>> 6e3ff02... webstorm big changes crash
                 </form>
             </div>
         )
@@ -117,7 +149,11 @@ export default class Login extends Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+=======
+        componentHandler.upgradeDom()
+>>>>>>> 6e3ff02... webstorm big changes crash
     }
 }
 

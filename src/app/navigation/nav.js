@@ -74,9 +74,15 @@ if (process.env.BROWSER) {
         })
     })
 
+<<<<<<< HEAD
     // $(document).ready(function() { 
     //   $('body').click(function(event) {
     //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
+=======
+    // $(document).ready(function() {
+    //   $('body').click(function(event) {
+    //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called
+>>>>>>> 6e3ff02... webstorm big changes crash
     //     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
     //       $('.navbar-collapse').collapse('toggle')
     //     }
@@ -87,10 +93,13 @@ if (process.env.BROWSER) {
 
 //require('./nav.scss')
 
-
 class Nav extends Component {
     // <div>
+<<<<<<< HEAD
     //    </div>    
+=======
+    //    </div>
+>>>>>>> 6e3ff02... webstorm big changes crash
     // {this.props.location.pathname!='/register' &&
 //     	<Link activeClassName='active' to='/register'>Register</Link>
 // }
@@ -106,7 +115,11 @@ class Nav extends Component {
 
     render() {
         const isBrowser = typeof window !== 'undefined'
+<<<<<<< HEAD
         const {auth} = this.props
+=======
+        const { auth } = this.props
+>>>>>>> 6e3ff02... webstorm big changes crash
         const isAuthenticated = auth.get('isAuthenticated')
         // console.log('navjs is authenticated '+isAuthenticated)
 
@@ -158,7 +171,11 @@ export default Nav
 //   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
 //   }
 
+<<<<<<< HEAD
 //    </div>    
+=======
+//    </div>
+>>>>>>> 6e3ff02... webstorm big changes crash
 
 
 //     <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
