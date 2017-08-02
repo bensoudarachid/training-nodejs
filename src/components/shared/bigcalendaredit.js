@@ -123,7 +123,8 @@ class BigCalendarEdit extends React.Component{
   }
   componentDidMount() {
     // console.log('events='+require('util').inspect(this.props.events, false, null))
-    require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+//    require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+      componentHandler.upgradeDom()
     // const {calendar} = this.refs
     // $(calendar).fullCalendar({
 
@@ -164,7 +165,6 @@ class BigCalendarEdit extends React.Component{
     this.setState({
       localevents: nextEvents
     })
-
     // alert(`${event.title} was dropped onto ${event.start}`)
   }
 

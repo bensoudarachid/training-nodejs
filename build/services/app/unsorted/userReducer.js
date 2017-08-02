@@ -1,12 +1,4 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var userReducer = function userReducer() {
-  var user = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var action = arguments[1];
-
+let userReducer = function (user = {}, action) {
   switch (action.type) {
     case 'CREATE_USER_ID':
       return {
@@ -18,4 +10,4 @@ var userReducer = function userReducer() {
   }
 };
 
-exports.default = userReducer;
+export default userReducer;

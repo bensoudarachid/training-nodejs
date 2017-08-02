@@ -1,10 +1,8 @@
 @import '../styles/default.scss';
 
-$backgroundimg:'../images/wallpaper-1.jpg';
+$backgroundimg: '../images/wallpaper-1.jpg';
 
-
-
-body{
+body {
   // background: #ffaa77;
   // width:50%;
   // height:50%;
@@ -16,17 +14,16 @@ body{
 
   text-align: center;
 
-// background-repeat: no-repeat;
-// background-attachment: fixed;
-// background: -moz-radial-gradient(center, ellipse cover,  #6bc1ff 0%, #003870 88%, #003870 100%);  
-// background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#6bc1ff), color-stop(88%,#003870), color-stop(100%,#003870));  
-// background: -webkit-radial-gradient(center, ellipse cover,  #6bc1ff 0%,#003870 88%,#003870 100%);  
-// background: -o-radial-gradient(center, ellipse cover,  #6bc1ff 0%,#003870 88%,#003870 100%);  
-// background: -ms-radial-gradient(center, ellipse cover,  #6bc1ff 0%,#003870 88%,#003870 100%);  
-// background: radial-gradient(ellipse at center,  #6bc1ff 0%,#003870 88%,#003870 100%);  
- // background: radial-gradient(circle closest-side at 65% 40%, #6bc1ff 0%, #014a94 180%, #003870 250%);
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  // background: -moz-radial-gradient(center, ellipse cover,  #6bc1ff 0%, #003870 88%, #003870 100%);
+  // background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#6bc1ff), color-stop(88%,#003870), color-stop(100%,#003870));
+  // background: -webkit-radial-gradient(center, ellipse cover,  #6bc1ff 0%,#003870 88%,#003870 100%);
+  // background: -o-radial-gradient(center, ellipse cover,  #6bc1ff 0%,#003870 88%,#003870 100%);
+  // background: -ms-radial-gradient(center, ellipse cover,  #6bc1ff 0%,#003870 88%,#003870 100%);
+  // background: radial-gradient(ellipse at center,  #6bc1ff 0%,#003870 88%,#003870 100%);
+  // background: radial-gradient(circle closest-side at 65% 40%, #6bc1ff 0%, #014a94 180%, #003870 250%);
   // background: radial-gradient(circle closest-side at 65% 40%, #003870 0% #003870 100%);
-
 
   // *:after {
   //   content: "";
@@ -49,8 +46,8 @@ body{
 }
 
 // #root{
-  // margin: auto;
-  // background-color: rgba(yellow,0.2);
+// margin: auto;
+// background-color: rgba(yellow,0.2);
 // }
 
 // .container{
@@ -59,44 +56,46 @@ body{
 //   // background-color: red;
 // }
 
-.parampanel{
+.parampanel {
   // padding:100px;
 
   margin: 30px auto !important;
   // background-color: lighten(getMdlColor($color-primary),40%);
-  background-color: lighten($roya-blue,30%);
+  background-color: lighten($roya-blue, 30%);
   -moz-background-clip: padding; /* Firefox 3.6 */
   -webkit-background-clip: padding; /* Safari 4? Chrome 6? */
   background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 
-.blockborder{
-  background-color: lighten($roya-blue,30%);
+.blockborder {
+  background-color: lighten($roya-blue, 30%);
   // border: 2px solid rgba(black,0.1);
-  border: 3px solid rgba(white,0.3);
+  border: 3px solid rgba(white, 0.3);
   // border: 3px solid rgba(red,0.9);
   // border: 5px solid rgba($orangelight,0.3);
-  
+
   // border: 5px solid rgba(lighten($roya-blue,0.9),0.3);
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
   // margin: 4px 0 !important;
 }
+
 // .mdl-grid,.mdl-cell{
 //   width:100%;
 // }
 
 //fix the gap created with bootstrap. See http://stackoverflow.com/questions/39535700/material-design-lite-bottom-line-in-text-field-has-a-slight-gap-with-colored-l
-.mdl-textfield__label{  
-  margin-bottom:0px;
-  margin-top:-2px;
+.mdl-textfield__label {
+  margin-bottom: 0px;
+  margin-top: -2px;
   font-family: 'Roboto', Tahoma, sans-serif;
-  font-size:0.9em !important;
+  font-size: 0.9em !important;
 
 }
-.mdl-spinner__layer-1,.mdl-spinner__layer-2,.mdl-spinner__layer-3,.mdl-spinner__layer-4{
-  border-color: darken(getMdlColor($color-primary),20%) !important;
+
+.mdl-spinner__layer-1, .mdl-spinner__layer-2, .mdl-spinner__layer-3, .mdl-spinner__layer-4 {
+  border-color: darken(getMdlColor($color-primary), 20%) !important;
   // .mdl-spinner--single-color & {
   //   border-color: red !important;
   // }
@@ -124,7 +123,6 @@ body{
 // .mdl-color--brown-800{background-color:darken(getMdlColor($color-primary),40%) !important}
 // .mdl-color-text--brown-900{color:darken(getMdlColor($color-primary),50%) !important}
 // .mdl-color--brown-900{background-color:darken(getMdlColor($color-primary),50%) !important}
-
 
 // @font-face {
 //   font-family: 'RoyaMainFont';
@@ -159,7 +157,7 @@ body{
 //     font-weight: normal;
 //     font-style: normal;
 // }
- 
+
 // @font-face {
 //     font-family: 'Roboto';
 //     src: url('../styles/fonts/Roboto-Italic-webfont.eot');
@@ -170,7 +168,7 @@ body{
 //     font-weight: normal;
 //     font-style: italic;
 // }
- 
+
 // @font-face {
 //     font-family: 'Roboto';
 //     src: url('../styles/fonts/Roboto-Bold-webfont.eot');
@@ -181,7 +179,7 @@ body{
 //     font-weight: bold;
 //     font-style: normal;
 // }
- 
+
 // @font-face {
 //     font-family: 'Roboto';
 //     src: url('../styles/fonts/Roboto-BoldItalic-webfont.eot');
@@ -192,7 +190,7 @@ body{
 //     font-weight: bold;
 //     font-style: italic;
 // }
- 
+
 // @font-face {
 //     font-family: 'Roboto';
 //     src: url('../styles/fonts/Roboto-Thin-webfont.eot');
@@ -203,7 +201,7 @@ body{
 //     font-weight: 200;
 //     font-style: normal;
 // }
- 
+
 // @font-face {
 //     font-family: 'Roboto';
 //     src: url('../styles/fonts/Roboto-ThinItalic-webfont.eot');
@@ -214,7 +212,7 @@ body{
 //     font-weight: 200;
 //     font-style: italic;
 // }
- 
+
 // @font-face {
 //     font-family: 'Roboto';
 //     src: url('../styles/fonts/Roboto-Light-webfont.eot');
@@ -225,7 +223,7 @@ body{
 //     font-weight: 100;
 //     font-style: normal;
 // }
- 
+
 // @font-face {
 //     font-family: 'Roboto';
 //     src: url('../styles/fonts/Roboto-LightItalic-webfont.eot');
@@ -236,7 +234,7 @@ body{
 //     font-weight: 100;
 //     font-style: italic;
 // }
- 
+
 // @font-face {
 //     font-family: 'Roboto';
 //     src: url('../styles/fonts/Roboto-Medium-webfont.eot');
@@ -247,7 +245,7 @@ body{
 //     font-weight: 300;
 //     font-style: normal;
 // }
- 
+
 // @font-face {
 //     font-family: 'Roboto';
 //     src: url('../styles/fonts/Roboto-MediumItalic-webfont.eot');
@@ -261,20 +259,22 @@ body{
 
 //These are being used with jquery ellipse function in index.js to limit text in Training short description in list
 .ellipsis {
-    white-space: nowrap;
-    overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .ellipsis.multiline {
-    white-space: normal;
+  white-space: normal;
 }
 
-.bgo{
+.bgo {
   background-color: orange !important;
 }
-.bgp{
-  background-color: pink!important;
+
+.bgp {
+  background-color: pink !important;
 }
-.bgr{
+
+.bgr {
   background-color: red !important;
 }

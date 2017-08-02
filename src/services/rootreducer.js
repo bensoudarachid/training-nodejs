@@ -8,13 +8,13 @@ import { routerReducer } from 'react-router-redux'
 // import { FetchData, reducer as fetching } from 'redux-fetch-data';
 
 const rootReducer = combineReducers({
-  auth: authReducer,
-  app: appReducer,
-  // todoappmap: todoAppReducer,
-  todoappmap: todoReducer,
-  trainingappmap: trainingReducer,
-  // user: userReducer,
-  routing: routerReducer
+    auth: authReducer,
+    app: appReducer,
+    // todoappmap: todoAppReducer,
+    todoappmap: todoReducer,
+    trainingappmap: trainingReducer,
+    // user: userReducer,
+    routing: routerReducer
 })
 
 export default rootReducer

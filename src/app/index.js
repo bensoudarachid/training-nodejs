@@ -1,4 +1,5 @@
 import React from 'react'
+require('../../node_modules/babel-polyfill/dist/polyfill.js')
 // var React = require('react');
 import ReactDom from 'react-dom'
 import Immutable from 'immutable'
@@ -57,7 +58,7 @@ import './app.scss'
 // import '../../node_modules/materialize-css/dist/js/materialize.min.js'
 // import '../../node_modules/materialize-css/dist/css/materialize.min.css'
 // import injectTapEventPlugin from 'react-tap-event-plugin'
- 
+
 // Needed for onTouchTap 
 // http://stackoverflow.com/a/34015469/988941 
 // injectTapEventPlugin()
@@ -81,73 +82,74 @@ import rootReducer from '../services/rootreducer'
 
 // var componentHandler = require('exports?componentHandler!material-design-lite/dist/material')
 
-(function($) {
+(function ($) {
 
-  $.fn.visible = function(partial) {
-    
-    var $t            = $(this),
-      $w            = $(window),
-      viewTop       = $w.scrollTop(),
-      viewBottom    = viewTop + $w.height(),
-      _top          = $t.offset().top+100,
-      _bottom       = _top + $t.height()-300,
-      compareTop    = partial === true ? _bottom : _top,
-      compareBottom = partial === true ? _top : _bottom
-    
-    return ((compareBottom <= viewBottom) && (compareTop >= viewTop))
+    $.fn.visible = function (partial) {
 
-  }
-  $.fn.load = function(partial) {
-    
-    var $t            = $(this),
-      $w            = $(window),
-      viewTop       = $w.scrollTop(),
-      viewBottom    = viewTop + $w.height(),
-      _top          = $t.offset().top-700,
-      _bottom       = _top + $t.height()+1200,
-      compareTop    = partial === true ? _bottom : _top,
-      compareBottom = partial === true ? _top : _bottom
-    
-    return ((compareBottom <= viewBottom) && (compareTop >= viewTop))
+        var $t = $(this),
+            $w = $(window),
+            viewTop = $w.scrollTop(),
+            viewBottom = viewTop + $w.height(),
+            _top = $t.offset().top + 100,
+            _bottom = _top + $t.height() - 300,
+            compareTop = partial === true ? _bottom : _top,
+            compareBottom = partial === true ? _top : _bottom
 
-  }
-  $.fn.ellipsis = function()
-    {
-    return this.each(function()
-        {
-      var el = $(this)
+        return ((compareBottom <= viewBottom) && (compareTop >= viewTop))
 
-      if(el.css('overflow') == 'hidden')
-            {
-        var text = el.html()
-        var multiline = el.hasClass('multiline')
-        var t = $(this.cloneNode(true))
+    }
+    $.fn.load = function (partial) {
+
+        var $t = $(this),
+            $w = $(window),
+            viewTop = $w.scrollTop(),
+            viewBottom = viewTop + $w.height(),
+            _top = $t.offset().top - 700,
+            _bottom = _top + $t.height() + 1200,
+            compareTop = partial === true ? _bottom : _top,
+            compareBottom = partial === true ? _top : _bottom
+
+        return ((compareBottom <= viewBottom) && (compareTop >= viewTop))
+
+    }
+    $.fn.ellipsis = function () {
+        return this.each(function () {
+            var el = $(this)
+
+            if (el.css('overflow') == 'hidden') {
+                var text = el.html()
+                var multiline = el.hasClass('multiline')
+                var t = $(this.cloneNode(true))
                     .hide()
                     .css('position', 'absolute')
                     .css('overflow', 'visible')
                     .width(multiline ? el.width() : 'auto')
                     .height(multiline ? 'auto' : el.height())
-                    
 
-        el.after(t)
 
-        function height() { return t.height() > el.height() }
-        function width() { return t.width() > el.width() }
+                el.after(t)
 
-        var func = multiline ? height : width
+                function height() {
+                    return t.height() > el.height()
+                }
 
-        while (text.length > 0 && func())
-                {
-          text = text.substr(0, text.length - 1)
-          t.html(text + '...')
-        }
+                function width() {
+                    return t.width() > el.width()
+                }
 
-        el.html(t.html())
-        t.remove()
-      }
-    })
-  }
-    
+                var func = multiline ? height : width
+
+                while (text.length > 0 && func()) {
+                    text = text.substr(0, text.length - 1)
+                    t.html(text + '...')
+                }
+
+                el.html(t.html())
+                t.remove()
+            }
+        })
+    }
+
 })($)
 
 const NotFound = () => ( <h1>404.... This page is not found!</h1> )
@@ -162,17 +164,17 @@ const initialState = window.__REDUX_STATE__
 // console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----initialState='+require('util').inspect(initialState, false, null))
 
 Object
-  .keys(initialState)
-  .forEach(key => {
-    initialState[key] = Immutable.fromJS(initialState[key])
-  })
+    .keys(initialState)
+    .forEach(key => {
+        initialState[key] = Immutable.fromJS(initialState[key])
+    })
 
 var store = ''
-if( process.env.NODE_ENV === 'production' )
-  store = createStore(rootReducer, initialState, applyMiddleware(thunk))
-else{
-  const logger = createLogger()
-  store = createStore(rootReducer, initialState, applyMiddleware(thunk, logger))
+if (process.env.NODE_ENV === 'production')
+    store = createStore(rootReducer, initialState, applyMiddleware(thunk))
+else {
+    const logger = createLogger()
+    store = createStore(rootReducer, initialState, applyMiddleware(thunk, logger))
 }
 // console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----after create Store State='+require('util').inspect(store.getState(), false, null))
 
@@ -181,7 +183,7 @@ else{
 //   basename: actions.appbasename
 // })
 const mybrowserHistory = useRouterHistory(createHistory)({
-  basename: actions.appbasename
+    basename: actions.appbasename
 })
 
 syncHistoryWithStore(mybrowserHistory, store)
@@ -194,10 +196,10 @@ $('.ellipsis').ellipsis()
 
 
 ReactDom.render(
-  <Provider store={store}>
-    <Router routes={routes} history={mybrowserHistory} />
-  </Provider>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <Router routes={routes} history={mybrowserHistory} />
+    </Provider>,
+    document.getElementById('root')
 )
 
 // ReactDom.render(
@@ -218,22 +220,22 @@ ReactDom.render(
 //   document.getElementById('root')
 // )
 
-	// <Router routes={routes} history={browserHistory} />
+// <Router routes={routes} history={browserHistory} />
 // <Router children={routes} history={browserHistory} />
 // <AppComponent />
 //  	<App />
 
-  // <Provider store={store}>
+// <Provider store={store}>
 //  <App />
-  // </Provider>,
-  // 
+// </Provider>,
+//
 
-      // <Route handler={AppComponent} path="/">
-      //   <DefaultRoute handler={Home} />
-      //   <Route name="register" handler={Register} />
-      //   <Route name="/registerconfirm(/:username" handler={RegisterConfirmation} />
-      //   <Route name="todos" handler={TodoApp} />
-      //   <Route name="trainings" handler={TrainingApp}>
-      //   </Route>
-      //   <NotFoundRoute handler={NotFound}/>        
-      // </Route>
+// <Route handler={AppComponent} path="/">
+//   <DefaultRoute handler={Home} />
+//   <Route name="register" handler={Register} />
+//   <Route name="/registerconfirm(/:username" handler={RegisterConfirmation} />
+//   <Route name="todos" handler={TodoApp} />
+//   <Route name="trainings" handler={TrainingApp}>
+//   </Route>
+//   <NotFoundRoute handler={NotFound}/>
+// </Route>

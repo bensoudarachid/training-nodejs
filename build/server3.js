@@ -1,5 +1,3 @@
-'use strict';
-
 compileBackEnd(startExpress);
 
 function compileBackEnd(callback) {

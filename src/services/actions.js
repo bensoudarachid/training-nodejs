@@ -38,17 +38,24 @@ import appactions from'./app/appactions'
 // }
 
 let actions = {
-  // apiurl:url,
-  // port:port,
-  // appbasename:appbasename,
-  ...authservices,
-  ...todoservices,
-  ...trainingservices,
-  ...appactions,
-  ...authactions,
-  // ...registeractions,
-  ...todoactions,
-  ...trainingactions
+// apiurl:url,
+// port:port,
+// appbasename:appbasename,
+...
+authservices,
+...
+todoservices,
+...
+trainingservices,
+...
+appactions,
+...
+authactions,
+// ...registeractions,
+...
+todoactions,
+...
+trainingactions
 }
 
 export default actions

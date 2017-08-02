@@ -1,19 +1,13 @@
-'use strict';
-
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+import 'jquery';
+// import Stats from 'stats-js'
+import $ from 'jquery';
 
 global.jQuery = require('jquery');
 
 // require('./appcomponent.scss')
-
-// import Stats from 'stats-js'
 require('./waterpipe.js');
 
-(0, _jquery2.default)(document).ready(function () {
+$(document).ready(function () {
 
   /*
   * requestAnimationFrame pollyfill
@@ -22,7 +16,7 @@ require('./waterpipe.js');
   // var context = document.querySelector('#canvs3').getContext('2d')
 
   // var color = $('.parampanel').css('background-color')
-  (0, _jquery2.default)('#wavybg-wrapper').waterpipe({
+  $('#wavybg-wrapper').waterpipe({
     gradientStart: '#6bc1ff',
     // gradientEnd: '#6C7A89',
     // gradientEnd: '#9caab9',

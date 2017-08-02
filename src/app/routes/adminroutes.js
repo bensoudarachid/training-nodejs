@@ -7,22 +7,32 @@ import AdminTrainingApp from '../../scenes/training/admin/admintrainingapp'
 if (typeof require.ensure !== 'function') require.ensure = (d, c) => c(require)
 
 const adminRoutes = (
-	<Route path="admin" 
-        
-      getChildRoutes={ (location, cb) => 
-          {require.ensure([], require => 
-            {cb(null, 
-              [
-                <Route path="todos" component={require('../../scenes/todo/todoapp').default} />,
-                require('./trainingroutes.js').default
-              ]
-			)}
-          )}
-        }
+    <Route path="admin"
+        // getChildRoutes={(location, cb) =>
+        //   {cb(null,
+        //     [
+        //       <Route path="todos" component={require('../../scenes/todo/todoapp').default} />,
+        //       require('./trainingroutes.js').default
+        //     ]
+        //   )}
+        // }
 
-	>
-		<IndexRoute component={AdminTrainingApp}/>
-	</Route>
+        getChildRoutes={ (location, cb) => {
+            require.ensure([], require => {
+                    cb(null,
+                        [
+                            <Route path="todos" component={require('../../scenes/todo/todoapp').default} />,
+                            require('./trainingroutes.js').default
+                        ]
+                    )
+                }
+            )
+        }
+            }
+
+    >
+        <IndexRoute component={AdminTrainingApp}/>
+    </Route>
 )
 // const trainingRoutes = {
 //   path: 'item/:id',
@@ -30,23 +40,23 @@ const adminRoutes = (
 // } 
 
 export default adminRoutes
- 
 
 
 
-		// getChildRoutes={(location, cb) => {cb(null, [
-		// 	require('./trainingroutes.js').default
-		// ])}}
-  
 
-   //    getChildRoutes={ (location, cb) => 
-   //        {require.ensure([], require => 
-   //          {cb(null, 
-   //            [
-   //              <Route path="todos" component={require('../../scenes/todo/todoapp').default} />,
-   //              require('./trainingroutes.js').default
-   //            ]
-			// )}
-   //        )}
-   //      }
+// getChildRoutes={(location, cb) => {cb(null, [
+// 	require('./trainingroutes.js').default
+// ])}}
+
+
+//    getChildRoutes={ (location, cb) =>
+//        {require.ensure([], require =>
+//          {cb(null,
+//            [
+//              <Route path="todos" component={require('../../scenes/todo/todoapp').default} />,
+//              require('./trainingroutes.js').default
+//            ]
+// )}
+//        )}
+//      }
 

@@ -1,30 +1,16 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _immutable = require('immutable');
-
-var _immutable2 = _interopRequireDefault(_immutable);
-
-var _actions = require('../actions');
-
-var _actions2 = _interopRequireDefault(_actions);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import cookie from 'react-cookie'
-
 // export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 // export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 // export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 // export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 // import { browserHistory } from 'react-router'
 // import { getIsFetching } from '../reducers'
-var todoactions = {
+import Immutable from 'immutable';
+import actions from '../actions';
+// import cookie from 'react-cookie'
 
-  createTodoInit: function createTodoInit(representTodo) {
+const todoactions = {
+
+  createTodoInit: function (representTodo) {
     // console.log('Actions. Init registration: ')
     // var newTodo = Immutable.Map({"id":-1,"task":text,"userId":-1, "isCompleted":false})
     return {
@@ -32,27 +18,27 @@ var todoactions = {
       todo: representTodo
     };
   },
-  rejectTodo: function rejectTodo(representTodo) {
+  rejectTodo: function (representTodo) {
     console.log('Actions. Init registration: ');
     return {
       type: 'REJECT_TODO_INIT',
       representTodo: representTodo
     };
   },
-  updateTodo: function updateTodo(todo) {
+  updateTodo: function (todo) {
     console.log('todo actions update todo');
     console.log(todo);
     return {
       type: 'UPDATE_TODO',
-      todo: todo
+      todo
     };
   },
-  uploadingTodoImg: function uploadingTodoImg(todo, isUploading) {
+  uploadingTodoImg: function (todo, isUploading) {
     // console.log('todo actions upload todo file')
     return {
       type: 'UPLOADING_TODO_IMAGE',
-      todo: todo,
-      isUploading: isUploading
+      todo,
+      isUploading
     };
   },
   // loadingTodoFileOff: function() {
@@ -61,19 +47,19 @@ var todoactions = {
   //     type: 'FINISH_LOADING_TODO_FILE'
   //   }
   // },
-  loadingTodo: function loadingTodo(todo) {
+  loadingTodo: function (todo) {
     // todo = todo.set('loading', true)
     return {
       type: 'LOADING_TODO',
-      todo: todo
+      todo
     };
   },
 
-  createTodo: function createTodo(text) {
+  createTodo: function (text) {
     // console.log('actions. AddTodo')
 
-    return function (dispatch) {
-      var representTodo = _immutable2.default.Map({
+    return dispatch => {
+      var representTodo = Immutable.Map({
         // "id": -1
         task: text,
         // "userId": -1,
@@ -123,12 +109,9 @@ var todoactions = {
       //   })
       //   ))
 
-      _actions2.default.updateTodoService(representTodo).then(function (_ref) {
-        var status = _ref.status,
-            data = _ref.data;
-
+      actions.updateTodoService(representTodo).then(({ status, data }) => {
         if (status === 401) {
-          dispatch(_actions2.default.receiveLogout());
+          dispatch(actions.receiveLogout());
         } else if (status >= 400) {
           var error = data;
           console.log('Status looks bad. ' + status + '. error message = ' + error.message);
@@ -137,7 +120,7 @@ var todoactions = {
           // var error = data.error
           var errorDescription = data.error_description;
           console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription);
-          dispatch(_actions2.default.receiveLogout());
+          dispatch(actions.receiveLogout());
         } else if (data.error) {
           // var error = data.error
           var errorDescription = data.error_description;
@@ -157,10 +140,10 @@ var todoactions = {
           // console.log('todo actions. todo representant : ')
           // console.log(representTodo)
 
-          dispatch(todoactions.addTodo(_immutable2.default.Map(data), representTodo));
+          dispatch(todoactions.addTodo(Immutable.Map(data), representTodo));
           // return newtodos;
         }
-      }, function (err) {
+      }, err => {
         console.log('Status looks not good at all!' + err);
         dispatch(todoactions.rejectTodo(representTodo));
       });
@@ -172,7 +155,7 @@ var todoactions = {
     // }
   },
 
-  addTodo: function addTodo(todo, representTodo) {
+  addTodo: function (todo, representTodo) {
     console.log('actions. AddTodo completed? ' + todo.get('completed'));
     return {
       type: 'ADD_TODO',
@@ -181,7 +164,7 @@ var todoactions = {
     };
   },
 
-  addTodos: function addTodos(todos) {
+  addTodos: function (todos) {
     console.log('actions. AddTodos');
     return {
       type: 'ADD_TODOS',
@@ -228,20 +211,20 @@ var todoactions = {
   //   }
   // },
 
-  completeTodo: function completeTodo(id) {
+  completeTodo: function (id) {
     return {
       type: 'COMPLETE_TODO',
       id: id
     };
   },
-  uploadTodoFileDispatcher: function uploadTodoFileDispatcher(todo, todoold, fileinput) {
+  uploadTodoFileDispatcher: function (todo, todoold, fileinput) {
     console.log('todoactions. uploadTodoFileDispatcher');
-    return function (dispatch) {
+    return dispatch => {
       if (fileinput == undefined) {
         todoold = todoold.set('error', 'No file parameter provided');
         dispatch(todoactions.updateTodo(todoold));
         todoold = todoold.delete('error');
-        setTimeout(function () {
+        setTimeout(() => {
           dispatch(todoactions.updateTodo(todoold));
         }, 2500);
         return;
@@ -250,7 +233,7 @@ var todoactions = {
         todoold = todoold.set('error', 'File too large (200kb max)');
         dispatch(todoactions.updateTodo(todoold));
         todoold = todoold.delete('error');
-        setTimeout(function () {
+        setTimeout(() => {
           dispatch(todoactions.updateTodo(todoold));
         }, 2500);
         return;
@@ -262,16 +245,13 @@ var todoactions = {
       }
       dispatch(todoactions.loadingTodo(todo));
       console.log('actions. update Todo version old: ' + todoold.get('version') + '. new: ' + todo.get('version'));
-      _actions2.default.uploadTodoFileService(todo, fileinput).then(function (_ref2) {
-        var status = _ref2.status,
-            data = _ref2.data;
-
-        if (_actions2.default.disconnect(dispatch, status, data)) return;else if (status == 413) {
+      actions.uploadTodoFileService(todo, fileinput).then(({ status, data }) => {
+        if (actions.disconnect(dispatch, status, data)) return;else if (status == 413) {
           console.log('Status file too large. ' + status);
           todoold = todoold.set('error', 'File is too large');
           dispatch(todoactions.updateTodo(todoold));
           todoold = todoold.delete('error');
-          setTimeout(function () {
+          setTimeout(() => {
             dispatch(todoactions.updateTodo(todoold));
           }, 2500);
         } else if (status >= 400) {
@@ -280,7 +260,7 @@ var todoactions = {
           todoold = todoold.set('error', 'System error');
           dispatch(todoactions.updateTodo(todoold));
           todoold = todoold.delete('error');
-          setTimeout(function () {
+          setTimeout(() => {
             dispatch(todoactions.updateTodo(todoold));
           }, 2500);
         } else if (data.error) {
@@ -291,7 +271,7 @@ var todoactions = {
           todoold = todoold.set('error', errorDescription);
           dispatch(todoactions.updateTodo(todoold));
           todoold = todoold.delete('error');
-          setTimeout(function () {
+          setTimeout(() => {
             dispatch(todoactions.updateTodo(todoold));
           }, 2500);
         } else {
@@ -304,22 +284,22 @@ var todoactions = {
           // dispatch(todoactions.loadingTodoFileOn())
         }
         // dispatch(todoactions.uploadingTodoImg(todo,false))
-      }, function (err) {
+      }, err => {
         console.log('Status looks not good at all!' + err);
         console.log('Status looks not good at all! todo completed? ' + todoold.get('completed'));
         todoold = todoold.set('error', 'System error');
         dispatch(todoactions.updateTodo(todoold));
         todoold = todoold.delete('error');
         // dispatch(todoactions.uploadingTodoImg(todo,false))
-        setTimeout(function () {
+        setTimeout(() => {
           dispatch(todoactions.updateTodo(todoold));
         }, 2500);
       });
     };
   },
-  updateTodoDispatcher: function updateTodoDispatcher(todo, todoold) {
+  updateTodoDispatcher: function (todo, todoold) {
     console.log('todoactions. updateTodoDispatcher');
-    return function (dispatch) {
+    return dispatch => {
       // console.log('todoactions. updateTodoDispatcher assi')
       if (todo.get('loading') || todo.get('error')) {
         // console.log('todo actions toggle todo. Is loading or Error displaying. So no action')
@@ -367,11 +347,8 @@ var todoactions = {
       //     data
       //   })
       // ))
-      _actions2.default.updateTodoService(todo).then(function (_ref3) {
-        var status = _ref3.status,
-            data = _ref3.data;
-
-        if (_actions2.default.disconnect(dispatch, status, data)) return;
+      actions.updateTodoService(todo).then(({ status, data }) => {
+        if (actions.disconnect(dispatch, status, data)) return;
 
         // if (status === 401) {
         //   dispatch(actions.receiveLogout())
@@ -386,7 +363,7 @@ var todoactions = {
             todoold = todoold.set('error', errorDescription);
             dispatch(todoactions.updateTodo(todoold));
             todoold = todoold.delete('error');
-            setTimeout(function () {
+            setTimeout(() => {
               dispatch(todoactions.updateTodo(todoold));
             }, 2500);
             // console.log('Todo action error loop. ' + i)
@@ -407,7 +384,7 @@ var todoactions = {
               todoold = todoold.set('error', errorDescription);
               dispatch(todoactions.updateTodo(todoold));
               todoold = todoold.delete('error');
-              setTimeout(function () {
+              setTimeout(() => {
                 dispatch(todoactions.updateTodo(todoold));
               }, 2500);
             }
@@ -450,55 +427,52 @@ var todoactions = {
                 // console.log('todo actions. todo representant : ')
                 // console.log(representTodo)
 
-                dispatch(todoactions.updateTodo(_immutable2.default.Map(data)));
+                dispatch(todoactions.updateTodo(Immutable.Map(data)));
                 // return newtodos;
               }
-      }, function (err) {
+      }, err => {
         console.log('Status looks not good at all!' + err);
         console.log('Status looks not good at all! todo completed? ' + todoold.get('completed'));
         todoold = todoold.set('error', 'System error');
         dispatch(todoactions.updateTodo(todoold));
         todoold = todoold.delete('error');
-        setTimeout(function () {
+        setTimeout(() => {
           dispatch(todoactions.updateTodo(todoold));
         }, 2500);
       });
     };
   },
-  deleteTodo: function deleteTodo(id) {
+  deleteTodo: function (id) {
     return {
       type: 'DELETE_TODO',
       id: id
     };
   },
-  loadTodos: function loadTodos(todosraw) {
+  loadTodos: function (todosraw) {
     return {
       type: 'TODOS_LOADED',
       todos: todosraw
     };
   },
-  retrieveUserTodosDispatcher: function retrieveUserTodosDispatcher() {
+  retrieveUserTodosDispatcher: function () {
     //    console.log('todo actions. call retrieveUserTodosDispatcher')
-    return function (dispatch) {
+    return dispatch => {
 
-      _actions2.default.retrieveTodosService().then(function (_ref4) {
-        var status = _ref4.status,
-            data = _ref4.data;
-
+      actions.retrieveTodosService().then(({ status, data }) => {
         if (status === 401) {
           // dispatch(actions.receiveLogout())
-          dispatch(_actions2.default.loginProcessStart('No access rights!', _actions2.default.retrieveUserTodosDispatcher));
+          dispatch(actions.loginProcessStart('No access rights!', actions.retrieveUserTodosDispatcher));
         } else if (status >= 400) {
           var error = data;
           console.log('Status looks bad. ' + status + '. error message = ' + error.message);
-          dispatch(_actions2.default.receiveLogout());
+          dispatch(actions.receiveLogout());
         } else if (data.error) {
           // var error = data.error
           var errorDescription = data.error_description;
           console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription);
-          dispatch(_actions2.default.receiveLogout());
+          dispatch(actions.receiveLogout());
         } else {
-          dispatch(_actions2.default.loadTodos(data));
+          dispatch(actions.loadTodos(data));
           // dispatch(actions.loadingTodoFileOff())
         }
       })
@@ -511,25 +485,22 @@ var todoactions = {
       //       actions.loadTodos(data)
       //     // actions.addTodos(data.todos)
       // })
-      .catch(function (err) {
-        dispatch(_actions2.default.receiveLogout());
+      .catch(err => {
+        dispatch(actions.receiveLogout());
         console.log('todoactions.js Error retrieving data. error = ' + err);
       });
     };
   },
-  deleteTodoSrv: function deleteTodoSrv(todo) {
-    return function (dispatch) {
+  deleteTodoSrv: function (todo) {
+    return dispatch => {
       if (todo.get('loading') || todo.get('error')) {
         console.log('todo actions toggle todo. Is loading or Error displaying. So no action');
         return;
       }
       dispatch(todoactions.loadingTodo(todo));
       console.log('actions. toggleTodo Todo 1');
-      _actions2.default.deleteTodoService(todo).then(function (_ref5) {
-        var status = _ref5.status,
-            data = _ref5.data;
-
-        if (_actions2.default.disconnect(dispatch, status, data)) return;
+      actions.deleteTodoService(todo).then(({ status, data }) => {
+        if (actions.disconnect(dispatch, status, data)) return;
         if (status >= 400) {
           var error = data;
           console.log('Status looks bad. ' + status + '. error message = ' + error.message);
@@ -538,7 +509,7 @@ var todoactions = {
           todo = todo.set('error', 'System error');
           dispatch(todoactions.updateTodo(todo));
           todo = todo.delete('error');
-          setTimeout(function () {
+          setTimeout(() => {
             dispatch(todoactions.updateTodo(todo));
           }, 2500);
           // console.log('Todo action error loop. ' + i)
@@ -548,7 +519,7 @@ var todoactions = {
           todo = todo.set('error', 'System error');
           dispatch(todoactions.updateTodo(todo));
           todo = todo.delete('error');
-          setTimeout(function () {
+          setTimeout(() => {
             dispatch(todoactions.updateTodo(todo));
           }, 2500);
         } else {
@@ -568,25 +539,25 @@ var todoactions = {
           dispatch(todoactions.deleteTodo(todo.get('id')));
           // return newtodos;
         }
-      }, function (err) {
+      }, err => {
         console.log('Status looks not good at all!' + err);
         console.log('Status looks not good at all! todo completed? ' + todo.get('completed'));
         todo = todo.set('error', 'System error');
         dispatch(todoactions.updateTodo(todo));
         todo = todo.delete('error');
-        setTimeout(function () {
+        setTimeout(() => {
           dispatch(todoactions.updateTodo(todo));
         }, 2500);
       });
     };
   },
-  filterTodosOpen: function filterTodosOpen(filterTodos) {
+  filterTodosOpen: function (filterTodos) {
     return {
       type: 'FILTER_TODOS_OPEN',
       filterOpen: filterTodos
     };
   },
-  filterTodosClosed: function filterTodosClosed(filterTodos) {
+  filterTodosClosed: function (filterTodos) {
     return {
       type: 'FILTER_TODOS_CLOSED',
       filterClosed: filterTodos
@@ -595,4 +566,4 @@ var todoactions = {
 
 };
 
-exports.default = todoactions;
+export default todoactions;

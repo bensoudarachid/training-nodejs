@@ -17,8 +17,8 @@ import $ from 'jquery'
 // import '../styles/default.scss'
 
 if (process.env.BROWSER) {
-  // console.log('Appcomponent. environment is browser')
-  require('./nav.scss')
+    // console.log('Appcomponent. environment is browser')
+    require('./nav.scss')
 //   function sir3allah(event){
 //     var logotitleElm2 = $('#bsnavi h2')
 //     // var rdm = Math.floor(Math.random() * 2) + 1
@@ -31,7 +31,7 @@ if (process.env.BROWSER) {
 //       logotitleElm2.removeClass('animated')
 //       logotitleElm2.removeClass(imgAnim)
 //     }, timeout)
-    
+
 //   }
 //   window.requestAnimFrame = (function(){
 //     return  window.requestAnimationFrame       ||
@@ -52,115 +52,112 @@ if (process.env.BROWSER) {
 //     },(30000) ) //1000/100
 //   })()
 
-  // $(document).ready(function () {
-  //   $(document).click(function (event) {
-  //     console.log('click somewhere in browser should close toggle menu')
-  //     var clickover = $(event.target)
-  //     var _opened = $('.navbar-collapse').hasClass('navbar-collapse in')
-  //     if (_opened === true && !clickover.hasClass('navbar-toggle')) {
-  //       $('button.navbar-toggle').click()
-  //     }
-  //   })
-  // })
+    // $(document).ready(function () {
+    //   $(document).click(function (event) {
+    //     console.log('click somewhere in browser should close toggle menu')
+    //     var clickover = $(event.target)
+    //     var _opened = $('.navbar-collapse').hasClass('navbar-collapse in')
+    //     if (_opened === true && !clickover.hasClass('navbar-toggle')) {
+    //       $('button.navbar-toggle').click()
+    //     }
+    //   })
+    // })
 
-  $(document).ready(function () {
-    $(document).click(function (event) {
-      // console.log('click somewhere in browser should close toggle menu')
-      var clickover = $(event.target)
+    $(document).ready(function () {
+        $(document).click(function (event) {
+            // console.log('click somewhere in browser should close toggle menu')
+            var clickover = $(event.target)
 
-      if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') && !clickover.hasClass('navbar-toggle')) {
-        $('button.navbar-toggle').click()
-      }
+            if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') && !clickover.hasClass('navbar-toggle')) {
+                $('button.navbar-toggle').click()
+            }
+        })
     })
-  })
 
-  // $(document).ready(function() { 
-  //   $('body').click(function(event) {
-  //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
-  //     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
-  //       $('.navbar-collapse').collapse('toggle')
-  //     }
-  //   })
-  // })
+    // $(document).ready(function() {
+    //   $('body').click(function(event) {
+    //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called
+    //     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
+    //       $('.navbar-collapse').collapse('toggle')
+    //     }
+    //   })
+    // })
 
 }
 //require('./nav.scss')
 
 
-
 class Nav extends Component {
-	// <div>
- //    </div>    
- // {this.props.location.pathname!='/register' &&
+    // <div>
+    //    </div>
+    // {this.props.location.pathname!='/register' &&
 //     	<Link activeClassName='active' to='/register'>Register</Link>
 // }
 //	<Button>Click me!</Button>
 
 
-  handleLoginClick(event) {
-    // console.log('loginjs andle request login in progress click')
-    // var modal = document.getElementById('myModal')
-    // modal.style.display = 'block'
-    this.props.actions.loginProcessStart('Welcome to Roya')
-  }     
-
-  render() {
-    const isBrowser = typeof window !== 'undefined'
-    const { auth } = this.props
-    const isAuthenticated = auth.get('isAuthenticated')
-    // console.log('navjs is authenticated '+isAuthenticated)
-    
-    // console.log('nav: authority = '+auth.get('authority'))
-    // console.log('nav: isBrowser'+isBrowser)
-	//&& this.props.location.pathname!='/register'
-    if( auth.get('authority')=='admin' ){
-      // console.log('nav: admin? authority = '+auth.get('authority'))
-      return (
-        <NavAdmin
-          actions={this.props.actions}
-          auth={this.props.auth}
-        />
-      )
-    }else if( auth.get('authority')=='user' ){
-      // console.log('nav: user? authority = '+auth.get('authority'))
-      return (
-        <NavUser
-          actions={this.props.actions}
-          auth={this.props.auth}
-        />
-      )
-    }else{
-      // console.log('nav: guest? authority = '+auth.get('authority'))
-      return (
-        <NavPublic
-          actions={this.props.actions}
-          auth={this.props.auth}
-        />
-      )
+    handleLoginClick(event) {
+        // console.log('loginjs andle request login in progress click')
+        // var modal = document.getElementById('myModal')
+        // modal.style.display = 'block'
+        this.props.actions.loginProcessStart('Welcome to Roya')
     }
-  }
+
+    render() {
+        const isBrowser = typeof window !== 'undefined'
+        const { auth } = this.props
+        const isAuthenticated = auth.get('isAuthenticated')
+        // console.log('navjs is authenticated '+isAuthenticated)
+
+        // console.log('nav: authority = '+auth.get('authority'))
+        // console.log('nav: isBrowser'+isBrowser)
+        //&& this.props.location.pathname!='/register'
+        if (auth.get('authority') == 'admin') {
+            // console.log('nav: admin? authority = '+auth.get('authority'))
+            return (
+                <NavAdmin
+                    actions={this.props.actions}
+                    auth={this.props.auth}
+                />
+            )
+        } else if (auth.get('authority') == 'user') {
+            // console.log('nav: user? authority = '+auth.get('authority'))
+            return (
+                <NavUser
+                    actions={this.props.actions}
+                    auth={this.props.auth}
+                />
+            )
+        } else {
+            // console.log('nav: guest? authority = '+auth.get('authority'))
+            return (
+                <NavPublic
+                    actions={this.props.actions}
+                    auth={this.props.auth}
+                />
+            )
+        }
+    }
 }
 
 
-
-			// <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
+// <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 
 export default Nav
-	// <div>
+// <div>
 
-	//   {!isAuthenticated &&
-	// 	  <Login
-	// 	  errorMessage={errorMessage}
-	// 	  onLoginClick={ creds => dispatch(loginUser(creds)) }
-	// 	  />
-	//   }
+//   {!isAuthenticated &&
+// 	  <Login
+// 	  errorMessage={errorMessage}
+// 	  onLoginClick={ creds => dispatch(loginUser(creds)) }
+// 	  />
+//   }
 
-	//   {isAuthenticated &&
-	//   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
-	//   }
+//   {isAuthenticated &&
+//   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
+//   }
 
- //    </div>    
-
+//    </div>
 
 
 //     <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">

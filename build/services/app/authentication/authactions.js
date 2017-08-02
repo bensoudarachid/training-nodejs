@@ -1,65 +1,49 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _reactRouter = require('react-router');
-
-var _reactCookie = require('react-cookie');
-
-var _reactCookie2 = _interopRequireDefault(_reactCookie);
-
-var _actions = require('../../actions');
-
-var _actions2 = _interopRequireDefault(_actions);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import store  from '../../store'
-var util = require('util'); // export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+// export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 // export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 // export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 // export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
+import { browserHistory } from 'react-router';
+// import store  from '../../store'
+import cookie from 'react-cookie';
+import actions from '../../actions';
 
+const util = require('util');
 
-var authactions = {
-  requestLogin: function requestLogin(creds) {
+let authactions = {
+  requestLogin: function (creds) {
     return {
       type: 'LOGIN_REQUEST',
       isFetching: true,
       // isAuthenticated: cookie.load('jwt') ? true : false,
-      creds: creds
+      creds
     };
   },
 
-  loginSuccess: function loginSuccess() {
+  loginSuccess: function () {
     return {
       type: 'LOGIN_SUCCESS',
       isFetching: false,
-      isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
-      authority: _reactCookie2.default.load('authority')
+      isAuthenticated: cookie.load('jwt') ? true : false,
+      authority: cookie.load('authority')
     };
   },
 
-  receiveLogin: function receiveLogin(user) {
-    var _this = this;
-
-    return function (dispatch, getState) {
+  receiveLogin: function (user) {
+    return (dispatch, getState) => {
       console.log('auth actions user : ' + util.inspect(user, false, null));
-      _reactCookie2.default.save('jwt', user.access_token, {
+      cookie.save('jwt', user.access_token, {
         path: '/'
       });
-      _reactCookie2.default.save('authority', user.authority, {
+      cookie.save('authority', user.authority, {
         path: '/'
       });
 
       // window.routerHistory.push('/')
       // window.routerHistory.push(getState().auth.get('loginactualurl'))
       // dispatch(actions.retrieveUserTodosDispatcher()) //maybe we can save the action before login and dipatch here instead of pushing '/'
-      var req = getState().auth.get('loginrequest');
+      const req = getState().auth.get('loginrequest');
       if (req != undefined) dispatch(req(getState().auth.get('loginrequestparams')));
-      dispatch(_this.loginSuccess());
+      dispatch(this.loginSuccess());
       // return {
       //   type: 'LOGIN_SUCCESS',
       //   isFetching: false,
@@ -70,45 +54,45 @@ var authactions = {
     };
   },
 
-  loginError: function loginError(message) {
+  loginError: function (message) {
     return {
       type: 'LOGIN_FAILURE',
       isFetching: false,
-      isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
-      message: message
+      isAuthenticated: cookie.load('jwt') ? true : false,
+      message
     };
   },
 
-  receiveLogout: function receiveLogout() {
-    _reactCookie2.default.remove('jwt', {
+  receiveLogout: function () {
+    cookie.remove('jwt', {
       path: '/'
     });
-    _reactCookie2.default.remove('authority', {
+    cookie.remove('authority', {
       path: '/'
     });
     return {
       type: 'LOGOUT_SUCCESS',
       isFetching: false,
-      isAuthenticated: _reactCookie2.default.load('jwt') ? true : false
+      isAuthenticated: cookie.load('jwt') ? true : false
     };
   },
 
-  requestLogout: function requestLogout() {
+  requestLogout: function () {
     return {
       type: 'LOGOUT_REQUEST',
       isFetching: true,
-      isAuthenticated: _reactCookie2.default.load('jwt') ? true : false
+      isAuthenticated: cookie.load('jwt') ? true : false
     };
   },
 
-  logoutUser: function logoutUser() {
+  logoutUser: function () {
     console.log('actions logout user ');
     //&scope=read%20write
     1;
 
-    return function (dispatch) {
+    return dispatch => {
       dispatch(authactions.requestLogout());
-      _actions2.default.logoutService(_reactCookie2.default.load('jwt')).then(function (response) {
+      actions.logoutService(cookie.load('jwt')).then(response => {
         if (!response.ok) {
           console.log('actions request logout not ok');
           return Promise.reject();
@@ -117,25 +101,25 @@ var authactions = {
           window.routerHistory.push('/');
           // browserHistory.push(actions.appbasename+'/')
         }
-      }).catch(function (err) {
+      }).catch(err => {
         console.log('authactionsjs. Unhandled Login Error: ', err);
       });
     };
   },
 
-  loginProcessStart: function loginProcessStart(message, promise, params) {
-    var actualurl = window.location.pathname;
+  loginProcessStart: function (message, promise, params) {
+    const actualurl = window.location.pathname;
     // window.routerHistory.push('/')
     return {
       type: 'LOGIN_PROCESS_START',
-      message: message,
-      actualurl: actualurl,
-      promise: promise,
-      params: params
+      message,
+      actualurl,
+      promise,
+      params
     };
   },
 
-  loginProcessEnd: function loginProcessEnd() {
+  loginProcessEnd: function () {
     console.log('authactionsjs close modal');
     window.routerHistory.push('/');
     return {
@@ -143,17 +127,14 @@ var authactions = {
     };
   },
 
-  loginUser: function loginUser(creds) {
+  loginUser: function (creds) {
     // console.log('actions login user ' + creds.username + ' .pass ' + creds.password)
-    return function (dispatch) {
+    return dispatch => {
       // We dispatch requestLogin to kickoff the call to the API
       // console.log('actions request login ')
       dispatch(authactions.requestLogin(creds));
 
-      _actions2.default.loginUserService(creds).then(function (_ref) {
-        var user = _ref.user,
-            response = _ref.response;
-
+      actions.loginUserService(creds).then(({ user, response }) => {
         if (!response.ok) {
           console.log('++++++++++++++++authactions. login not ok');
           // console.log(user)
@@ -172,7 +153,7 @@ var authactions = {
           // window.routerHistory.push('/')
           // window.routerHistory.push(currentRouteName)
         }
-      }).catch(function (err) {
+      }).catch(err => {
         console.log('++++++++++++++++++++++++++authactionsjs. Unhandled Login Error: ', err.error_description);
 
         if (err.error_description == undefined) {
@@ -184,57 +165,57 @@ var authactions = {
     };
   },
 
-  disconnect: function disconnect(dispatch, status, data) {
+  disconnect: function (dispatch, status, data) {
     if (status === 401 || data.error === 'invalid_token') {
-      dispatch(_actions2.default.receiveLogout());
+      dispatch(actions.receiveLogout());
       return true;
     }
     return false;
   },
 
-  requestRegister: function requestRegister(creds) {
+  requestRegister: function (creds) {
     return {
       type: 'REGISTER_REQUEST',
       isRegistrationFetching: true,
-      isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
-      creds: creds
+      isAuthenticated: cookie.load('jwt') ? true : false,
+      creds
     };
   },
 
-  receiveRegister: function receiveRegister(user) {
+  receiveRegister: function (user) {
     // console.log('actions user access token: ' + user.access_token)
     return {
       type: 'REGISTER_SUCCESS',
-      user: user
+      user
     };
   },
 
-  registerInit: function registerInit() {
+  registerInit: function () {
     console.log('Actions. Init registration: ');
     return {
       type: 'REGISTER_INIT'
     };
   },
 
-  registerUserError: function registerUserError(registererror) {
+  registerUserError: function (registererror) {
     console.log('Actions. Error registration: ');
     console.log(registererror);
     return {
       type: 'REGISTER_USER_ERROR',
-      registererror: registererror
+      registererror
     };
   },
 
-  registerSystemError: function registerSystemError(registererror) {
+  registerSystemError: function (registererror) {
     console.log('Actions. Error registration: ');
     console.log(registererror);
     return {
       type: 'REGISTER_SYSTEM_ERROR',
-      registererror: registererror
+      registererror
     };
   },
 
-  validateUser: function validateUser(user) {
+  validateUser: function (user) {
     // console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++registrationactions validate user')
     return {
       type: 'REGISTER_VALIDATE',
@@ -242,7 +223,7 @@ var authactions = {
     };
   },
 
-  registerUser: function registerUser(creds) {
+  registerUser: function (creds) {
     // console.log('actions register user '+creds.username+' .pass '+creds.password+' .email '+creds.email)
     // var body='username='+creds.username+'&password='+creds.password+'&email='+creds.email
     //&scope=read%20write
@@ -255,40 +236,37 @@ var authactions = {
     //   , body: body
     // }
 
-    return function (dispatch, getState) {
+    return (dispatch, getState) => {
       if (getState().auth.get('isRegistrationFetching')) {
         console.log('Fetching! Do nothing');
         return;
       }
-      dispatch(_actions2.default.validateUser(creds));
-      var registrationError = getState().auth.get('registrationError');
+      dispatch(actions.validateUser(creds));
+      const registrationError = getState().auth.get('registrationError');
       // console.log('+++++++++++++++++++++++++++reg actions. auth registrationError username '+registrationError.get('username'))
       if (registrationError.get('username') !== undefined || registrationError.get('email') !== undefined || registrationError.get('password') !== undefined || registrationError.get('passwordCheck') !== undefined) {
         // console.log('+++++++++++++++++++++++++++reg actions. reg error' + registrationError.get('username'))
         return;
       }
 
-      dispatch(_actions2.default.requestRegister(creds));
-      return _actions2.default.registerUserService(creds).then(function (_ref2) {
-        var status = _ref2.status,
-            data = _ref2.data;
-
+      dispatch(actions.requestRegister(creds));
+      return actions.registerUserService(creds).then(({ status, data }) => {
         var error = data.error;
         console.log('Auth actions, Response: ' + util.inspect(data, false, null));
         // console.log('Auth actions, Error: '+error)
         // console.log('Auth actions, Error: '+error.error)
         if (status >= 400 && error != undefined) {
           console.log('Status looks bad. ' + status + '. error message = ' + error.message);
-          dispatch(_actions2.default.registerSystemError(error.message));
+          dispatch(actions.registerSystemError(error.message));
         } else if (error) {
           // var errorDescription = error.errorDescription
           // console.log('Todoapp fetch error = ' + error.error + ', description = ' + errorDescription)
-          dispatch(_actions2.default.registerUserError(error));
+          dispatch(actions.registerUserError(error));
           // dispatch(actions.appError(error))
         } else {
           console.log('Status looks good ');
           console.log(data);
-          dispatch(_actions2.default.receiveRegister(data));
+          dispatch(actions.receiveRegister(data));
           //          browserHistory.push('/registerconfirm/')
         }
       },
@@ -313,11 +291,11 @@ var authactions = {
       //         }
       //       },
 
-      function (err) {
+      err => {
         console.log('Status looks not good at all!' + err);
       });
     };
   }
 };
 
-exports.default = authactions;
+export default authactions;

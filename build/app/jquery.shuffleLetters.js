@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @name		Shuffle Letters
  * @author		Martin Angelov
@@ -16,7 +14,7 @@
       'step': 4, // How many times should the letters be changed
       'fps': 15, // Frames Per Second
       'text': '', // Use this text instead of the contents
-      'callback': function callback() {}
+      'callback': function () {}
       // console.log('done')
 
       // Run once the animation is complete
