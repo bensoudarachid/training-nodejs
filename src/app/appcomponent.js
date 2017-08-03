@@ -31,7 +31,7 @@ if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
 if (process.env.BROWSER) {
     require('./appcomponent.scss')
     var modal = document.getElementById('myModal')
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal) {
             // const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
             this.props.auth.onLoginProcessEndClick()
@@ -41,7 +41,6 @@ if (process.env.BROWSER) {
 }
 
 
-
 class AppComponent extends React.Component {
 
     constructor() {
@@ -49,7 +48,7 @@ class AppComponent extends React.Component {
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
         // console.log('window width = '+$(window).width())
 
@@ -63,7 +62,6 @@ class AppComponent extends React.Component {
     }
 
 
-
     componentWillReceiveProps(nextProps) {
         // console.log('app. this.props.location='+require('util').inspect(this.props.location, false, null))
         //console.log('app. nextProps.location='+require('util').inspect(nextProps.location, false, null))
@@ -74,13 +72,14 @@ class AppComponent extends React.Component {
 
 
     handleBubblesVisibility(event) {
-        if( $(window).width() < 480 )
+        if ($(window).width() < 480)
         // $('#starbg-wrapper')[0].style.display = 'none'
-            $('#starbg-wrapper')[0].style.visibility='hidden'
+            $('#starbg-wrapper')[0].style.visibility = 'hidden'
         else
         // $('#starbg-wrapper')[0].style.display = 'block'
-            $('#starbg-wrapper')[0].style.visibility='visible'
+            $('#starbg-wrapper')[0].style.visibility = 'visible'
     }
+
     render() {
         const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
         const isBrowser = typeof window !== 'undefined'
@@ -88,10 +87,9 @@ class AppComponent extends React.Component {
         const loginProgress = auth.get('loginProgress')
         const registererror = this.props.auth.get('registererror')
         const appError = this.props.app.get('appError')
-        const confirmationActionFunction=this.props.app.get('confirmationActionFunction')
+        const confirmationActionFunction = this.props.app.get('confirmationActionFunction')
 
         var children = this.updateChildren(this.props.children, this.props)
-
 
 
         return (
@@ -141,11 +139,10 @@ class AppComponent extends React.Component {
                     </div>
           {appError &&
           <div>
-              <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: '+appError}/>
+              <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: ' + appError}/>
           </div>
               }
                 </div>
-
 
             </div>
 
@@ -153,18 +150,18 @@ class AppComponent extends React.Component {
     }
 
     updateChildren(children, props) {
-        var childrenBack = React.Children.map(children, function(child) {
-            const segment =this.getSubstringUntilNth(props.location.pathname, '/', 2)
-            return React.cloneElement(child, {
-            ...props
-                ,key: segment
-        })
+        var childrenBack = React.Children.map(children,
+            function(child) {
+                const segment =this.getSubstringUntilNth(props.location.pathname, '/', 2);
+                return React.cloneElement(child, {...props, key:segment})
     }.bind(this))
         return childrenBack
 }
 
-getSubstringUntilNth(str, pattern, n) {
-    return  str.split(pattern, n).join(pattern)
+
+getSubstringUntilNth(str, pattern, n)
+{
+    return str.split(pattern, n).join(pattern)
 }
 }
 
