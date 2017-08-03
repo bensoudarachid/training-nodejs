@@ -320,38 +320,19 @@ class AppComponent extends React.Component {
     //   :
     // }
 
-    updateChildren(children, props) {
-        var childrenBack = React.Children.map(children, function (child) {
-            // return React.cloneElement(child, {
-            //   actions: props.actions,
-            //   todos: props.todos
-            // })
-            // const segment = this.props.location.pathname
-            // const segment = this.props.location.pathname.split('/')[1] || 'root'
-            const segment = this.getSubstringUntilNth(props.location.pathname, '/', 2)
-            // console.log('child '+this.props.location.pathname+ ' segement '+segment+' path '+this.props.location.pathname)
-            return React.cloneElement(child, {
-            ...
-            props
-                , key
-            :
-            segment
-        })
+    getSubstringUntilNth(str, pattern, n) {
+        return str.split(pattern, n).join(pattern)
     }
 
-.
-    bind(
-
-        this
-))
-        return
-    childrenBack
-}
-
-getSubstringUntilNth(str, pattern, n)
-{
-    return str.split(pattern, n).join(pattern)
-}
+    updateChildren(children, props) {
+        var childrenBack = React.Children.map(children,
+            function (child) {
+                const segment = this.getSubstringUntilNth(props.location.pathname, '/', 2)
+                const x = {...props}
+                return React.cloneElement(child, {...props, key: segment})
+            }.bind(this))
+        return childrenBack
+    }
 }
 // {React.cloneElement(this.props.children, { key: segment })}
 // {children}
