@@ -2,7 +2,7 @@
 // export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 // export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 // export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
-import { browserHistory } from 'react-router'
+import {browserHistory} from 'react-router'
 // import store  from '../../store'
 import cookie from 'react-cookie'
 import actions from '../../actions'
@@ -105,8 +105,8 @@ let authactions = {
                         // browserHistory.push(actions.appbasename+'/')
                     }
                 }).catch(err => {
-                    console.log('authactionsjs. Unhandled Login Error: ', err)
-                })
+                console.log('authactionsjs. Unhandled Login Error: ', err)
+            })
         }
     },
 
@@ -158,17 +158,17 @@ let authactions = {
                         // window.routerHistory.push(currentRouteName)
                     }
                 }).catch(err => {
-                    console.log('++++++++++++++++++++++++++authactionsjs. Unhandled Login Error: ', err.error_description)
+                console.log('++++++++++++++++++++++++++authactionsjs. Unhandled Login Error: ', err.error_description)
 
-                    if (err.error_description == undefined) {
-                        console.log('Auth actions, Response: ' + util.inspect(err, false, null))
-                        return
-                    }
-                    if (!err.error_description.includes('JDBCConnectionException'))
-                        dispatch(authactions.loginProcessStart(err.error_description))
-                    else
-                        dispatch(authactions.loginProcessStart('System error: Stale database connection'))
-                })
+                if (err.error_description == undefined) {
+                    console.log('Auth actions, Response: ' + util.inspect(err, false, null))
+                    return
+                }
+                if (!err.error_description.includes('JDBCConnectionException'))
+                    dispatch(authactions.loginProcessStart(err.error_description))
+                else
+                    dispatch(authactions.loginProcessStart('System error: Stale database connection'))
+            })
         }
     },
 
@@ -259,26 +259,26 @@ let authactions = {
             dispatch(actions.requestRegister(creds))
             return actions.registerUserService(creds)
                 .then(
-                ({ status, data }) => {
-                    var error = data.error
-                    console.log('Auth actions, Response: ' + util.inspect(data, false, null))
-                    // console.log('Auth actions, Error: '+error)
-                    // console.log('Auth actions, Error: '+error.error)
-                    if (status >= 400 && error != undefined) {
-                        console.log('Status looks bad. ' + status + '. error message = ' + error.message)
-                        dispatch(actions.registerSystemError(error.message))
-                    } else if (error) {
-                        // var errorDescription = error.errorDescription
-                        // console.log('Todoapp fetch error = ' + error.error + ', description = ' + errorDescription)
-                        dispatch(actions.registerUserError(error))
-                        // dispatch(actions.appError(error))
-                    } else {
-                        console.log('Status looks good ')
-                        console.log(data)
-                        dispatch(actions.receiveRegister(data))
+                    ({status, data}) => {
+                        var error = data.error
+                        console.log('Auth actions, Response: ' + util.inspect(data, false, null))
+                        // console.log('Auth actions, Error: '+error)
+                        // console.log('Auth actions, Error: '+error.error)
+                        if (status >= 400 && error != undefined) {
+                            console.log('Status looks bad. ' + status + '. error message = ' + error.message)
+                            dispatch(actions.registerSystemError(error.message))
+                        } else if (error) {
+                            // var errorDescription = error.errorDescription
+                            // console.log('Todoapp fetch error = ' + error.error + ', description = ' + errorDescription)
+                            dispatch(actions.registerUserError(error))
+                            // dispatch(actions.appError(error))
+                        } else {
+                            console.log('Status looks good ')
+                            console.log(data)
+                            dispatch(actions.receiveRegister(data))
 //          browserHistory.push('/registerconfirm/')
-                    }
-                },
+                        }
+                    },
 //     .then(
 //       ({ status, resp }) => {
 //         console.log('Auth actions, Response: '+util.inspect(resp, false, null))
@@ -301,9 +301,9 @@ let authactions = {
 //       },
 
                     err => {
-                    console.log('Status looks not good at all!' + err)
-                }
-            )
+                        console.log('Status looks not good at all!' + err)
+                    }
+                )
         }
     }
 }

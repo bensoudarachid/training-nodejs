@@ -120,15 +120,15 @@ const todoservices = {
         // var todo = null;
         return fetch(url + '/api/todo/updatetodo', config).then(response => response.json()
             .then(data => {
-                console.log('Print status now')
-                console.log('Response Status = ' + response.status)
+                    console.log('Print status now')
+                    console.log('Response Status = ' + response.status)
 
-                return ({
-                    status: response.status,
-                    data
-                })
-            }
-        ))
+                    return ({
+                        status: response.status,
+                        data
+                    })
+                }
+            ))
     },
     uploadTodoFileService: function (todo, inputfile) {
         var headers = {
@@ -155,22 +155,22 @@ const todoservices = {
             body: body
         }
         return fetch(url + '/api/todo/' + todo.get('id') + '/fileupload/', config)
-            // .then(response => response.json()
-            //   .then(data => ({
-            //     status: response.status,
-            //     data
-            //   })
-            // ))
+        // .then(response => response.json()
+        //   .then(data => ({
+        //     status: response.status,
+        //     data
+        //   })
+        // ))
             .then(res => res.text()
                 .then(text => {
                     console.log('*****************************************************************returned text is ' + text)
                     return text.length ? JSON.parse(text) : {}
                 })
                 .then(data => ({
-                    status: res.status,
-                    data
-                })
-            ))
+                        status: res.status,
+                        data
+                    })
+                ))
 
         // return fetch(url+'/api/todo/'+todo.get('id')+'/fileupload/', config)
         // .then(response => ({
@@ -214,10 +214,10 @@ const todoservices = {
         // var todo = null;
         return fetch(url + '/api/todo/deletetodo', config).then(response => response.json()
             .then(data => ({
-                status: response.status,
-                data
-            })
-        ))
+                    status: response.status,
+                    data
+                })
+            ))
     }
 
 

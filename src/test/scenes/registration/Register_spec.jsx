@@ -3,17 +3,17 @@ import TestUtils from 'react-addons-test-utils'
 import Register from 'scenes/registration/register'
 import {expect, assert} from 'chai'
 //import Immutable from 'immutable'
-import { shallow } from 'enzyme'
+import {shallow} from 'enzyme'
 import sinon from 'sinon'
 import actions from 'services/actions'
 import {describe, beforeEach, afterEach, it} from 'mocha'
 import {List, Map} from 'immutable'
 import thunk from 'redux-thunk'
 import nock from 'nock'
-import { createStore, applyMiddleware } from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import createLogger from 'redux-logger'
-import { bindActionCreators } from 'redux'
-import { connect, Provider } from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {connect, Provider} from 'react-redux'
 // import configureMockStore from 'redux-mock-store'
 import rootReducer from 'services/rootreducer'
 import {Simulate} from 'react-addons-test-utils'
@@ -41,8 +41,10 @@ const logger = createLogger()
 // var RegisterConn = connect(mapStateToProps, mapDispatchToProps)(Register)
 
 
-const {renderIntoDocument,findRenderedDOMComponentsWithClass,scryRenderedDOMComponentsWithClass,
-    scryRenderedDOMComponentsWithTag} = TestUtils
+const {
+    renderIntoDocument, findRenderedDOMComponentsWithClass, scryRenderedDOMComponentsWithClass,
+    scryRenderedDOMComponentsWithTag
+} = TestUtils
 
 describe('Register', () => {
 

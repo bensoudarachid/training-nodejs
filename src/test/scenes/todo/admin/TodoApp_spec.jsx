@@ -13,7 +13,7 @@ import {
     mount,
     shallow,
     spyLifecycle
-    } from 'enzyme'
+} from 'enzyme'
 
 // import {List, Map} from 'immutable'
 

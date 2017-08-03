@@ -5,10 +5,11 @@ import 'jquery'
 // import '../../../node_modules/fullcalendar/dist/fullcalendar.js'
 // import 'fullcalendar'
 import HTML5Backend from 'react-dnd-html5-backend'
-import { DragDropContext } from 'react-dnd'
+import {DragDropContext} from 'react-dnd'
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import withDragAndDrop from '../../../node_modules/react-big-calendar/lib/addons/dragAndDrop'
+
 const DragAndDropCalendar = withDragAndDrop(BigCalendar)
 
 
@@ -28,10 +29,10 @@ if (process.env.BROWSER) {
 
 let MyCustomHeader = React.createClass({
     render() {
-        const { label } = this.props
+        const {label} = this.props
         return (
             <div>
-                <div>{ label.substring(0, 3) }</div>
+                <div>{label.substring(0, 3)}</div>
             </div>
         )
     }
@@ -123,33 +124,32 @@ class Calendar extends React.Component {
         // $(calendar).fullCalendar('destroy')
     }
 
-    moveEvent({ event, start, end }) {
+    moveEvent({event, start, end}) {
         // const events = this.props.events
-        const { localevents } = this.state
+        const {localevents} = this.state
 
         const idx = localevents.indexOf(event)
         const updatedEvent = {
-    ...
-        event, start, end
-    }
+            ...
+                event, start, end
+        }
 
-    const nextEvents = [...localevents]
-    nextEvents
-.
-    splice(idx,
+        const nextEvents = [...localevents]
+        nextEvents
+            .splice(idx,
 
-1,
-    updatedEvent
-)
+                1,
+                updatedEvent
+            )
 
         this
-.
-    setState({
-        localevents: nextEvents
-        })
+            .setState({
+                localevents: nextEvents
+            })
 
-    // alert(`${event.title} was dropped onto ${event.start}`)
+        // alert(`${event.title} was dropped onto ${event.start}`)
+    }
+
 }
 
-}
 export default DragDropContext(HTML5Backend)(Calendar)

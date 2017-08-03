@@ -5,19 +5,19 @@
 import React from 'react'
 import express from 'express'
 import http from 'http'
-import { RouterContext, match } from 'react-router'
-import { renderToString } from 'react-dom/server'
-import { routes } from './app/routes'
-import { createStore, applyMiddleware } from 'redux'
+import {RouterContext, match} from 'react-router'
+import {renderToString} from 'react-dom/server'
+import {routes} from './app/routes'
+import {createStore, applyMiddleware} from 'redux'
 import rootReducer from './services/rootreducer'
 import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 import fs from 'fs'
 import multer from 'multer'
 import Immutable from 'immutable'
-import { Provider } from 'react-redux'
+import {Provider} from 'react-redux'
 
-import { bindActionCreators } from 'redux'
+import {bindActionCreators} from 'redux'
 import actions from './services/actions'
 import ApiConnection from './services/apiconnection'
 
@@ -506,4 +506,4 @@ app.listen(port, function (error) {
 // server.on('listening', () => {
 //   console.log('Listening on 8080');
 // });
-export { port }
+export {port}

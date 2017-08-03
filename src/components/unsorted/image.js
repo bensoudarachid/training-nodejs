@@ -4,8 +4,7 @@ import cookie from 'react-cookie'
 import ApiConnection from '../services/apiconnection'
 import $ from 'jquery'
 
-export default
-class TodoImage extends React.Component {
+export default class TodoImage extends React.Component {
 
     render() {
         const taskid = this.props.taskid
@@ -13,8 +12,10 @@ class TodoImage extends React.Component {
 // 	console.log(this.props)
 //  <p>A little bit about {this.props.params.name}!!I like {this.props.location.query.food}!</p>
         return (
-            <div className='imgwrap' id={'imgwrap' + taskid} >
-                <img id={'todolistitemimg' + taskid} src={ApiConnection.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken} className='dataimg' alt='coding'/>
+            <div className='imgwrap' id={'imgwrap' + taskid}>
+                <img id={'todolistitemimg' + taskid}
+                     src={ApiConnection.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken}
+                     className='dataimg' alt='coding'/>
             </div>
         )
     }

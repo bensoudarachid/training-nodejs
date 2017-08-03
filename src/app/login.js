@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component, PropTypes} from 'react'
 import 'jquery'
 import $ from 'jquery'
 
@@ -41,8 +41,7 @@ if (process.env.BROWSER) {
 
 }
 
-export default
-class Login extends Component {
+export default class Login extends Component {
     // <li><button onClick={(event) => this.handleClick(event)} className='btn btn-primary'>
     //  <span className='glyphicon glyphicon-log-in'></span> Login
     // </button></li>
@@ -65,7 +64,7 @@ class Login extends Component {
     // </li>
 
     render() {
-        const { errorMessage } = this.props
+        const {errorMessage} = this.props
         // var myStyle = {fontSize: 100, color: '#FF0000'}
         //       <li><input type='text' ref='username' className='form-control' placeholder='Username'/></li>
         //<input type='password' ref='password' className='form-control' placeholder='Password'/>
@@ -87,14 +86,16 @@ class Login extends Component {
                             </div>
                         </li>
                         <li>
-                            <button type='submit' className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored button'>
+                            <button type='submit'
+                                    className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored button'>
                                 <span className='glyphicon glyphicon-log-in'></span>
-                            Login</button>
+                                Login
+                            </button>
                         </li>
                     </ul>
-        {errorMessage &&
-        <p style={{fontSize: 25, color: '#FF0000'}}>{errorMessage}</p>
-            }
+                    {errorMessage &&
+                    <p style={{fontSize: 25, color: '#FF0000'}}>{errorMessage}</p>
+                    }
                 </form>
             </div>
         )

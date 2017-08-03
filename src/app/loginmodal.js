@@ -1,8 +1,8 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component, PropTypes} from 'react'
 import 'jquery'
 import $ from 'jquery'
 import Login from './login'
-import { IndexLink, Link} from 'react-router'
+import {IndexLink, Link} from 'react-router'
 
 if (process.env.BROWSER) {
     // console.log('Appcomponent. environment is browser')
@@ -39,13 +39,12 @@ if (process.env.BROWSER) {
 }
 
 
-export default
-class LoginModal extends Component {
+export default class LoginModal extends Component {
 
     render() {
-        const { errorMessage } = this.props
+        const {errorMessage} = this.props
         return (
-            <div id='loginmodal' >
+            <div id='loginmodal'>
                 <div className='modal'>
 
                     <div className='modal-content'>
@@ -56,7 +55,7 @@ class LoginModal extends Component {
                         <div className='modal-body'>
                             <Login
                                 errorMessage={errorMessage}
-                                onLoginClick={ creds => this.props.actions.loginUser(creds) }
+                                onLoginClick={creds => this.props.actions.loginUser(creds)}
                                 onLoginProcessStartClick={this.props.actions.loginProcessStart}
                             />
                         </div>
@@ -71,10 +70,10 @@ class LoginModal extends Component {
     }
 
     renderOld() {
-        const { errorMessage } = this.props
+        const {errorMessage} = this.props
 
         return (
-            <div id='loginmodal' >
+            <div id='loginmodal'>
                 <div className='modal'>
 
                     <div className='modal-content'>
@@ -86,7 +85,7 @@ class LoginModal extends Component {
                         <div className='modal-body'>
                             <Login
                                 errorMessage={errorMessage}
-                                onLoginClick={ creds => this.props.actions.loginUser(creds) }
+                                onLoginClick={creds => this.props.actions.loginUser(creds)}
                                 onLoginProcessStartClick={this.props.actions.loginProcessStart}
                             />
                         </div>

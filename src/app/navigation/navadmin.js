@@ -1,8 +1,8 @@
-import React, { Component, PropTypes } from 'react'
-import { IndexLink, Link} from 'react-router'
+import React, {Component, PropTypes} from 'react'
+import {IndexLink, Link} from 'react-router'
 import Login from '../login.js'
 import Logout from '../logout.js'
-import { LogoutUser} from '../../services/actions.js'
+import {LogoutUser} from '../../services/actions.js'
 // import Bootstrap from '!style!css!../node_modules/bootstrap/dist/css/bootstrap.css'
 // require('!style!css!../node_modules/bootstrap/dist/css/bootstrap.min.css')
 // import { Button } from 'react-bootstrap'
@@ -71,6 +71,7 @@ if (process.env.BROWSER) {
     // })
 
 }
+
 //require('./nav.scss')
 
 
@@ -92,7 +93,7 @@ class NavAdmin extends Component {
 
     render() {
         const isBrowser = typeof window !== 'undefined'
-        const { auth } = this.props
+        const {auth} = this.props
         const isAuthenticated = auth.get('isAuthenticated')
 
         // console.log('nav: isBrowser'+isBrowser)
@@ -110,7 +111,8 @@ class NavAdmin extends Component {
                         </div>
                     </li>
                     <li>
-                        <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
+                        <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
@@ -122,11 +124,11 @@ class NavAdmin extends Component {
                         <li>
                             <IndexLink activeClassName='active' to='/'>Home</IndexLink>
                         </li>
-      {(process.env.NODE_ENV != 'production' || process.env.NODE_ENV == 'production') &&
-      <li>
-          <Link activeClassName='active' to='/admin/todos'>Todos</Link>
-      </li>
-          }
+                        {(process.env.NODE_ENV != 'production' || process.env.NODE_ENV == 'production') &&
+                        <li>
+                            <Link activeClassName='active' to='/admin/todos'>Todos</Link>
+                        </li>
+                        }
                         <li>
                             <Link activeClassName='active' to='/admin/trainings'>Training</Link>
                         </li>
@@ -135,26 +137,27 @@ class NavAdmin extends Component {
                         </li>
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
-{isBrowser && !isAuthenticated &&
-<li>
-    <a href='#' onClick={(event) => this.handleLoginClick(event)}>
-        <span className='glyphicon glyphicon-log-in'></span>
-    Login</a>
-</li>
-    }
-{isAuthenticated &&
-<li>
-    <a href='#' onClick={(event) => this.props.actions.logoutUser()}>
-        <span className='glyphicon glyphicon-log-out'></span>
-    Logout</a>
-</li>
-    }
+                        {isBrowser && !isAuthenticated &&
+                        <li>
+                            <a href='#' onClick={(event) => this.handleLoginClick(event)}>
+                                <span className='glyphicon glyphicon-log-in'></span>
+                                Login</a>
+                        </li>
+                        }
+                        {isAuthenticated &&
+                        <li>
+                            <a href='#' onClick={(event) => this.props.actions.logoutUser()}>
+                                <span className='glyphicon glyphicon-log-out'></span>
+                                Logout</a>
+                        </li>
+                        }
                     </ul>
                 </div>
             </nav>
         )
     }
 }
+
 // <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 
 export default NavAdmin

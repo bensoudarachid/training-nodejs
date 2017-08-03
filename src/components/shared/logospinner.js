@@ -5,8 +5,7 @@ if (process.env.BROWSER) {
     require('./logospinner.scss')
 }
 
-export default
-class LogoSpinner extends React.Component {
+export default class LogoSpinner extends React.Component {
     render() {
         return (
             <div className='logospinner'>

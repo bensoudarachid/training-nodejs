@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component, PropTypes} from 'react'
 import 'jquery'
 import $ from 'jquery'
-import { IndexLink, Link} from 'react-router'
+import {IndexLink, Link} from 'react-router'
 
 if (process.env.BROWSER) {
     // console.log('Appcomponent. environment is browser')
@@ -37,8 +37,7 @@ if (process.env.BROWSER) {
 
 }
 
-export default
-class AppModalDlg extends Component {
+export default class AppModalDlg extends Component {
 
     render() {
         // const { errorMessage } = this.props
@@ -46,7 +45,7 @@ class AppModalDlg extends Component {
         // console.log('appmodaldlgjs render')
         // <span onClick={(event) => this.handleClose(event)} className='close'>×</span>
         return (
-            <div id='appmodaldlg' >
+            <div id='appmodaldlg'>
                 <div className='modal'>
 
                     <div className='modal-content'>
@@ -58,7 +57,9 @@ class AppModalDlg extends Component {
                             <p>{this.props.errorMessage}</p>
                         </div>
                         <div className='modal-footer'>
-                            <button onClick={(event) => this.handleClose(event)} className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>Ok</button>
+                            <button onClick={(event) => this.handleClose(event)}
+                                    className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>Ok
+                            </button>
                         </div>
                     </div>
                 </div>

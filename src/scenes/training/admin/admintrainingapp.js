@@ -1,7 +1,7 @@
 //import TrainingCreate from '../public/trainingcreate'
 
 
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 // import TrainingEditList from '../public/trainingeditlist'
 import AdminTrainingList from './admintraininglist'
 import TrainingCommandPanel from './trainingcommandpanel'
@@ -115,8 +115,7 @@ if (process.env.BROWSER) {
 // ];
 // import 'node-fetch'
 
-export default
-class AdminTrainingApp extends Component {
+export default class AdminTrainingApp extends Component {
     constructor(props) {
         super(props)
 //    console.log('training list. Mixin in constructor')
@@ -250,9 +249,11 @@ class AdminTrainingApp extends Component {
                     </span>
                     <div>
                         <div className='blockborder parampanel commandpanel'>
-                            <TrainingCommandPanel trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+                            <TrainingCommandPanel trainings={this.props.trainingappmap.get('trainings')}
+                                                  actions={this.props.actions}/>
                         </div>
-                        <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+                        <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')}
+                                           actions={this.props.actions}/>
                     </div>
                 </div>
             </div>

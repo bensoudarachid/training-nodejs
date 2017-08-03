@@ -1,9 +1,9 @@
 import React from 'react'
 import express from 'express'
 import http from 'http'
-import { RouterContext, match } from 'react-router'
-import { renderToString } from 'react-dom/server'
-import { routes } from '../components/routes';
+import {RouterContext, match} from 'react-router'
+import {renderToString} from 'react-dom/server'
+import {routes} from '../components/routes';
 
 
 var config = require('../webpack.config.js');

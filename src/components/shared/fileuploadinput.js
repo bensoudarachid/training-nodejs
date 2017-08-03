@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 // require('../../../node_modules/material-design-lite/dist//material.css')
 // require('../../../node_modules/material-design-lite/dist/material.js')
 
@@ -9,8 +9,7 @@ if (process.env.BROWSER) {
 }
 
 
-export default
-class FileUploadInput extends Component {
+export default class FileUploadInput extends Component {
 
     constructor(props) {
         super(props)
@@ -32,9 +31,11 @@ class FileUploadInput extends Component {
         return (
             <div className='file_input_div'>
                 <div className='file_input'>
-                    <label className={'justify image_input_button mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored' + disabled}>
+                    <label
+                        className={'justify image_input_button mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored' + disabled}>
                         <span className={'glyphicon glyphicon-upload ' + disabled}></span>
-                        <input ref='file_input_file' onChange={this.changeInputText} className='none' type='file' id={id} disabled={this.props.disabled}/>
+                        <input ref='file_input_file' onChange={this.changeInputText} className='none' type='file'
+                               id={id} disabled={this.props.disabled}/>
                     </label>
                     <label className='uploadlabel' ref='file_input_text' name='file_input_text'>No image</label>
                 </div>

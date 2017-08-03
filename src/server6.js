@@ -1,10 +1,10 @@
 import express from 'express'
-import { match } from 'react-router'
-import { renderToString } from 'react-dom/server'
-import { RouterContext } from 'react-router'
-import { createStore, applyMiddleware } from 'redux'
+import {match} from 'react-router'
+import {renderToString} from 'react-dom/server'
+import {RouterContext} from 'react-router'
+import {createStore, applyMiddleware} from 'redux'
 import thunkMiddleware from 'redux-thunk'
-import { Provider } from 'react-redux'
+import {Provider} from 'react-redux'
 import routes from '../components/routes'
 import reducers from '../services/rootreducer'
 
@@ -34,7 +34,7 @@ app.get('*', (req, res, next) => {
 
         const initialState = {}
         const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
-        const { location, params, history } = renderProps
+        const {location, params, history} = renderProps
 
         fetchData({store, location, params, history})
             .then(() => {

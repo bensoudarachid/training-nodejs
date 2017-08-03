@@ -71,10 +71,10 @@ const authservices = {
 
         return fetch(authurl + '/oauth/token', config)
             .then(response => response.json().then(user => ({
-                user,
-                response
-            }))
-        )
+                    user,
+                    response
+                }))
+            )
             .catch(function (err) {
                 console.log('hahaaaaaa' + err)
                 throw {error: 'connectionfailure', error_description: 'Failed to connect. Please try later'} //new Error('failed to connect')

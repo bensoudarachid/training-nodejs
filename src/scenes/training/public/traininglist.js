@@ -9,8 +9,7 @@ if (process.env.BROWSER) {
     require('./traininglist.scss')
 }
 
-export default
-class TrainingList extends React.Component {
+export default class TrainingList extends React.Component {
     constructor(props) {
         super(props)
         // console.log('training list. Mixin in constructor')
@@ -50,16 +49,16 @@ class TrainingList extends React.Component {
         return (
             // key={'traininglist'+Math.random()}
             <div className='traininglist'>
-        {this.props.trainings == undefined ?
-            <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{
-                width: '55px',
-                height: '55px'
-            }}></span>
-            :
-            <div className='traininglistwrap mdl-grid mdl-grid--no-spacing'>
-            {this.renderItems()}
-            </div>
-            }
+                {this.props.trainings == undefined ?
+                    <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{
+                        width: '55px',
+                        height: '55px'
+                    }}></span>
+                    :
+                    <div className='traininglistwrap mdl-grid mdl-grid--no-spacing'>
+                        {this.renderItems()}
+                    </div>
+                }
             </div>
         )
     }

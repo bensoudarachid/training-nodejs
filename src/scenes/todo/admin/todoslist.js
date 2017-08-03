@@ -7,8 +7,7 @@ if (process.env.BROWSER) {
     require('./todoslist.scss')
 }
 
-export default
-class TodosList extends React.Component {
+export default class TodosList extends React.Component {
     constructor(props) {
         super(props)
         // console.log('todo list. Mixin in constructor')
@@ -37,8 +36,8 @@ class TodosList extends React.Component {
         if (this.props.todos) {
             return this.props.todos.filter(
                 (item) =>
-                item.get('completed') && this.props.filterclosed ||
-                !item.get('completed') && this.props.filteropen
+                    item.get('completed') && this.props.filterclosed ||
+                    !item.get('completed') && this.props.filteropen
             )
             // console.log('todo list get items. render items. Size = '+listtodos.size)
         }
@@ -80,13 +79,13 @@ class TodosList extends React.Component {
         // Putting <div></div> instead of <span></span> produces a ununderstandlable scroll mess!
         return (
             <div className='todoslist'>
-            {this.props.todos == undefined ?
-                <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{
-                    width: '55px',
-                    height: '55px'
-                }}></div>
-                :
-                <span>{this.renderItems()}</span>
+                {this.props.todos == undefined ?
+                    <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{
+                        width: '55px',
+                        height: '55px'
+                    }}></div>
+                    :
+                    <span>{this.renderItems()}</span>
                 }
             </div>
         )

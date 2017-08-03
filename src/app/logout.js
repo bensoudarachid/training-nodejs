@@ -1,10 +1,9 @@
 // components/Logout.js
 
 // import React, { Component, PropTypes } from 'react'
-import { Component, PropTypes } from 'react'
+import {Component, PropTypes} from 'react'
 
-export default
-class Logout extends Component {
+export default class Logout extends Component {
 
     render() {
         // const { onLogoutClick } = this.props
@@ -13,7 +12,7 @@ class Logout extends Component {
         return (
             <button onClick={() => this.handleClick()} className="btn btn-primary">
                 <span className='glyphicon glyphicon-log-out'></span>
-            Logout
+                Logout
             </button>
         )
     }

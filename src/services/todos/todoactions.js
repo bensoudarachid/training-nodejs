@@ -145,7 +145,7 @@ const todoactions = {
                         // return newtodos;
                     }
                 },
-                    err => {
+                err => {
                     console.log('Status looks not good at all!' + err)
                     dispatch(todoactions.rejectTodo(representTodo))
                 }
@@ -251,61 +251,61 @@ const todoactions = {
             console.log('actions. update Todo version old: ' + todoold.get('version') + '. new: ' + todo.get('version'))
             actions.uploadTodoFileService(todo, fileinput)
                 .then(
-                ({status, data}) => {
-                    if (actions.disconnect(dispatch, status, data))
-                        return
-                    else if (status == 413) {
-                        console.log('Status file too large. ' + status)
-                        todoold = todoold.set('error', 'File is too large')
-                        dispatch(todoactions.updateTodo(todoold))
-                        todoold = todoold.delete('error')
-                        setTimeout(() => {
+                    ({status, data}) => {
+                        if (actions.disconnect(dispatch, status, data))
+                            return
+                        else if (status == 413) {
+                            console.log('Status file too large. ' + status)
+                            todoold = todoold.set('error', 'File is too large')
                             dispatch(todoactions.updateTodo(todoold))
-                        }, 2500)
-                    } else if (status >= 400) {
-                        // var error = data
-                        // console.log('Status looks bad. ' + status + '. error message = ' + error.message)
+                            todoold = todoold.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todoold))
+                            }, 2500)
+                        } else if (status >= 400) {
+                            // var error = data
+                            // console.log('Status looks bad. ' + status + '. error message = ' + error.message)
+                            todoold = todoold.set('error', 'System error')
+                            dispatch(todoactions.updateTodo(todoold))
+                            todoold = todoold.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todoold))
+                            }, 2500)
+                        } else if (data.error) {
+                            // var error = data.error
+                            var errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
+                            console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
+                            console.log(data)
+                            todoold = todoold.set('error', errorDescription)
+                            dispatch(todoactions.updateTodo(todoold))
+                            todoold = todoold.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todoold))
+                            }, 2500)
+                        }
+                        else {
+                            dispatch(todoactions.updateTodo(todo))
+                            dispatch(todoactions.uploadingTodoImg(todo, true))
+                            dispatch(todoactions.uploadingTodoImg(todo, false))
+                            // setTimeout(function() {
+                            //   dispatch(todoactions.uploadingTodoImg(todo,false))
+                            // },(2000) )
+                            // dispatch(todoactions.loadingTodoFileOn())
+                        }
+                        // dispatch(todoactions.uploadingTodoImg(todo,false))
+                    },
+                    err => {
+                        console.log('Status looks not good at all!' + err)
+                        console.log('Status looks not good at all! todo completed? ' + todoold.get('completed'))
                         todoold = todoold.set('error', 'System error')
                         dispatch(todoactions.updateTodo(todoold))
                         todoold = todoold.delete('error')
-                        setTimeout(() => {
-                            dispatch(todoactions.updateTodo(todoold))
-                        }, 2500)
-                    } else if (data.error) {
-                        // var error = data.error
-                        var errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
-                        console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
-                        console.log(data)
-                        todoold = todoold.set('error', errorDescription)
-                        dispatch(todoactions.updateTodo(todoold))
-                        todoold = todoold.delete('error')
+                        // dispatch(todoactions.uploadingTodoImg(todo,false))
                         setTimeout(() => {
                             dispatch(todoactions.updateTodo(todoold))
                         }, 2500)
                     }
-                    else {
-                        dispatch(todoactions.updateTodo(todo))
-                        dispatch(todoactions.uploadingTodoImg(todo, true))
-                        dispatch(todoactions.uploadingTodoImg(todo, false))
-                        // setTimeout(function() {
-                        //   dispatch(todoactions.uploadingTodoImg(todo,false))
-                        // },(2000) )
-                        // dispatch(todoactions.loadingTodoFileOn())
-                    }
-                    // dispatch(todoactions.uploadingTodoImg(todo,false))
-                },
-                    err => {
-                    console.log('Status looks not good at all!' + err)
-                    console.log('Status looks not good at all! todo completed? ' + todoold.get('completed'))
-                    todoold = todoold.set('error', 'System error')
-                    dispatch(todoactions.updateTodo(todoold))
-                    todoold = todoold.delete('error')
-                    // dispatch(todoactions.uploadingTodoImg(todo,false))
-                    setTimeout(() => {
-                        dispatch(todoactions.updateTodo(todoold))
-                    }, 2500)
-                }
-            )
+                )
 
         }
     },
@@ -361,102 +361,102 @@ const todoactions = {
             // ))
             actions.updateTodoService(todo)
                 .then(
-                ({status, data}) => {
-                    if (actions.disconnect(dispatch, status, data))
-                        return
+                    ({status, data}) => {
+                        if (actions.disconnect(dispatch, status, data))
+                            return
 
-                    // if (status === 401) {
-                    //   dispatch(actions.receiveLogout())
-                    // }
-                    else if (status >= 400) {
-                        var errorDescription
-                        if (data.error) {
-                            console.log('Status looks bad. ' + status + '. error message = ' + data.error)
-                            errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
-                        }
-
-                        todoold = todoold.set('error', errorDescription)
-                        dispatch(todoactions.updateTodo(todoold))
-                        todoold = todoold.delete('error')
-                        setTimeout(() => {
-                            dispatch(todoactions.updateTodo(todoold))
-                        }, 2500)
-                        // console.log('Todo action error loop. ' + i)
+                        // if (status === 401) {
+                        //   dispatch(actions.receiveLogout())
                         // }
-                        // dispatch(todoactions.updateTodo(todoold))
-                    }
-                    // else if (data.error === 'invalid_token') {
-                    //   // var error = data.error
-                    //   var errorDescription = data.error_description
-                    //   console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
-                    //   dispatch(actions.receiveLogout())
-                    // }
-                    else if (data.error) {
-                        // var error = data.error
-                        errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
-                        console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
-                        console.log(data)
-                        todoold = todoold.set('error', errorDescription)
+                        else if (status >= 400) {
+                            var errorDescription
+                            if (data.error) {
+                                console.log('Status looks bad. ' + status + '. error message = ' + data.error)
+                                errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
+                            }
+
+                            todoold = todoold.set('error', errorDescription)
+                            dispatch(todoactions.updateTodo(todoold))
+                            todoold = todoold.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todoold))
+                            }, 2500)
+                            // console.log('Todo action error loop. ' + i)
+                            // }
+                            // dispatch(todoactions.updateTodo(todoold))
+                        }
+                        // else if (data.error === 'invalid_token') {
+                        //   // var error = data.error
+                        //   var errorDescription = data.error_description
+                        //   console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
+                        //   dispatch(actions.receiveLogout())
+                        // }
+                        else if (data.error) {
+                            // var error = data.error
+                            errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
+                            console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
+                            console.log(data)
+                            todoold = todoold.set('error', errorDescription)
+                            dispatch(todoactions.updateTodo(todoold))
+                            todoold = todoold.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todoold))
+                            }, 2500)
+                        }
+                        // else if(data.exception !== undefined){
+                        //   // console.log('Status looks good. See if there is an exception message'+data.message)
+                        //   // if(data.exception !== undefined)
+                        //   //   console.log(data.message)
+                        //   todoold = todoold.set('error', data.message)
+                        //   dispatch(todoactions.updateTodo(todoold))
+                        //   todoold = todoold.delete('error')
+                        //   setTimeout(() => {
+                        //     dispatch(todoactions.updateTodo(todoold))
+                        //   }, 2500)
+                        //   // var newtodos = todos.push(Immutable.Map(data))
+                        //   // console.log('New todos ')
+                        //   // console.log(newtodos)
+                        //   // todos = todos.push(Immutable.Map({
+                        //   //   task: action.text,
+                        //   //   isCompleted: false,
+                        //   //   id: maxid
+                        //   // }))
+                        //   // console.log('todo actions. todo representant : ')
+                        //   // console.log(representTodo)
+
+                        //   dispatch(todoactions.updateTodo(Immutable.Map(data)))
+                        // // return newtodos;
+                        // }
+                        else {
+                            // console.log('Status looks good. See if there is an exception message')
+                            // if(data.exception !== undefined)
+                            //   console.log(data.message)
+                            // var newtodos = todos.push(Immutable.Map(data))
+                            // console.log('New todos ')
+                            // console.log(newtodos)
+                            // todos = todos.push(Immutable.Map({
+                            //   task: action.text,
+                            //   isCompleted: false,
+                            //   id: maxid
+                            // }))
+                            // console.log('todo actions. todo representant : ')
+                            // console.log(representTodo)
+
+                            dispatch(todoactions.updateTodo(Immutable.Map(data)))
+                            // return newtodos;
+                        }
+                    },
+                    err => {
+                        console.log('Status looks not good at all!' + err)
+                        console.log('Status looks not good at all! todo completed? ' + todoold.get('completed'))
+                        todoold = todoold.set('error', 'System error')
                         dispatch(todoactions.updateTodo(todoold))
                         todoold = todoold.delete('error')
                         setTimeout(() => {
                             dispatch(todoactions.updateTodo(todoold))
                         }, 2500)
                     }
-                    // else if(data.exception !== undefined){
-                    //   // console.log('Status looks good. See if there is an exception message'+data.message)
-                    //   // if(data.exception !== undefined)
-                    //   //   console.log(data.message)
-                    //   todoold = todoold.set('error', data.message)
-                    //   dispatch(todoactions.updateTodo(todoold))
-                    //   todoold = todoold.delete('error')
-                    //   setTimeout(() => {
-                    //     dispatch(todoactions.updateTodo(todoold))
-                    //   }, 2500)
-                    //   // var newtodos = todos.push(Immutable.Map(data))
-                    //   // console.log('New todos ')
-                    //   // console.log(newtodos)
-                    //   // todos = todos.push(Immutable.Map({
-                    //   //   task: action.text,
-                    //   //   isCompleted: false,
-                    //   //   id: maxid
-                    //   // }))
-                    //   // console.log('todo actions. todo representant : ')
-                    //   // console.log(representTodo)
-
-                    //   dispatch(todoactions.updateTodo(Immutable.Map(data)))
-                    // // return newtodos;
-                    // }
-                    else {
-                        // console.log('Status looks good. See if there is an exception message')
-                        // if(data.exception !== undefined)
-                        //   console.log(data.message)
-                        // var newtodos = todos.push(Immutable.Map(data))
-                        // console.log('New todos ')
-                        // console.log(newtodos)
-                        // todos = todos.push(Immutable.Map({
-                        //   task: action.text,
-                        //   isCompleted: false,
-                        //   id: maxid
-                        // }))
-                        // console.log('todo actions. todo representant : ')
-                        // console.log(representTodo)
-
-                        dispatch(todoactions.updateTodo(Immutable.Map(data)))
-                        // return newtodos;
-                    }
-                },
-                    err => {
-                    console.log('Status looks not good at all!' + err)
-                    console.log('Status looks not good at all! todo completed? ' + todoold.get('completed'))
-                    todoold = todoold.set('error', 'System error')
-                    dispatch(todoactions.updateTodo(todoold))
-                    todoold = todoold.delete('error')
-                    setTimeout(() => {
-                        dispatch(todoactions.updateTodo(todoold))
-                    }, 2500)
-                }
-            )
+                )
         }
     },
     deleteTodo: function (id) {
@@ -477,25 +477,25 @@ const todoactions = {
 
             actions.retrieveTodosService()
                 .then(
-                ({status, data}) => {
-                    if (status === 401) {
-                        // dispatch(actions.receiveLogout())
-                        dispatch(actions.loginProcessStart('No access rights!', actions.retrieveUserTodosDispatcher))
+                    ({status, data}) => {
+                        if (status === 401) {
+                            // dispatch(actions.receiveLogout())
+                            dispatch(actions.loginProcessStart('No access rights!', actions.retrieveUserTodosDispatcher))
 
-                    } else if (status >= 400) {
-                        var error = data
-                        console.log('Status looks bad. ' + status + '. error message = ' + error.message)
-                        dispatch(actions.receiveLogout())
-                    } else if (data.error) {
-                        // var error = data.error
-                        var errorDescription = data.error_description
-                        console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
-                        dispatch(actions.receiveLogout())
-                    } else {
-                        dispatch(actions.loadTodos(data))
-                        // dispatch(actions.loadingTodoFileOff())
-                    }
-                })
+                        } else if (status >= 400) {
+                            var error = data
+                            console.log('Status looks bad. ' + status + '. error message = ' + error.message)
+                            dispatch(actions.receiveLogout())
+                        } else if (data.error) {
+                            // var error = data.error
+                            var errorDescription = data.error_description
+                            console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
+                            dispatch(actions.receiveLogout())
+                        } else {
+                            dispatch(actions.loadTodos(data))
+                            // dispatch(actions.loadingTodoFileOff())
+                        }
+                    })
                 // .then(data => {
                 //     console.log('todoapp. data fetch ')
                 //     console.log(data)
@@ -522,60 +522,60 @@ const todoactions = {
             console.log('actions. toggleTodo Todo 1')
             actions.deleteTodoService(todo)
                 .then(
-                ({status, data}) => {
-                    if (actions.disconnect(dispatch, status, data))
-                        return
-                    if (status >= 400) {
-                        var error = data
-                        console.log('Status looks bad. ' + status + '. error message = ' + error.message)
-                        // for (var i = 0; i < 3; i++) {
+                    ({status, data}) => {
+                        if (actions.disconnect(dispatch, status, data))
+                            return
+                        if (status >= 400) {
+                            var error = data
+                            console.log('Status looks bad. ' + status + '. error message = ' + error.message)
+                            // for (var i = 0; i < 3; i++) {
 
-                        todo = todo.set('error', 'System error')
-                        dispatch(todoactions.updateTodo(todo))
-                        todo = todo.delete('error')
-                        setTimeout(() => {
+                            todo = todo.set('error', 'System error')
                             dispatch(todoactions.updateTodo(todo))
-                        }, 2500)
-                        // console.log('Todo action error loop. ' + i)
-                        // }
-                        // dispatch(todoactions.updateTodo(todo))
-                    } else if (data.error) {
-                        todo = todo.set('error', 'System error')
-                        dispatch(todoactions.updateTodo(todo))
-                        todo = todo.delete('error')
-                        setTimeout(() => {
+                            todo = todo.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todo))
+                            }, 2500)
+                            // console.log('Todo action error loop. ' + i)
+                            // }
+                            // dispatch(todoactions.updateTodo(todo))
+                        } else if (data.error) {
+                            todo = todo.set('error', 'System error')
                             dispatch(todoactions.updateTodo(todo))
-                        }, 2500)
-                    } else {
-                        console.log('Status looks good ')
-                        console.log(data)
-                        // var newtodos = todos.push(Immutable.Map(data))
-                        // console.log('New todos ')
-                        // console.log(newtodos)
-                        // todos = todos.push(Immutable.Map({
-                        //   task: action.text,
-                        //   isCompleted: false,
-                        //   id: maxid
-                        // }))
-                        console.log('todo actions. todo representant : ')
-                        // console.log(representTodo)
+                            todo = todo.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todo))
+                            }, 2500)
+                        } else {
+                            console.log('Status looks good ')
+                            console.log(data)
+                            // var newtodos = todos.push(Immutable.Map(data))
+                            // console.log('New todos ')
+                            // console.log(newtodos)
+                            // todos = todos.push(Immutable.Map({
+                            //   task: action.text,
+                            //   isCompleted: false,
+                            //   id: maxid
+                            // }))
+                            console.log('todo actions. todo representant : ')
+                            // console.log(representTodo)
 
-                        dispatch(todoactions.deleteTodo(todo.get('id')))
-                        // return newtodos;
-                    }
-                },
+                            dispatch(todoactions.deleteTodo(todo.get('id')))
+                            // return newtodos;
+                        }
+                    },
                     err => {
-                    console.log('Status looks not good at all!' + err)
-                    console.log('Status looks not good at all! todo completed? ' + todo.get('completed'))
-                    todo = todo.set('error', 'System error')
-                    dispatch(todoactions.updateTodo(todo))
-                    todo = todo.delete('error')
-                    setTimeout(() => {
+                        console.log('Status looks not good at all!' + err)
+                        console.log('Status looks not good at all! todo completed? ' + todo.get('completed'))
+                        todo = todo.set('error', 'System error')
                         dispatch(todoactions.updateTodo(todo))
-                    }, 2500)
+                        todo = todo.delete('error')
+                        setTimeout(() => {
+                            dispatch(todoactions.updateTodo(todo))
+                        }, 2500)
 
-                }
-            )
+                    }
+                )
         }
 
 

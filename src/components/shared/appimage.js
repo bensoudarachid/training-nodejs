@@ -10,8 +10,7 @@ if (process.env.BROWSER) {
     require('./appimage.scss')
 }
 
-export default
-class AppImage extends React.Component {
+export default class AppImage extends React.Component {
 
     constructor(props) {
         super(props)
@@ -68,13 +67,14 @@ class AppImage extends React.Component {
         const idTokenParam = idToken == undefined ? '' : '&access_token=' + idToken
         console.log('app image idTokenParam=' + require('util').inspect(idTokenParam, false, null))
         return (
-            <div className='imgwrapper' id={'imgwrap' + imgid} >
+            <div className='imgwrapper' id={'imgwrap' + imgid}>
                 <div className='spinnerwrap'>
                     <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
                 </div>
-                <img id={'applicationimg' + imgid} src='./images/0.png' data-src={ApiConnection.apiurl + ApiConnection.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam}
-                    onLoad={this.handleImageLoaded.bind(this)}
-                    onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
+                <img id={'applicationimg' + imgid} src='./images/0.png'
+                     data-src={ApiConnection.apiurl + ApiConnection.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam}
+                     onLoad={this.handleImageLoaded.bind(this)}
+                     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
             </div>
         )
         // return (

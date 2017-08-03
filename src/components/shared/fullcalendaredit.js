@@ -12,8 +12,7 @@ if (process.env.BROWSER) {
     require('./calendar.scss')
 }
 
-export default
-class Calendar extends React.Component {
+export default class Calendar extends React.Component {
     render() {
         return (
             <div className='calendar' ref='calendar'/>

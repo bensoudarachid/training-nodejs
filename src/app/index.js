@@ -1,11 +1,12 @@
 import React from 'react'
+
 require('../../node_modules/babel-polyfill/dist/polyfill.js')
 // var React = require('react');
 import ReactDom from 'react-dom'
 import Immutable from 'immutable'
 // var ReactDom = require('react-dom');
 // import { Router, Route, Link, IndexRoute,NotFoundRoute, hashHistory, browserHistory } from 'react-router'
-import { browserHistory } from 'react-router'
+import {browserHistory} from 'react-router'
 
 var ReactRouter = require('react-router')
 var Router = ReactRouter.Router
@@ -15,11 +16,11 @@ var IndexRoute = ReactRouter.IndexRoute
 var NotFoundRoute = ReactRouter.NotFoundRoute
 
 // import { createHistory, useBasename } from 'history'
-import { createHistory } from 'history'
-import { useRouterHistory } from 'react-router'
+import {createHistory} from 'history'
+import {useRouterHistory} from 'react-router'
 // import configureStore from '../redux/store'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
+import {createStore, applyMiddleware} from 'redux'
+import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import createLogger from 'redux-logger'
 import actions from '../services/actions'
@@ -65,7 +66,7 @@ import './app.scss'
 
 // import '../styles/default.scss'
 
-import { syncHistoryWithStore } from 'react-router-redux'
+import {syncHistoryWithStore} from 'react-router-redux'
 // import { FetchData, reducer as fetching } from 'redux-fetch-data';
 
 // import createBrowserHistory from 'history/lib/createBrowserHistory';
@@ -77,7 +78,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 // import UserApp from '../components/userapp';
 // import App from '../components/app.jsx';
 // import AppComponent from '../components/appcomponent';
-import { routes } from './routes'
+import {routes} from './routes'
 import rootReducer from '../services/rootreducer'
 
 // var componentHandler = require('exports?componentHandler!material-design-lite/dist/material')
@@ -197,7 +198,7 @@ $('.ellipsis').ellipsis()
 
 ReactDom.render(
     <Provider store={store}>
-        <Router routes={routes} history={mybrowserHistory} />
+        <Router routes={routes} history={mybrowserHistory}/>
     </Provider>,
     document.getElementById('root')
 )

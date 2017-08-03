@@ -16,8 +16,7 @@ if (process.env.BROWSER) {
     require('./trainingschedule.scss')
 }
 
-export default
-class TrainingSchedule extends React.Component {
+export default class TrainingSchedule extends React.Component {
 
     constructor(props) {
         super(props)
@@ -93,7 +92,7 @@ class TrainingSchedule extends React.Component {
 
             return (
                 <div className='trainingschedule blockborder'>
-                    <BigCalendarEdit events = {events} />
+                    <BigCalendarEdit events={events}/>
                 </div>
             )
         }

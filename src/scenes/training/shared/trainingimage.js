@@ -9,8 +9,7 @@ if (process.env.BROWSER) {
     require('./trainingimage.scss')
 }
 
-export default
-class TrainingImage extends React.Component {
+export default class TrainingImage extends React.Component {
 
     constructor(props) {
         super(props)
@@ -48,13 +47,14 @@ class TrainingImage extends React.Component {
 
         const idToken = cookie.load('jwt')
         return (
-            <div className='imgwrapper' id={'imgwrap' + trainingid} >
+            <div className='imgwrapper' id={'imgwrap' + trainingid}>
                 <div className='spinnerwrap'>
                     <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
                 </div>
-                <img id={'traininglistitemimg' + trainingid} src='./images/0.png' data-src={ApiConnection.apiurl + '/api/training/img/' + trainingid + '?access_token=' + idToken}
-                    onLoad={this.handleImageLoaded.bind(this)}
-                    onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
+                <img id={'traininglistitemimg' + trainingid} src='./images/0.png'
+                     data-src={ApiConnection.apiurl + '/api/training/img/' + trainingid + '?access_token=' + idToken}
+                     onLoad={this.handleImageLoaded.bind(this)}
+                     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
             </div>
         )
         // return (

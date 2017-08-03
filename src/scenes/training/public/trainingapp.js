@@ -1,7 +1,7 @@
 // import TrainingCreate from './public/trainingcreate'
 
 
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import TrainingList from './traininglist'
 // import AdminTrainingList from './admin/admintraininglist'
 // import TrainingCommandPanel from './admin/trainingcommandpanel'
@@ -279,7 +279,8 @@ class TrainingApp extends Component {
                         <p id="textswitch"></p>
                     </span>
                     <div>
-                        <TrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
+                        <TrainingList trainings={this.props.trainingappmap.get('trainings')}
+                                      actions={this.props.actions}/>
                     </div>
                 </div>
             </div>
@@ -513,4 +514,5 @@ class TrainingApp extends Component {
 //   .catch(err => console.log('Hooooo' + err))
 // }
 }
+
 export default TrainingApp

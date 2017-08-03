@@ -1,7 +1,7 @@
 import React from 'react'
-import { Router, Route, IndexLink, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import {Router, Route, IndexLink, Link, IndexRoute, hashHistory, browserHistory} from 'react-router'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import Immutable from 'immutable'
 import actions from '../services/actions'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
@@ -15,7 +15,7 @@ global.jQuery = require('jquery')
 // global.$ = require('jquery')
 // import $ from 'jquery'
 
-import { Component, PropTypes } from 'react'
+import {Component, PropTypes} from 'react'
 
 import Nav from './navigation/nav'
 import LoginModal from './loginmodal.js'
@@ -201,19 +201,19 @@ class AppComponent extends React.Component {
                         auth={this.props.auth}
                     />
                 </div>
-      {loginProgress &&
-      <div>
-          <LoginModal
-              actions={this.props.actions}
-              auth={this.props.auth}
-          />
-      </div>
-          }
-      {confirmationActionFunction &&
-      <div>
-          <ConfirmationModal actions={this.props.actions}/>
-      </div>
-          }
+                {loginProgress &&
+                <div>
+                    <LoginModal
+                        actions={this.props.actions}
+                        auth={this.props.auth}
+                    />
+                </div>
+                }
+                {confirmationActionFunction &&
+                <div>
+                    <ConfirmationModal actions={this.props.actions}/>
+                </div>
+                }
 
                 <div>
                     <div id='contt'>
@@ -227,15 +227,15 @@ class AppComponent extends React.Component {
                                 transitionEnter={true}
                                 transitionLeave={true}
                             >
-                {children}
+                                {children}
                             </ReactCSSTransitionGroup>
                         </div>
                     </div>
-          {appError &&
-          <div>
-              <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: ' + appError}/>
-          </div>
-              }
+                    {appError &&
+                    <div>
+                        <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: ' + appError}/>
+                    </div>
+                    }
                 </div>
 
 
@@ -334,6 +334,7 @@ class AppComponent extends React.Component {
         return childrenBack
     }
 }
+
 // {React.cloneElement(this.props.children, { key: segment })}
 // {children}
 // {loginMessage?

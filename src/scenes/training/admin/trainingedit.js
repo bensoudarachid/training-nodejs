@@ -14,8 +14,7 @@ if (process.env.BROWSER) {
     require('./trainingedit.scss')
 }
 
-export default
-class TrainingEdit extends React.Component {
+export default class TrainingEdit extends React.Component {
 
     constructor(props) {
         super(props)
@@ -77,10 +76,11 @@ class TrainingEdit extends React.Component {
         else if (training == undefined)
             return (
                 <span>
-                    <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap' style={{
-                        width: '55px',
-                        height: '55px'
-                    }}></span>
+                    <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap'
+                          style={{
+                              width: '55px',
+                              height: '55px'
+                          }}></span>
                 </span>
             )
         else
@@ -106,60 +106,85 @@ class TrainingEdit extends React.Component {
                                 <div className={errorClass}>{error}</div>
                             </span>
                             <span className='mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
-                                <AppImage api='training' imgid={id} isUploading={saving} />
+                                <AppImage api='training' imgid={id} isUploading={saving}/>
                             </span>
 
-                            <span className='mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone fileuploadinput'>
-                                <FileUploadInput id={'uploadfile-' + id} disabled={disabled} actions={this.props.actions}/>
+                            <span
+                                className='mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone fileuploadinput'>
+                                <FileUploadInput id={'uploadfile-' + id} disabled={disabled}
+                                                 actions={this.props.actions}/>
                             </span>
 
                             <span className='mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
                                 <span className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                                    <input className={'mdl-textfield__input ' + disabled} ref='title' type='text' id='title' name='title' value={title} onChange={(event) => this.handleTitleChange(event)} disabled={saving}/>
+                                    <input className={'mdl-textfield__input ' + disabled} ref='title' type='text'
+                                           id='title' name='title' value={title}
+                                           onChange={(event) => this.handleTitleChange(event)} disabled={saving}/>
                                     <label className='mdl-textfield__label' htmlFor='title'>Title</label>
-                                    <span className="mdl-textfield__error" htmlFor='title'>{trainingEditError.get('title')}</span>
+                                    <span className="mdl-textfield__error"
+                                          htmlFor='title'>{trainingEditError.get('title')}</span>
                                 </span>
                             </span>
 
                             <span className='mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet mdl-cell--4-col-phone'>
                                 <span className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                                    <input className={'mdl-textfield__input ' + disabled} ref='secondaryTitle' type='text' id='secondaryTitle' name='secondaryTitle' value={secondaryTitle} onChange={(event) => this.handleSecondaryTitleChange(event)}disabled={saving}/>
-                                    <label className='mdl-textfield__label' htmlFor='secondaryTitle'>Secondary title</label>
-                                    <span className="mdl-textfield__error" htmlFor='secondaryTitle'>{trainingEditError.get('secondaryTitle')}</span>
+                                    <input className={'mdl-textfield__input ' + disabled} ref='secondaryTitle'
+                                           type='text' id='secondaryTitle' name='secondaryTitle' value={secondaryTitle}
+                                           onChange={(event) => this.handleSecondaryTitleChange(event)}
+                                           disabled={saving}/>
+                                    <label className='mdl-textfield__label'
+                                           htmlFor='secondaryTitle'>Secondary title</label>
+                                    <span className="mdl-textfield__error"
+                                          htmlFor='secondaryTitle'>{trainingEditError.get('secondaryTitle')}</span>
                                 </span>
                             </span>
 
                             <span className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
                                 <span className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                                    <input className={'mdl-textfield__input ' + disabled} ref='shortDescription' type='text' id='shortDescription' name='shortDescription' value={shortDescription} onChange={(event) => this.handleShortDescriptionChange(event)} disabled={saving}/>
-                                    <label className='mdl-textfield__label' htmlFor='shortDescription'>Short description</label>
-                                    <span className="mdl-textfield__error"htmlFor='shortDescription'>{trainingEditError.get('shortDescription')}</span>
+                                    <input className={'mdl-textfield__input ' + disabled} ref='shortDescription'
+                                           type='text' id='shortDescription' name='shortDescription'
+                                           value={shortDescription}
+                                           onChange={(event) => this.handleShortDescriptionChange(event)}
+                                           disabled={saving}/>
+                                    <label className='mdl-textfield__label'
+                                           htmlFor='shortDescription'>Short description</label>
+                                    <span className="mdl-textfield__error"
+                                          htmlFor='shortDescription'>{trainingEditError.get('shortDescription')}</span>
                                 </span>
                             </span>
 
                             <span className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
                                 <span className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                                    <textarea className={'mdl-textfield__input ' + disabled} ref='longDescription' type='text' id='longDescription' name='longDescription' rows="7" value={longDescription} onChange={(event) => this.handleLongDescriptionChange(event)} disabled={saving}></textarea>
-                                    <label className='mdl-textfield__label' htmlFor='longDescription'>Long Description</label>
-                                    <span className="mdl-textfield__error" htmlFor='longDescription'>{trainingEditError.get('longDescription')}</span>
+                                    <textarea className={'mdl-textfield__input ' + disabled} ref='longDescription'
+                                              type='text' id='longDescription' name='longDescription' rows="7"
+                                              value={longDescription}
+                                              onChange={(event) => this.handleLongDescriptionChange(event)}
+                                              disabled={saving}></textarea>
+                                    <label className='mdl-textfield__label'
+                                           htmlFor='longDescription'>Long Description</label>
+                                    <span className="mdl-textfield__error"
+                                          htmlFor='longDescription'>{trainingEditError.get('longDescription')}</span>
                                 </span>
                             </span>
 
                         </span>
                         <br/>
                         <div className='footer'>
-              {saving ?
-                  <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap"></div>
-                  :
-                  <div key={'trainingeditbuttonsarenotrerenderedproperlyaftersubmit' + Math.random()}>
-                      <button id='sub' type='submit' className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
-                      Submit
-                      </button>
-                      <button id='deletetheshit' onClick={(event) => this.handleDelete(event)} className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
-                      Delete
-                      </button>
-                  </div>
-                  }
+                            {saving ?
+                                <div
+                                    className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap"></div>
+                                :
+                                <div key={'trainingeditbuttonsarenotrerenderedproperlyaftersubmit' + Math.random()}>
+                                    <button id='sub' type='submit'
+                                            className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
+                                        Submit
+                                    </button>
+                                    <button id='deletetheshit' onClick={(event) => this.handleDelete(event)}
+                                            className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
+                                        Delete
+                                    </button>
+                                </div>
+                            }
 
                         </div>
                     </form>

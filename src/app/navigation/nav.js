@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react'
-import { IndexLink, Link} from 'react-router'
+import React, {Component, PropTypes} from 'react'
+import {IndexLink, Link} from 'react-router'
 import Login from '../login.js'
 import Logout from '../logout.js'
 import NavUser from './navuser'
 import NavPublic from './navpublic'
 import NavAdmin from './navadmin'
-import { LogoutUser} from '../../services/actions.js'
+import {LogoutUser} from '../../services/actions.js'
 // import Bootstrap from '!style!css!../node_modules/bootstrap/dist/css/bootstrap.css'
 // require('!style!css!../node_modules/bootstrap/dist/css/bootstrap.min.css')
 // import { Button } from 'react-bootstrap'
@@ -84,6 +84,7 @@ if (process.env.BROWSER) {
     // })
 
 }
+
 //require('./nav.scss')
 
 
@@ -105,7 +106,7 @@ class Nav extends Component {
 
     render() {
         const isBrowser = typeof window !== 'undefined'
-        const { auth } = this.props
+        const {auth} = this.props
         const isAuthenticated = auth.get('isAuthenticated')
         // console.log('navjs is authenticated '+isAuthenticated)
 

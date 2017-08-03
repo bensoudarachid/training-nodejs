@@ -300,10 +300,10 @@
             //write some html into the new window, creating an empty image:
             imageWindow.document.write('<title>Export Image</title>')
             imageWindow.document.write('<img id=\'exportImage\''
-            + ' alt=\'\''
-            + ' height=\'' + height + '\''
-            + ' width=\'' + width + '\''
-            + ' style=\'position:absolute;left:0;top:0\'/>')
+                + ' alt=\'\''
+                + ' height=\'' + height + '\''
+                + ' width=\'' + width + '\''
+                + ' style=\'position:absolute;left:0;top:0\'/>')
             imageWindow.document.close()
             //copy the image into the empty img in the newly opened window:
             var exportImage = imageWindow.document.getElementById('exportImage')

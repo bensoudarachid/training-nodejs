@@ -4,14 +4,14 @@ import Immutable from 'immutable'
 import TrainingEdit from 'scenes/training/admin/trainingedit'
 // import TodosListItem from '../../../../../scenes/todo/admin/todoslistitem'
 import {expect} from 'chai'
-import { shallow,mount,render,ReactWrapper } from 'enzyme'
+import {shallow, mount, render, ReactWrapper} from 'enzyme'
 import actions from 'services/actions'
 
 import thunk from 'redux-thunk'
-import { createStore, applyMiddleware } from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import createLogger from 'redux-logger'
-import { bindActionCreators } from 'redux'
-import { connect, Provider } from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {connect, Provider} from 'react-redux'
 import rootReducer from 'services/rootreducer'
 //import { combineReducers } from 'redux'
 
@@ -26,91 +26,90 @@ describe('TrainingEdit', () => {
     let auth
     // let stubcomponentDidMount
     it('checks fetchdata call and connection to redux store', async function () {
-        // it('checks fetchdata call and connection to redux store', function() {
+            // it('checks fetchdata call and connection to redux store', function() {
 
-        sinon.stub(actions, 'retrieveTrainingService').resolves({
-            status: 200,
-            data: {
-                id: 5,
-                title: 'Training -------------------------------------Title',
-                secondaryTitle: 'Training -----------------------------Second Title',
-                shortDescription: 'Training ---------------------------Short desc',
-                longDescription: 'Training ----------------------------Long desc',
-            }
-        })
-        // sinon.stub(TrainingEdit, 'fetchData').resolves()
-        var initialState = {auth, trainingappmap}
-        Object
-            .keys(initialState)
-            .forEach(key => {
-                initialState[key] = Immutable.fromJS(initialState[key])
+            sinon.stub(actions, 'retrieveTrainingService').resolves({
+                status: 200,
+                data: {
+                    id: 5,
+                    title: 'Training -------------------------------------Title',
+                    secondaryTitle: 'Training -----------------------------Second Title',
+                    shortDescription: 'Training ---------------------------Short desc',
+                    longDescription: 'Training ----------------------------Long desc',
+                }
             })
+            // sinon.stub(TrainingEdit, 'fetchData').resolves()
+            var initialState = {auth, trainingappmap}
+            Object
+                .keys(initialState)
+                .forEach(key => {
+                    initialState[key] = Immutable.fromJS(initialState[key])
+                })
 
-        console.log('OKKKK #######################  initialState=' + require('util').inspect(initialState, false, null))
-        const logger = createLogger()
+            console.log('OKKKK #######################  initialState=' + require('util').inspect(initialState, false, null))
+            const logger = createLogger()
 
 //This version is complaining these are no reducers
-        // const rootReducer = combineReducers({
-        //   ...auth,
-        //   // app: undefined,
-        //   // todoappmap: todoAppReducer,
-        //   // todoappmap: undefined,
-        //   ...trainingappmap
-        //   // user: userReducer,
-        //   // routing: undefined
-        // })
+            // const rootReducer = combineReducers({
+            //   ...auth,
+            //   // app: undefined,
+            //   // todoappmap: todoAppReducer,
+            //   // todoappmap: undefined,
+            //   ...trainingappmap
+            //   // user: userReducer,
+            //   // routing: undefined
+            // })
 
 
-        const mockStoreInitialized = createStore(rootReducer, initialState, applyMiddleware(thunk, logger))
+            const mockStoreInitialized = createStore(rootReducer, initialState, applyMiddleware(thunk, logger))
 
-        function mapStateToProps(state) {
-            return state
-        }
-
-        function mapDispatchToProps(dispatch) {
-            return {
-                actions: bindActionCreators(actions, dispatch) //we dont need to pass dispatch down anymore. actions are now wrapped
+            function mapStateToProps(state) {
+                return state
             }
-        }
 
-        var TrainingEditConn = connect(mapStateToProps, mapDispatchToProps)(TrainingEdit)
+            function mapDispatchToProps(dispatch) {
+                return {
+                    actions: bindActionCreators(actions, dispatch) //we dont need to pass dispatch down anymore. actions are now wrapped
+                }
+            }
 
-        var component = await
-        mount(
-            // const component = mount(
+            var TrainingEditConn = connect(mapStateToProps, mapDispatchToProps)(TrainingEdit)
+
+            var component = await
+                mount(
+                    // const component = mount(
 //      <TrainingEdit trainingappmap={trainingappmap} auth={auth}/>
-            <Provider store={mockStoreInitialized}>
-                <TrainingEditConn params={{id: '5'}}/>
-            </Provider>
-        )
-        // await sleep(1500);
-        component.update()
-        component.update()
-        component.update()
-        component.update()
-        // console.log('1. component='+require('util').inspect(component.html(), false, null))
-        console.log('1. component=' + require('util').inspect(component.html(), false, null))
-        // console.log('====================='+
-        //   require('util').inspect(mockStoreInitialized.getState().trainingappmap.get('edittraining'), false, null))
-        expect(mockStoreInitialized.getState().trainingappmap.get('edittraining').get('shortDescription')).to.contain('Training ---------------------------Short desc')
-        expect(actions.retrieveTrainingService).to.have.property('callCount', 1)
-        // component = await componentDidMount(
-        // component.find('TrainingEdit').componentDidUpdate()
-        component = render(
-            <Provider store={mockStoreInitialized}>
-                <TrainingEditConn params={{id: '5'}}/>
-            </Provider>
-        )
+                    <Provider store={mockStoreInitialized}>
+                        <TrainingEditConn params={{id: '5'}}/>
+                    </Provider>
+                )
+            // await sleep(1500);
+            component.update()
+            component.update()
+            component.update()
+            component.update()
+            // console.log('1. component='+require('util').inspect(component.html(), false, null))
+            console.log('1. component=' + require('util').inspect(component.html(), false, null))
+            // console.log('====================='+
+            //   require('util').inspect(mockStoreInitialized.getState().trainingappmap.get('edittraining'), false, null))
+            expect(mockStoreInitialized.getState().trainingappmap.get('edittraining').get('shortDescription')).to.contain('Training ---------------------------Short desc')
+            expect(actions.retrieveTrainingService).to.have.property('callCount', 1)
+            // component = await componentDidMount(
+            // component.find('TrainingEdit').componentDidUpdate()
+            component = render(
+                <Provider store={mockStoreInitialized}>
+                    <TrainingEditConn params={{id: '5'}}/>
+                </Provider>
+            )
 
-        console.log('2. component=' + require('util').inspect(component.html(), false, null))
+            console.log('2. component=' + require('util').inspect(component.html(), false, null))
 
-        // expect(component.find('TrainingEdit')).to.have.length(1)
-        // expect(component.find('.mdl-textfield__input')).to.have.length(4)
-        expect(component.html()).to.contain('Training -----------------------------Second Title')
-        // expect(component.find('.mdl-spinner')).to.have.length(1)
-        // console.log('component.find(TrainingEdit)='+require('util').inspect(component.find('TrainingEdit'), false, null))
-    }
-
+            // expect(component.find('TrainingEdit')).to.have.length(1)
+            // expect(component.find('.mdl-textfield__input')).to.have.length(4)
+            expect(component.html()).to.contain('Training -----------------------------Second Title')
+            // expect(component.find('.mdl-spinner')).to.have.length(1)
+            // console.log('component.find(TrainingEdit)='+require('util').inspect(component.find('TrainingEdit'), false, null))
+        }
     )
 
 

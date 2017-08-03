@@ -10,10 +10,10 @@
 var React = require('react');
 var Router = require('react-router');
 // var match= require('react-router').match;
-import { RoutingContext, match } from 'react-router';
+import {RoutingContext, match} from 'react-router';
 import createLocation from 'history/lib/createLocation';
 // var renderToString= require('react-dom/server').renderToString;
-import { renderToString } from 'react-dom/server'
+import {renderToString} from 'react-dom/server'
 
 var express = require('express');
 var path = require('path');

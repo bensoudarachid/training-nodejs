@@ -9,6 +9,7 @@ import cookie from 'react-cookie'
 // import {browserHistory} from 'react-router';
 // import { getIsFetching } from '../reducers'
 import ApiConnection from '../apiconnection'
+
 const url = ApiConnection.apiurl + ApiConnection.appbasename
 // const url = ApiConnection.apiurl
 
@@ -152,10 +153,10 @@ const trainingservices = {
 
         return fetch(url + '/api/training/updatetraining', config).then(response => response.json()
             .then(data => ({
-                status: response.status,
-                data
-            })
-        ))
+                    status: response.status,
+                    data
+                })
+            ))
     },
     updateTrainingService: function (training, inputfile) {
         console.log('inputfile=' + require('util').inspect(inputfile, false, null))
@@ -193,10 +194,10 @@ const trainingservices = {
                     return text.length ? JSON.parse(text) : {}
                 })
                 .then(data => ({
-                    status: res.status,
-                    data
-                })
-            ))
+                        status: res.status,
+                        data
+                    })
+                ))
     },
     uploadTrainingFileService: function (training, inputfile) {
         var headers = {
@@ -223,21 +224,21 @@ const trainingservices = {
             body: body
         }
         return fetch(url + '/api/training/' + training.get('id') + '/fileupload/', config)
-            // .then(response => response.json()
-            //   .then(data => ({
-            //     status: response.status,
-            //     data
-            //   })
-            // ))
+        // .then(response => response.json()
+        //   .then(data => ({
+        //     status: response.status,
+        //     data
+        //   })
+        // ))
             .then(res => res.text()
                 .then(text => {
                     return text.length ? JSON.parse(text) : {}
                 })
                 .then(data => ({
-                    status: res.status,
-                    data
-                })
-            ))
+                        status: res.status,
+                        data
+                    })
+                ))
 
         // return fetch(url+'/api/training/'+training.get('id')+'/fileupload/', config)
         // .then(response => ({
@@ -282,10 +283,10 @@ const trainingservices = {
         // var training = null;
         return fetch(url + '/api/training/deletetraining', config).then(response => response.json()
             .then(data => ({
-                status: response.status,
-                data
-            })
-        ))
+                    status: response.status,
+                    data
+                })
+            ))
     }
 
 

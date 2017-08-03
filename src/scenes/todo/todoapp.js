@@ -2,7 +2,7 @@ import TodoCreate from './admin/todocreate'
 import TodosFilter from './admin/todosfilter'
 
 
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import TodosList from './admin/todoslist'
 import cookie from 'react-cookie'
 // import _ from 'lodash'
@@ -63,19 +63,24 @@ class TodoApp extends Component {
         // {auth.get('loginProgress')?
         return (
             <div>
-      {!auth.get('isAuthenticated') ?
-          <div>
-              <h1>Needs authentication</h1>
-          </div>
-          :
-          <div className='todoapp'>
-              <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel' >
-                  <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions}/>
-                  <TodoCreate todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
-              </div>
-              <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>
-          </div>
-          }
+                {!auth.get('isAuthenticated') ?
+                    <div>
+                        <h1>Needs authentication</h1>
+                    </div>
+                    :
+                    <div className='todoapp'>
+                        <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel'>
+                            <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')}
+                                         filterclosed={this.props.todoappmap.get('filterClosed')}
+                                         actions={this.props.actions}/>
+                            <TodoCreate todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
+                        </div>
+                        <TodosList todos={this.props.todoappmap.get('todos')}
+                                   filteropen={this.props.todoappmap.get('filterOpen')}
+                                   filterclosed={this.props.todoappmap.get('filterClosed')}
+                                   actions={this.props.actions}/>
+                    </div>
+                }
             </div>
         )
     }
@@ -95,20 +100,24 @@ class TodoApp extends Component {
         // deleteTask={this.deleteTask.bind(this)}
         return (
             <div id='todoapp'>
-      {!auth.get('isAuthenticated') &&
-      <div>
-      No right access here. Please login
-      </div>
-          }
-      {auth.get('isAuthenticated') &&
-      <div>
-          <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel' >
-              <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions}/>
-              <TodoCreate todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
-          </div>
-          <TodosList todos={this.props.todoappmap.get('todos')} filteropen={this.props.todoappmap.get('filterOpen')} filterclosed={this.props.todoappmap.get('filterClosed')}  actions={this.props.actions}/>
-      </div>
-          }
+                {!auth.get('isAuthenticated') &&
+                <div>
+                    No right access here. Please login
+                </div>
+                }
+                {auth.get('isAuthenticated') &&
+                <div>
+                    <div className='mdl-grid mdl-grid--no-spacing blockborder parampanel'>
+                        <TodosFilter filteropen={this.props.todoappmap.get('filterOpen')}
+                                     filterclosed={this.props.todoappmap.get('filterClosed')}
+                                     actions={this.props.actions}/>
+                        <TodoCreate todos={this.props.todoappmap.get('todos')} actions={this.props.actions}/>
+                    </div>
+                    <TodosList todos={this.props.todoappmap.get('todos')}
+                               filteropen={this.props.todoappmap.get('filterOpen')}
+                               filterclosed={this.props.todoappmap.get('filterClosed')} actions={this.props.actions}/>
+                </div>
+                }
             </div>
         )
     }
@@ -140,7 +149,7 @@ class TodoApp extends Component {
         if (!task) {
             return 'Please enter a task.'
             // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
-        } else if (this.props.todos.find((todo) =>  todo.get('task') === task)) {
+        } else if (this.props.todos.find((todo) => todo.get('task') === task)) {
             return 'Task already exists.'
         } else {
             return null
@@ -175,7 +184,7 @@ class TodoApp extends Component {
         if (!task) {
             return 'Please enter a task.'
             // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
-        } else if (this.props.todos.find((todo) =>  todo.get('task') === task)) {
+        } else if (this.props.todos.find((todo) => todo.get('task') === task)) {
             return 'Task already exists.'
         } else {
             return null

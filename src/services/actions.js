@@ -2,18 +2,18 @@
 // export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 // export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 // export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
-import { browserHistory } from 'react-router'
-import { getIsFetching } from './rootreducer'
+import {browserHistory} from 'react-router'
+import {getIsFetching} from './rootreducer'
 import Immutable from 'immutable'
 import cookie from 'react-cookie'
 // import registeractions from'./actions/registeractions'
-import todoactions from'./todos/todoactions'
-import trainingactions from'./trainings/trainingactions'
-import authservices from'./app/authentication/authservices'
-import todoservices from'./todos/todoservices'
-import trainingservices from'./trainings/trainingservices'
-import authactions from'./app/authentication/authactions'
-import appactions from'./app/appactions'
+import todoactions from './todos/todoactions'
+import trainingactions from './trainings/trainingactions'
+import authservices from './app/authentication/authservices'
+import todoservices from './todos/todoservices'
+import trainingservices from './trainings/trainingservices'
+import authactions from './app/authentication/authactions'
+import appactions from './app/appactions'
 
 // var port = -12
 // if (process.env.NODE_ENV === 'production')
@@ -41,21 +41,21 @@ let actions = {
 // apiurl:url,
 // port:port,
 // appbasename:appbasename,
-...
-authservices,
-...
-todoservices,
-...
-trainingservices,
-...
-appactions,
-...
-authactions,
+    ...
+        authservices,
+    ...
+        todoservices,
+    ...
+        trainingservices,
+    ...
+        appactions,
+    ...
+        authactions,
 // ...registeractions,
-...
-todoactions,
-...
-trainingactions
+    ...
+        todoactions,
+    ...
+        trainingactions
 }
 
 export default actions

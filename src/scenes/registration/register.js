@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component, PropTypes} from 'react'
 // import { ThreeBounce } from 'better-react-spinkit'
 //import LogoSpinner from '../../components/shared/logospinner'
 // import 'jquery'
@@ -26,8 +26,7 @@ if (process.env.BROWSER) {
 }
 
 
-export default
-class Register extends Component {
+export default class Register extends Component {
     //<Spinner spinnerName='three-bounce' /> circle wordpress double-bounce<p>Loading...</p>
     // <input type='text' ref='email' className="form-control" placeholder='Email'/>
     // <input type='text' ref='username' className="form-control" placeholder='Username'/>
@@ -96,33 +95,44 @@ class Register extends Component {
                                     <div className='row'>
                                         <div className='col-xs-12 col-md-6 col-lg-6'>
                                             <div className={textInputClassnames}>
-                                                <input className='mdl-textfield__input' ref='username' type='text' id='username' name='username'/>
-                                                <label className='mdl-textfield__label' htmlFor='username'>User name</label>
-                                                <span className="mdl-textfield__error" htmlFor='username'>{registrationError.get('username')}</span>
+                                                <input className='mdl-textfield__input' ref='username' type='text'
+                                                       id='username' name='username'/>
+                                                <label className='mdl-textfield__label' htmlFor='username'>User
+                                                    name</label>
+                                                <span className="mdl-textfield__error"
+                                                      htmlFor='username'>{registrationError.get('username')}</span>
                                             </div>
                                         </div>
 
                                         <div className='col-xs-12 col-md-6 col-lg-6'>
                                             <div className={textInputClassnames}>
-                                                <input className='mdl-textfield__input' ref='email' type='text' id='email' name='email'/>
+                                                <input className='mdl-textfield__input' ref='email' type='text'
+                                                       id='email' name='email'/>
                                                 <label className='mdl-textfield__label' htmlFor='email'>Email</label>
-                                                <span className="mdl-textfield__error"htmlFor='email'>{registrationError.get('email')}</span>
+                                                <span className="mdl-textfield__error"
+                                                      htmlFor='email'>{registrationError.get('email')}</span>
                                             </div>
                                         </div>
 
                                         <div className='col-xs-12 col-md-6 col-lg-6'>
                                             <div className={textInputClassnames}>
-                                                <input className='mdl-textfield__input' ref='password' type='password' id='password' name='password'/>
-                                                <label className='mdl-textfield__label' htmlFor='password'>Password</label>
-                                                <span className="mdl-textfield__error" htmlFor='password'>{registrationError.get('password')}</span>
+                                                <input className='mdl-textfield__input' ref='password' type='password'
+                                                       id='password' name='password'/>
+                                                <label className='mdl-textfield__label'
+                                                       htmlFor='password'>Password</label>
+                                                <span className="mdl-textfield__error"
+                                                      htmlFor='password'>{registrationError.get('password')}</span>
                                             </div>
                                         </div>
 
                                         <div className='col-xs-12 col-md-6 col-lg-6'>
                                             <div className={textInputClassnames}>
-                                                <input className='mdl-textfield__input' ref='passwordCheck' type='password' id='passwordCheck' name='passwordCheck'/>
-                                                <label className='mdl-textfield__label' htmlFor='passwordCheck'>Password check</label>
-                                                <span className="mdl-textfield__error" htmlFor='passwordCheck'>{registrationError.get('passwordCheck')}</span>
+                                                <input className='mdl-textfield__input' ref='passwordCheck'
+                                                       type='password' id='passwordCheck' name='passwordCheck'/>
+                                                <label className='mdl-textfield__label' htmlFor='passwordCheck'>Password
+                                                    check</label>
+                                                <span className="mdl-textfield__error"
+                                                      htmlFor='passwordCheck'>{registrationError.get('passwordCheck')}</span>
                                             </div>
                                         </div>
 
@@ -130,26 +140,29 @@ class Register extends Component {
                                 </div>
                                 <br/>
                                 <div className='footer'>
-            {!isRegistrationFetching &&
-            <button type='submit' className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
-            Submit
-            </button>
-                }
-            {isRegistrationFetching &&
-            <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap' style={{
-                width: '55px',
-                height: '55px'
-            }}></span>
-                }
+                                    {!isRegistrationFetching &&
+                                    <button type='submit'
+                                            className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
+                                        Submit
+                                    </button>
+                                    }
+                                    {isRegistrationFetching &&
+                                    <span
+                                        className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap'
+                                        style={{
+                                            width: '55px',
+                                            height: '55px'
+                                        }}></span>
+                                    }
                                 </div>
                             </form>
                         </div>
                     </div>
                 )
             case 2:
-                return <RegSuccessful />
+                return <RegSuccessful/>
             case 3:
-                return <RegError />
+                return <RegError/>
         }
         return (
             <div>

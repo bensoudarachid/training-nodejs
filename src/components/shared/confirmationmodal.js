@@ -1,8 +1,8 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component, PropTypes} from 'react'
 import 'jquery'
 import $ from 'jquery'
 
-import { IndexLink, Link} from 'react-router'
+import {IndexLink, Link} from 'react-router'
 
 if (process.env.BROWSER) {
     // console.log('Appcomponent. environment is browser')
@@ -39,13 +39,12 @@ if (process.env.BROWSER) {
 }
 
 
-export default
-class ConfirmationModal extends Component {
+export default class ConfirmationModal extends Component {
 
     render() {
-        const { errorMessage } = this.props
+        const {errorMessage} = this.props
         return (
-            <div id='confirmationmodal' >
+            <div id='confirmationmodal'>
                 <div className='modal'>
 
                     <div className='modal-content'>
@@ -57,11 +56,13 @@ class ConfirmationModal extends Component {
                             <p>Do you wanna do this?</p>
                         </div>
                         <div className='modal-footer'>
-                            <button onClick={(event) => this.handleConfirm(event)} className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
-                            Confirm
+                            <button onClick={(event) => this.handleConfirm(event)}
+                                    className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
+                                Confirm
                             </button>
-                            <button onClick={(event) => this.handleCancel(event)} className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
-                            Cancel
+                            <button onClick={(event) => this.handleCancel(event)}
+                                    className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
+                                Cancel
                             </button>
                         </div>
                     </div>

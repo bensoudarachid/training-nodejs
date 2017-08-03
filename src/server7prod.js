@@ -5,21 +5,22 @@
 import React from 'react'
 import express from 'express'
 import http from 'http'
-import { RouterContext, match } from 'react-router'
-import { renderToString } from 'react-dom/server'
-import { routes } from './app/routes'
-import { createStore, applyMiddleware } from 'redux'
+import {RouterContext, match} from 'react-router'
+import {renderToString} from 'react-dom/server'
+import {routes} from './app/routes'
+import {createStore, applyMiddleware} from 'redux'
 import rootReducer from './services/rootreducer'
 import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 import fs from 'fs'
 import multer from 'multer'
 
-import { Provider } from 'react-redux'
+import {Provider} from 'react-redux'
 
-import { bindActionCreators } from 'redux'
+import {bindActionCreators} from 'redux'
 import actions from './services/actions'
 import ApiConnection from './services/apiconnection'
+
 var assets = require('../assets/assets.json')
 var FormData = require('form-data')
 const util = require('util')
@@ -310,7 +311,7 @@ app.get(appbasename + '/*', (req, res) => {
                     location: req.url
                 }, (error, redirectLocation, renderProps) => {
                     const promises = renderProps.components
-                        // .filter((component) => component.fetchData)
+                    // .filter((component) => component.fetchData)
                         .filter((component) => {
                             console.log('filter component = ' + util.inspect(component, false, null))
                             return component != undefined ? component.fetchData : false

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route,IndexRoute,Link,hashHistory,DefaultRoute,NotFoundRoute } from 'react-router'
+import {Route, IndexRoute, Link, hashHistory, DefaultRoute, NotFoundRoute} from 'react-router'
 
 import AdminTrainingApp from '../../scenes/training/admin/admintrainingapp'
 // import TrainingEdit from '../../scenes/training/admin/trainingedit'
@@ -17,18 +17,18 @@ const adminRoutes = (
         //   )}
         // }
 
-        getChildRoutes={ (location, cb) => {
-            require.ensure([], require => {
-                    cb(null,
-                        [
-                            <Route path="todos" component={require('../../scenes/todo/todoapp').default} />,
-                            require('./trainingroutes.js').default
-                        ]
-                    )
-                }
-            )
-        }
-            }
+           getChildRoutes={(location, cb) => {
+               require.ensure([], require => {
+                       cb(null,
+                           [
+                               <Route path="todos" component={require('../../scenes/todo/todoapp').default}/>,
+                               require('./trainingroutes.js').default
+                           ]
+                       )
+                   }
+               )
+           }
+           }
 
     >
         <IndexRoute component={AdminTrainingApp}/>
@@ -40,8 +40,6 @@ const adminRoutes = (
 // } 
 
 export default adminRoutes
-
-
 
 
 // getChildRoutes={(location, cb) => {cb(null, [

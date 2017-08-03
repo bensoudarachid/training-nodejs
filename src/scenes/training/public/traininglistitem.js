@@ -13,8 +13,7 @@ if (process.env.BROWSER) {
 
 }
 
-export default
-class TrainingListItem extends React.Component {
+export default class TrainingListItem extends React.Component {
     constructor(props) {
         super(props)
 
@@ -69,7 +68,8 @@ class TrainingListItem extends React.Component {
                         <h5>{secondaryTitle}</h5>
                     </div>
                     <hr/>
-                    <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone ellipsis multiline shortdescription'>{shortDescription}</div>
+                    <div
+                        className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone ellipsis multiline shortdescription'>{shortDescription}</div>
                     <hr/>
                     <div className='mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
                         <span className='promo'>20%</span>

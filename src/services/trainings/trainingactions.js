@@ -174,7 +174,7 @@ const trainingactions = {
                         // return newtrainings;
                     }
                 },
-                    err => {
+                err => {
                     console.log('Status looks not good at all!' + err)
                     dispatch(trainingactions.rejectTraining(representTraining))
                 }
@@ -284,64 +284,64 @@ const trainingactions = {
             console.log('actions. update Training version old: ' + trainingold.get('version') + '. new: ' + training.get('version'))
             actions.uploadTrainingFileService(training, fileinput)
                 .then(
-                ({status, data}) => {
-                    if (actions.disconnect(dispatch, status, data))
-                        return
-                    else if (status == 413) {
-                        console.log('Status file too large. ' + status)
-                        return handleError(dispatch, 'File too large (200kb max)', training, trainingold)
-                        // trainingold = trainingold.set('error', 'File is too large')
-                        // dispatch(trainingactions.updateTrainingInList(trainingold))
-                        // trainingold = trainingold.delete('error')
-                        // setTimeout(() => {
-                        //   dispatch(trainingactions.updateTrainingInList(trainingold))
-                        // }, 2500)
-                    } else if (status >= 400) {
+                    ({status, data}) => {
+                        if (actions.disconnect(dispatch, status, data))
+                            return
+                        else if (status == 413) {
+                            console.log('Status file too large. ' + status)
+                            return handleError(dispatch, 'File too large (200kb max)', training, trainingold)
+                            // trainingold = trainingold.set('error', 'File is too large')
+                            // dispatch(trainingactions.updateTrainingInList(trainingold))
+                            // trainingold = trainingold.delete('error')
+                            // setTimeout(() => {
+                            //   dispatch(trainingactions.updateTrainingInList(trainingold))
+                            // }, 2500)
+                        } else if (status >= 400) {
+                            return handleError(dispatch, 'System error', training, trainingold)
+                            // trainingold = trainingold.set('error', 'System error')
+                            // dispatch(trainingactions.updateTrainingInList(trainingold))
+                            // trainingold = trainingold.delete('error')
+                            // setTimeout(() => {
+                            //   dispatch(trainingactions.updateTrainingInList(trainingold))
+                            // }, 2500)
+                        } else if (data.error) {
+                            // var error = data.error
+                            var errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
+                            console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
+                            console.log(data)
+                            return handleError(dispatch, errorDescription, training, trainingold)
+                            // trainingold = trainingold.set('error', errorDescription)
+                            // dispatch(trainingactions.updateTrainingInList(trainingold))
+                            // trainingold = trainingold.delete('error')
+                            // setTimeout(() => {
+                            //   dispatch(trainingactions.updateTrainingInList(trainingold))
+                            // }, 2500)
+                        }
+                        else {
+                            console.log('Upload image is ok. Now get it')
+                            dispatch(trainingactions.updateTrainingInList(training))
+                            dispatch(trainingactions.uploadingTrainingImg(training, true))
+                            dispatch(trainingactions.uploadingTrainingImg(training, false))
+                            // setTimeout(function() {
+                            //   dispatch(trainingactions.uploadingTrainingImg(training,false))
+                            // },(2000) )
+                            // dispatch(trainingactions.loadingTrainingFileOn())
+                        }
+                        // dispatch(trainingactions.uploadingTrainingImg(training,false))
+                    },
+                    err => {
+                        console.log('Status looks not good at all!' + err)
+                        console.log('Status looks not good at all! training completed? ' + trainingold.get('completed'))
                         return handleError(dispatch, 'System error', training, trainingold)
                         // trainingold = trainingold.set('error', 'System error')
                         // dispatch(trainingactions.updateTrainingInList(trainingold))
                         // trainingold = trainingold.delete('error')
-                        // setTimeout(() => {
-                        //   dispatch(trainingactions.updateTrainingInList(trainingold))
-                        // }, 2500)
-                    } else if (data.error) {
-                        // var error = data.error
-                        var errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
-                        console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
-                        console.log(data)
-                        return handleError(dispatch, errorDescription, training, trainingold)
-                        // trainingold = trainingold.set('error', errorDescription)
-                        // dispatch(trainingactions.updateTrainingInList(trainingold))
-                        // trainingold = trainingold.delete('error')
+                        // // dispatch(trainingactions.uploadingTrainingImg(training,false))
                         // setTimeout(() => {
                         //   dispatch(trainingactions.updateTrainingInList(trainingold))
                         // }, 2500)
                     }
-                    else {
-                        console.log('Upload image is ok. Now get it')
-                        dispatch(trainingactions.updateTrainingInList(training))
-                        dispatch(trainingactions.uploadingTrainingImg(training, true))
-                        dispatch(trainingactions.uploadingTrainingImg(training, false))
-                        // setTimeout(function() {
-                        //   dispatch(trainingactions.uploadingTrainingImg(training,false))
-                        // },(2000) )
-                        // dispatch(trainingactions.loadingTrainingFileOn())
-                    }
-                    // dispatch(trainingactions.uploadingTrainingImg(training,false))
-                },
-                    err => {
-                    console.log('Status looks not good at all!' + err)
-                    console.log('Status looks not good at all! training completed? ' + trainingold.get('completed'))
-                    return handleError(dispatch, 'System error', training, trainingold)
-                    // trainingold = trainingold.set('error', 'System error')
-                    // dispatch(trainingactions.updateTrainingInList(trainingold))
-                    // trainingold = trainingold.delete('error')
-                    // // dispatch(trainingactions.uploadingTrainingImg(training,false))
-                    // setTimeout(() => {
-                    //   dispatch(trainingactions.updateTrainingInList(trainingold))
-                    // }, 2500)
-                }
-            )
+                )
 
         }
     },
@@ -384,69 +384,69 @@ const trainingactions = {
 
             actions.updateTrainingService(training, fileinput)
                 .then(
-                ({status, data}) => {
-                    if (actions.disconnect(dispatch, status, data))
-                        return
+                    ({status, data}) => {
+                        if (actions.disconnect(dispatch, status, data))
+                            return
 
-                    else if (status == 413) {
-                        return handleError(dispatch, 'File is too large (250 kb max)', training, trainingold)
-                        // training = training.set('error', 'File is too large')
-                        // dispatch(trainingactions.loadEditTraining(training))
-                        // // training = training.delete('error')
-                        // setTimeout(() => {
-                        //   dispatch(trainingactions.loadEditTraining(trainingold))
-                        // }, 2500)
+                        else if (status == 413) {
+                            return handleError(dispatch, 'File is too large (250 kb max)', training, trainingold)
+                            // training = training.set('error', 'File is too large')
+                            // dispatch(trainingactions.loadEditTraining(training))
+                            // // training = training.delete('error')
+                            // setTimeout(() => {
+                            //   dispatch(trainingactions.loadEditTraining(trainingold))
+                            // }, 2500)
 
-                    } else if (status >= 400) {
-                        // console.log('------------------------Error. status = ' + status + '. error message = ' + data.error)
-                        var errorDescription = 'Error status ' + status + ' '
-                        if (data.error) {
-                            console.log('Status looks bad. ' + status + '. error message = ' + data.error)
-                            errorDescription = errorDescription + data.errorDescription !== undefined ? data.errorDescription : 'System error'
+                        } else if (status >= 400) {
+                            // console.log('------------------------Error. status = ' + status + '. error message = ' + data.error)
+                            var errorDescription = 'Error status ' + status + ' '
+                            if (data.error) {
+                                console.log('Status looks bad. ' + status + '. error message = ' + data.error)
+                                errorDescription = errorDescription + data.errorDescription !== undefined ? data.errorDescription : 'System error'
+                            }
+                            return handleError(dispatch, errorDescription, training, trainingold)
+
+                            // training = training.set('error', errorDescription)
+                            // console.log('-------------------------trainingactions. error set old title' + trainingold.get('title'))
+                            // dispatch(trainingactions.loadEditTraining(training))
+                            // // training = training.delete('error')
+                            // setTimeout(() => {
+                            //   dispatch(trainingactions.loadEditTraining(trainingold))
+                            // }, 2500)
                         }
-                        return handleError(dispatch, errorDescription, training, trainingold)
-
-                        // training = training.set('error', errorDescription)
-                        // console.log('-------------------------trainingactions. error set old title' + trainingold.get('title'))
-                        // dispatch(trainingactions.loadEditTraining(training))
-                        // // training = training.delete('error')
-                        // setTimeout(() => {
-                        //   dispatch(trainingactions.loadEditTraining(trainingold))
-                        // }, 2500)
-                    }
-                    else if (data.error) {
-                        // var error = data.error
-                        errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
-                        console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
-                        console.log(data)
-                        return handleError(dispatch, errorDescription, training, trainingold)
-                        // trainingold = trainingold.set('error', errorDescription)
+                        else if (data.error) {
+                            // var error = data.error
+                            errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
+                            console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
+                            console.log(data)
+                            return handleError(dispatch, errorDescription, training, trainingold)
+                            // trainingold = trainingold.set('error', errorDescription)
+                            // dispatch(trainingactions.updateTrainingInList(trainingold))
+                            // trainingold = trainingold.delete('error')
+                            // setTimeout(() => {
+                            //   dispatch(trainingactions.updateTrainingInList(trainingold))
+                            // }, 2500)
+                        }
+                        else {
+                            const updEditTraining = Immutable.Map(data)
+//              console.log('Training actions. updEditTraining='+require('util').inspect(updEditTraining, false, null))
+                            // dispatch(trainingactions.updateTrainingInList(updEditTraining))
+                            dispatch(trainingactions.loadEditTraining(updEditTraining))
+                            // return newtrainings;
+                        }
+                    },
+                    err => {
+                        console.log('Status looks not good at all!' + err)
+                        console.log('Status looks not good at all! training completed? ' + trainingold.get('completed'))
+                        return handleError(dispatch, 'System error', training, trainingold)
+                        // trainingold = trainingold.set('error', 'System error')
                         // dispatch(trainingactions.updateTrainingInList(trainingold))
                         // trainingold = trainingold.delete('error')
                         // setTimeout(() => {
                         //   dispatch(trainingactions.updateTrainingInList(trainingold))
                         // }, 2500)
                     }
-                    else {
-                        const updEditTraining = Immutable.Map(data)
-//              console.log('Training actions. updEditTraining='+require('util').inspect(updEditTraining, false, null))
-                        // dispatch(trainingactions.updateTrainingInList(updEditTraining))
-                        dispatch(trainingactions.loadEditTraining(updEditTraining))
-                        // return newtrainings;
-                    }
-                },
-                    err => {
-                    console.log('Status looks not good at all!' + err)
-                    console.log('Status looks not good at all! training completed? ' + trainingold.get('completed'))
-                    return handleError(dispatch, 'System error', training, trainingold)
-                    // trainingold = trainingold.set('error', 'System error')
-                    // dispatch(trainingactions.updateTrainingInList(trainingold))
-                    // trainingold = trainingold.delete('error')
-                    // setTimeout(() => {
-                    //   dispatch(trainingactions.updateTrainingInList(trainingold))
-                    // }, 2500)
-                }
-            )
+                )
         }
     },
     deleteTraining: function (id) {
@@ -497,29 +497,29 @@ const trainingactions = {
 //      console.log('actions. retrieveTrainingsDispatcher calls service now')
             return actions.retrieveTrainingsService(hostname)
                 .then(
-                ({status, data}) => {
-                    if (status === 401) {
+                    ({status, data}) => {
+                        if (status === 401) {
 
-                        console.log('Status looks bad. Unauthorized')
-                        // dispatch(actions.receiveLogout())
-                        dispatch(actions.loginProcessStart('No access rights!', actions.retrieveTrainingsDispatcher))
-                        // dispatch(actions.loadTrainings([]))
-                    } else if (status >= 400) {
-                        var error = data
-                        console.log('Status looks bad. ' + status + '. error message = ' + error.message)
-                        // dispatch(actions.receiveLogout())
-                        dispatch(actions.loadTrainings([]))
-                    } else if (data.error) {
-                        // var error = data.error
-                        var errorDescription = data.error_description
-                        console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
-                        // dispatch(actions.receiveLogout())
-                        dispatch(actions.loadTrainings([]))
-                    } else {
-                        dispatch(actions.loadTrainings(data))
-                        // dispatch(actions.loadingTrainingFileOff())
-                    }
-                })
+                            console.log('Status looks bad. Unauthorized')
+                            // dispatch(actions.receiveLogout())
+                            dispatch(actions.loginProcessStart('No access rights!', actions.retrieveTrainingsDispatcher))
+                            // dispatch(actions.loadTrainings([]))
+                        } else if (status >= 400) {
+                            var error = data
+                            console.log('Status looks bad. ' + status + '. error message = ' + error.message)
+                            // dispatch(actions.receiveLogout())
+                            dispatch(actions.loadTrainings([]))
+                        } else if (data.error) {
+                            // var error = data.error
+                            var errorDescription = data.error_description
+                            console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
+                            // dispatch(actions.receiveLogout())
+                            dispatch(actions.loadTrainings([]))
+                        } else {
+                            dispatch(actions.loadTrainings(data))
+                            // dispatch(actions.loadingTrainingFileOff())
+                        }
+                    })
                 .catch(err => {
                     console.log('trainingactions.js retrieveTrainingsDispatcher Error retrieving data. error = ' + require('util').inspect(err, false, null))
                     if (err.code == 'ENOENT') {
@@ -545,30 +545,30 @@ const trainingactions = {
             }
             return actions.retrieveTrainingService(params.id, hostname)
                 .then(
-                ({status, data}) => {
-                    if (status == 401) {
-                        console.log('Status looks bad. Unauthorized')
-                        if (!process.env.BROWSER)
-                            dispatch(actions.serverDataFetch(false))
-                        // dispatch(actions.receiveLogout())
-                        dispatch(actions.loadEditTraining({}))
-                        dispatch(actions.loginProcessStart('No access rights!', actions.retrieveTrainingDispatcher, params))
-                    } else if (status >= 400) {
-                        var error = data
-                        console.log('Status looks bad. ' + status + '. error message = ' + error.message)
-                        // dispatch(actions.receiveLogout())
-                        dispatch(actions.loadEditTraining({}))
-                    } else if (data.error) {
-                        // var error = data.error
-                        var errorDescription = data.error_description
-                        console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
-                        // dispatch(actions.receiveLogout())
-                        dispatch(actions.loadEditTraining({}))
-                    } else {
-                        dispatch(actions.loadEditTraining(data))
-                        // dispatch(actions.loadingTrainingFileOff())
-                    }
-                })
+                    ({status, data}) => {
+                        if (status == 401) {
+                            console.log('Status looks bad. Unauthorized')
+                            if (!process.env.BROWSER)
+                                dispatch(actions.serverDataFetch(false))
+                            // dispatch(actions.receiveLogout())
+                            dispatch(actions.loadEditTraining({}))
+                            dispatch(actions.loginProcessStart('No access rights!', actions.retrieveTrainingDispatcher, params))
+                        } else if (status >= 400) {
+                            var error = data
+                            console.log('Status looks bad. ' + status + '. error message = ' + error.message)
+                            // dispatch(actions.receiveLogout())
+                            dispatch(actions.loadEditTraining({}))
+                        } else if (data.error) {
+                            // var error = data.error
+                            var errorDescription = data.error_description
+                            console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
+                            // dispatch(actions.receiveLogout())
+                            dispatch(actions.loadEditTraining({}))
+                        } else {
+                            dispatch(actions.loadEditTraining(data))
+                            // dispatch(actions.loadingTrainingFileOff())
+                        }
+                    })
                 .catch(err => {
                     console.log('trainingactions.js retrieveTrainingDispatcher Error retrieving data. error = ' + require('util').inspect(err, false, null))
                     if (err.code == 'ENOENT') {
@@ -601,60 +601,60 @@ const trainingactions = {
             console.log('actions. toggleTraining Training 1')
             actions.deleteTrainingService(training)
                 .then(
-                ({status, data}) => {
-                    if (actions.disconnect(dispatch, status, data))
-                        return
-                    if (status >= 400) {
-                        var error = data
-                        console.log('Status looks bad. ' + status + '. error message = ' + error.message)
-                        // for (var i = 0; i < 3; i++) {
-                        return handleError(dispatch, 'System error', training, training)
-                        // training = training.set('error', 'System error')
-                        // dispatch(trainingactions.updateTrainingInList(training))
-                        // training = training.delete('error')
-                        // setTimeout(() => {
-                        //   dispatch(trainingactions.updateTrainingInList(training))
-                        // }, 2500)
-                    } else if (data.error) {
-                        return handleError(dispatch, 'System error', training, training)
-                        // training = training.set('error', 'System error')
-                        // dispatch(trainingactions.updateTrainingInList(training))
-                        // training = training.delete('error')
-                        // setTimeout(() => {
-                        //   dispatch(trainingactions.updateTrainingInList(training))
-                        // }, 2500)
-                    } else {
-                        console.log('Status looks good ')
-                        console.log(data)
-                        // var newtrainings = trainings.push(Immutable.Map(data))
-                        // console.log('New trainings ')
-                        // console.log(newtrainings)
-                        // trainings = trainings.push(Immutable.Map({
-                        //   title: action.text,
-                        //   isCompleted: false,
-                        //   id: maxid
-                        // }))
-                        console.log('training actions. training representant : ')
-                        // console.log(representTraining)
+                    ({status, data}) => {
+                        if (actions.disconnect(dispatch, status, data))
+                            return
+                        if (status >= 400) {
+                            var error = data
+                            console.log('Status looks bad. ' + status + '. error message = ' + error.message)
+                            // for (var i = 0; i < 3; i++) {
+                            return handleError(dispatch, 'System error', training, training)
+                            // training = training.set('error', 'System error')
+                            // dispatch(trainingactions.updateTrainingInList(training))
+                            // training = training.delete('error')
+                            // setTimeout(() => {
+                            //   dispatch(trainingactions.updateTrainingInList(training))
+                            // }, 2500)
+                        } else if (data.error) {
+                            return handleError(dispatch, 'System error', training, training)
+                            // training = training.set('error', 'System error')
+                            // dispatch(trainingactions.updateTrainingInList(training))
+                            // training = training.delete('error')
+                            // setTimeout(() => {
+                            //   dispatch(trainingactions.updateTrainingInList(training))
+                            // }, 2500)
+                        } else {
+                            console.log('Status looks good ')
+                            console.log(data)
+                            // var newtrainings = trainings.push(Immutable.Map(data))
+                            // console.log('New trainings ')
+                            // console.log(newtrainings)
+                            // trainings = trainings.push(Immutable.Map({
+                            //   title: action.text,
+                            //   isCompleted: false,
+                            //   id: maxid
+                            // }))
+                            console.log('training actions. training representant : ')
+                            // console.log(representTraining)
 
-                        // dispatch(trainingactions.deleteTraining(training.get('id')))
-                        window.routerHistory.push('/admin/trainings')
-                        // return newtrainings;
-                    }
-                },
+                            // dispatch(trainingactions.deleteTraining(training.get('id')))
+                            window.routerHistory.push('/admin/trainings')
+                            // return newtrainings;
+                        }
+                    },
                     err => {
-                    console.log('Status looks not good at all!' + err)
-                    console.log('Status looks not good at all! training completed? ' + training.get('completed'))
-                    return handleError(dispatch, 'System error', training, training)
-                    // training = training.set('error', 'System error')
-                    // dispatch(trainingactions.updateTrainingInList(training))
-                    // training = training.delete('error')
-                    // setTimeout(() => {
-                    //   dispatch(trainingactions.updateTrainingInList(training))
-                    // }, 2500)
+                        console.log('Status looks not good at all!' + err)
+                        console.log('Status looks not good at all! training completed? ' + training.get('completed'))
+                        return handleError(dispatch, 'System error', training, training)
+                        // training = training.set('error', 'System error')
+                        // dispatch(trainingactions.updateTrainingInList(training))
+                        // training = training.delete('error')
+                        // setTimeout(() => {
+                        //   dispatch(trainingactions.updateTrainingInList(training))
+                        // }, 2500)
 
-                }
-            )
+                    }
+                )
         }
 
     },
