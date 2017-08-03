@@ -1,49 +1,48 @@
 @import '../../../styles/default.scss';
 
+.admintrainingslist {
+  // background-color: pink!important;
+  // margin-top: 30px;
 
-.admintrainingslist{
-	// background-color: pink!important;
-	// margin-top: 30px;
-	
-	// padding: 0;
+  // padding: 0;
 
-	// .mdl-grid--no-spacing
-	// {
-	// 	// width:100%;
-	// margin: 0 auto;
-	// 	// padding: 0px;
-	// }
-	margin: 0 auto;
-	width:96%;
-	@media (min-width: 768px) {
-		width:98%;
-//		background-color:pink;
-		// width: %;
-	}
-	@media (min-width: 992px) {
-		// background-color:red;
-		width: 90%;
-	}	
+  // .mdl-grid--no-spacing
+  // {
+  // 	// width:100%;
+  // margin: 0 auto;
+  // 	// padding: 0px;
+  // }
+  margin: 0 auto;
+  width: 96%;
+  @media (min-width: 768px) {
+    width: 98%;
+    //		background-color:pink;
+    // width: %;
+  }
+  @media (min-width: 992px) {
+    // background-color:red;
+    width: 90%;
+  }
 
-	form{
-	 	margin: 0px;
-	 	// padding: 0px;
-	 	// width:33.33%;
-	}
+  form {
+    margin: 0px;
+    // padding: 0px;
+    // width:33.33%;
+  }
 
-	.admintrainingslistwrap{
-		// background-color:yellow;
-		width:100%;
-		margin: 0 auto;
-		margin-top: 20px;
-	}
-	.spinnerwrap{
-		margin:auto;
-		margin-top: 5%;
-		width:120px;
-		height:120px;
-		// background-color:yellow;
-	}
+  .admintrainingslistwrap {
+    // background-color:yellow;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .spinnerwrap {
+    margin: auto;
+    margin-top: 5%;
+    width: 120px;
+    height: 120px;
+    // background-color:yellow;
+  }
 }
 
 // .admintrainingslist .mdl-grid

@@ -1,246 +1,246 @@
 @import '../../../styles/default.scss';
 
-.trainingslistitem{
-	// background: #ddd;
-	// background-color: red !important;
-	// padding:100px;
-	// margin: 15px -10px !important;
-	background-color: lighten($roya-blue,30%);
-	-moz-background-clip: padding; /* Firefox 3.6 */
-	-webkit-background-clip: padding; /* Safari 4? Chrome 6? */
-	background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
-	// -moz-background-clip: padding; /* Firefox 3.6 */
-	// -webkit-background-clip: padding; /*Safari 4? Chrome 6?*/
-	// background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
-	// border: 5px solid rgba(lighten($roya-blue,0.9),0.1);
-	// -webkit-border-radius: 25px;
-	// -moz-border-radius: 25px;
-	// border-radius: 25px;
-	margin: 10px 0px !important;
-	@media (min-width: 768px) { //768
-		margin: 10px 5px !important;
-	}
+.trainingslistitem {
+  // background: #ddd;
+  // background-color: red !important;
+  // padding:100px;
+  // margin: 15px -10px !important;
+  background-color: lighten($roya-blue, 30%);
+  -moz-background-clip: padding; /* Firefox 3.6 */
+  -webkit-background-clip: padding; /* Safari 4? Chrome 6? */
+  background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+  // -moz-background-clip: padding; /* Firefox 3.6 */
+  // -webkit-background-clip: padding; /*Safari 4? Chrome 6?*/
+  // background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+  // border: 5px solid rgba(lighten($roya-blue,0.9),0.1);
+  // -webkit-border-radius: 25px;
+  // -moz-border-radius: 25px;
+  // border-radius: 25px;
+  margin: 10px 0px !important;
+  @media (min-width: 768px) { //768
+    margin: 10px 5px !important;
+  }
 
-	@media (min-width: 992px) {
-		// background-color:red;
-		margin: 10px 10px !important;
-	}	
+  @media (min-width: 992px) {
+    // background-color:red;
+    margin: 10px 10px !important;
+  }
 
-	// padding:0px !important;
-	// width:100%;
-	// button{
-	// 	width:65px;
-	// }
-	// .pad{
-	// 	padding: 6px 0 4px 0 !important;
-	// }
-	// .tf{
-	// 	margin: -30px -10px -40px -10px;
-	// 	width:100%;
-	// 	// padding: 0;
-	// }
-	// .editsaveblock{
-	// 	margin-top:-10px !important;
-	// 	@media (min-width: 480px) {
-	// 		margin-top:0px !important;
-	// 	}
-	// }
-	&:hover{
-		// background:radial-gradient(circle closest-side at 19px 20px, lighten(getMdlColor($color-primary),90%) 0,  lighten(getMdlColor($color-primary),70%) 207px, transparent 319px);
-		-ms-transform: scale(1.02, 1.02); /* IE 9 */
-    	-webkit-transform: scale(1.02, 1.02); /* Safari */
-    	transform: scale(1.02, 1.02);
-		box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2),0 8px 8px 0 rgba(0,0,0,0.1);
-		@include transitionAll(.08s);
-	}
-	&:hover .imgwrapper{
-		// background:radial-gradient(circle closest-side at 19px 20px, lighten(getMdlColor($color-primary),90%) 0,  lighten(getMdlColor($color-primary),70%) 207px, transparent 319px);
-		-ms-transform: scale(0.98, 0.98); /* IE 9 */
-    	-webkit-transform: scale(0.98, 0.98); /* Safari */
-    	transform: scale(0.98, 0.98);
-		// -ms-transform: scale(1.5, 1.5); /* IE 9 */
-  //   	-webkit-transform: scale(1.5, 1.5); /* Safari */
-  //   	transform: scale(1.5, 1.5);
-		// box-shadow: 0 8px 15px 0 rgba(0,0,0,0.2),0 10px 10px 0 rgba(0,0,0,0.1);
-		// @include transitionAll(.08s);
-	}
-	// .trbutton{
-	// 	// background-color: $color-primary;//darken($roya-blue,30%);
-	// 	padding-top:7px;
-	// 	height:140px;
-	// 	width:140px;
-	// }
+  // padding:0px !important;
+  // width:100%;
+  // button{
+  // 	width:65px;
+  // }
+  // .pad{
+  // 	padding: 6px 0 4px 0 !important;
+  // }
+  // .tf{
+  // 	margin: -30px -10px -40px -10px;
+  // 	width:100%;
+  // 	// padding: 0;
+  // }
+  // .editsaveblock{
+  // 	margin-top:-10px !important;
+  // 	@media (min-width: 480px) {
+  // 		margin-top:0px !important;
+  // 	}
+  // }
+  &:hover {
+    // background:radial-gradient(circle closest-side at 19px 20px, lighten(getMdlColor($color-primary),90%) 0,  lighten(getMdlColor($color-primary),70%) 207px, transparent 319px);
+    -ms-transform: scale(1.02, 1.02); /* IE 9 */
+    -webkit-transform: scale(1.02, 1.02); /* Safari */
+    transform: scale(1.02, 1.02);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 8px 8px 0 rgba(0, 0, 0, 0.1);
+    @include transitionAll(.08s);
+  }
+  &:hover .imgwrapper {
+    // background:radial-gradient(circle closest-side at 19px 20px, lighten(getMdlColor($color-primary),90%) 0,  lighten(getMdlColor($color-primary),70%) 207px, transparent 319px);
+    -ms-transform: scale(0.98, 0.98); /* IE 9 */
+    -webkit-transform: scale(0.98, 0.98); /* Safari */
+    transform: scale(0.98, 0.98);
+    // -ms-transform: scale(1.5, 1.5); /* IE 9 */
+    //   	-webkit-transform: scale(1.5, 1.5); /* Safari */
+    //   	transform: scale(1.5, 1.5);
+    // box-shadow: 0 8px 15px 0 rgba(0,0,0,0.2),0 10px 10px 0 rgba(0,0,0,0.1);
+    // @include transitionAll(.08s);
+  }
+  // .trbutton{
+  // 	// background-color: $color-primary;//darken($roya-blue,30%);
+  // 	padding-top:7px;
+  // 	height:140px;
+  // 	width:140px;
+  // }
 
-	hr{
-	   display: block;
-	   position: relative;
-	   padding: 0;
-	   margin: 8px auto;
-	   height: 1px;
-	   width: 100%;
-	   // max-height: 2px;
-	   font-size: 1px;
-	   line-height: 1px;
-	   clear: both;
-	   border: none;
-		background: rgba(28, 42, 57,0.5); /* For browsers that do not support gradients */
-		background: -webkit-linear-gradient(left,rgba(255,255,225,0),rgba(28, 42, 57,0.5),rgba(255,255,225,0)); /*Safari 5.1-6*/
-		background: -o-linear-gradient(right,rgba(255,255,225,0),rgba(28, 42, 57,0.5),rgba(255,255,225,0)); /*Opera 11.1-12*/
-		background: -moz-linear-gradient(right,rgba(255,255,225,0),rgba(28, 42, 57,0.5),rgba(255,255,225,0)); /*Fx 3.6-15*/
-		background: linear-gradient(to right, rgba(255,255,225,0),rgba(28, 42, 57,0.5),rgba(255,255,225,0)); /*Standard*/
-	}
-	
-	.shortdescription{
-		// font-family: 'Roboto', Tahoma, sans-serif;
-				// font-size:1.1em;
-		// letter-spacing: -0.75px;
-		text-align:justify;
+  hr {
+    display: block;
+    position: relative;
+    padding: 0;
+    margin: 8px auto;
+    height: 1px;
+    width: 100%;
+    // max-height: 2px;
+    font-size: 1px;
+    line-height: 1px;
+    clear: both;
+    border: none;
+    background: rgba(28, 42, 57, 0.5); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, rgba(255, 255, 225, 0), rgba(28, 42, 57, 0.5), rgba(255, 255, 225, 0)); /*Safari 5.1-6*/
+    background: -o-linear-gradient(right, rgba(255, 255, 225, 0), rgba(28, 42, 57, 0.5), rgba(255, 255, 225, 0)); /*Opera 11.1-12*/
+    background: -moz-linear-gradient(right, rgba(255, 255, 225, 0), rgba(28, 42, 57, 0.5), rgba(255, 255, 225, 0)); /*Fx 3.6-15*/
+    background: linear-gradient(to right, rgba(255, 255, 225, 0), rgba(28, 42, 57, 0.5), rgba(255, 255, 225, 0)); /*Standard*/
+  }
 
-		height:100px;
-		// margin-top:70px;
-			// margin-bottom:6px;
-			// margin-left:6px;
-		margin:10px 0px 10px 0px !important;
-	  	line-height: 20px;
-	// p{
-		// background-color: #e0f0fc !important;//e6f3fc
-		// 	margin-top:60px;
-		// 	// margin-bottom:6px;
-		// 	// margin-left:6px;
-		// 	margin:0px 10px 10px 10px;
-		//   	line-height: 20px;
-		// }
-	}
+  .shortdescription {
+    // font-family: 'Roboto', Tahoma, sans-serif;
+    // font-size:1.1em;
+    // letter-spacing: -0.75px;
+    text-align: justify;
 
-	h4{
-	    font-family: $RoyaMainFont;
-		// background-color: darken($roya-blue,30%);
-		// color:darken($roya-blue,30%);
-		margin:25px 0px 5px 0px;
-		padding: 0;
-		text-transform: none;
-	  	font-size:1.3em;
-		letter-spacing: -1.5px;
-	  	line-height: 22px;
-	  	height: 24px;
-	  	text-align:right;
-	}
-	h5{
-	    font-family: $RoyaMainFont;
-		// background-color: darken($roya-blue,30%);
-		// color:darken($roya-blue,30%);
-		margin:0px 0px 0px 0px;
-		padding: 0;
-		text-transform: none;
-	  	font-size:1.1em;
-		letter-spacing: -1.5px;
-	  	// line-height: 25px;
-	  	height: 30px;
-	  	text-align:right;
-	}
-	.buttonwrap{
-		margin:0px 0px 8px 0px;
-		height:35px;
-		// background-color: orange;
-	}
-	.schedulebutton, .editbutton{
-		margin:0px 4px !important;
-		width:35px !important;
-		height:35px;
-		// padding:10px 10px 10px 10px;
-		// background-color: darken($roya-blue,30%);
-		// background-image:url('../../../images/calendar.svg');
-		background-repeat:no-repeat;
-		background-position:center;
-		background-size:25px 25px;
-		border-radius: 50%;
-		// background: url("../../../images/calendar.svg") no-repeat center;
-		// background: url("../../../images/calendar.svg") no-repeat center;
-		// width:20px !important;
-		// height:40px !important;
-		// padding:10px 10px 10px 10px;
-		color: white;
-	}
-	.schedulebutton{
-		background-image:url('../../../images/calendar.svg');
-	}
-	.editbutton{
-		background-image:url('../../../images/edit.svg');
-	}
-	// #home {
-	// 	font-size: 15px;
-	// 	padding: 0px 0px;
-	// 	border-radius: 100%;
-	// 	color: #ffffff;
-	// 	background: #666666;
-	// 	border: 2px solid #666666;
-	// } 
-	.promo{
-	    font-family: $RoyaMainFont;
-	  	font-size:1.1em;
-		// background-color: darken($roya-blue,30%);
-		color:darken($redlight,0%);
-		margin:6px 0px 0px 0px;
-		padding: 0;
-		text-transform: none;
-		// letter-spacing: -1.5px;
-	  	// line-height: 15px;
-	  	float:left;
-	}
-	.duration{ //duration
-	    font-family: $RoyaMainFont;
-		// background-color: pink !important;
-	  	font-size:1.1em;
-	  	margin-right:0px;
-		margin-top:6px;
-		// margin-bottom:6px;
-		// margin-left:6px;
-		float:right;
-		// text-align:right;
-		// margin:15px 10px 15px 10px;
-		// letter-spacing: -0.75px;
-		white-space: nowrap;
-	}
-	// img{
-	// 	// background-color: red;7
-	// 	// background:radial-gradient(circle closest-side at 50% 50%, lighten(white,100%) 0,  lighten($roya-blue,15%) 95%, transparent 100%);
-	// 	// margin-top:-10px;
-	// 	margin-left: -126px;
-	// 	// right:100px
-	// 	width:50px;
-	// 	height:50px;
-	// 	// margin-bottom:-30px;
-	// 	position:absolute;
-	// 	// @media (min-width: 992px) {
-	// 	// 	right:16.4%;
-	// 	// }
-	// }
-	// .imgwrapperheight{
-	// 	height:80px;
-	// 	width:0px;
-		// background-color: orange;
-		.imgwrapper{
-			position:absolute;
-			// margin:auto;
-			margin-top:6px;
-			margin-left:0px;
-			width:82px;
-			height:82px;
-			
-			// img{
-			// 	width:64px;
-			// 	height:64px;
-			// }
-			// .spinner{
-			// 	width:30px;
-			// 	height:30px;
-			// 	margin-top: 13px;
-			// 	margin-left: 15px;
-			// 	margin-bottom: 15px;
-			// 	position:absolute;
-			// }
-		}
-	// }
+    height: 100px;
+    // margin-top:70px;
+    // margin-bottom:6px;
+    // margin-left:6px;
+    margin: 10px 0px 10px 0px !important;
+    line-height: 20px;
+    // p{
+    // background-color: #e0f0fc !important;//e6f3fc
+    // 	margin-top:60px;
+    // 	// margin-bottom:6px;
+    // 	// margin-left:6px;
+    // 	margin:0px 10px 10px 10px;
+    //   	line-height: 20px;
+    // }
+  }
+
+  h4 {
+    font-family: $RoyaMainFont;
+    // background-color: darken($roya-blue,30%);
+    // color:darken($roya-blue,30%);
+    margin: 25px 0px 5px 0px;
+    padding: 0;
+    text-transform: none;
+    font-size: 1.3em;
+    letter-spacing: -1.5px;
+    line-height: 22px;
+    height: 24px;
+    text-align: right;
+  }
+  h5 {
+    font-family: $RoyaMainFont;
+    // background-color: darken($roya-blue,30%);
+    // color:darken($roya-blue,30%);
+    margin: 0px 0px 0px 0px;
+    padding: 0;
+    text-transform: none;
+    font-size: 1.1em;
+    letter-spacing: -1.5px;
+    // line-height: 25px;
+    height: 30px;
+    text-align: right;
+  }
+  .buttonwrap {
+    margin: 0px 0px 8px 0px;
+    height: 35px;
+    // background-color: orange;
+  }
+  .schedulebutton, .editbutton {
+    margin: 0px 4px !important;
+    width: 35px !important;
+    height: 35px;
+    // padding:10px 10px 10px 10px;
+    // background-color: darken($roya-blue,30%);
+    // background-image:url('../../../images/calendar.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px 25px;
+    border-radius: 50%;
+    // background: url("../../../images/calendar.svg") no-repeat center;
+    // background: url("../../../images/calendar.svg") no-repeat center;
+    // width:20px !important;
+    // height:40px !important;
+    // padding:10px 10px 10px 10px;
+    color: white;
+  }
+  .schedulebutton {
+    background-image: url('../../../images/calendar.svg');
+  }
+  .editbutton {
+    background-image: url('../../../images/edit.svg');
+  }
+  // #home {
+  // 	font-size: 15px;
+  // 	padding: 0px 0px;
+  // 	border-radius: 100%;
+  // 	color: #ffffff;
+  // 	background: #666666;
+  // 	border: 2px solid #666666;
+  // }
+  .promo {
+    font-family: $RoyaMainFont;
+    font-size: 1.1em;
+    // background-color: darken($roya-blue,30%);
+    color: darken($redlight, 0%);
+    margin: 6px 0px 0px 0px;
+    padding: 0;
+    text-transform: none;
+    // letter-spacing: -1.5px;
+    // line-height: 15px;
+    float: left;
+  }
+  .duration { //duration
+    font-family: $RoyaMainFont;
+    // background-color: pink !important;
+    font-size: 1.1em;
+    margin-right: 0px;
+    margin-top: 6px;
+    // margin-bottom:6px;
+    // margin-left:6px;
+    float: right;
+    // text-align:right;
+    // margin:15px 10px 15px 10px;
+    // letter-spacing: -0.75px;
+    white-space: nowrap;
+  }
+  // img{
+  // 	// background-color: red;7
+  // 	// background:radial-gradient(circle closest-side at 50% 50%, lighten(white,100%) 0,  lighten($roya-blue,15%) 95%, transparent 100%);
+  // 	// margin-top:-10px;
+  // 	margin-left: -126px;
+  // 	// right:100px
+  // 	width:50px;
+  // 	height:50px;
+  // 	// margin-bottom:-30px;
+  // 	position:absolute;
+  // 	// @media (min-width: 992px) {
+  // 	// 	right:16.4%;
+  // 	// }
+  // }
+  // .imgwrapperheight{
+  // 	height:80px;
+  // 	width:0px;
+  // background-color: orange;
+  .imgwrapper {
+    position: absolute;
+    // margin:auto;
+    margin-top: 6px;
+    margin-left: 0px;
+    width: 82px;
+    height: 82px;
+
+    // img{
+    // 	width:64px;
+    // 	height:64px;
+    // }
+    // .spinner{
+    // 	width:30px;
+    // 	height:30px;
+    // 	margin-top: 13px;
+    // 	margin-left: 15px;
+    // 	margin-bottom: 15px;
+    // 	position:absolute;
+    // }
+  }
+  // }
 
 }
 
