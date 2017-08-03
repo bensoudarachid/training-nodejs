@@ -346,7 +346,7 @@ const trainingactions = {
         }
     },
     updateTrainingDispatcher: function (training, trainingold, fileinput) {
-        console.log('+++++++++++++++++++++++++++++++++++trainingactions. updateTrainingDispatcher old title' + trainingold.get('title'))
+        // console.log('trainingactions. updateTrainingDispatcher old title' + trainingold.get('title'))
         return (dispatch, getState) => {
             if (fileinput != undefined && fileinput.size > 250000) {
                 return handleError(dispatch, 'File is too large (250 kb max)', training, trainingold)
@@ -532,6 +532,7 @@ const trainingactions = {
     },
 
     retrieveTrainingDispatcher: function (params, hostname) {
+        console.log('Call retrieveTrainingDispatcher  <-----------------------------')
         // console.log('training actions. retrieveTrainingDispatcher')
         // console.log('rootreducer='+require('util').inspect(rootreducer, false, null))
         return (dispatch, getState) => {

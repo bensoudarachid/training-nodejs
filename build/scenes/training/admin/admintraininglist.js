@@ -1,94 +1,49 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _immutable = require('immutable');
-
-var _immutable2 = _interopRequireDefault(_immutable);
-
-var _admintraininglistitem = require('./admintraininglistitem');
-
-var _admintraininglistitem2 = _interopRequireDefault(_admintraininglistitem);
-
-var _reactAddonsPureRenderMixin = require('react-addons-pure-render-mixin');
-
-var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+import React from 'react';
 //import { ThreeBounce } from 'better-react-spinkit'
+import Immutable from 'immutable';
 
-
+import AdminTrainingListItem from './admintraininglistitem';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 //import LogoSpinner from '../../../components/shared/logospinner'
 
 if (process.env.BROWSER) {
   require('./admintraininglist.scss');
 }
 
-var AdminTrainingList = function (_React$Component) {
-  _inherits(AdminTrainingList, _React$Component);
-
-  function AdminTrainingList(props) {
-    _classCallCheck(this, AdminTrainingList);
-
+export default class AdminTrainingList extends React.Component {
+  constructor(props) {
+    super(props);
     // console.log('training list. Mixin in constructor')
-    var _this = _possibleConstructorReturn(this, (AdminTrainingList.__proto__ || Object.getPrototypeOf(AdminTrainingList)).call(this, props));
-
-    _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
-    return _this;
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
   }
 
-  _createClass(AdminTrainingList, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      require('exports?componentHandler!material-design-lite/material.js').upgradeDom();
-    }
-  }, {
-    key: 'renderItems',
-    value: function renderItems() {
-      var _this2 = this;
+  componentDidMount() {
+    componentHandler.upgradeDom();
+  }
 
-      var items = this.props.trainings;
-      // const props = _.omit(this.props, 'trainings');
-      // console.log('training list. render items. Size = '+items.size)
-      if (items == undefined) return _react2.default.createElement('div', null);
-      return items.map(function (training, index) {
-        // console.log('training list. index = '+index)
-        return _react2.default.createElement(_admintraininglistitem2.default, { ind: index, training: training, actions: _this2.props.actions });
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
+  renderItems() {
+    var items = this.props.trainings;
+    // const props = _.omit(this.props, 'trainings');
+    // console.log('training list. render items. Size = '+items.size)
+    if (items == undefined) return React.createElement('div', null);
+    return items.map((training, index) => {
+      // console.log('training list. index = '+index)
+      return React.createElement(AdminTrainingListItem, { ind: index, training: training, actions: this.props.actions });
+    });
+  }
 
-      return _react2.default.createElement(
+  render() {
+
+    return React.createElement(
+      'div',
+      { className: 'admintrainingslist' },
+      this.props.trainings == undefined ?
+      //if i use div instead of span, big parts of the view are not clickable!
+      React.createElement('span', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap', style: { width: '55px', height: '55px' } }) : React.createElement(
         'div',
-        { className: 'admintrainingslist' },
-        this.props.trainings == undefined ?
-        //if i use div instead of span, big parts of the view are not clickable!
-        _react2.default.createElement('span', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap', style: { width: '55px', height: '55px' } }) : _react2.default.createElement(
-          'div',
-          { className: 'admintrainingslistwrap mdl-grid mdl-grid--no-spacing' },
-          this.renderItems()
-        )
-      );
-    }
-  }]);
-
-  return AdminTrainingList;
-}(_react2.default.Component);
-
-exports.default = AdminTrainingList;
+        { className: 'admintrainingslistwrap mdl-grid mdl-grid--no-spacing' },
+        this.renderItems()
+      )
+    );
+  }
+}

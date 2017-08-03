@@ -10,7 +10,7 @@ if (process.env.BROWSER) {
     // require('materialize-css/sass/style.scss')
     // require('materialize-css/sass/components/_color.scss')
 
-    // $(document).ready(function() { 
+    // $(document).ready(function() {
     //   var modal = document.getElementById('myModal')
 
     // // Get the button that opens the modal
@@ -20,7 +20,7 @@ if (process.env.BROWSER) {
     // // Get the <span> element that closes the modal
     //   var span = document.getElementsByClassName('close')[0]
 
-    // // When the user clicks the button, open the modal 
+    // // When the user clicks the button, open the modal
     //   btn.onclick = function() {
     //     modal.style.display = 'block'
     //   }
@@ -60,7 +60,7 @@ export default class Login extends Component {
     // <TextField type='text' ref='username' className='inputfield' hintText='type your login here' floatingLabelText='Login'/>
     // </li>
     // <li>
-    // <TextField type='password' ref='password' className='inputfield' hintText='type your password here' floatingLabelText='Password'/>        
+    // <TextField type='password' ref='password' className='inputfield' hintText='type your password here' floatingLabelText='Password'/>
     // </li>
 
     render() {
@@ -88,7 +88,8 @@ export default class Login extends Component {
                         <li>
                             <button type='submit'
                                     className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored button'>
-                                <span className='glyphicon glyphicon-log-in'></span> Login
+                                <span className='glyphicon glyphicon-log-in'></span>
+                                Login
                             </button>
                         </li>
                     </ul>
@@ -117,7 +118,7 @@ export default class Login extends Component {
     }
 
     componentDidMount() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
     }
 }
 

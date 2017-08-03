@@ -1,74 +1,28 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = require('react-router');
-
-var _reactRedux = require('react-redux');
-
-var _redux = require('redux');
-
-var _immutable = require('immutable');
-
-var _immutable2 = _interopRequireDefault(_immutable);
-
-var _actions = require('../services/actions');
-
-var _actions2 = _interopRequireDefault(_actions);
-
-var _reactAddonsCssTransitionGroup = require('react-addons-css-transition-group');
-
-var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _confirmationmodal = require('../components/shared/confirmationmodal');
-
-var _confirmationmodal2 = _interopRequireDefault(_confirmationmodal);
-
-var _nav = require('./navigation/nav');
-
-var _nav2 = _interopRequireDefault(_nav);
-
-var _loginmodal = require('./loginmodal.js');
-
-var _loginmodal2 = _interopRequireDefault(_loginmodal);
-
-var _login = require('./login.js');
-
-var _login2 = _interopRequireDefault(_login);
-
-var _appmodaldlg = require('./appmodaldlg.js');
-
-var _appmodaldlg2 = _interopRequireDefault(_appmodaldlg);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+import React from 'react';
+import { Router, Route, IndexLink, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import Immutable from 'immutable';
+import actions from '../services/actions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 // import Stats from 'stats-js'
-
+import 'jquery';
+import $ from 'jquery';
+import ConfirmationModal from '../components/shared/confirmationmodal';
 
 global.jQuery = require('jquery');
 
 // global.$ = require('jquery')
 // import $ from 'jquery'
 
+import { Component, PropTypes } from 'react';
+
+import Nav from './navigation/nav';
+import LoginModal from './loginmodal.js';
+import Login from './login.js';
+import AppModalDlg from './appmodaldlg.js';
 // import waterpipe from './waterpipe.js'
 
 // require('../styles/default.scss')
@@ -158,14 +112,11 @@ if (process.env.BROWSER) {
   // })  
 }
 
-var AppComponent = function (_React$Component) {
-  _inherits(AppComponent, _React$Component);
+class AppComponent extends React.Component {
 
-  function AppComponent() {
-    _classCallCheck(this, AppComponent);
-
+  constructor() {
     1;
-    return _possibleConstructorReturn(this, (AppComponent.__proto__ || Object.getPrototypeOf(AppComponent)).apply(this, arguments));
+    super(...arguments);
     // this.constructor.childContextTypes = {
     //   betterReactSpinkit: PropTypes.object
     // }
@@ -181,246 +132,227 @@ var AppComponent = function (_React$Component) {
   //   }
   // }
 
-  _createClass(AppComponent, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      require('exports?componentHandler!material-design-lite/material.js').upgradeDom();
-      // console.log('window width = '+$(window).width())
+  componentDidMount() {
+    componentHandler.upgradeDom();
+    // console.log('window width = '+$(window).width())
 
-      if (process.env.BROWSER) {
-        require('./waterpipebg.js');
-        require('./bubbles.js');
-      }
-      this.handleBubblesVisibility();
-      window.addEventListener('scroll', this.handleBubblesVisibility);
-      window.addEventListener('resize', this.handleBubblesVisibility);
+    if (process.env.BROWSER) {
+      require('./waterpipebg.js');
+      require('./bubbles.js');
     }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      // console.log('app. this.props.location='+require('util').inspect(this.props.location, false, null))
-      //console.log('app. nextProps.location='+require('util').inspect(nextProps.location, false, null))
-      if (nextProps.location !== this.props.location && process.env.BROWSER) {
-        this.props.actions.savePreviousLocation(this.props.location.pathname);
-      }
+    this.handleBubblesVisibility();
+    window.addEventListener('scroll', this.handleBubblesVisibility);
+    window.addEventListener('resize', this.handleBubblesVisibility);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // console.log('app. this.props.location='+require('util').inspect(this.props.location, false, null))
+    //console.log('app. nextProps.location='+require('util').inspect(nextProps.location, false, null))
+    if (nextProps.location !== this.props.location && process.env.BROWSER) {
+      this.props.actions.savePreviousLocation(this.props.location.pathname);
     }
-  }, {
-    key: 'handleBubblesVisibility',
-    value: function handleBubblesVisibility(event) {
-      if ((0, _jquery2.default)(window).width() < 480)
-        // $('#starbg-wrapper')[0].style.display = 'none'  
-        (0, _jquery2.default)('#starbg-wrapper')[0].style.visibility = 'hidden';else
-        // $('#starbg-wrapper')[0].style.display = 'block'
-        (0, _jquery2.default)('#starbg-wrapper')[0].style.visibility = 'visible';
-    }
+  }
 
-    // <ReactCSSTransitionGroup
-    //   component='div'
-    //   transitionName="page"
-    //   transitionEnterTimeout={500}
-    //   transitionLeaveTimeout={200}
-    //   transitionAppear={false}
-    //   transitionEnter={true}
-    //   transitionLeave={true}                
-    // >              
-    // {children}
-    // </ReactCSSTransitionGroup>            
+  handleBubblesVisibility(event) {
+    if ($(window).width() < 480)
+      // $('#starbg-wrapper')[0].style.display = 'none'  
+      $('#starbg-wrapper')[0].style.visibility = 'hidden';else
+      // $('#starbg-wrapper')[0].style.display = 'block'
+      $('#starbg-wrapper')[0].style.visibility = 'visible';
+  }
 
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          dispatch = _props.dispatch,
-          quote = _props.quote,
-          auth = _props.auth,
-          errorMessage = _props.errorMessage,
-          isSecretQuote = _props.isSecretQuote;
+  // <ReactCSSTransitionGroup
+  //   component='div'
+  //   transitionName="page"
+  //   transitionEnterTimeout={500}
+  //   transitionLeaveTimeout={200}
+  //   transitionAppear={false}
+  //   transitionEnter={true}
+  //   transitionLeave={true}                
+  // >              
+  // {children}
+  // </ReactCSSTransitionGroup>            
+  render() {
+    const { dispatch, quote, auth, errorMessage, isSecretQuote } = this.props;
+    const isBrowser = typeof window !== 'undefined';
+    const loginMessage = auth.get('loginMessage');
+    const loginProgress = auth.get('loginProgress');
+    const registererror = this.props.auth.get('registererror');
+    const appError = this.props.app.get('appError');
+    const confirmationActionFunction = this.props.app.get('confirmationActionFunction');
 
-      var isBrowser = typeof window !== 'undefined';
-      var loginMessage = auth.get('loginMessage');
-      var loginProgress = auth.get('loginProgress');
-      var registererror = this.props.auth.get('registererror');
-      var appError = this.props.app.get('appError');
-      var confirmationActionFunction = this.props.app.get('confirmationActionFunction');
+    var children = this.updateChildren(this.props.children, this.props);
 
-      var children = this.updateChildren(this.props.children, this.props);
-
-      return _react2.default.createElement(
+    return React.createElement(
+      'div',
+      { id: 'appcomp' },
+      React.createElement(
         'div',
-        { id: 'appcomp' },
-        _react2.default.createElement(
+        { id: 'wavybg-wrapper' },
+        React.createElement(
+          'canvas',
+          { id: 'canvs1' },
+          'Your browser does not support HTML5 canvas.'
+        )
+      ),
+      React.createElement(
+        'div',
+        { id: 'starbg-wrapper' },
+        React.createElement(
+          'canvas',
+          { id: 'canvs2' },
+          'Your browser does not support HTML5 canvas.'
+        )
+      ),
+      React.createElement(
+        'div',
+        null,
+        React.createElement(Nav, {
+          actions: this.props.actions,
+          auth: this.props.auth
+        })
+      ),
+      loginProgress && React.createElement(
+        'div',
+        null,
+        React.createElement(LoginModal, {
+          actions: this.props.actions,
+          auth: this.props.auth
+        })
+      ),
+      confirmationActionFunction && React.createElement(
+        'div',
+        null,
+        React.createElement(ConfirmationModal, { actions: this.props.actions })
+      ),
+      React.createElement(
+        'div',
+        null,
+        React.createElement(
           'div',
-          { id: 'wavybg-wrapper' },
-          _react2.default.createElement(
-            'canvas',
-            { id: 'canvs1' },
-            'Your browser does not support HTML5 canvas.'
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { id: 'starbg-wrapper' },
-          _react2.default.createElement(
-            'canvas',
-            { id: 'canvs2' },
-            'Your browser does not support HTML5 canvas.'
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(_nav2.default, {
-            actions: this.props.actions,
-            auth: this.props.auth
-          })
-        ),
-        loginProgress && _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(_loginmodal2.default, {
-            actions: this.props.actions,
-            auth: this.props.auth
-          })
-        ),
-        confirmationActionFunction && _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(_confirmationmodal2.default, { actions: this.props.actions })
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'div',
-            { id: 'contt' },
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                _reactAddonsCssTransitionGroup2.default,
-                {
-                  component: 'div',
-                  transitionName: 'page',
-                  transitionEnterTimeout: 500,
-                  transitionLeaveTimeout: 200,
-                  transitionAppear: false,
-                  transitionEnter: true,
-                  transitionLeave: true
-                },
-                children
-              )
-            )
-          ),
-          appError && _react2.default.createElement(
+          { id: 'contt' },
+          React.createElement(
             'div',
             null,
-            _react2.default.createElement(_appmodaldlg2.default, { actions: this.props.actions, errorMessage: 'Error occured: ' + appError })
+            React.createElement(
+              ReactCSSTransitionGroup,
+              {
+                component: 'div',
+                transitionName: 'page',
+                transitionEnterTimeout: 500,
+                transitionLeaveTimeout: 200,
+                transitionAppear: false,
+                transitionEnter: true,
+                transitionLeave: true
+              },
+              children
+            )
           )
+        ),
+        appError && React.createElement(
+          'div',
+          null,
+          React.createElement(AppModalDlg, { actions: this.props.actions, errorMessage: 'Error occured: ' + appError })
         )
-      );
-    }
-    // renderOld() {
-    //   const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
-    //   const isBrowser = typeof window !== 'undefined'
-    //   const loginMessage = auth.get('loginMessage') 
-    //   const loginProgress = auth.get('loginProgress')
-    //   const registererror = this.props.auth.get('registererror')
-    //   const appError = this.props.app.get('appError')
-    //   var children = this.updateChildren(this.props.children, this.props)
+      )
+    );
+  }
+  // renderOld() {
+  //   const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
+  //   const isBrowser = typeof window !== 'undefined'
+  //   const loginMessage = auth.get('loginMessage') 
+  //   const loginProgress = auth.get('loginProgress')
+  //   const registererror = this.props.auth.get('registererror')
+  //   const appError = this.props.app.get('appError')
+  //   var children = this.updateChildren(this.props.children, this.props)
 
 
-    //   return (
-    //     <div id='appcomp'>
-    //     <div id="wavybg-wrapper"> 
-    //         <canvas id="canvs1">Your browser does not support HTML5 canvas.</canvas>
-    //     </div>
-    //     <div id="starbg-wrapper"> 
-    //         <canvas id="canvs2">Your browser does not support HTML5 canvas.</canvas>
-    //     </div>
+  //   return (
+  //     <div id='appcomp'>
+  //     <div id="wavybg-wrapper"> 
+  //         <canvas id="canvs1">Your browser does not support HTML5 canvas.</canvas>
+  //     </div>
+  //     <div id="starbg-wrapper"> 
+  //         <canvas id="canvs2">Your browser does not support HTML5 canvas.</canvas>
+  //     </div>
 
-    //     <div>
-    //       <Nav
-    //         actions={this.props.actions}
-    //         auth={this.props.auth}
-    //       />
-    //     </div>
-    //     {loginProgress &&
-    //     <div>
-    //     <LoginModal
-    //         actions={this.props.actions}
-    //         auth={this.props.auth}
-    //     />
-    //     </div>
-    //     }
-    //       <div>
-    //         <div id='contt'>
-    //           {loginMessage?
+  //     <div>
+  //       <Nav
+  //         actions={this.props.actions}
+  //         auth={this.props.auth}
+  //       />
+  //     </div>
+  //     {loginProgress &&
+  //     <div>
+  //     <LoginModal
+  //         actions={this.props.actions}
+  //         auth={this.props.auth}
+  //     />
+  //     </div>
+  //     }
+  //       <div>
+  //         <div id='contt'>
+  //           {loginMessage?
 
-    //             <div>
-    //               <h1>{loginMessage}</h1>
-    //             </div>
-    //             :
-    //             <div>
-    //               <ReactCSSTransitionGroup
-    //                 component='div'
-    //                 transitionName="page"
-    //                 transitionEnterTimeout={500}
-    //                 transitionLeaveTimeout={200}
-    //                 transitionAppear={false}
-    //                 transitionEnter={true}
-    //                 transitionLeave={true}                
-    //               >              
-    //               {children}
-    //               </ReactCSSTransitionGroup>            
-    //             </div>
-    //           }
-    //         </div>
-    //         {appError &&
-    //         <div>
-    //           <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: '+appError}/>
-    //         </div>
-    //         }
-    //       </div>
+  //             <div>
+  //               <h1>{loginMessage}</h1>
+  //             </div>
+  //             :
+  //             <div>
+  //               <ReactCSSTransitionGroup
+  //                 component='div'
+  //                 transitionName="page"
+  //                 transitionEnterTimeout={500}
+  //                 transitionLeaveTimeout={200}
+  //                 transitionAppear={false}
+  //                 transitionEnter={true}
+  //                 transitionLeave={true}                
+  //               >              
+  //               {children}
+  //               </ReactCSSTransitionGroup>            
+  //             </div>
+  //           }
+  //         </div>
+  //         {appError &&
+  //         <div>
+  //           <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: '+appError}/>
+  //         </div>
+  //         }
+  //       </div>
 
 
-    //     </div>
+  //     </div>
 
-    //   )
-    // }
+  //   )
+  // }
 
-    // { auth.get('loginProgress')?
-    //   <div>
-    //       <h1>WAHNSINNWAHNSINNWAHNSINNWAHNSINNWAHNSINNWAHNSINNWAHNSINN</h1>
-    //   </div>
-    //   :
-    // }
+  // { auth.get('loginProgress')?
+  //   <div>
+  //       <h1>WAHNSINNWAHNSINNWAHNSINNWAHNSINNWAHNSINNWAHNSINNWAHNSINN</h1>
+  //   </div>
+  //   :
+  // }
 
-  }, {
-    key: 'updateChildren',
-    value: function updateChildren(children, props) {
-      var childrenBack = _react2.default.Children.map(children, function (child) {
-        // return React.cloneElement(child, {
-        //   actions: props.actions,
-        //   todos: props.todos
-        // })
-        // const segment = this.props.location.pathname
-        // const segment = this.props.location.pathname.split('/')[1] || 'root'
-        var segment = this.getSubstringUntilNth(props.location.pathname, '/', 2);
-        // console.log('child '+this.props.location.pathname+ ' segement '+segment+' path '+this.props.location.pathname)
-        return _react2.default.cloneElement(child, _extends({}, props, { key: segment
-        }));
-      }.bind(this));
-      return childrenBack;
-    }
-  }, {
-    key: 'getSubstringUntilNth',
-    value: function getSubstringUntilNth(str, pattern, n) {
-      return str.split(pattern, n).join(pattern);
-    }
-  }]);
+  updateChildren(children, props) {
+    var childrenBack = React.Children.map(children, function (child) {
+      // return React.cloneElement(child, {
+      //   actions: props.actions,
+      //   todos: props.todos
+      // })
+      // const segment = this.props.location.pathname
+      // const segment = this.props.location.pathname.split('/')[1] || 'root'
+      const segment = this.getSubstringUntilNth(props.location.pathname, '/', 2);
+      // console.log('child '+this.props.location.pathname+ ' segement '+segment+' path '+this.props.location.pathname)
+      return React.cloneElement(child, _extends({}, props, { key: segment
+      }));
+    }.bind(this));
+    return childrenBack;
+  }
 
-  return AppComponent;
-}(_react2.default.Component);
+  getSubstringUntilNth(str, pattern, n) {
+    return str.split(pattern, n).join(pattern);
+  }
+}
 // {React.cloneElement(this.props.children, { key: segment })}
 // {children}
 // {loginMessage?
@@ -454,10 +386,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: (0, _redux.bindActionCreators)(_actions2.default, dispatch) //we dont need to pass dispatch down anymore. actions are now wrapped
+    actions: bindActionCreators(actions, dispatch) //we dont need to pass dispatch down anymore. actions are now wrapped
   };
 }
 
 // export default connect(mapStateToProps)(AppComponent);
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AppComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(AppComponent);
 // export default AppComponent;

@@ -29,7 +29,7 @@ export default class TodoCreate extends React.Component {
     //       <div className='mdl-textfield tf mdl-js-textfield'>
     //         <input className='mdl-textfield__input' type='text' ref="createInput" id='createInput'/>
     //         <label className='mdl-textfield__label' htmlFor='createInput'>New todo...</label>
-    //       </div>            
+    //       </div>
     //       <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>Create</button>
     //           {this.renderError()}
     // </form>

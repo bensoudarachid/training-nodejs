@@ -29,7 +29,22 @@ if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
 }
 
 if (process.env.BROWSER) {
+    // window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass']
+    // require('./waterpipe.js')
     require('./appcomponent.scss')
+    // require('./bubbles.js')
+    // require('./waterpipebg.js')
+
+    // require.ensure([], function (require) {
+    //   require('./bubbles.js').default
+    // })
+    // require.ensure([], function (require) {
+    //   require('./waterpipebg.js').default
+    // })
+
+    // require('./textswitcher.js')
+
+
     var modal = document.getElementById('myModal')
     window.onclick = function (event) {
         if (event.target == modal) {
@@ -38,18 +53,85 @@ if (process.env.BROWSER) {
             // modal.style.display = 'none'
         }
     }
-}
+    // })
+    // var rdm = 0
+    // var lastrdm = 0
+    // var textSwitchContainer = undefined //$('#textswitch')
+    // window.isTextSwitchAnimated = true //$('#textswitch')
 
+    // window.textswitcher = function() {
+    //   window.isTextSwitchAnimated = true
+    //   setTimeout( function() {
+    //     console.log('isTextSwitchAnimated = '+window.isTextSwitchAnimated )
+    //     if( window.isTextSwitchAnimated )
+    //       window.requestAnimationFrame(window.textswitcher)
+    //     else{
+    //       console.log('I m out now ' )
+    //       textSwitchContainer.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    //         $(this).removeClass()
+    //         textSwitchContainer.text('')
+    //       })
+    //       return
+    //     }
+
+
+    //     while( lastrdm === rdm )
+    //       rdm = Math.floor(Math.random() * window.switchTextArray.length)
+    //     console.log('rdm = '+rdm +', lastrdm = '+lastrdm+' : '+window.switchTextArray[rdm]+' : ')
+    //     lastrdm = rdm
+    //       // divContainer[0].style.display = 'none'
+    // //headShake 300 flash 300 fadeInLeft 300 rubberBand
+    //     textSwitchContainer.removeClass().addClass('rubberBand animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    //       $(this).removeClass()
+    //     })
+    //     setTimeout( function() {
+    //       textSwitchContainer.shuffleLetters({
+    //         'text': window.switchTextArray[rdm]
+    //       })
+    //         // setTimeout( function() {
+    //         //   container.removeClass().addClass('fadeOutLeft animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    //         //     $(this).removeClass()
+    //         //   })
+    //         // }, 4600 )
+    //     }, 450 )
+    //       // await sleep(1000)
+    //   }, 2000 )
+    // }
+
+    // $(document).ready(function() {
+    //   textSwitchContainer = $('#textswitch')
+    //   window.switchTextArray = ['Karim', 'Said', 'Rachid', 'Ilyas', 'Yussef', 'Amine', 'Salma', 'Hadi', 'Mehdi']
+    //   window.textswitcher()
+    //   // textSwitchId = window.requestAnimationFrame(window.textswitcher)
+    //   setTimeout( function() {
+    //     console.log('Cancel now : ')
+    //     window.isTextSwitchAnimated = false
+    //   }, 12000 )
+    // })
+}
 
 class AppComponent extends React.Component {
 
     constructor() {
+        1
         super(...arguments)
+        // this.constructor.childContextTypes = {
+        //   betterReactSpinkit: PropTypes.object
+        // }
     }
 
+    // getChildContext() {
+    //   return {
+    //     betterReactSpinkit: {
+    //       color: '#505050', //'black'
+    //       size: 15
+    //     // ,fade: { duration: 0.3 }
+    //     }
+    //   }
+    // }
 
     componentDidMount() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
         // console.log('window width = '+$(window).width())
 
         if (process.env.BROWSER) {
@@ -80,6 +162,17 @@ class AppComponent extends React.Component {
             $('#starbg-wrapper')[0].style.visibility = 'visible'
     }
 
+    // <ReactCSSTransitionGroup
+    //   component='div'
+    //   transitionName="page"
+    //   transitionEnterTimeout={500}
+    //   transitionLeaveTimeout={200}
+    //   transitionAppear={false}
+    //   transitionEnter={true}
+    //   transitionLeave={true}
+    // >
+    // {children}
+    // </ReactCSSTransitionGroup>
     render() {
         const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
         const isBrowser = typeof window !== 'undefined'
@@ -144,10 +237,87 @@ class AppComponent extends React.Component {
                     }
                 </div>
 
+
             </div>
 
         )
     }
+
+    // renderOld() {
+    //   const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
+    //   const isBrowser = typeof window !== 'undefined'
+    //   const loginMessage = auth.get('loginMessage')
+    //   const loginProgress = auth.get('loginProgress')
+    //   const registererror = this.props.auth.get('registererror')
+    //   const appError = this.props.app.get('appError')
+    //   var children = this.updateChildren(this.props.children, this.props)
+
+
+    //   return (
+    //     <div id='appcomp'>
+    //     <div id="wavybg-wrapper">
+    //         <canvas id="canvs1">Your browser does not support HTML5 canvas.</canvas>
+    //     </div>
+    //     <div id="starbg-wrapper">
+    //         <canvas id="canvs2">Your browser does not support HTML5 canvas.</canvas>
+    //     </div>
+
+    //     <div>
+    //       <Nav
+    //         actions={this.props.actions}
+    //         auth={this.props.auth}
+    //       />
+    //     </div>
+    //     {loginProgress &&
+    //     <div>
+    //     <LoginModal
+    //         actions={this.props.actions}
+    //         auth={this.props.auth}
+    //     />
+    //     </div>
+    //     }
+    //       <div>
+    //         <div id='contt'>
+    //           {loginMessage?
+
+    //             <div>
+    //               <h1>{loginMessage}</h1>
+    //             </div>
+    //             :
+    //             <div>
+    //               <ReactCSSTransitionGroup
+    //                 component='div'
+    //                 transitionName="page"
+    //                 transitionEnterTimeout={500}
+    //                 transitionLeaveTimeout={200}
+    //                 transitionAppear={false}
+    //                 transitionEnter={true}
+    //                 transitionLeave={true}
+    //               >
+    //               {children}
+    //               </ReactCSSTransitionGroup>
+    //             </div>
+    //           }
+    //         </div>
+    //         {appError &&
+    //         <div>
+    //           <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: '+appError}/>
+    //         </div>
+    //         }
+    //       </div>
+
+
+    //     </div>
+
+    //   )
+    // }
+
+    // { auth.get('loginProgress')?
+    //   <div>
+    //       <h1>WAHNSINNWAHNSINNWAHNSINNWAHNSINNWAHNSINNWAHNSINNWAHNSINN</h1>
+    //   </div>
+    //   :
+    // }
 
     getSubstringUntilNth(str, pattern, n) {
         return str.split(pattern, n).join(pattern)
@@ -162,8 +332,34 @@ class AppComponent extends React.Component {
             }.bind(this))
         return childrenBack
     }
-
 }
+
+// {React.cloneElement(this.props.children, { key: segment })}
+// {children}
+// {loginMessage?
+//   <div>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//     <h1>{loginMessage}</h1>
+//   </div>
+//   :
+//   <div>
+//     <div id='contt'>
+//     { children }
+//     </div>
+//     {appError &&
+//     <div>
+//       <AppModalDlg actions={this.props.actions} errorMessage={'Error occured: '+appError}/>
+//     </div>
+//     }
+//   </div>
+// }
+
 
 function mapStateToProps(state) {
     return state

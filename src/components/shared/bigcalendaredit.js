@@ -65,7 +65,7 @@ class BigCalendarEdit extends React.Component {
     //             <div className='mdl-textfield tf mdl-js-textfield'>
     //               <input className='mdl-textfield__input' type='text' defaultValue={title} name={'eventInput'+index} ref='eventInput' id={'eventInput'+index}/>
     //               <label className='mdl-textfield__label' htmlFor={'eventInput'+index}>Event...</label>
-    //             </div>            
+    //             </div>
     //         </div>
     //       </form>
     //       <div className='editsaveblock pad mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
@@ -97,7 +97,7 @@ class BigCalendarEdit extends React.Component {
                     min={new Date(2001, 0, 7, 8, 0, 0, 0)}
                     max={new Date(2001, 0, 7, 22, 0, 0, 0)}
                     // min={moment().startOf('day').toDate()}
-                    // max={moment().endOf('day').toDate()}      
+                    // max={moment().endOf('day').toDate()}
                     culture='en-GB'
                     // events={myevents}
                     // style={{height: '420px'}}
@@ -124,7 +124,8 @@ class BigCalendarEdit extends React.Component {
 
     componentDidMount() {
         // console.log('events='+require('util').inspect(this.props.events, false, null))
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+//    require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
         // const {calendar} = this.refs
         // $(calendar).fullCalendar({
 
@@ -132,7 +133,7 @@ class BigCalendarEdit extends React.Component {
         //   timezone:'local',
         //   defaultView: 'agendaWeek',
         //   header: { center: 'Time Sheet',right:'agendaWeek'},
-        //   navLinks: false, 
+        //   navLinks: false,
         //   editable: true,
         //   eventLimit: true,
         //   // allDaySlot: false,
@@ -140,7 +141,7 @@ class BigCalendarEdit extends React.Component {
         //   minTime : '08:00:00',
         //   maxTime : '22:00:00',
         //   // defaultdate: dateFormat(Date(),"yyyy-mm-dd"),
-        //   contentHeight: 'auto',         
+        //   contentHeight: 'auto',
 
         //   events:this.props.events,
         // })
@@ -166,7 +167,6 @@ class BigCalendarEdit extends React.Component {
         this.setState({
             localevents: nextEvents
         })
-
         // alert(`${event.title} was dropped onto ${event.start}`)
     }
 

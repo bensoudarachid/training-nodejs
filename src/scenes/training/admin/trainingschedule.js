@@ -41,8 +41,8 @@ export default class TrainingSchedule extends React.Component {
         if (!auth.get('isAuthenticated'))
             return (
                 <span>
-          <h1>Needs authentication</h1>
-        </span>
+                    <h1>Needs authentication</h1>
+                </span>
             )
         // else if( training==undefined )
         //   return (
@@ -65,13 +65,19 @@ export default class TrainingSchedule extends React.Component {
         // </div>
         // }
         {
+            let date1 = new Date(2001, 0, 2, 10, 30, 0, 0)
+            let date2 = new Date(2001, 0, 2, 12, 30, 0, 0)
+            date1.setDate(6)
+            date2.setDate(6)
+            date2.setHours(16)
+
             let events = Immutable.List([
                 {
                     'id': 1,
                     'title': 'React 1',
                     // 'date': Date.now(),
-                    'start': new Date(2001, 0, 2, 10, 30, 0, 0),
-                    'end': new Date(2001, 0, 2, 12, 30, 0, 0),
+                    'start': date1,
+                    'end': date2
                     // 'allDay': true
                 },
                 {
@@ -79,7 +85,7 @@ export default class TrainingSchedule extends React.Component {
                     'title': 'React 2',
                     // 'date': Date.now(),
                     'start': new Date(2001, 0, 4, 14, 30, 0, 0),
-                    'end': new Date(2001, 0, 4, 16, 30, 0, 0),
+                    'end': new Date(2001, 0, 4, 16, 30, 0, 0)
                     // 'allDay': true
                 }
             ])
@@ -98,7 +104,7 @@ export default class TrainingSchedule extends React.Component {
     }
 
     componentDidMount() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
         // console.log('this.props.location.pathname='+require('util').inspect(this.props.location.pathname, false, null))
         // if( !this.props.location.pathname=='trainings/item/new')
         TrainingSchedule.fetchData(this.props.actions, this.props.params)
@@ -124,7 +130,7 @@ export default class TrainingSchedule extends React.Component {
     }
 
     componentDidUpdate() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
 
     }
 

@@ -10,39 +10,42 @@ import validator from 'validator'
 // based on a token being in local storage. In a real app,
 // we would also want a util to check if the token has expired.
 
-let authReducer = function (auth = new Immutable.Map({
-    isFetching: false,
-    isRegistrationFetching: false,
-    isAuthenticated: cookie.load('jwt') ? true : false,
-    authority: cookie.load('authority'),
-    registrationStep: 1,
-    registrationError: new Immutable.Map({
-        // username: '',
-        // email: '',
-        // password: '',
-        // passwordCheck: ''
-    })
-}), action) {
+let authReducer = function (auth
+                            // = new Immutable.Map({
+                            //   isFetching: false,
+                            //   isRegistrationFetching: false,
+                            //   isAuthenticated: cookie.load('jwt') ? true : false,
+                            //   authority: cookie.load('authority'),
+                            //   registrationStep:1,
+                            //   registrationError: new Immutable.Map({
+                            //     // username: '',
+                            //     // email: '',
+                            //     // password: '',
+                            //     // passwordCheck: ''
+                            //   })
+                            // })
+    , action) {
 
     if (!(auth instanceof Immutable.Map)) {
-        console.log('Auth reducer. Init Map. Need to find out why it s not a map')
+        console.log('Auth reducer. Init Map. Need to find out why it s not a map ' + require('util').inspect(auth, false, null))
         auth = new Immutable.Map({
             isFetching: false,
             isRegistrationFetching: false,
             isAuthenticated: cookie.load('jwt') ? true : false,
             authority: cookie.load('authority'),
             registrationStep: 1,
-            registrationError: new Immutable.Map({
-                // username: '',
-                // email: '',
-                // password: '',
-                // passwordCheck: ''
-            })
+            registrationError: new Immutable.Map({})
         })
     }
-    let authenticated = cookie.load('jwt') ? true : false
+    let authenticated = false
+    if (process.env.NODE_ENV === 'test')
+        authenticated = true
+    else
+        authenticated = cookie.load('jwt') ? true : false
+
+    // let authenticated = true
     let authority = cookie.load('authority')
-    //let authenticated = true 
+    //let authenticated = true
     auth = auth.set('isAuthenticated', authenticated)
     auth = auth.set('authority', authority)
     // console.log('Auth Reducer is authenticated: ' + auth.isAuthenticated )
@@ -69,7 +72,7 @@ let authReducer = function (auth = new Immutable.Map({
             auth = auth.remove('loginProgress')
             auth = auth.remove('loginactualurl')
             return auth
-        // return Object.assign({}, _.omit(auth, ['loginMessage','loginProgress']), {})  
+        // return Object.assign({}, _.omit(auth, ['loginMessage','loginProgress']), {})
 
         case 'LOGIN_REQUEST':
             auth = auth.set('isFetching', true)

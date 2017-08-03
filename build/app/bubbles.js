@@ -1,14 +1,9 @@
-'use strict';
-
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+import 'jquery';
+import $ from 'jquery';
 
 global.jQuery = require('jquery');
 
-(0, _jquery2.default)(document).ready(function () {
+$(document).ready(function () {
 
   if (!window.requestAnimationFrame) {
     window.requestAnimationFrame = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame || function (callback) {
@@ -70,10 +65,10 @@ global.jQuery = require('jquery');
         //   context.fill()
         // },
 
-        create: function create() {
+        create: function () {
           this.drawEllipse(this.x, this.y, 2.5 * this.radius * config.width / window.innerWidth, 2 * this.radius * config.height / window.innerHeight);
         },
-        drawEllipse: function drawEllipse(centerX, centerY, width, height) {
+        drawEllipse: function (centerX, centerY, width, height) {
           context.beginPath();
 
           context.moveTo(centerX, centerY - height / 2); // A1
@@ -91,7 +86,7 @@ global.jQuery = require('jquery');
           context.closePath();
         },
 
-        animate: function animate() {
+        animate: function () {
           if (this.y < 0 || this.y > canvas.height) {
             this.vx = this.vx;
             this.vy = -this.vy;
@@ -214,11 +209,11 @@ global.jQuery = require('jquery');
     //     return c.animateText()
     //   })
     // }
-  })(_jquery2.default, window);
+  })($, window);
 
   // Init plugin
 
-  (0, _jquery2.default)('#canvs2').constellation({
+  $('#canvs2').constellation({
     star: {
       width: 4
     },
@@ -239,8 +234,8 @@ global.jQuery = require('jquery');
   // })
 
 
-  setTimeout(function () {
-    (0, _jquery2.default)('#wavybg-wrapper').addClass('fadein');
+  setTimeout(() => {
+    $('#wavybg-wrapper').addClass('fadein');
   }, 1800);
 
   // var context = document.querySelector('#canvs3').getContext('2d')

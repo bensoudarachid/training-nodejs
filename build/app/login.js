@@ -1,26 +1,6 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+import React, { Component, PropTypes } from 'react';
+import 'jquery';
+import $ from 'jquery';
 
 if (process.env.BROWSER) {
   //  console.log('Login Component. environment is browser')
@@ -59,132 +39,110 @@ if (process.env.BROWSER) {
   // })
 }
 
-var Login = function (_Component) {
-  _inherits(Login, _Component);
+export default class Login extends Component {
+  // <li><button onClick={(event) => this.handleClick(event)} className='btn btn-primary'>
+  //  <span className='glyphicon glyphicon-log-in'></span> Login
+  // </button></li>
+  // </ul>
+  // <li>
+  // <input type='submit' value='Login' className='btn btn-primary'/>
+  // </li>
 
-  function Login() {
-    _classCallCheck(this, Login);
+  // <li>
+  //     <button type='submit' className='btn btn-primary'>
+  //       <span className='glyphicon glyphicon-log-in'></span> Login
+  //     </button>
+  // </li>
 
-    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
-  }
+  // <li>
+  // <TextField type='text' ref='username' className='inputfield' hintText='type your login here' floatingLabelText='Login'/>
+  // </li>
+  // <li>
+  // <TextField type='password' ref='password' className='inputfield' hintText='type your password here' floatingLabelText='Password'/>        
+  // </li>
 
-  _createClass(Login, [{
-    key: 'render',
-
-    // <li><button onClick={(event) => this.handleClick(event)} className='btn btn-primary'>
-    //  <span className='glyphicon glyphicon-log-in'></span> Login
-    // </button></li>
-    // </ul>
-    // <li>
-    // <input type='submit' value='Login' className='btn btn-primary'/>
-    // </li>
-
-    // <li>
-    //     <button type='submit' className='btn btn-primary'>
-    //       <span className='glyphicon glyphicon-log-in'></span> Login
-    //     </button>
-    // </li>
-
-    // <li>
-    // <TextField type='text' ref='username' className='inputfield' hintText='type your login here' floatingLabelText='Login'/>
-    // </li>
-    // <li>
-    // <TextField type='password' ref='password' className='inputfield' hintText='type your password here' floatingLabelText='Password'/>        
-    // </li>
-
-    value: function render() {
-      var errorMessage = this.props.errorMessage;
-      // var myStyle = {fontSize: 100, color: '#FF0000'}
-      //       <li><input type='text' ref='username' className='form-control' placeholder='Username'/></li>
-      //<input type='password' ref='password' className='form-control' placeholder='Password'/>
-
-      return _react2.default.createElement(
-        'div',
-        { id: 'loginform' },
-        _react2.default.createElement(
-          'form',
-          { onSubmit: this.handleClick.bind(this) },
-          _react2.default.createElement(
-            'ul',
+  render() {
+    const { errorMessage } = this.props;
+    // var myStyle = {fontSize: 100, color: '#FF0000'}
+    //       <li><input type='text' ref='username' className='form-control' placeholder='Username'/></li>
+    //<input type='password' ref='password' className='form-control' placeholder='Password'/>
+    return React.createElement(
+      'div',
+      { id: 'loginform' },
+      React.createElement(
+        'form',
+        { onSubmit: this.handleClick.bind(this) },
+        React.createElement(
+          'ul',
+          null,
+          React.createElement(
+            'li',
             null,
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'div',
-                { className: 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label' },
-                _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'username', type: 'text', id: 'username' }),
-                _react2.default.createElement(
-                  'label',
-                  { className: 'mdl-textfield__label', htmlFor: 'username' },
-                  'Login'
-                )
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'div',
-                { className: 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label' },
-                _react2.default.createElement('input', { className: 'mdl-textfield__input', ref: 'password', type: 'password', id: 'password' }),
-                _react2.default.createElement(
-                  'label',
-                  { className: 'mdl-textfield__label', htmlFor: 'password' },
-                  'Password'
-                )
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'button',
-                { type: 'submit', className: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored button' },
-                _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-in' }),
-                ' Login'
+            React.createElement(
+              'div',
+              { className: 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label' },
+              React.createElement('input', { className: 'mdl-textfield__input', ref: 'username', type: 'text', id: 'username' }),
+              React.createElement(
+                'label',
+                { className: 'mdl-textfield__label', htmlFor: 'username' },
+                'Login'
               )
             )
           ),
-          errorMessage && _react2.default.createElement(
-            'p',
-            { style: { fontSize: 25, color: '#FF0000' } },
-            errorMessage
+          React.createElement(
+            'li',
+            null,
+            React.createElement(
+              'div',
+              { className: 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label' },
+              React.createElement('input', { className: 'mdl-textfield__input', ref: 'password', type: 'password', id: 'password' }),
+              React.createElement(
+                'label',
+                { className: 'mdl-textfield__label', htmlFor: 'password' },
+                'Password'
+              )
+            )
+          ),
+          React.createElement(
+            'li',
+            null,
+            React.createElement(
+              'button',
+              { type: 'submit', className: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored button' },
+              React.createElement('span', { className: 'glyphicon glyphicon-log-in' }),
+              ' Login'
+            )
           )
+        ),
+        errorMessage && React.createElement(
+          'p',
+          { style: { fontSize: 25, color: '#FF0000' } },
+          errorMessage
         )
-      );
-    }
-    // <li>
-    //   <FlatButton className='button' type='submit'><span className='glyphicon glyphicon-log-in'></span> Login</FlatButton>
-    // </li>
+      )
+    );
+  }
+  // <li>
+  //   <FlatButton className='button' type='submit'><span className='glyphicon glyphicon-log-in'></span> Login</FlatButton>
+  // </li>
 
-  }, {
-    key: 'handleClick',
-    value: function handleClick(event) {
-      event.preventDefault();
-      // console.log('login. Login value = '+this.refs.username.getValue())
-      // const username = this.refs.username.getValue().trim()
-      // const password = this.refs.password.getValue().trim()
-      var username = this.refs.username.value.trim();
-      var password = this.refs.password.value.trim();
-      // console.log('login. Login value = '+username)
-      var creds = { username: username, password: password };
-      this.props.onLoginClick(creds);
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      require('exports?componentHandler!material-design-lite/material.js').upgradeDom();
-    }
-  }]);
-
-  return Login;
-}(_react.Component);
-
-exports.default = Login;
-
+  handleClick(event) {
+    event.preventDefault();
+    // console.log('login. Login value = '+this.refs.username.getValue())
+    // const username = this.refs.username.getValue().trim()
+    // const password = this.refs.password.getValue().trim()
+    var username = this.refs.username.value.trim();
+    var password = this.refs.password.value.trim();
+    // console.log('login. Login value = '+username)
+    const creds = { username: username, password: password };
+    this.props.onLoginClick(creds);
+  }
+  componentDidMount() {
+    componentHandler.upgradeDom();
+  }
+}
 
 Login.propTypes = {
-  onLoginClick: _react.PropTypes.func.isRequired,
-  errorMessage: _react.PropTypes.string
+  onLoginClick: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string
 };

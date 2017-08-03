@@ -1,23 +1,7 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _reactCookie = require('react-cookie');
-
-var _reactCookie2 = _interopRequireDefault(_reactCookie);
-
-var _immutable = require('immutable');
-
-var _immutable2 = _interopRequireDefault(_immutable);
-
-var _validator = require('validator');
-
-var _validator2 = _interopRequireDefault(_validator);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+// import _ from 'lodash'
+import cookie from 'react-cookie';
+import Immutable from 'immutable';
+import validator from 'validator';
 // import {
 //   LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS
 // } from '../actions'
@@ -26,32 +10,29 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // based on a token being in local storage. In a real app,
 // we would also want a util to check if the token has expired.
 
-var authReducer = function authReducer() {
-  var auth = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new _immutable2.default.Map({
-    isFetching: false,
-    isRegistrationFetching: false,
-    isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
-    authority: _reactCookie2.default.load('authority'),
-    registrationStep: 1,
-    registrationError: new _immutable2.default.Map({
-      // username: '',
-      // email: '',
-      // password: '',
-      // passwordCheck: ''
-    })
-  });
-  var action = arguments[1];
+let authReducer = function (auth = new Immutable.Map({
+  isFetching: false,
+  isRegistrationFetching: false,
+  isAuthenticated: cookie.load('jwt') ? true : false,
+  authority: cookie.load('authority'),
+  registrationStep: 1,
+  registrationError: new Immutable.Map({
+    // username: '',
+    // email: '',
+    // password: '',
+    // passwordCheck: ''
+  })
+}), action) {
 
-
-  if (!(auth instanceof _immutable2.default.Map)) {
+  if (!(auth instanceof Immutable.Map)) {
     console.log('Auth reducer. Init Map. Need to find out why it s not a map');
-    auth = new _immutable2.default.Map({
+    auth = new Immutable.Map({
       isFetching: false,
       isRegistrationFetching: false,
-      isAuthenticated: _reactCookie2.default.load('jwt') ? true : false,
-      authority: _reactCookie2.default.load('authority'),
+      isAuthenticated: cookie.load('jwt') ? true : false,
+      authority: cookie.load('authority'),
       registrationStep: 1,
-      registrationError: new _immutable2.default.Map({
+      registrationError: new Immutable.Map({
         // username: '',
         // email: '',
         // password: '',
@@ -59,8 +40,8 @@ var authReducer = function authReducer() {
       })
     });
   }
-  var authenticated = _reactCookie2.default.load('jwt') ? true : false;
-  var authority = _reactCookie2.default.load('authority');
+  let authenticated = cookie.load('jwt') ? true : false;
+  let authority = cookie.load('authority');
   //let authenticated = true 
   auth = auth.set('isAuthenticated', authenticated);
   auth = auth.set('authority', authority);
@@ -183,7 +164,7 @@ var authReducer = function authReducer() {
       // console.log(action.registererror)
       auth = auth.set('isRegistrationFetching', false);
       // auth=auth.set('registererror', action.registererror)
-      auth = auth.set('registrationError', new _immutable2.default.Map(action.registererror));
+      auth = auth.set('registrationError', new Immutable.Map(action.registererror));
       // auth=auth.set('registrationStep',3)
       return auth;
     case 'REGISTER_SYSTEM_ERROR':
@@ -220,7 +201,7 @@ var authReducer = function authReducer() {
       if (action.user.email.length === 0)
         // registrationError = registrationError.set('email','email required')
         userInputErrors.email = 'required';
-      if (action.user.email.length > 0 && !_validator2.default.isEmail(action.user.email))
+      if (action.user.email.length > 0 && !validator.isEmail(action.user.email))
         // registrationError = registrationError.set('email','email is not valid')
         userInputErrors.email = 'not valid';
 
@@ -228,7 +209,7 @@ var authReducer = function authReducer() {
         console.log('username required');
         // registrationError = registrationError.set('username','user name required')
         userInputErrors.username = 'required';
-      } else if (!_validator2.default.isLength(action.user.username.trim(), 1, 25)) userInputErrors.username = 'too long (25 chars max)';
+      } else if (!validator.isLength(action.user.username.trim(), 1, 25)) userInputErrors.username = 'too long (25 chars max)';
       if (action.user.password.length === 0)
         // registrationError = registrationError.set('password','password required')
         userInputErrors.password = 'required';else if (action.user.password.length < 8) userInputErrors.password = 'should be greater than 8 characters';
@@ -237,14 +218,15 @@ var authReducer = function authReducer() {
         // registrationError = registrationError.set('passwordCheck','password check different from password')
         userInputErrors.passwordCheck = 'password check different from password';
       console.log('Auth reducer action.user.email' + action.user.email);
-      console.log('Auth reducer action.user.email is valid' + _validator2.default.isEmail(action.user.email));
+      console.log('Auth reducer action.user.email is valid' + validator.isEmail(action.user.email));
       console.log('Auth reducer email error returned' + userInputErrors.email);
 
-      auth = auth.set('registrationError', new _immutable2.default.Map(userInputErrors));
+      auth = auth.set('registrationError', new Immutable.Map(userInputErrors));
       return auth;
 
     default:
       return auth;
   }
-}; // import _ from 'lodash'
-exports.default = authReducer;
+};
+
+export default authReducer;

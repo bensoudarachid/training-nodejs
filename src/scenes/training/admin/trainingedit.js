@@ -20,14 +20,14 @@ export default class TrainingEdit extends React.Component {
         super(props)
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
 
-        this.state = {
-            edittraining: undefined
-        }
+        // this.state = {
+        //   edittraining: undefined
+        // }
 
     }
 
     render() {
-//    console.log('trainingedit render!')
+        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!')
         const {auth} = this.props
         const training = this.props.trainingappmap.get('edittraining')
         // const confirmationActionFunction=this.props.trainingappmap.get('confirmationActionFunction')
@@ -40,6 +40,7 @@ export default class TrainingEdit extends React.Component {
         // console.log('###################################Training edit render title ='+require('util').inspect(title, false, null))
         const secondaryTitle = training == undefined ? '' : training.get('secondaryTitle')
         const shortDescription = training == undefined ? '' : training.get('shortDescription')
+        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!' + shortDescription)
         const longDescription = training == undefined ? '' : training.get('longDescription')
         const duration = training == undefined ? '' : training.get('duration')
         // const needDeleteConfirmation = training==undefined?'':training.get('needDeleteConfirmation')
@@ -69,15 +70,18 @@ export default class TrainingEdit extends React.Component {
         if (!auth.get('isAuthenticated'))
             return (
                 <span>
-          <h1>Needs authentication</h1>
-        </span>
+                    <h1>Needs authentication</h1>
+                </span>
             )
         else if (training == undefined)
             return (
                 <span>
-          <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap'
-                style={{width: '55px', height: '55px'}}></span>
-        </span>
+                    <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap'
+                          style={{
+                              width: '55px',
+                              height: '55px'
+                          }}></span>
+                </span>
             )
         else
         //<form onSubmit={(event) => this.handleClick(event)} noValidate>
@@ -95,64 +99,75 @@ export default class TrainingEdit extends React.Component {
         // }
 
             return (
-
                 <div className='trainingedit blockborder'>
                     <form onSubmit={(event) => this.handleSave(event)} noValidate>
-              <span className='mdl-grid mdl-grid--no-spacing'>
-              <span className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'><div
-                  className={errorClass}>{error}</div></span>
-                <span className='mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
-                  <AppImage api='training' imgid={id} isUploading={saving}/>
-                </span>
-                
-                <span
-                    className='mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone fileuploadinput'>
-                  <FileUploadInput id={'uploadfile-' + id} disabled={disabled} actions={this.props.actions}/>
-                </span>
+                        <span className='mdl-grid mdl-grid--no-spacing'>
+                            <span className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+                                <div className={errorClass}>{error}</div>
+                            </span>
+                            <span className='mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
+                                <AppImage api='training' imgid={id} isUploading={saving}/>
+                            </span>
 
-                <span className='mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
-                <span className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                  <input className={'mdl-textfield__input ' + disabled} ref='title' type='text' id='title' name='title'
-                         value={title} onChange={(event) => this.handleTitleChange(event)} disabled={saving}/>
-                  <label className='mdl-textfield__label' htmlFor='title'>Title</label>
-                  <span className="mdl-textfield__error" htmlFor='title'>{trainingEditError.get('title')}</span>
-                </span>
-                </span>
+                            <span
+                                className='mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone fileuploadinput'>
+                                <FileUploadInput id={'uploadfile-' + id} disabled={disabled}
+                                                 actions={this.props.actions}/>
+                            </span>
 
-                <span className='mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet mdl-cell--4-col-phone'>
-                <span className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                  <input className={'mdl-textfield__input ' + disabled} ref='secondaryTitle' type='text'
-                         id='secondaryTitle' name='secondaryTitle' value={secondaryTitle}
-                         onChange={(event) => this.handleSecondaryTitleChange(event)} disabled={saving}/>
-                  <label className='mdl-textfield__label' htmlFor='secondaryTitle'>Secondary title</label>
-                  <span className="mdl-textfield__error"
-                        htmlFor='secondaryTitle'>{trainingEditError.get('secondaryTitle')}</span>
-                </span>
-                </span>
+                            <span className='mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
+                                <span className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                    <input className={'mdl-textfield__input ' + disabled} ref='title' type='text'
+                                           id='title' name='title' value={title}
+                                           onChange={(event) => this.handleTitleChange(event)} disabled={saving}/>
+                                    <label className='mdl-textfield__label' htmlFor='title'>Title</label>
+                                    <span className="mdl-textfield__error"
+                                          htmlFor='title'>{trainingEditError.get('title')}</span>
+                                </span>
+                            </span>
 
-                <span className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
-                <span className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                  <input className={'mdl-textfield__input ' + disabled} ref='shortDescription' type='text'
-                         id='shortDescription' name='shortDescription' value={shortDescription}
-                         onChange={(event) => this.handleShortDescriptionChange(event)} disabled={saving}/>
-                  <label className='mdl-textfield__label' htmlFor='shortDescription'>Short description</label>
-                  <span className="mdl-textfield__error"
-                        htmlFor='shortDescription'>{trainingEditError.get('shortDescription')}</span>
-                </span>
-                </span>
+                            <span className='mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet mdl-cell--4-col-phone'>
+                                <span className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                    <input className={'mdl-textfield__input ' + disabled} ref='secondaryTitle'
+                                           type='text' id='secondaryTitle' name='secondaryTitle' value={secondaryTitle}
+                                           onChange={(event) => this.handleSecondaryTitleChange(event)}
+                                           disabled={saving}/>
+                                    <label className='mdl-textfield__label'
+                                           htmlFor='secondaryTitle'>Secondary title</label>
+                                    <span className="mdl-textfield__error"
+                                          htmlFor='secondaryTitle'>{trainingEditError.get('secondaryTitle')}</span>
+                                </span>
+                            </span>
 
-                <span className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
-                <span className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                  <textarea className={'mdl-textfield__input ' + disabled} ref='longDescription' type='text'
-                            id='longDescription' name='longDescription' rows="7" value={longDescription}
-                            onChange={(event) => this.handleLongDescriptionChange(event)} disabled={saving}></textarea>
-                  <label className='mdl-textfield__label' htmlFor='longDescription'>Long Description</label>
-                  <span className="mdl-textfield__error"
-                        htmlFor='longDescription'>{trainingEditError.get('longDescription')}</span>
-                </span>
-                </span>
+                            <span className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+                                <span className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                    <input className={'mdl-textfield__input ' + disabled} ref='shortDescription'
+                                           type='text' id='shortDescription' name='shortDescription'
+                                           value={shortDescription}
+                                           onChange={(event) => this.handleShortDescriptionChange(event)}
+                                           disabled={saving}/>
+                                    <label className='mdl-textfield__label'
+                                           htmlFor='shortDescription'>Short description</label>
+                                    <span className="mdl-textfield__error"
+                                          htmlFor='shortDescription'>{trainingEditError.get('shortDescription')}</span>
+                                </span>
+                            </span>
 
-              </span>
+                            <span className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+                                <span className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                    <textarea className={'mdl-textfield__input ' + disabled} ref='longDescription'
+                                              type='text' id='longDescription' name='longDescription' rows="7"
+                                              value={longDescription}
+                                              onChange={(event) => this.handleLongDescriptionChange(event)}
+                                              disabled={saving}></textarea>
+                                    <label className='mdl-textfield__label'
+                                           htmlFor='longDescription'>Long Description</label>
+                                    <span className="mdl-textfield__error"
+                                          htmlFor='longDescription'>{trainingEditError.get('longDescription')}</span>
+                                </span>
+                            </span>
+
+                        </span>
                         <br/>
                         <div className='footer'>
                             {saving ?
@@ -160,11 +175,11 @@ export default class TrainingEdit extends React.Component {
                                     className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap"></div>
                                 :
                                 <div key={'trainingeditbuttonsarenotrerenderedproperlyaftersubmit' + Math.random()}>
-                                    <button type='submit'
+                                    <button id='sub' type='submit'
                                             className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
                                         Submit
                                     </button>
-                                    <button onClick={(event) => this.handleDelete(event)}
+                                    <button id='deletetheshit' onClick={(event) => this.handleDelete(event)}
                                             className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
                                         Delete
                                     </button>
@@ -205,24 +220,13 @@ export default class TrainingEdit extends React.Component {
     }
 
     componentDidMount() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-        // console.log('this.props.location.pathname='+require('util').inspect(this.props.location.pathname, false, null))
-        // if( !this.props.location.pathname=='trainings/item/new')
+        componentHandler.upgradeDom()
         TrainingEdit.fetchData(this.props.actions, this.props.params)
-
-        // TrainingEdit.fetchData(this.props.actions)
-        // console.log('Training edit mounted.'+util.inspect( this.props.params, false, null))
-
-        // const training=this.props.trainingappmap.get('edittraining')
-        // if(process.env.BROWSER && this.props.app.get('previouslocation')!=undefined)
-        // TrainingEdit.fetchData(this.props.actions,this.props.params)
-        // return TrainingEdit.fetchData(this.props.actions,this.props.params)
-        // return Promise.resolve(TrainingEdit.fetchData(this.props.actions,this.props.params))
     }
 
     //This is a necessary call when component is fetched on server side
     static fetchData(actions, params, hostname) {
-        // console.log('Training list fetch data for hostname='+require('util').inspect(hostname, false, null))
+        // console.log('Call Training Edit fetch data  <-----------------------------')
         // console.log('Training edit. get training! param = '+util.inspect( params.id, false, null))
 
         //The return is necessary. if not the fetching is not resolved properly on the server side!
@@ -231,9 +235,9 @@ export default class TrainingEdit extends React.Component {
     }
 
     componentDidUpdate() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Training edit. comp update')
+        componentHandler.upgradeDom()
         const trainingEditError = this.props.trainingappmap.get('trainingEditError')
-        // console.log('Training edit. comp update')
         //Need this code to get correct placeholderfloating  behaviour. otherwise content and placeholder overlap
         var dialogInputs = document.querySelectorAll('.mdl-textfield')
         for (var i = 0, l = dialogInputs.length; i < l; i++) {
@@ -256,6 +260,7 @@ export default class TrainingEdit extends React.Component {
     // }
 
     handleSave(event) {
+        console.log('Save Training ')
         event.preventDefault()
         // const usernameref = this.refs.username
         // const usernameref = $('#usernameid')

@@ -27,6 +27,8 @@ if (process.env.BROWSER) {
     //   require('../../app/jquery.shuffleLetters.js').default
     // })
     require('./admintrainingapp.scss')
+    // require('./trainingedit.scss')
+    // require('./trainingschedule.scss')
 
     var rdm = 0
     var lastrdm = 0
@@ -242,9 +244,9 @@ export default class AdminTrainingApp extends Component {
         return (
             <div>
                 <div className='admintrainingapp'>
-        <span id="textwrap"> 
-          <p id="textswitch"></p>
-        </span>
+                    <span id="textwrap">
+                        <p id="textswitch"></p>
+                    </span>
                     <div>
                         <div className='blockborder parampanel commandpanel'>
                             <TrainingCommandPanel trainings={this.props.trainingappmap.get('trainings')}

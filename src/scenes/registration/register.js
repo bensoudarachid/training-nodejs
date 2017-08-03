@@ -149,7 +149,10 @@ export default class Register extends Component {
                                     {isRegistrationFetching &&
                                     <span
                                         className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap'
-                                        style={{width: '55px', height: '55px'}}></span>
+                                        style={{
+                                            width: '55px',
+                                            height: '55px'
+                                        }}></span>
                                     }
                                 </div>
                             </form>
@@ -173,7 +176,7 @@ export default class Register extends Component {
     // }
 
     componentDidMount() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
         // const isRegistrationFetching = this.props.auth.get('isRegistrationFetching')
         // console.log('Registeration. mount')
         this.props.actions.registerInit()
@@ -187,7 +190,7 @@ export default class Register extends Component {
     componentDidUpdate() {
         let registrationError = this.props.auth.get('registrationError')
         // console.log('Registeration. comp update')
-        // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        // componentHandler.upgradeDom()
         // $('#usernameid').get(0).MaterialTextfield.checkDirty()
         //Need this code to get correct placeholderfloating  behaviour. otherwise content and placeholder overlap
         var dialogInputs = document.querySelectorAll('.mdl-textfield')

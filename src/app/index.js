@@ -1,4 +1,6 @@
 import React from 'react'
+
+require('../../node_modules/babel-polyfill/dist/polyfill.js')
 // var React = require('react');
 import ReactDom from 'react-dom'
 import Immutable from 'immutable'
@@ -227,7 +229,7 @@ ReactDom.render(
 // <Provider store={store}>
 //  <App />
 // </Provider>,
-// 
+//
 
 // <Route handler={AppComponent} path="/">
 //   <DefaultRoute handler={Home} />
@@ -236,5 +238,5 @@ ReactDom.render(
 //   <Route name="todos" handler={TodoApp} />
 //   <Route name="trainings" handler={TrainingApp}>
 //   </Route>
-//   <NotFoundRoute handler={NotFound}/>        
+//   <NotFoundRoute handler={NotFound}/>
 // </Route>

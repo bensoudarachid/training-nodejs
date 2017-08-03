@@ -1,21 +1,8 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _immutable = require('immutable');
-
-var _immutable2 = _interopRequireDefault(_immutable);
-
-var _validator = require('validator');
-
-var _validator2 = _interopRequireDefault(_validator);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+// import _ from 'lodash'
+import Immutable from 'immutable';
+import validator from 'validator';
 
 // import cookie from 'react-cookie'
-// import _ from 'lodash'
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
@@ -47,32 +34,29 @@ var util = require('util');
 //     return Immutable.List([]);
 //   }
 
-var trainingReducer = function trainingReducer() {
-  var trainingappmap = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new _immutable2.default.Map({
-    // loadTrainingImages: false,
-    trainings: undefined, //Immutable.List([])
-    trainingEditError: _immutable2.default.Map({}),
-    isTrainingEditFetching: false
-  });
-  var action = arguments[1];
-
+let trainingReducer = function (trainingappmap = new Immutable.Map({
+  // loadTrainingImages: false,
+  trainings: undefined, //Immutable.List([])
+  trainingEditError: Immutable.Map({}),
+  isTrainingEditFetching: false
+}), action) {
   // let trainingReducer = function(trainingappmap = new Immutable.Map({}), action) {
   // console.log('Training reducer. is Map ' + (trainingappmap instanceof Immutable.Map) )
-  if (!(trainingappmap instanceof _immutable2.default.Map)) {
+  if (!(trainingappmap instanceof Immutable.Map)) {
     console.log('Training reducer. Init Map. Need to find out why it s not a map');
-    trainingappmap = new _immutable2.default.Map({
+    trainingappmap = new Immutable.Map({
       filterOpen: true,
       filterClosed: true,
       // loadTrainingImages: false,
       trainings: undefined, //Immutable.List([])
-      trainingEditError: _immutable2.default.Map({}),
+      trainingEditError: Immutable.Map({}),
       isTrainingEditFetching: false
     });
   }
   // console.log('Training reducer. Filter open: ' + trainingappmap.get('filterOpen'))
   var trainings = trainingappmap.get('trainings');
   var edittraining = trainingappmap.get('edittraining');
-  var index = void 0;
+  let index;
   switch (action.type) {
     case 'CREATE_TRAINING_INIT':
       // console.log('training reducer. init create training : ')
@@ -146,7 +130,7 @@ var trainingReducer = function trainingReducer() {
       trainingappmap = trainingappmap.set('edittraining', editTraining);
       return trainingappmap;
     case 'EDIT_TRAINING_LOADED':
-      if (action.training == undefined) trainingappmap = trainingappmap.set('edittraining', undefined);else trainingappmap = trainingappmap.set('edittraining', _immutable2.default.Map(action.training));
+      if (action.training == undefined) trainingappmap = trainingappmap.set('edittraining', undefined);else trainingappmap = trainingappmap.set('edittraining', Immutable.Map(action.training));
       // console.log('trainings reducer. training loaded. Do something with it' +util.inspect( action.training, false, null))
       return trainingappmap;
 
@@ -162,19 +146,19 @@ var trainingReducer = function trainingReducer() {
         // registrationError = registrationError.set('username','user name required')
         userInputErrors.shortDescription = 'required';
       }
-      if (!_validator2.default.isLength(action.editTraining.get('title').trim(), 0, 40)) userInputErrors.title = 'too long (40 chars max)';
+      if (!validator.isLength(action.editTraining.get('title').trim(), 0, 40)) userInputErrors.title = 'too long (40 chars max)';
 
-      if (!_validator2.default.isLength(action.editTraining.get('shortDescription').trim(), 0, 255)) userInputErrors.shortDescription = 'too long (255 chars max)';
+      if (!validator.isLength(action.editTraining.get('shortDescription').trim(), 0, 255)) userInputErrors.shortDescription = 'too long (255 chars max)';
 
       // console.log('Training reducer userInputErrors.title'+userInputErrors.title)
       // console.log('Training reducer userInputErrors.shortDescription'+userInputErrors.shortDescription)
 
-      trainingappmap = trainingappmap.set('trainingEditError', new _immutable2.default.Map(userInputErrors));
+      trainingappmap = trainingappmap.set('trainingEditError', new Immutable.Map(userInputErrors));
       return trainingappmap;
 
     case 'TRAININGS_LOADED':
-      if (action.trainings == undefined) trainingappmap = trainingappmap.set('trainings', undefined);else trainingappmap = trainingappmap.set('trainings', _immutable2.default.List(action.trainings.map(function (training) {
-        return _immutable2.default.Map(training);
+      if (action.trainings == undefined) trainingappmap = trainingappmap.set('trainings', undefined);else trainingappmap = trainingappmap.set('trainings', Immutable.List(action.trainings.map(training => {
+        return Immutable.Map(training);
       })));
       // trainingappmap = trainingappmap.set('edittraining', undefined)
       // console.log('trainings reducer. trainings loaded '+trainingappmap.get('trainings').size )
@@ -182,12 +166,12 @@ var trainingReducer = function trainingReducer() {
     // return action.trainings
     case 'SAVE_TRAINING':
       console.log('Training reducer. SaveTraining id=' + action.id + 'title = ' + action.text);
-      trainingappmap = trainingappmap.set('trainings', trainings.map(function (training) {
+      trainingappmap = trainingappmap.set('trainings', trainings.map(training => {
         return training.get('id') === action.id ? training.set('title', action.text) : training;
       }));
       return trainingappmap;
     case 'COMPLETE_TRAINING':
-      trainingappmap = trainingappmap.set('trainings', trainings.map(function (training) {
+      trainingappmap = trainingappmap.set('trainings', trainings.map(training => {
         return training.id === action.id ? Object.assign({}, training, {
           completed: !training.completed
         }) : training;
@@ -208,7 +192,7 @@ var trainingReducer = function trainingReducer() {
     //   trainingappmap = trainingappmap.set('loadTrainingImages', false)
     //   return trainingappmap
     case 'DELETE_TRAINING':
-      trainingappmap = trainingappmap.set('trainings', trainings.filter(function (training) {
+      trainingappmap = trainingappmap.set('trainings', trainings.filter(training => {
         return training.get('id') !== action.id;
       }));
       return trainingappmap;
@@ -230,4 +214,4 @@ var trainingReducer = function trainingReducer() {
   }
 };
 
-exports.default = trainingReducer;
+export default trainingReducer;

@@ -20,7 +20,7 @@ export default class AppImage extends React.Component {
         }
     }
 
-    // <img id={'applicationlistitemimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}           
+    // <img id={'applicationlistitemimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}
     //     onLoad={this.handleImageLoaded.bind(this)}
     //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
     // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
@@ -29,7 +29,7 @@ export default class AppImage extends React.Component {
     // :<div>weg</div>
     // }
 
-    // <img id={'applicationlistitemimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}           
+    // <img id={'applicationlistitemimg'+imgid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}
     //     onLoad={this.handleImageLoaded.bind(this)}
     //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
 
@@ -83,7 +83,7 @@ export default class AppImage extends React.Component {
         //         <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
         //         :<div/>
         //     }
-        //         <img id={'applicationlistitemimg'+imgid} src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}           
+        //         <img id={'applicationlistitemimg'+imgid} src={ApiConnection.apiurl+'/api/application/img/'+imgid+'?access_token='+ idToken}
         //             onLoad={this.handleImageLoaded.bind(this)}
         //             onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
         //     </div>
@@ -91,8 +91,8 @@ export default class AppImage extends React.Component {
     }
 
     componentDidMount() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-        // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
+        // componentHandler.upgradeDom()
         // console.log('++++++++++++++++ applicationimage ++++++ componentDidMount ')
         // this.loadImage()
         // const imgid = this.props.imgid
@@ -100,20 +100,20 @@ export default class AppImage extends React.Component {
         // // var imgbg=elm.find('.imgbg')
         // var img=elm.find('.dataimg')
         // // var imgSpinner=elm.find('.mdl-spinner')
-        // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+        // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
         //   img[0].removeAttribute('src')
         //   img[0].setAttribute('src', img[0].getAttribute('data-src'))
         //   img[0].removeAttribute('data-src')
         //   this.setState({
         //     imageLoaded: undefined
         //   })
-        // }        
+        // }
     }
 
     componentDidUpdate() {
-        // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-        require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
-        // console.log('++++++++++++++++ applicationimage ++++++ componentDidUpdate '+this.props.isUploading)   
+        // componentHandler.upgradeDom()
+        componentHandler.upgradeAllRegistered()
+        // console.log('++++++++++++++++ applicationimage ++++++ componentDidUpdate '+this.props.isUploading)
 
         const imgid = this.props.imgid
         const api = this.props.api
@@ -134,7 +134,7 @@ export default class AppImage extends React.Component {
         // console.log('++++++++++++++++ applicationimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))
 
 
-        if (this.props.isUploading == false) {//img is a jquery object img[0] is the dom object 
+        if (this.props.isUploading == false) {//img is a jquery object img[0] is the dom object
             const idToken = cookie.load('jwt')
             const idTokenParam = idToken == undefined ? '' : '&access_token=' + idToken
             // img[0].removeAttribute('src')
@@ -142,7 +142,7 @@ export default class AppImage extends React.Component {
             img.setAttribute('data-src', ApiConnection.apiurl + ApiConnection.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam + '&rdparam=' + Math.floor(Math.random() * 10000))
         }
         // var imgSpinner=elm.find('.mdl-spinner')
-        if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+        if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
             // img[0].removeAttribute('src')
             var imgSpinner = elm.find('.mdl-spinner')
             // imgSpinner.remove()
@@ -222,7 +222,7 @@ export default class AppImage extends React.Component {
     //   var img=elm.find('.dataimg')
     //   // var imgSpinner=elm.find('.mdl-spinner')
 
-    //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+    //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
     //     img[0].setAttribute('src', img[0].getAttribute('data-src'))
     //     img[0].onload = function() {
     //       img[0].removeAttribute('data-src')
@@ -237,7 +237,7 @@ export default class AppImage extends React.Component {
     //         imageLoaded: true
     //       })
     //     }.bind(this)
-    //   }    
+    //   }
     // }
 
 }

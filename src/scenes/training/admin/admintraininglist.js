@@ -18,7 +18,7 @@ export default class AdminTrainingList extends React.Component {
     }
 
     componentDidMount() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
     }
 
     renderItems() {
@@ -42,7 +42,10 @@ export default class AdminTrainingList extends React.Component {
                 {this.props.trainings == undefined ?
                     //if i use div instead of span, big parts of the view are not clickable!
                     <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap'
-                          style={{width: '55px', height: '55px'}}></span>
+                          style={{
+                              width: '55px',
+                              height: '55px'
+                          }}></span>
                     :
                     <div className='admintrainingslistwrap mdl-grid mdl-grid--no-spacing'>
                         {this.renderItems()}

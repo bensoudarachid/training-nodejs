@@ -1,18 +1,8 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _immutable = require('immutable');
-
-var _immutable2 = _interopRequireDefault(_immutable);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+// import _ from 'lodash'
+import Immutable from 'immutable';
 
 // import cookie from 'react-cookie'
-require('es6-promise').polyfill(); // import _ from 'lodash'
-
+require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 // function getId(todos) {
@@ -41,20 +31,17 @@ require('isomorphic-fetch');
 //     return Immutable.List([]);
 //   }
 
-var todoReducer = function todoReducer() {
-  var todoappmap = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new _immutable2.default.Map({
-    filterOpen: true,
-    filterClosed: true,
-    // loadTodoImages: false,
-    todos: undefined //Immutable.List([])
-  });
-  var action = arguments[1];
-
+let todoReducer = function (todoappmap = new Immutable.Map({
+  filterOpen: true,
+  filterClosed: true,
+  // loadTodoImages: false,
+  todos: undefined //Immutable.List([])
+}), action) {
   // let todoReducer = function(todoappmap = new Immutable.Map({}), action) {
   // console.log('Todo reducer. is Map ' + (todoappmap instanceof Immutable.Map) )
-  if (!(todoappmap instanceof _immutable2.default.Map)) {
+  if (!(todoappmap instanceof Immutable.Map)) {
     console.log('Todo reducer. Init Map. Need to find out why it s not a map');
-    todoappmap = new _immutable2.default.Map({
+    todoappmap = new Immutable.Map({
       filterOpen: true,
       filterClosed: true,
       // loadTodoImages: false,
@@ -63,7 +50,7 @@ var todoReducer = function todoReducer() {
   }
   // console.log('Todo reducer. Filter open: ' + todoappmap.get('filterOpen'))
   var todos = todoappmap.get('todos');
-  var index = void 0;
+  let index;
   switch (action.type) {
     case 'CREATE_TODO_INIT':
       // console.log('todo reducer. init create todo : ')
@@ -117,19 +104,19 @@ var todoReducer = function todoReducer() {
       return todoappmap;
     case 'TODOS_LOADED':
       // console.log('todos reducer. todos loaded')
-      todoappmap = todoappmap.set('todos', _immutable2.default.List(action.todos.map(function (todo) {
-        return _immutable2.default.Map(todo);
+      todoappmap = todoappmap.set('todos', Immutable.List(action.todos.map(todo => {
+        return Immutable.Map(todo);
       })));
       return todoappmap;
     // return action.todos
     case 'SAVE_TODO':
       console.log('Todo reducer. SaveTodo id=' + action.id + 'task = ' + action.text);
-      todoappmap = todoappmap.set('todos', todos.map(function (todo) {
+      todoappmap = todoappmap.set('todos', todos.map(todo => {
         return todo.get('id') === action.id ? todo.set('task', action.text) : todo;
       }));
       return todoappmap;
     case 'COMPLETE_TODO':
-      todoappmap = todoappmap.set('todos', todos.map(function (todo) {
+      todoappmap = todoappmap.set('todos', todos.map(todo => {
         return todo.id === action.id ? Object.assign({}, todo, {
           completed: !todo.completed
         }) : todo;
@@ -149,12 +136,12 @@ var todoReducer = function todoReducer() {
     //   todoappmap = todoappmap.set('loadTodoImages', false)
     //   return todoappmap
     case 'DELETE_TODO':
-      todoappmap = todoappmap.set('todos', todos.filter(function (todo) {
+      todoappmap = todoappmap.set('todos', todos.filter(todo => {
         return todo.get('id') !== action.id;
       }));
       return todoappmap;
     case 'FILTER_TODOS':
-      todoappmap = todoappmap.set('todos', todos.filter(function (todo) {
+      todoappmap = todoappmap.set('todos', todos.filter(todo => {
         return action.filterTodos === undefined || todo.get('completed') && action.filterTodos === 'closed' || todo.get('open') && action.filterTodos === 'open';
       }));
       return todoappmap;
@@ -185,4 +172,4 @@ var todoReducer = function todoReducer() {
   }
 };
 
-exports.default = todoReducer;
+export default todoReducer;

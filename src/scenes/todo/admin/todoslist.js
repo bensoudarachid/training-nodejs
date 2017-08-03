@@ -1,5 +1,4 @@
 import React from 'react'
-//import { ThreeBounce } from 'better-react-spinkit'
 import Immutable from 'immutable'
 import TodosListItem from './todoslistitem'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
@@ -16,13 +15,19 @@ export default class TodosList extends React.Component {
     }
 
     componentDidMount() {
+        componentHandler.upgradeDom()
 //    console.log('mounted')
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        // componentHandler.upgradeDom()
+        // require('exports-loader?mdl=componentHandler!material-design-lite/material').upgradeDom()
+
     }
 
     componentDidUpdate() {
 //    console.log('updated')
-        require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
+        componentHandler.upgradeAllRegistered()
+        console.log('componentHandler=' + require('util').inspect(componentHandler, false, null))
+        // componentHandler.upgradeAllRegistered()
+        // require('exports-loader?mdl=componentHandler!material-design-lite/material').upgradeAllRegistered()
     }
 
     getItems() {
@@ -75,8 +80,10 @@ export default class TodosList extends React.Component {
         return (
             <div className='todoslist'>
                 {this.props.todos == undefined ?
-                    <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active'
-                         style={{width: '55px', height: '55px'}}></div>
+                    <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{
+                        width: '55px',
+                        height: '55px'
+                    }}></div>
                     :
                     <span>{this.renderItems()}</span>
                 }

@@ -1,15 +1,5 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _immutable = require('immutable');
-
-var _immutable2 = _interopRequireDefault(_immutable);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+// import _ from 'lodash'
+import Immutable from 'immutable';
 // import {
 //   LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS
 // } from '../actions'
@@ -18,18 +8,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // based on a token being in local storage. In a real app,
 // we would also want a util to check if the token is expired.
 
-var appReducer = function appReducer() {
-  var app = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new _immutable2.default.Map({
-    appError: undefined,
-    previouslocation: undefined,
-    serverDataFetched: true
-  });
-  var action = arguments[1];
+let appReducer = function (app = new Immutable.Map({
+  appError: undefined,
+  previouslocation: undefined,
+  serverDataFetched: true
+}), action) {
 
-
-  if (!(app instanceof _immutable2.default.Map)) {
+  if (!(app instanceof Immutable.Map)) {
     console.log('App reducer. Init Map. Need to find out why it s not a map');
-    app = new _immutable2.default.Map({
+    app = new Immutable.Map({
       appError: '',
       previouslocation: undefined,
       serverDataFetched: true
@@ -74,5 +61,6 @@ var appReducer = function appReducer() {
     default:
       return app;
   }
-}; // import _ from 'lodash'
-exports.default = appReducer;
+};
+
+export default appReducer;

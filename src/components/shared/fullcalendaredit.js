@@ -21,7 +21,7 @@ export default class Calendar extends React.Component {
 
     componentDidMount() {
         console.log('events=' + require('util').inspect(this.props.events, false, null))
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
         const {calendar} = this.refs
         $(calendar).fullCalendar({
 

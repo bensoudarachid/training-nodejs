@@ -14,10 +14,12 @@
   .commandpanel {
     width: 95%;
     // margin: 0 auto !important;
-    @media (min-width: 768px) { //768
+    @media (min-width: 768px) {
+      //768
       width: 90%;
     }
-    @media (min-width: 992px) { //992
+    @media (min-width: 992px) {
+      //992
       width: 85%;
     }
   }
@@ -34,12 +36,14 @@
   // background-color: black;
   margin-top: -28px;
   left: 10px;
-  @media (min-width: 768px) { //768
+  @media (min-width: 768px) {
+    //768
     margin-top: -32px;
     left: 10px;
     // background-color: black;
   }
-  @media (min-width: 992px) { //992
+  @media (min-width: 992px) {
+    //992
     left: 6%;
     margin-top: -36px;
   }

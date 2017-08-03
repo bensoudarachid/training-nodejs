@@ -1,5 +1,3 @@
-'use strict';
-
 /*
  *  waterpipe.js - v1.0
  *  jQuery plugin. Smoky backgrounds generator
@@ -46,17 +44,17 @@
   }
 
   Smoke.prototype = {
-    init: function init() {
+    init: function () {
       this.initSettings();
       this.initCanvas();
       this.generate();
     },
-    initSettings: function initSettings() {
+    initSettings: function () {
       var radius = this.$element.height() * 0.8 / 2;
       if (this.settings.maxMaxRad === 'auto') this.settings.maxMaxRad = radius;
       if (this.settings.minMaxRad === 'auto') this.settings.minMaxRad = radius;
     },
-    initCanvas: function initCanvas() {
+    initCanvas: function () {
       this.displayCanvas = this.$element.find('canvas');
       this.displayWidth = this.$element[0].clientWidth;
       this.displayHeight = this.$element[0].clientHeight;
@@ -70,7 +68,7 @@
       this.exportCanvas.height = this.displayHeight;
       this.exportContext = this.exportCanvas.getContext('2d');
     },
-    generate: function generate() {
+    generate: function () {
       this.drawCount = 0;
       this.context.setTransform(1, 0, 0, 1, 0, 0);
       this.context.clearRect(0, 0, this.displayWidth, this.displayHeight);
@@ -85,7 +83,7 @@
         inst.onTimer();
       }, inst.settings.speed);
     },
-    fillBackground: function fillBackground() {
+    fillBackground: function () {
       var outerRad = Math.sqrt(this.displayWidth * this.displayWidth + this.displayHeight * this.displayHeight) / 2;
       this.niceGradient = new SmokeNiceBG(this.displayWidth * 0.75, this.displayHeight / 2 * 0.75, 0, this.displayWidth / 2, this.displayHeight / 4, outerRad);
 
@@ -104,7 +102,7 @@
       this.niceGradient.addColorStop(1, r1, g1, b1);
       this.niceGradient.fillRect(this.context, 0, 0, this.displayWidth, this.displayHeight);
     },
-    setCircles: function setCircles() {
+    setCircles: function () {
       var i;
       var r, g, b, a;
       var maxR, minR;
@@ -141,7 +139,7 @@
         newCircle.pointList2 = this.setLinePoints(this.settings.iterations);
       }
     },
-    onTimer: function onTimer() {
+    onTimer: function () {
       var i, j;
       var c;
       var rad;
@@ -215,7 +213,7 @@
         }
       }
     },
-    setLinePoints: function setLinePoints(iterations) {
+    setLinePoints: function (iterations) {
       var pointList = {};
       pointList.first = { x: 0, y: 1 };
       var lastPoint = { x: 1, y: 1 };
@@ -239,10 +237,10 @@
           newY = 0.5 * (point.y + nextPoint.y);
           newY += dx * (Math.random() * 2 - 1);
 
-          var newPoint = { x: newX, y: newY };
+          var newPoint = { x: newX, y: newY
 
-          //min, max
-          if (newY < minY) {
+            //min, max
+          };if (newY < minY) {
             minY = newY;
           } else if (newY > maxY) {
             maxY = newY;
@@ -276,10 +274,10 @@
 
       return pointList;
     },
-    setOption: function setOption(optionName, optionValue) {
+    setOption: function (optionName, optionValue) {
       this.settings[optionName] = optionValue;
     },
-    hexToRGBA: function hexToRGBA(hex, opacity) {
+    hexToRGBA: function (hex, opacity) {
       hex = hex.replace('#', '');
       var r = parseInt(hex.substring(0, 2), 16);
       var g = parseInt(hex.substring(2, 4), 16);
@@ -288,7 +286,7 @@
       var result = 'rgba(' + r + ',' + g + ',' + b + ',' + opacity + ')';
       return result;
     },
-    download: function download(width, height) {
+    download: function (width, height) {
       this.exportContext.drawImage(this.displayCanvas[0], 0, 0, width, height, 0, 0, width, height);
       //we will open a new window with the image contained within:        
       //retrieve canvas image as data URL:

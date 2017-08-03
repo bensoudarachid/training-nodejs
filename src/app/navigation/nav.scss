@@ -1,4 +1,5 @@
 @import '../../styles/default.scss';
+
 // @import "../../../node_modules/material-design-lite/src/_variables.scss";
 
 #bsnavi {
@@ -277,7 +278,8 @@
   //	background-color:red;
   //}
 
-  @media (min-width: 768px) { //768
+  @media (min-width: 768px) {
+    //768
     .navbar-left, .navbar-right {
       // background-color:lighten(blue,40%);
       //	  	float: right;
@@ -409,7 +411,8 @@
 
   }
 
-  @media (min-width: 992px) { //992
+  @media (min-width: 992px) {
+    //992
     width: 90%;
 
     @include transitionAll(.3s);

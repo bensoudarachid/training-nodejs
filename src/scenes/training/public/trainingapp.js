@@ -76,7 +76,7 @@ if (process.env.BROWSER) {
     //   }, 2000 )
     // }
 
-    // $(document).ready(function() { 
+    // $(document).ready(function() {
     //   // textSwitchContainer = $('#textswitch')
     //   window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass']
     //   window.textswitcher()
@@ -130,7 +130,7 @@ class TrainingApp extends Component {
     //     trainings
     //   }
     // }
-    // static fetchData () {  
+    // static fetchData () {
     //   console.log('trainingapp. load trainings')
     //   var test='This is abbas in the hood!'
 
@@ -219,7 +219,7 @@ class TrainingApp extends Component {
     //     </div>
     //     )
     // }
-    // <div id="text-wrapper"> 
+    // <div id="text-wrapper">
     //   <p id="textswitch">Welcome!</p>
     // </div>
 
@@ -275,9 +275,9 @@ class TrainingApp extends Component {
         return (
             <div>
                 <div className='trainingapp'>
-        <span id="textwrap"> 
-          <p id="textswitch"></p>
-        </span>
+                    <span id="textwrap">
+                        <p id="textswitch"></p>
+                    </span>
                     <div>
                         <TrainingList trainings={this.props.trainingappmap.get('trainings')}
                                       actions={this.props.actions}/>

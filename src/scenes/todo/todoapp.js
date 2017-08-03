@@ -35,7 +35,7 @@ class TodoApp extends Component {
     componentDidMount() {
         //console.log('todoappjs mounted. Call fetchdata')
         TodoApp.fetchData(this.props.actions)
-        // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        // componentHandler.upgradeDom()
     }
 
     //This is a necessary call when component is fetched on server side

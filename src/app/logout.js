@@ -11,7 +11,8 @@ export default class Logout extends Component {
 
         return (
             <button onClick={() => this.handleClick()} className="btn btn-primary">
-                <span className='glyphicon glyphicon-log-out'></span> Logout
+                <span className='glyphicon glyphicon-log-out'></span>
+                Logout
             </button>
         )
     }

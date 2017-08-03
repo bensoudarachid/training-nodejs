@@ -70,7 +70,7 @@ class Calendar extends React.Component {
                     min={new Date(2001, 0, 7, 8, 0, 0, 0)}
                     max={new Date(2001, 0, 7, 22, 0, 0, 0)}
                     // min={moment().startOf('day').toDate()}
-                    // max={moment().endOf('day').toDate()}      
+                    // max={moment().endOf('day').toDate()}
                     culture='en-GB'
                     // events={myevents}
                     // style={{height: '420px'}}
@@ -95,7 +95,7 @@ class Calendar extends React.Component {
 
     componentDidMount() {
         // console.log('events='+require('util').inspect(this.props.events, false, null))
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
         // const {calendar} = this.refs
         // $(calendar).fullCalendar({
 
@@ -103,7 +103,7 @@ class Calendar extends React.Component {
         //   timezone:'local',
         //   defaultView: 'agendaWeek',
         //   header: { center: 'Time Sheet',right:'agendaWeek'},
-        //   navLinks: false, 
+        //   navLinks: false,
         //   editable: true,
         //   eventLimit: true,
         //   // allDaySlot: false,
@@ -111,7 +111,7 @@ class Calendar extends React.Component {
         //   minTime : '08:00:00',
         //   maxTime : '22:00:00',
         //   // defaultdate: dateFormat(Date(),"yyyy-mm-dd"),
-        //   contentHeight: 'auto',         
+        //   contentHeight: 'auto',
 
         //   events:this.props.events,
         // })
@@ -129,14 +129,23 @@ class Calendar extends React.Component {
         const {localevents} = this.state
 
         const idx = localevents.indexOf(event)
-        const updatedEvent = {...event, start, end}
+        const updatedEvent = {
+            ...
+                event, start, end
+        }
 
         const nextEvents = [...localevents]
-        nextEvents.splice(idx, 1, updatedEvent)
+        nextEvents
+            .splice(idx,
 
-        this.setState({
-            localevents: nextEvents
-        })
+                1,
+                updatedEvent
+            )
+
+        this
+            .setState({
+                localevents: nextEvents
+            })
 
         // alert(`${event.title} was dropped onto ${event.start}`)
     }

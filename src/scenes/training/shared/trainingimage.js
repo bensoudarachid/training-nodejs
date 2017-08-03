@@ -18,7 +18,7 @@ export default class TrainingImage extends React.Component {
         }
     }
 
-    // <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken}           
+    // <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken}
     //     onLoad={this.handleImageLoaded.bind(this)}
     //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
     // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
@@ -27,7 +27,7 @@ export default class TrainingImage extends React.Component {
     // :<div>weg</div>
     // }
 
-    // <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken}           
+    // <img id={'traininglistitemimg'+trainingid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken}
     //     onLoad={this.handleImageLoaded.bind(this)}
     //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
 
@@ -63,7 +63,7 @@ export default class TrainingImage extends React.Component {
         //         <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
         //         :<div/>
         //     }
-        //         <img id={'traininglistitemimg'+trainingid} src={ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken}           
+        //         <img id={'traininglistitemimg'+trainingid} src={ApiConnection.apiurl+'/api/training/img/'+trainingid+'?access_token='+ idToken}
         //             onLoad={this.handleImageLoaded.bind(this)}
         //             onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
         //     </div>
@@ -71,8 +71,8 @@ export default class TrainingImage extends React.Component {
     }
 
     componentDidMount() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-        // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
+        // componentHandler.upgradeDom()
         // console.log('++++++++++++++++ trainingimage ++++++ componentDidMount ')
         // this.loadImage()
         // const trainingid = this.props.trainingid
@@ -80,20 +80,20 @@ export default class TrainingImage extends React.Component {
         // // var imgbg=elm.find('.imgbg')
         // var img=elm.find('.dataimg')
         // // var imgSpinner=elm.find('.mdl-spinner')
-        // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+        // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
         //   img[0].removeAttribute('src')
         //   img[0].setAttribute('src', img[0].getAttribute('data-src'))
         //   img[0].removeAttribute('data-src')
         //   this.setState({
         //     imageLoaded: undefined
         //   })
-        // }        
+        // }
     }
 
     componentDidUpdate() {
-        // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-        require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
-        // console.log('++++++++++++++++ trainingimage ++++++ componentDidUpdate '+this.props.isUploading)   
+        // componentHandler.upgradeDom()
+        componentHandler.upgradeAllRegistered()
+        // console.log('++++++++++++++++ trainingimage ++++++ componentDidUpdate '+this.props.isUploading)
 
         const trainingid = this.props.trainingid
         var elm = $('#imgwrap' + trainingid)
@@ -105,13 +105,13 @@ export default class TrainingImage extends React.Component {
         // console.log('++++++++++++++++ trainingimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))
 
 
-        if (this.props.isUploading == false) {//img is a jquery object img[0] is the dom object 
+        if (this.props.isUploading == false) {//img is a jquery object img[0] is the dom object
             const idToken = cookie.load('jwt')
             // img[0].removeAttribute('src')
             img.setAttribute('data-src', ApiConnection.apiurl + '/api/training/img/' + trainingid + '?access_token=' + idToken + '&rdparam=' + Math.floor(Math.random() * 10000))
         }
         // var imgSpinner=elm.find('.mdl-spinner')
-        if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+        if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
             // img[0].removeAttribute('src')
             var imgSpinner = elm.find('.mdl-spinner')
             // imgSpinner.remove()
@@ -186,7 +186,7 @@ export default class TrainingImage extends React.Component {
     //   var img=elm.find('.dataimg')
     //   // var imgSpinner=elm.find('.mdl-spinner')
 
-    //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+    //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
     //     img[0].setAttribute('src', img[0].getAttribute('data-src'))
     //     img[0].onload = function() {
     //       img[0].removeAttribute('data-src')
@@ -201,7 +201,7 @@ export default class TrainingImage extends React.Component {
     //         imageLoaded: true
     //       })
     //     }.bind(this)
-    //   }    
+    //   }
     // }
 
 }

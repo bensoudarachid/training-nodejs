@@ -23,12 +23,12 @@ export default class AdminTrainingListItem extends React.Component {
     }
 
     componentDidMount() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
         // this.loadImage()
     }
 
     // componentDidUpdate() {
-    //   require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+    //   componentHandler.upgradeDom()
     //   var dialogInputs = document.querySelectorAll('.mdl-textfield')
     //   for (var i = 0, l = dialogInputs.length; i < l; i++) {
     //     dialogInputs[i].MaterialTextfield.checkDirty()
@@ -64,7 +64,9 @@ export default class AdminTrainingListItem extends React.Component {
                         <AppImage ref='uploadcomp' api='training' imgid={trainingid} isUploading={isUploading}/>
                     </div>
                     <div className='mdl-cell mdl-cell--11-col mdl-cell--7-col-tablet mdl-cell--3-col-phone'>
-                        <h4>{title}</h4><h5>{secondaryTitle}</h5></div>
+                        <h4>{title}</h4>
+                        <h5>{secondaryTitle}</h5>
+                    </div>
                     <hr/>
                     <div
                         className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone ellipsis multiline shortdescription'>{shortDescription}</div>

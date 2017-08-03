@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+// require('../../../node_modules/material-design-lite/dist//material.css')
+// require('../../../node_modules/material-design-lite/dist/material.js')
 
 
 if (process.env.BROWSER) {
@@ -41,14 +43,15 @@ export default class FileUploadInput extends Component {
         )
     }
 
-    // <input ref='file_input_text' name='file_input_text' className="mdl-textfield mdl-js-textfield" type="text" disabled readonly/> 
+    // <input ref='file_input_text' name='file_input_text' className="mdl-textfield mdl-js-textfield" type="text" disabled readonly/>
     // <div ref='file_input_text_div' className='bgr mdl-textfield mdl-js-textfield'>
     //   <input ref='file_input_text' name='file_input_text' className='bgp file_input_text mdl-textfield__input' type='text' disabled readonly />
     // </div>
 //<label className='mdl-textfield__label' htmlFor='file_input_text'></label>
 
     componentDidMount() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
+        // componentHandler.upgradeDom()
         var fileInput = this.refs.file_input_file
         fileInput.addEventListener('change', this.changeInputText)
         fileInput.addEventListener('change', this.changeState)

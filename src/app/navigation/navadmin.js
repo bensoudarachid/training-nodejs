@@ -59,10 +59,10 @@ if (process.env.BROWSER) {
     //   })
     // })
 
-    // $(document).ready(function() { 
+    // $(document).ready(function() {
 
     //   $('body').click(function(event) {
-    //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
+    //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called
     //     console.log('loginjs andle request login in progress click')
     //     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
     //       $('.navbar-collapse').collapse('toggle')
@@ -77,7 +77,7 @@ if (process.env.BROWSER) {
 
 class NavAdmin extends Component {
     // <div>
-    //    </div>    
+    //    </div>
     // {this.props.location.pathname!='/register' &&
 //     	<Link activeClassName='active' to='/register'>Register</Link>
 // }
@@ -101,7 +101,9 @@ class NavAdmin extends Component {
         return (
             <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
                 <ul className='navbar-header logoblock'>
-                    <li><img id='logo' src={'/images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/></li>
+                    <li>
+                        <img id='logo' src={'/images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/>
+                    </li>
                     <li>
                         <div>
                             <h2>ROYA</h2>
@@ -119,22 +121,34 @@ class NavAdmin extends Component {
                 </ul>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul className="nav navbar-nav navbar-left">
-                        <li><IndexLink activeClassName='active' to='/'>Home</IndexLink></li>
+                        <li>
+                            <IndexLink activeClassName='active' to='/'>Home</IndexLink>
+                        </li>
                         {(process.env.NODE_ENV != 'production' || process.env.NODE_ENV == 'production') &&
-                        <li><Link activeClassName='active' to='/admin/todos'>Todos</Link></li>
+                        <li>
+                            <Link activeClassName='active' to='/admin/todos'>Todos</Link>
+                        </li>
                         }
-                        <li><Link activeClassName='active' to='/admin/trainings'>Training</Link></li>
-                        <li><Link activeClassName='active' to='/users'>User</Link></li>
+                        <li>
+                            <Link activeClassName='active' to='/admin/trainings'>Training</Link>
+                        </li>
+                        <li>
+                            <Link activeClassName='active' to='/users'>User</Link>
+                        </li>
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
                         {isBrowser && !isAuthenticated &&
-                        <li><a href='#' onClick={(event) => this.handleLoginClick(event)}><span
-                            className='glyphicon glyphicon-log-in'></span> Login</a></li>
+                        <li>
+                            <a href='#' onClick={(event) => this.handleLoginClick(event)}>
+                                <span className='glyphicon glyphicon-log-in'></span>
+                                Login</a>
+                        </li>
                         }
                         {isAuthenticated &&
                         <li>
-                            <a href='#' onClick={(event) => this.props.actions.logoutUser()}><span
-                                className='glyphicon glyphicon-log-out'></span> Logout</a>
+                            <a href='#' onClick={(event) => this.props.actions.logoutUser()}>
+                                <span className='glyphicon glyphicon-log-out'></span>
+                                Logout</a>
                         </li>
                         }
                     </ul>
@@ -160,4 +174,4 @@ export default NavAdmin
 //   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
 //   }
 
-//    </div>    
+//    </div>

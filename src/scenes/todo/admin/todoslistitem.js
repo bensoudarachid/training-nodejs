@@ -27,7 +27,7 @@ export default class TodosListItem extends React.Component {
     //   <div className='mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet mdl-cell--4-col-phone' style={taskStyle} onClick={this.handleToggle.bind(this)}>{task}</div>
     //   <div className='mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--2-col-phone'><button className='editbutton active' onClick={this.onEditClick.bind(this)}>Edit</button></div>
     //   <div className='mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone'><button onClick={this.handleDelete.bind(this)}>Delete</button></div>
-    // </form>      
+    // </form>
 
     // renderTaskFormOld() {
     //   const idToken = cookie.load('jwt')
@@ -71,7 +71,7 @@ export default class TodosListItem extends React.Component {
     //               <div className='mdl-textfield tf mdl-js-textfield'>
     //                 <input className='mdl-textfield__input' type='text' defaultValue={task} name={'taskInput'+index} ref='taskInput' id={'taskInput'+index}/>
     //                 <label className='mdl-textfield__label' htmlFor={'taskInput'+index}>Task...</label>
-    //               </div>            
+    //               </div>
     //           </div>
     //         </form>
     //         <div className='editsaveblock pad mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
@@ -79,17 +79,17 @@ export default class TodosListItem extends React.Component {
     //           <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored savebutton right-items' onClick={this.onSaveClick.bind(this)} disabled={disabled}>Save</button>
     //         </div>
     //         {uploadBlock}
-    //       </div>      
+    //       </div>
     //       )
     //   }
-    //   else 
+    //   else
     //     return (
     //       <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
     //         <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'><div className={errorClass}>{error}</div></div>
     //         <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'><div className={loadingClass}>{loadingContent}</div></div>
     //         <form className='pad mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--4-col mdl-cell--5-col-tablet mdl-cell--4-col-phone' onSubmit={this.onSaveClick.bind(this)}>
     //           <div className='mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--4-col-phone' style={taskStyle} onClick={this.handleToggle.bind(this)}><p>{task}</p></div>
-    //         </form>      
+    //         </form>
     //         <div className='editsaveblock pad mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
     //           <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items' onClick={this.handleDelete.bind(this)} disabled={disabled}>Delete</button>
     //           <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored editbutton active right-items' onClick={this.onEditClick.bind(this)} disabled={disabled}>Edit</button>
@@ -111,12 +111,14 @@ export default class TodosListItem extends React.Component {
     }
 
     componentDidMount() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-        // this.loadImage()
+        componentHandler.upgradeDom()
+        // componentHandler.upgradeDom()
     }
 
     componentDidUpdate() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        // componentHandler.upgradeAllRegistered()
+        componentHandler.upgradeDom()
+        // componentHandler.upgradeDom()
         var dialogInputs = document.querySelectorAll('.mdl-textfield')
         for (var i = 0, l = dialogInputs.length; i < l; i++) {
             // if( dialogInputs[i].MaterialTextfield != undefined )
@@ -311,7 +313,9 @@ export default class TodosListItem extends React.Component {
                             className='pad mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--7-col mdl-cell--5-col-tablet mdl-cell--4-col-phone'
                             onSubmit={this.onSaveClick.bind(this)}>
                             <div className='mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--4-col-phone'
-                                 style={taskStyle} onClick={this.handleToggle.bind(this)}><p>{task}</p></div>
+                                 style={taskStyle} onClick={this.handleToggle.bind(this)}>
+                                <p>{task}</p>
+                            </div>
                         </form>
                         <div
                             className='editsaveblock pad mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
@@ -353,14 +357,14 @@ export default class TodosListItem extends React.Component {
 
 
 // }
-// else 
+// else
 //   return (
 //     <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
 //       <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'><div className={errorClass}>{error}</div></div>
 //       <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'><div className={loadingClass}>{loadingContent}</div></div>
 //       <form className='pad mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--4-col mdl-cell--5-col-tablet mdl-cell--4-col-phone' onSubmit={this.onSaveClick.bind(this)}>
 //         <div className='mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--4-col-phone' style={taskStyle} onClick={this.handleToggle.bind(this)}><p>{task}</p></div>
-//       </form>      
+//       </form>
 //       <div className='editsaveblock pad mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
 //         <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items' onClick={this.handleDelete.bind(this)} disabled={disabled}>Delete</button>
 //         <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored editbutton active right-items' onClick={this.onEditClick.bind(this)} disabled={disabled}>Edit</button>

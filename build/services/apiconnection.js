@@ -1,20 +1,8 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var version = require('./version.js');
+const version = require('./version.js');
 var apiport = 8083; // default for development
 
-var ApiConnection = function () {
-  function ApiConnection() {
-    _classCallCheck(this, ApiConnection);
-
+class ApiConnection {
+  constructor() {
     console.log('version=' + require('util').inspect(version, false, null));
 
     var port = -12;
@@ -63,18 +51,12 @@ var ApiConnection = function () {
     this.appbasename = appbasename;
     // this.apiport=apiport
   }
+  getApiConnection(hostname) {
+    if (hostname == 'rlearn.herokuapp.com')
+      // return 'https://reactlearning.royasoftware.com:9083'
+      return 'https://reactlearning.school.royasoftware.com:' + apiport;else return 'http://' + hostname + ':' + apiport;
+    // return 'http://127.0.0.1:8083' //not helpful to resolve single tenants on server side calls
+  }
+}
 
-  _createClass(ApiConnection, [{
-    key: 'getApiConnection',
-    value: function getApiConnection(hostname) {
-      if (hostname == 'rlearn.herokuapp.com')
-        // return 'https://reactlearning.royasoftware.com:9083'
-        return 'https://reactlearning.school.royasoftware.com:' + apiport;else return 'http://' + hostname + ':' + apiport;
-      // return 'http://127.0.0.1:8083' //not helpful to resolve single tenants on server side calls
-    }
-  }]);
-
-  return ApiConnection;
-}();
-
-exports.default = new ApiConnection();
+export default new ApiConnection();

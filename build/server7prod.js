@@ -1,64 +1,28 @@
-'use strict';
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _express = require('express');
-
-var _express2 = _interopRequireDefault(_express);
-
-var _http = require('http');
-
-var _http2 = _interopRequireDefault(_http);
-
-var _reactRouter = require('react-router');
-
-var _server = require('react-dom/server');
-
-var _routes = require('./app/routes');
-
-var _redux = require('redux');
-
-var _rootreducer = require('./services/rootreducer');
-
-var _rootreducer2 = _interopRequireDefault(_rootreducer);
-
-var _reduxLogger = require('redux-logger');
-
-var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
-
-var _reduxThunk = require('redux-thunk');
-
-var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-
-var _fs = require('fs');
-
-var _fs2 = _interopRequireDefault(_fs);
-
-var _multer = require('multer');
-
-var _multer2 = _interopRequireDefault(_multer);
-
-var _reactRedux = require('react-redux');
-
-var _actions = require('./services/actions');
-
-var _actions2 = _interopRequireDefault(_actions);
-
-var _apiconnection = require('./services/apiconnection');
-
-var _apiconnection2 = _interopRequireDefault(_apiconnection);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 // require('babel-core/register')
 // require('babel-register')({
 //   'presets': ['es2015']
 // })
+import React from 'react';
+import express from 'express';
+import http from 'http';
+import { RouterContext, match } from 'react-router';
+import { renderToString } from 'react-dom/server';
+import { routes } from './app/routes';
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './services/rootreducer';
+import createLogger from 'redux-logger';
+import thunk from 'redux-thunk';
+import fs from 'fs';
+import multer from 'multer';
+
+import { Provider } from 'react-redux';
+
+import { bindActionCreators } from 'redux';
+import actions from './services/actions';
+import ApiConnection from './services/apiconnection';
 var assets = require('../assets/assets.json');
 var FormData = require('form-data');
-var util = require('util');
+const util = require('util');
 var compression = require('compression');
 // import { fetchDataOnServer, reducer as fetching } from 'redux-fetch-data';
 
@@ -67,22 +31,22 @@ var compression = require('compression');
 var bodyParser = require('body-parser'); // is used for POST requests
 
 // const appbasename=ApiConnection.appbasename
-var appbasename = '';
+const appbasename = '';
 
 // var config = require('../webpack.config.js')
 // var webpack = require('webpack')
 
-var app = (0, _express2.default)();
+const app = express();
 // var isProduction = process.env.NODE_ENV === 'production'
 // console.log('isProduction is '+isProduction)
 
 var favicon = require('serve-favicon');
 
-var storage = _multer2.default.memoryStorage();
-var upload = (0, _multer2.default)({ storage: storage });
+var storage = multer.memoryStorage();
+var upload = multer({ storage: storage });
 
-app.use('/bootstrap', _express2.default.static(__dirname + '/../node_modules/bootstrap/dist/'));
-app.use('/mdl', _express2.default.static(__dirname + '/../node_modules/material-design-lite/dist/'));
+app.use('/bootstrap', express.static(__dirname + '/../node_modules/bootstrap/dist/'));
+app.use('/mdl', express.static(__dirname + '/../node_modules/material-design-lite/dist/'));
 
 app.use(compression());
 app.use(bodyParser.json());
@@ -106,7 +70,7 @@ app.use(favicon('./images/favicon.ico'));
 
 // app.use(express.static('./public'));
 // console.log('dirname = '+__dirname )
-app.use(_express2.default.static(__dirname));
+app.use(express.static(__dirname));
 
 // app.set('view engine', 'ejs');
 
@@ -129,7 +93,7 @@ app.post(appbasename + '/api/*/fileupload/*', upload.single('uploadfile'), funct
   console.log('POST API. Uploading file orig name ' + req.file.originalname, ', name ' + req.file.name);
 
   // console.log('POST API. req.body.authorizationtoken = '+req.param('authorizationtoken'))//req.body.authorizationtoken)
-  var authtoken = req.body.authorizationtoken !== undefined ? 'Bearer ' + req.body.authorizationtoken : req.headers.authorization;
+  const authtoken = req.body.authorizationtoken !== undefined ? 'Bearer ' + req.body.authorizationtoken : req.headers.authorization;
   // console.log('POST API. data = '+dataSend)
   // dataSend.file=fs.createReadStream(req.file.path)
 
@@ -148,7 +112,7 @@ app.post(appbasename + '/api/*/fileupload/*', upload.single('uploadfile'), funct
     method: 'POST',
     headers: headers
   };
-  var reqPost = _http2.default.request(extServerOptionsPost);
+  var reqPost = http.request(extServerOptionsPost);
   form.pipe(reqPost);
 
   reqPost.on('response', function (res2) {
@@ -179,7 +143,7 @@ app.post(appbasename + '/api/*/fileupload/*', upload.single('uploadfile'), funct
   reqPost.end();
 });
 
-app.get(appbasename + '/api/*', function (req, res) {
+app.get(appbasename + '/api/*', (req, res) => {
   console.log('GET API ' + req.url);
   console.log('GET API. ' + req.headers.host);
   // const myhost = 'abbaslearning.royasoftware.com'
@@ -205,7 +169,7 @@ app.get(appbasename + '/api/*', function (req, res) {
     // }
   };
 
-  var reqPost = _http2.default.request(extServerOptionsPost, function (res2) {
+  var reqPost = http.request(extServerOptionsPost, function (res2) {
     res2.on('data', function (data) {
       console.log('GET Operation Completed.\n\n');
       res.send(data);
@@ -232,7 +196,7 @@ app.post(appbasename + '/api/*', function (req, res) {
   // console.log(req.headers)
   // console.log('POST API YEAAAAH req.body '+req.body)
   // console.log(req.body)
-  var dataSend = JSON.stringify(req.body);
+  const dataSend = JSON.stringify(req.body);
   var extServerOptionsPost = {
     host: req.headers.host,
     port: '8083',
@@ -242,16 +206,15 @@ app.post(appbasename + '/api/*', function (req, res) {
       // 'Content-Type': 'application/x-www-form-urlencoded',
       'Content-Length': Buffer.byteLength(dataSend),
       'Content-Type': 'application/json',
-      authorization: req.headers.authorization
-    } // body: req.body
-    // {
-    //   'Content-Type': 'application/json',
-    //   'Authorization': req.headers.authorization
-    // }
-  };
+      authorization: req.headers.authorization // body: req.body
+      // {
+      //   'Content-Type': 'application/json',
+      //   'Authorization': req.headers.authorization
+      // }
+    }
 
-  // var data = {}
-  var reqPost = _http2.default.request(extServerOptionsPost, function (res2) {
+    // var data = {}
+  };var reqPost = http.request(extServerOptionsPost, function (res2) {
     // console.log("response statusCode: ", res.statusCode)
     res2.on('data', function (data) {
       // console.log('Server. Got Result data:\n')
@@ -274,7 +237,7 @@ app.post(appbasename + '/api/*', function (req, res) {
 
 var errorfile = __dirname + '/images/0.png';
 
-app.get(appbasename + '/*', function (req, res) {
+app.get(appbasename + '/*', (req, res) => {
   // routes is our object of React routes defined above
   console.log('');console.log('');console.log('');
   console.log('********************************************* 14');
@@ -284,17 +247,17 @@ app.get(appbasename + '/*', function (req, res) {
     console.log('Send File: ' + __dirname + req.url);
     // res.status(200).sendFile(__dirname + req.url)
     var file = __dirname + req.url;
-    _fs2.default.readFile(file, function (err, data) {
+    fs.readFile(file, function (err, data) {
       if (err) {
         console.log('Error file not found. Send error File: ' + errorfile);
         res.status(200).sendFile(errorfile);
       } else res.end(data, 'binary');
     });
   } else {
-    (0, _reactRouter.match)({
-      routes: _routes.routes,
+    match({
+      routes,
       location: req.url
-    }, function (err, redirectLocation, renderProps) {
+    }, (err, redirectLocation, renderProps) => {
       if (err) {
         // something went badly wrong, so 500 with a message
         res.status(500).send(err.message);
@@ -304,12 +267,10 @@ app.get(appbasename + '/*', function (req, res) {
       } else if (renderProps) {
         // if we got props, that means we found a valid component to render
         // for the given route
-        var components = renderProps.components;
+        const components = renderProps.components;
 
         // If the component being shown is our 404 component, then set appropriate status
-        if (components.some(function (c) {
-          return c && c.displayName === 'error-404';
-        })) {
+        if (components.some(c => c && c.displayName === 'error-404')) {
           res.status(404);
         }
         // console.log('components-length = ' +components.length )
@@ -326,37 +287,32 @@ app.get(appbasename + '/*', function (req, res) {
         // })
         // .catch(err => console.log('Booooo' + err));
 
-        var initialState = {};
+        const initialState = {};
         // const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
         // const store = createStore(reducers, initialState)
-        var logger = (0, _reduxLogger2.default)();
-        var store = (0, _redux.createStore)(_rootreducer2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default, logger));
-        var dispactions = (0, _redux.bindActionCreators)(_actions2.default, store.dispatch);
-        var location = renderProps.location,
-            params = renderProps.params,
-            history = renderProps.history;
+        const logger = createLogger();
+        const store = createStore(rootReducer, initialState, applyMiddleware(thunk, logger));
+        var dispactions = bindActionCreators(actions, store.dispatch);
+        const { location, params, history } = renderProps;
 
-
-        (0, _reactRouter.match)({
-          routes: _routes.routes,
+        match({
+          routes,
           location: req.url
-        }, function (error, redirectLocation, renderProps) {
-          var promises = renderProps.components
+        }, (error, redirectLocation, renderProps) => {
+          const promises = renderProps.components
           // .filter((component) => component.fetchData)
-          .filter(function (component) {
+          .filter(component => {
             console.log('filter component = ' + util.inspect(component, false, null));
             return component != undefined ? component.fetchData : false;
             // return component.fetchData
-          }).map(function (component) {
-            return component.fetchData(dispactions, params, req.headers.host);
-          });
-          Promise.all(promises).then(function () {
+          }).map(component => component.fetchData(dispactions, params, req.headers.host));
+          Promise.all(promises).then(() => {
             // res.status(200).send(renderView())
             console.log('resolved');
-            var body = (0, _server.renderToString)(_react2.default.createElement(
-              _reactRedux.Provider,
+            const body = renderToString(React.createElement(
+              Provider,
               { store: store },
-              _react2.default.createElement(_reactRouter.RouterContext, renderProps)
+              React.createElement(RouterContext, renderProps)
             ));
             var d = new Date();
             var hour = d.getHours();
@@ -367,8 +323,10 @@ app.get(appbasename + '/*', function (req, res) {
             // if(hour < 7 || hour > 22){
             // var appcss = '/app.css'
             console.log('assets=' + require('util').inspect(assets, false, null));
-            var style = assets.app.css; // '/app.css'
-            var bundle = assets.app.js; //'/app.js'
+            // var publicstyle = assets.publicapp.css // '/app.css'
+            var publicbundle = assets.publicapp.js; //'/app.js'
+            var appstyle = assets.app.css; // '/app.css'
+
 
             // style = '/style.css'
             // bundle = '/bundle.js'
@@ -387,15 +345,35 @@ app.get(appbasename + '/*', function (req, res) {
             // <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
             // <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
             // <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+            //              <link rel="stylesheet" type="text/css" href="${adminappstyle}" />
 
             // console.log('Server. body '+body);
-            var state = store.getState();
+            const state = store.getState();
             console.log('State paased to client = ' + JSON.stringify(state));
 
-            res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <script defer src="' + vendorBundle + '"></script>\n                <script defer src="https://code.jquery.com/jquery-2.2.0.min.js"></script>\n                <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">\n                <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>\n                <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">\n                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>\n                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>\n\n                <link rel="stylesheet" type="text/css" href="' + style + '" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root"><div>' + body + '</div></div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script defer src="' + bundle + '"></script>\n                </body>\n              </html>');
-          }).catch(function (err) {
-            return console.log('Booooo' + err);
-          });
+            res.status(200).send(`<!DOCTYPE html>
+              <html>
+                <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+                <script defer src="${vendorBundle}"></script>
+                <script defer src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+                <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+                <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">
+                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>
+
+                <link rel="stylesheet" type="text/css" href="${appstyle}" />                
+
+                </head>
+                <body style="background-color:#2980b9">
+                  <div id="root"><div>${body}</div></div>
+                  <script>window.__REDUX_STATE__ = ${JSON.stringify(state)}</script>
+                  <script defer src="${publicbundle}"></script>
+                </body>
+              </html>`);
+          }).catch(err => console.log('Booooo' + err));
         });
         // <link rel="stylesheet" type="text/css" href="http://rlearn.herokuapp.com/style.css" />
         // <script src="http://rlearn.herokuapp.com/bundle.js"></script>
@@ -447,7 +425,7 @@ app.get(appbasename + '/*', function (req, res) {
 // };
 // var port = isProduction ? 3000 : 8081
 
-var port = process.env.PORT || _apiconnection2.default.port;
+var port = process.env.PORT || ApiConnection.port;
 
 app.listen(port, function (error) {
   console.log('Start Express server 1');

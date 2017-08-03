@@ -21,14 +21,14 @@ export default class TodoImage extends React.Component {
     }
 
     componentDidMount() {
-        // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        // componentHandler.upgradeDom()
         this.loadImage()
     }
 
     loadImage() {
         console.log('++++++++++++++++ todolistitem ++++++ imageload ')
         // const loadImages = this.props.loadimages
-        // if( !loadImages) 
+        // if( !loadImages)
         //   return
         // console.log('++++++++++++++++ todolistitem ++++++ really loading now')
         // const taskid = this.props.get('taskid')
@@ -37,7 +37,7 @@ export default class TodoImage extends React.Component {
         // var img=elm.find('.dataimg')
         // // var imgSpinner=elm.find('.mdl-spinner')
 
-        // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object 
+        // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
         //   img[0].setAttribute('src', img[0].getAttribute('data-src'))
         //   img[0].onload = function() {
         //     img[0].removeAttribute('data-src')
@@ -47,7 +47,7 @@ export default class TodoImage extends React.Component {
         //     })
 
         //   }.bind(this)
-        // }    
+        // }
     }
 
 }

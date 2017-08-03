@@ -17,13 +17,13 @@ export default class TrainingList extends React.Component {
     }
 
     componentDidMount() {
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
+        componentHandler.upgradeDom()
     }
 
     // getItems() {
     //   if (this.props.trainings) {
     //     return this.props.trainings.filter(
-    //       (item) => 
+    //       (item) =>
     //         item.get('completed') && this.props.filterclosed ||
     //         !item.get('completed') && this.props.filteropen
     //     )
@@ -50,8 +50,10 @@ export default class TrainingList extends React.Component {
             // key={'traininglist'+Math.random()}
             <div className='traininglist'>
                 {this.props.trainings == undefined ?
-                    <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active'
-                          style={{width: '55px', height: '55px'}}></span>
+                    <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{
+                        width: '55px',
+                        height: '55px'
+                    }}></span>
                     :
                     <div className='traininglistwrap mdl-grid mdl-grid--no-spacing'>
                         {this.renderItems()}

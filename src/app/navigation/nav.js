@@ -74,9 +74,9 @@ if (process.env.BROWSER) {
         })
     })
 
-    // $(document).ready(function() { 
+    // $(document).ready(function() {
     //   $('body').click(function(event) {
-    //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
+    //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called
     //     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
     //       $('.navbar-collapse').collapse('toggle')
     //     }
@@ -90,7 +90,7 @@ if (process.env.BROWSER) {
 
 class Nav extends Component {
     // <div>
-    //    </div>    
+    //    </div>
     // {this.props.location.pathname!='/register' &&
 //     	<Link activeClassName='active' to='/register'>Register</Link>
 // }
@@ -158,7 +158,7 @@ export default Nav
 //   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
 //   }
 
-//    </div>    
+//    </div>
 
 
 //     <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">

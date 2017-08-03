@@ -367,7 +367,7 @@ const todoactions = {
 
                         // if (status === 401) {
                         //   dispatch(actions.receiveLogout())
-                        // } 
+                        // }
                         else if (status >= 400) {
                             var errorDescription
                             if (data.error) {
@@ -390,7 +390,7 @@ const todoactions = {
                         //   var errorDescription = data.error_description
                         //   console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
                         //   dispatch(actions.receiveLogout())
-                        // } 
+                        // }
                         else if (data.error) {
                             // var error = data.error
                             errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
@@ -426,7 +426,7 @@ const todoactions = {
 
                         //   dispatch(todoactions.updateTodo(Immutable.Map(data)))
                         // // return newtodos;
-                        // } 
+                        // }
                         else {
                             // console.log('Status looks good. See if there is an exception message')
                             // if(data.exception !== undefined)

@@ -14,8 +14,8 @@ $(document).ready(function () {
 
 
     /*
-    * requestAnimationFrame pollyfill
-    */
+     * requestAnimationFrame pollyfill
+     */
 
     // var context = document.querySelector('#canvs3').getContext('2d')
 
@@ -28,7 +28,7 @@ $(document).ready(function () {
         // gradientEnd: '#ffffff',
         gradientEnd: '#dfefff',
         // gradientEnd: '#76ff93', //vert
-        // gradientEnd: '#ffffff', 
+        // gradientEnd: '#ffffff',
 
 
         smokeOpacity: 0.05,
