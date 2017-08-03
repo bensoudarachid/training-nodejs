@@ -25,8 +25,7 @@ describe('TrainingEdit', () => {
     let trainingappmap
     let auth
     // let stubcomponentDidMount
-    it('checks fetchdata call and connection to redux store', async
-    function () {
+    it('checks fetchdata call and connection to redux store', async function () {
         // it('checks fetchdata call and connection to redux store', function() {
 
         sinon.stub(actions, 'retrieveTrainingService').resolves({
