@@ -1,54 +1,53 @@
 @import '../../styles/default.scss';
 
+.register {
 
-.register{
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  -moz-background-clip: padding; /* Firefox 3.6 */
+  -webkit-background-clip: padding; /*Safari 4? Chrome 6?*/
+  background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+  // 	border: 5px solid rgba(lighten($roya-blue,0.9),0.1);
+  // //	border: 1px solid rgba(black,0.4);
+  // 	-webkit-border-radius: 25px;
+  // 	-moz-border-radius: 25px;
+  // 	border-radius: 25px;
+  // height:250px;
+  text-align: center;
+  input {
+    font-family: 'Roboto', Tahoma, sans-serif;
+    // background-color: darken($roya-blue,10%);
+    // margin:20px
+  }
+  label {
+    font-family: 'Roboto', Tahoma, sans-serif;
+  }
+  .spinnerwrap {
+    margin: auto;
+    margin-top: 5%;
+    width: 120px;
+    height: 120px;
+    // background-color:yellow;
+  }
 
-	width: 80%;
-	margin: auto;
-	background-color: white;
-	-moz-background-clip: padding; /* Firefox 3.6 */
-	-webkit-background-clip: padding; /*Safari 4? Chrome 6?*/
-	background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
-// 	border: 5px solid rgba(lighten($roya-blue,0.9),0.1);
-// //	border: 1px solid rgba(black,0.4);
-// 	-webkit-border-radius: 25px;
-// 	-moz-border-radius: 25px;
-// 	border-radius: 25px;
-	// height:250px;
-	text-align: center;
-	input{
-	    font-family: 'Roboto', Tahoma, sans-serif;
-		// background-color: darken($roya-blue,10%);
-		// margin:20px
-  	}
-	label{
-		font-family: 'Roboto', Tahoma, sans-serif;
-	}
-	.spinnerwrap{
-		margin:auto;
-		margin-top: 5%;
-		width:120px;
-		height:120px;
-		// background-color:yellow;
-	}
-
-	.footer{
-		height:50px;
-	}
-	// .mdl-textfield{
-	// 	width:100%
-	// }
-	.container{
-		width: 100%;
-	}
-	@media (min-width: 768px) {
-		width: 70%;
-	}
-	// .mdl-textfield__error {
-	// 	width: 100%;
-	// 	left: 0;
-	//  	text-align: right;
-	// }
+  .footer {
+    height: 50px;
+  }
+  // .mdl-textfield{
+  // 	width:100%
+  // }
+  .container {
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    width: 70%;
+  }
+  // .mdl-textfield__error {
+  // 	width: 100%;
+  // 	left: 0;
+  //  	text-align: right;
+  // }
 }
 
 
