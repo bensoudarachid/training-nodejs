@@ -146,10 +146,14 @@ const todoactions = {
                     }
                 },
 <<<<<<< HEAD
+<<<<<<< HEAD
                 err => {
 =======
                     err => {
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                err => {
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     console.log('Status looks not good at all!' + err)
                     dispatch(todoactions.rejectTodo(representTodo))
                 }
@@ -256,12 +260,16 @@ const todoactions = {
             actions.uploadTodoFileService(todo, fileinput)
                 .then(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     ({status, data}) => {
                         if (actions.disconnect(dispatch, status, data))
                             return
                         else if (status == 413) {
                             console.log('Status file too large. ' + status)
                             todoold = todoold.set('error', 'File is too large')
+<<<<<<< HEAD
                             dispatch(todoactions.updateTodo(todoold))
                             todoold = todoold.delete('error')
                             setTimeout(() => {
@@ -316,30 +324,61 @@ const todoactions = {
                         dispatch(todoactions.updateTodo(todoold))
                         todoold = todoold.delete('error')
                         setTimeout(() => {
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                             dispatch(todoactions.updateTodo(todoold))
-                        }, 2500)
-                    } else if (status >= 400) {
-                        // var error = data
-                        // console.log('Status looks bad. ' + status + '. error message = ' + error.message)
+                            todoold = todoold.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todoold))
+                            }, 2500)
+                        } else if (status >= 400) {
+                            // var error = data
+                            // console.log('Status looks bad. ' + status + '. error message = ' + error.message)
+                            todoold = todoold.set('error', 'System error')
+                            dispatch(todoactions.updateTodo(todoold))
+                            todoold = todoold.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todoold))
+                            }, 2500)
+                        } else if (data.error) {
+                            // var error = data.error
+                            var errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
+                            console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
+                            console.log(data)
+                            todoold = todoold.set('error', errorDescription)
+                            dispatch(todoactions.updateTodo(todoold))
+                            todoold = todoold.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todoold))
+                            }, 2500)
+                        }
+                        else {
+                            dispatch(todoactions.updateTodo(todo))
+                            dispatch(todoactions.uploadingTodoImg(todo, true))
+                            dispatch(todoactions.uploadingTodoImg(todo, false))
+                            // setTimeout(function() {
+                            //   dispatch(todoactions.uploadingTodoImg(todo,false))
+                            // },(2000) )
+                            // dispatch(todoactions.loadingTodoFileOn())
+                        }
+                        // dispatch(todoactions.uploadingTodoImg(todo,false))
+                    },
+                    err => {
+                        console.log('Status looks not good at all!' + err)
+                        console.log('Status looks not good at all! todo completed? ' + todoold.get('completed'))
                         todoold = todoold.set('error', 'System error')
                         dispatch(todoactions.updateTodo(todoold))
                         todoold = todoold.delete('error')
-                        setTimeout(() => {
-                            dispatch(todoactions.updateTodo(todoold))
-                        }, 2500)
-                    } else if (data.error) {
-                        // var error = data.error
-                        var errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
-                        console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
-                        console.log(data)
-                        todoold = todoold.set('error', errorDescription)
-                        dispatch(todoactions.updateTodo(todoold))
-                        todoold = todoold.delete('error')
+<<<<<<< HEAD
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                        // dispatch(todoactions.uploadingTodoImg(todo,false))
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                         setTimeout(() => {
                             dispatch(todoactions.updateTodo(todoold))
                         }, 2500)
                     }
+<<<<<<< HEAD
 <<<<<<< HEAD
                 )
 =======
@@ -367,6 +406,9 @@ const todoactions = {
                 }
             )
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                )
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 
         }
     },
@@ -422,6 +464,7 @@ const todoactions = {
             // ))
             actions.updateTodoService(todo)
                 .then(
+<<<<<<< HEAD
 <<<<<<< HEAD
                     ({status, data}) => {
                         if (actions.disconnect(dispatch, status, data))
@@ -539,27 +582,104 @@ const todoactions = {
                 )
 =======
                         // console.log('Todo action error loop. ' + i)
+=======
+                    ({status, data}) => {
+                        if (actions.disconnect(dispatch, status, data))
+                            return
+
+                        // if (status === 401) {
+                        //   dispatch(actions.receiveLogout())
                         // }
-                        // dispatch(todoactions.updateTodo(todoold))
-                    }
-                    // else if (data.error === 'invalid_token') {
-                    //   // var error = data.error
-                    //   var errorDescription = data.error_description
-                    //   console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
-                    //   dispatch(actions.receiveLogout())
-                    // }
-                    else if (data.error) {
-                        // var error = data.error
-                        errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
-                        console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
-                        console.log(data)
-                        todoold = todoold.set('error', errorDescription)
+                        else if (status >= 400) {
+                            var errorDescription
+                            if (data.error) {
+                                console.log('Status looks bad. ' + status + '. error message = ' + data.error)
+                                errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
+                            }
+
+                            todoold = todoold.set('error', errorDescription)
+                            dispatch(todoactions.updateTodo(todoold))
+                            todoold = todoold.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todoold))
+                            }, 2500)
+                            // console.log('Todo action error loop. ' + i)
+                            // }
+                            // dispatch(todoactions.updateTodo(todoold))
+                        }
+                        // else if (data.error === 'invalid_token') {
+                        //   // var error = data.error
+                        //   var errorDescription = data.error_description
+                        //   console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
+                        //   dispatch(actions.receiveLogout())
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
+                        // }
+                        else if (data.error) {
+                            // var error = data.error
+                            errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
+                            console.log('Todoapp fetch error = ' + data.error + ', description = ' + errorDescription)
+                            console.log(data)
+                            todoold = todoold.set('error', errorDescription)
+                            dispatch(todoactions.updateTodo(todoold))
+                            todoold = todoold.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todoold))
+                            }, 2500)
+                        }
+                        // else if(data.exception !== undefined){
+                        //   // console.log('Status looks good. See if there is an exception message'+data.message)
+                        //   // if(data.exception !== undefined)
+                        //   //   console.log(data.message)
+                        //   todoold = todoold.set('error', data.message)
+                        //   dispatch(todoactions.updateTodo(todoold))
+                        //   todoold = todoold.delete('error')
+                        //   setTimeout(() => {
+                        //     dispatch(todoactions.updateTodo(todoold))
+                        //   }, 2500)
+                        //   // var newtodos = todos.push(Immutable.Map(data))
+                        //   // console.log('New todos ')
+                        //   // console.log(newtodos)
+                        //   // todos = todos.push(Immutable.Map({
+                        //   //   task: action.text,
+                        //   //   isCompleted: false,
+                        //   //   id: maxid
+                        //   // }))
+                        //   // console.log('todo actions. todo representant : ')
+                        //   // console.log(representTodo)
+
+                        //   dispatch(todoactions.updateTodo(Immutable.Map(data)))
+                        // // return newtodos;
+                        // }
+                        else {
+                            // console.log('Status looks good. See if there is an exception message')
+                            // if(data.exception !== undefined)
+                            //   console.log(data.message)
+                            // var newtodos = todos.push(Immutable.Map(data))
+                            // console.log('New todos ')
+                            // console.log(newtodos)
+                            // todos = todos.push(Immutable.Map({
+                            //   task: action.text,
+                            //   isCompleted: false,
+                            //   id: maxid
+                            // }))
+                            // console.log('todo actions. todo representant : ')
+                            // console.log(representTodo)
+
+                            dispatch(todoactions.updateTodo(Immutable.Map(data)))
+                            // return newtodos;
+                        }
+                    },
+                    err => {
+                        console.log('Status looks not good at all!' + err)
+                        console.log('Status looks not good at all! todo completed? ' + todoold.get('completed'))
+                        todoold = todoold.set('error', 'System error')
                         dispatch(todoactions.updateTodo(todoold))
                         todoold = todoold.delete('error')
                         setTimeout(() => {
                             dispatch(todoactions.updateTodo(todoold))
                         }, 2500)
                     }
+<<<<<<< HEAD
                     // else if(data.exception !== undefined){
                     //   // console.log('Status looks good. See if there is an exception message'+data.message)
                     //   // if(data.exception !== undefined)
@@ -615,6 +735,9 @@ const todoactions = {
                 }
             )
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                )
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         }
     },
     deleteTodo: function (id) {
@@ -636,6 +759,9 @@ const todoactions = {
             actions.retrieveTodosService()
                 .then(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     ({status, data}) => {
                         if (status === 401) {
                             // dispatch(actions.receiveLogout())
@@ -655,6 +781,7 @@ const todoactions = {
                             // dispatch(actions.loadingTodoFileOff())
                         }
                     })
+<<<<<<< HEAD
 =======
                 ({status, data}) => {
                     if (status === 401) {
@@ -676,6 +803,8 @@ const todoactions = {
                     }
                 })
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                 // .then(data => {
                 //     console.log('todoapp. data fetch ')
                 //     console.log(data)
@@ -703,6 +832,9 @@ const todoactions = {
             actions.deleteTodoService(todo)
                 .then(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     ({status, data}) => {
                         if (actions.disconnect(dispatch, status, data))
                             return
@@ -712,6 +844,7 @@ const todoactions = {
                             // for (var i = 0; i < 3; i++) {
 
                             todo = todo.set('error', 'System error')
+<<<<<<< HEAD
                             dispatch(todoactions.updateTodo(todo))
                             todo = todo.delete('error')
                             setTimeout(() => {
@@ -768,12 +901,51 @@ const todoactions = {
                         // dispatch(todoactions.updateTodo(todo))
                     } else if (data.error) {
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                            dispatch(todoactions.updateTodo(todo))
+                            todo = todo.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todo))
+                            }, 2500)
+                            // console.log('Todo action error loop. ' + i)
+                            // }
+                            // dispatch(todoactions.updateTodo(todo))
+                        } else if (data.error) {
+                            todo = todo.set('error', 'System error')
+                            dispatch(todoactions.updateTodo(todo))
+                            todo = todo.delete('error')
+                            setTimeout(() => {
+                                dispatch(todoactions.updateTodo(todo))
+                            }, 2500)
+                        } else {
+                            console.log('Status looks good ')
+                            console.log(data)
+                            // var newtodos = todos.push(Immutable.Map(data))
+                            // console.log('New todos ')
+                            // console.log(newtodos)
+                            // todos = todos.push(Immutable.Map({
+                            //   task: action.text,
+                            //   isCompleted: false,
+                            //   id: maxid
+                            // }))
+                            console.log('todo actions. todo representant : ')
+                            // console.log(representTodo)
+
+                            dispatch(todoactions.deleteTodo(todo.get('id')))
+                            // return newtodos;
+                        }
+                    },
+                    err => {
+                        console.log('Status looks not good at all!' + err)
+                        console.log('Status looks not good at all! todo completed? ' + todo.get('completed'))
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                         todo = todo.set('error', 'System error')
                         dispatch(todoactions.updateTodo(todo))
                         todo = todo.delete('error')
                         setTimeout(() => {
                             dispatch(todoactions.updateTodo(todo))
                         }, 2500)
+<<<<<<< HEAD
 <<<<<<< HEAD
 
                     }
@@ -792,10 +964,11 @@ const todoactions = {
                         // }))
                         console.log('todo actions. todo representant : ')
                         // console.log(representTodo)
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 
-                        dispatch(todoactions.deleteTodo(todo.get('id')))
-                        // return newtodos;
                     }
+<<<<<<< HEAD
                 },
                     err => {
                     console.log('Status looks not good at all!' + err)
@@ -810,6 +983,9 @@ const todoactions = {
                 }
             )
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                )
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         }
 
 

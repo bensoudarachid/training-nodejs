@@ -175,10 +175,14 @@ const trainingactions = {
                     }
                 },
 <<<<<<< HEAD
+<<<<<<< HEAD
                 err => {
 =======
                     err => {
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                err => {
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     console.log('Status looks not good at all!' + err)
                     dispatch(trainingactions.rejectTraining(representTraining))
                 }
@@ -289,6 +293,9 @@ const trainingactions = {
             actions.uploadTrainingFileService(training, fileinput)
                 .then(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     ({status, data}) => {
                         if (actions.disconnect(dispatch, status, data))
                             return
@@ -337,6 +344,7 @@ const trainingactions = {
                     err => {
                         console.log('Status looks not good at all!' + err)
                         console.log('Status looks not good at all! training completed? ' + trainingold.get('completed'))
+<<<<<<< HEAD
 =======
                 ({status, data}) => {
                     if (actions.disconnect(dispatch, status, data))
@@ -352,10 +360,13 @@ const trainingactions = {
                         // }, 2500)
                     } else if (status >= 400) {
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                         return handleError(dispatch, 'System error', training, trainingold)
                         // trainingold = trainingold.set('error', 'System error')
                         // dispatch(trainingactions.updateTrainingInList(trainingold))
                         // trainingold = trainingold.delete('error')
+<<<<<<< HEAD
 <<<<<<< HEAD
                         // // dispatch(trainingactions.uploadingTrainingImg(training,false))
                         // setTimeout(() => {
@@ -364,32 +375,14 @@ const trainingactions = {
                     }
                 )
 =======
-                        // setTimeout(() => {
-                        //   dispatch(trainingactions.updateTrainingInList(trainingold))
-                        // }, 2500)
-                    } else if (data.error) {
-                        // var error = data.error
-                        var errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
-                        console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
-                        console.log(data)
-                        return handleError(dispatch, errorDescription, training, trainingold)
-                        // trainingold = trainingold.set('error', errorDescription)
-                        // dispatch(trainingactions.updateTrainingInList(trainingold))
-                        // trainingold = trainingold.delete('error')
+=======
+                        // // dispatch(trainingactions.uploadingTrainingImg(training,false))
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                         // setTimeout(() => {
                         //   dispatch(trainingactions.updateTrainingInList(trainingold))
                         // }, 2500)
                     }
-                    else {
-                        console.log('Upload image is ok. Now get it')
-                        dispatch(trainingactions.updateTrainingInList(training))
-                        dispatch(trainingactions.uploadingTrainingImg(training, true))
-                        dispatch(trainingactions.uploadingTrainingImg(training, false))
-                        // setTimeout(function() {
-                        //   dispatch(trainingactions.uploadingTrainingImg(training,false))
-                        // },(2000) )
-                        // dispatch(trainingactions.loadingTrainingFileOn())
-                    }
+<<<<<<< HEAD
                     // dispatch(trainingactions.uploadingTrainingImg(training,false))
                 },
                     err => {
@@ -406,6 +399,9 @@ const trainingactions = {
                 }
             )
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                )
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 
         }
     },
@@ -453,6 +449,9 @@ const trainingactions = {
             actions.updateTrainingService(training, fileinput)
                 .then(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     ({status, data}) => {
                         if (actions.disconnect(dispatch, status, data))
                             return
@@ -482,6 +481,7 @@ const trainingactions = {
                             // setTimeout(() => {
                             //   dispatch(trainingactions.loadEditTraining(trainingold))
                             // }, 2500)
+<<<<<<< HEAD
                         }
                         else if (data.error) {
                             // var error = data.error
@@ -548,12 +548,42 @@ const trainingactions = {
                         return handleError(dispatch, errorDescription, training, trainingold)
                         // trainingold = trainingold.set('error', errorDescription)
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                        }
+                        else if (data.error) {
+                            // var error = data.error
+                            errorDescription = data.errorDescription !== undefined ? data.errorDescription : 'System error'
+                            console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
+                            console.log(data)
+                            return handleError(dispatch, errorDescription, training, trainingold)
+                            // trainingold = trainingold.set('error', errorDescription)
+                            // dispatch(trainingactions.updateTrainingInList(trainingold))
+                            // trainingold = trainingold.delete('error')
+                            // setTimeout(() => {
+                            //   dispatch(trainingactions.updateTrainingInList(trainingold))
+                            // }, 2500)
+                        }
+                        else {
+                            const updEditTraining = Immutable.Map(data)
+//              console.log('Training actions. updEditTraining='+require('util').inspect(updEditTraining, false, null))
+                            // dispatch(trainingactions.updateTrainingInList(updEditTraining))
+                            dispatch(trainingactions.loadEditTraining(updEditTraining))
+                            // return newtrainings;
+                        }
+                    },
+                    err => {
+                        console.log('Status looks not good at all!' + err)
+                        console.log('Status looks not good at all! training completed? ' + trainingold.get('completed'))
+                        return handleError(dispatch, 'System error', training, trainingold)
+                        // trainingold = trainingold.set('error', 'System error')
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                         // dispatch(trainingactions.updateTrainingInList(trainingold))
                         // trainingold = trainingold.delete('error')
                         // setTimeout(() => {
                         //   dispatch(trainingactions.updateTrainingInList(trainingold))
                         // }, 2500)
                     }
+<<<<<<< HEAD
 <<<<<<< HEAD
                 )
 =======
@@ -578,6 +608,9 @@ const trainingactions = {
                 }
             )
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                )
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         }
     },
     deleteTraining: function (id) {
@@ -629,6 +662,9 @@ const trainingactions = {
             return actions.retrieveTrainingsService(hostname)
                 .then(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     ({status, data}) => {
                         if (status === 401) {
 
@@ -652,6 +688,7 @@ const trainingactions = {
                             // dispatch(actions.loadingTrainingFileOff())
                         }
                     })
+<<<<<<< HEAD
 =======
                 ({status, data}) => {
                     if (status === 401) {
@@ -677,6 +714,8 @@ const trainingactions = {
                     }
                 })
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                 .catch(err => {
                     console.log('trainingactions.js retrieveTrainingsDispatcher Error retrieving data. error = ' + require('util').inspect(err, false, null))
                     if (err.code == 'ENOENT') {
@@ -706,6 +745,9 @@ const trainingactions = {
             return actions.retrieveTrainingService(params.id, hostname)
                 .then(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     ({status, data}) => {
                         if (status == 401) {
                             console.log('Status looks bad. Unauthorized')
@@ -730,6 +772,7 @@ const trainingactions = {
                             // dispatch(actions.loadingTrainingFileOff())
                         }
                     })
+<<<<<<< HEAD
 =======
                 ({status, data}) => {
                     if (status == 401) {
@@ -756,6 +799,8 @@ const trainingactions = {
                     }
                 })
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                 .catch(err => {
                     console.log('trainingactions.js retrieveTrainingDispatcher Error retrieving data. error = ' + require('util').inspect(err, false, null))
                     if (err.code == 'ENOENT') {
@@ -789,6 +834,9 @@ const trainingactions = {
             actions.deleteTrainingService(training)
                 .then(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     ({status, data}) => {
                         if (actions.disconnect(dispatch, status, data))
                             return
@@ -833,6 +881,7 @@ const trainingactions = {
                     err => {
                         console.log('Status looks not good at all!' + err)
                         console.log('Status looks not good at all! training completed? ' + training.get('completed'))
+<<<<<<< HEAD
 =======
                 ({status, data}) => {
                     if (actions.disconnect(dispatch, status, data))
@@ -855,6 +904,8 @@ const trainingactions = {
                 )
 =======
                     } else if (data.error) {
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                         return handleError(dispatch, 'System error', training, training)
                         // training = training.set('error', 'System error')
                         // dispatch(trainingactions.updateTrainingInList(training))
@@ -862,24 +913,9 @@ const trainingactions = {
                         // setTimeout(() => {
                         //   dispatch(trainingactions.updateTrainingInList(training))
                         // }, 2500)
-                    } else {
-                        console.log('Status looks good ')
-                        console.log(data)
-                        // var newtrainings = trainings.push(Immutable.Map(data))
-                        // console.log('New trainings ')
-                        // console.log(newtrainings)
-                        // trainings = trainings.push(Immutable.Map({
-                        //   title: action.text,
-                        //   isCompleted: false,
-                        //   id: maxid
-                        // }))
-                        console.log('training actions. training representant : ')
-                        // console.log(representTraining)
 
-                        // dispatch(trainingactions.deleteTraining(training.get('id')))
-                        window.routerHistory.push('/admin/trainings')
-                        // return newtrainings;
                     }
+<<<<<<< HEAD
                 },
                     err => {
                     console.log('Status looks not good at all!' + err)
@@ -895,6 +931,9 @@ const trainingactions = {
                 }
             )
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                )
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         }
 
     },

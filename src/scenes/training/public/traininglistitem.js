@@ -14,11 +14,15 @@ if (process.env.BROWSER) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default class TrainingListItem extends React.Component {
 =======
 export default
 class TrainingListItem extends React.Component {
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+export default class TrainingListItem extends React.Component {
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
     constructor(props) {
         super(props)
 
@@ -87,8 +91,13 @@ class TrainingListItem extends React.Component {
                         <h5>{secondaryTitle}</h5>
                     </div>
                     <hr/>
+<<<<<<< HEAD
                     <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone ellipsis multiline shortdescription'>{shortDescription}</div>
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                    <div
+                        className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone ellipsis multiline shortdescription'>{shortDescription}</div>
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     <hr/>
                     <div className='mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
                         <span className='promo'>20%</span>

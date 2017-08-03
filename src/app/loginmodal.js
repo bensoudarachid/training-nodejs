@@ -48,6 +48,7 @@ if (process.env.BROWSER) {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default class LoginModal extends Component {
 
     render() {
@@ -57,12 +58,19 @@ export default class LoginModal extends Component {
 =======
 export default
 class LoginModal extends Component {
+=======
+export default class LoginModal extends Component {
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 
     render() {
-        const { errorMessage } = this.props
+        const {errorMessage} = this.props
         return (
+<<<<<<< HEAD
             <div id='loginmodal' >
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+            <div id='loginmodal'>
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                 <div className='modal'>
 
                     <div className='modal-content'>
@@ -74,10 +82,14 @@ class LoginModal extends Component {
                             <Login
                                 errorMessage={errorMessage}
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 onLoginClick={creds => this.props.actions.loginUser(creds)}
 =======
                                 onLoginClick={ creds => this.props.actions.loginUser(creds) }
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                                onLoginClick={creds => this.props.actions.loginUser(creds)}
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                                 onLoginProcessStartClick={this.props.actions.loginProcessStart}
                             />
                         </div>
@@ -93,6 +105,7 @@ class LoginModal extends Component {
 
     renderOld() {
 <<<<<<< HEAD
+<<<<<<< HEAD
         const {errorMessage} = this.props
 
         return (
@@ -103,6 +116,12 @@ class LoginModal extends Component {
         return (
             <div id='loginmodal' >
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+        const {errorMessage} = this.props
+
+        return (
+            <div id='loginmodal'>
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                 <div className='modal'>
 
                     <div className='modal-content'>
@@ -115,10 +134,14 @@ class LoginModal extends Component {
                             <Login
                                 errorMessage={errorMessage}
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 onLoginClick={creds => this.props.actions.loginUser(creds)}
 =======
                                 onLoginClick={ creds => this.props.actions.loginUser(creds) }
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                                onLoginClick={creds => this.props.actions.loginUser(creds)}
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                                 onLoginProcessStartClick={this.props.actions.loginProcessStart}
                             />
                         </div>

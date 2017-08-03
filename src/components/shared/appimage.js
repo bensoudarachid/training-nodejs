@@ -10,8 +10,7 @@ if (process.env.BROWSER) {
     require('./appimage.scss')
 }
 
-export default
-class AppImage extends React.Component {
+export default class AppImage extends React.Component {
 
     constructor(props) {
         super(props)
@@ -77,6 +76,7 @@ class AppImage extends React.Component {
         console.log('app image idTokenParam=' + require('util').inspect(idTokenParam, false, null))
         return (
 <<<<<<< HEAD
+<<<<<<< HEAD
             <div className='imgwrapper' id={'imgwrap' + imgid}>
                 <div className='spinnerwrap'>
                     <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
@@ -94,6 +94,16 @@ class AppImage extends React.Component {
                     onLoad={this.handleImageLoaded.bind(this)}
                     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+            <div className='imgwrapper' id={'imgwrap' + imgid}>
+                <div className='spinnerwrap'>
+                    <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
+                </div>
+                <img id={'applicationimg' + imgid} src='./images/0.png'
+                     data-src={ApiConnection.apiurl + ApiConnection.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam}
+                     onLoad={this.handleImageLoaded.bind(this)}
+                     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
             </div>
         )
         // return (

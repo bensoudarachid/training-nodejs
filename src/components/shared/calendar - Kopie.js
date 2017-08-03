@@ -30,6 +30,7 @@ if (process.env.BROWSER) {
 let MyCustomHeader = React.createClass({
     render() {
 <<<<<<< HEAD
+<<<<<<< HEAD
         const {label} = this.props
         return (
             <div>
@@ -40,6 +41,12 @@ let MyCustomHeader = React.createClass({
             <div>
                 <div>{ label.substring(0, 3) }</div>
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+        const {label} = this.props
+        return (
+            <div>
+                <div>{label.substring(0, 3)}</div>
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
             </div>
         )
     }
@@ -148,6 +155,7 @@ class Calendar extends React.Component {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     moveEvent({event, start, end}) {
         // const events = this.props.events
         const {localevents} = this.state
@@ -166,33 +174,39 @@ class Calendar extends React.Component {
     }
 =======
     moveEvent({ event, start, end }) {
+=======
+    moveEvent({event, start, end}) {
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         // const events = this.props.events
-        const { localevents } = this.state
+        const {localevents} = this.state
 
         const idx = localevents.indexOf(event)
         const updatedEvent = {
-    ...
-        event, start, end
-    }
+            ...
+                event, start, end
+        }
 
-    const nextEvents = [...localevents]
-    nextEvents
-.
-    splice(idx,
+        const nextEvents = [...localevents]
+        nextEvents
+            .splice(idx,
 
-1,
-    updatedEvent
-)
+                1,
+                updatedEvent
+            )
 
         this
-.
-    setState({
-        localevents: nextEvents
-        })
+            .setState({
+                localevents: nextEvents
+            })
 
+<<<<<<< HEAD
     // alert(`${event.title} was dropped onto ${event.start}`)
 }
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+        // alert(`${event.title} was dropped onto ${event.start}`)
+    }
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 
 }
 

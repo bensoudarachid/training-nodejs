@@ -106,12 +106,17 @@ let authactions = {
                     }
                 }).catch(err => {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 console.log('authactionsjs. Unhandled Login Error: ', err)
             })
 =======
                     console.log('authactionsjs. Unhandled Login Error: ', err)
                 })
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                console.log('authactionsjs. Unhandled Login Error: ', err)
+            })
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         }
     },
 
@@ -164,6 +169,7 @@ let authactions = {
                     }
                 }).catch(err => {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 console.log('++++++++++++++++++++++++++authactionsjs. Unhandled Login Error: ', err.error_description)
 
                 if (err.error_description == undefined) {
@@ -188,6 +194,19 @@ let authactions = {
                         dispatch(authactions.loginProcessStart('System error: Stale database connection'))
                 })
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                console.log('++++++++++++++++++++++++++authactionsjs. Unhandled Login Error: ', err.error_description)
+
+                if (err.error_description == undefined) {
+                    console.log('Auth actions, Response: ' + util.inspect(err, false, null))
+                    return
+                }
+                if (!err.error_description.includes('JDBCConnectionException'))
+                    dispatch(authactions.loginProcessStart(err.error_description))
+                else
+                    dispatch(authactions.loginProcessStart('System error: Stale database connection'))
+            })
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         }
     },
 
@@ -279,6 +298,9 @@ let authactions = {
             return actions.registerUserService(creds)
                 .then(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     ({status, data}) => {
                         var error = data.error
                         console.log('Auth actions, Response: ' + util.inspect(data, false, null))
@@ -296,6 +318,7 @@ let authactions = {
                             console.log('Status looks good ')
                             console.log(data)
                             dispatch(actions.receiveRegister(data))
+<<<<<<< HEAD
 //          browserHistory.push('/registerconfirm/')
                         }
                     },
@@ -321,6 +344,11 @@ let authactions = {
                     }
                 },
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+//          browserHistory.push('/registerconfirm/')
+                        }
+                    },
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 //     .then(
 //       ({ status, resp }) => {
 //         console.log('Auth actions, Response: '+util.inspect(resp, false, null))
@@ -344,6 +372,7 @@ let authactions = {
 
                     err => {
 <<<<<<< HEAD
+<<<<<<< HEAD
                         console.log('Status looks not good at all!' + err)
                     }
                 )
@@ -352,6 +381,11 @@ let authactions = {
                 }
             )
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                        console.log('Status looks not good at all!' + err)
+                    }
+                )
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         }
     }
 }

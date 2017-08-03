@@ -78,6 +78,11 @@ if (process.env.BROWSER) {
     // })
 
 }
+<<<<<<< HEAD
+=======
+
+//require('./nav.scss')
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 
 //require('./nav.scss')
 
@@ -104,10 +109,14 @@ class NavAdmin extends Component {
     render() {
         const isBrowser = typeof window !== 'undefined'
 <<<<<<< HEAD
+<<<<<<< HEAD
         const {auth} = this.props
 =======
         const { auth } = this.props
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+        const {auth} = this.props
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         const isAuthenticated = auth.get('isAuthenticated')
 
         // console.log('nav: isBrowser'+isBrowser)
@@ -130,11 +139,16 @@ class NavAdmin extends Component {
                     </li>
                     <li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse"
                                 data-target="#bs-example-navbar-collapse-1">
 =======
                         <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                        <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
@@ -166,11 +180,11 @@ class NavAdmin extends Component {
                         <li>
                             <IndexLink activeClassName='active' to='/'>Home</IndexLink>
                         </li>
-      {(process.env.NODE_ENV != 'production' || process.env.NODE_ENV == 'production') &&
-      <li>
-          <Link activeClassName='active' to='/admin/todos'>Todos</Link>
-      </li>
-          }
+                        {(process.env.NODE_ENV != 'production' || process.env.NODE_ENV == 'production') &&
+                        <li>
+                            <Link activeClassName='active' to='/admin/todos'>Todos</Link>
+                        </li>
+                        }
                         <li>
                             <Link activeClassName='active' to='/admin/trainings'>Training</Link>
                         </li>
@@ -179,6 +193,7 @@ class NavAdmin extends Component {
                         </li>
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
+<<<<<<< HEAD
 {isBrowser && !isAuthenticated &&
 <li>
     <a href='#' onClick={(event) => this.handleLoginClick(event)}>
@@ -194,6 +209,22 @@ class NavAdmin extends Component {
 </li>
     }
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                        {isBrowser && !isAuthenticated &&
+                        <li>
+                            <a href='#' onClick={(event) => this.handleLoginClick(event)}>
+                                <span className='glyphicon glyphicon-log-in'></span>
+                                Login</a>
+                        </li>
+                        }
+                        {isAuthenticated &&
+                        <li>
+                            <a href='#' onClick={(event) => this.props.actions.logoutUser()}>
+                                <span className='glyphicon glyphicon-log-out'></span>
+                                Logout</a>
+                        </li>
+                        }
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     </ul>
                 </div>
             </nav>
@@ -201,9 +232,13 @@ class NavAdmin extends Component {
     }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 // <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 
 export default NavAdmin

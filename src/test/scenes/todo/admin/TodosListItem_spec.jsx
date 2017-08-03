@@ -3,7 +3,7 @@ import TestUtils from 'react-addons-test-utils'
 import TodosListItem from 'scenes/todo/admin/todoslistitem'
 import {expect, assert} from 'chai'
 //import Immutable from 'immutable'
-import { shallow } from 'enzyme'
+import {shallow} from 'enzyme'
 // import sinon from 'sinon'
 import {describe, beforeEach, afterEach, it} from 'mocha'
 import {List, Map} from 'immutable'
@@ -12,10 +12,10 @@ import {List, Map} from 'immutable'
 import thunk from 'redux-thunk'
 import nock from 'nock'
 import actions from 'services/actions'
-import { createStore, applyMiddleware } from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import createLogger from 'redux-logger'
-import { bindActionCreators } from 'redux'
-import { connect, Provider } from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {connect, Provider} from 'react-redux'
 // import configureMockStore from 'redux-mock-store'
 import rootReducer from 'services/rootreducer'
 // import sinonChai from 'sinon-chai'
@@ -44,10 +44,12 @@ var TodosListItemConn = connect(mapStateToProps, mapDispatchToProps)(TodosListIt
 
 import {
     Simulate
-    } from 'react-addons-test-utils'
+} from 'react-addons-test-utils'
 
-const {renderIntoDocument,findRenderedDOMComponentsWithClass,scryRenderedDOMComponentsWithClass,
-    scryRenderedDOMComponentsWithTag} = TestUtils
+const {
+    renderIntoDocument, findRenderedDOMComponentsWithClass, scryRenderedDOMComponentsWithClass,
+    scryRenderedDOMComponentsWithTag
+} = TestUtils
 
 describe('TodosListItem', () => {
 

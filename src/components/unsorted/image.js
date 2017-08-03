@@ -4,8 +4,7 @@ import cookie from 'react-cookie'
 import ApiConnection from '../services/apiconnection'
 import $ from 'jquery'
 
-export default
-class TodoImage extends React.Component {
+export default class TodoImage extends React.Component {
 
     render() {
         const taskid = this.props.taskid
@@ -14,14 +13,20 @@ class TodoImage extends React.Component {
 //  <p>A little bit about {this.props.params.name}!!I like {this.props.location.query.food}!</p>
         return (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
             <div className='imgwrap' id={'imgwrap' + taskid}>
                 <img id={'todolistitemimg' + taskid}
                      src={ApiConnection.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken}
                      className='dataimg' alt='coding'/>
+<<<<<<< HEAD
 =======
             <div className='imgwrap' id={'imgwrap' + taskid} >
                 <img id={'todolistitemimg' + taskid} src={ApiConnection.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken} className='dataimg' alt='coding'/>
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
             </div>
         )
     }

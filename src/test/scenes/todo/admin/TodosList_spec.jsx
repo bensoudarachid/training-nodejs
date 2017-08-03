@@ -3,14 +3,16 @@ import TestUtils from 'react-addons-test-utils'
 import TodosList from 'scenes/todo/admin/todoslist'
 // import TodosListItem from '../../../../../scenes/todo/admin/todoslistitem'
 import {expect} from 'chai'
-import { shallow,mount,render } from 'enzyme'
+import {shallow, mount, render} from 'enzyme'
 import sinon from 'sinon'
 
 import {describe, beforeEach, it} from 'mocha'
 import {List, Map} from 'immutable'
 
-const {renderIntoDocument,//findRenderedDOMComponentsWithTag,
-    scryRenderedDOMComponentsWithTag} = TestUtils
+const {
+    renderIntoDocument,//findRenderedDOMComponentsWithTag,
+    scryRenderedDOMComponentsWithTag
+} = TestUtils
 
 describe('TodosList', () => {
 
@@ -38,7 +40,7 @@ describe('TodosList', () => {
         // function handleClick() { done() }
 
         const wrapper = shallow(
-            <TodosList filteropen={filteropen} filterclosed={filterclosed} todos={todos} />
+            <TodosList filteropen={filteropen} filterclosed={filterclosed} todos={todos}/>
         )
         expect(wrapper.find('TodosListItem')).to.have.length(4)
         // console.log('TodosList spec. find 4 TodosListItem components. html: '+wrapper.html())
@@ -55,7 +57,7 @@ describe('TodosList', () => {
         const stub2 = sinon.stub(TodosList.prototype, 'componentDidUpdate')
 
         const component = mount(
-            <TodosList filteropen={filteropen} filterclosed={filterclosed} todos={todos} />
+            <TodosList filteropen={filteropen} filterclosed={filterclosed} todos={todos}/>
         )
         // console.log('component = ')
         // console.log( component )

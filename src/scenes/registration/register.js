@@ -27,11 +27,15 @@ if (process.env.BROWSER) {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default class Register extends Component {
 =======
 export default
 class Register extends Component {
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+export default class Register extends Component {
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
     //<Spinner spinnerName='three-bounce' /> circle wordpress double-bounce<p>Loading...</p>
     // <input type='text' ref='email' className="form-control" placeholder='Email'/>
     // <input type='text' ref='username' className="form-control" placeholder='Username'/>
@@ -101,22 +105,29 @@ class Register extends Component {
                                         <div className='col-xs-12 col-md-6 col-lg-6'>
                                             <div className={textInputClassnames}>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                                                 <input className='mdl-textfield__input' ref='username' type='text'
                                                        id='username' name='username'/>
                                                 <label className='mdl-textfield__label' htmlFor='username'>User
                                                     name</label>
                                                 <span className="mdl-textfield__error"
                                                       htmlFor='username'>{registrationError.get('username')}</span>
+<<<<<<< HEAD
 =======
                                                 <input className='mdl-textfield__input' ref='username' type='text' id='username' name='username'/>
                                                 <label className='mdl-textfield__label' htmlFor='username'>User name</label>
                                                 <span className="mdl-textfield__error" htmlFor='username'>{registrationError.get('username')}</span>
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                                             </div>
                                         </div>
 
                                         <div className='col-xs-12 col-md-6 col-lg-6'>
                                             <div className={textInputClassnames}>
+<<<<<<< HEAD
 <<<<<<< HEAD
                                                 <input className='mdl-textfield__input' ref='email' type='text'
                                                        id='email' name='email'/>
@@ -128,40 +139,59 @@ class Register extends Component {
                                                 <label className='mdl-textfield__label' htmlFor='email'>Email</label>
                                                 <span className="mdl-textfield__error"htmlFor='email'>{registrationError.get('email')}</span>
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                                                <input className='mdl-textfield__input' ref='email' type='text'
+                                                       id='email' name='email'/>
+                                                <label className='mdl-textfield__label' htmlFor='email'>Email</label>
+                                                <span className="mdl-textfield__error"
+                                                      htmlFor='email'>{registrationError.get('email')}</span>
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                                             </div>
                                         </div>
 
                                         <div className='col-xs-12 col-md-6 col-lg-6'>
                                             <div className={textInputClassnames}>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                                                 <input className='mdl-textfield__input' ref='password' type='password'
                                                        id='password' name='password'/>
                                                 <label className='mdl-textfield__label'
                                                        htmlFor='password'>Password</label>
                                                 <span className="mdl-textfield__error"
                                                       htmlFor='password'>{registrationError.get('password')}</span>
+<<<<<<< HEAD
 =======
                                                 <input className='mdl-textfield__input' ref='password' type='password' id='password' name='password'/>
                                                 <label className='mdl-textfield__label' htmlFor='password'>Password</label>
                                                 <span className="mdl-textfield__error" htmlFor='password'>{registrationError.get('password')}</span>
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                                             </div>
                                         </div>
 
                                         <div className='col-xs-12 col-md-6 col-lg-6'>
                                             <div className={textInputClassnames}>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                                                 <input className='mdl-textfield__input' ref='passwordCheck'
                                                        type='password' id='passwordCheck' name='passwordCheck'/>
                                                 <label className='mdl-textfield__label' htmlFor='passwordCheck'>Password
                                                     check</label>
                                                 <span className="mdl-textfield__error"
                                                       htmlFor='passwordCheck'>{registrationError.get('passwordCheck')}</span>
+<<<<<<< HEAD
 =======
                                                 <input className='mdl-textfield__input' ref='passwordCheck' type='password' id='passwordCheck' name='passwordCheck'/>
                                                 <label className='mdl-textfield__label' htmlFor='passwordCheck'>Password check</label>
                                                 <span className="mdl-textfield__error" htmlFor='passwordCheck'>{registrationError.get('passwordCheck')}</span>
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                                             </div>
                                         </div>
 
@@ -170,6 +200,9 @@ class Register extends Component {
                                 <br/>
                                 <div className='footer'>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                                     {!isRegistrationFetching &&
                                     <button type='submit'
                                             className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
@@ -179,6 +212,7 @@ class Register extends Component {
                                     {isRegistrationFetching &&
                                     <span
                                         className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap'
+<<<<<<< HEAD
                                         style={{width: '55px', height: '55px'}}></span>
                                     }
 =======
@@ -194,12 +228,20 @@ class Register extends Component {
             }}></span>
                 }
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                                        style={{
+                                            width: '55px',
+                                            height: '55px'
+                                        }}></span>
+                                    }
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                                 </div>
                             </form>
                         </div>
                     </div>
                 )
             case 2:
+<<<<<<< HEAD
 <<<<<<< HEAD
                 return <RegSuccessful/>
             case 3:
@@ -209,6 +251,11 @@ class Register extends Component {
             case 3:
                 return <RegError />
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                return <RegSuccessful/>
+            case 3:
+                return <RegError/>
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         }
         return (
             <div>

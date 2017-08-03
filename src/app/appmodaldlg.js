@@ -45,8 +45,7 @@ if (process.env.BROWSER) {
 
 }
 
-export default
-class AppModalDlg extends Component {
+export default class AppModalDlg extends Component {
 
     render() {
         // const { errorMessage } = this.props
@@ -54,7 +53,7 @@ class AppModalDlg extends Component {
         // console.log('appmodaldlgjs render')
         // <span onClick={(event) => this.handleClose(event)} className='close'>×</span>
         return (
-            <div id='appmodaldlg' >
+            <div id='appmodaldlg'>
                 <div className='modal'>
 
 <<<<<<< HEAD
@@ -79,12 +78,18 @@ class AppModalDlg extends Component {
                         </div>
                         <div className='modal-footer'>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <button onClick={(event) => this.handleClose(event)}
                                     className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>Ok
                             </button>
 =======
                             <button onClick={(event) => this.handleClose(event)} className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>Ok</button>
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+                            <button onClick={(event) => this.handleClose(event)}
+                                    className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>Ok
+                            </button>
+>>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                         </div>
                     </div>
                 </div>
