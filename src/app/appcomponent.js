@@ -146,22 +146,20 @@ class AppComponent extends React.Component {
               }
                 </div>
 
-
             </div>
 
         )
     }
 
     updateChildren(children, props) {
-        var childrenBack = React.Children.map(children, function(child) {
-            const segment =this.getSubstringUntilNth(props.location.pathname, '/', 2)
-            return React.cloneElement(child, {
-            ...props
-                ,key: segment
-        })
+        var childrenBack = React.Children.map(children,
+            function(child) {
+                const segment =this.getSubstringUntilNth(props.location.pathname, '/', 2);
+                return React.cloneElement(child, {...props, key:segment})
     }.bind(this))
         return childrenBack
 }
+
 
 getSubstringUntilNth(str, pattern, n) {
     return  str.split(pattern, n).join(pattern)
