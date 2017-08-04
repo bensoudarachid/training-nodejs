@@ -1,6 +1,6 @@
 import React from 'react'
 
-require('../../node_modules/babel-polyfill/dist/polyfill.js')
+// require('../../node_modules/babel-polyfill/dist/polyfill.js')
 // var React = require('react');
 import ReactDom from 'react-dom'
 import Immutable from 'immutable'
