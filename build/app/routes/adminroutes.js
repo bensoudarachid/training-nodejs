@@ -1,47 +1,63 @@
-import React from 'react';
-import { Route, IndexRoute, Link, hashHistory, DefaultRoute, NotFoundRoute } from 'react-router';
+'use strict';
 
-import AdminTrainingApp from '../../scenes/training/admin/admintrainingapp';
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _admintrainingapp = require('../../scenes/training/admin/admintrainingapp');
+
+var _admintrainingapp2 = _interopRequireDefault(_admintrainingapp);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // import TrainingEdit from '../../scenes/training/admin/trainingedit'
 
-if (typeof require.ensure !== 'function') require.ensure = (d, c) => c(require);
+if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
+    return c(require);
+};
 
-const adminRoutes = React.createElement(
-  Route,
-  { path: 'admin'
-    // getChildRoutes={(location, cb) => 
-    //   {cb(null, 
-    //     [
-    //       <Route path="todos" component={require('../../scenes/todo/todoapp').default} />,
-    //       require('./trainingroutes.js').default
-    //     ]
-    //   )}
-    // }
+var adminRoutes = _react2.default.createElement(
+    _reactRouter.Route,
+    { path: 'admin'
+        // getChildRoutes={(location, cb) =>
+        //   {cb(null,
+        //     [
+        //       <Route path="todos" component={require('../../scenes/todo/todoapp').default} />,
+        //       require('./trainingroutes.js').default
+        //     ]
+        //   )}
+        // }
 
-    , getChildRoutes: (location, cb) => {
-      require.ensure([], require => {
-        cb(null, [React.createElement(Route, { path: 'todos', component: require('../../scenes/todo/todoapp').default }), require('./trainingroutes.js').default]);
-      });
-    }
+        , getChildRoutes: function getChildRoutes(location, cb) {
+            require.ensure([], function (require) {
+                cb(null, [_react2.default.createElement(_reactRouter.Route, { path: 'todos', component: require('../../scenes/todo/todoapp').default }), require('./trainingroutes.js').default]);
+            });
+        }
 
-  },
-  React.createElement(IndexRoute, { component: AdminTrainingApp })
+    },
+    _react2.default.createElement(_reactRouter.IndexRoute, { component: _admintrainingapp2.default })
 );
 // const trainingRoutes = {
 //   path: 'item/:id',
 //   component: TrainingEdit
 // } 
 
-export default adminRoutes;
+exports.default = adminRoutes;
 
 // getChildRoutes={(location, cb) => {cb(null, [
 // 	require('./trainingroutes.js').default
 // ])}}
 
 
-//    getChildRoutes={ (location, cb) => 
-//        {require.ensure([], require => 
-//          {cb(null, 
+//    getChildRoutes={ (location, cb) =>
+//        {require.ensure([], require =>
+//          {cb(null,
 //            [
 //              <Route path="todos" component={require('../../scenes/todo/todoapp').default} />,
 //              require('./trainingroutes.js').default

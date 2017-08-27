@@ -21,7 +21,8 @@
     "prod": "set NODE_ENV=production&&node build/server7prod.js",
     "tbuild": "mkdir build && Copy-Item ./src/images ./build/ -recurse ",
     "tdel": "rm -r build",
-    "start": "set NODE_ENV=production&&pm2 start build/server7prod.js",
+    "startpm2": "set NODE_ENV=production&&pm2 start build/server7prod.js",
+    "start": "set NODE_ENV=production&&node build/server7prod.js",
     "stop": "naught stop",
     "status": "naught status",
     "deploy": "naught deploy --timeout 3"

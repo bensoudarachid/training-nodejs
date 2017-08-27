@@ -66,8 +66,8 @@ const trainingservices = {
             ))
     },
     retrieveTrainingsService: function (hostname) {
-        var sessionId = cookie.load('JSESSIONID')
-        console.log('Service retrieve trainings fetchData call ' + url + ' session id: ' + sessionId)
+        // var sessionId = cookie.load('JSESSIONID')
+        // console.log('Service retrieve trainings fetchData call ' + url + ' session id: ' + sessionId)
         let requesturl = url
         if (hostname != undefined)
         // requesturl = ApiConnection.getApiConnection(hostname)
@@ -79,7 +79,7 @@ const trainingservices = {
             // 'Authorization': 'Bearer '+idToken
         }
         var idToken = cookie.load('jwt')
-        // console.log('Ya trainings fetchData.  auth id token: ' + idToken)
+        console.log('Ya trainings fetchData.  auth id token: ' + idToken)
         if (idToken != undefined) {
             headers.Authorization = 'Bearer ' + idToken
             // console.log('Ya trainings fetchData.  auth id token: ' + headers.Authorization)

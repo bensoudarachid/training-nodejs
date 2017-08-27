@@ -7,10 +7,11 @@ import Immutable from 'immutable'
 // import '../../../node_modules/fullcalendar/dist/fullcalendar.js'
 // import 'fullcalendar'
 import HTML5Backend from 'react-dnd-html5-backend'
-import { DragDropContext } from 'react-dnd'
+import {DragDropContext} from 'react-dnd'
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import withDragAndDrop from '../../../node_modules/react-big-calendar/lib/addons/dragAndDrop'
+
 const DragAndDropCalendar = withDragAndDrop(BigCalendar)
 
 
@@ -30,10 +31,10 @@ if (process.env.BROWSER) {
 
 let MyCustomHeader = React.createClass({
     render() {
-        const { label } = this.props
+        const {label} = this.props
         return (
             <div>
-                <div>{ label.substring(0, 3) }</div>
+                <div>{label.substring(0, 3)}</div>
             </div>
         )
     }
@@ -97,18 +98,31 @@ class BigCalendarEdit extends React.Component {
 
 
                 <div className='mdl-grid mdl-grid--no-spacing'>
-                    <div key={'eventTitle' + eventId} className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--7-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
-                        <form className='pad mdl-grid mdl-cell mdl-cell--7-col mdl-cell--5-col-tablet mdl-cell--4-col-phone' onSubmit={this.onSaveClick.bind(this)}>
+                    <div key={'eventTitle' + eventId}
+                         className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--7-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
+                        <form
+                            className='pad mdl-grid mdl-cell mdl-cell--7-col mdl-cell--5-col-tablet mdl-cell--4-col-phone'
+                            onSubmit={this.onSaveClick.bind(this)}>
                             <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
                                 <div className='mdl-textfield tf mdl-js-textfield'>
-                                    <input className='mdl-textfield__input' type='text' defaultValue={eventTitle} name={'eventTitle' + eventId} ref={'eventTitle' + eventId} id={'eventTitle' + eventId}/>
-                                    <label className='mdl-textfield__label' htmlFor={'eventTitle' + eventId}>Title...</label>
+                                    <input className='mdl-textfield__input' type='text' defaultValue={eventTitle}
+                                           name={'eventTitle' + eventId} ref={'eventTitle' + eventId}
+                                           id={'eventTitle' + eventId}/>
+                                    <label className='mdl-textfield__label'
+                                           htmlFor={'eventTitle' + eventId}>Title...</label>
                                 </div>
                             </div>
                         </form>
-                        <div className='buttonblock pad mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
-                            <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items' onClick={this.onCancelClick.bind(this)} disabled={disabled}>Cancel</button>
-                            <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored savebutton right-items' onClick={this.onSaveClick.bind(this)} disabled={disabled}>Save</button>
+                        <div
+                            className='buttonblock pad mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
+                            <button
+                                className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items'
+                                onClick={this.onCancelClick.bind(this)} disabled={disabled}>Cancel
+                            </button>
+                            <button
+                                className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored savebutton right-items'
+                                onClick={this.onSaveClick.bind(this)} disabled={disabled}>Save
+                            </button>
                         </div>
                     </div>
 
@@ -201,9 +215,9 @@ class BigCalendarEdit extends React.Component {
     }
 
 
-    moveEvent({ event, start, end }) {
+    moveEvent({event, start, end}) {
         // const events = this.props.events
-        const { localevents } = this.state
+        const {localevents} = this.state
 
         // const idx = localevents.indexOf(event)
         // const updatedEvent = { ...event, start, end }
@@ -231,7 +245,7 @@ class BigCalendarEdit extends React.Component {
     }
 
     selectEvent(event) {
-        const { localevents } = this.state
+        const {localevents} = this.state
         const nextEvents = [...localevents]
 
         if (this.state.selectedEvent == event) {
@@ -247,13 +261,12 @@ class BigCalendarEdit extends React.Component {
 
         else {
             // console.log('event.id='+require('util').inspect(event.id, false, null))
-            for(var i = 0;i<nextEvents.length;i++) {
+            for (var i = 0; i < nextEvents.length; i++) {
                 // nextEvents[i].selected = true
                 // console.log('nextEvents[i]='+require('util').inspect(nextEvents[i], false, null))
-                if(nextEvents[i].id==event.id) {
+                if (nextEvents[i].id == event.id) {
                     nextEvents
-                        [i].
-                        title = 'Tshash' + event.start
+                        [i].title = 'Tshash' + event.start
                     break
                 }
             }
@@ -264,8 +277,7 @@ class BigCalendarEdit extends React.Component {
         }
     }
 
-    eventStyleGetter(event, start, end, isSelected)
-    {
+    eventStyleGetter(event, start, end, isSelected) {
         console.log('event Style Getter =' + require('util').inspect(event.title, false, null) + ', isSelected=' + require('util').inspect(isSelected, false, null))
         // var backgroundColor = '#' + event.hexColor
         // var backgroundColor = '#aaf'
@@ -293,4 +305,5 @@ class BigCalendarEdit extends React.Component {
     }
 
 }
+
 export default DragDropContext(HTML5Backend)(BigCalendarEdit)
