@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< HEAD:src/test/components/TodoApp_spec.jsx
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
@@ -27,12 +28,42 @@ import {
 import { describe, beforeEach, it } from 'mocha';
 import { describeWithDOM, mount, shallow, spyLifecycle } from 'enzyme';
 >>>>>>> 6e3ff02... webstorm big changes crash:build/test/scenes/todo/admin/TodoApp_spec.js
+=======
+'use strict';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactAddonsTestUtils = require('react-addons-test-utils');
+
+var _reactAddonsTestUtils2 = _interopRequireDefault(_reactAddonsTestUtils);
+
+var _todoapp = require('scenes/todo/todoapp');
+
+var _todoapp2 = _interopRequireDefault(_todoapp);
+
+var _chai = require('chai');
+
+var _sinon = require('sinon');
+
+var _sinon2 = _interopRequireDefault(_sinon);
+
+var _immutable = require('immutable');
+
+var _mocha = require('mocha');
+
+var _enzyme = require('enzyme');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+>>>>>>> 5de5723... test github push
 
 // import {List, Map} from 'immutable'
 
 // const {renderIntoDocument,//findRenderedDOMComponentsWithTag,
 //        scryRenderedDOMComponentsWithTag} = TestUtils
 
+<<<<<<< HEAD
 describe('TodoApp', () => {
 <<<<<<< HEAD:src/test/components/TodoApp_spec.jsx
     const auth = {
@@ -40,6 +71,17 @@ describe('TodoApp', () => {
     }
     const todo = Map({id: 2, task: 'Redux', completed: false})
     let index = 3
+=======
+// import { spyOnComponentMethod, stubComponentMethod } from 'sinon-spy-react'
+
+// import TodoApp from '../../../../../scenes/todo/todoapp'
+(0, _mocha.describe)('TodoApp', function () {
+    var auth = {
+        isAuthenticated: true
+    };
+    var todo = (0, _immutable.Map)({ id: 2, task: 'Redux', completed: false });
+    var index = 3;
+>>>>>>> 5de5723... test github push
     // let filteropen = true
     // let filterclosed = true
     // beforeEach(function() {
@@ -53,6 +95,7 @@ describe('TodoApp', () => {
     //   let filterclosed = true
     // })
 
+<<<<<<< HEAD
     it('mounts correctly', function () {
         // function handleClick() { done() }
         const todos = List.of(
@@ -63,10 +106,18 @@ describe('TodoApp', () => {
         )
         // const stub =sinon.stub(TodoApp, 'componentDidMount', () => { todos })
         const stub = sinon.stub(TodoApp.prototype, 'componentDidMount').returns(todos)
+=======
+    (0, _mocha.it)('mounts correctly', function () {
+        // function handleClick() { done() }
+        var todos = _immutable.List.of((0, _immutable.Map)({ id: 1, task: 'React', completed: false }), (0, _immutable.Map)({ id: 2, task: 'Redux', completed: false }), (0, _immutable.Map)({ id: 3, task: 'Immutable', completed: false }), (0, _immutable.Map)({ id: 4, task: 'Wanna3', completed: true }));
+        // const stub =sinon.stub(TodoApp, 'componentDidMount', () => { todos })
+        var stub = _sinon2.default.stub(_todoapp2.default.prototype, 'componentDidMount').returns(todos);
+>>>>>>> 5de5723... test github push
         // sinon.spy(TodoApp.prototype, 'componentDidMount')
         // const props = {
         //   auth
         // }
+<<<<<<< HEAD
         // const wrapper = 
         // mount(<TodoApp {...props} />)
         const wrapper = mount(<TodoApp/>)
@@ -113,3 +164,13 @@ describe('TodoApp', () => {
   });
 });
 >>>>>>> 6e3ff02... webstorm big changes crash:build/test/scenes/todo/admin/TodoApp_spec.js
+=======
+        // const wrapper =
+        // mount(<TodoApp {...props} />)
+        var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_todoapp2.default, null));
+        (0, _chai.expect)(_todoapp2.default.prototype.componentDidMount).to.have.property('callCount', 1);
+        stub.restore();
+        // console.log('TodoApp spec. mounts correctly. html: '+wrapper.html())
+    });
+});
+>>>>>>> 5de5723... test github push

@@ -1,20 +1,41 @@
-import { combineReducers } from 'redux';
-import todoReducer from './todos/todoReducer';
-import trainingReducer from './trainings/trainingReducer';
-// import userReducer from './userReducer'
-import authReducer from './app/authentication/authReducer';
-import appReducer from './app/appReducer';
-import { routerReducer } from 'react-router-redux';
-// import { FetchData, reducer as fetching } from 'redux-fetch-data';
+'use strict';
 
-const rootReducer = combineReducers({
-  auth: authReducer,
-  app: appReducer,
-  // todoappmap: todoAppReducer,
-  todoappmap: todoReducer,
-  trainingappmap: trainingReducer,
-  // user: userReducer,
-  routing: routerReducer
+Object.defineProperty(exports, "__esModule", {
+    value: true
 });
 
-export default rootReducer;
+var _redux = require('redux');
+
+var _todoReducer = require('./todos/todoReducer');
+
+var _todoReducer2 = _interopRequireDefault(_todoReducer);
+
+var _trainingReducer = require('./trainings/trainingReducer');
+
+var _trainingReducer2 = _interopRequireDefault(_trainingReducer);
+
+var _authReducer = require('./app/authentication/authReducer');
+
+var _authReducer2 = _interopRequireDefault(_authReducer);
+
+var _appReducer = require('./app/appReducer');
+
+var _appReducer2 = _interopRequireDefault(_appReducer);
+
+var _reactRouterRedux = require('react-router-redux');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import { FetchData, reducer as fetching } from 'redux-fetch-data';
+
+var rootReducer = (0, _redux.combineReducers)({
+    auth: _authReducer2.default,
+    app: _appReducer2.default,
+    // todoappmap: todoAppReducer,
+    todoappmap: _todoReducer2.default,
+    trainingappmap: _trainingReducer2.default,
+    // user: userReducer,
+    routing: _reactRouterRedux.routerReducer
+});
+// import userReducer from './userReducer'
+exports.default = rootReducer;

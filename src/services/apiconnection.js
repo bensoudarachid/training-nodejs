@@ -64,8 +64,10 @@ class ApiConnection {
         if (hostname == 'rlearn.herokuapp.com')
         // return 'https://reactlearning.royasoftware.com:9083'
             return 'https://reactlearning.school.royasoftware.com:' + apiport
-        else
+        else {
+            console.log('Get Api connection: '+'http://' + hostname + ':' + apiport)
             return 'http://' + hostname + ':' + apiport
+        }
         // return 'http://127.0.0.1:8083' //not helpful to resolve single tenants on server side calls
     }
 }
