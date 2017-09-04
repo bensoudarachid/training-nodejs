@@ -52,7 +52,8 @@ class ApiConnection {
             // // authurl= window.location.protocol+'//reactlearning.royasoftware.com:'+apiport
             //     authurl = window.location.protocol + '//reactlearning.school.royasoftware.com:' + apiport
             // else
-            authurl = window.location.protocol + '//' + window.location.hostname + ':' + apiport
+            const apiHostname = window.location.hostname .replace("school.", "schoolapi.");
+            authurl = window.location.protocol + '//' + apiHostname + ':' + apiport
             // authurl = window.location.protocol + '//' + '127.0.0.1' + ':' + apiport
             // url = authurl
             console.log('services call url ' + url)
@@ -69,13 +70,14 @@ class ApiConnection {
     }
 
     getApiConnection(hostname) {
+        const apiHostname = hostname .replace("school.", "schoolapi.");
         // if (hostname == 'rlearn.herokuapp.com')
         // // return 'https://reactlearning.royasoftware.com:9083'
         //     return 'https://reactlearning.school.royasoftware.com:' + apiport
         // else {
-            console.log('Get Api connection: '+'http://' + hostname + ':' + apiport)
+            console.log('Get Api connection: '+'http://' + apiHostname + ':' + apiport)
 
-        return 'http://' + hostname + ':' + apiport
+        return 'http://' + apiHostname + ':' + apiport
         // return 'http://' + '127.0.0.1' + ':' + apiport
         // }
         // return 'http://127.0.0.1:8083' //not helpful to resolve single tenants on server side calls
