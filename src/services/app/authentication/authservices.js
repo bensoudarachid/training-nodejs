@@ -1,7 +1,7 @@
 // import Immutable from 'immutable';
 import Immutable from 'immutable'
 import cookie from 'react-cookie'
-// import {port} from '../../server7'
+// import {expressPort} from '../../server7'
 // export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 // export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 // export const LOGIN_FAILURE = 'LOGIN_FAILURE'
@@ -14,7 +14,7 @@ const authurl = ApiConnection.apiurl + ApiConnection.appbasename
 
 const authservices = {
     // apiurl:url,
-    // port:port,
+    // expressPort:expressPort,
     // appbasename:appbasename,
 
     registerUserService: function (user) {
