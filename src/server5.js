@@ -60,7 +60,7 @@ var port = 8080
 
 app.listen(port, function (error) {
     if (error) throw error;
-    console.log("Express server listening on port", port);
+    console.log("Express server listening on expressPort", port);
 });
 
 // const server = http.createServer(app);
