@@ -65,7 +65,7 @@ class ApiConnection {
         // // return 'https://reactlearning.royasoftware.com:9083'
         //     return 'https://reactlearning.school.royasoftware.com:' + apiport
         // else {
-            console.log('Get Api connection: '+'http://' + apiHostname + ':' + apiport)
+            console.log('2. Get Api connection: '+'http://' + apiHostname + ':' + apiport)
 
         return 'http://' + apiHostname + ':' + apiport
         // return 'http://' + '127.0.0.1' + ':' + apiport
