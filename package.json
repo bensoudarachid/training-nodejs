@@ -22,7 +22,7 @@
     "tbuild": "mkdir build && Copy-Item ./src/images ./build/ -recurse ",
     "tdel": "rm -r build",
     "startpm2": "set NODE_ENV=production&&pm2 start build/server7prod.js",
-    "postinstall": "set NODE_ENV=production && webpack --config webpack-production.config.js --progress -p && babel src -d build",
+    "postinstall": "ls",
     "start": "set NODE_ENV=production&&node build/server7prod.js",
     "stop": "naught stop",
     "status": "naught status",

@@ -169,7 +169,7 @@ app.post(appbasename + '/api/*/fileupload/*', upload.single('uploadfile'), funct
 
     var extServerOptionsPost = {
         host: req.headers.host,
-        port: '8083',
+        expressPort: '8083',
         path: req.url,
         method: 'POST',
         headers: headers
@@ -220,7 +220,7 @@ app.get(appbasename + '/api/*', function (req, res) {
 
     var extServerOptionsPost = {
         host: req.headers.host,
-        port: '8083',
+        expressPort: '8083',
         path: req.url,
         method: 'GET',
         headers: req.headers
@@ -311,7 +311,7 @@ app.post(appbasename + '/api/*', function (req, res) {
     // console.log('POST API. files = '+req.files)
     var extServerOptionsPost = {
         host: req.headers.host,
-        port: '8083',
+        expressPort: '8083',
         path: req.url,
         method: 'POST',
         headers: {
@@ -514,10 +514,10 @@ child.stdout.on('data', function (chunk) {
 });
 child.stdout.pipe(process.stdout);
 
-var port = process.env.PORT || _apiconnection2.default.port;
+var port = process.env.PORT || _apiconnection2.default.expressPort;
 app.listen(port, function (error) {
     if (error) throw error;
-    console.log('Express server listening on port', port);
+    console.log('Express server listening on expressPort', port);
 });
 
 // const server = http.createServer(app);

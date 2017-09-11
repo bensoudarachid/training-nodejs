@@ -3,7 +3,7 @@
 *.au3
 node_modules
 old
-build #we have to let it in because of heroku and server in BM. Now its out
+# build we have to let it in because of heroku and server in BM
 # webstorm
 .idea/
 

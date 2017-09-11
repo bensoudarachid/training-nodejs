@@ -19,11 +19,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import Immutable from 'immutable'
 var url = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename;
 
-// var port = -12
+// var expressPort = -12
 // if (process.env.NODE_ENV === 'production')
-//   port=8082
+//   expressPort=8082
 // else
-//   port=8081
+//   expressPort=8081
 // var isBrowser = typeof window !== 'undefined'
 // var url = ''
 // var authurl = ''
@@ -32,17 +32,17 @@ var url = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename;
 // if( isBrowser ){
 //   authurl= window.location.protocol+'//'+window.location.hostname+':8083'
 //   // authurl= 'http:'+'//'+'abbaslearning.royasoftware.com'+':8083'
-//   // url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+appbasename
+//   // url = window.location.protocol+'//'+window.location.hostname+(window.location.expressPort ? ':'+location.expressPort: '')+appbasename
 //   url = authurl
 //   // authurl= window.location.protocol+'//'+window.location.hostname+':8083'
 //   console.log('services call url '+url)
 // }else{
-//   url = 'http:'+'//'+'127.0.0.1'+(port ? ':'+port: '')+appbasename
+//   url = 'http:'+'//'+'127.0.0.1'+(expressPort ? ':'+expressPort: '')+appbasename
 //   authurl= 'http:'+'//'+'127.0.0.1'+':8083'
 //   console.log('services call local url '+url)
 // }
 
-// import {port} from '../../server7'
+// import {expressPort} from '../../server7'
 // export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 // export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 // export const LOGIN_FAILURE = 'LOGIN_FAILURE'
@@ -52,7 +52,7 @@ var url = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename;
 
 var todoservices = {
     // apiurl:url,
-    // port:port,
+    // expressPort:expressPort,
     // appbasename:appbasename,
     retrieveTodosService: function retrieveTodosService() {
         // console.log('Service retrieve todos fetchData call '+ url)

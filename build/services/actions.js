@@ -54,11 +54,11 @@ var _appactions2 = _interopRequireDefault(_appactions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// var port = -12
+// var expressPort = -12
 // if (process.env.NODE_ENV === 'production')
-//   port=8082
+//   expressPort=8082
 // else
-//   port=8081
+//   expressPort=8081
 // var isBrowser = typeof window !== 'undefined'
 // var url = ''
 // var authurl = ''
@@ -66,12 +66,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // if( isBrowser ){
 //   authurl= window.location.protocol+'//'+window.location.hostname+':8083'
 //   // authurl= 'http:'+'//'+'abbaslearning.royasoftware.com'+':8083'
-//   // url = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+location.port: '')+appbasename
+//   // url = window.location.protocol+'//'+window.location.hostname+(window.location.expressPort ? ':'+location.expressPort: '')+appbasename
 //   url = authurl
 //   // authurl= window.location.protocol+'//'+window.location.hostname+':8083'
 //   console.log('services call url '+url)
 // }else{
-//   url = 'http:'+'//'+'127.0.0.1'+(port ? ':'+port: '')+appbasename
+//   url = 'http:'+'//'+'127.0.0.1'+(expressPort ? ':'+expressPort: '')+appbasename
 //   authurl= 'http:'+'//'+'127.0.0.1'+':8083'
 //   console.log('services call local url '+url)
 // }
