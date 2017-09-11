@@ -74,7 +74,7 @@ var routes = require('../components/routes.jsx');
 //     if (err) return res.send(err);
 //   })
 //   .listen(8080, function () {
-//     console.log(`Listening on port ${this.address().port}`);
+//     console.log(`Listening on expressPort ${this.address().expressPort}`);
 // });
 
 
@@ -102,7 +102,7 @@ var port = 8080;
 
 app.listen(port, function (error) {
     if (error) throw error;
-    console.log("Express server listening on port", port);
+    console.log("Express server listening on expressPort", port);
 });
 
 // http.createServer((req, res) => {

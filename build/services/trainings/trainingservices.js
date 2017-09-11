@@ -21,7 +21,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var url = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename;
 // const url = ApiConnection.apiurl
 
-// import {port} from '../../server7'
+// import {expressPort} from '../../server7'
 // export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 // export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 // export const LOGIN_FAILURE = 'LOGIN_FAILURE'
