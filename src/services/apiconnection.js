@@ -9,7 +9,7 @@ class ApiConnection {
         var appbasename = ''
         if (process.env.NODE_ENV === 'production') {
             expressPort = 8082
-            appbasename = '/training-' + version.appversion
+            // appbasename = '/training-' + version.appversion
         }
         else {
             expressPort = 8081
@@ -35,7 +35,6 @@ class ApiConnection {
                 apiport = 80 //Apache cluster normal expressPort
 >>>>>>> 391471a... adapt ports for openshift
         }
-
 
         var url = ''
         var authurl = ''

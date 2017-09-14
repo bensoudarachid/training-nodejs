@@ -21,7 +21,7 @@ var ApiConnection = function () {
         var appbasename = '';
         if (process.env.NODE_ENV === 'production') {
             expressPort = 8082;
-            appbasename = '/training-' + version.appversion;
+            // appbasename = '/training-' + version.appversion
         } else {
             expressPort = 8081;
             // appbasename = '/training-'+version.appversion
