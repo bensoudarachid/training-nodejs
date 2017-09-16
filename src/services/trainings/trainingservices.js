@@ -74,16 +74,19 @@ const trainingservices = {
     },
     retrieveTrainingsService: function (hostname) {
         // var sessionId = cookie.load('JSESSIONID')
-        // console.log('Service retrieve trainings fetchData call ' + url + ' session id: ' + sessionId)
+        console.log('Service retrieve trainings fetchData call with hostname in Header' + hostname)
         let requesturl = url
-        if (hostname != undefined)
-        // requesturl = ApiConnection.getApiConnection(hostname)
-            requesturl = ApiConnection.getApiConnection(hostname) + ApiConnection.appbasename
         var headers = {
             // 'Content-Type': 'application/x-www-form-urlencoded',
             'Content-Type': 'application/json'
+            // ,'ClientHost': ''+hostname//.replace("school.", "schoolapi.")
             // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
             // 'Authorization': 'Bearer '+idToken
+        }
+        if (hostname != undefined) {
+            // requesturl = ApiConnection.getApiConnection(hostname)
+            requesturl = ApiConnection.getApiConnection(hostname) + ApiConnection.appbasename
+            headers.ClientHost = '' + hostname
         }
         var idToken = cookie.load('jwt')
         console.log('Ya trainings fetchData.  auth id token: ' + idToken)
