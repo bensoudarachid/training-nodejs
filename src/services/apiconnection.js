@@ -1,5 +1,5 @@
 const version = require('./version.js')
-var apiport = 8083 // default for development
+var apiport = 8088 // default for development
 
 class ApiConnection {
     constructor() {
@@ -22,8 +22,8 @@ class ApiConnection {
                 // apiport = 9083 //Apache cluster ssl expressPort
                 apiport = 443 //Apache cluster ssl expressPort
             else //the node server wants to call apache
-                // apiport = 8088 //Apache cluster normal expressPort
-                apiport = 80 //Apache cluster normal expressPort
+                apiport = 8088 //Apache cluster normal expressPort
+                // apiport = 80 //Apache cluster normal expressPort
         }
 
         var url = ''
@@ -59,14 +59,16 @@ class ApiConnection {
     }
 
     getApiConnection(hostname) {
-        const apiHostname = hostname .replace("school.", "schoolapi.");
-        // if (hostname == 'rlearn.herokuapp.com')
-        // // return 'https://reactlearning.royasoftware.com:9083'
-        //     return 'https://reactlearning.school.royasoftware.com:' + apiport
-        // else {
-            console.log('2. Get Api connection: '+'http://' + apiHostname + ':' + apiport)
+        console.log('process.env.TRAINING_API_LOCAL_IP='+require('util').inspect(process.env.TRAINING_API_LOCAL_IP, false, null))
+        if (!process.env.BROWSER && process.env.TRAINING_API_LOCAL_IP!=undefined) {
+            hostname = process.env.TRAINING_API_LOCAL_IP;
+            console.log('hostname='+require('util').inspect(hostname, false, null))
+        }else
+        // const apiHostname = hostname.replace("school.", "schoolapi.");
+            hostname = hostname.replace("school.", "schoolapi.");
+        console.log('2. Get Api connection: '+'http://' + hostname + ':' + apiport)
 
-        return 'http://' + apiHostname + ':' + apiport
+        return 'http://' + hostname + ':' + apiport
         // return 'http://' + '127.0.0.1' + ':' + apiport
         // }
         // return 'http://127.0.0.1:8083' //not helpful to resolve single tenants on server side calls
