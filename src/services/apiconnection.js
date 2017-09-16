@@ -32,11 +32,15 @@ class ApiConnection {
                 apiport = 443 //Apache cluster ssl expressPort
             else //the node server wants to call apache
 <<<<<<< HEAD
+<<<<<<< HEAD
                 // apiport = 8088 //Apache cluster normal expressPort
                 apiport = 80 //Apache cluster normal expressPort
 >>>>>>> 391471a... adapt ports for openshift
 =======
                 apiport = 8088 //Apache cluster normal expressPort
+=======
+                apiport = 80 //Apache cluster normal expressPort
+>>>>>>> 31fe258... Fix http port problem for production
                 // apiport = 80 //Apache cluster normal expressPort
 >>>>>>> dcab90a... Try to solve local calls from node.js to spring rest api in openshift
         }
