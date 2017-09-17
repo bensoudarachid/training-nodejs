@@ -60,15 +60,17 @@ class ApiConnection {
 
     getApiConnection(hostname) {
         console.log('process.env.TRAINING_API_LOCAL_IP='+require('util').inspect(process.env.TRAINING_API_LOCAL_IP, false, null))
+        var port = apiport;
         if (!process.env.BROWSER && process.env.TRAINING_API_LOCAL_IP!=undefined) {
-            hostname = process.env.TRAINING_API_LOCAL_IP;
+            hostname = process.env.TRAINING_API_LOCAL_IP
+            port = 8080
             console.log('hostname='+require('util').inspect(hostname, false, null))
         }else
         // const apiHostname = hostname.replace("school.", "schoolapi.");
             hostname = hostname.replace("school.", "schoolapi.");
-        console.log('2. Get Api connection: '+'http://' + hostname + ':' + apiport)
+        console.log('2. Get Api connection: '+'http://' + hostname + ':' + port)
 
-        return 'http://' + hostname + ':' + apiport
+        return 'http://' + hostname + ':' + port
         // return 'http://' + '127.0.0.1' + ':' + apiport
         // }
         // return 'http://127.0.0.1:8083' //not helpful to resolve single tenants on server side calls
