@@ -68,7 +68,7 @@ var TrainingEdit = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
-            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!');
+            // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!')
             var auth = this.props.auth;
 
             var training = this.props.trainingappmap.get('edittraining');
@@ -82,7 +82,7 @@ var TrainingEdit = function (_React$Component) {
             // console.log('###################################Training edit render title ='+require('util').inspect(title, false, null))
             var secondaryTitle = training == undefined ? '' : training.get('secondaryTitle');
             var shortDescription = training == undefined ? '' : training.get('shortDescription');
-            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!' + shortDescription);
+            // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!' + shortDescription)
             var longDescription = training == undefined ? '' : training.get('longDescription');
             var duration = training == undefined ? '' : training.get('duration');
             // const needDeleteConfirmation = training==undefined?'':training.get('needDeleteConfirmation')
@@ -125,6 +125,7 @@ var TrainingEdit = function (_React$Component) {
                         height: '55px'
                     } })
             );else
+
                 //<form onSubmit={(event) => this.handleClick(event)} noValidate>
                 // <form action='/api/training/updatetraining' method="post" enctype="multipart/form-data">
                 //<TrainingImage ref='uploadcomp' trainingid={id} isUploading={saving}/>
@@ -138,6 +139,10 @@ var TrainingEdit = function (_React$Component) {
                 //   <ConfirmationModal training={training} actions={this.props.actions}/>
                 // </div>
                 // }
+                // <button id='sub' type='submit'
+                // className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
+                // Submit
+                // </button>
 
                 return _react2.default.createElement(
                     'div',
@@ -287,16 +292,16 @@ var TrainingEdit = function (_React$Component) {
                                 _react2.default.createElement(
                                     'button',
                                     { id: 'sub', type: 'submit',
-                                        className: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' },
-                                    'Submit'
+                                        className: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton' },
+                                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-save' })
                                 ),
                                 _react2.default.createElement(
                                     'button',
                                     { id: 'deletetheshit', onClick: function onClick(event) {
                                             return _this2.handleDelete(event);
                                         },
-                                        className: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' },
-                                    'Delete'
+                                        className: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton' },
+                                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-erase' })
                                 )
                             )
                         )
@@ -346,7 +351,7 @@ var TrainingEdit = function (_React$Component) {
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate() {
-            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Training edit. comp update');
+            // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Training edit. comp update')
             componentHandler.upgradeDom();
             var trainingEditError = this.props.trainingappmap.get('trainingEditError');
             //Need this code to get correct placeholderfloating  behaviour. otherwise content and placeholder overlap
@@ -424,12 +429,12 @@ var TrainingEdit = function (_React$Component) {
         }
     }], [{
         key: 'fetchData',
-        value: function fetchData(actions, params, hostname) {
+        value: function fetchData(actions, params) {
             // console.log('Call Training Edit fetch data  <-----------------------------')
             // console.log('Training edit. get training! param = '+util.inspect( params.id, false, null))
 
             //The return is necessary. if not the fetching is not resolved properly on the server side!
-            return actions.retrieveTrainingDispatcher(params, hostname);
+            return actions.retrieveTrainingDispatcher(params);
             // return Promise.resolve(actions.retrieveTrainingDispatcher(params.id,hostname))
         }
     }]);

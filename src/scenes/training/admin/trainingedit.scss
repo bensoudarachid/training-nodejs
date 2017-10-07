@@ -17,6 +17,47 @@
   // 	border-radius: 25px;
   // height:250px;
   // text-align: center;
+
+  //.smallbutton {
+  //  margin: 0px 2px !important;
+  //  width: 35px !important;
+  //  height: 35px;
+  //  @media (min-width: 768px) {
+  //    width: 40px !important;
+  //    height: 40px;
+  //    margin: 0px 4px !important;
+  //  }
+  //  @media (min-width: 992px) {
+  //    width: 45px !important;
+  //    height: 45px;
+  //    margin: 0px 8px !important;
+  //  }
+  //  border: 2px;
+  //  border-style: solid;
+  //  border-radius: 50%;
+  //  border-color: transparent; //'#f4f #f34'
+  //
+  //}
+  //.roundbutton {
+  //  background-repeat: no-repeat;
+  //  background-position: center;
+  //  background-size: 75%;
+  //  border-radius: 50%;
+  //  background-color: getMdlColor($color-primary);
+  //  color: white !important;
+  //  &:hover {
+  //    color: $roya-blue !important;
+  //    background-color: white;
+  //  }
+  //}
+  //.glyphicon{
+  //  //color: white;
+  //  //&:hover {
+  //  //  color: $roya-blue;
+  //  //}
+  //  font-size: 24px;
+  //}
+
   input {
     font-family: 'Roboto', Tahoma, sans-serif;
     // background-color: darken($roya-blue,10%);

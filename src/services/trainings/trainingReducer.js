@@ -117,11 +117,16 @@ let trainingReducer = function (trainingappmap = new Immutable.Map({
             // console.log('trainings reducer. training loaded. Do something with it' )
             return trainingappmap
         case 'HANDLE_TRAINING_CHANGE':
+
+            console.log('HANDLE_TRAINING_CHANGE. I m here damn!')
             edittraining = trainingappmap.get('edittraining')
             edittraining = edittraining.set(action.attribute, action.value)
             trainingappmap = trainingappmap.set('edittraining', edittraining)
             return trainingappmap
-
+        case 'HANDLE_TRAINING_EVENTS_CHANGE':
+            console.log('Reducer .events='+require('util').inspect(action.events, false, null))
+            trainingappmap = trainingappmap.set('edittrainingevents', action.events)
+            return trainingappmap
         case 'EDIT_TRAINING_SAVING':
             var editTraining = action.training //trainingappmap.get('edittraining')
             editTraining = editTraining.set('saving', true)
@@ -137,11 +142,57 @@ let trainingReducer = function (trainingappmap = new Immutable.Map({
             // console.log('trainings reducer. training loaded. Do something with it' +util.inspect( action.training, false, null))
 =======
             console.log('trainings reducer EDIT_TRAINING_LOADED  <-----------------------------')
+            console.log('action.training='+require('util').inspect(action.training.events.toIndexedSeq().toArray(), false, null))
             if (action.training == undefined)
                 trainingappmap = trainingappmap.set('edittraining', undefined)
             else {
+                // let events = Immutable.List([
+                //     Immutable.Map({
+                //         'number': 2,
+                //         // 'title': 'React 2',
+                //         // 'date': Date.now(),
+                //         'start': new Date(2001, 0, 2, 9, 30, 0, 0),
+                //         'end': new Date(2001, 0, 2, 11, 30, 0, 0)
+                //         // 'allDay': true
+                //     }),
+                //     Immutable.Map({
+                //         'number': 3,
+                //         // 'title': 'React 2',
+                //         // 'date': Date.now(),
+                //         'start': new Date(2001, 0, 3, 10, 30, 0, 0),
+                //         'end': new Date(2001, 0, 3, 14, 0, 0, 0)
+                //         // 'allDay': true
+                //     })
+                // ])
+                // let events = Immutable.List( [
+                //     // {
+                //     //     number: 2,
+                //     //     start: 978337800000,
+                //     //     end: 978348600000,
+                //     //     version: 0,
+                //     //     training: null
+                //     // },
+                //     {
+                //         'number': 2,
+                //         // 'title': 'React 2',
+                //         // 'date': Date.now(),
+                //         'start': new Date(2001, 0, 2, 9, 30, 0, 0),
+                //         'end': new Date(2001, 0, 2, 11, 30, 0, 0)
+                //         // 'allDay': true
+                //     },
+                //     {
+                //         'number': 3,
+                //         // 'title': 'React 2',
+                //         // 'date': Date.now(),
+                //         'start': new Date(2001, 0, 3, 10, 30, 0, 0),
+                //         'end': new Date(2001, 0, 3, 14, 0, 0, 0)
+                //         // 'allDay': true
+                //     }
+                // ])
+                // action.training.events=events
                 trainingappmap = trainingappmap.set('edittraining', Immutable.Map(action.training))
-                console.log('trainings reducer. training loaded. Do something with it' + util.inspect(action.training, false, null))
+                trainingappmap = trainingappmap.set('edittrainingevents', Immutable.List(trainingappmap.get('edittraining').get('events').toJS()) )
+                console.log('trainings reducer. training loaded. Do something with it' + util.inspect(action.training.events.toIndexedSeq().toArray(), false, null))
             }
 >>>>>>> 6e3ff02... webstorm big changes crash
             return trainingappmap

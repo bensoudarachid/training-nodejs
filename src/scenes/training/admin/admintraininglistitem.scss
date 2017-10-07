@@ -144,8 +144,15 @@
     text-align: right;
   }
   .buttonwrap {
-    margin: 0px 0px 8px 0px;
+    margin: -6px 0px 2px 0px;
     height: 35px;
+    @media (min-width: 768px) {
+      margin: -6px 0px 8px 0px;
+    }
+    @media (min-width: 992px) {
+      margin: -6px 0px 12px 0px;
+    }
+
     // background-color: orange;
   }
   .schedulebutton, .editbutton {
@@ -166,12 +173,12 @@
     // padding:10px 10px 10px 10px;
     color: white;
   }
-  .schedulebutton {
-    background-image: url('../../../images/calendar.svg');
-  }
-  .editbutton {
-    background-image: url('../../../images/edit.svg');
-  }
+  //.schedulebutton {
+  //  //background-image: url('../../../images/calendar.svg');
+  //}
+  //.editbutton {
+  //  //background-image: url('../../../images/edit.svg');
+  //}
   // #home {
   // 	font-size: 15px;
   // 	padding: 0px 0px;

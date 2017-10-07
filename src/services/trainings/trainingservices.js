@@ -21,17 +21,19 @@ const url = ApiConnection.apiurl + ApiConnection.appbasename
 // const url = ApiConnection.apiurl
 
 const trainingservices = {
-    retrieveTrainingService: function (id, hostname) {
+    retrieveTrainingService: function (id) {
 
         let requesturl = url
-        if (hostname != undefined)
-            requesturl = ApiConnection.getApiConnection(hostname) + ApiConnection.appbasename
         var headers = {
             // 'Content-Type': 'application/x-www-form-urlencoded',
             'Content-Type': 'application/json'
             // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
             // 'Authorization': 'Bearer '+idToken
         }
+        // if (hostname != undefined) {
+        //     // requesturl = ApiConnection.getApiConnection(hostname) + ApiConnection.appbasename
+        //     headers.OldClientHost = '' + hostname
+        // }
         var idToken = cookie.load('jwt')
 
         console.log('training fetchData. url: ' + url + '/api/training/item/' + id)
@@ -61,7 +63,14 @@ const trainingservices = {
                 // body: 'testparam='+test //if no json in header
             }
         )
-            .then(response => response.json().then(data => {
+            .then(
+                response => response.text()
+                    .then(text => {
+                        // return text.length ? JSON.parse(text,ApiConnection.reviver) : {}
+                        return text.length ? JSON.parse(text) : {}
+                    })
+                // response => response.json()
+                    .then(data => {
 //        console.log('Print status now')
 //        console.log('Response Status = ' + response.status)
                     // console.log('Response data size = ' + data.size())
@@ -72,9 +81,9 @@ const trainingservices = {
                 }
             ))
     },
-    retrieveTrainingsService: function (hostname) {
+    retrieveTrainingsService: function () {
         // var sessionId = cookie.load('JSESSIONID')
-        console.log('Service retrieve trainings fetchData call with hostname in Header' + hostname)
+        console.log('Service retrieve trainings fetchData')
         let requesturl = url
         var headers = {
             // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -83,11 +92,11 @@ const trainingservices = {
             // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
             // 'Authorization': 'Bearer '+idToken
         }
-        if (hostname != undefined) {
-            // requesturl = ApiConnection.getApiConnection(hostname)
-            requesturl = ApiConnection.getApiConnection(hostname) + ApiConnection.appbasename
-            headers.ClientHost = '' + hostname
-        }
+        // if (hostname != undefined) {
+        //     // requesturl = ApiConnection.getApiConnection(hostname)
+        //     // requesturl = ApiConnection.getApiConnection(hostname) + ApiConnection.appbasename
+        //     // headers.ClientHost = '' + hostname
+        // }
         var idToken = cookie.load('jwt')
         console.log('Ya trainings fetchData.  auth id token: ' + idToken)
         if (idToken != undefined) {
@@ -116,7 +125,15 @@ const trainingservices = {
                 // body: 'testparam='+test //if no json in header
             }
         )
-            .then(response => response.json().then(data => {
+            .then(
+                //This works too transforming the text response into json. But without the conversion
+                response => response.json()
+//This is the version to use if you dont have a JSON polyfill to take over the parse function in 'apiconnection'
+                // response => response.text()
+                // .then(text => {
+                //     return text.length ? JSON.parse(text,JSON.reviver) : {}
+                // })
+                .then(data => {
 //        console.log('Print Response Status now ')
                     console.log('Response Status = ' + response.status)
                     // console.log('Response data size = ' + data.size())
@@ -126,6 +143,7 @@ const trainingservices = {
                     })
                 }
             ))
+
     },
     updateTrainingServiceOld: function (training) {
         var headers = {
@@ -182,7 +200,7 @@ const trainingservices = {
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
     },
     updateTrainingService: function (training, inputfile) {
-        console.log('inputfile=' + require('util').inspect(inputfile, false, null))
+//        console.log('inputfile=' + require('util').inspect(inputfile, false, null))
         var headers = {
             // 'Content-Type': 'multipart/form-data'
             // 'Content-Type': 'multipart/form-data; boundary=B0EC8D07-EBF1-4EA7-966C-E492A9F2C36E'
@@ -214,6 +232,7 @@ const trainingservices = {
         return fetch(url + '/api/training/updatetraining/', config)
             .then(res => res.text()
                 .then(text => {
+                    // return text.length ? JSON.parse(text,ApiConnection.reviver) : {}
                     return text.length ? JSON.parse(text) : {}
                 })
                 .then(data => ({
@@ -365,7 +384,6 @@ const trainingservices = {
 =======
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
     }
-
 
 }
 

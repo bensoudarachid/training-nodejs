@@ -106,6 +106,7 @@ export default class AdminTrainingListItem extends React.Component {
                         <div className='buttonwrap'>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored editbutton'
                                     onClick={this.handleEdit.bind(this)}>
                             </button>
@@ -119,12 +120,20 @@ export default class AdminTrainingListItem extends React.Component {
 >>>>>>> 6e3ff02... webstorm big changes crash
 =======
                             <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored editbutton'
+=======
+                            <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton'
+>>>>>>> 711f559... Javascript request interceptor for header manipulation. Webpack source maps not showing in Devtools. Eliminate source maps on production build. Export 5 colors constants from scss into javascript for the bigcalendar. Add mdl-selectfield in project and use it for bigcalendar. Adapt mdl-selectfield label color. Fix calendar background event and rows background colors. Devtools workspace. Map files to original disk files and edit directly in chrome. Disable autosaving of webpack.config.js in webstorm/Settings/LanguagesFrameworks/Webpack/change file name to something inexistent. Enable auto synchronisation on file disk change in webstorm. better buttons with glyphicons and hover. Adapt app wide uniform round buttons with glyphicons. Change buttons to the new round buttons on admin training list items. Implement a JSON.parse polyfill to automatically transform dates from json to javascript date objects. Bug fix. state Hydratation is not properly JSON date parsed. Need to stringify and parse again.Problem fix. Eveything landing in redux by state hydratation is deeply immutable Lists and Maps due to Immutable.fromJS. But we need a immutable list of simple Javascript events for BigCalendar: We add a new store element for this in trainingappmap: edittrainingevents.
                                     onClick={this.handleEdit.bind(this)}>
+                                <span className='glyphicon glyphicon-edit'/>
                             </button>
                             <button
-                                className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored schedulebutton'
+                                className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton'
                                 onClick={this.handleSchedule.bind(this)}>
+<<<<<<< HEAD
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
+=======
+                                <span className='glyphicon glyphicon-calendar'/>
+>>>>>>> 711f559... Javascript request interceptor for header manipulation. Webpack source maps not showing in Devtools. Eliminate source maps on production build. Export 5 colors constants from scss into javascript for the bigcalendar. Add mdl-selectfield in project and use it for bigcalendar. Adapt mdl-selectfield label color. Fix calendar background event and rows background colors. Devtools workspace. Map files to original disk files and edit directly in chrome. Disable autosaving of webpack.config.js in webstorm/Settings/LanguagesFrameworks/Webpack/change file name to something inexistent. Enable auto synchronisation on file disk change in webstorm. better buttons with glyphicons and hover. Adapt app wide uniform round buttons with glyphicons. Change buttons to the new round buttons on admin training list items. Implement a JSON.parse polyfill to automatically transform dates from json to javascript date objects. Bug fix. state Hydratation is not properly JSON date parsed. Need to stringify and parse again.Problem fix. Eveything landing in redux by state hydratation is deeply immutable Lists and Maps due to Immutable.fromJS. But we need a immutable list of simple Javascript events for BigCalendar: We add a new store element for this in trainingappmap: edittrainingevents.
                             </button>
                         </div>
                     </div>

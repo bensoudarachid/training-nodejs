@@ -4,8 +4,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -32,13 +30,11 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
-var _dragAndDrop = require('../../../node_modules/react-big-calendar/lib/addons/dragAndDrop');
+var _dragAndDrop = require('react-big-calendar/lib/addons/dragAndDrop');
 
 var _dragAndDrop2 = _interopRequireDefault(_dragAndDrop);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -55,16 +51,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var DragAndDropCalendar = (0, _dragAndDrop2.default)(_reactBigCalendar2.default);
 
 _reactBigCalendar2.default.setLocalizer(_reactBigCalendar2.default.momentLocalizer(_moment2.default));
+var styles = undefined;
 
 if (process.env.BROWSER) {
     console.log('Calendar. environment is browser');
     // require('../../../node_modules/fullcalendar/dist/fullcalendar.css')
-    require('../../../node_modules/react-big-calendar/lib/css/react-big-calendar.css');
-    require('../../../node_modules/react-big-calendar/lib/addons/dragAndDrop/styles.css');
-    require('./bigcalendaredit.scss');
+    require('react-big-calendar/lib/css/react-big-calendar.css');
+    require('react-big-calendar/lib/addons/dragAndDrop/styles.css');
+    styles = require('./bigcalendaredit.scss');
 }
 // <div className='calendar' ref='calendar'/>
-
 
 var MyCustomHeader = _react2.default.createClass({
     displayName: 'MyCustomHeader',
@@ -83,6 +79,8 @@ var MyCustomHeader = _react2.default.createClass({
     }
 });
 
+// const colors = ['red','black','yellow','magenta','orange']
+
 var BigCalendarEdit = function (_React$Component) {
     _inherits(BigCalendarEdit, _React$Component);
 
@@ -90,10 +88,12 @@ var BigCalendarEdit = function (_React$Component) {
     function BigCalendarEdit(props) {
         _classCallCheck(this, BigCalendarEdit);
 
+        // console.log('constructor '+require('util').inspect(this.props.events.toIndexedSeq().toArray(), false, null))
+
         var _this = _possibleConstructorReturn(this, (BigCalendarEdit.__proto__ || Object.getPrototypeOf(BigCalendarEdit)).call(this, props));
 
         _this.state = {
-            localevents: props.events,
+            // localevents: props.events,
             selectedEvent: undefined
         };
         _this.moveEvent = _this.moveEvent.bind(_this);
@@ -135,7 +135,29 @@ var BigCalendarEdit = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            // console.log('calendar render. events='+require('util').inspect(this.props.events, false, null))
+            // console.log('## ## ## BigCalendarEdit render '+require('util').inspect(this.props.trainingappmap.get('edittraining').get('events'), false, null))
+            // let events = Immutable.List([
+            //     // Immutable.Map({
+            //     //     'id': 151, 'number': 1, 'start': '2001-01-01T11:00:00.000Z', 'end': '2001-01-01T14:30:00.000Z', 'version': 4
+            //     // }),
+            //     Immutable.Map({
+            //         'number': 3,
+            //         // 'title': 'React 2',
+            //         // 'date': Date.now(),
+            //         'start': new Date(2001, 0, 3, 10, 30, 0, 0),
+            //         'end': new Date(2001, 0, 3, 14, 0, 0, 0)
+            //         // 'allDay': true
+            //     })
+            // ])
+            // events=events.toJS()
+
+            var events = this.props.trainingappmap.get('edittrainingevents'); //.get('events')
+            // console.log('render '+require('util').inspect(events, false, null))
+            //        if( styles ) {
+            //            console.log('calendar render. +++ +++ +++ styles.color=' + require('util').inspect(styles.eventcolor1, false, null))
+            //            console.log('11. calendar render. +++ +++ +++ styles.color=' + require('util').inspect(styles['eventcolor1'], false, null))
+            //        }
+
             // const title = this.state.event.title
             // const id = this.state.event.get('id')
             // const index = this.state.event.id
@@ -143,12 +165,36 @@ var BigCalendarEdit = function (_React$Component) {
             // let today = moment()
             // let am8 = today.set('hour', 8).set('minutes', 0).toDate()
             // let pm8 = today.set('hour', 21).set('minutes', 0).toDate()
+            var trainingTitle = this.props.trainingappmap.get('edittraining') ? this.props.trainingappmap.get('edittraining').get('title') : '';
+
+            // console.log('training.get(title)='+require('util').inspect(training.get('title'), false, null))
+
             var selEvent = this.state.selectedEvent;
             // console.log('selEvent='+require('util').inspect(selEvent, false, null))
             var eventTitle = selEvent == undefined ? 'Nothing' : selEvent.title;
-            console.log('eventTitle=' + require('util').inspect(eventTitle, false, null));
+            // console.log('eventTitle=' + require('util').inspect(eventTitle, false, null))
             var eventId = selEvent == undefined ? 'Nothing' : selEvent.id;
+            var startDate = selEvent == undefined ? 'Nothing' : selEvent.start;
+            var endDate = selEvent == undefined ? 'Nothing' : selEvent.end;
+            var hours = 0;
+            if (startDate && endDate) hours = Math.abs(endDate - startDate) / 36e5;
+
+            //        console.log('hours='+require('util').inspect(hours, false, null))
+
             var disabled = false;
+
+            //     <div
+            // className='buttonblock pad mdl-cell mdl-cell--10-col mdl-cell--7-col-tablet mdl-cell--3-col-phone'>
+            //     <button
+            // className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items'
+            // onClick={this.onCancelClick.bind(this)} disabled={disabled}>Cancel
+            //     </button>
+            //     <button
+            // className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored savebutton right-items'
+            // onClick={this.onSaveClick.bind(this)} disabled={disabled}>Save
+            //     </button>
+            //     </div>
+
             return _react2.default.createElement(
                 'div',
                 { className: 'bigcalendaredit' },
@@ -158,47 +204,179 @@ var BigCalendarEdit = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { key: 'eventTitle' + eventId,
-                            className: 'mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--7-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
+                            className: 'mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
                         _react2.default.createElement(
-                            'form',
+                            'div',
+                            { className: 'mdl-cell mdl-cell--9-col mdl-cell--6-col-tablet mdl-cell--3-col-phone' },
+                            _react2.default.createElement(
+                                'h4',
+                                null,
+                                _react2.default.createElement(
+                                    'nobr',
+                                    null,
+                                    trainingTitle
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone' },
+                            _react2.default.createElement(
+                                'button',
+                                { onClick: this.saveCalendar.bind(this),
+                                    className: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton save1' },
+                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-save' })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
                             {
-                                className: 'pad mdl-grid mdl-cell mdl-cell--7-col mdl-cell--5-col-tablet mdl-cell--4-col-phone',
-                                onSubmit: this.onSaveClick.bind(this) },
+                                className: 'pad mdl-grid mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--1-col-phone' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
+                                {
+                                    className: 'mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label duration' },
+                                _react2.default.createElement(
+                                    'select',
+                                    { className: 'mdl-selectfield__select', id: 'duration', name: 'duration', value: hours > 0 ? hours : undefined,
+                                        onChange: this.onDurationSelect.bind(this) },
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '0.5' },
+                                        '0.5'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '1' },
+                                        '1'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '1.5' },
+                                        '1.5'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '2' },
+                                        '2'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '2.5' },
+                                        '2.5'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '3' },
+                                        '3'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '3.5' },
+                                        '3.5'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '4' },
+                                        '4'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '4.5' },
+                                        '4.5'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '5' },
+                                        '5'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '6' },
+                                        '6'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '7' },
+                                        '7'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '8' },
+                                        '8'
+                                    ),
+                                    _react2.default.createElement(
+                                        'option',
+                                        { value: '9' },
+                                        '9'
+                                    )
+                                ),
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'mdl-textfield tf mdl-js-textfield' },
-                                    _react2.default.createElement('input', { className: 'mdl-textfield__input', type: 'text', defaultValue: eventTitle,
-                                        name: 'eventTitle' + eventId, ref: 'eventTitle' + eventId,
-                                        id: 'eventTitle' + eventId }),
-                                    _react2.default.createElement(
-                                        'label',
-                                        { className: 'mdl-textfield__label',
-                                            htmlFor: 'eventTitle' + eventId },
-                                        'Title...'
-                                    )
+                                    { className: 'mdl-selectfield__icon' },
+                                    _react2.default.createElement('span', {
+                                        className: 'glyphicon glyphicon-chevron-down' })
+                                ),
+                                _react2.default.createElement(
+                                    'label',
+                                    { className: 'mdl-selectfield__label', htmlFor: 'duration' },
+                                    'Duration'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--2-col-phone' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'eventbuttonwrap' },
+                                _react2.default.createElement(
+                                    'nobr',
+                                    null,
+                                    _react2.default.createElement('button', { id: 'colorbutton1',
+                                        className: 'colorbutton1 eventbutton',
+                                        onClick: this.setColor1.bind(this) }),
+                                    _react2.default.createElement('button', { id: 'colorbutton2',
+                                        className: 'colorbutton2 eventbutton',
+                                        onClick: this.setColor2.bind(this) }),
+                                    _react2.default.createElement('button', { id: 'colorbutton3',
+                                        className: 'colorbutton3 eventbutton',
+                                        onClick: this.setColor3.bind(this) }),
+                                    _react2.default.createElement('button', { id: 'colorbutton4',
+                                        className: 'colorbutton4 eventbutton',
+                                        onClick: this.setColor4.bind(this) })
                                 )
                             )
                         ),
                         _react2.default.createElement(
                             'div',
                             {
-                                className: 'buttonblock pad mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone' },
+                                className: 'mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--1-col-phone' },
                             _react2.default.createElement(
-                                'button',
-                                {
-                                    className: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items',
-                                    onClick: this.onCancelClick.bind(this), disabled: disabled },
-                                'Cancel'
-                            ),
-                            _react2.default.createElement(
-                                'button',
-                                {
-                                    className: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored savebutton right-items',
-                                    onClick: this.onSaveClick.bind(this), disabled: disabled },
-                                'Save'
+                                'div',
+                                { className: 'buttonwrap' },
+                                _react2.default.createElement(
+                                    'nobr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'button',
+                                        { onClick: this.addEvent.bind(this),
+                                            className: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton' },
+                                        _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus' })
+                                    ),
+                                    _react2.default.createElement(
+                                        'button',
+                                        { onClick: this.removeEvent.bind(this),
+                                            className: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton' },
+                                        _react2.default.createElement('span', { className: 'glyphicon glyphicon-minus' })
+                                    ),
+                                    _react2.default.createElement(
+                                        'button',
+                                        { onClick: this.saveCalendar.bind(this),
+                                            className: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton save2' },
+                                        _react2.default.createElement('span', { className: 'glyphicon glyphicon-save' })
+                                    )
+                                )
                             )
                         )
                     )
@@ -254,7 +432,7 @@ var BigCalendarEdit = function (_React$Component) {
                 _react2.default.createElement(DragAndDropCalendar, {
                     selectable: true,
                     defaultDate: new Date(2001, 0, 7, 12, 30, 0, 0),
-                    events: this.state.localevents //{this.props.events}
+                    events: events //{this.props.trainingappmap.get('edittraining').get('events')} //{this.state.localevents}
                     // min={am8}
                     // max={pm8}
                     , min: new Date(2001, 0, 7, 8, 0, 0, 0),
@@ -274,6 +452,7 @@ var BigCalendarEdit = function (_React$Component) {
                     onEventDrop: this.moveEvent,
                     onSelectEvent: this.selectEvent,
                     eventPropGetter: this.eventStyleGetter,
+                    selected: selEvent,
                     components: {
                         day: { header: MyCustomHeader },
                         week: { header: MyCustomHeader },
@@ -292,23 +471,27 @@ var BigCalendarEdit = function (_React$Component) {
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate() {
+            //        console.log('BigCal update view')
             componentHandler.upgradeDom();
-            var dialogInputs = document.querySelectorAll('.mdl-textfield');
-            for (var i = 0, l = dialogInputs.length; i < l; i++) {
-                // if( dialogInputs[i].MaterialTextfield != undefined )
-                dialogInputs[i].MaterialTextfield.checkDirty();
-                // else
-                //   console.log('todoslistitem.js. dialogInputs[i] is undefined')
-            }
-            var selEvent = this.state.selectedEvent;
-            var eventId = selEvent != undefined ? selEvent.id : undefined;
-            // console.log('todoslistitem.js. this.props.ind '+this.props.ind)
-            if (!this.state.hadFocus && document.getElementById('eventTitle' + eventId)) {
-                document.getElementById('eventTitle' + eventId).focus();
-                this.setState({
-                    hadFocus: true
-                });
-            }
+            for (var i = 1; i < 5; i++) {
+                $('.colorbutton' + i).removeClass('buttonborder');
+            }if (this.state.selectedEvent) $('.colorbutton' + this.state.selectedEvent.number).addClass('buttonborder');
+            // var dialogInputs = document.querySelectorAll('.mdl-textfield')
+            // for (var i = 0, l = dialogInputs.length; i < l; i++) {
+            //     // if( dialogInputs[i].MaterialTextfield != undefined )
+            //     dialogInputs[i].MaterialTextfield.checkDirty()
+            //     // else
+            //     //   console.log('todoslistitem.js. dialogInputs[i] is undefined')
+            // }
+            // const selEvent = this.state.selectedEvent
+            // const eventId = selEvent != undefined ? selEvent.id : undefined
+            // // console.log('todoslistitem.js. this.props.ind '+this.props.ind)
+            // if (!this.state.hadFocus && document.getElementById('eventTitle' + eventId)) {
+            //     document.getElementById('eventTitle' + eventId).focus()
+            //     this.setState({
+            //         hadFocus: true
+            //     })
+            // }
         }
     }, {
         key: 'componentWillUnmount',
@@ -318,9 +501,144 @@ var BigCalendarEdit = function (_React$Component) {
             // $(calendar).fullCalendar('destroy')
         }
     }, {
-        key: 'onSaveClick',
-        value: function onSaveClick(event) {
-            console.log('just save ');
+        key: 'setColor1',
+        value: function setColor1(event) {
+            this.setColor(1);
+        }
+    }, {
+        key: 'setColor2',
+        value: function setColor2(event) {
+            this.setColor(2);
+        }
+    }, {
+        key: 'setColor3',
+        value: function setColor3(event) {
+            this.setColor(3);
+        }
+    }, {
+        key: 'setColor4',
+        value: function setColor4(event) {
+            this.setColor(4);
+        }
+    }, {
+        key: 'setColor',
+        value: function setColor(num) {
+            console.log('num=' + require('util').inspect(num, false, null));
+            var _state = this.state,
+                selectedEvent = _state.selectedEvent,
+                localevents = _state.localevents;
+
+            if (!selectedEvent) return;
+            selectedEvent.number = num;
+            this.setState({
+                localevents: localevents,
+                selectedEvent: selectedEvent
+            });
+        }
+    }, {
+        key: 'removeEvent',
+        value: function removeEvent() {
+            console.log('remove event');
+            var selectedEvent = this.state.selectedEvent;
+
+            var nextEvents = this.props.trainingappmap.get('edittrainingevents');
+            console.log('remove selectedEvent=' + require('util').inspect(selectedEvent, false, null));
+            nextEvents = nextEvents.filter(function (event) {
+                console.log('filter event=' + require('util').inspect(event, false, null) + ' event!= selecevent' + (event !== selectedEvent));
+                return event !== selectedEvent;
+            });
+
+            //        super.removeEvent2()
+            this.state = {
+                // localevents:newEvents,
+                selectedEvent: undefined
+            };
+            this.props.actions.handleTrainingEditEventsChange(nextEvents);
+        }
+    }, {
+        key: 'addEvent',
+        value: function addEvent(event) {
+            console.log('add event');
+            var duration = document.getElementById('duration').options[document.getElementById('duration').selectedIndex].value;
+            var nextEvents = this.props.trainingappmap.get('edittrainingevents');
+            var selectedEvent = this.state.selectedEvent;
+
+            var start = new Date(2001, 0, 6, 8, 0, 0, 0);
+            var addMinutes = Number(duration * 60);
+            var end = new Date(start.getTime() + addMinutes * 60000);
+            var newEvent = {
+                'id': undefined,
+                'number': 0,
+                'start': start,
+                'end': end
+            };
+
+            nextEvents = nextEvents.filter(function (event) {
+                return event.number != 0;
+            });
+            nextEvents = nextEvents.push(newEvent);
+            // this.setState({
+            //     // localevents:newEvents,
+            //     selectedEvent:newEvent
+            // })
+            this.state = {
+                // localevents: props.events,
+                selectedEvent: newEvent
+            };
+            this.props.actions.handleTrainingEditEventsChange(nextEvents);
+        }
+    }, {
+        key: 'saveCalendar',
+        value: function saveCalendar(event) {
+            console.log('save calendar');
+            var training = this.props.trainingappmap.get('edittraining');
+            var newTraining = this.props.trainingappmap.get('edittraining').set('events', this.props.trainingappmap.get('edittrainingevents'));
+            //        console.log('training='+require('util').inspect(training, false, null))
+
+            // this.props.actions.updateTraining(training)
+            this.props.actions.updateTrainingDispatcher(newTraining, training);
+            this.state = {
+                selectedEvent: undefined
+                // events.map((e)=> console.log('save events='+require('util').inspect(e, false, null)))
+            };
+        }
+    }, {
+        key: 'onDurationSelect',
+        value: function onDurationSelect(elem) {
+            var duration = document.getElementById('duration').options[document.getElementById('duration').selectedIndex].value;
+            var selectedEvent = this.state.selectedEvent;
+
+            console.log('onDurationSelect ' + duration);
+
+            if (selectedEvent != undefined) {
+                var nextEvents = this.props.trainingappmap.get('edittrainingevents');
+                console.log('selectedEvent=' + require('util').inspect(selectedEvent, false, null));
+                console.log('just select this! ' + duration);
+                // console.log('selectedEvent.start.getHours()=' + require('util').inspect(selectedEvent.start.getHours(), false, null))
+                var addMinutes = Number(duration * 60);
+                console.log('newMinutes=' + require('util').inspect(addMinutes, false, null));
+                selectedEvent.end = new Date(selectedEvent.start.getTime() + addMinutes * 60000);
+                //selectedEvent.end.setHours(selectedEvent.start.getHours())
+                console.log('selectedEvent.end.getHours()=' + require('util').inspect(selectedEvent.end.getHours(), false, null));
+                // console.log('selectedEvent='+require('util').inspect(selectedEvent, false, null))
+                // this.setState({
+                //     localevents: nextEvents,
+                //     selectedEvent: selectedEvent
+                // })
+                var eventArray = nextEvents.toIndexedSeq().toArray();
+                for (var i = 0; i < eventArray.length; i++) {
+                    // nextEvents[i].selected = true
+                    if (eventArray[i] === selectedEvent) {
+                        //eventArray contains already the right data and nextEvents is pointing right at it. But we need to create a new List just to trigger a new render
+                        nextEvents = _immutable2.default.List(eventArray);
+                        // eventArray[i].start = start
+                        // eventArray[i].end = end
+                        break;
+                    }
+                }
+                this.props.actions.handleTrainingEditEventsChange(nextEvents);
+                // 'this.props.actions.handleTrainingEditEventsChange('title', 'mamak')
+            }
         }
     }, {
         key: 'onCancelClick',
@@ -333,60 +651,73 @@ var BigCalendarEdit = function (_React$Component) {
                 end = _ref.end;
 
             // const events = this.props.events
-            var localevents = this.state.localevents;
+            // const {localevents} = this.state
+            var nextEvents = this.props.trainingappmap.get('edittrainingevents');
 
             // const idx = localevents.indexOf(event)
             // const updatedEvent = { ...event, start, end }
 
-            var nextEvents = [].concat(_toConsumableArray(localevents));
+            // var nextEvents = localevents
             // nextEvents.splice(idx, 1, updatedEvent)
+            // nextEvents = nextEvents.remove(event)
+            // var newEvent = event
+            event.start = start;
+            event.end = end;
 
-
-            for (var i = 0; i < nextEvents.length; i++) {
+            var eventArray = nextEvents.toIndexedSeq().toArray();
+            //console.log('nextEvents[i] GO! '+eventArray.length)
+            for (var i = 0; i < eventArray.length; i++) {
                 // nextEvents[i].selected = true
-                // console.log('nextEvents[i]='+require('util').inspect(nextEvents[i], false, null))
-                if (nextEvents[i].id == event.id) {
-                    nextEvents[i].start = start;
-                    nextEvents[i].end = end;
+                console.log('nextEvents[i] found?' + require('util').inspect(i, false, null));
+                if (eventArray[i] === event) {
+                    console.log('------ nextEvents[i] found!' + require('util').inspect(eventArray[i], false, null));
+                    //eventArray contains already the right data and nextEvents is pointing right at it. But we need to create a new List just to trigger a new render
+                    nextEvents = _immutable2.default.List(eventArray);
+                    // eventArray[i].start = start
+                    // eventArray[i].end = end
                     break;
                 }
             }
 
-            this.setState({
-                localevents: nextEvents
-                // selectedEvent:undefined
-            });
-
+            this.state = {
+                // localevents,
+                selectedEvent: event
+            };
+            this.props.actions.handleTrainingEditEventsChange(nextEvents);
             // alert(`${event.title} was dropped onto ${event.start}`)
         }
     }, {
         key: 'selectEvent',
         value: function selectEvent(event) {
-            var localevents = this.state.localevents;
+            console.log('event=' + require('util').inspect(event, false, null));
+            console.log('this.state.selectedEvent=' + require('util').inspect(this.state.selectedEvent, false, null));
+            //console.log('$(colorbuttonEvent.number)='+require('util').inspect($('colorbutton'+event.number), false, null))
 
-            var nextEvents = [].concat(_toConsumableArray(localevents));
+            // const {localevents} = this.state
+            // const nextEvents = localevents
+            var nextEvents = this.props.trainingappmap.get('edittrainingevents');
 
             if (this.state.selectedEvent == event) {
-                var idx = nextEvents.indexOf(event);
-                var updatedEvent = _extends({}, event);
+                console.log('Im out.');
+                var idx = nextEvents.indexOf(_immutable2.default.Map(event));
+                //const updatedEvent = {...event}
                 // updatedEvent.title = 'Hobb'
-                nextEvents.splice(idx, 1, updatedEvent);
+                // nextEvents.splice(idx, 1, updatedEvent)
                 this.setState({
-                    localevents: nextEvents,
+                    // localevents: nextEvents,
                     selectedEvent: undefined
                 });
             } else {
+                console.log('Im in.');
                 // console.log('event.id='+require('util').inspect(event.id, false, null))
-                for (var i = 0; i < nextEvents.length; i++) {
-                    // nextEvents[i].selected = true
-                    // console.log('nextEvents[i]='+require('util').inspect(nextEvents[i], false, null))
-                    if (nextEvents[i].id == event.id) {
-                        nextEvents[i].title = 'Tshash' + event.start;
-                        break;
-                    }
-                }
+                // for (var i = 0; i < nextEvents.length; i++) {
+                //     if (nextEvents[i].id == event.id) {
+                //         nextEvents[i].title = 'Tshash' + event.start
+                //         break
+                //     }
+                // }
                 this.setState({
-                    localevents: nextEvents,
+                    // localevents: nextEvents,
                     selectedEvent: event
                 });
             }
@@ -394,24 +725,25 @@ var BigCalendarEdit = function (_React$Component) {
     }, {
         key: 'eventStyleGetter',
         value: function eventStyleGetter(event, start, end, isSelected) {
-            console.log('event Style Getter =' + require('util').inspect(event.title, false, null) + ', isSelected=' + require('util').inspect(isSelected, false, null));
+            //        console.log('event Style Getter =' + require('util').inspect(event.title, false, null) + ', isSelected=' + require('util').inspect(isSelected, false, null))
             // var backgroundColor = '#' + event.hexColor
-            // var backgroundColor = '#aaf'
-            var borderColor = 'transparent';
+
+            var backgroundColor = styles['eventcolor' + event.number];
+            var borderColor = event.number == 0 ? 'red' : 'white';
             if (isSelected) {
-                // backgroundColor = '#f34'
-                borderColor = '#f70';
+                // backgroundColor = '#034'
+                borderColor = 'black';
             }
             // console.log('event.title='+require('util').inspect(event.title, false, null)+'border='+require('util').inspect(border, false, null))
 
             var style = {
-                // backgroundColor: backgroundColor,
-                borderRadius: '0px',
-                opacity: 0.8,
-                color: 'white',
-                'border': '5px',
+                backgroundColor: backgroundColor,
+                // borderRadius: '0px',
+                opacity: 0.85,
+                color: 'transparent', //'white',
+                border: '2px',
                 'border-style': 'solid',
-                'border-radius': '10px',
+                'border-radius': '0px',
                 'border-color': borderColor, //'#f4f #f34'
                 display: 'block'
             };

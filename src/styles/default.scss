@@ -6,10 +6,11 @@
 // $color-accent-contrast:"233,49,250";
 
 // @import "_variables.scss";
-$color-primary: "133,149,150";
 
 // $color-primary: "94,173,116"; //green 1 ok
 // $color-primary: "86,186,107";
+
+$color-primary: "133,149,150";
 
 $color-primary-dark: $color-primary;
 $color-accent: $color-primary;
@@ -53,7 +54,7 @@ $color-accent: $color-primary;
 $orangedark: #F07818;
 $orangelight: #F0A830;
 $reddark: #E91818;
-$beige: #FCEBB6;
+$beige: #d4a281;
 $redlight: #E36937;
 $bluelight: #91CED7;
 $bluedark: #0F6177;
@@ -61,6 +62,11 @@ $braun: #9E5428;
 $greendark: #27AE60;
 $green: #799412;
 $blacklight: #091414;
+$violet: #ab69c6;
+$blue: #22A7F0;
+$magenta: #17bbb0;
+$pink:#ff6ca8;
+$metallic:#8c9aa9;
 
 $roya-blue: rgba(140, 200, 233, 1.0);
 $roya-blue: #6f9;
@@ -247,7 +253,6 @@ $RoyaMainFont: 'Merienda', "Comic Sans MS", cursive, "Lucida Sans Unicode", "Luc
 @function getMdlColor($string) {
 
   $index: str-index($string, ",");
-
   $r: number(str-slice($string, 1, $index - 1));
   $str-2: str-slice($string, $index + 1);
   $index: str-index($str-2, ",");
@@ -321,10 +326,10 @@ $RoyaMainFont: 'Merienda', "Comic Sans MS", cursive, "Lucida Sans Unicode", "Luc
         @for $i from 0 through $steps {
           #{percentage($i*(1/$steps))} {
             clip: rect(
-                            random($height)+px,
-                            $width+px,
-                            random($height)+px,
-                            0
+                random($height)+px,
+                $width+px,
+                random($height)+px,
+                0
             );
           }
         }
@@ -397,4 +402,18 @@ $RoyaMainFont: 'Merienda', "Comic Sans MS", cursive, "Lucida Sans Unicode", "Luc
     left: ($left + 2) + px;
     animation: #{$name}-anim-2 3s infinite linear alternate-reverse;
   }
+}
+
+$eventcolor0: darken(getMdlColor($color-primary),10%);
+$eventcolor1: lighten($green,10%);
+$eventcolor2: $bluelight;
+$eventcolor3: lighten($reddark,20%);//#FFAC9C
+$eventcolor4: lighten($orangelight,10%);
+
+:export {
+  eventcolor0: $eventcolor0;
+  eventcolor1: $eventcolor1;
+  eventcolor2: $eventcolor2;
+  eventcolor3: $eventcolor3;
+  eventcolor4: $eventcolor4;
 }

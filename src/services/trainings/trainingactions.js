@@ -50,6 +50,14 @@ const trainingactions = {
             value
         }
     },
+
+    handleTrainingEditEventsChange: function (events) {
+        return {
+            type: 'HANDLE_TRAINING_EVENTS_CHANGE',
+            events: events
+        }
+    },
+
     // loadingTrainingFileOff: function() {
     //   console.log('training actions upload training file')
     //   return {
@@ -564,8 +572,9 @@ const trainingactions = {
                             // }, 2500)
                         }
                         else {
-                            const updEditTraining = Immutable.Map(data)
-//              console.log('Training actions. updEditTraining='+require('util').inspect(updEditTraining, false, null))
+                            var updEditTraining = data
+                            // var updEditTraining = Immutable.Map(data)
+                            console.log('Training actions. updEditTraining='+require('util').inspect(updEditTraining.events, false, null))
                             // dispatch(trainingactions.updateTrainingInList(updEditTraining))
                             dispatch(trainingactions.loadEditTraining(updEditTraining))
                             // return newtrainings;
@@ -638,6 +647,9 @@ const trainingactions = {
         }
     },
     loadEditTraining: function (trainingraw) {
+        trainingraw.events= Immutable.fromJS(trainingraw.events)// Immutable.List(trainingraw.events)
+        console.log('loadEditTraining action, events: '+require('util').inspect(trainingraw.events, false, null))
+
         return {
             type: 'EDIT_TRAINING_LOADED',
             training: trainingraw
@@ -651,15 +663,15 @@ const trainingactions = {
         }
     },
 
-    retrieveTrainingsDispatcher: function (hostname) {
-        console.log('actions. retrieveTrainingsDispatcher ' + hostname)
+    retrieveTrainingsDispatcher: function () {
+        console.log('actions. retrieveTrainingsDispatcher ' )
         return (dispatch, getState) => {
             // if(!process.env.BROWSER || (process.env.BROWSER && getState().app.get('previouslocation')!=undefined))
             if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched'))
                 return
 
 //      console.log('actions. retrieveTrainingsDispatcher calls service now')
-            return actions.retrieveTrainingsService(hostname)
+            return actions.retrieveTrainingsService()
                 .then(
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -727,11 +739,16 @@ const trainingactions = {
         }
     },
 
+<<<<<<< HEAD
     retrieveTrainingDispatcher: function (params, hostname) {
 <<<<<<< HEAD
 =======
         console.log('Call retrieveTrainingDispatcher  <-----------------------------')
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+    retrieveTrainingDispatcher: function (params) {
+//        console.log('Call retrieveTrainingDispatcher  <-----------------------------')
+>>>>>>> 711f559... Javascript request interceptor for header manipulation. Webpack source maps not showing in Devtools. Eliminate source maps on production build. Export 5 colors constants from scss into javascript for the bigcalendar. Add mdl-selectfield in project and use it for bigcalendar. Adapt mdl-selectfield label color. Fix calendar background event and rows background colors. Devtools workspace. Map files to original disk files and edit directly in chrome. Disable autosaving of webpack.config.js in webstorm/Settings/LanguagesFrameworks/Webpack/change file name to something inexistent. Enable auto synchronisation on file disk change in webstorm. better buttons with glyphicons and hover. Adapt app wide uniform round buttons with glyphicons. Change buttons to the new round buttons on admin training list items. Implement a JSON.parse polyfill to automatically transform dates from json to javascript date objects. Bug fix. state Hydratation is not properly JSON date parsed. Need to stringify and parse again.Problem fix. Eveything landing in redux by state hydratation is deeply immutable Lists and Maps due to Immutable.fromJS. But we need a immutable list of simple Javascript events for BigCalendar: We add a new store element for this in trainingappmap: edittrainingevents.
         // console.log('training actions. retrieveTrainingDispatcher')
         // console.log('rootreducer='+require('util').inspect(rootreducer, false, null))
         return (dispatch, getState) => {
@@ -742,7 +759,7 @@ const trainingactions = {
                 console.log('training actions. retrieveTrainingDispatcher do nothing')
                 return
             }
-            return actions.retrieveTrainingService(params.id, hostname)
+            return actions.retrieveTrainingService(params.id)
                 .then(
 <<<<<<< HEAD
 <<<<<<< HEAD

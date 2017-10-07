@@ -13,6 +13,12 @@
       // height:40px;
       // width:40px;
     }
+    .image_input_button{
+      &:hover {
+        color: $roya-blue !important;
+        background-color: white;
+      }
+    }
   }
 
   #file_input_text_div {

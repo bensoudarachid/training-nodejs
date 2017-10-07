@@ -43,7 +43,7 @@ class TodoApp extends Component {
     }
 
     //This is a necessary call when component is fetched on server side
-    static fetchData(actions, params, hostname) {
+    static fetchData(actions, params) {
 //    console.log('Todo list fetch data for hostname='+require('util').inspect(hostname, false, null))
 //    console.log('todoappjs fetchdata'+util.inspect( params, false, null))
         actions.retrieveUserTodosDispatcher()

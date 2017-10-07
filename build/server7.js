@@ -63,7 +63,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // var $ = require('jquery')
 
-var FormData = require('form-data'); // require('babel-core/register')
+var FormData = require('form-data');
+// import fetchIntercept from 'fetch-intercept'
+// require('babel-core/register')
 // require('babel-register')({
 //   'presets': ['es2015']
 // })
@@ -113,7 +115,6 @@ var upload = (0, _multer2.default)({ storage: storage });
 //       done=true
 //     }
 // }).single('todoimage')
-
 
 app.use('/bootstrap', _express2.default.static(__dirname + '/../node_modules/bootstrap/dist/'));
 app.use('/mdl', _express2.default.static(__dirname + '/../node_modules/material-design-lite/dist/'));
@@ -362,6 +363,7 @@ app.post(appbasename + '/api/*', function (req, res) {
 
 var errorfile = __dirname + '/images/0.png';
 
+var apifetch = fetch;
 app.get(appbasename + '/*', function (req, res) {
     // routes is our object of React routes defined above
     console.log('');
@@ -369,6 +371,17 @@ app.get(appbasename + '/*', function (req, res) {
     console.log('');
     console.log('*********************************************');
     console.log('Get request now just came: ' + req.url);
+    fetch = apifetch;
+    fetch = function (origFetch) {
+        return function myFetch() {
+            console.log('---------------------->headers injecting fetch ');
+            arguments[1].headers.ClientHost = req.headers.host;
+            console.log('arguments=' + require('util').inspect(arguments, false, null));
+            var result = origFetch.apply(this, arguments);
+            return result;
+        };
+    }(fetch);
+
     // console.log(routes)
     // if( req.url.indexOf('.') !== -1){
     //   console.log('Send File: ' + __dirname+ req.url)
@@ -443,7 +456,9 @@ app.get(appbasename + '/*', function (req, res) {
                 // })
                 // .catch(err => console.log('Booooo' + err));
 
-                var initialState = { auth: { url: 'Abbas' }
+                var initialState = {
+                    auth: { url: 'Abbas' },
+                    clientrequesthost: req.headers.host
                     // const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
                     // const store = createStore(reducers, initialState)
                 };var logger = (0, _reduxLogger2.default)();
@@ -499,9 +514,10 @@ app.get(appbasename + '/*', function (req, res) {
 // app.use(express.static('.'))
 app.use(_express2.default.static(__dirname));
 
-setInterval(function () {
-    _http2.default.get('http://abbaslearn.royasoftware.com/admin/todos');
-}, 1000000);
+// setInterval(function () {
+//     http.get('http://abbaslearn.royasoftware.com/admin/todos')
+// }, 1000000)
+
 
 // function sleep (time) {
 //   return new Promise((resolve) => setTimeout(resolve, time))

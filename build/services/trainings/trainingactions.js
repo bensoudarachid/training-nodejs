@@ -61,6 +61,14 @@ var trainingactions = {
             value: value
         };
     },
+
+    handleTrainingEditEventsChange: function handleTrainingEditEventsChange(events) {
+        return {
+            type: 'HANDLE_TRAINING_EVENTS_CHANGE',
+            events: events
+        };
+    },
+
     // loadingTrainingFileOff: function() {
     //   console.log('training actions upload training file')
     //   return {
@@ -428,8 +436,9 @@ var trainingactions = {
                     //   dispatch(trainingactions.updateTrainingInList(trainingold))
                     // }, 2500)
                 } else {
-                    var updEditTraining = _immutable2.default.Map(data);
-                    //              console.log('Training actions. updEditTraining='+require('util').inspect(updEditTraining, false, null))
+                    var updEditTraining = data;
+                    // var updEditTraining = Immutable.Map(data)
+                    console.log('Training actions. updEditTraining=' + require('util').inspect(updEditTraining.events, false, null));
                     // dispatch(trainingactions.updateTrainingInList(updEditTraining))
                     dispatch(trainingactions.loadEditTraining(updEditTraining));
                     // return newtrainings;
@@ -472,6 +481,9 @@ var trainingactions = {
         };
     },
     loadEditTraining: function loadEditTraining(trainingraw) {
+        trainingraw.events = _immutable2.default.fromJS(trainingraw.events); // Immutable.List(trainingraw.events)
+        console.log('loadEditTraining action, events: ' + require('util').inspect(trainingraw.events, false, null));
+
         return {
             type: 'EDIT_TRAINING_LOADED',
             training: trainingraw
@@ -485,14 +497,14 @@ var trainingactions = {
         };
     },
 
-    retrieveTrainingsDispatcher: function retrieveTrainingsDispatcher(hostname) {
-        console.log('actions. retrieveTrainingsDispatcher ' + hostname);
+    retrieveTrainingsDispatcher: function retrieveTrainingsDispatcher() {
+        console.log('actions. retrieveTrainingsDispatcher ');
         return function (dispatch, getState) {
             // if(!process.env.BROWSER || (process.env.BROWSER && getState().app.get('previouslocation')!=undefined))
             if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched')) return;
 
             //      console.log('actions. retrieveTrainingsDispatcher calls service now')
-            return _actions2.default.retrieveTrainingsService(hostname).then(function (_ref4) {
+            return _actions2.default.retrieveTrainingsService().then(function (_ref4) {
                 var status = _ref4.status,
                     data = _ref4.data;
 
@@ -527,8 +539,8 @@ var trainingactions = {
         };
     },
 
-    retrieveTrainingDispatcher: function retrieveTrainingDispatcher(params, hostname) {
-        console.log('Call retrieveTrainingDispatcher  <-----------------------------');
+    retrieveTrainingDispatcher: function retrieveTrainingDispatcher(params) {
+        //        console.log('Call retrieveTrainingDispatcher  <-----------------------------')
         // console.log('training actions. retrieveTrainingDispatcher')
         // console.log('rootreducer='+require('util').inspect(rootreducer, false, null))
         return function (dispatch, getState) {
@@ -538,7 +550,7 @@ var trainingactions = {
                 console.log('training actions. retrieveTrainingDispatcher do nothing');
                 return;
             }
-            return _actions2.default.retrieveTrainingService(params.id, hostname).then(function (_ref5) {
+            return _actions2.default.retrieveTrainingService(params.id).then(function (_ref5) {
                 var status = _ref5.status,
                     data = _ref5.data;
 

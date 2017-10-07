@@ -42,7 +42,7 @@ export default class TrainingEdit extends React.Component {
     }
 
     render() {
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!')
+        // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!')
         const {auth} = this.props
         const training = this.props.trainingappmap.get('edittraining')
         // const confirmationActionFunction=this.props.trainingappmap.get('confirmationActionFunction')
@@ -57,9 +57,13 @@ export default class TrainingEdit extends React.Component {
         const secondaryTitle = training == undefined ? '' : training.get('secondaryTitle')
         const shortDescription = training == undefined ? '' : training.get('shortDescription')
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!' + shortDescription)
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+        // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!' + shortDescription)
+>>>>>>> 711f559... Javascript request interceptor for header manipulation. Webpack source maps not showing in Devtools. Eliminate source maps on production build. Export 5 colors constants from scss into javascript for the bigcalendar. Add mdl-selectfield in project and use it for bigcalendar. Adapt mdl-selectfield label color. Fix calendar background event and rows background colors. Devtools workspace. Map files to original disk files and edit directly in chrome. Disable autosaving of webpack.config.js in webstorm/Settings/LanguagesFrameworks/Webpack/change file name to something inexistent. Enable auto synchronisation on file disk change in webstorm. better buttons with glyphicons and hover. Adapt app wide uniform round buttons with glyphicons. Change buttons to the new round buttons on admin training list items. Implement a JSON.parse polyfill to automatically transform dates from json to javascript date objects. Bug fix. state Hydratation is not properly JSON date parsed. Need to stringify and parse again.Problem fix. Eveything landing in redux by state hydratation is deeply immutable Lists and Maps due to Immutable.fromJS. But we need a immutable list of simple Javascript events for BigCalendar: We add a new store element for this in trainingappmap: edittrainingevents.
         const longDescription = training == undefined ? '' : training.get('longDescription')
         const duration = training == undefined ? '' : training.get('duration')
         // const needDeleteConfirmation = training==undefined?'':training.get('needDeleteConfirmation')
@@ -152,6 +156,7 @@ export default class TrainingEdit extends React.Component {
                 </span>
             )
         else
+
         //<form onSubmit={(event) => this.handleClick(event)} noValidate>
         // <form action='/api/training/updatetraining' method="post" enctype="multipart/form-data">
         //<TrainingImage ref='uploadcomp' trainingid={id} isUploading={saving}/>
@@ -165,6 +170,10 @@ export default class TrainingEdit extends React.Component {
         //   <ConfirmationModal training={training} actions={this.props.actions}/>
         // </div>
         // }
+// <button id='sub' type='submit'
+// className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
+// Submit
+// </button>
 
             return (
                 <div className='trainingedit blockborder'>
@@ -244,12 +253,13 @@ export default class TrainingEdit extends React.Component {
                                 :
                                 <div key={'trainingeditbuttonsarenotrerenderedproperlyaftersubmit' + Math.random()}>
                                     <button id='sub' type='submit'
-                                            className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
-                                        Submit
+                                        className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton'>
+                                        <span className='glyphicon glyphicon-save'/>
                                     </button>
+
                                     <button id='deletetheshit' onClick={(event) => this.handleDelete(event)}
-                                            className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
-                                        Delete
+                                        className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton'>
+                                        <span className='glyphicon glyphicon-erase'/>
                                     </button>
                                 </div>
                             }
@@ -436,17 +446,17 @@ export default class TrainingEdit extends React.Component {
     }
 
     //This is a necessary call when component is fetched on server side
-    static fetchData(actions, params, hostname) {
+    static fetchData(actions, params) {
         // console.log('Call Training Edit fetch data  <-----------------------------')
         // console.log('Training edit. get training! param = '+util.inspect( params.id, false, null))
 
         //The return is necessary. if not the fetching is not resolved properly on the server side!
-        return actions.retrieveTrainingDispatcher(params, hostname)
+        return actions.retrieveTrainingDispatcher(params)
         // return Promise.resolve(actions.retrieveTrainingDispatcher(params.id,hostname))
     }
 
     componentDidUpdate() {
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Training edit. comp update')
+        // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Training edit. comp update')
         componentHandler.upgradeDom()
         const trainingEditError = this.props.trainingappmap.get('trainingEditError')
         //Need this code to get correct placeholderfloating  behaviour. otherwise content and placeholder overlap

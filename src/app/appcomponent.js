@@ -118,9 +118,11 @@ if (process.env.BROWSER) {
     // })
 }
 
+
 class AppComponent extends React.Component {
 
     constructor() {
+<<<<<<< HEAD
 <<<<<<< HEAD
         super(...arguments)
     }
@@ -160,10 +162,33 @@ class AppComponent extends React.Component {
 
 =======
         1
+=======
+>>>>>>> 711f559... Javascript request interceptor for header manipulation. Webpack source maps not showing in Devtools. Eliminate source maps on production build. Export 5 colors constants from scss into javascript for the bigcalendar. Add mdl-selectfield in project and use it for bigcalendar. Adapt mdl-selectfield label color. Fix calendar background event and rows background colors. Devtools workspace. Map files to original disk files and edit directly in chrome. Disable autosaving of webpack.config.js in webstorm/Settings/LanguagesFrameworks/Webpack/change file name to something inexistent. Enable auto synchronisation on file disk change in webstorm. better buttons with glyphicons and hover. Adapt app wide uniform round buttons with glyphicons. Change buttons to the new round buttons on admin training list items. Implement a JSON.parse polyfill to automatically transform dates from json to javascript date objects. Bug fix. state Hydratation is not properly JSON date parsed. Need to stringify and parse again.Problem fix. Eveything landing in redux by state hydratation is deeply immutable Lists and Maps due to Immutable.fromJS. But we need a immutable list of simple Javascript events for BigCalendar: We add a new store element for this in trainingappmap: edittrainingevents.
         super(...arguments)
+
         // this.constructor.childContextTypes = {
         //   betterReactSpinkit: PropTypes.object
         // }
+
+        // XMLHttpRequest.prototype.realSend = XMLHttpRequest.prototype.send;
+        // XMLHttpRequest.prototype.send = function(value) {
+        //     this.addEventListener("progress", function(){
+        //         console.log("------------------------> Loading")
+        //     }, false)
+        //     this.realSend(value)
+        // }
+
+// (function () {
+//     var originalFetch = fetch
+//     fetch = function() {
+//         return originalFetch.apply(this, arguments).then(
+//             function(data) {
+//                 console.log('---------------------->hello=man 2')
+//                 return data
+//         })
+//     }
+// })()
+
     }
 
     // getChildContext() {
