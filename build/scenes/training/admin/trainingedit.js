@@ -74,10 +74,11 @@ var TrainingEdit = function (_React$Component) {
             var training = this.props.trainingappmap.get('edittraining');
             // const confirmationActionFunction=this.props.trainingappmap.get('confirmationActionFunction')
 
-            //    console.log('training edit render. training='+require('util').inspect(training, false, null))
             var isTrainingEditFetching = this.props.trainingappmap.get('isTrainingEditFetching');
             var trainingEditError = this.props.trainingappmap.get('trainingEditError');
             var id = training == undefined ? '' : training.get('id');
+            console.log('trainingedit.js render. training = ' + require('util').inspect(training, false, null));
+            console.log('trainingedit.js render. training id = ' + require('util').inspect(id, false, null));
             var title = training == undefined ? '' : training.get('title');
             // console.log('###################################Training edit render title ='+require('util').inspect(title, false, null))
             var secondaryTitle = training == undefined ? '' : training.get('secondaryTitle');
@@ -337,6 +338,7 @@ var TrainingEdit = function (_React$Component) {
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
+            console.log('Training edit componentWillUnmount');
             this.props.actions.loadEditTraining(undefined);
         }
     }, {

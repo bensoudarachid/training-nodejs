@@ -27,13 +27,13 @@ import actions from '../services/actions'
 // import 'jquery'
 // import $ from 'jquery'
 // global.jQuery = require('jquery')
-// require('material-design-lite/dist//material.css')
+// require('material-design-lite/dist/material.css')
 // require('material-design-lite/dist/material.js')
 
 // import 'bootstrap/dist/css/bootstrap.css'
 // import 'bootstrap/dist/js/bootstrap.js'
-import '../../node_modules/mdl-selectfield/dist/mdl-selectfield.css'
-import '../../node_modules/mdl-selectfield/dist/mdl-selectfield.js'
+import 'mdl-selectfield/dist/mdl-selectfield.css'
+import 'mdl-selectfield/dist/mdl-selectfield.js'
 // import 'material-design-lite/src/material-design-lite.scss'
 // import 'material-design-lite/src/mdlComponentHandler.js'
 
@@ -212,7 +212,7 @@ Object
 if( initialState.trainingappmap.get('edittrainingevents') ){
     initialState.trainingappmap = initialState.trainingappmap.set('edittrainingevents',Immutable.List(initialState.trainingappmap.get('edittrainingevents').toJS()) )
 }
-console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----initialState='+require('util').inspect(initialState, false, null))
+//console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----initialState='+require('util').inspect(initialState, false, null))
 
 
 

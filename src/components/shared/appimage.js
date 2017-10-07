@@ -73,7 +73,9 @@ export default class AppImage extends React.Component {
 
         const idToken = cookie.load('jwt')
         const idTokenParam = idToken == undefined ? '' : '&access_token=' + idToken
-        console.log('app image idTokenParam=' + require('util').inspect(idTokenParam, false, null))
+        // console.log('app image idTokenParam=' + require('util').inspect(idTokenParam, false, null))
+        const datasrc = ApiConnection.apiurl + ApiConnection.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam
+        console.log('app image datasrc='+require('util').inspect(datasrc, false, null))
         return (
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -82,7 +84,7 @@ export default class AppImage extends React.Component {
                     <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
                 </div>
                 <img id={'applicationimg' + imgid} src='./images/0.png'
-                     data-src={ApiConnection.apiurl + ApiConnection.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam}
+                     data-src={datasrc}
                      onLoad={this.handleImageLoaded.bind(this)}
                      onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
 =======

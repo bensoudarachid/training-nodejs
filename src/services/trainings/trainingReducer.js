@@ -135,6 +135,7 @@ let trainingReducer = function (trainingappmap = new Immutable.Map({
             return trainingappmap
         case 'EDIT_TRAINING_LOADED':
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (action.training == undefined)
                 trainingappmap = trainingappmap.set('edittraining', undefined)
             else
@@ -144,8 +145,14 @@ let trainingReducer = function (trainingappmap = new Immutable.Map({
             console.log('trainings reducer EDIT_TRAINING_LOADED  <-----------------------------')
             console.log('action.training='+require('util').inspect(action.training.events.toIndexedSeq().toArray(), false, null))
             if (action.training == undefined)
+=======
+//            console.log('trainings reducer EDIT_TRAINING_LOADED  <-----------------------------')
+//            console.log('action.training='+require('util').inspect(action.training.events.toIndexedSeq().toArray(), false, null))
+            if (action.training == undefined) {
+>>>>>>> 7c3f8a8... Bug: vendor.js cannot be built: cannot find module mdl-selectfield although it is there. Solved by adding "main": "dist/mdl-selectfield.js" in node_modules\mdl-selectfield\package.json. Bug: Edit Training is not removed from redux state when components Training or TrainingSchedule are unmounted because of an undefined error
                 trainingappmap = trainingappmap.set('edittraining', undefined)
-            else {
+                trainingappmap = trainingappmap.set('edittrainingevents', Immutable.List([]) )
+            }else {
                 // let events = Immutable.List([
                 //     Immutable.Map({
                 //         'number': 2,
@@ -192,7 +199,7 @@ let trainingReducer = function (trainingappmap = new Immutable.Map({
                 // action.training.events=events
                 trainingappmap = trainingappmap.set('edittraining', Immutable.Map(action.training))
                 trainingappmap = trainingappmap.set('edittrainingevents', Immutable.List(trainingappmap.get('edittraining').get('events').toJS()) )
-                console.log('trainings reducer. training loaded. Do something with it' + util.inspect(action.training.events.toIndexedSeq().toArray(), false, null))
+//                console.log('trainings reducer. training loaded. Do something with it' + util.inspect(action.training.events.toIndexedSeq().toArray(), false, null))
             }
 >>>>>>> 6e3ff02... webstorm big changes crash
             return trainingappmap

@@ -48,12 +48,12 @@ export default class TrainingSchedule extends React.Component {
         const {auth} = this.props
         const training = this.props.trainingappmap.get('edittraining')
         // console.log('TrainingSchedule render training '+require('util').inspect(training, false, null))
-        if(!training)
+        if (!training)
             return (
                 <span>
                 </span>
             )
-        console.log('TrainingSchedule render training events'+require('util').inspect(training.get('events'), false, null))
+        console.log('TrainingSchedule render training events' + require('util').inspect(training.get('events'), false, null))
         // const confirmationActionFunction=this.props.trainingappmap.get('confirmationActionFunction')
 
 //    console.log('training edit render. training='+require('util').inspect(training, false, null))
@@ -201,7 +201,8 @@ export default class TrainingSchedule extends React.Component {
     }
 
     componentWillUnmount() {
-        // this.props.actions.loadEditTraining(undefined)
+        console.log('Training schedule componentWillUnmount')
+        this.props.actions.loadEditTraining(undefined)
     }
 
     componentDidMount() {
@@ -226,8 +227,8 @@ export default class TrainingSchedule extends React.Component {
 
     // This is a necessary call when component is fetched on server side
     static fetchData(actions, params) {
-        console.log('Training list fetch data. Params = '+require('util').inspect(params, false, null))
-        console.log('Training schedule. get training! param = '+util.inspect( params.id, false, null))
+        console.log('Training list fetch data. Params = ' + require('util').inspect(params, false, null))
+        console.log('Training schedule. get training! param = ' + util.inspect(params.id, false, null))
 
         //The return is necessary. if not the fetching is not resolved properly on the server side!
         return actions.retrieveTrainingDispatcher(params)

@@ -83,7 +83,7 @@ const trainingservices = {
     },
     retrieveTrainingsService: function () {
         // var sessionId = cookie.load('JSESSIONID')
-        console.log('Service retrieve trainings fetchData')
+//        console.log('Service retrieve trainings fetchData')
         let requesturl = url
         var headers = {
             // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -98,7 +98,7 @@ const trainingservices = {
         //     // headers.ClientHost = '' + hostname
         // }
         var idToken = cookie.load('jwt')
-        console.log('Ya trainings fetchData.  auth id token: ' + idToken)
+//        console.log('Ya trainings fetchData.  auth id token: ' + idToken)
         if (idToken != undefined) {
             headers.Authorization = 'Bearer ' + idToken
             // console.log('Ya trainings fetchData.  auth id token: ' + headers.Authorization)

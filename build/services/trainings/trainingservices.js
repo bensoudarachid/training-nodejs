@@ -88,7 +88,7 @@ var trainingservices = {
     },
     retrieveTrainingsService: function retrieveTrainingsService() {
         // var sessionId = cookie.load('JSESSIONID')
-        console.log('Service retrieve trainings fetchData');
+        //        console.log('Service retrieve trainings fetchData')
         var requesturl = url;
         var headers = {
             // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -103,7 +103,7 @@ var trainingservices = {
             //     // headers.ClientHost = '' + hostname
             // }
         };var idToken = _reactCookie2.default.load('jwt');
-        console.log('Ya trainings fetchData.  auth id token: ' + idToken);
+        //        console.log('Ya trainings fetchData.  auth id token: ' + idToken)
         if (idToken != undefined) {
             headers.Authorization = 'Bearer ' + idToken;
             // console.log('Ya trainings fetchData.  auth id token: ' + headers.Authorization)

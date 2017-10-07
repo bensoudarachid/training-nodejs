@@ -151,9 +151,12 @@ var trainingReducer = function trainingReducer() {
             trainingappmap = trainingappmap.set('edittraining', editTraining);
             return trainingappmap;
         case 'EDIT_TRAINING_LOADED':
-            console.log('trainings reducer EDIT_TRAINING_LOADED  <-----------------------------');
-            console.log('action.training=' + require('util').inspect(action.training.events.toIndexedSeq().toArray(), false, null));
-            if (action.training == undefined) trainingappmap = trainingappmap.set('edittraining', undefined);else {
+            //            console.log('trainings reducer EDIT_TRAINING_LOADED  <-----------------------------')
+            //            console.log('action.training='+require('util').inspect(action.training.events.toIndexedSeq().toArray(), false, null))
+            if (action.training == undefined) {
+                trainingappmap = trainingappmap.set('edittraining', undefined);
+                trainingappmap = trainingappmap.set('edittrainingevents', _immutable2.default.List([]));
+            } else {
                 // let events = Immutable.List([
                 //     Immutable.Map({
                 //         'number': 2,
@@ -200,7 +203,7 @@ var trainingReducer = function trainingReducer() {
                 // action.training.events=events
                 trainingappmap = trainingappmap.set('edittraining', _immutable2.default.Map(action.training));
                 trainingappmap = trainingappmap.set('edittrainingevents', _immutable2.default.List(trainingappmap.get('edittraining').get('events').toJS()));
-                console.log('trainings reducer. training loaded. Do something with it' + util.inspect(action.training.events.toIndexedSeq().toArray(), false, null));
+                //                console.log('trainings reducer. training loaded. Do something with it' + util.inspect(action.training.events.toIndexedSeq().toArray(), false, null))
             }
             return trainingappmap;
 
