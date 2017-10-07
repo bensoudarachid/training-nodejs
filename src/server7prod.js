@@ -262,7 +262,7 @@ app.get(appbasename + '/*', (req, res) => {
     fetch = apifetch
     fetch = (function (origFetch) {
         return function myFetch() {
-            console.log('---------------------->headers injecting fetch ')
+//            console.log('---------------------->headers injecting fetch ')
             arguments[1].headers.ClientHost = req.headers.host
             console.log('arguments='+require('util').inspect(arguments, false, null))
             var result = origFetch.apply(this, arguments)
