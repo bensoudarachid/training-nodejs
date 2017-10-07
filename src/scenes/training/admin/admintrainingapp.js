@@ -237,7 +237,7 @@ export default class AdminTrainingApp extends Component {
             // console.log('+++++++++++++++++++++++++Trainingapp. environment is server')
             return <div/>
         }
-        console.log('+++++++++++++++++++++++++AdminTrainingapp. render')
+//        console.log('+++++++++++++++++++++++++AdminTrainingapp. render')
         // {this.renderList()}
         // const {auth} = this.props
 //    console.log('Render training app now authority = '+auth.get('authority'))
@@ -315,10 +315,10 @@ export default class AdminTrainingApp extends Component {
     }
 
     //This is a necessary call when component is fetched on server side
-    static fetchData(actions, params, hostname) {
+    static fetchData(actions, params) {
 //    console.log('Training list fetch data for hostname='+require('util').inspect(hostname, false, null))
 //    console.log('Training list. get all trainings now! '+util.inspect( params, false, null))
-        return actions.retrieveTrainingsDispatcher(hostname)
+        return actions.retrieveTrainingsDispatcher()
         // const promises = []
         // promises.push(actions.retrieveTrainingsDispatcher(hostname))
         // return Promise.all(promises)

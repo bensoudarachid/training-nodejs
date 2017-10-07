@@ -14,6 +14,7 @@ import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 import fs from 'fs'
 import multer from 'multer'
+// import fetchIntercept from 'fetch-intercept'
 import Immutable from 'immutable'
 import {Provider} from 'react-redux'
 
@@ -70,7 +71,6 @@ var upload = multer({storage: storage})
 //       done=true
 //     }
 // }).single('todoimage')
-
 
 app.use('/bootstrap', express.static(__dirname + '/../node_modules/bootstrap/dist/'))
 app.use('/mdl', express.static(__dirname + '/../node_modules/material-design-lite/dist/'))
@@ -327,6 +327,7 @@ app.post(appbasename + '/api/*', function (req, res) {
 
 var errorfile = __dirname + '/images/0.png'
 
+const apifetch = fetch
 app.get(appbasename + '/*', (req, res) => {
     // routes is our object of React routes defined above
     console.log('');
@@ -334,6 +335,17 @@ app.get(appbasename + '/*', (req, res) => {
     console.log('')
     console.log('*********************************************')
     console.log('Get request now just came: ' + req.url)
+    fetch = apifetch
+    fetch = (function (origFetch) {
+        return function myFetch() {
+            console.log('---------------------->headers injecting fetch ')
+            arguments[1].headers.ClientHost = req.headers.host
+            console.log('arguments='+require('util').inspect(arguments, false, null))
+            var result = origFetch.apply(this, arguments)
+            return result
+        }
+    })(fetch)
+
     // console.log(routes)
     // if( req.url.indexOf('.') !== -1){
     //   console.log('Send File: ' + __dirname+ req.url)
@@ -406,7 +418,10 @@ app.get(appbasename + '/*', (req, res) => {
                 // })
                 // .catch(err => console.log('Booooo' + err));
 
-                const initialState = {auth: {url: 'Abbas'}}
+                const initialState = {
+                    auth: {url: 'Abbas'},
+                    clientrequesthost: req.headers.host
+                }
                 // const store = createStore(reducers, initialState, applyMiddleware(thunkMiddleware))
                 // const store = createStore(reducers, initialState)
                 const logger = createLogger()
@@ -477,9 +492,9 @@ app.get(appbasename + '/*', (req, res) => {
 // app.use(express.static('.'))
 app.use(express.static(__dirname))
 
-setInterval(function () {
-    http.get('http://abbaslearn.royasoftware.com/admin/todos')
-}, 1000000)
+// setInterval(function () {
+//     http.get('http://abbaslearn.royasoftware.com/admin/todos')
+// }, 1000000)
 
 
 // function sleep (time) {

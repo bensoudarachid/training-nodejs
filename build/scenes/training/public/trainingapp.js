@@ -549,10 +549,10 @@ var TrainingApp = function (_Component) {
 
     }], [{
         key: 'fetchData',
-        value: function fetchData(actions, params, hostname) {
-            console.log('Training list fetch data for hostname=' + require('util').inspect(hostname, false, null));
+        value: function fetchData(actions, params) {
+            console.log('Training list fetch data ');
             //    console.log('Training list. get all trainings now! '+util.inspect( params, false, null))
-            return actions.retrieveTrainingsDispatcher(hostname);
+            return actions.retrieveTrainingsDispatcher();
             // const promises = []
             // promises.push(actions.retrieveTrainingsDispatcher(hostname))
             // return Promise.all(promises)

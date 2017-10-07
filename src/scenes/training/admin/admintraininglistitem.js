@@ -76,12 +76,14 @@ export default class AdminTrainingListItem extends React.Component {
                     </div>
                     <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone'>
                         <div className='buttonwrap'>
-                            <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored editbutton'
+                            <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton'
                                     onClick={this.handleEdit.bind(this)}>
+                                <span className='glyphicon glyphicon-edit'/>
                             </button>
                             <button
-                                className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored schedulebutton'
+                                className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton'
                                 onClick={this.handleSchedule.bind(this)}>
+                                <span className='glyphicon glyphicon-calendar'/>
                             </button>
                         </div>
                     </div>

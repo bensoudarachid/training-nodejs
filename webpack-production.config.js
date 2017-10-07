@@ -20,7 +20,7 @@ module.exports = {
   // devtool: 'inline-source-map',
   // devtool: 'cheap-module-eval-source-map',
   //devtool: 'cheap-module-source-map', //original
-  devtool: 'source-map',
+  // devtool: 'source-map',
   entry: {
     
     publicapp: './src/app',//I need the js. the require.ensure parts are packed automatically in extra js files
@@ -55,7 +55,7 @@ module.exports = {
   resolve: {
     // modulesDirectories: ['node_modules', 'src'],
     // extensions: ['', '.js']
-    modules: [path.resolve(__dirname, 'src'),'node_modules']
+    modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
   module: {
     loaders: [

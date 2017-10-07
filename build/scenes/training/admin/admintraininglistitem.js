@@ -140,11 +140,19 @@ var AdminTrainingListItem = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { className: 'buttonwrap' },
-                            _react2.default.createElement('button', { className: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored editbutton',
-                                onClick: this.handleEdit.bind(this) }),
-                            _react2.default.createElement('button', {
-                                className: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored schedulebutton',
-                                onClick: this.handleSchedule.bind(this) })
+                            _react2.default.createElement(
+                                'button',
+                                { className: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton',
+                                    onClick: this.handleEdit.bind(this) },
+                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-edit' })
+                            ),
+                            _react2.default.createElement(
+                                'button',
+                                {
+                                    className: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton',
+                                    onClick: this.handleSchedule.bind(this) },
+                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-calendar' })
+                            )
                         )
                     ),
                     _react2.default.createElement(

@@ -30,17 +30,20 @@ var url = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename;
 // import { getIsFetching } from '../reducers'
 // import Immutable from 'immutable';
 var trainingservices = {
-    retrieveTrainingService: function retrieveTrainingService(id, hostname) {
+    retrieveTrainingService: function retrieveTrainingService(id) {
 
         var requesturl = url;
-        if (hostname != undefined) requesturl = _apiconnection2.default.getApiConnection(hostname) + _apiconnection2.default.appbasename;
         var headers = {
             // 'Content-Type': 'application/x-www-form-urlencoded',
             'Content-Type': 'application/json'
             // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
             // 'Authorization': 'Bearer '+idToken
-        };
-        var idToken = _reactCookie2.default.load('jwt');
+
+            // if (hostname != undefined) {
+            //     // requesturl = ApiConnection.getApiConnection(hostname) + ApiConnection.appbasename
+            //     headers.OldClientHost = '' + hostname
+            // }
+        };var idToken = _reactCookie2.default.load('jwt');
 
         console.log('training fetchData. url: ' + url + '/api/training/item/' + id);
         if (idToken != undefined) {
@@ -67,7 +70,12 @@ var trainingservices = {
             // })
             // body: 'testparam='+test //if no json in header
         }).then(function (response) {
-            return response.json().then(function (data) {
+            return response.text().then(function (text) {
+                // return text.length ? JSON.parse(text,ApiConnection.reviver) : {}
+                return text.length ? JSON.parse(text) : {};
+            })
+            // response => response.json()
+            .then(function (data) {
                 //        console.log('Print status now')
                 //        console.log('Response Status = ' + response.status)
                 // console.log('Response data size = ' + data.size())
@@ -78,9 +86,9 @@ var trainingservices = {
             });
         });
     },
-    retrieveTrainingsService: function retrieveTrainingsService(hostname) {
+    retrieveTrainingsService: function retrieveTrainingsService() {
         // var sessionId = cookie.load('JSESSIONID')
-        console.log('Service retrieve trainings fetchData call with hostname in Header' + hostname);
+        console.log('Service retrieve trainings fetchData');
         var requesturl = url;
         var headers = {
             // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -88,13 +96,13 @@ var trainingservices = {
             // ,'ClientHost': ''+hostname//.replace("school.", "schoolapi.")
             // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
             // 'Authorization': 'Bearer '+idToken
-        };
-        if (hostname != undefined) {
-            // requesturl = ApiConnection.getApiConnection(hostname)
-            requesturl = _apiconnection2.default.getApiConnection(hostname) + _apiconnection2.default.appbasename;
-            headers.ClientHost = '' + hostname;
-        }
-        var idToken = _reactCookie2.default.load('jwt');
+
+            // if (hostname != undefined) {
+            //     // requesturl = ApiConnection.getApiConnection(hostname)
+            //     // requesturl = ApiConnection.getApiConnection(hostname) + ApiConnection.appbasename
+            //     // headers.ClientHost = '' + hostname
+            // }
+        };var idToken = _reactCookie2.default.load('jwt');
         console.log('Ya trainings fetchData.  auth id token: ' + idToken);
         if (idToken != undefined) {
             headers.Authorization = 'Bearer ' + idToken;
@@ -119,8 +127,16 @@ var trainingservices = {
             //   testparam: test
             // })
             // body: 'testparam='+test //if no json in header
-        }).then(function (response) {
-            return response.json().then(function (data) {
+        }).then(
+        //This works too transforming the text response into json. But without the conversion
+        function (response) {
+            return response.json()
+            //This is the version to use if you dont have a JSON polyfill to take over the parse function in 'apiconnection'
+            // response => response.text()
+            // .then(text => {
+            //     return text.length ? JSON.parse(text,JSON.reviver) : {}
+            // })
+            .then(function (data) {
                 //        console.log('Print Response Status now ')
                 console.log('Response Status = ' + response.status);
                 // console.log('Response data size = ' + data.size())
@@ -174,7 +190,7 @@ var trainingservices = {
         });
     },
     updateTrainingService: function updateTrainingService(training, inputfile) {
-        console.log('inputfile=' + require('util').inspect(inputfile, false, null));
+        //        console.log('inputfile=' + require('util').inspect(inputfile, false, null))
         var headers = {
             // 'Content-Type': 'multipart/form-data'
             // 'Content-Type': 'multipart/form-data; boundary=B0EC8D07-EBF1-4EA7-966C-E492A9F2C36E'
@@ -205,6 +221,7 @@ var trainingservices = {
         };
         return fetch(url + '/api/training/updatetraining/', config).then(function (res) {
             return res.text().then(function (text) {
+                // return text.length ? JSON.parse(text,ApiConnection.reviver) : {}
                 return text.length ? JSON.parse(text) : {};
             }).then(function (data) {
                 return {

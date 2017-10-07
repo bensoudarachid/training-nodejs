@@ -50,6 +50,14 @@ const trainingactions = {
             value
         }
     },
+
+    handleTrainingEditEventsChange: function (events) {
+        return {
+            type: 'HANDLE_TRAINING_EVENTS_CHANGE',
+            events: events
+        }
+    },
+
     // loadingTrainingFileOff: function() {
     //   console.log('training actions upload training file')
     //   return {
@@ -428,8 +436,9 @@ const trainingactions = {
                             // }, 2500)
                         }
                         else {
-                            const updEditTraining = Immutable.Map(data)
-//              console.log('Training actions. updEditTraining='+require('util').inspect(updEditTraining, false, null))
+                            var updEditTraining = data
+                            // var updEditTraining = Immutable.Map(data)
+                            console.log('Training actions. updEditTraining='+require('util').inspect(updEditTraining.events, false, null))
                             // dispatch(trainingactions.updateTrainingInList(updEditTraining))
                             dispatch(trainingactions.loadEditTraining(updEditTraining))
                             // return newtrainings;
@@ -474,6 +483,9 @@ const trainingactions = {
         }
     },
     loadEditTraining: function (trainingraw) {
+        trainingraw.events= Immutable.fromJS(trainingraw.events)// Immutable.List(trainingraw.events)
+        console.log('loadEditTraining action, events: '+require('util').inspect(trainingraw.events, false, null))
+
         return {
             type: 'EDIT_TRAINING_LOADED',
             training: trainingraw
@@ -487,15 +499,15 @@ const trainingactions = {
         }
     },
 
-    retrieveTrainingsDispatcher: function (hostname) {
-        console.log('actions. retrieveTrainingsDispatcher ' + hostname)
+    retrieveTrainingsDispatcher: function () {
+        console.log('actions. retrieveTrainingsDispatcher ' )
         return (dispatch, getState) => {
             // if(!process.env.BROWSER || (process.env.BROWSER && getState().app.get('previouslocation')!=undefined))
             if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched'))
                 return
 
 //      console.log('actions. retrieveTrainingsDispatcher calls service now')
-            return actions.retrieveTrainingsService(hostname)
+            return actions.retrieveTrainingsService()
                 .then(
                     ({status, data}) => {
                         if (status === 401) {
@@ -531,8 +543,8 @@ const trainingactions = {
         }
     },
 
-    retrieveTrainingDispatcher: function (params, hostname) {
-        console.log('Call retrieveTrainingDispatcher  <-----------------------------')
+    retrieveTrainingDispatcher: function (params) {
+//        console.log('Call retrieveTrainingDispatcher  <-----------------------------')
         // console.log('training actions. retrieveTrainingDispatcher')
         // console.log('rootreducer='+require('util').inspect(rootreducer, false, null))
         return (dispatch, getState) => {
@@ -543,7 +555,7 @@ const trainingactions = {
                 console.log('training actions. retrieveTrainingDispatcher do nothing')
                 return
             }
-            return actions.retrieveTrainingService(params.id, hostname)
+            return actions.retrieveTrainingService(params.id)
                 .then(
                     ({status, data}) => {
                         if (status == 401) {

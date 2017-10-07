@@ -32,6 +32,10 @@ var _actions = require('../services/actions');
 
 var _actions2 = _interopRequireDefault(_actions);
 
+require('../../node_modules/mdl-selectfield/dist/mdl-selectfield.css');
+
+require('../../node_modules/mdl-selectfield/dist/mdl-selectfield.js');
+
 require('../styles/animate.css');
 
 require('./app.scss');
@@ -72,8 +76,7 @@ var NotFoundRoute = ReactRouter.NotFoundRoute;
 
 // import 'bootstrap/dist/css/bootstrap.css'
 // import 'bootstrap/dist/js/bootstrap.js'
-// import 'material-design-lite/dist/material.brown-blue.min.css'
-// import 'material-design-lite/dist/material.js'
+
 // import 'material-design-lite/src/material-design-lite.scss'
 // import 'material-design-lite/src/mdlComponentHandler.js'
 
@@ -87,6 +90,7 @@ var NotFoundRoute = ReactRouter.NotFoundRoute;
 
 // import '../styles/default.scss'
 
+// import 'mdl-selectfield/dist/mdl-selectfield.css'
 // import '../styles/_variables.scss'
 //import 'material-design-lite/src/material-design-lite.scss'
 //import '../styles/material-design-lite.scss'
@@ -115,8 +119,45 @@ var NotFoundRoute = ReactRouter.NotFoundRoute;
 // import App from '../components/app.jsx';
 // import AppComponent from '../components/appcomponent';
 
-
 // var componentHandler = require('exports?componentHandler!material-design-lite/dist/material')
+
+
+// (function(open) {
+//     XMLHttpRequest.prototype.open = function(method, url, async, user, pass) {
+//         this.addEventListener("readystatechange", function() {
+//             console.log('---------------------->hello=man')
+//
+//             if (this.readyState == 4)
+//             {
+//                 console.log(this.status);
+//             }
+//         }, false);
+//         console.log('---------------------->hello=man 2')
+//         open.call(this, method, url, async, user, pass);
+//         // this.setRequestHeader("Authorization", "Token 123")
+//     };
+// })(XMLHttpRequest.prototype.open);
+
+// (function () {
+//     var originalFetch = fetch
+//     fetch = function() {
+//         return originalFetch.apply(this, arguments).then(
+//             function(data) {
+//                 console.log('---------------------->hello=man 2')
+//                 return data
+//         })
+//     }
+// })()
+
+// fetch = (function (origFetch) {
+//     return function myFetch(req) {
+//         console.log('---------------------->hello=man 2')
+//         var result = origFetch.apply(this, arguments)
+//         result.then(console.log('---------------------->hello=man 3'))
+//         return result
+//     }
+// })(fetch)
+
 
 (function ($) {
 
@@ -193,12 +234,16 @@ var NotFound = function NotFound() {
 //   )
 // }
 
-var initialState = window.__REDUX_STATE__;
-// console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----initialState='+require('util').inspect(initialState, false, null))
-
+// console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----initialState='+require('util').inspect(window.__REDUX_STATE__, false, null))
+var initialState = JSON.parse(JSON.stringify(window.__REDUX_STATE__)); //Stringify and parse again with our polyfill JSON parser
 Object.keys(initialState).forEach(function (key) {
     initialState[key] = _immutable2.default.fromJS(initialState[key]);
 });
+
+if (initialState.trainingappmap.get('edittrainingevents')) {
+    initialState.trainingappmap = initialState.trainingappmap.set('edittrainingevents', _immutable2.default.List(initialState.trainingappmap.get('edittrainingevents').toJS()));
+}
+console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----initialState=' + require('util').inspect(initialState, false, null));
 
 var store = '';
 if (process.env.NODE_ENV === 'production') store = (0, _redux.createStore)(_rootreducer2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default));else {

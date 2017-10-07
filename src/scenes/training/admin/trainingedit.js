@@ -27,7 +27,7 @@ export default class TrainingEdit extends React.Component {
     }
 
     render() {
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!')
+        // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!')
         const {auth} = this.props
         const training = this.props.trainingappmap.get('edittraining')
         // const confirmationActionFunction=this.props.trainingappmap.get('confirmationActionFunction')
@@ -40,7 +40,7 @@ export default class TrainingEdit extends React.Component {
         // console.log('###################################Training edit render title ='+require('util').inspect(title, false, null))
         const secondaryTitle = training == undefined ? '' : training.get('secondaryTitle')
         const shortDescription = training == undefined ? '' : training.get('shortDescription')
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!' + shortDescription)
+        // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trainingedit render!' + shortDescription)
         const longDescription = training == undefined ? '' : training.get('longDescription')
         const duration = training == undefined ? '' : training.get('duration')
         // const needDeleteConfirmation = training==undefined?'':training.get('needDeleteConfirmation')
@@ -84,6 +84,7 @@ export default class TrainingEdit extends React.Component {
                 </span>
             )
         else
+
         //<form onSubmit={(event) => this.handleClick(event)} noValidate>
         // <form action='/api/training/updatetraining' method="post" enctype="multipart/form-data">
         //<TrainingImage ref='uploadcomp' trainingid={id} isUploading={saving}/>
@@ -97,6 +98,10 @@ export default class TrainingEdit extends React.Component {
         //   <ConfirmationModal training={training} actions={this.props.actions}/>
         // </div>
         // }
+// <button id='sub' type='submit'
+// className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
+// Submit
+// </button>
 
             return (
                 <div className='trainingedit blockborder'>
@@ -176,12 +181,13 @@ export default class TrainingEdit extends React.Component {
                                 :
                                 <div key={'trainingeditbuttonsarenotrerenderedproperlyaftersubmit' + Math.random()}>
                                     <button id='sub' type='submit'
-                                            className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
-                                        Submit
+                                        className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton'>
+                                        <span className='glyphicon glyphicon-save'/>
                                     </button>
+
                                     <button id='deletetheshit' onClick={(event) => this.handleDelete(event)}
-                                            className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
-                                        Delete
+                                        className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton'>
+                                        <span className='glyphicon glyphicon-erase'/>
                                     </button>
                                 </div>
                             }
@@ -225,17 +231,17 @@ export default class TrainingEdit extends React.Component {
     }
 
     //This is a necessary call when component is fetched on server side
-    static fetchData(actions, params, hostname) {
+    static fetchData(actions, params) {
         // console.log('Call Training Edit fetch data  <-----------------------------')
         // console.log('Training edit. get training! param = '+util.inspect( params.id, false, null))
 
         //The return is necessary. if not the fetching is not resolved properly on the server side!
-        return actions.retrieveTrainingDispatcher(params, hostname)
+        return actions.retrieveTrainingDispatcher(params)
         // return Promise.resolve(actions.retrieveTrainingDispatcher(params.id,hostname))
     }
 
     componentDidUpdate() {
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Training edit. comp update')
+        // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Training edit. comp update')
         componentHandler.upgradeDom()
         const trainingEditError = this.props.trainingappmap.get('trainingEditError')
         //Need this code to get correct placeholderfloating  behaviour. otherwise content and placeholder overlap

@@ -263,7 +263,7 @@ var TodoApp = function (_Component) {
         }
     }], [{
         key: 'fetchData',
-        value: function fetchData(actions, params, hostname) {
+        value: function fetchData(actions, params) {
             //    console.log('Todo list fetch data for hostname='+require('util').inspect(hostname, false, null))
             //    console.log('todoappjs fetchdata'+util.inspect( params, false, null))
             actions.retrieveUserTodosDispatcher();

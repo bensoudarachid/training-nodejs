@@ -164,11 +164,30 @@ var AppComponent = function (_React$Component) {
     function AppComponent() {
         _classCallCheck(this, AppComponent);
 
-        1;
         return _possibleConstructorReturn(this, (AppComponent.__proto__ || Object.getPrototypeOf(AppComponent)).apply(this, arguments));
+
         // this.constructor.childContextTypes = {
         //   betterReactSpinkit: PropTypes.object
         // }
+
+        // XMLHttpRequest.prototype.realSend = XMLHttpRequest.prototype.send;
+        // XMLHttpRequest.prototype.send = function(value) {
+        //     this.addEventListener("progress", function(){
+        //         console.log("------------------------> Loading")
+        //     }, false)
+        //     this.realSend(value)
+        // }
+
+        // (function () {
+        //     var originalFetch = fetch
+        //     fetch = function() {
+        //         return originalFetch.apply(this, arguments).then(
+        //             function(data) {
+        //                 console.log('---------------------->hello=man 2')
+        //                 return data
+        //         })
+        //     }
+        // })()
     }
 
     // getChildContext() {

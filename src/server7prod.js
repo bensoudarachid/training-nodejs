@@ -244,6 +244,7 @@ app.post(appbasename + '/api/*', function (req, res) {
 
 var errorfile = __dirname + '/images/0.png'
 
+const apifetch = fetch
 app.get(appbasename + '/*', (req, res) => {
     // routes is our object of React routes defined above
     console.log('');
@@ -251,6 +252,17 @@ app.get(appbasename + '/*', (req, res) => {
     console.log('')
     console.log('********************************************* 14')
     console.log('Get request now just came: ' + req.url)
+    fetch = apifetch
+    fetch = (function (origFetch) {
+        return function myFetch() {
+            console.log('---------------------->headers injecting fetch ')
+            arguments[1].headers.ClientHost = req.headers.host
+            console.log('arguments='+require('util').inspect(arguments, false, null))
+            var result = origFetch.apply(this, arguments)
+            return result
+        }
+    })(fetch)
+
     // console.log(routes)
     if (req.url.indexOf('.') !== -1) {
         console.log('Send File: ' + __dirname + req.url)

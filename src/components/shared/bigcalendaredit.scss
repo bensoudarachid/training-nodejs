@@ -9,7 +9,7 @@
     flex: 1;
   }
   .rbc-timeslot-group {
-    // border-bottom: 1px solid #DDD;
+    //border-bottom: 1px solid #DDD;
     border-bottom: 0px solid red;
     min-height: 5px;
     display: -ms-flexbox;
@@ -24,19 +24,53 @@
   //THe next three blocks eliminate the all-day line in the calendar
   .rbc-time-content {
     border-top: none;
-    // background-color: red;
+    //background-color: red;
   }
+  .rbc-time-content > * + * > * {
+    border-left: 0px solid rgba(grey, 0.2);
+  }
+
+  .rbc-timeslot-group > *:nth-child(2n) {
+    background-color: rgba(getMdlColor($color-primary), 0.3); //rgba(grey, 0.2);
+  }
+
+  .rbc-time-slot {
+    border: 0px;
+  }
+  .rbc-addons-dnd-over {
+    background-color: getMdlColor($color-primary) !important; //rgba(grey, 0.2);
+  }
+  //.rbc-label{
+  //  background-color: rgba(grey, 0.5);
+  //  //margin: 0;
+  //  //border:10px;
+  //}
+
+  //.rbc-time-content > * + * > * :nth-child(2n) {
+  //  background-color: rgba(grey, 0.1);
+  //}
   .rbc-time-view .rbc-row {
     display: none;
   }
-
-  .rbc-time-content > * + * > * {
-    border-left: 0px solid rgba(gray, 0.2);
+  h4 {
+    font-family: $RoyaMainFont;
+    //background-color: lighten($redlight,30%);
+    // color:darken($roya-blue,30%);
+    margin: 5px 0px 5px 0px;
+    padding: 0;
+    text-transform: none;
+    font-size: 1.3em;
+    letter-spacing: -1.5px;
+    line-height: 22px;
+    height: 24px;
+    text-align: left;
+    @media (min-width: 768px) {
+      margin: 10px 0px 10px 4px;
+    }
+    @media (min-width: 992px) {
+      margin: 15px 0px 15px 4px;
+    }
   }
-  .rbc-time-content > * + * > * :nth-child(2n) {
-    background-color: rgba(gray, 0.1);
-  }
-
   ul {
     width: 99.2%;
     margin: 0 0 -4px 0.4%;
@@ -50,7 +84,8 @@
     // border: 1px solid pink;
     vertical-align: middle;
     // background-color: $roya-blue;
-    background-color: rgba(gray, 0.1);
+    background-color: rgba(getMdlColor($color-primary), 0.4);
+
   }
   ul li:nth-child(1) {
     width: 51px;
@@ -68,8 +103,72 @@
   -moz-background-clip: padding; /* Firefox 3.6 */
   -webkit-background-clip: padding; /* Safari 4? Chrome 6? */
   background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
-  button {
-    width: 65px;
+
+  //button {
+  //  width: 45px;
+  //}
+
+  .buttonwrap {
+    position:absolute;
+    right:3%;
+    margin: 7px 0px 0px 0px;
+    //margin-right: 150px !important;
+    //text-align:right;
+    //height: 40px;
+    //background-color: orange;
+    @media (min-width: 768px) {
+      position:relative;
+      text-align:right;
+      margin: 2px -10px 0px 0px;
+    }
+    @media (min-width: 992px) {
+      margin: -2px -10px 0px 0px;
+    }
+  }
+
+  .eventbuttonwrap {
+    margin: 7px 0px 0px 0px;
+    height: 35px;
+
+    @media (min-width: 768px) {
+      margin: 2px 0px 0px 0px;
+    }
+    @media (min-width: 992px) {
+      margin: -2px 0px 0px 0px;
+    }
+
+    // background-color: orange;
+  }
+  .colorbutton1 {
+    background-color: rgba($eventcolor1,0.7);
+  }
+  .colorbutton2 {
+    background-color: rgba($eventcolor2,0.7);
+  }
+  .colorbutton3 {
+    background-color: rgba($eventcolor3,0.7);
+  }
+  .colorbutton4 {
+    background-color: rgba($eventcolor4,0.7);
+  }
+  .save1 {
+    position:absolute;
+    right:3%;
+    top:95px;
+    //background-color: orange !important; //'#f4f #f34'
+    //margin: 10px 0px 2px 0px !important;
+    display:block;
+
+    @media (min-width: 768px) {
+      position:relative;
+      display:none;
+    }
+  }
+  .save2 {
+    display:none;
+    @media (min-width: 768px) {
+      display:inline;
+    }
   }
   .pad {
     padding: 6px 0 4px 0 !important;
@@ -77,11 +176,49 @@
   .tf {
     margin: -30px -10px -40px -10px;
   }
-  .buttonblock {
-    margin: 4px auto 4px auto !important;
-    // @media (min-width: 480px) {
-    // 	margin-top:0px !important;
-    // }
+  //.buttonblock {
+  //  margin: 4px auto 4px auto !important;
+  //  // @media (min-width: 480px) {
+  //  // 	margin-top:0px !important;
+  //  // }
+  //}
+  .duration {
+    max-width: 70px;
+    @media (min-width: 768px) {
+      max-width: 80px;
+    }
+    @media (min-width: 992px) {
+      max-width: 90px;
+    }
+  }
+  .eventbutton {
+    margin: 0px 0px 0px 2px!important;
+    width: 35px !important;
+    height: 35px;
+    @media (min-width: 768px) {
+      width: 40px !important;
+      height: 40px;
+      margin: 0px 0px 0px 8px !important;
+    }
+    @media (min-width: 992px) {
+      width: 45px !important;
+      height: 45px;
+      margin: 0px 0px 0px 16px !important;
+    }
+    border: 2px;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: transparent; //'#f4f #f34'
+  }
+  .buttonborder {
+    //border: 2px;
+    //border-style: solid;
+    //border-radius: 50%;
+    //background-color: getMdlColor($color-primary);
+    border-color: black; //'#f4f #f34'
+  }
+  .glyphicon-chevron-down{
+    color: getMdlColor($color-primary);
   }
   // p{
   // 	// background-color: pink !important;
