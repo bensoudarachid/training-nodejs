@@ -503,12 +503,12 @@ app.use(express.static(__dirname))
 //   return new Promise((resolve) => setTimeout(resolve, time))
 // }
 
-var spawn = require('child_process').spawn
-var child = spawn('C:\\Programme\\AutoIt3\\AutoIt3.exe', ['D:\\RP\\Tests\\SpringBoot_Training\\relaunchwebapp.au3'])
-child.stdout.on('data', function (chunk) {
-    console.log('chunk=' + require('util').inspect(chunk, false, null))
-})
-child.stdout.pipe(process.stdout)
+// var spawn = require('child_process').spawn
+// var child = spawn('C:\\Programme\\AutoIt3\\AutoIt3.exe', ['D:\\RP\\Tests\\SpringBoot_Training\\relaunchwebapp.au3'])
+// child.stdout.on('data', function (chunk) {
+//     console.log('chunk=' + require('util').inspect(chunk, false, null))
+// })
+// child.stdout.pipe(process.stdout)
 
 var port = (process.env.PORT || ApiConnection.expressPort)
 app.listen(port, function (error) {
