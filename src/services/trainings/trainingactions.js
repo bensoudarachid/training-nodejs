@@ -483,8 +483,9 @@ const trainingactions = {
         }
     },
     loadEditTraining: function (trainingraw) {
-        trainingraw.events= Immutable.fromJS(trainingraw.events)// Immutable.List(trainingraw.events)
-        console.log('loadEditTraining action, events: '+require('util').inspect(trainingraw.events, false, null))
+        if( trainingraw!=undefined )
+            trainingraw.events= trainingraw.events!=undefined?Immutable.fromJS(trainingraw.events):Immutable.List([])
+//        console.log('loadEditTraining action, events: '+require('util').inspect(trainingraw.events, false, null))
 
         return {
             type: 'EDIT_TRAINING_LOADED',
@@ -500,7 +501,7 @@ const trainingactions = {
     },
 
     retrieveTrainingsDispatcher: function () {
-        console.log('actions. retrieveTrainingsDispatcher ' )
+//        console.log('actions. retrieveTrainingsDispatcher ' )
         return (dispatch, getState) => {
             // if(!process.env.BROWSER || (process.env.BROWSER && getState().app.get('previouslocation')!=undefined))
             if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched'))

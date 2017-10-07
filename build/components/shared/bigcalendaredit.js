@@ -54,7 +54,7 @@ _reactBigCalendar2.default.setLocalizer(_reactBigCalendar2.default.momentLocaliz
 var styles = undefined;
 
 if (process.env.BROWSER) {
-    console.log('Calendar. environment is browser');
+    //    console.log('Calendar. environment is browser')
     // require('../../../node_modules/fullcalendar/dist/fullcalendar.css')
     require('react-big-calendar/lib/css/react-big-calendar.css');
     require('react-big-calendar/lib/addons/dragAndDrop/styles.css');

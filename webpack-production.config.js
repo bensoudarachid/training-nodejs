@@ -35,7 +35,7 @@ module.exports = {
       'react-transform-catch-errors','hoist-non-react-statics',
       'react-deep-force-update','redux-thunk','global','isomorphic-fetch',
       'react-addons-pure-render-mixin'],
-    // ,vendor: ['react-dom','jquery','material-design-lite','immutable','react','lodash','react-router','validator','html-entities','history','buffer','fbjs','es6-promise','redux','react-proxy','react-redux','redbox-react','util','redux-logger','whatwg-fetch']
+    // ,vendor: ['react-dom','jquery','material-design-lite','immutable','mdl-selectfield','react','lodash','react-router','validator','html-entities','history','buffer','fbjs','es6-promise','redux','react-proxy','react-redux','redbox-react','util','redux-logger','whatwg-fetch']
     // ,vendor: ['cookie-parser','dialog-polyfill','es6-promise','escape-html',
     //   'form-data','jquery','immutable','isomorphic-fetch','lodash.clonedeep',
     //   'react-addons-pure-render-mixin','react-cookie','react-redux','react-router',
@@ -55,7 +55,7 @@ module.exports = {
   resolve: {
     // modulesDirectories: ['node_modules', 'src'],
     // extensions: ['', '.js']
-    modules: [path.resolve(__dirname, 'src'), 'node_modules']
+      modules: [path.resolve(__dirname, 'src'),path.resolve(__dirname, 'node_modules') ]
   },
   module: {
     loaders: [

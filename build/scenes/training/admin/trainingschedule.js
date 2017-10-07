@@ -171,7 +171,8 @@ var TrainingSchedule = function (_React$Component) {
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-            // this.props.actions.loadEditTraining(undefined)
+            console.log('Training schedule componentWillUnmount');
+            this.props.actions.loadEditTraining(undefined);
         }
     }, {
         key: 'componentDidMount',

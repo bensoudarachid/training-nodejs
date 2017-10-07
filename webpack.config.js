@@ -52,7 +52,7 @@ module.exports = {
     // },
     resolve: {
         // root: [path.resolve(__dirname,'src')],
-        modules: [path.resolve(__dirname, 'src'), 'node_modules']
+        modules: [path.resolve(__dirname, 'src'),path.resolve(__dirname, 'node_modules') ]
         // root: ['src'],
         // modulesDirectories: [path.resolve(__dirname,'src'),'node_modules'],
         // extensions: ['', '.js']

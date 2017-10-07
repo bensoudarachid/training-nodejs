@@ -32,10 +32,11 @@ export default class TrainingEdit extends React.Component {
         const training = this.props.trainingappmap.get('edittraining')
         // const confirmationActionFunction=this.props.trainingappmap.get('confirmationActionFunction')
 
-//    console.log('training edit render. training='+require('util').inspect(training, false, null))
         const isTrainingEditFetching = this.props.trainingappmap.get('isTrainingEditFetching')
         const trainingEditError = this.props.trainingappmap.get('trainingEditError')
         const id = training == undefined ? '' : training.get('id')
+        console.log('trainingedit.js render. training = '+require('util').inspect(training, false, null))
+        console.log('trainingedit.js render. training id = '+require('util').inspect(id, false, null))
         const title = training == undefined ? '' : training.get('title')
         // console.log('###################################Training edit render title ='+require('util').inspect(title, false, null))
         const secondaryTitle = training == undefined ? '' : training.get('secondaryTitle')
@@ -222,6 +223,7 @@ export default class TrainingEdit extends React.Component {
     // }
 
     componentWillUnmount() {
+        console.log('Training edit componentWillUnmount')
         this.props.actions.loadEditTraining(undefined)
     }
 

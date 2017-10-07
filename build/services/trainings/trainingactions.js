@@ -481,8 +481,8 @@ var trainingactions = {
         };
     },
     loadEditTraining: function loadEditTraining(trainingraw) {
-        trainingraw.events = _immutable2.default.fromJS(trainingraw.events); // Immutable.List(trainingraw.events)
-        console.log('loadEditTraining action, events: ' + require('util').inspect(trainingraw.events, false, null));
+        if (trainingraw != undefined) trainingraw.events = trainingraw.events != undefined ? _immutable2.default.fromJS(trainingraw.events) : _immutable2.default.List([]);
+        //        console.log('loadEditTraining action, events: '+require('util').inspect(trainingraw.events, false, null))
 
         return {
             type: 'EDIT_TRAINING_LOADED',
@@ -498,7 +498,7 @@ var trainingactions = {
     },
 
     retrieveTrainingsDispatcher: function retrieveTrainingsDispatcher() {
-        console.log('actions. retrieveTrainingsDispatcher ');
+        //        console.log('actions. retrieveTrainingsDispatcher ' )
         return function (dispatch, getState) {
             // if(!process.env.BROWSER || (process.env.BROWSER && getState().app.get('previouslocation')!=undefined))
             if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched')) return;

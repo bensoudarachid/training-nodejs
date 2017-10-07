@@ -32,9 +32,9 @@ var _actions = require('../services/actions');
 
 var _actions2 = _interopRequireDefault(_actions);
 
-require('../../node_modules/mdl-selectfield/dist/mdl-selectfield.css');
+require('mdl-selectfield/dist/mdl-selectfield.css');
 
-require('../../node_modules/mdl-selectfield/dist/mdl-selectfield.js');
+require('mdl-selectfield/dist/mdl-selectfield.js');
 
 require('../styles/animate.css');
 
@@ -71,7 +71,7 @@ var NotFoundRoute = ReactRouter.NotFoundRoute;
 // import 'jquery'
 // import $ from 'jquery'
 // global.jQuery = require('jquery')
-// require('material-design-lite/dist//material.css')
+// require('material-design-lite/dist/material.css')
 // require('material-design-lite/dist/material.js')
 
 // import 'bootstrap/dist/css/bootstrap.css'
@@ -243,7 +243,8 @@ Object.keys(initialState).forEach(function (key) {
 if (initialState.trainingappmap.get('edittrainingevents')) {
     initialState.trainingappmap = initialState.trainingappmap.set('edittrainingevents', _immutable2.default.List(initialState.trainingappmap.get('edittrainingevents').toJS()));
 }
-console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----initialState=' + require('util').inspect(initialState, false, null));
+//console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----initialState='+require('util').inspect(initialState, false, null))
+
 
 var store = '';
 if (process.env.NODE_ENV === 'production') store = (0, _redux.createStore)(_rootreducer2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default));else {
