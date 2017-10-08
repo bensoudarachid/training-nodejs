@@ -41,10 +41,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 //import 'bootstrap/dist/js/bootstrap.js'
 // import '../styles/default.scss'
-
+var styles = undefined;
 if (process.env.BROWSER) {
     // console.log('Appcomponent. environment is browser')
-    require('./nav.scss');
+    styles = require('./nav.scss');
     //   function sir3allah(event){
     //     var logotitleElm2 = $('#bsnavi h2')
     //     // var rdm = Math.floor(Math.random() * 2) + 1
@@ -137,6 +137,11 @@ var NavPublic = function (_Component) {
             var auth = this.props.auth;
 
             var isAuthenticated = auth.get('isAuthenticated');
+            var isFetching = auth.get('isFetching');
+            console.log('nav render: isfetching=' + require('util').inspect(isFetching, false, null));
+            var authenticatingAnim = 'flash';
+            var togglefetchingclass = 'navbar-toggle' + (isFetching ? ' ' + authenticatingAnim + ' animated toggloginfetch' : '');
+            console.log('nav render: isfetching=' + require('util').inspect(togglefetchingclass, false, null));
 
             // console.log('nav: isBrowser'+isBrowser)
             //&& this.props.location.pathname!='/register'
@@ -174,7 +179,7 @@ var NavPublic = function (_Component) {
                         null,
                         _react2.default.createElement(
                             'button',
-                            { id: 'togg', type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse',
+                            { id: 'togg', type: 'button', className: togglefetchingclass, 'data-toggle': 'collapse',
                                 'data-target': '#bs-example-navbar-collapse-1' },
                             _react2.default.createElement('span', { className: 'icon-bar' }),
                             _react2.default.createElement('span', { className: 'icon-bar' }),
@@ -226,31 +231,42 @@ var NavPublic = function (_Component) {
                                 'a',
                                 { href: '#', onClick: function onClick(event) {
                                         return _this2.handleLoginClick(event);
-                                    } },
-                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-in' }),
-                                'Login'
-                            )
-                        ),
-                        isAuthenticated && _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#', onClick: function onClick(event) {
-                                        return _this2.props.actions.logoutUser();
-                                    } },
-                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-out' }),
-                                'Logout'
+                                    },
+                                    className: isFetching ? authenticatingAnim + ' animated loginfetch' : '' },
+                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-in' })
                             )
                         )
                     )
                 )
             );
         }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            console.log('nav public update. ');
+            var nav = (0, _jquery2.default)('#bsnavi');
+            console.log('nav=' + nav[0]);
+            // var image=$('#traininglistitemimg'+trainingid)
+            var auth = this.props.auth;
+
+            var isFetching = auth.get('isFetching');
+            if (isFetching) nav[0].style.border = '5px solid rgba(240, 168, 48, 0.7)';
+            // nav[0].style.display = 'none'
+            // nav[0].style.background = 'radial-gradient(circle closest-side at 50% 50%, white 0,  #69F 95%, transparent 100%)'
+        }
     }]);
 
     return NavPublic;
 }(_react.Component);
+
+// {isAuthenticated &&
+// <li>
+//     <a href='#' onClick={(event) => this.props.actions.logoutUser()}>
+//         <span className='glyphicon glyphicon-log-out'></span>
+//     </a>
+// </li>
+// }
+
 
 // <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 

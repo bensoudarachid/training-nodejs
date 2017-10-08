@@ -6,6 +6,7 @@
 
 >>>>>>> 6e3ff02... webstorm big changes crash
 #bsnavi {
+
   #bg {
     position: absolute;
     // height: auto;
@@ -73,10 +74,14 @@
     // background-size:cover;
   }
   #togg {
+    background: radial-gradient(circle closest-side at 19px 20px, transparent 0, transparent 17px, transparent 19px);
     &:hover, &:focus {
       background: radial-gradient(circle closest-side at 19px 20px, lighten(getMdlColor($color-primary), 30%) 0, lighten(getMdlColor($color-primary), 30%) 17px, transparent 19px);
       box-shadow: none;
     }
+  }
+  .toggloginfetch{
+    background: radial-gradient(circle closest-side at 19px 20px, lighten($orangelight, 30%) 0, lighten($orangelight, 30%) 17px, transparent 19px) !important;
   }
   // border: none;
   .navbar-collapse, .collapse {
@@ -242,10 +247,16 @@
       margin-bottom: 2px;
     }
   }
+  //.navbar-right li:last-child {
+  //  //width:55px !important;
+  //  //display:none;
+  //  background:red !important;
+  //}
   // .navbar-right {
   // 	  	padding-bottom: 10px;
   // }
   a, li {
+    min-width:55px;
     // font-family: 'Roboto', Tahoma, sans-serif;
     font-family: $RoyaMainFont;
     letter-spacing: -2px;
@@ -256,6 +267,7 @@
     }
   }
   a {
+
     // background-color:pink;
     font-size: 1.8em;
     display: block;
@@ -275,7 +287,11 @@
       @extend .active;
     }
   }
-
+  .loginfetch{
+    //background-color: $orangelight !important;
+    //background-color: red !important;
+    background: radial-gradient(circle closest-side at 35px 21px, lighten($orangelight, 19%) 0, lighten($orangelight, 19%) 18px, transparent 19px);
+  }
   //.collapse{
   //	display: none;
   //	background-color:red;
@@ -312,7 +328,7 @@
 
     //overflow:auto;
     .logoblock button {
-      display: none !important;
+      display: none;
       //	background-color:black;
     }
     #bs-example-navbar-collapse-1 {
@@ -401,6 +417,11 @@
 
       }
     }
+    .loginfetch{
+      //background-color: $orangelight !important;
+      //background-color: red !important;
+      background: radial-gradient(circle closest-side at 35px 26px, lighten($orangelight, 19%) 0, lighten($orangelight, 19%) 18px, transparent 20px);
+    }
 
     .navbar-right li:first-child {
       margin: 3px 0px 0px 0;
@@ -429,14 +450,14 @@
     @include transitionAll(.3s);
 
     .navbar-left, .navbar-right {
-      // background-color:lighten(orange,40%);
+      //background-color:lighten(orange,40%);
       //	  	float: right;
       margin-top: 60px;
     }
     .navbar-right {
-      // background-color:lighten(blue,40%);
+      //background-color:lighten(blue,40%);
       //	  	float: right;
-      margin-right: 2%;;
+      margin-right: 2%;
     }
     .logoblock {
       list-style-type: none;

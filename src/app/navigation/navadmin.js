@@ -156,6 +156,7 @@ class NavAdmin extends Component {
                     </li>
                 </ul>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<<<<<<< HEAD
                     <ul className="nav navbar-nav navbar-left">
 <<<<<<< HEAD
                         <li><IndexLink activeClassName='active' to='/'>Home</IndexLink></li>
@@ -177,6 +178,9 @@ class NavAdmin extends Component {
                         </li>
                         }
 =======
+=======
+                    <ul className="nav navbar-nav navbar-left fadeIn animated" abbas="headShake flash">
+>>>>>>> 5481451... Visual feedback about login-in-progress
                         <li>
                             <IndexLink activeClassName='active' to='/'>Home</IndexLink>
                         </li>
@@ -214,14 +218,14 @@ class NavAdmin extends Component {
                         <li>
                             <a href='#' onClick={(event) => this.handleLoginClick(event)}>
                                 <span className='glyphicon glyphicon-log-in'></span>
-                                Login</a>
+                                </a>
                         </li>
                         }
                         {isAuthenticated &&
                         <li>
                             <a href='#' onClick={(event) => this.props.actions.logoutUser()}>
                                 <span className='glyphicon glyphicon-log-out'></span>
-                                Logout</a>
+                                </a>
                         </li>
                         }
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests

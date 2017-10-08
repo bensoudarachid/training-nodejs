@@ -188,7 +188,7 @@ var NavAdmin = function (_Component) {
                     { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
                     _react2.default.createElement(
                         'ul',
-                        { className: 'nav navbar-nav navbar-left' },
+                        { className: 'nav navbar-nav navbar-left fadeIn animated', abbas: 'headShake flash' },
                         _react2.default.createElement(
                             'li',
                             null,
@@ -237,8 +237,7 @@ var NavAdmin = function (_Component) {
                                 { href: '#', onClick: function onClick(event) {
                                         return _this2.handleLoginClick(event);
                                     } },
-                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-in' }),
-                                'Login'
+                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-in' })
                             )
                         ),
                         isAuthenticated && _react2.default.createElement(
@@ -249,8 +248,7 @@ var NavAdmin = function (_Component) {
                                 { href: '#', onClick: function onClick(event) {
                                         return _this2.props.actions.logoutUser();
                                     } },
-                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-out' }),
-                                'Logout'
+                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-out' })
                             )
                         )
                     )

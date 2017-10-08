@@ -51,9 +51,14 @@ export default class TrainingSchedule extends React.Component {
         if (!training)
             return (
                 <span>
+                    <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap'
+                          style={{
+                              width: '55px',
+                              height: '55px'
+                          }}></span>
                 </span>
             )
-        console.log('TrainingSchedule render training events' + require('util').inspect(training.get('events'), false, null))
+//        console.log('TrainingSchedule render training events' + require('util').inspect(training.get('events'), false, null))
         // const confirmationActionFunction=this.props.trainingappmap.get('confirmationActionFunction')
 
 //    console.log('training edit render. training='+require('util').inspect(training, false, null))
@@ -238,6 +243,7 @@ export default class TrainingSchedule extends React.Component {
     componentDidUpdate() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
 =======
         componentHandler.upgradeDom()
@@ -245,6 +251,9 @@ export default class TrainingSchedule extends React.Component {
 
 =======
         console.log('training schedule update!')
+=======
+//        console.log('training schedule update!')
+>>>>>>> 5481451... Visual feedback about login-in-progress
         componentHandler.upgradeDom()
 >>>>>>> 711f559... Javascript request interceptor for header manipulation. Webpack source maps not showing in Devtools. Eliminate source maps on production build. Export 5 colors constants from scss into javascript for the bigcalendar. Add mdl-selectfield in project and use it for bigcalendar. Adapt mdl-selectfield label color. Fix calendar background event and rows background colors. Devtools workspace. Map files to original disk files and edit directly in chrome. Disable autosaving of webpack.config.js in webstorm/Settings/LanguagesFrameworks/Webpack/change file name to something inexistent. Enable auto synchronisation on file disk change in webstorm. better buttons with glyphicons and hover. Adapt app wide uniform round buttons with glyphicons. Change buttons to the new round buttons on admin training list items. Implement a JSON.parse polyfill to automatically transform dates from json to javascript date objects. Bug fix. state Hydratation is not properly JSON date parsed. Need to stringify and parse again.Problem fix. Eveything landing in redux by state hydratation is deeply immutable Lists and Maps due to Immutable.fromJS. But we need a immutable list of simple Javascript events for BigCalendar: We add a new store element for this in trainingappmap: edittrainingevents.
     }
