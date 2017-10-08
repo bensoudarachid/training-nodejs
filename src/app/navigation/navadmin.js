@@ -157,6 +157,7 @@ class NavAdmin extends Component {
                 </ul>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <ul className="nav navbar-nav navbar-left">
 <<<<<<< HEAD
                         <li><IndexLink activeClassName='active' to='/'>Home</IndexLink></li>
@@ -181,6 +182,9 @@ class NavAdmin extends Component {
 =======
                     <ul className="nav navbar-nav navbar-left fadeIn animated" abbas="headShake flash">
 >>>>>>> 5481451... Visual feedback about login-in-progress
+=======
+                    <ul className="nav navbar-nav navbar-left fadeIn animated">
+>>>>>>> f1785f6... mdl-selectfield not working on production. back to bundle.js
                         <li>
                             <IndexLink activeClassName='active' to='/'>Home</IndexLink>
                         </li>
