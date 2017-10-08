@@ -12,10 +12,10 @@ import {LogoutUser} from '../../services/actions.js'
 import $ from 'jquery'
 //import 'bootstrap/dist/js/bootstrap.js'
 // import '../styles/default.scss'
-
+var styles = undefined;
 if (process.env.BROWSER) {
     // console.log('Appcomponent. environment is browser')
-    require('./nav.scss')
+    styles = require('./nav.scss')
 //   function sir3allah(event){
 //     var logotitleElm2 = $('#bsnavi h2')
 //     // var rdm = Math.floor(Math.random() * 2) + 1
@@ -94,6 +94,11 @@ class NavPublic extends Component {
         const isBrowser = typeof window !== 'undefined'
         const {auth} = this.props
         const isAuthenticated = auth.get('isAuthenticated')
+        const isFetching = auth.get('isFetching')
+        console.log('nav render: isfetching=' + require('util').inspect(isFetching, false, null))
+        const authenticatingAnim = 'flash'
+        const togglefetchingclass = 'navbar-toggle' + (isFetching ? ' ' + authenticatingAnim + ' animated toggloginfetch' : '')
+        console.log('nav render: isfetching=' + require('util').inspect(togglefetchingclass, false, null))
 
         // console.log('nav: isBrowser'+isBrowser)
         //&& this.props.location.pathname!='/register'
@@ -110,7 +115,7 @@ class NavPublic extends Component {
                         </div>
                     </li>
                     <li>
-                        <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse"
+                        <button id='togg' type="button" className={togglefetchingclass} data-toggle="collapse"
                                 data-target="#bs-example-navbar-collapse-1">
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
@@ -133,16 +138,11 @@ class NavPublic extends Component {
                         </li>
                         {isBrowser && !isAuthenticated &&
                         <li>
-                            <a href='#' onClick={(event) => this.handleLoginClick(event)}>
-                                <span className='glyphicon glyphicon-log-in'></span>
-                                Login</a>
-                        </li>
-                        }
-                        {isAuthenticated &&
-                        <li>
-                            <a href='#' onClick={(event) => this.props.actions.logoutUser()}>
-                                <span className='glyphicon glyphicon-log-out'></span>
-                                Logout</a>
+                            <a href='#' onClick={(event) => this.handleLoginClick(event)}
+                               className={isFetching ? authenticatingAnim + ' animated loginfetch' : ''}>
+                                <span className='glyphicon glyphicon-log-in'>
+                                </span>
+                            </a>
                         </li>
                         }
                     </ul>
@@ -150,7 +150,31 @@ class NavPublic extends Component {
             </nav>
         )
     }
+
+    componentDidUpdate() {
+        console.log('nav public update. ')
+        const nav = $('#bsnavi')
+        console.log('nav='+nav[0])
+// var image=$('#traininglistitemimg'+trainingid)
+        const {auth} = this.props
+        const isFetching = auth.get('isFetching')
+        if( isFetching )
+            nav[0].style.border = '5px solid rgba(240, 168, 48, 0.7)'
+        // nav[0].style.display = 'none'
+        // nav[0].style.background = 'radial-gradient(circle closest-side at 50% 50%, white 0,  #69F 95%, transparent 100%)'
+    }
+
 }
+
+
+// {isAuthenticated &&
+// <li>
+//     <a href='#' onClick={(event) => this.props.actions.logoutUser()}>
+//         <span className='glyphicon glyphicon-log-out'></span>
+//     </a>
+// </li>
+// }
+
 
 // <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 

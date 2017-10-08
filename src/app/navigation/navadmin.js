@@ -120,7 +120,7 @@ class NavAdmin extends Component {
                     </li>
                 </ul>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul className="nav navbar-nav navbar-left">
+                    <ul className="nav navbar-nav navbar-left fadeIn animated" abbas="headShake flash">
                         <li>
                             <IndexLink activeClassName='active' to='/'>Home</IndexLink>
                         </li>
@@ -141,14 +141,14 @@ class NavAdmin extends Component {
                         <li>
                             <a href='#' onClick={(event) => this.handleLoginClick(event)}>
                                 <span className='glyphicon glyphicon-log-in'></span>
-                                Login</a>
+                                </a>
                         </li>
                         }
                         {isAuthenticated &&
                         <li>
                             <a href='#' onClick={(event) => this.props.actions.logoutUser()}>
                                 <span className='glyphicon glyphicon-log-out'></span>
-                                Logout</a>
+                                </a>
                         </li>
                         }
                     </ul>

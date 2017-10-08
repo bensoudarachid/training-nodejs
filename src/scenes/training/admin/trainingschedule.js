@@ -35,9 +35,14 @@ export default class TrainingSchedule extends React.Component {
         if (!training)
             return (
                 <span>
+                    <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap'
+                          style={{
+                              width: '55px',
+                              height: '55px'
+                          }}></span>
                 </span>
             )
-        console.log('TrainingSchedule render training events' + require('util').inspect(training.get('events'), false, null))
+//        console.log('TrainingSchedule render training events' + require('util').inspect(training.get('events'), false, null))
         // const confirmationActionFunction=this.props.trainingappmap.get('confirmationActionFunction')
 
 //    console.log('training edit render. training='+require('util').inspect(training, false, null))
@@ -160,7 +165,7 @@ export default class TrainingSchedule extends React.Component {
     }
 
     componentDidUpdate() {
-        console.log('training schedule update!')
+//        console.log('training schedule update!')
         componentHandler.upgradeDom()
     }
 

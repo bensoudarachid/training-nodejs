@@ -438,7 +438,7 @@ var trainingactions = {
                 } else {
                     var updEditTraining = data;
                     // var updEditTraining = Immutable.Map(data)
-                    console.log('Training actions. updEditTraining=' + require('util').inspect(updEditTraining.events, false, null));
+                    //                            console.log('Training actions. updEditTraining='+require('util').inspect(updEditTraining.events, false, null))
                     // dispatch(trainingactions.updateTrainingInList(updEditTraining))
                     dispatch(trainingactions.loadEditTraining(updEditTraining));
                     // return newtrainings;

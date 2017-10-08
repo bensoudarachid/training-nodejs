@@ -73,8 +73,16 @@ var TrainingSchedule = function (_React$Component) {
 
             var training = this.props.trainingappmap.get('edittraining');
             // console.log('TrainingSchedule render training '+require('util').inspect(training, false, null))
-            if (!training) return _react2.default.createElement('span', null);
-            console.log('TrainingSchedule render training events' + require('util').inspect(training.get('events'), false, null));
+            if (!training) return _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement('span', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap',
+                    style: {
+                        width: '55px',
+                        height: '55px'
+                    } })
+            );
+            //        console.log('TrainingSchedule render training events' + require('util').inspect(training.get('events'), false, null))
             // const confirmationActionFunction=this.props.trainingappmap.get('confirmationActionFunction')
 
             //    console.log('training edit render. training='+require('util').inspect(training, false, null))
@@ -197,7 +205,7 @@ var TrainingSchedule = function (_React$Component) {
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate() {
-            console.log('training schedule update!');
+            //        console.log('training schedule update!')
             componentHandler.upgradeDom();
         }
     }], [{
