@@ -188,7 +188,7 @@ var NavAdmin = function (_Component) {
                     { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
                     _react2.default.createElement(
                         'ul',
-                        { className: 'nav navbar-nav navbar-left fadeIn animated', abbas: 'headShake flash' },
+                        { className: 'nav navbar-nav navbar-left fadeIn animated' },
                         _react2.default.createElement(
                             'li',
                             null,

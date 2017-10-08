@@ -67,7 +67,7 @@ export default class AppImage extends React.Component {
         const idTokenParam = idToken == undefined ? '' : '&access_token=' + idToken
         // console.log('app image idTokenParam=' + require('util').inspect(idTokenParam, false, null))
         const datasrc = ApiConnection.apiurl + ApiConnection.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam
-        console.log('app image datasrc='+require('util').inspect(datasrc, false, null))
+//        console.log('app image datasrc='+require('util').inspect(datasrc, false, null))
         return (
             <div className='imgwrapper' id={'imgwrap' + imgid}>
                 <div className='spinnerwrap'>

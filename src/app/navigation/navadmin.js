@@ -120,7 +120,7 @@ class NavAdmin extends Component {
                     </li>
                 </ul>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul className="nav navbar-nav navbar-left fadeIn animated" abbas="headShake flash">
+                    <ul className="nav navbar-nav navbar-left fadeIn animated">
                         <li>
                             <IndexLink activeClassName='active' to='/'>Home</IndexLink>
                         </li>
