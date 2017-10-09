@@ -28,7 +28,7 @@ module.exports = {
     
 
     vendor:[
-      'es6-promise','html-entities','fullcalendar','immutable','lodash','mdl-selectfield','react-router','validator',
+      'es6-promise','html-entities','fullcalendar','immutable','lodash','react-router','validator',
       'redux','react-proxy','react-redux','redbox-react','util','redux-logger','whatwg-fetch',
       'react-router-redux','react-hot-api',
       'react-hot-loader','cookie','react-transform-hmr','react-big-calendar','react-cookie','react-dnd','react-dnd-html5-backend',
