@@ -70,7 +70,9 @@ var appReducer = function appReducer() {
             console.log('app reducer. +++++++++++++ SERVER_DATA_FETCH_STATUS ' + action.serverDataFetchOk);
             app = app.set('serverDataFetched', action.serverDataFetchOk);
             return app;
-
+        case 'TENANT_LOADED':
+            app = app.set('tenant', _immutable2.default.Map(action.tenant));
+            return app;
         default:
             return app;
     }

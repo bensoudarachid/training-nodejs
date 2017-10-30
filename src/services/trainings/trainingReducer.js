@@ -153,57 +153,12 @@ let trainingReducer = function (trainingappmap = new Immutable.Map({
                 trainingappmap = trainingappmap.set('edittraining', undefined)
                 trainingappmap = trainingappmap.set('edittrainingevents', Immutable.List([]) )
             }else {
-                // let events = Immutable.List([
-                //     Immutable.Map({
-                //         'number': 2,
-                //         // 'title': 'React 2',
-                //         // 'date': Date.now(),
-                //         'start': new Date(2001, 0, 2, 9, 30, 0, 0),
-                //         'end': new Date(2001, 0, 2, 11, 30, 0, 0)
-                //         // 'allDay': true
-                //     }),
-                //     Immutable.Map({
-                //         'number': 3,
-                //         // 'title': 'React 2',
-                //         // 'date': Date.now(),
-                //         'start': new Date(2001, 0, 3, 10, 30, 0, 0),
-                //         'end': new Date(2001, 0, 3, 14, 0, 0, 0)
-                //         // 'allDay': true
-                //     })
-                // ])
-                // let events = Immutable.List( [
-                //     // {
-                //     //     number: 2,
-                //     //     start: 978337800000,
-                //     //     end: 978348600000,
-                //     //     version: 0,
-                //     //     training: null
-                //     // },
-                //     {
-                //         'number': 2,
-                //         // 'title': 'React 2',
-                //         // 'date': Date.now(),
-                //         'start': new Date(2001, 0, 2, 9, 30, 0, 0),
-                //         'end': new Date(2001, 0, 2, 11, 30, 0, 0)
-                //         // 'allDay': true
-                //     },
-                //     {
-                //         'number': 3,
-                //         // 'title': 'React 2',
-                //         // 'date': Date.now(),
-                //         'start': new Date(2001, 0, 3, 10, 30, 0, 0),
-                //         'end': new Date(2001, 0, 3, 14, 0, 0, 0)
-                //         // 'allDay': true
-                //     }
-                // ])
-                // action.training.events=events
                 trainingappmap = trainingappmap.set('edittraining', Immutable.Map(action.training))
                 trainingappmap = trainingappmap.set('edittrainingevents', Immutable.List(trainingappmap.get('edittraining').get('events').toJS()) )
 //                console.log('trainings reducer. training loaded. Do something with it' + util.inspect(action.training.events.toIndexedSeq().toArray(), false, null))
             }
 >>>>>>> 6e3ff02... webstorm big changes crash
             return trainingappmap
-
 
         case 'EDIT_TRAINING_VALIDATE':
             var userInputErrors = {}

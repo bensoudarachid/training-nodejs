@@ -70,14 +70,18 @@ module.exports = {
                 exclude: /node_modules/,
                 loaders: ['react-hot-loader', 'babel-loader?retainLines=true,presets[]=react,presets[]=es2015,presets[]=react-hmre,presets[]=stage-2']
             },
-            // { test: /\.js$/, loader: 'exports-loader' },
-            // { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.wav$|\.mp3$/,
-            //   loader: 'file-loader?name=images/[name].[ext]'
-            // },
             {
                 test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.wav$|\.mp3$/,
                 loader: 'url-loader?limit=150192'
+                // loader: 'file-loader'
             },
+            // {
+            //     test: /\.(jpe?g|png|gif|svg)$/i,
+            //     loaders: [ 'file-loader?hash=sha512&digest=hex&name=[name].[ext]',
+            //         'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false, pngquant:{quality: "65-90", speed: 4}'
+            //     ]
+            // },
+
             {test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader'},
             // {
             //   test: /\.scss$/,

@@ -270,6 +270,7 @@ class AppComponent extends React.Component {
                     <Nav
                         actions={this.props.actions}
                         auth={this.props.auth}
+                        app={this.props.app}
                     />
                 </div>
 <<<<<<< HEAD

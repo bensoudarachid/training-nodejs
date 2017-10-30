@@ -10,6 +10,7 @@ import {LogoutUser} from '../../services/actions.js'
 //import 'bootstrap/dist/css/bootstrap.css'
 
 import $ from 'jquery'
+import ApiConnection from '../../services/apiconnection'
 //import 'bootstrap/dist/js/bootstrap.js'
 // import '../styles/default.scss'
 
@@ -82,11 +83,20 @@ if (process.env.BROWSER) {
 =======
 
 //require('./nav.scss')
+<<<<<<< HEAD
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 
 //require('./nav.scss')
+=======
+var datasrc = undefined
+>>>>>>> 79912c6... Fetch Tenant logo and name from back end. right display of tenant name if it s composed of 1 or two parts
 
 class NavAdmin extends Component {
+    constructor(){
+        super()
+        this.handleResize = this.handleResize.bind(this)
+    }
+
     // <div>
 <<<<<<< HEAD
     //    </div>    
@@ -121,6 +131,18 @@ class NavAdmin extends Component {
 
         // console.log('nav: isBrowser'+isBrowser)
         //&& this.props.location.pathname!='/register'
+
+        if (process.env.BROWSER)
+            datasrc = this.getRightLogoUrl()
+        console.log('nav: logo = ' + datasrc)
+        var tenantName1 = ''
+        if( this.props.app.get('tenant') )
+            tenantName1 = this.props.app.get('tenant').get('name1')
+        console.log('tenantName1='+require('util').inspect(tenantName1, false, null))
+        var tenantName2 = ''
+        if( this.props.app.get('tenant') )
+            tenantName2 = this.props.app.get('tenant').get('name2')
+
         return (
             <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
                 <ul className='navbar-header logoblock'>
@@ -128,13 +150,15 @@ class NavAdmin extends Component {
                     <li><img id='logo' src={'/images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/></li>
 =======
                     <li>
-                        <img id='logo' src={'/images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/>
+                        {process.env.BROWSER &&
+                        <img id='logo' src={datasrc} className='logo' alt='Roya logo'/>
+                        }
                     </li>
 >>>>>>> 6e3ff02... webstorm big changes crash
                     <li>
                         <div>
-                            <h2>ROYA</h2>
-                            <h3>SOFTWARE</h3>
+                            <h2>{tenantName1}</h2>
+                            <h3>{tenantName2}</h3>
                         </div>
                     </li>
                     <li>
@@ -238,6 +262,75 @@ class NavAdmin extends Component {
             </nav>
         )
     }
+    static fetchData(actions, params) {
+        console.log('Call Tenant Edit fetch data  <-----------------------------')
+        // console.log('Training edit. get training! param = '+util.inspect( params.id, false, null))
+
+        //The return is necessary. if not the fetching is not resolved properly on the server side!
+        return actions.retrieveTenantDispatcher()
+        // return Promise.resolve(actions.retrieveTrainingDispatcher(params.id,hostname))
+    }
+
+    componentDidUpdate() {
+        this.checkTitleMargin()
+    }
+    checkTitleMargin() {
+//        console.log('nav public update. ')
+//         const nav = $('#bsnavi')
+//         console.log('nav=' + nav[0])
+//         const {auth} = this.props
+//         const isFetching = auth.get('isFetching')
+//         if (isFetching)
+//             nav[0].style.border = '5px solid rgba(240, 168, 48, 0.7)'
+        var tenantName2 = ''
+        if( this.props.app.get('tenant') )
+            tenantName2 = this.props.app.get('tenant').get('name2')
+        console.log('componentDidMount tenantName2='+require('util').inspect(tenantName2, false, null))
+        if( tenantName2 == '' ){
+            $( ".logoblock" ).find( "h2" ).css( "margin-top", "25px" );
+            $( ".logoblock" ).find( "h2" ).css( "margin-left", "10px" );
+        }else{
+            $( ".logoblock" ).find( "h2" ).css( "margin-top", "12px" );
+            $( ".logoblock" ).find( "h2" ).css( "margin-left", "10px" );
+        }
+
+    }
+
+    componentDidMount() {
+        componentHandler.upgradeDom()
+        console.log('addEventListener')
+        window.addEventListener('resize', this.handleResize)
+        NavAdmin.fetchData(this.props.actions, this.props.params)
+    }
+
+    componentWillUnmount() {
+        console.log('removeEventListener')
+        window.removeEventListener('resize', this.handleResize)
+    }
+
+    getRightLogoUrl() {
+        if (window.matchMedia("(min-width: 992px)").matches) {
+            // $('#starbg-wrapper')[0].style.display = 'none'
+            return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 120 + '&height=' + 120
+        } else {
+            // $('#starbg-wrapper')[0].style.display = 'none'
+            return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 82 + '&height=' + 82
+        }
+    }
+
+    handleResize() {
+        // console.log('Resize now')
+
+        // $('#starbg-wrapper')[0].style.display = 'none'
+        const newDatasrc = this.getRightLogoUrl()
+        if (newDatasrc != this.datasrc) {
+            this.datasrc = newDatasrc
+            $('#logo')[0].src = this.datasrc
+            this.checkTitleMargin()
+        }
+        // $('#starbg-wrapper')[0].style.display = 'block'
+    }
+
 }
 <<<<<<< HEAD
 <<<<<<< HEAD

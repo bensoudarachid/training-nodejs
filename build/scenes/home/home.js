@@ -35,6 +35,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 // import {FadingCircle} from 'better-react-spinkit'
 
+// import pathToBlogCoding from '../../images/Blog-CodingNeutral2.png'
+
+// const pathToBlogCoding = require('../../images/Blog-Coding.svg');
+// const pathToBlogCoding = require('../../images/Blog-CodingNeutral2.png');
 // import LogoSpinner from '../../components/shared/logospinner'
 
 
@@ -296,13 +300,13 @@ var Home = function (_Component) {
                                     _react2.default.createElement('div', { className: 'imgbg' }),
                                     _react2.default.createElement('div', {
                                         className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-                                    _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-Coding.svg',
+                                    _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-CodingNeutral2.png',
                                         className: 'dataimg', alt: 'coding' })
                                 ),
                                 _react2.default.createElement(
                                     'p',
                                     null,
-                                    '1. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. '
+                                    'We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. '
                                 )
                             ),
                             _react2.default.createElement(
@@ -320,7 +324,7 @@ var Home = function (_Component) {
                                 _react2.default.createElement(
                                     'p',
                                     null,
-                                    '2. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. '
+                                    'We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. '
                                 )
                             ),
                             _react2.default.createElement(
@@ -338,7 +342,7 @@ var Home = function (_Component) {
                                 _react2.default.createElement(
                                     'p',
                                     null,
-                                    '3. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. '
+                                    'We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. '
                                 )
                             ),
                             _react2.default.createElement('div', { className: 'clearfix visible-md visible-lg' })
@@ -355,13 +359,13 @@ var Home = function (_Component) {
                                     _react2.default.createElement('div', { className: 'imgbg' }),
                                     _react2.default.createElement('div', {
                                         className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-                                    _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-CodingNeutral1.png',
+                                    _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/rocket.png',
                                         className: 'dataimg', alt: 'coding' })
                                 ),
                                 _react2.default.createElement(
                                     'p',
                                     null,
-                                    '4. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. '
+                                    'We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. '
                                 )
                             ),
                             _react2.default.createElement(
@@ -373,13 +377,13 @@ var Home = function (_Component) {
                                     _react2.default.createElement('div', { className: 'imgbg' }),
                                     _react2.default.createElement('div', {
                                         className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-                                    _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-PlanningNeutral1.png',
+                                    _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/planningdev.png',
                                         className: 'dataimg', alt: 'coding' })
                                 ),
                                 _react2.default.createElement(
                                     'p',
                                     null,
-                                    '5. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. '
+                                    'We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. '
                                 )
                             ),
                             _react2.default.createElement(
@@ -391,13 +395,13 @@ var Home = function (_Component) {
                                     _react2.default.createElement('div', { className: 'imgbg' }),
                                     _react2.default.createElement('div', {
                                         className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-                                    _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-DeployingNeutral1.png',
+                                    _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/media.png',
                                         className: 'dataimg', alt: 'coding' })
                                 ),
                                 _react2.default.createElement(
                                     'p',
                                     null,
-                                    '6. We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. '
+                                    'We have the mission to accompany companies in any project and support them implement secure information, management, communication or e-commerce systems. We support our customers from analysis and the conception, through development, integration and adaptation until the deployment and the maintenance of these systems. '
                                 )
                             ),
                             _react2.default.createElement('div', { className: 'clearfix visible-md visible-lg' })
