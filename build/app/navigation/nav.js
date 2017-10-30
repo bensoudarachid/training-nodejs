@@ -167,19 +167,22 @@ var Nav = function (_Component) {
                 // console.log('nav: admin? authority = '+auth.get('authority'))
                 return _react2.default.createElement(_navadmin2.default, {
                     actions: this.props.actions,
-                    auth: this.props.auth
+                    auth: this.props.auth,
+                    app: this.props.app
                 });
             } else if (auth.get('authority') == 'user') {
                 // console.log('nav: user? authority = '+auth.get('authority'))
                 return _react2.default.createElement(_navuser2.default, {
                     actions: this.props.actions,
-                    auth: this.props.auth
+                    auth: this.props.auth,
+                    app: this.props.app
                 });
             } else {
                 // console.log('nav: guest? authority = '+auth.get('authority'))
                 return _react2.default.createElement(_navpublic2.default, {
                     actions: this.props.actions,
-                    auth: this.props.auth
+                    auth: this.props.auth,
+                    app: this.props.app
                 });
             }
         }

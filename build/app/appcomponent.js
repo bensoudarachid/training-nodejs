@@ -290,7 +290,8 @@ var AppComponent = function (_React$Component) {
                     null,
                     _react2.default.createElement(_nav2.default, {
                         actions: this.props.actions,
-                        auth: this.props.auth
+                        auth: this.props.auth,
+                        app: this.props.app
                     })
                 ),
                 loginProgress && _react2.default.createElement(

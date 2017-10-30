@@ -100,8 +100,11 @@ var AppImage = function (_React$Component) {
             var idToken = _reactCookie2.default.load('jwt');
             var idTokenParam = idToken == undefined ? '' : '&access_token=' + idToken;
             // console.log('app image idTokenParam=' + require('util').inspect(idTokenParam, false, null))
-            var datasrc = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam;
-            //        console.log('app image datasrc='+require('util').inspect(datasrc, false, null))
+            // datasrc += ApiConnection.apiurl + ApiConnection.appbasename + '/api/' + api + '/img/' + imgid + '?width=' + width + '&height=' + height + '' + idTokenParam
+            var datasrc = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename + '/api/' + api + '/';
+            if (imgid != undefined) datasrc += 'img/' + imgid;
+            datasrc += '?width=' + width + '&height=' + height + '' + idTokenParam;
+            console.log('app image datasrc=' + require('util').inspect(datasrc, false, null));
             return _react2.default.createElement(
                 'div',
                 { className: 'imgwrapper', id: 'imgwrap' + imgid },
