@@ -57,7 +57,9 @@ let appReducer = function (app = new Immutable.Map({
             console.log('app reducer. +++++++++++++ SERVER_DATA_FETCH_STATUS ' + action.serverDataFetchOk)
             app = app.set('serverDataFetched', action.serverDataFetchOk)
             return app
-
+        case 'TENANT_LOADED':
+            app = app.set('tenant', Immutable.Map(action.tenant))
+            return app
         default:
             return app
     }

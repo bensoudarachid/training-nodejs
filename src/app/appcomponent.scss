@@ -212,10 +212,26 @@ $page-enter-duration: 250ms;
     //border-radius: 50%;
     //background-color: red;
     background-color: getMdlColor($color-primary);
-    color: white !important;
+    color: white;
     &:hover {
-      color: $roya-blue !important;
+      color: $roya-blue;
       background-color: white;
+    }
+    $duration:0s;
+    &:active {
+      //background-color: black;
+      border: 2px solid lighten($roya-blue, 19%);
+      //color: white;
+
+      //-webkit-animation-duration: $duration !important;
+      //-moz-animation-duration: $duration !important;
+      //-o-animation-duration: $duration !important;
+      //animation-duration: $duration !important;;
+      //
+      //-webkit-transition-delay: $duration !important;
+      //-moz-transition-delay: $duration !important;
+      //-o-transition-delay: $duration !important;
+      //transition-delay: $duration !important;;
     }
     .glyphicon{
       //margin: auto;

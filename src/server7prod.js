@@ -351,30 +351,9 @@ app.get(appbasename + '/*', (req, res) => {
                         var publicbundle = assets.publicapp.js //'/app.js'
                         var appstyle = assets.app.css // '/app.css'
 
-
-                        // style = '/style.css'
-                        // bundle = '/bundle.js'
-                        // if(hour < 7 || hour > 22){
                         vendorBundle = assets.vendor.js //'/vendor.bundle.js'
-                        // }
-                        // <script src='material-design-lite/dist/material.brown-blue.min.css'></script>
-                        // <script src='material-design-lite/src/material-design-lite.scss'></script>
-                        // <script src='material-design-lite/src/mdlComponentHandler.js'></script>
-                        // <script src='material-design-lite/dist/material.js'"></script>
-                        // <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-                        // <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
-                        // <link rel="stylesheet" href="//storage.googleapis.com/code.getmdl.io/1.0.1/material.teal-red.min.css" />
-                        // <script src="//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
-// <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-// <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-// <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-// <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-//              <link rel="stylesheet" type="text/css" href="${adminappstyle}" />
-
-                        // console.log('Server. body '+body);
                         const state = store.getState()
                         console.log('State paased to client = ' + JSON.stringify(state))
-
                         res.status(200).send(`<!DOCTYPE html>
               <html>
                 <head>

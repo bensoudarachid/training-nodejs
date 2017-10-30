@@ -1,4 +1,4 @@
-@import '../../styles/default.scss';
+ @import '../../styles/default.scss';
 
 // @import "../../../node_modules/material-design-lite/src/_variables.scss";
 
@@ -100,10 +100,10 @@
       float: left;
       img {
         // background-color: rgba(250,100,50,0.2);
-        background: radial-gradient(circle closest-side at 43px 42px, lighten($roya-blue, 15%) 0, lighten($roya-blue, 15%) 29px, transparent 30px);
+        //background: radial-gradient(circle closest-side at 43px 42px, lighten($roya-blue, 15%) 0, lighten($roya-blue, 15%) 29px, transparent 30px);
         width: 82px;
         height: 82px;
-        margin: 8px 0px 0 0px;
+        margin: 10px 0px 0 0px;
         // margin-left:15px;
         @include transitionAll(.3s);
       }
@@ -118,13 +118,13 @@
       // font-size:2.0em;
       font-size: 2.1em;
       color: #2c3a49;
-      margin-top: 10px;
+      margin-top: 8px;
       margin-bottom: 2px;
       &:first-letter {
         font-size: 140%;
         // color: #8A2BE2;
       }
-      // background-color:red;
+      //background-color:orange;
       @include transitionAll(.3s);
       // @include textGlitch("example-one", 150, black, transparent, #f0f, #0ff, 170, 45);
     }
@@ -136,16 +136,16 @@
       letter-spacing: 0px;
       color: darken($roya-blue, 30%);
       height: 50px;
-      background: radial-gradient(circle closest-side at 29px 37px, lighten($roya-blue, 19%) 0, lighten($roya-blue, 19%) 24px, transparent 25px);
-      margin: -38px 0 10px 0;
+      //background: radial-gradient(circle closest-side at 29px 37px, lighten($roya-blue, 19%) 0, lighten($roya-blue, 19%) 24px, transparent 25px);
+      margin: -32px 0 10px 0;
       padding: 13px 2px 50px 2px;
-      // background-color:red;
+      //background-color:lightblue;
       // font-size:1.5em;
       font-size: 1.7em;
       z-index: -100;
       &:first-letter {
         font-size: 140%;
-        // color: #8A2BE2;
+        //color: #8A2BE2;
       }
       @include transitionAll(.3s);
       // @include textGlitch("example-one", 15, ($roya-blue,30%), transparent, #bbb, #ddd, 190, 65);
@@ -159,7 +159,7 @@
       //color: gray;
       width: 38px;
       height: 40px;
-      margin-top: 22px;
+      margin-top: 35px;
       // margin-left: -16px;
       margin-right: -10%;
       padding: 0;
@@ -299,7 +299,7 @@
     .navbar-left, .navbar-right {
       // background-color:lighten(blue,40%);
       //	  	float: right;
-      margin-top: 32px;
+      margin-top: 36px;
       li a {
         font-size: 1.8em;
         margin: -8px;
@@ -441,7 +441,7 @@
     .navbar-left, .navbar-right {
       //background-color:lighten(orange,40%);
       //	  	float: right;
-      margin-top: 60px;
+      margin-top: 58px;
     }
     .navbar-right {
       //background-color:lighten(blue,40%);
@@ -459,12 +459,12 @@
           //background-color: rgba(250,100,50,0.2);
           width: 120px;
           height: 120px;
-          margin-top: 6px;
+          margin-top: 0px;
           margin-left: 6px;
           // background:radial-gradient(circle closest-side at 62px 61px, lighten($roya-blue,15%) 0,  lighten($roya-blue,15%) 42px, transparent 44px);
           // @include transitionAll(.3s);
 
-          background: radial-gradient(circle closest-side at 62px 61px, lighten($roya-blue, 15%) 0, lighten($roya-blue, 15%) 42px, transparent 44px);
+          //background: radial-gradient(circle closest-side at 62px 61px, lighten($roya-blue, 15%) 0, lighten($roya-blue, 15%) 42px, transparent 44px);
           @include transitionAll(.3s);
         }
         list-style: none;
@@ -474,7 +474,7 @@
       h2 {
         // font-size:2.2em;
         font-size: 2.5em;
-        letter-spacing: 1px; // 7px
+        letter-spacing: 0px; // 7px
         margin-top: 20px;
         margin-bottom: 1px; // 0px
         padding: 0;
@@ -487,8 +487,9 @@
         // font-size:1.8em;
         font-size: 2.0em;
         // background:radial-gradient(circle closest-side at 22px 26px, lighten($roya-blue,19%) 0,  lighten($roya-blue,19%) 24px, transparent 25px);
-        background: radial-gradient(circle closest-side at 35px 38px, lighten($roya-blue, 15%) 0, lighten($roya-blue, 15%) 32px, transparent 34px);
-        margin: -35px 0 0 0;
+        //background: radial-gradient(circle closest-side at 35px 38px, lighten($roya-blue, 15%) 0, lighten($roya-blue, 15%) 32px, transparent 34px);
+        //background-color: red;
+        margin: -26px 0 0 0;
         padding: 14px 2px 60px 2px;
 
         // text-shadow: -9px 9px 9px #999;

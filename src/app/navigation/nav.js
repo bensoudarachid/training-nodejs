@@ -119,6 +119,7 @@ class Nav extends Component {
                 <NavAdmin
                     actions={this.props.actions}
                     auth={this.props.auth}
+                    app={this.props.app}
                 />
             )
         } else if (auth.get('authority') == 'user') {
@@ -127,6 +128,7 @@ class Nav extends Component {
                 <NavUser
                     actions={this.props.actions}
                     auth={this.props.auth}
+                    app={this.props.app}
                 />
             )
         } else {
@@ -135,6 +137,7 @@ class Nav extends Component {
                 <NavPublic
                     actions={this.props.actions}
                     auth={this.props.auth}
+                    app={this.props.app}
                 />
             )
         }

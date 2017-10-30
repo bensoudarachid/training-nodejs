@@ -3,7 +3,11 @@ import React, {Component, PropTypes} from 'react'
 import cookie from 'react-cookie'
 import 'jquery'
 import $ from 'jquery'
+// import pathToBlogCoding from '../../images/Blog-CodingNeutral2.png'
+
 import actions from '../../services/actions'
+// const pathToBlogCoding = require('../../images/Blog-Coding.svg');
+// const pathToBlogCoding = require('../../images/Blog-CodingNeutral2.png');
 // import LogoSpinner from '../../components/shared/logospinner'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 // const util = require('util')
@@ -252,10 +256,10 @@ class Home extends Component {
                                     <div className='imgbg'/>
                                     <div
                                         className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
-                                    <img src={'./images/0.png'} data-src={'./images/Blog-Coding.svg'}
+                                    <img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral2.png'}
                                          className='dataimg' alt='coding'/>
                                 </div>
-                                <p>1. We have the mission to accompany companies in any project and support them
+                                <p>We have the mission to accompany companies in any project and support them
                                     implement secure information, management, communication or e-commerce systems. We
                                     support our customers from analysis and the conception, through development,
                                     integration and adaptation until the deployment and the maintenance of these
@@ -269,7 +273,7 @@ class Home extends Component {
                                     <img src={'./images/0.png'} data-src={'./images/Blog-Deploying.svg'}
                                          className='dataimg' alt='coding'/>
                                 </div>
-                                <p>2. We have the mission to accompany companies in any project and support them
+                                <p>We have the mission to accompany companies in any project and support them
                                     implement secure information, management, communication or e-commerce systems. We
                                     support our customers from analysis and the conception, through development,
                                     integration and adaptation until the deployment and the maintenance of these
@@ -283,7 +287,7 @@ class Home extends Component {
                                     <img src={'./images/0.png'} data-src={'./images/Blog-Planning.svg'}
                                          className='dataimg' alt='coding'/>
                                 </div>
-                                <p>3. We have the mission to accompany companies in any project and support them
+                                <p>We have the mission to accompany companies in any project and support them
                                     implement secure information, management, communication or e-commerce systems. We
                                     support our customers from analysis and the conception, through development,
                                     integration and adaptation until the deployment and the maintenance of these
@@ -298,10 +302,10 @@ class Home extends Component {
                                     <div className='imgbg'/>
                                     <div
                                         className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
-                                    <img src={'./images/0.png'} data-src={'./images/Blog-CodingNeutral1.png'}
+                                    <img src={'./images/0.png'} data-src={'./images/rocket.png'}
                                          className='dataimg' alt='coding'/>
                                 </div>
-                                <p>4. We have the mission to accompany companies in any project and support them
+                                <p>We have the mission to accompany companies in any project and support them
                                     implement secure information, management, communication or e-commerce systems. We
                                     support our customers from analysis and the conception, through development,
                                     integration and adaptation until the deployment and the maintenance of these
@@ -312,10 +316,10 @@ class Home extends Component {
                                     <div className='imgbg'/>
                                     <div
                                         className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
-                                    <img src={'./images/0.png'} data-src={'./images/Blog-PlanningNeutral1.png'}
+                                    <img src={'./images/0.png'} data-src={'./images/planningdev.png'}
                                          className='dataimg' alt='coding'/>
                                 </div>
-                                <p>5. We have the mission to accompany companies in any project and support them
+                                <p>We have the mission to accompany companies in any project and support them
                                     implement secure information, management, communication or e-commerce systems. We
                                     support our customers from analysis and the conception, through development,
                                     integration and adaptation until the deployment and the maintenance of these
@@ -326,10 +330,10 @@ class Home extends Component {
                                     <div className='imgbg'/>
                                     <div
                                         className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
-                                    <img src={'./images/0.png'} data-src={'./images/Blog-DeployingNeutral1.png'}
+                                    <img src={'./images/0.png'} data-src={'./images/media.png'}
                                          className='dataimg' alt='coding'/>
                                 </div>
-                                <p>6. We have the mission to accompany companies in any project and support them
+                                <p>We have the mission to accompany companies in any project and support them
                                     implement secure information, management, communication or e-commerce systems. We
                                     support our customers from analysis and the conception, through development,
                                     integration and adaptation until the deployment and the maintenance of these
