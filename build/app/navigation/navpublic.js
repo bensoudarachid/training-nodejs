@@ -265,6 +265,12 @@ var NavPublic = function (_Component) {
         key: 'componentDidUpdate',
         value: function componentDidUpdate() {
             this.checkTitleMargin();
+            var nav = (0, _jquery2.default)('#bsnavi');
+            console.log('nav=' + nav[0]);
+            var auth = this.props.auth;
+
+            var isFetching = auth.get('isFetching');
+            if (isFetching) nav[0].style.border = '5px solid rgba(240, 168, 48, 0.7)';
         }
     }, {
         key: 'checkTitleMargin',

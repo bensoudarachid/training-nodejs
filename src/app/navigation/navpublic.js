@@ -184,6 +184,12 @@ class NavPublic extends Component {
     }
     componentDidUpdate() {
         this.checkTitleMargin()
+        const nav = $('#bsnavi')
+        console.log('nav=' + nav[0])
+        const {auth} = this.props
+        const isFetching = auth.get('isFetching')
+        if (isFetching)
+            nav[0].style.border = '5px solid rgba(240, 168, 48, 0.7)'
     }
     checkTitleMargin() {
 //        console.log('nav public update. ')
