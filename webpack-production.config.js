@@ -13,7 +13,7 @@ var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 var WebpackCleanupPlugin = require('webpack-cleanup-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 const autoprefixer = require('autoprefixer')
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 //window.React = require('react');
 
 module.exports = {
@@ -113,12 +113,13 @@ module.exports = {
   },
   plugins: [
     assetsPluginInstance,
-    // new UglifyJsPlugin({
-    //   minimize: true,
-    //   compress: {
-    //     warnings: false
-    //   }
-    // }),
+    new UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        drop_console: true,
+        warnings: false
+      }
+    }),
     // new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js'),
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.[chunkhash].bundle.js', minChunks: Infinity }),
     // new webpack.optimize.CommonsChunkPlugin({
