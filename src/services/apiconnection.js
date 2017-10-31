@@ -4,7 +4,7 @@ var apiport = 8088 // default for development
 //JSON parser date polyfill. Thx to https://weblog.west-wind.com/posts/2014/jan/06/javascript-json-date-parsing-and-real-dates
 const dateFormat = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*))(?:Z|(\+|-)([\d|:]*))?$/
 
-JSON.dateParser= function(key, value) {
+JSON.dateParser = function (key, value) {
     // console.log('JSON test reviver ky=' + require('util').inspect(key, false, null) + ', value=' + require('util').inspect(value, false, null))
     if (typeof value === "string" && dateFormat.test(value)) {
         // console.log('JSON reviver key='+require('util').inspect(key, false, null)+'value='+require('util').inspect(value, false, null))
@@ -20,7 +20,7 @@ JSON.dateParser= function(key, value) {
     // }
 }
 
-JSON.parseWithDate = function(json) {
+JSON.parseWithDate = function (json) {
     /// <summary>
     /// Wrapper around the JSON.parse() function that adds a date
     /// filtering extension. Returns all dates as real JavaScript dates.
@@ -37,7 +37,7 @@ JSON.parseWithDate = function(json) {
     }
 }
 
-JSON.useDateParser = function(reset) {
+JSON.useDateParser = function (reset) {
     /// <summary>
     /// Globally enables JSON date parsing for JSON.parse().
     /// replaces the default JSON parser with parse plus dateParser extension
@@ -65,7 +65,8 @@ class ApiConnection {
         var expressPort = -12
         var appbasename = ''
         if (process.env.NODE_ENV === 'production') {
-            expressPort = 8082
+            // expressPort = 8082
+            expressPort = 8081
             // appbasename = '/training-' + version.appversion
         }
         else {
@@ -103,12 +104,16 @@ class ApiConnection {
 =======
                 apiport = 80 //Apache cluster normal expressPort
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 31fe258... Fix http port problem for production
                 // apiport = 80 //Apache cluster normal expressPort
 >>>>>>> dcab90a... Try to solve local calls from node.js to spring rest api in openshift
 =======
             // apiport = 80 //Apache cluster normal expressPort
 >>>>>>> 711f559... Javascript request interceptor for header manipulation. Webpack source maps not showing in Devtools. Eliminate source maps on production build. Export 5 colors constants from scss into javascript for the bigcalendar. Add mdl-selectfield in project and use it for bigcalendar. Adapt mdl-selectfield label color. Fix calendar background event and rows background colors. Devtools workspace. Map files to original disk files and edit directly in chrome. Disable autosaving of webpack.config.js in webstorm/Settings/LanguagesFrameworks/Webpack/change file name to something inexistent. Enable auto synchronisation on file disk change in webstorm. better buttons with glyphicons and hover. Adapt app wide uniform round buttons with glyphicons. Change buttons to the new round buttons on admin training list items. Implement a JSON.parse polyfill to automatically transform dates from json to javascript date objects. Bug fix. state Hydratation is not properly JSON date parsed. Need to stringify and parse again.Problem fix. Eveything landing in redux by state hydratation is deeply immutable Lists and Maps due to Immutable.fromJS. But we need a immutable list of simple Javascript events for BigCalendar: We add a new store element for this in trainingappmap: edittrainingevents.
+=======
+            //apiport = 8080
+>>>>>>> b6f02e5... uglify and remove console logs. Check if bug is still there on openshift
         }
 
         var url = ''

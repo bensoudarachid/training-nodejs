@@ -99,7 +99,6 @@ var BigCalendarEdit = function (_React$Component) {
         _this.moveEvent = _this.moveEvent.bind(_this);
         _this.selectEvent = _this.selectEvent.bind(_this);
         _this.eventStyleGetter = _this.eventStyleGetter.bind(_this);
-
         return _this;
     }
 
@@ -558,7 +557,7 @@ var BigCalendarEdit = function (_React$Component) {
     }, {
         key: 'addEvent',
         value: function addEvent(event) {
-            console.log('add event');
+            // console.log('add event')
             var duration = document.getElementById('duration').options[document.getElementById('duration').selectedIndex].value;
             var nextEvents = this.props.trainingappmap.get('edittrainingevents');
             var selectedEvent = this.state.selectedEvent;

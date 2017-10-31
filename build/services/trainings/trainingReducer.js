@@ -141,7 +141,7 @@ var trainingReducer = function trainingReducer() {
             trainingappmap = trainingappmap.set('edittraining', edittraining);
             return trainingappmap;
         case 'HANDLE_TRAINING_EVENTS_CHANGE':
-            console.log('Reducer .events=' + require('util').inspect(action.events, false, null));
+            // console.log('Reducer .events='+require('util').inspect(action.events, false, null))
             trainingappmap = trainingappmap.set('edittrainingevents', action.events);
             return trainingappmap;
         case 'EDIT_TRAINING_SAVING':

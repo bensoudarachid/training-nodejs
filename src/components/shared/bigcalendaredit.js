@@ -56,6 +56,7 @@ class BigCalendarEdit extends React.Component {
         this.eventStyleGetter = this.eventStyleGetter.bind(this)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     }
 
     Test(props) {
@@ -347,6 +348,8 @@ class BigCalendarEdit extends React.Component {
 =======
 
 >>>>>>> bdb25a3... bring back the newest Version if BigCalendarEdit
+=======
+>>>>>>> b6f02e5... uglify and remove console logs. Check if bug is still there on openshift
     }
 
     Test(props) {
@@ -654,7 +657,7 @@ class BigCalendarEdit extends React.Component {
     }
 
     addEvent(event) {
-        console.log('add event')
+        // console.log('add event')
         const duration = document.getElementById('duration').options[document.getElementById('duration').selectedIndex].value
         var nextEvents = this.props.trainingappmap.get('edittrainingevents')
         const {selectedEvent} = this.state
@@ -667,7 +670,6 @@ class BigCalendarEdit extends React.Component {
             'start': start,
             'end': end
         }
-
 
         nextEvents=nextEvents.filter((event) => {
             return event.number != 0
