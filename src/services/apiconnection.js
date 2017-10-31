@@ -80,8 +80,8 @@ class ApiConnection {
             // apiport = 9083 //Apache cluster ssl expressPort
                 apiport = 443 //Apache cluster ssl expressPort
             else //the node server wants to call apache
-            // apiport = 80 //Apache cluster normal expressPort
-                apiport = 8080
+                apiport = 80 //Apache cluster normal expressPort
+            //apiport = 8080
         }
 
         var url = ''
