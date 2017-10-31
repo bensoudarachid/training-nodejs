@@ -4,7 +4,7 @@ var apiport = 8088 // default for development
 //JSON parser date polyfill. Thx to https://weblog.west-wind.com/posts/2014/jan/06/javascript-json-date-parsing-and-real-dates
 const dateFormat = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*))(?:Z|(\+|-)([\d|:]*))?$/
 
-JSON.dateParser= function(key, value) {
+JSON.dateParser = function (key, value) {
     // console.log('JSON test reviver ky=' + require('util').inspect(key, false, null) + ', value=' + require('util').inspect(value, false, null))
     if (typeof value === "string" && dateFormat.test(value)) {
         // console.log('JSON reviver key='+require('util').inspect(key, false, null)+'value='+require('util').inspect(value, false, null))
@@ -20,7 +20,7 @@ JSON.dateParser= function(key, value) {
     // }
 }
 
-JSON.parseWithDate = function(json) {
+JSON.parseWithDate = function (json) {
     /// <summary>
     /// Wrapper around the JSON.parse() function that adds a date
     /// filtering extension. Returns all dates as real JavaScript dates.
@@ -37,7 +37,7 @@ JSON.parseWithDate = function(json) {
     }
 }
 
-JSON.useDateParser = function(reset) {
+JSON.useDateParser = function (reset) {
     /// <summary>
     /// Globally enables JSON date parsing for JSON.parse().
     /// replaces the default JSON parser with parse plus dateParser extension
@@ -65,7 +65,8 @@ class ApiConnection {
         var expressPort = -12
         var appbasename = ''
         if (process.env.NODE_ENV === 'production') {
-            expressPort = 8082
+            // expressPort = 8082
+            expressPort = 8081
             // appbasename = '/training-' + version.appversion
         }
         else {
@@ -79,8 +80,8 @@ class ApiConnection {
             // apiport = 9083 //Apache cluster ssl expressPort
                 apiport = 443 //Apache cluster ssl expressPort
             else //the node server wants to call apache
-                apiport = 80 //Apache cluster normal expressPort
             // apiport = 80 //Apache cluster normal expressPort
+                apiport = 8080
         }
 
         var url = ''

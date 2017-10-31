@@ -74,7 +74,8 @@ var ApiConnection = function ApiConnection() {
     var expressPort = -12;
     var appbasename = '';
     if (process.env.NODE_ENV === 'production') {
-        expressPort = 8082;
+        // expressPort = 8082
+        expressPort = 8081;
         // appbasename = '/training-' + version.appversion
     } else {
         expressPort = 8081;
@@ -87,8 +88,8 @@ var ApiConnection = function ApiConnection() {
             // apiport = 9083 //Apache cluster ssl expressPort
             apiport = 443; //Apache cluster ssl expressPort
         else //the node server wants to call apache
-            apiport = 80; //Apache cluster normal expressPort
-        // apiport = 80 //Apache cluster normal expressPort
+            // apiport = 80 //Apache cluster normal expressPort
+            apiport = 8080;
     }
 
     var url = '';

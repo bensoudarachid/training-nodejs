@@ -54,7 +54,6 @@ class BigCalendarEdit extends React.Component {
         this.moveEvent = this.moveEvent.bind(this)
         this.selectEvent = this.selectEvent.bind(this)
         this.eventStyleGetter = this.eventStyleGetter.bind(this)
-
     }
 
     Test(props) {
@@ -362,7 +361,7 @@ class BigCalendarEdit extends React.Component {
     }
 
     addEvent(event) {
-        console.log('add event')
+        // console.log('add event')
         const duration = document.getElementById('duration').options[document.getElementById('duration').selectedIndex].value
         var nextEvents = this.props.trainingappmap.get('edittrainingevents')
         const {selectedEvent} = this.state
@@ -375,7 +374,6 @@ class BigCalendarEdit extends React.Component {
             'start': start,
             'end': end
         }
-
 
         nextEvents=nextEvents.filter((event) => {
             return event.number != 0

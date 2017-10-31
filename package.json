@@ -16,7 +16,7 @@
     "serve6": "nodemon server/server6.js --exec babel-node --ignore components --presets es2015,react",
     "serve7": "set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=development&&nodemon src/server7.js --exec babel-node --ignore src/components --ignore src/app --ignore src/scenes --ignore src/services --ignore build --presets es2015,react",
     "_buildserver": "babel -d ./build/components ./components -s && babel -d ./build/redux ./redux -s && babel -d ./build/server ./server -s && babel -d ./build/client ./client -s",
-    "build": "set NODE_ENV=production && webpack --config webpack-production.config.js --progress -p && babel src -d build",
+    "build": "set NODE_ENV=production && webpack --config webpack-production.config.js --progress && babel src -d build",
     "buildserver": "set NODE_ENV=production && babel src -d build",
     "prod": "set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=production&&node build/server7prod.js",
     "tbuild": "mkdir build && Copy-Item ./src/images ./build/ -recurse ",
