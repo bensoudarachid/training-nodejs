@@ -300,7 +300,7 @@ var Home = function (_Component) {
                                     _react2.default.createElement('div', { className: 'imgbg' }),
                                     _react2.default.createElement('div', {
                                         className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner' }),
-                                    _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-CodingNeutral2.png',
+                                    _react2.default.createElement('img', { src: './images/0.png', 'data-src': './images/Blog-Coding.svg',
                                         className: 'dataimg', alt: 'coding' })
                                 ),
                                 _react2.default.createElement(
