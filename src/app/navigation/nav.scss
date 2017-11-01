@@ -106,7 +106,7 @@
         //background: radial-gradient(circle closest-side at 43px 42px, lighten($roya-blue, 15%) 0, lighten($roya-blue, 15%) 29px, transparent 30px);
         width: 82px;
         height: 82px;
-        margin: 10px 0px 0 0px;
+        margin: 10px 0px 10px 0px;
         // margin-left:15px;
         @include transitionAll(.3s);
       }
@@ -140,8 +140,8 @@
       color: darken($roya-blue, 30%);
       height: 50px;
       //background: radial-gradient(circle closest-side at 29px 37px, lighten($roya-blue, 19%) 0, lighten($roya-blue, 19%) 24px, transparent 25px);
-      margin: -32px 0 10px 0;
-      padding: 13px 2px 50px 2px;
+      margin: -32px 0 0 0;
+      padding: 13px 2px 0px 2px;
       //background-color:lightblue;
       // font-size:1.5em;
       font-size: 1.7em;
@@ -463,7 +463,7 @@
       list-style-type: none;
       margin-left: 2%;
       margin-top: 20px;
-      margin-bottom: 10px;
+      //margin-bottom: 10px;
       margin-right: 20px;
       li {
         img {
