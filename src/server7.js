@@ -41,7 +41,7 @@ var webpack = require('webpack')
 const app = express()
 
 
-var favicon = require('serve-favicon')
+// var favicon = require('serve-favicon')
 
 // var storage = multer.diskStorage({
 //   destination: function (request, file, callback) {
@@ -92,7 +92,7 @@ app.use(webpackDevMiddleware(compiler, {
 }))
 app.use(webpackHotMiddleware(compiler))
 
-app.use(favicon('./images/favicon.ico'))
+// app.use(favicon('./images/favicon.ico'))
 
 // console.log('dirname = '+__dirname )
 // console.log('dirname bootstrap= '+__dirname + '/node_modules/bootstrap/dist/')
@@ -102,7 +102,6 @@ app.use(favicon('./images/favicon.ico'))
 process.on('uncaughtException', function (err) {
     console.log('serverjs. Process uncatched exception. See if you cant handle it anyhow else' + err)
 })
-
 
 app.post(appbasename + '/api/*/fileupload/*', upload.single('uploadfile'), function (req, res) {
     // const dataSend =  JSON.stringify(req.body)
@@ -164,7 +163,6 @@ app.post(appbasename + '/api/*/fileupload/*', upload.single('uploadfile'), funct
     // reqPost.write(dataSend)
     reqPost.end()
 })
-
 
 app.get(appbasename + '/api/*', (req, res) => {
     console.log('GET API ' + req.url)
@@ -246,7 +244,6 @@ app.get(appbasename + '/api/*', (req, res) => {
 })
 //upload.single('todoimage')
 
-
 app.post(appbasename + '/api/*', function (req, res) {
     console.log('POST API. ' + req.url)
     // console.log('POST API. '+req.headers.host)
@@ -324,7 +321,6 @@ app.post(appbasename + '/api/*', function (req, res) {
     reqPost.end()
 })
 
-
 var errorfile = __dirname + '/images/0.png'
 
 const apifetch = fetch
@@ -334,7 +330,10 @@ app.get(appbasename + '/*', (req, res) => {
     console.log('');
     console.log('')
     console.log('*********************************************')
+    const apihost=req.headers.host.replace('school.','schoolapi.')
+    const favicon = req.protocol+'://'+apihost+':8088/api/profile/logo?width=16&height=16'
     console.log('Get request now just came: ' + req.url)
+
     //fetch polyfill for header injection
     fetch = apifetch
 
@@ -348,7 +347,7 @@ app.get(appbasename + '/*', (req, res) => {
         }
     })(fetch)
 
-    // console.log(routes)
+
     // if( req.url.indexOf('.') !== -1){
     //   console.log('Send File: ' + __dirname+ req.url)
     //   res.status(200).sendFile(__dirname + req.url)
@@ -457,6 +456,8 @@ app.get(appbasename + '/*', (req, res) => {
                         const state = store.getState()
                         // console.log('state before stringify ='+require('util').inspect(state, false, null))
                         console.log('State passed to client = ' + JSON.stringify(state))
+                        // const tenant = req.headers.host.substring(0,req.headers.host.indexOf('.'))
+
                         res.status(200).send(`<!DOCTYPE html>
               <html>
                 <head>
@@ -469,6 +470,7 @@ app.get(appbasename + '/*', (req, res) => {
                 <script defer src="/reactdom/react-dom.min.js"></script>
                 <script defer src="/react/react.min.js"></script>
                 <link rel="stylesheet" type="text/css" href="/style.css" />
+                <link rel="icon" href="${favicon}">
                 </head>
                 <body style="background-color:#2980b9">
                   <div id="root"><div>${body}</div></div>

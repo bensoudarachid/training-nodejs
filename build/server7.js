@@ -85,7 +85,7 @@ var webpack = require('webpack');
 
 var app = (0, _express2.default)();
 
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon')
 
 // var storage = multer.diskStorage({
 //   destination: function (request, file, callback) {
@@ -135,7 +135,7 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 app.use(webpackHotMiddleware(compiler));
 
-app.use(favicon('./images/favicon.ico'));
+// app.use(favicon('./images/favicon.ico'))
 
 // console.log('dirname = '+__dirname )
 // console.log('dirname bootstrap= '+__dirname + '/node_modules/bootstrap/dist/')
@@ -285,7 +285,6 @@ app.get(appbasename + '/api/*', function (req, res) {
 });
 //upload.single('todoimage')
 
-
 app.post(appbasename + '/api/*', function (req, res) {
     console.log('POST API. ' + req.url);
     // console.log('POST API. '+req.headers.host)
@@ -370,7 +369,10 @@ app.get(appbasename + '/*', function (req, res) {
     console.log('');
     console.log('');
     console.log('*********************************************');
+    var apihost = req.headers.host.replace('school.', 'schoolapi.');
+    var favicon = req.protocol + '://' + apihost + ':8088/api/profile/logo?width=16&height=16';
     console.log('Get request now just came: ' + req.url);
+
     //fetch polyfill for header injection
     fetch = apifetch;
 
@@ -384,7 +386,6 @@ app.get(appbasename + '/*', function (req, res) {
         };
     }(fetch);
 
-    // console.log(routes)
     // if( req.url.indexOf('.') !== -1){
     //   console.log('Send File: ' + __dirname+ req.url)
     //   res.status(200).sendFile(__dirname + req.url)
@@ -497,7 +498,9 @@ app.get(appbasename + '/*', function (req, res) {
                         var state = store.getState();
                         // console.log('state before stringify ='+require('util').inspect(state, false, null))
                         console.log('State passed to client = ' + JSON.stringify(state));
-                        res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <script defer src="/jquery/jquery.min.js"></script>\n                <script defer src="/bootstrap/js/bootstrap.min.js"></script>\n                <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">\n                <script defer src="/mdl/material.js"></script>\n                <link rel="stylesheet" type="text/css" href="/mdl/material.brown-blue.min.css">\n                <script defer src="/reactdom/react-dom.min.js"></script>\n                <script defer src="/react/react.min.js"></script>\n                <link rel="stylesheet" type="text/css" href="/style.css" />\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root"><div>' + body + '</div></div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script defer src="/bundle.js"></script>\n\n                </body>\n              </html>');
+                        // const tenant = req.headers.host.substring(0,req.headers.host.indexOf('.'))
+
+                        res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <script defer src="/jquery/jquery.min.js"></script>\n                <script defer src="/bootstrap/js/bootstrap.min.js"></script>\n                <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">\n                <script defer src="/mdl/material.js"></script>\n                <link rel="stylesheet" type="text/css" href="/mdl/material.brown-blue.min.css">\n                <script defer src="/reactdom/react-dom.min.js"></script>\n                <script defer src="/react/react.min.js"></script>\n                <link rel="stylesheet" type="text/css" href="/style.css" />\n                <link rel="icon" href="' + favicon + '">\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root"><div>' + body + '</div></div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script defer src="/bundle.js"></script>\n\n                </body>\n              </html>');
 
                         // })
 

@@ -67,7 +67,7 @@ app.use(bodyParser.urlencoded({
 // }
 
 
-app.use(favicon('./images/favicon.ico'))
+// app.use(favicon('./images/favicon.ico'))
 
 // app.use(express.static('./public'));
 // console.log('dirname = '+__dirname )
@@ -250,7 +250,9 @@ app.get(appbasename + '/*', (req, res) => {
     console.log('');
     console.log('');
     console.log('')
-    console.log('********************************************* 14')
+    console.log('*********************************************')
+    const apihost=req.headers.host.replace('school.','schoolapi.')
+    const favicon = req.protocol+'://'+apihost+'/api/profile/logo?width=16&height=16'
     console.log('Get request now just came: ' + req.url)
     fetch = apifetch
     fetch = (function (origFetch) {
@@ -368,7 +370,7 @@ app.get(appbasename + '/*', (req, res) => {
                 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>
 
                 <link rel="stylesheet" type="text/css" href="${appstyle}" />                
-
+                <link rel="icon" href="${favicon}">
                 </head>
                 <body style="background-color:#2980b9">
                   <div id="root"><div>${body}</div></div>
