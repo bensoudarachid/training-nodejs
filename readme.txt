@@ -1,14 +1,18 @@
 
-I'm happy to present the Training (or School) App. This is a prototype of data management application for Schools and Training centers.
+I'm happy to present the Training (or School) App. This is a prototype of data management application for Schools and Training centers
 
 School-App is a Saas Single Page App (SPA) based on React, Redux, Immutable, Babel ES6 and Spring Boot Rest API
-This project is firstly about covering and learning all basic features of a modern SPA: All the tools a developer needs to have a nice and fast development routine, a project ready, solid and intuitive code architecture and the basics of the main technologies involved (see list below).
 
-An Redhat Openshift online demo is running here http://demo1.school.royasoftware.com http://demo2.school.royasoftware.com.
-Another jenkins managed demo on a normal pc will be be put online here https://reactlearning.school.royasoftware.com/. This one goes with SSL.
+This project is firstly about covering and learning all basic features of a modern SPA: All the tools a developer needs to have a nice and fast development routine, a project ready, solid and intuitive code architecture and the basics of the main technologies involved. It's also about combining the old solid Java Back End World with the modern Front End Technologies and getting the best of both(see list below)
+
+An Redhat Openshift online demo is running here http://demo1.school.royasoftware.com http://demo2.school.royasoftware.com
+Another jenkins managed demo on a normal pc will be be put online here https://reactlearning.school.royasoftware.com/. This one goes with SSL
 Check it out! Login: admin, Password: jefaistout
 
-This is a project in progress. The code is not optimal. 
+The App is composed of two projects. Training-nodejs is the Front-End. The express server is only responsible of delivering the bundles and performing server rendering
+Once the front end is loaded on the browser, the communication continues with the back end. The REST Server is the second Project: Training-springboot
+
+This is a work in progress. The code is not optimal
 
 Covered topics:
 
