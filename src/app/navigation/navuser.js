@@ -86,7 +86,7 @@ class NavUser extends Component {
         // console.log('loginjs andle request login in progress click')
         // var modal = document.getElementById('myModal')
         // modal.style.display = 'block'
-        this.props.actions.loginProcessStart('Welcome to Roya')
+        this.props.actions.loginProcessStart('Welcome')
     }
 
     render() {
@@ -94,18 +94,28 @@ class NavUser extends Component {
         const {auth} = this.props
         const isAuthenticated = auth.get('isAuthenticated')
 
+        var tenantName1 = ''
+        if( this.props.app.get('tenant') )
+            tenantName1 = this.props.app.get('tenant').get('name1')
+        console.log('tenantName1='+require('util').inspect(tenantName1, false, null))
+        var tenantName2 = ''
+        if( this.props.app.get('tenant') )
+            tenantName2 = this.props.app.get('tenant').get('name2')
+
+        if (process.env.BROWSER)
+            datasrc = this.getRightLogoUrl()
         // console.log('nav: isBrowser'+isBrowser)
         //&& this.props.location.pathname!='/register'
         return (
             <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
                 <ul className='navbar-header logoblock'>
                     <li>
-                        <img id='logo' src={'/images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/>
+                        <img id='logo' src={datasrc} className='logo' alt='logo'/>
                     </li>
                     <li>
                         <div>
-                            <h2>ROYA</h2>
-                            <h3>SOFTWARE</h3>
+                            <h2>{tenantName1}</h2>
+                            <h3>{tenantName2}</h3>
                         </div>
                     </li>
                     <li>
@@ -146,6 +156,16 @@ class NavUser extends Component {
             </nav>
         )
     }
+    getRightLogoUrl() {
+        if (window.matchMedia("(min-width: 992px)").matches) {
+            // $('#starbg-wrapper')[0].style.display = 'none'
+            return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 120 + '&height=' + 120
+        } else {
+            // $('#starbg-wrapper')[0].style.display = 'none'
+            return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 82 + '&height=' + 82
+        }
+    }
+
 }
 
 // <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>

@@ -125,7 +125,7 @@ var NavUser = function (_Component) {
             // console.log('loginjs andle request login in progress click')
             // var modal = document.getElementById('myModal')
             // modal.style.display = 'block'
-            this.props.actions.loginProcessStart('Welcome to Roya');
+            this.props.actions.loginProcessStart('Welcome');
         }
     }, {
         key: 'render',
@@ -137,6 +137,13 @@ var NavUser = function (_Component) {
 
             var isAuthenticated = auth.get('isAuthenticated');
 
+            var tenantName1 = '';
+            if (this.props.app.get('tenant')) tenantName1 = this.props.app.get('tenant').get('name1');
+            console.log('tenantName1=' + require('util').inspect(tenantName1, false, null));
+            var tenantName2 = '';
+            if (this.props.app.get('tenant')) tenantName2 = this.props.app.get('tenant').get('name2');
+
+            if (process.env.BROWSER) datasrc = this.getRightLogoUrl();
             // console.log('nav: isBrowser'+isBrowser)
             //&& this.props.location.pathname!='/register'
             return _react2.default.createElement(
@@ -148,7 +155,7 @@ var NavUser = function (_Component) {
                     _react2.default.createElement(
                         'li',
                         null,
-                        _react2.default.createElement('img', { id: 'logo', src: '/images/RoyaLogoNeutralH120.png', className: 'logo', alt: 'Roya logo' })
+                        _react2.default.createElement('img', { id: 'logo', src: datasrc, className: 'logo', alt: 'logo' })
                     ),
                     _react2.default.createElement(
                         'li',
@@ -159,12 +166,12 @@ var NavUser = function (_Component) {
                             _react2.default.createElement(
                                 'h2',
                                 null,
-                                'ROYA'
+                                tenantName1
                             ),
                             _react2.default.createElement(
                                 'h3',
                                 null,
-                                'SOFTWARE'
+                                tenantName2
                             )
                         )
                     ),
@@ -236,6 +243,17 @@ var NavUser = function (_Component) {
                     )
                 )
             );
+        }
+    }, {
+        key: 'getRightLogoUrl',
+        value: function getRightLogoUrl() {
+            if (window.matchMedia("(min-width: 992px)").matches) {
+                // $('#starbg-wrapper')[0].style.display = 'none'
+                return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 120 + '&height=' + 120;
+            } else {
+                // $('#starbg-wrapper')[0].style.display = 'none'
+                return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 82 + '&height=' + 82;
+            }
         }
     }]);
 

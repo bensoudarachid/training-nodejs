@@ -94,7 +94,7 @@ class NavPublic extends Component {
         console.log('loginjs andle request login in progress click')
         // var modal = document.getElementById('myModal')
         // modal.style.display = 'block'
-        this.props.actions.loginProcessStart('Welcome to Roya')
+        this.props.actions.loginProcessStart('Welcome')
     }
 
     render() {
@@ -119,16 +119,13 @@ class NavPublic extends Component {
         var tenantName2 = ''
         if( this.props.app.get('tenant') )
             tenantName2 = this.props.app.get('tenant').get('name2')
-        //&& this.props.location.pathname!='/register'
-//        <img id='logo' src={'/images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/>
-//        <AppImage ref='logoimg' api='profile' isUploading={false}/>
-//            <img id='logo' src={datasrc} className='logo' alt='Roya logo'/>
+
         return (
             <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
                 <ul className='navbar-header logoblock'>
                     <li>
                         {process.env.BROWSER &&
-                        <img id='logo' src={datasrc} className='logo' alt='Roya logo'/>
+                        <img id='logo' src={datasrc} className='logo' alt='logo'/>
                         }
                     </li>
                     <li>
