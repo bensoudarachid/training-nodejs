@@ -133,7 +133,7 @@ var NavAdmin = function (_Component) {
             // console.log('loginjs andle request login in progress click')
             // var modal = document.getElementById('myModal')
             // modal.style.display = 'block'
-            this.props.actions.loginProcessStart('Welcome to Roya');
+            this.props.actions.loginProcessStart('Welcome');
         }
     }, {
         key: 'render',
@@ -165,7 +165,7 @@ var NavAdmin = function (_Component) {
                     _react2.default.createElement(
                         'li',
                         null,
-                        process.env.BROWSER && _react2.default.createElement('img', { id: 'logo', src: datasrc, className: 'logo', alt: 'Roya logo' })
+                        process.env.BROWSER && _react2.default.createElement('img', { id: 'logo', src: datasrc, className: 'logo', alt: 'logo' })
                     ),
                     _react2.default.createElement(
                         'li',

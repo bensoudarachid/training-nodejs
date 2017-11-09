@@ -113,7 +113,7 @@ class NavAdmin extends Component {
         // console.log('loginjs andle request login in progress click')
         // var modal = document.getElementById('myModal')
         // modal.style.display = 'block'
-        this.props.actions.loginProcessStart('Welcome to Roya')
+        this.props.actions.loginProcessStart('Welcome')
     }
 
     render() {
@@ -151,7 +151,7 @@ class NavAdmin extends Component {
 =======
                     <li>
                         {process.env.BROWSER &&
-                        <img id='logo' src={datasrc} className='logo' alt='Roya logo'/>
+                        <img id='logo' src={datasrc} className='logo' alt='logo'/>
                         }
                     </li>
 >>>>>>> 6e3ff02... webstorm big changes crash

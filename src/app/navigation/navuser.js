@@ -100,7 +100,7 @@ class NavUser extends Component {
         // console.log('loginjs andle request login in progress click')
         // var modal = document.getElementById('myModal')
         // modal.style.display = 'block'
-        this.props.actions.loginProcessStart('Welcome to Roya')
+        this.props.actions.loginProcessStart('Welcome')
     }
 
     render() {
@@ -116,6 +116,16 @@ class NavUser extends Component {
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         const isAuthenticated = auth.get('isAuthenticated')
 
+        var tenantName1 = ''
+        if( this.props.app.get('tenant') )
+            tenantName1 = this.props.app.get('tenant').get('name1')
+        console.log('tenantName1='+require('util').inspect(tenantName1, false, null))
+        var tenantName2 = ''
+        if( this.props.app.get('tenant') )
+            tenantName2 = this.props.app.get('tenant').get('name2')
+
+        if (process.env.BROWSER)
+            datasrc = this.getRightLogoUrl()
         // console.log('nav: isBrowser'+isBrowser)
         //&& this.props.location.pathname!='/register'
         return (
@@ -125,13 +135,13 @@ class NavUser extends Component {
                     <li><img id='logo' src={'/images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/></li>
 =======
                     <li>
-                        <img id='logo' src={'/images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/>
+                        <img id='logo' src={datasrc} className='logo' alt='logo'/>
                     </li>
 >>>>>>> 6e3ff02... webstorm big changes crash
                     <li>
                         <div>
-                            <h2>ROYA</h2>
-                            <h3>SOFTWARE</h3>
+                            <h2>{tenantName1}</h2>
+                            <h3>{tenantName2}</h3>
                         </div>
                     </li>
                     <li>
@@ -215,6 +225,16 @@ class NavUser extends Component {
             </nav>
         )
     }
+    getRightLogoUrl() {
+        if (window.matchMedia("(min-width: 992px)").matches) {
+            // $('#starbg-wrapper')[0].style.display = 'none'
+            return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 120 + '&height=' + 120
+        } else {
+            // $('#starbg-wrapper')[0].style.display = 'none'
+            return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 82 + '&height=' + 82
+        }
+    }
+
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
