@@ -90,9 +90,14 @@ class ApiConnection {
                 // apiport = 9083 //Apache cluster ssl expressPort
 =======
             if (process.env.BROWSER && window.location.protocol == 'https:') // both the same: isBrowser in production means also window.location.protocol has to be == 'https:'
+<<<<<<< HEAD
             // apiport = 9083 //Apache cluster ssl expressPort
 >>>>>>> 711f559... Javascript request interceptor for header manipulation. Webpack source maps not showing in Devtools. Eliminate source maps on production build. Export 5 colors constants from scss into javascript for the bigcalendar. Add mdl-selectfield in project and use it for bigcalendar. Adapt mdl-selectfield label color. Fix calendar background event and rows background colors. Devtools workspace. Map files to original disk files and edit directly in chrome. Disable autosaving of webpack.config.js in webstorm/Settings/LanguagesFrameworks/Webpack/change file name to something inexistent. Enable auto synchronisation on file disk change in webstorm. better buttons with glyphicons and hover. Adapt app wide uniform round buttons with glyphicons. Change buttons to the new round buttons on admin training list items. Implement a JSON.parse polyfill to automatically transform dates from json to javascript date objects. Bug fix. state Hydratation is not properly JSON date parsed. Need to stringify and parse again.Problem fix. Eveything landing in redux by state hydratation is deeply immutable Lists and Maps due to Immutable.fromJS. But we need a immutable list of simple Javascript events for BigCalendar: We add a new store element for this in trainingappmap: edittrainingevents.
                 apiport = 443 //Apache cluster ssl expressPort
+=======
+                apiport = 9083 //Apache cluster ssl expressPort
+                // apiport = 443 //Apache cluster ssl expressPort
+>>>>>>> 7ac4e81... fix api connection ssl port
             else //the node server wants to call apache
 <<<<<<< HEAD
 <<<<<<< HEAD
