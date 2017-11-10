@@ -77,8 +77,8 @@ class ApiConnection {
 
         if (process.env.NODE_ENV === 'production') {
             if (process.env.BROWSER && window.location.protocol == 'https:') // both the same: isBrowser in production means also window.location.protocol has to be == 'https:'
-            // apiport = 9083 //Apache cluster ssl expressPort
-                apiport = 443 //Apache cluster ssl expressPort
+                apiport = 9083 //Apache cluster ssl expressPort
+                // apiport = 443 //Apache cluster ssl expressPort
             else //the node server wants to call apache
                 apiport = 80 //Apache cluster normal expressPort
             //apiport = 8080

@@ -21,7 +21,7 @@
     "prod": "set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=production&&node build/server7prod.js",
     "tbuild": "mkdir build && Copy-Item ./src/images ./build/ -recurse ",
     "tdel": "rm -r build",
-    "startpm2": "set NODE_ENV=production&&pm2 start build/server7prod.js",
+    "startpm2": "set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=production&&pm2 start build/server7prod.js",
     "postinstall": "ls",
     "start": "set NODE_ENV=production&&node build/server7prod.js",
     "stop": "naught stop",
