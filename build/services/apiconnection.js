@@ -76,10 +76,12 @@ var ApiConnection = function ApiConnection() {
     if (process.env.NODE_ENV === 'production') {
         // expressPort = 8082
         expressPort = 8081;
-        // appbasename = '/training-' + version.appversion
+        //OPENSHIFT uncomment
+        appbasename = '/training-' + version.appversion;
     } else {
         expressPort = 8081;
-        // appbasename = '/training-'+version.appversion
+        //OPENSHIFT uncomment
+        appbasename = '/training-' + version.appversion;
     }
     // var isBrowser = typeof window !== 'undefined'
 
