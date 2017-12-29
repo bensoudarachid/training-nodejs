@@ -28,13 +28,13 @@ Security:
 
 Architecture:
  Feature oriented Front End Code Architecture
- Classic back end 3 Tier architecture with Service, Repository (DAO) and Database layers
+ Classic back end 3 Tier architecture with REST controller, Service, Repository (DAO). Moving toward Akka remote Actors as extra layer between controller and service layers
  
 Testing:
  Mocha chai enzyme sinon component Testing
 
 Development :
- Fast development through Nodemon and Webpack Hot Middleware
+ Fast development iterations using Nodemon and Webpack Hot Middleware
 
 Front End:
  One Scss file per React component
