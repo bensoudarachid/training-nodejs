@@ -68,7 +68,8 @@ const authservices = {
 
             // , 'body': `username=${creds.username}&password=${creds.password}&client_id=clientapp&client_secret=123456&grant_type=password&scope=read%20write`
         }
-
+        // console.log('++++++++++++++++++++++++++++++++++++++++++++++++authurl='+require('util').inspect(authurl, false, null))
+        // const testurl = 'http://abbaslearn.schoolapi.royasoftware.com:8070'
         return fetch(authurl + '/oauth/token', config)
             .then(response => response.json().then(user => ({
 <<<<<<< HEAD

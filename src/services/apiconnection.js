@@ -73,7 +73,7 @@ class ApiConnection {
         else {
             expressPort = 8081
             //OPENSHIFT uncomment
-            appbasename = '/training-'+version.appversion
+            // appbasename = '/training-'+version.appversion
         }
         // var isBrowser = typeof window !== 'undefined'
 

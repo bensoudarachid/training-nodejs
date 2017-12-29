@@ -3,37 +3,38 @@ I'm happy to present the Training (or School) App. This is a prototype of data m
 
 School-App is a Saas Single Page App (SPA) based on React, Redux, Immutable, Babel ES6 and Spring Boot Rest API
 
-This project is firstly about covering and learning all basic features of a modern SPA: All the tools a developer needs to have a nice and fast development routine, a project ready, solid and intuitive code architecture and the basics of the main technologies involved. It's also about combining the old solid Java Back End World with the modern Front End Technologies and getting the best of both(see list below)
+This project is firstly about covering and learning all basic features of a modern SPA: All the tools a developer needs to have a nice and fast development routine, a project ready, solid and intuitive code architecture and the basics of the main technologies involved. It's also about combining the old solid Java Back End world with the modern Front End technologies and getting the best of both(see list below)
 
-An Redhat Openshift online demo is running here http://demo1.school.royasoftware.com http://demo2.school.royasoftware.com
-Another jenkins managed demo on a normal pc will be be put online here https://reactlearning.school.royasoftware.com/. This one goes with SSL
+An Redhat Openshift online demo is running here http://demo1.school.royasoftware.com 
+Another jenkins managed demo on a normal pc will be be put online here https://it.school.royasoftware.com/. This one goes with SSL
 Check it out! Login: admin, Password: jefaistout
 
 The App is composed of two projects. Training-nodejs is the Front-End. The express server is only responsible of delivering the bundles and performing server rendering
 Once the front end is loaded on the browser, the communication continues with the back end. The REST Server is the second Project: Training-springboot
 
-This is a work in progress. The code is not optimal
+This is a work in progress. The code is not optimal yet
 
 Covered topics:
 
 Performance:
  Isomorphic Rendering
- General lazy image loading and on scroll image loading
- Vendor + Route Oriented JS and CSS Code Splitting, Routes are based on roles
+ Introduction to reactive programming using Akka concurrency and cluster technology
  Spring-Rest API delivers Optmized Image Sizes using Batik from regular images formats + SVG
+ Vendor + Route Oriented JS and CSS Code Splitting, Routes are based on roles
+ General lazy image loading and on scroll image loading
 
 Security:
  OAuth-2 Authentication and Role based Authorization, JDBC TokenStore
 
 Architecture:
  Feature oriented Front End Code Architecture
- Classic back end 3 Tier architecture with Service, Repository (DAO) and Database layers
+ Classic back end 3 Tier architecture with REST controller, Service, Repository (DAO). Moving towards Akka remote Actors as extra layer between controller and service layers
  
 Testing:
  Mocha chai enzyme sinon component Testing
 
 Development :
- Fast development through Nodemon and Webpack Hot Middleware
+ Fast development iterations using Nodemon and Webpack Hot Middleware
 
 Front End:
  One Scss file per React component
