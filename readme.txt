@@ -28,7 +28,7 @@ Security:
 
 Architecture:
  Feature oriented Front End Code Architecture
- Classic back end 3 Tier architecture with REST controller, Service, Repository (DAO). Moving toward Akka remote Actors as extra layer between controller and service layers
+ Classic back end 3 Tier architecture with REST controller, Service, Repository (DAO). Moving towards Akka remote Actors as extra layer between controller and service layers
  
 Testing:
  Mocha chai enzyme sinon component Testing
