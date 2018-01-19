@@ -1,16 +1,12 @@
 import 'jquery'
-// import Stats from 'stats-js'
 import $ from 'jquery'
-
 
 global.jQuery = require('jquery')
 
-
-// require('./appcomponent.scss')
 require('./waterpipe.js')
-
 $(document).ready(function () {
 
+<<<<<<< HEAD
 
 
     /*
@@ -25,13 +21,12 @@ $(document).ready(function () {
     // var context = document.querySelector('#canvs3').getContext('2d')
 
     // var color = $('.parampanel').css('background-color')
+=======
+>>>>>>> b06ef94... clean code, remove comments
     $('#wavybg-wrapper').waterpipe({
         gradientStart: '#6bc1ff',
-        // gradientEnd: '#6C7A89',
-        // gradientEnd: '#9caab9',
-        // gradientEnd: '#bccad9',
-        // gradientEnd: '#ffffff',
         gradientEnd: '#dfefff',
+<<<<<<< HEAD
         // gradientEnd: '#76ff93', //vert
 <<<<<<< HEAD
         // gradientEnd: '#ffffff', 
@@ -40,6 +35,8 @@ $(document).ready(function () {
 >>>>>>> 6e3ff02... webstorm big changes crash
 
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
         smokeOpacity: 0.05,
         smokeSize: 0.2,
         numCircles: 5,
@@ -50,16 +47,9 @@ $(document).ready(function () {
         drawsPerFrame: 45,
         lineWidth: 1,
         speed: 1,
-        // bgColorInner: '#c5d3e2',
         bgColorInner: '#6bc1ff',
-        // bgColorInner: '#7bd1ff',
-        // bgColorOuter: '#003870',
-        // bgColorOuter: '#004790',
-        // bgColorOuter: '#ffffff'
         bgColorOuter: '#2980b9'
-        // bgColorOuter: 'white'
     })
-
 })
 
 

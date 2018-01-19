@@ -3,19 +3,13 @@ import {IndexLink, Link} from 'react-router'
 import Login from '../login.js'
 import Logout from '../logout.js'
 import {LogoutUser} from '../../services/actions.js'
-// import Bootstrap from '!style!css!../node_modules/bootstrap/dist/css/bootstrap.css'
-// require('!style!css!../node_modules/bootstrap/dist/css/bootstrap.min.css')
-// import { Button } from 'react-bootstrap'
 
-//import 'bootstrap/dist/css/bootstrap.css'
 
 import $ from 'jquery'
-//import 'bootstrap/dist/js/bootstrap.js'
-// import '../styles/default.scss'
 
 if (process.env.BROWSER) {
-    // console.log('Appcomponent. environment is browser')
     require('./nav.scss')
+<<<<<<< HEAD
 //   function sir3allah(event){
 //     var logotitleElm2 = $('#bsnavi h2')
 //     // var rdm = Math.floor(Math.random() * 2) + 1
@@ -74,10 +68,13 @@ if (process.env.BROWSER) {
     //   })
     // })
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
 }
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 //require('./nav.scss')
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 
@@ -95,11 +92,11 @@ class NavUser extends Component {
 // }
 //	<Button>Click me!</Button>
 
+=======
+class NavUser extends Component {
+>>>>>>> b06ef94... clean code, remove comments
 
     handleLoginClick(event) {
-        // console.log('loginjs andle request login in progress click')
-        // var modal = document.getElementById('myModal')
-        // modal.style.display = 'block'
         this.props.actions.loginProcessStart('Welcome')
     }
 
@@ -117,17 +114,15 @@ class NavUser extends Component {
         const isAuthenticated = auth.get('isAuthenticated')
 
         var tenantName1 = ''
-        if( this.props.app.get('tenant') )
+        if (this.props.app.get('tenant'))
             tenantName1 = this.props.app.get('tenant').get('name1')
-        console.log('tenantName1='+require('util').inspect(tenantName1, false, null))
+        console.log('tenantName1=' + require('util').inspect(tenantName1, false, null))
         var tenantName2 = ''
-        if( this.props.app.get('tenant') )
+        if (this.props.app.get('tenant'))
             tenantName2 = this.props.app.get('tenant').get('name2')
 
         if (process.env.BROWSER)
             datasrc = this.getRightLogoUrl()
-        // console.log('nav: isBrowser'+isBrowser)
-        //&& this.props.location.pathname!='/register'
         return (
             <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
                 <ul className='navbar-header logoblock'>
@@ -225,16 +220,14 @@ class NavUser extends Component {
             </nav>
         )
     }
+
     getRightLogoUrl() {
         if (window.matchMedia("(min-width: 992px)").matches) {
-            // $('#starbg-wrapper')[0].style.display = 'none'
             return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 120 + '&height=' + 120
         } else {
-            // $('#starbg-wrapper')[0].style.display = 'none'
             return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 82 + '&height=' + 82
         }
     }
-
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -243,25 +236,21 @@ class NavUser extends Component {
 >>>>>>> 6e3ff02... webstorm big changes crash
 =======
 
+<<<<<<< HEAD
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 // <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
 export default NavUser
-// <div>
 
-//   {!isAuthenticated &&
-// 	  <Login
-// 	  errorMessage={errorMessage}
-// 	  onLoginClick={ creds => dispatch(loginUser(creds)) }
-// 	  />
-//   }
 
-//   {isAuthenticated &&
-//   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
-//   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 //    </div>    
 =======
 //    </div>
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> b06ef94... clean code, remove comments

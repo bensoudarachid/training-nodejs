@@ -1,67 +1,15 @@
 @import '../../../styles/default.scss';
 
 .trainingedit {
-
   width: 95%;
   margin: auto;
-  // background-color: white;
   background-color: lighten($roya-blue, 30%);
-
   -moz-background-clip: padding;
   -webkit-background-clip: padding;
   background-clip: padding-box;
-  // 	border: 5px solid rgba(lighten($roya-blue,0.9),0.1);
-  // //	border: 1px solid rgba(black,0.4);
-  // 	-webkit-border-radius: 25px;
-  // 	-moz-border-radius: 25px;
-  // 	border-radius: 25px;
-  // height:250px;
-  // text-align: center;
-
-  //.smallbutton {
-  //  margin: 0px 2px !important;
-  //  width: 35px !important;
-  //  height: 35px;
-  //  @media (min-width: 768px) {
-  //    width: 40px !important;
-  //    height: 40px;
-  //    margin: 0px 4px !important;
-  //  }
-  //  @media (min-width: 992px) {
-  //    width: 45px !important;
-  //    height: 45px;
-  //    margin: 0px 8px !important;
-  //  }
-  //  border: 2px;
-  //  border-style: solid;
-  //  border-radius: 50%;
-  //  border-color: transparent; //'#f4f #f34'
-  //
-  //}
-  //.roundbutton {
-  //  background-repeat: no-repeat;
-  //  background-position: center;
-  //  background-size: 75%;
-  //  border-radius: 50%;
-  //  background-color: getMdlColor($color-primary);
-  //  color: white !important;
-  //  &:hover {
-  //    color: $roya-blue !important;
-  //    background-color: white;
-  //  }
-  //}
-  //.glyphicon{
-  //  //color: white;
-  //  //&:hover {
-  //  //  color: $roya-blue;
-  //  //}
-  //  font-size: 24px;
-  //}
 
   input {
     font-family: 'Roboto', Tahoma, sans-serif;
-    // background-color: darken($roya-blue,10%);
-    // margin:20px
   }
   label {
     font-family: 'Roboto', Tahoma, sans-serif;
@@ -71,22 +19,17 @@
     margin-top: 2px;
     width: 30px;
     height: 30px;
-    // background-color:yellow;
   }
 
   .footer {
     height: 50px;
   }
-  // .mdl-textfield{
-  // 	width:100%
-  // }
   .container {
     width: 100%;
   }
 
   .fileuploadinput {
     margin: 30px -15px 0 15px !important;
-    // padding:0px 0 0 10px !important;
     @media (min-width: 768px) {
       margin: 40px 0 0 0px !important;
     }
@@ -94,7 +37,6 @@
   }
 
   .imgwrapper {
-    // margin-top: -8px;
     margin: 8px;
     width: 90px;
     height: 90px;

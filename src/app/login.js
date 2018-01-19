@@ -1,11 +1,9 @@
 import React, {Component, PropTypes} from 'react'
 import 'jquery'
-import $ from 'jquery'
-
 
 if (process.env.BROWSER) {
-//  console.log('Login Component. environment is browser')
     require('./login.scss')
+<<<<<<< HEAD
     // require('materialize-css/sass/materialize.scss')
     // require('materialize-css/sass/style.scss')
     // require('materialize-css/sass/components/_color.scss')
@@ -47,11 +45,14 @@ if (process.env.BROWSER) {
 
     // })
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
 }
 
 <<<<<<< HEAD
 <<<<<<< HEAD
 export default class Login extends Component {
+<<<<<<< HEAD
 =======
 export default
 class Login extends Component {
@@ -86,6 +87,8 @@ export default class Login extends Component {
 =======
     // <TextField type='password' ref='password' className='inputfield' hintText='type your password here' floatingLabelText='Password'/>
     // </li>
+=======
+>>>>>>> b06ef94... clean code, remove comments
 
     render() {
 <<<<<<< HEAD
@@ -93,10 +96,13 @@ export default class Login extends Component {
 >>>>>>> 6e3ff02... webstorm big changes crash
 =======
         const {errorMessage} = this.props
+<<<<<<< HEAD
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         // var myStyle = {fontSize: 100, color: '#FF0000'}
         //       <li><input type='text' ref='username' className='form-control' placeholder='Username'/></li>
         //<input type='password' ref='password' className='form-control' placeholder='Password'/>
+=======
+>>>>>>> b06ef94... clean code, remove comments
         return (
             <div id='loginform'>
 
@@ -152,18 +158,10 @@ export default class Login extends Component {
         )
     }
 
-    // <li>
-    //   <FlatButton className='button' type='submit'><span className='glyphicon glyphicon-log-in'></span> Login</FlatButton>
-    // </li>
-
     handleClick(event) {
         event.preventDefault()
-        // console.log('login. Login value = '+this.refs.username.getValue())
-        // const username = this.refs.username.getValue().trim()
-        // const password = this.refs.password.getValue().trim()
         var username = this.refs.username.value.trim()
         var password = this.refs.password.value.trim()
-        // console.log('login. Login value = '+username)
         const creds = {username: username, password: password}
         this.props.onLoginClick(creds)
     }

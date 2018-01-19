@@ -1,17 +1,10 @@
 import React from 'react'
 import cookie from 'react-cookie'
-//import Immutable from 'immutable'
-// import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'
-import util from 'util'
 import FileUploadInput from '../../../components/shared/fileuploadinput'
-// import actions from '../../../services/actions'
-import ApiConnection from '../../../services/apiconnection'
-import $ from 'jquery'
 import TodoImage from './todoimage'
 
 if (process.env.BROWSER) {
     require('./todoslistitem.scss')
-
 }
 
 <<<<<<< HEAD
@@ -32,6 +25,7 @@ export default class TodosListItem extends React.Component {
         }
     }
 
+<<<<<<< HEAD
     // <form className='mdl-grid mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet mdl-cell--4-col-phone center-items' onSubmit={this.onSaveClick.bind(this)}>
     //   <div className='mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet mdl-cell--4-col-phone' style={taskStyle} onClick={this.handleToggle.bind(this)}>{task}</div>
     //   <div className='mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--2-col-phone'><button className='editbutton active' onClick={this.onEditClick.bind(this)}>Edit</button></div>
@@ -128,6 +122,8 @@ export default class TodosListItem extends React.Component {
     //     )
     // }
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
     render() {
         return (
             <div>
@@ -258,40 +254,23 @@ export default class TodosListItem extends React.Component {
 
     componentDidMount() {
         componentHandler.upgradeDom()
-        // componentHandler.upgradeDom()
     }
 
     componentDidUpdate() {
-        // componentHandler.upgradeAllRegistered()
         componentHandler.upgradeDom()
-        // componentHandler.upgradeDom()
         var dialogInputs = document.querySelectorAll('.mdl-textfield')
         for (var i = 0, l = dialogInputs.length; i < l; i++) {
-            // if( dialogInputs[i].MaterialTextfield != undefined )
             dialogInputs[i].MaterialTextfield.checkDirty()
-            // else
-            //   console.log('todoslistitem.js. dialogInputs[i] is undefined')
         }
         const index = this.props.ind
-        // console.log('todoslistitem.js. this.props.ind '+this.props.ind)
         if (!this.state.hadFocus && document.getElementById('taskInput' + index)) {
             document.getElementById('taskInput' + index).focus()
             this.setState({
                 hadFocus: true
             })
         }
-        // this.imageload()
     }
 
-
-    // renderMe() {
-    //   return (
-    //     <tr>
-    //       {this.renderTaskSection()}
-    //       {this.renderActionsSection()}
-    //     </tr>
-    //     );
-    // }
 
     handleDelete() {
         console.log('todos-list-item, please delete todo ' + this.props.todo.get('id'))
@@ -300,8 +279,6 @@ export default class TodosListItem extends React.Component {
 
     handleUploadFile(event) {
         event.preventDefault()
-        // console.log('todos-list-item, upload todo file '+'#uploadfile-'+this.props.todo.get('id'))
-        // var fileinput = document.querySelector('input[type="file"]')
         const idToken = cookie.load('jwt')
         const taskid = this.props.todo.get('id')
         var fileinput = document.querySelector('#uploadfile-' + taskid)
@@ -309,23 +286,8 @@ export default class TodosListItem extends React.Component {
         var todo = this.props.todo.set('mama', 'i m here')
 
         this.props.actions.uploadTodoFileDispatcher(todo, this.props.todo, fileinput.files[0])
-        // console.log('todos-list-item, set src to ' + ApiConnection.apiurl+'/api/todo/img/'+'12'+'?access_token='+ idToken)
 
 
-        // document.getElementById('todolistitemimg'+taskid).setAttribute('data-src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
-        // document.getElementById('todolistitemimg'+taskid).setAttribute('src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
-
-        // var imgwrap = document.getElementById('imgwrap'+taskid)
-        // imgwrap.innerHTML = '<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>'+imgwrap.innerHTML
-        // setTimeout(function() {
-        //   console.log('todos-list-item, set data-src')
-        //   // this.setState({
-        //   //   imageLoaded: undefined
-        //   // })
-        //   // document.getElementById('todolistitemimg'+taskid).removeAttribute('src')
-        //   document.getElementById('todolistitemimg'+taskid).setAttribute('src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken)
-        //   // this.refs.uploadcomp.forceUpdate()
-        // }.bind(this),(5000) )
     }
 
     handleToggle(event) {
@@ -341,13 +303,8 @@ export default class TodosListItem extends React.Component {
     onSaveClick(event) {
         console.log('todos-list-item, just save ' + this.props.todo.get('id'))
         event.preventDefault()
-        // const oldTask = this.props.task;
         var newTask = undefined
         newTask = this.refs.taskInput.value
-        // this.props.saveTask(oldTask, newTask);
-        // this.setState({
-        //   isEditing: false
-        // });
         const todo = this.props.todo.set('task', newTask)
         this.setState({
             isEditing: false
@@ -361,9 +318,9 @@ export default class TodosListItem extends React.Component {
             isEditing: true,
             hadFocus: false
         })
-        // console.log('Click Edit' + this.state.isEditing)
     }
 
+<<<<<<< HEAD
 >>>>>>> 6e3ff02... webstorm big changes crash
     // onChangeImageClick() {
     //   console.log('todolistitemjs.Change Image'+this.refs.uploadInput.value)
@@ -391,6 +348,8 @@ export default class TodosListItem extends React.Component {
     //   // })
     // }
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
     onCancelClick() {
 
         this.setState({
@@ -513,24 +472,17 @@ export default class TodosListItem extends React.Component {
     renderTaskForm() {
         const idToken = cookie.load('jwt')
 
-        // const {task, isCompleted} = this.props;
-        // const {todo} = this.props;
-        // console.log('todo list item. Render ------------------'+this.props.todo.get('task'))
-        // console.log(this.props.todo)
         const task = this.props.todo.get('task')
         const taskid = this.props.todo.get('id')
         const index = this.props.ind
-        // console.log('todolistitm index = '+ this.props.ind)
         const completed = this.props.todo.get('completed')
         const error = this.props.todo.get('error')
-        // const id = this.props.todo.get('id');
         const taskStyle = {
             color: completed ? 'green' : 'red',
             cursor: 'pointer'
         }
         const loading = this.props.todo.get('loading')
         const isUploading = this.props.todo.get('isUploading')
-//    console.log('todolistitem. id: '+taskid+', todo.isUploading: '+isUploading)
 
         const disabled = loading || error
         const errorClass = error ? 'error' : ''
@@ -626,6 +578,7 @@ export default class TodosListItem extends React.Component {
 }
 
 
+<<<<<<< HEAD
 // }
 <<<<<<< HEAD
 // else 
@@ -650,3 +603,5 @@ export default class TodosListItem extends React.Component {
 //       {uploadBlock}
 //     </div>
 // )
+=======
+>>>>>>> b06ef94... clean code, remove comments

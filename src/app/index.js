@@ -1,11 +1,6 @@
 import React from 'react'
-
-// require('../../node_modules/babel-polyfill/dist/polyfill.js')
-// var React = require('react');
 import ReactDom from 'react-dom'
 import Immutable from 'immutable'
-// var ReactDom = require('react-dom');
-// import { Router, Route, Link, IndexRoute,NotFoundRoute, hashHistory, browserHistory } from 'react-router'
 import {browserHistory} from 'react-router'
 
 var ReactRouter = require('react-router')
@@ -15,118 +10,23 @@ var Link = ReactRouter.Link
 var IndexRoute = ReactRouter.IndexRoute
 var NotFoundRoute = ReactRouter.NotFoundRoute
 
-// import { createHistory, useBasename } from 'history'
 import {createHistory} from 'history'
 import {useRouterHistory} from 'react-router'
-// import configureStore from '../redux/store'
 import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import createLogger from 'redux-logger'
 import actions from '../services/actions'
-// import 'jquery'
-// import $ from 'jquery'
-// global.jQuery = require('jquery')
-// require('material-design-lite/dist/material.css')
-// require('material-design-lite/dist/material.js')
-
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap/dist/js/bootstrap.js'
 import 'mdl-selectfield/dist/mdl-selectfield.css'
 import 'mdl-selectfield/dist/mdl-selectfield.js'
-// import 'material-design-lite/src/material-design-lite.scss'
-// import 'material-design-lite/src/mdlComponentHandler.js'
-
-// import AppComponent from '../app/appcomponent'
-// import TodoApp from '../scenes/todo/todoapp'
-// import TrainingApp from '../scenes/training/trainingapp'
-// import UserApp from '../components/userapp'
-// import Register from '../scenes/registration/register'
-// import RegisterConfirmation from '../scenes/registration/registerconfirm'
-// import Home from '../scenes/home/home'
-
 import '../styles/animate.css'
-// import '../styles/default.scss'
-
 import './app.scss'
-// import 'mdl-selectfield/dist/mdl-selectfield.css'
-// import '../styles/_variables.scss'
-//import 'material-design-lite/src/material-design-lite.scss'
-//import '../styles/material-design-lite.scss'
-// import 'material-design-lite/dist/material.css'
-// import 'material-design-lite/dist/material.blue-pink.min.css'
-// import 'material-design-lite/dist/material.blue-red.min.css'
-// import '../../node_modules/materialize-css/dist/js/materialize.min.js'
-// import '../../node_modules/materialize-css/dist/css/materialize.min.css'
-// import injectTapEventPlugin from 'react-tap-event-plugin'
-
-// Needed for onTouchTap 
-// http://stackoverflow.com/a/34015469/988941 
-// injectTapEventPlugin()
-
-// import '../styles/default.scss'
-
 import {syncHistoryWithStore} from 'react-router-redux'
-// import { FetchData, reducer as fetching } from 'redux-fetch-data';
-
-// import createBrowserHistory from 'history/lib/createBrowserHistory';
-// const history = createBrowserHistory();
-
-
-// import HelloWorld from '../hello-world';
-// import TodoApp from '../components/todoapp';
-// import UserApp from '../components/userapp';
-// import App from '../components/app.jsx';
-// import AppComponent from '../components/appcomponent';
-
 import {routes} from './routes'
 import rootReducer from '../services/rootreducer'
-
-// var componentHandler = require('exports?componentHandler!material-design-lite/dist/material')
-
-
-// (function(open) {
-//     XMLHttpRequest.prototype.open = function(method, url, async, user, pass) {
-//         this.addEventListener("readystatechange", function() {
-//             console.log('---------------------->hello=man')
-//
-//             if (this.readyState == 4)
-//             {
-//                 console.log(this.status);
-//             }
-//         }, false);
-//         console.log('---------------------->hello=man 2')
-//         open.call(this, method, url, async, user, pass);
-//         // this.setRequestHeader("Authorization", "Token 123")
-//     };
-// })(XMLHttpRequest.prototype.open);
-
-// (function () {
-//     var originalFetch = fetch
-//     fetch = function() {
-//         return originalFetch.apply(this, arguments).then(
-//             function(data) {
-//                 console.log('---------------------->hello=man 2')
-//                 return data
-//         })
-//     }
-// })()
-
-// fetch = (function (origFetch) {
-//     return function myFetch(req) {
-//         console.log('---------------------->hello=man 2')
-//         var result = origFetch.apply(this, arguments)
-//         result.then(console.log('---------------------->hello=man 3'))
-//         return result
-//     }
-// })(fetch)
-
-
-
 (function ($) {
 
     $.fn.visible = function (partial) {
-
         var $t = $(this),
             $w = $(window),
             viewTop = $w.scrollTop(),
@@ -135,9 +35,7 @@ import rootReducer from '../services/rootreducer'
             _bottom = _top + $t.height() - 300,
             compareTop = partial === true ? _bottom : _top,
             compareBottom = partial === true ? _top : _bottom
-
         return ((compareBottom <= viewBottom) && (compareTop >= viewTop))
-
     }
     $.fn.load = function (partial) {
 
@@ -166,8 +64,6 @@ import rootReducer from '../services/rootreducer'
                     .css('overflow', 'visible')
                     .width(multiline ? el.width() : 'auto')
                     .height(multiline ? 'auto' : el.height())
-
-
                 el.after(t)
 
                 function height() {
@@ -184,7 +80,6 @@ import rootReducer from '../services/rootreducer'
                     text = text.substr(0, text.length - 1)
                     t.html(text + '...')
                 }
-
                 el.html(t.html())
                 t.remove()
             }
@@ -194,15 +89,8 @@ import rootReducer from '../services/rootreducer'
 })($)
 
 const NotFound = () => ( <h1>404.... This page is not found!</h1> )
-// const Training = () => {
-//   console.log('here i am')
-//   return(
-//         <h1>Training.... This page is under construction!</h1>
-//   )
-// }
 
-// console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----initialState='+require('util').inspect(window.__REDUX_STATE__, false, null))
-var initialState = JSON.parse(JSON.stringify(window.__REDUX_STATE__)) //Stringify and parse again with our polyfill JSON parser
+var initialState = JSON.parse(JSON.stringify(window.__REDUX_STATE__))
 Object
     .keys(initialState)
     .forEach(key => {
@@ -212,9 +100,6 @@ Object
 if( initialState.trainingappmap.get('edittrainingevents') ){
     initialState.trainingappmap = initialState.trainingappmap.set('edittrainingevents',Immutable.List(initialState.trainingappmap.get('edittrainingevents').toJS()) )
 }
-//console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----initialState='+require('util').inspect(initialState, false, null))
-
-
 
 var store = ''
 if (process.env.NODE_ENV === 'production')
@@ -223,12 +108,7 @@ else {
     const logger = createLogger()
     store = createStore(rootReducer, initialState, applyMiddleware(thunk, logger))
 }
-// console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh-----after create Store State='+require('util').inspect(store.getState(), false, null))
 
-// const mybrowserHistory = browserHistory
-// const mybrowserHistory = useBasename(createHistory)({
-//   basename: actions.appbasename
-// })
 const mybrowserHistory = useRouterHistory(createHistory)({
     basename: actions.appbasename
 })
@@ -237,10 +117,6 @@ syncHistoryWithStore(mybrowserHistory, store)
 window.routerHistory = mybrowserHistory
 
 $('.ellipsis').ellipsis()
-
-
-// <Router routes={routes} history={mybrowserHistory} />
-
 
 ReactDom.render(
     <Provider store={store}>
@@ -256,6 +132,7 @@ ReactDom.render(
     </Provider>,
     document.getElementById('root')
 )
+<<<<<<< HEAD
 
 // ReactDom.render(
 //   <Provider store={store}>
@@ -302,3 +179,5 @@ ReactDom.render(
 //   <NotFoundRoute handler={NotFound}/>
 >>>>>>> 6e3ff02... webstorm big changes crash
 // </Route>
+=======
+>>>>>>> b06ef94... clean code, remove comments

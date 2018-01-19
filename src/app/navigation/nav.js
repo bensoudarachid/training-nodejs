@@ -75,6 +75,7 @@ if (process.env.BROWSER) {
     })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // $(document).ready(function() { 
     //   $('body').click(function(event) {
     //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
@@ -89,10 +90,13 @@ if (process.env.BROWSER) {
     //   })
     // })
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
 }
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 //require('./nav.scss')
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 
@@ -109,12 +113,13 @@ class Nav extends Component {
 //     	<Link activeClassName='active' to='/register'>Register</Link>
 // }
 //	<Button>Click me!</Button>
+=======
+
+class Nav extends Component {
+>>>>>>> b06ef94... clean code, remove comments
 
 
     handleLoginClick(event) {
-        // console.log('loginjs andle request login in progress click')
-        // var modal = document.getElementById('myModal')
-        // modal.style.display = 'block'
         this.props.actions.loginProcessStart('Welcome to Roya')
     }
 
@@ -130,13 +135,7 @@ class Nav extends Component {
         const {auth} = this.props
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         const isAuthenticated = auth.get('isAuthenticated')
-        // console.log('navjs is authenticated '+isAuthenticated)
-
-        // console.log('nav: authority = '+auth.get('authority'))
-        // console.log('nav: isBrowser'+isBrowser)
-        //&& this.props.location.pathname!='/register'
         if (auth.get('authority') == 'admin') {
-            // console.log('nav: admin? authority = '+auth.get('authority'))
             return (
                 <NavAdmin
                     actions={this.props.actions}
@@ -145,7 +144,6 @@ class Nav extends Component {
                 />
             )
         } else if (auth.get('authority') == 'user') {
-            // console.log('nav: user? authority = '+auth.get('authority'))
             return (
                 <NavUser
                     actions={this.props.actions}
@@ -167,9 +165,9 @@ class Nav extends Component {
 }
 
 
-// <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 
 export default Nav
+<<<<<<< HEAD
 // <div>
 
 //   {!isAuthenticated &&
@@ -226,3 +224,5 @@ export default Nav
 //       </ul>
 //     </div>
 //   </nav>
+=======
+>>>>>>> b06ef94... clean code, remove comments

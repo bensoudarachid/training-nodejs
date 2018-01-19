@@ -3,64 +3,17 @@
 $backgroundimg: '../images/wallpaper-1.jpg';
 
 body {
-  // background: #ffaa77;
-  // width:50%;
-  // height:50%;
-  // background: url($backgroundimg) no-repeat center center fixed;
-  // -webkit-background-size:cover;
-  // -moz-background-size:cover;
-  // -o-background-size:cover;
-  // background-size:cover;
 
   text-align: center;
 
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
-  // background: -moz-radial-gradient(center, ellipse cover,  #6bc1ff 0%, #003870 88%, #003870 100%);
-  // background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#6bc1ff), color-stop(88%,#003870), color-stop(100%,#003870));
-  // background: -webkit-radial-gradient(center, ellipse cover,  #6bc1ff 0%,#003870 88%,#003870 100%);
-  // background: -o-radial-gradient(center, ellipse cover,  #6bc1ff 0%,#003870 88%,#003870 100%);
-  // background: -ms-radial-gradient(center, ellipse cover,  #6bc1ff 0%,#003870 88%,#003870 100%);
-  // background: radial-gradient(ellipse at center,  #6bc1ff 0%,#003870 88%,#003870 100%);
-  // background: radial-gradient(circle closest-side at 65% 40%, #6bc1ff 0%, #014a94 180%, #003870 250%);
-  // background: radial-gradient(circle closest-side at 65% 40%, #003870 0% #003870 100%);
-
-  // *:after {
-  //   content: "";
-  // background: url($backgroundimg) no-repeat center center fixed;
-  // -webkit-background-size:cover;
-  // -moz-background-size:cover;
-  // -o-background-size:cover;
-  // background-size:cover;
-  //   opacity: 0.1;
-  //   top: 0;
-  //   left: 0;
-  //   bottom: 0;
-  //   right: 0;
-  //   position: absolute;
-  //   z-index: -1;   
-  // }
   *:focus {
     outline: none;
   }
 }
 
-// #root{
-// margin: auto;
-// background-color: rgba(yellow,0.2);
-// }
-
-// .container{
-//   width:100%;
-//   // margin: 0 auto;
-//   // background-color: red;
-// }
-
 .parampanel {
-  // padding:100px;
 
   margin: 30px auto !important;
-  // background-color: lighten(getMdlColor($color-primary),40%);
   background-color: lighten($roya-blue, 30%);
   -moz-background-clip: padding; /* Firefox 3.6 */
   -webkit-background-clip: padding; /* Safari 4? Chrome 6? */
@@ -69,23 +22,13 @@ body {
 
 .blockborder {
   background-color: lighten($roya-blue, 30%);
-  // border: 2px solid rgba(black,0.1);
   border: 3px solid rgba(white, 0.3);
-  // border: 3px solid rgba(red,0.9);
-  // border: 5px solid rgba($orangelight,0.3);
 
-  // border: 5px solid rgba(lighten($roya-blue,0.9),0.3);
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
-  // margin: 4px 0 !important;
 }
 
-// .mdl-grid,.mdl-cell{
-//   width:100%;
-// }
-
-//fix the gap created with bootstrap. See http://stackoverflow.com/questions/39535700/material-design-lite-bottom-line-in-text-field-has-a-slight-gap-with-colored-l
 .mdl-textfield__label {
   margin-bottom: 0px;
   margin-top: -2px;
@@ -103,168 +46,8 @@ body {
 
 .mdl-spinner__layer-1, .mdl-spinner__layer-2, .mdl-spinner__layer-3, .mdl-spinner__layer-4 {
   border-color: darken(getMdlColor($color-primary), 20%) !important;
-  // .mdl-spinner--single-color & {
-  //   border-color: red !important;
-  // }
 }
 
-// .mdl-color-text--brown{color:darken(getMdlColor($color-primary),50%) !important}
-// .mdl-color--brown{background-color:darken(getMdlColor($color-primary),50%) !important}
-// .mdl-color-text--brown-50{color:lighten(getMdlColor($color-primary),40%) !important}
-// .mdl-color--brown-50{background-color:lighten(getMdlColor($color-primary),40%) !important}
-// .mdl-color-text--brown-100{color:lighten(getMdlColor($color-primary),30%) !important}
-// .mdl-color--brown-100{background-color:lighten(getMdlColor($color-primary),30%) !important}
-// .mdl-color-text--brown-200{color:lighten(getMdlColor($color-primary),20%) !important}
-// .mdl-color--brown-200{background-color:lighten(getMdlColor($color-primary),20%) !important}
-// .mdl-color-text--brown-300{color:lighten(getMdlColor($color-primary),10%) !important}
-// .mdl-color--brown-300{background-color:lighten(getMdlColor($color-primary),10%) !important}
-// .mdl-color-text--brown-400{color:lighten(getMdlColor($color-primary),0%) !important}
-// .mdl-color--brown-400{background-color:lighten(getMdlColor($color-primary),0%) !important}
-// .mdl-color-text--brown-500{color:darken(getMdlColor($color-primary),10%) !important}
-// .mdl-color--brown-500{background-color:darken(getMdlColor($color-primary),10%) !important}
-// .mdl-color-text--brown-600{color:darken(getMdlColor($color-primary),20%) !important}
-// .mdl-color--brown-600{background-color:darken(getMdlColor($color-primary),20%) !important}
-// .mdl-color-text--brown-700{color:darken(getMdlColor($color-primary),30%) !important}
-// .mdl-color--brown-700{background-color:darken(getMdlColor($color-primary),30%) !important}
-// .mdl-color-text--brown-800{color:darken(getMdlColor($color-primary),40%) !important}
-// .mdl-color--brown-800{background-color:darken(getMdlColor($color-primary),40%) !important}
-// .mdl-color-text--brown-900{color:darken(getMdlColor($color-primary),50%) !important}
-// .mdl-color--brown-900{background-color:darken(getMdlColor($color-primary),50%) !important}
-
-// @font-face {
-//   font-family: 'RoyaMainFont';
-//   src: url('../styles/Arkhip_font.ttf') format("truetype");
-// }
-
-// @font-face {
-//   font-family: 'RoyaMainFont';
-//   src: url('http://sunmoonsky.us/fonts/fontFiles/arkhip/Arkhip_font.ttf') format("truetype");
-// }
-// @font-face {
-//     font-family: 'RoyaMainFont';
-//     // font-style: normal;
-//     // font-weight: 400;
-//     src: url(http://sunmoonsky.us/fonts/fontFiles/arkhip/Arkhip_font.ttf);
-// }
-
-// @font-face {
-//   font-family: 'Roboto';
-//   // src: url('../styles/Roboto-Regular.ttf') format("truetype");
-//   src: url('https://fonts.googleapis.com/css?family=Roboto');
-// }
-// @import url('https://fonts.googleapis.com/css?family=Roboto');
-// @import url('http://sunmoonsky.us/fonts/fontFiles/arkhip/Arkhip_font.ttf');
-// @font-face {
-//     font-family: 'Roboto';
-//     src: url('../styles/fonts/Roboto-Regular-webfont.eot');
-//     src: url('../styles/fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('../styles/fonts/Roboto-Regular-webfont.woff') format('woff'),
-//          url('../styles/fonts/Roboto-Regular-webfont.ttf') format('truetype'),
-//          url('../styles/fonts/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
-//     font-weight: normal;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'Roboto';
-//     src: url('../styles/fonts/Roboto-Italic-webfont.eot');
-//     src: url('../styles/fonts/Roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('../styles/fonts/Roboto-Italic-webfont.woff') format('woff'),
-//          url('../styles/fonts/Roboto-Italic-webfont.ttf') format('truetype'),
-//          url('../styles/fonts/Roboto-Italic-webfont.svg#RobotoItalic') format('svg');
-//     font-weight: normal;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: 'Roboto';
-//     src: url('../styles/fonts/Roboto-Bold-webfont.eot');
-//     src: url('../styles/fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('../styles/fonts/Roboto-Bold-webfont.woff') format('woff'),
-//          url('../styles/fonts/Roboto-Bold-webfont.ttf') format('truetype'),
-//          url('../styles/fonts/Roboto-Bold-webfont.svg#RobotoBold') format('svg');
-//     font-weight: bold;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'Roboto';
-//     src: url('../styles/fonts/Roboto-BoldItalic-webfont.eot');
-//     src: url('../styles/fonts/Roboto-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('../styles/fonts/Roboto-BoldItalic-webfont.woff') format('woff'),
-//          url('../styles/fonts/Roboto-BoldItalic-webfont.ttf') format('truetype'),
-//          url('../styles/fonts/Roboto-BoldItalic-webfont.svg#RobotoBoldItalic') format('svg');
-//     font-weight: bold;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: 'Roboto';
-//     src: url('../styles/fonts/Roboto-Thin-webfont.eot');
-//     src: url('../styles/fonts/Roboto-Thin-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('../styles/fonts/Roboto-Thin-webfont.woff') format('woff'),
-//          url('../styles/fonts/Roboto-Thin-webfont.ttf') format('truetype'),
-//          url('../styles/fonts/Roboto-Thin-webfont.svg#RobotoThin') format('svg');
-//     font-weight: 200;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'Roboto';
-//     src: url('../styles/fonts/Roboto-ThinItalic-webfont.eot');
-//     src: url('../styles/fonts/Roboto-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('../styles/fonts/Roboto-ThinItalic-webfont.woff') format('woff'),
-//          url('../styles/fonts/Roboto-ThinItalic-webfont.ttf') format('truetype'),
-//          url('../styles/fonts/Roboto-ThinItalic-webfont.svg#RobotoThinItalic') format('svg'); 
-//     font-weight: 200;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: 'Roboto';
-//     src: url('../styles/fonts/Roboto-Light-webfont.eot');
-//     src: url('../styles/fonts/Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('../styles/fonts/Roboto-Light-webfont.woff') format('woff'),
-//          url('../styles/fonts/Roboto-Light-webfont.ttf') format('truetype'),
-//          url('../styles/fonts/Roboto-Light-webfont.svg#RobotoLight') format('svg');
-//     font-weight: 100;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'Roboto';
-//     src: url('../styles/fonts/Roboto-LightItalic-webfont.eot');
-//     src: url('../styles/fonts/Roboto-LightItalic-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('../styles/fonts/Roboto-LightItalic-webfont.woff') format('woff'),
-//          url('../styles/fonts/Roboto-LightItalic-webfont.ttf') format('truetype'),
-//          url('../styles/fonts/Roboto-LightItalic-webfont.svg#RobotoLightItalic') format('svg');
-//     font-weight: 100;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: 'Roboto';
-//     src: url('../styles/fonts/Roboto-Medium-webfont.eot');
-//     src: url('../styles/fonts/Roboto-Medium-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('../styles/fonts/Roboto-Medium-webfont.woff') format('woff'),
-//          url('../styles/fonts/Roboto-Medium-webfont.ttf') format('truetype'),
-//          url('../styles/fonts/Roboto-Medium-webfont.svg#RobotoMedium') format('svg');
-//     font-weight: 300;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'Roboto';
-//     src: url('../styles/fonts/Roboto-MediumItalic-webfont.eot');
-//     src: url('../styles/fonts/Roboto-MediumItalic-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('../styles/fonts/Roboto-MediumItalic-webfont.woff') format('woff'),
-//          url('../styles/fonts/Roboto-MediumItalic-webfont.ttf') format('truetype'),
-//          url('../styles/fonts/Roboto-MediumItalic-webfont.svg#RobotoMediumItalic') format('svg');
-//     font-weight: 300;
-//     font-style: italic;
-// }
-
-//These are being used with jquery ellipse function in index.js to limit text in Training short description in list
 .ellipsis {
   white-space: nowrap;
   overflow: hidden;

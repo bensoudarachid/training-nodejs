@@ -1,16 +1,8 @@
 import React from 'react'
-import cookie from 'react-cookie'
-//import Immutable from 'immutable'
-// import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'
-// import util from 'util'
-// import FileUploadInput from '../../../components/shared/fileuploadinput'
 import AppImage from '../../../components/shared/appimage'
-// import $ from 'jquery'
-import TrainingImage from '../shared/trainingimage'
 
 if (process.env.BROWSER) {
     require('./traininglistitem.scss')
-
 }
 
 <<<<<<< HEAD
@@ -36,6 +28,7 @@ export default class TrainingListItem extends React.Component {
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
 =======
         componentHandler.upgradeDom()
+<<<<<<< HEAD
 >>>>>>> 6e3ff02... webstorm big changes crash
         // this.loadImage()
     }
@@ -58,6 +51,10 @@ export default class TrainingListItem extends React.Component {
     // <span className='glyphicon glyphicon-upload '></span>
     // <img src={'../../../images/Blog-CodingNeutral1.png'} alt='coding'/>
     // isUploading={isUploading}
+=======
+    }
+
+>>>>>>> b06ef94... clean code, remove comments
     render() {
         const title = this.props.training.get('title')
         const secondaryTitle = this.props.training.get('secondaryTitle') ? this.props.training.get('secondaryTitle') : ''
@@ -72,8 +69,6 @@ export default class TrainingListItem extends React.Component {
             dayString = ' day'
         else
             dayString = ' days'
-        // <TrainingImage ref='uploadcomp' trainingid={trainingid} isUploading={isUploading}/>
-        //<AppImage ref='uploadcomp' api='training' imgid={trainingid} isUploading={isUploading}/>
         return (
             <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone'>
                 <div className='mdl-grid mdl-grid--no-spacing blockborder trainingslistitem'>
@@ -114,26 +109,11 @@ export default class TrainingListItem extends React.Component {
         )
     }
 
-    // <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored editbutton' onClick={this.handleEdit.bind(this)}>
-    // </button>
-    // <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored schedulebutton' onClick={this.handleSchedule.bind(this)}>
-    // </button>
-
-//   handleEdit(event) {
-// //    console.log('Call Schedule for this Training'+this.props.training.get('id'))
-//     window.routerHistory.push('/admin/trainings/item/'+this.props.training.get('id'))
-//     // this.props.actions.appError(undefined)
-//   }
-
-//   handleSchedule(event) {
-//     console.log('Call Edit for this Training'+this.props.training.get('id'))
-//     // this.props.actions.appError(undefined)
-//     window.routerHistory.push('/admin/todos')
-//   }
 
 }
 
 
+<<<<<<< HEAD
 // }
 <<<<<<< HEAD
 // else 
@@ -158,3 +138,5 @@ export default class TrainingListItem extends React.Component {
 //       {uploadBlock}
 //     </div>
 // )
+=======
+>>>>>>> b06ef94... clean code, remove comments

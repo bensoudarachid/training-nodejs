@@ -1,62 +1,41 @@
 import React from 'react'
-import {Router, Route, IndexLink, Link, IndexRoute, hashHistory, browserHistory} from 'react-router'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import Immutable from 'immutable'
 import actions from '../services/actions'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-// import Stats from 'stats-js'
 import 'jquery'
 import $ from 'jquery'
 import ConfirmationModal from '../components/shared/confirmationmodal'
 
-global.jQuery = require('jquery')
-
-// global.$ = require('jquery')
-// import $ from 'jquery'
-
-import {Component, PropTypes} from 'react'
-
 import Nav from './navigation/nav'
 import LoginModal from './loginmodal.js'
-import Login from './login.js'
 import AppModalDlg from './appmodaldlg.js'
-// import waterpipe from './waterpipe.js'
 
-// require('../styles/default.scss')
+global.jQuery = require('jquery')
+
 if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
     return c(require)
 }
 
 if (process.env.BROWSER) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     require('./appcomponent.scss')
 =======
     // window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass']
     // require('./waterpipe.js')
+=======
+>>>>>>> b06ef94... clean code, remove comments
     require('./appcomponent.scss')
-    // require('./bubbles.js')
-    // require('./waterpipebg.js')
-
-    // require.ensure([], function (require) {
-    //   require('./bubbles.js').default
-    // })
-    // require.ensure([], function (require) {
-    //   require('./waterpipebg.js').default
-    // })
-
-    // require('./textswitcher.js')
-
 
 >>>>>>> 6e3ff02... webstorm big changes crash
     var modal = document.getElementById('myModal')
     window.onclick = function (event) {
         if (event.target == modal) {
-            // const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
             this.props.auth.onLoginProcessEndClick()
-            // modal.style.display = 'none'
         }
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 }
 =======
@@ -116,8 +95,9 @@ if (process.env.BROWSER) {
     //     window.isTextSwitchAnimated = false
     //   }, 12000 )
     // })
+=======
+>>>>>>> b06ef94... clean code, remove comments
 }
-
 
 class AppComponent extends React.Component {
 
@@ -165,45 +145,10 @@ class AppComponent extends React.Component {
 =======
 >>>>>>> 711f559... Javascript request interceptor for header manipulation. Webpack source maps not showing in Devtools. Eliminate source maps on production build. Export 5 colors constants from scss into javascript for the bigcalendar. Add mdl-selectfield in project and use it for bigcalendar. Adapt mdl-selectfield label color. Fix calendar background event and rows background colors. Devtools workspace. Map files to original disk files and edit directly in chrome. Disable autosaving of webpack.config.js in webstorm/Settings/LanguagesFrameworks/Webpack/change file name to something inexistent. Enable auto synchronisation on file disk change in webstorm. better buttons with glyphicons and hover. Adapt app wide uniform round buttons with glyphicons. Change buttons to the new round buttons on admin training list items. Implement a JSON.parse polyfill to automatically transform dates from json to javascript date objects. Bug fix. state Hydratation is not properly JSON date parsed. Need to stringify and parse again.Problem fix. Eveything landing in redux by state hydratation is deeply immutable Lists and Maps due to Immutable.fromJS. But we need a immutable list of simple Javascript events for BigCalendar: We add a new store element for this in trainingappmap: edittrainingevents.
         super(...arguments)
-
-        // this.constructor.childContextTypes = {
-        //   betterReactSpinkit: PropTypes.object
-        // }
-
-        // XMLHttpRequest.prototype.realSend = XMLHttpRequest.prototype.send;
-        // XMLHttpRequest.prototype.send = function(value) {
-        //     this.addEventListener("progress", function(){
-        //         console.log("------------------------> Loading")
-        //     }, false)
-        //     this.realSend(value)
-        // }
-
-// (function () {
-//     var originalFetch = fetch
-//     fetch = function() {
-//         return originalFetch.apply(this, arguments).then(
-//             function(data) {
-//                 console.log('---------------------->hello=man 2')
-//                 return data
-//         })
-//     }
-// })()
-
     }
-
-    // getChildContext() {
-    //   return {
-    //     betterReactSpinkit: {
-    //       color: '#505050', //'black'
-    //       size: 15
-    //     // ,fade: { duration: 0.3 }
-    //     }
-    //   }
-    // }
 
     componentDidMount() {
         componentHandler.upgradeDom()
-        // console.log('window width = '+$(window).width())
 
         if (process.env.BROWSER) {
             require('./waterpipebg.js')
@@ -216,23 +161,19 @@ class AppComponent extends React.Component {
 
 
     componentWillReceiveProps(nextProps) {
-        // console.log('app. this.props.location='+require('util').inspect(this.props.location, false, null))
-        //console.log('app. nextProps.location='+require('util').inspect(nextProps.location, false, null))
         if (nextProps.location !== this.props.location && process.env.BROWSER) {
             this.props.actions.savePreviousLocation(this.props.location.pathname)
         }
     }
 
-
     handleBubblesVisibility(event) {
         if ($(window).width() < 480)
-        // $('#starbg-wrapper')[0].style.display = 'none'
             $('#starbg-wrapper')[0].style.visibility = 'hidden'
         else
-        // $('#starbg-wrapper')[0].style.display = 'block'
             $('#starbg-wrapper')[0].style.visibility = 'visible'
     }
 
+<<<<<<< HEAD
     // <ReactCSSTransitionGroup
     //   component='div'
     //   transitionName="page"
@@ -245,6 +186,8 @@ class AppComponent extends React.Component {
     // {children}
     // </ReactCSSTransitionGroup>
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> b06ef94... clean code, remove comments
     render() {
         const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
         const isBrowser = typeof window !== 'undefined'
@@ -255,7 +198,6 @@ class AppComponent extends React.Component {
         const confirmationActionFunction = this.props.app.get('confirmationActionFunction')
 
         var children = this.updateChildren(this.props.children, this.props)
-
 
         return (
             <div id='appcomp'>
@@ -349,13 +291,17 @@ class AppComponent extends React.Component {
                     }
                 </div>
 
+<<<<<<< HEAD
 
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> b06ef94... clean code, remove comments
             </div>
 
         )
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     getSubstringUntilNth(str, pattern, n) {
         return str.split(pattern, n).join(pattern)
@@ -448,6 +394,8 @@ class AppComponent extends React.Component {
     //   </div>
     //   :
     // }
+=======
+>>>>>>> b06ef94... clean code, remove comments
 
     getSubstringUntilNth(str, pattern, n) {
         return str.split(pattern, n).join(pattern)
@@ -464,6 +412,7 @@ class AppComponent extends React.Component {
     }
 }
 
+<<<<<<< HEAD
 // {React.cloneElement(this.props.children, { key: segment })}
 // {children}
 // {loginMessage?
@@ -491,6 +440,8 @@ class AppComponent extends React.Component {
 // }
 
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> b06ef94... clean code, remove comments
 
 function mapStateToProps(state) {
     return state
@@ -498,10 +449,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(actions, dispatch) //we dont need to pass dispatch down anymore. actions are now wrapped
+        actions: bindActionCreators(actions, dispatch)
     }
 }
 
-// export default connect(mapStateToProps)(AppComponent);
 export default connect(mapStateToProps, mapDispatchToProps)(AppComponent)
-// export default AppComponent;

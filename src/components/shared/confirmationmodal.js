@@ -1,12 +1,9 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import 'jquery'
-import $ from 'jquery'
-
-import {IndexLink, Link} from 'react-router'
 
 if (process.env.BROWSER) {
-    // console.log('Appcomponent. environment is browser')
     require('./confirmationmodal.scss')
+<<<<<<< HEAD
 <<<<<<< HEAD
     // $(document).ready(function() { 
 =======
@@ -49,6 +46,10 @@ if (process.env.BROWSER) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+}
+
+>>>>>>> b06ef94... clean code, remove comments
 export default class ConfirmationModal extends Component {
 
     render() {
@@ -119,17 +120,16 @@ export default class ConfirmationModal extends Component {
     handleCancel(event) {
         event.preventDefault()
         console.log('Cancel')
-        // this.props.actions.needDeleteTrainingConfirmation(false)
         this.props.actions.needActionConfirmation(false)
     }
 
     handleConfirm(event) {
         event.preventDefault()
         console.log('Confirm action')
-        // this.props.actions.deleteEditTrainingDispatcher() //this.props.training
         this.props.actions.callActionConfirmation()
     }
 
+<<<<<<< HEAD
     // handleConfirmationClick(event) {
     //   // console.log('confirmationjs andle request confirmation in progress click')
     //   // var modal = document.getElementById('myModal')
@@ -140,9 +140,7 @@ export default class ConfirmationModal extends Component {
 =======
     // }
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> b06ef94... clean code, remove comments
 }
 
-// Confirmation.propTypes = {
-//   onConfirmationClick: PropTypes.func.isRequired,
-//   errorMessage: PropTypes.string
-// }

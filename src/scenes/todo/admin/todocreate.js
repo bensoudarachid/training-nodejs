@@ -1,13 +1,14 @@
 import React from 'react'
-// import _ from 'lodash'
-
 
 if (process.env.BROWSER) {
     require('./todocreate.scss')
 }
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> b06ef94... clean code, remove comments
 export default class TodoCreate extends React.Component {
 =======
 export default
@@ -24,6 +25,7 @@ export default class TodoCreate extends React.Component {
         }
     }
 
+<<<<<<< HEAD
 
     // renderError() {
     //   if (!this.state.error) {
@@ -46,6 +48,8 @@ export default class TodoCreate extends React.Component {
     //       <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>Create</button>
     //           {this.renderError()}
     // </form>
+=======
+>>>>>>> b06ef94... clean code, remove comments
     render() {
         const errorClass = this.state.error ? 'error' : ''
 
@@ -104,10 +108,7 @@ export default class TodoCreate extends React.Component {
         )
     }
 
-    // {this.renderError()}
-
     handleCreate(event) {
-//    console.log('handle create call')
         event.preventDefault()
 
         const createInput = this.refs.createInput
@@ -122,15 +123,13 @@ export default class TodoCreate extends React.Component {
                 this.setState({
                     error: null
                 })
-            }.bind(this), (3000)) //1000/100
-
+            }.bind(this), (3000))
             return
         }
 
         this.setState({
             error: null
         })
-        // this.props.createTask(task);
         this.props.actions.createTodo(task)
         this.refs.createInput.value = ''
     }
@@ -138,6 +137,7 @@ export default class TodoCreate extends React.Component {
     validateInput(task) {
         if (!task) {
             return 'Please enter a task.'
+<<<<<<< HEAD
             // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -146,6 +146,8 @@ export default class TodoCreate extends React.Component {
         } else if (this.props.todos.find((todo) =>  todo.get('task') === task)) {
 >>>>>>> 6e3ff02... webstorm big changes crash
 =======
+=======
+>>>>>>> b06ef94... clean code, remove comments
         } else if (this.props.todos.find((todo) => todo.get('task') === task)) {
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
             return 'Task already exists.'

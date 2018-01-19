@@ -1,16 +1,12 @@
 import React from 'react'
 import cookie from 'react-cookie'
-// import actions from '../services/actions'
 import ApiConnection from '../services/apiconnection'
-import $ from 'jquery'
 
 export default class TodoImage extends React.Component {
 
     render() {
         const taskid = this.props.taskid
         const idToken = cookie.load('jwt')
-// 	console.log(this.props)
-//  <p>A little bit about {this.props.params.name}!!I like {this.props.location.query.food}!</p>
         return (
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -33,14 +29,18 @@ export default class TodoImage extends React.Component {
 
     componentDidMount() {
 <<<<<<< HEAD
+<<<<<<< HEAD
         // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
 =======
         // componentHandler.upgradeDom()
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> b06ef94... clean code, remove comments
         this.loadImage()
     }
 
     loadImage() {
+<<<<<<< HEAD
         console.log('++++++++++++++++ todolistitem ++++++ imageload ')
         // const loadImages = this.props.loadimages
 <<<<<<< HEAD
@@ -75,6 +75,9 @@ export default class TodoImage extends React.Component {
 =======
         // }
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+        // console.log('++++++++++++++++ todolistitem ++++++ imageload ')
+>>>>>>> b06ef94... clean code, remove comments
     }
 
 }

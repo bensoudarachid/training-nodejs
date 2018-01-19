@@ -1,6 +1,4 @@
 import React from 'react'
-//import { ThreeBounce } from 'better-react-spinkit'
-import Immutable from 'immutable'
 
 import TrainingListItem from './traininglistitem'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
@@ -21,7 +19,6 @@ export default class TrainingList extends React.Component {
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
     constructor(props) {
         super(props)
-        // console.log('training list. Mixin in constructor')
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
     }
 
@@ -33,6 +30,7 @@ export default class TrainingList extends React.Component {
 >>>>>>> 6e3ff02... webstorm big changes crash
     }
 
+<<<<<<< HEAD
     // getItems() {
     //   if (this.props.trainings) {
     //     return this.props.trainings.filter(
@@ -49,14 +47,13 @@ export default class TrainingList extends React.Component {
     //   return Immutable.List([])
     // }
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
     renderItems() {
         var items = this.props.trainings
-        // const props = _.omit(this.props, 'trainings');
-        // console.log('training list. render items. Size = '+items.size)
 
         return items.map(
             (training, index) => {
-                // console.log('training list. index = '+index)
                 return <TrainingListItem ind={index} training={training} actions={this.props.actions}/>
             }
         )
@@ -64,7 +61,6 @@ export default class TrainingList extends React.Component {
 
     render() {
         return (
-            // key={'traininglist'+Math.random()}
             <div className='traininglist'>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -103,7 +99,6 @@ export default class TrainingList extends React.Component {
     }
 
     renderTest() {
-        // console.log('Hi there from List. Props: '+this.props);
         return (
             <span></span>
         )

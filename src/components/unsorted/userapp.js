@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-// import _ from 'lodash'
 
 const users = [
     {
@@ -27,17 +26,12 @@ class UserApp extends Component {
     }
 
     render() {
-        //let test = 'App';
-        //console.log("Hi there from "+test);
-        //  alert("Hi "+test);
         return (
             <div>
                 <h1>Users! mam0174</h1>
             </div>
         )
     }
-
-
 }
 
 export default UserApp

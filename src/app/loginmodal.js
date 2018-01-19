@@ -1,12 +1,10 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import 'jquery'
-import $ from 'jquery'
 import Login from './login'
-import {IndexLink, Link} from 'react-router'
 
 if (process.env.BROWSER) {
-    // console.log('Appcomponent. environment is browser')
     require('./loginmodal.scss')
+<<<<<<< HEAD
 <<<<<<< HEAD
     // $(document).ready(function() { 
 =======
@@ -49,6 +47,10 @@ if (process.env.BROWSER) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+}
+
+>>>>>>> b06ef94... clean code, remove comments
 export default class LoginModal extends Component {
 
     render() {
@@ -103,6 +105,7 @@ export default class LoginModal extends Component {
         )
     }
 
+<<<<<<< HEAD
     renderOld() {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -155,11 +158,14 @@ export default class LoginModal extends Component {
         )
     }
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
     handleClose(event) {
         console.log('loginmodaljs close modal')
         this.props.actions.loginProcessEnd()
     }
 
+<<<<<<< HEAD
     // handleLoginClick(event) {
     //   // console.log('loginjs andle request login in progress click')
     //   // var modal = document.getElementById('myModal')
@@ -170,9 +176,11 @@ export default class LoginModal extends Component {
 =======
     // }
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> b06ef94... clean code, remove comments
 }
 
-// Login.propTypes = {
-//   onLoginClick: PropTypes.func.isRequired,
-//   errorMessage: PropTypes.string
-// }
+
+
+
+

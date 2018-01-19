@@ -1,10 +1,7 @@
 import React from 'react'
-//import { ThreeBounce } from 'better-react-spinkit'
-import Immutable from 'immutable'
 
 import AdminTrainingListItem from './admintraininglistitem'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-//import LogoSpinner from '../../../components/shared/logospinner'
 
 if (process.env.BROWSER) {
     require('./admintraininglist.scss')
@@ -22,7 +19,6 @@ export default class AdminTrainingList extends React.Component {
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
     constructor(props) {
         super(props)
-        // console.log('training list. Mixin in constructor')
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
     }
 
@@ -36,13 +32,10 @@ export default class AdminTrainingList extends React.Component {
 
     renderItems() {
         var items = this.props.trainings
-        // const props = _.omit(this.props, 'trainings');
-        // console.log('training list. render items. Size = '+items.size)
         if (items == undefined)
             return <div/>
         return items.map(
             (training, index) => {
-                // console.log('training list. index = '+index)
                 return <AdminTrainingListItem ind={index} training={training} actions={this.props.actions}/>
             }
         )
@@ -60,7 +53,6 @@ export default class AdminTrainingList extends React.Component {
                           style={{width: '55px', height: '55px'}}></span>
 =======
                 {this.props.trainings == undefined ?
-                    //if i use div instead of span, big parts of the view are not clickable!
                     <span className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap'
                           style={{
                               width: '55px',
@@ -92,4 +84,3 @@ export default class AdminTrainingList extends React.Component {
         )
     }
 }
-

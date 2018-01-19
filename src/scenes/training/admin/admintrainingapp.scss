@@ -1,18 +1,11 @@
 @import '../../../styles/default.scss';
 
-// div{
-//  text-align:center;
-// }
-// table{
-//  float:center;	
-// }
-
 .admintrainingapp {
   width: 100%;
   margin: 0 auto;
-  // background-color:red;
   .commandpanel {
     width: 95%;
+<<<<<<< HEAD
     // margin: 0 auto !important;
 <<<<<<< HEAD
     @media (min-width: 768px) { //768
@@ -20,13 +13,17 @@
     }
     @media (min-width: 992px) { //992
 =======
+=======
+>>>>>>> b06ef94... clean code, remove comments
     @media (min-width: 768px) {
-      //768
       width: 85%;
     }
     @media (min-width: 992px) {
+<<<<<<< HEAD
       //992
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> b06ef94... clean code, remove comments
       width: 65%;
     }
   }
@@ -88,54 +85,37 @@
     position: fixed;
     width: 0.01%;
     height: 30px;
-    // visibility:hidden;
     opacity: 0.5;
-    // background-color: black;
     margin-top: -30px;
     left: 10px;
 >>>>>>> 3c66ff3... Fix some view navigation and Training animation Text margins for a better layout
     @media (min-width: 768px) {
-      //768
       margin-top: -32px;
       left: 10px;
-      // background-color: black;
     }
     @media (min-width: 992px) {
-      //992
       left: 6%;
       margin-top: -40px;
     }
     p {
       white-space: nowrap;
-      // font-family: 'Roboto', Tahoma, sans-serif;
       font-family: $RoyaMainFont;
       font-size: 18px;
       color: white;
       position: relative;
-      // top:85px;
       left: 0px;
       width: 80%;
-      // height:40px;
       opacity: 1;
       text-align: left;
-      // background-color: red;
-      // margin-top:-120px;
       text-transform: uppercase;
       &:first-letter {
         font-size: 140%;
       }
       @media (min-width: 768px) {
-        // margin-top:-200px;
-        // width:60%;
-        // top:100px;
         font-size: 22px;
-        // left:2%;
       }
       @media (min-width: 992px) {
-        // width:60%;
-        // top:160px;
         font-size: 26px;
-        // left:6%;
       }
 
     }

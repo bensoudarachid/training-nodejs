@@ -1,6 +1,5 @@
 import React from 'react'
 import cookie from 'react-cookie'
-// import actions from '../../../services/actions'
 import ApiConnection from '../../../services/apiconnection'
 import $ from 'jquery'
 
@@ -22,32 +21,9 @@ export default class TodoImage extends React.Component {
         }
     }
 
-    // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}
-    //     onLoad={this.handleImageLoaded.bind(this)}
-    //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
-    // <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
-    // {  isUploading && this.state.imageLoaded==undefined?
-    // <div>HALLOOOOO</div>
-    // :<div>weg</div>
-    // }
-
-    // <img id={'todolistitemimg'+taskid} src='./images/0.png' data-src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}
-    //     onLoad={this.handleImageLoaded.bind(this)}
-    //     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
-
     render() {
-        // console.log('todimage. render now')
         const taskid = this.props.taskid
         const isUploading = this.props.isUploading
-//    console.log('todoimage render. isUploading '+isUploading )
-        // console.log('todoimage render. this.state.imageLoaded '+this.state.imageLoaded )
-        // if( isUploading == false){
-        //   const taskid = this.props.taskid
-        //   var elm = $('#imgwrap'+taskid)
-        //   var image=elm.find('.dataimg')
-        //   var img = image[0]
-        //   img.setAttribute('data-src', ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken+'&param='+ Math.floor(Math.random() * 10000))
-        // }
 
         const idToken = cookie.load('jwt')
         return (
@@ -76,20 +52,10 @@ export default class TodoImage extends React.Component {
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
             </div>
         )
-        // return (
-        //     <div className='imgwrapper' id={'imgwrap'+taskid} >
-        //     {  this.state.imageLoaded==undefined?
-        //         <div className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
-        //         :<div/>
-        //     }
-        //         <img id={'todolistitemimg'+taskid} src={ApiConnection.apiurl+'/api/todo/img/'+taskid+'?access_token='+ idToken}
-        //             onLoad={this.handleImageLoaded.bind(this)}
-        //             onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
-        //     </div>
-        // )
     }
 
     componentDidMount() {
+<<<<<<< HEAD
 <<<<<<< HEAD
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
         // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
@@ -125,38 +91,34 @@ export default class TodoImage extends React.Component {
         componentHandler.upgradeAllRegistered()
 >>>>>>> 6e3ff02... webstorm big changes crash
 //    console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate '+this.props.isUploading)   
+=======
+        componentHandler.upgradeDom()
+    }
+
+    componentDidUpdate() {
+        componentHandler.upgradeAllRegistered()
+>>>>>>> b06ef94... clean code, remove comments
 
         const taskid = this.props.taskid
         var elm = $('#imgwrap' + taskid)
-        // var imgbg=elm.find('.imgbg')
         var image = elm.find('.dataimg')
-        // var image=$('#todolistitemimg'+taskid)
         var img = image[0]
-        // var img = document.getElementById('todolistitemimg'+taskid)
-        // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate go into if has attrib data src: '+img.hasAttribute('data-src'))
 
 
-        if (this.props.isUploading == false) {//img is a jquery object img[0] is the dom object
+        if (this.props.isUploading == false) {
             const idToken = cookie.load('jwt')
-            // img[0].removeAttribute('src')
             img.setAttribute('data-src', ApiConnection.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken + '&rdparam=' + Math.floor(Math.random() * 10000))
         }
-        // var imgSpinner=elm.find('.mdl-spinner')
-        if (img.hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
-            // img[0].removeAttribute('src')
+        if (img.hasAttribute('data-src')) {
             var imgSpinner = elm.find('.mdl-spinner')
-            // imgSpinner.remove()
             imgSpinner[0].style.display = 'block'
             img.style.display = 'none'
             img.setAttribute('src', img.getAttribute('data-src'))
             img.removeAttribute('data-src')
-            // console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate setstate to true')
         }
     }
 
-
     handleImageLoaded() {
-        // console.log('todoimage handleImageLoaded ')
         const taskid = this.props.taskid
         var elm = $('#imgwrap' + taskid)
         var imgSpinner = elm.find('.mdl-spinner')
@@ -164,9 +126,6 @@ export default class TodoImage extends React.Component {
         var image = elm.find('.dataimg')
         var img = image[0]
         if (!img.hasAttribute('data-src')) {
-            // this.props.imageLoaded = true
-            // imgSpinner.remove()
-            // console.log('++++++++++++++++ todoimage ++++++ handleImageLoaded set background now' )
             img.style.display = 'block'
             if (img.getAttribute('src') != './images/0.png')
                 img.style.background = 'radial-gradient(circle closest-side at 50% 50%, white 0,  #69F 95%, transparent 100%)'
@@ -176,7 +135,6 @@ export default class TodoImage extends React.Component {
     }
 
     handleImageErrored() {
-        // console.log('todoimage handleImageErrored ')
         const taskid = this.props.taskid
         var elm = $('#imgwrap' + taskid)
         var imgSpinner = elm.find('.mdl-spinner')
@@ -185,51 +143,18 @@ export default class TodoImage extends React.Component {
         imgSpinner[0].style.display = 'none'
         img.setAttribute('src', './images/0.png')
 
-        // this.setState({ imageLoaded: false })
-        // this.props.imageLoaded = false
     }
 
     shouldComponentUpdate(nextProps, nextState) {
 
-        // const isUploading  = this.props.isUploading
         const taskid = this.props.taskid
         var elm = $('#imgwrap' + taskid)
-        // var imgSpinner=elm.find('.mdl-spinner')
         var image = elm.find('.dataimg')
         var img = image[0]
-//    console.log('++++++++++++++++ todoimage ++++++ img.hasAttribute(data-src): '+ img.hasAttribute('data-src')+', id: '+taskid+'  this.props.isUploading: '+ this.props.isUploading)
         if (img.hasAttribute('data-src') || (this.props.isUploading && !img.hasAttribute('data-src'))) {
-            // if (!this.props.isUploading) {
             return true
         }
         return false
     }
-
-    // loadImage(){
-    //   console.log('++++++++++++++++ todolistitem ++++++ imageload ')
-    //   // console.log('++++++++++++++++ todolistitem ++++++ really loading now')
-    //   const taskid = this.props.taskid
-    //   var elm = $('#imgwrap'+taskid)
-    //   // var imgbg=elm.find('.imgbg')
-    //   var img=elm.find('.dataimg')
-    //   // var imgSpinner=elm.find('.mdl-spinner')
-
-    //   if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
-    //     img[0].setAttribute('src', img[0].getAttribute('data-src'))
-    //     img[0].onload = function() {
-    //       img[0].removeAttribute('data-src')
-    //       // imgSpinner.remove()
-    //       this.setState({
-    //         imageLoaded: true
-    //       })
-    //     }.bind(this)
-    //     img[0].onerror = function() {
-    //       img[0].setAttribute('src', './images/0.png')
-    //       this.setState({
-    //         imageLoaded: true
-    //       })
-    //     }.bind(this)
-    //   }
-    // }
 
 }

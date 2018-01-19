@@ -1,18 +1,12 @@
 import TodoCreate from './admin/todocreate'
 import TodosFilter from './admin/todosfilter'
-
-
 import React, {Component} from 'react'
 import TodosList from './admin/todoslist'
-import cookie from 'react-cookie'
-// import _ from 'lodash'
-// import { ThreeBounce } from 'better-react-spinkit'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 var util = require('util')
 
 if (process.env.BROWSER) {
-//  console.log('Appcomponent. environment is browser')
     require('./todoapp.scss')
 }
 
@@ -22,16 +16,10 @@ class TodoApp extends Component {
         super(props)
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
 
-        // if(process.env.BROWSER && !this.props.auth.get('isAuthenticated')){
-        //   console.log('todoapp start login process')
-        //   this.props.actions.loginProcessStart('No access rights!')
-        // }
-        // this.state = {
-        //   error: null
-        // }
 
     }
 
+<<<<<<< HEAD
     componentDidMount() {
         //console.log('todoappjs mounted. Call fetchdata')
         TodoApp.fetchData(this.props.actions)
@@ -43,28 +31,23 @@ class TodoApp extends Component {
     }
 
     //This is a necessary call when component is fetched on server side
+=======
+>>>>>>> b06ef94... clean code, remove comments
     static fetchData(actions, params) {
-//    console.log('Todo list fetch data for hostname='+require('util').inspect(hostname, false, null))
-//    console.log('todoappjs fetchdata'+util.inspect( params, false, null))
         actions.retrieveUserTodosDispatcher()
+    }
+
+    componentDidMount() {
+        TodoApp.fetchData(this.props.actions)
     }
 
     render() {
         const {auth} = this.props
-        const isBrowser = process.env.BROWSER//typeof window !== 'undefined';
+        const isBrowser = process.env.BROWSER
         if (!isBrowser) {
-//      console.log('+++++++++++++++++++++++++Todoapp render. environment is server')
             return <div/>
         }
-        //console.log('+++++++++++++++++++++++++Todoapp render. environment is browser')
-        // const {auth} = this.props
-        // console.log('Render todoapp authenticated ? ' + auth.get('isAuthenticated'))
-        //  alert("Hi "+test);
-        // createTask={this.createTask.bind(this)}
-        //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
-        // deleteTask={this.deleteTask.bind(this)}
 
-        // {auth.get('loginProgress')?
         return (
             <div>
 <<<<<<< HEAD
@@ -94,6 +77,7 @@ class TodoApp extends Component {
         )
     }
 
+<<<<<<< HEAD
     renderOld() {
         const isBrowser = process.env.BROWSER//typeof window !== 'undefined';
         if (!isBrowser) {
@@ -188,8 +172,9 @@ class TodoApp extends Component {
     }
 
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> b06ef94... clean code, remove comments
     handleCreate(event) {
-//    console.log('handle create call')
         event.preventDefault()
 
         const createInput = this.refs.createInput
@@ -206,7 +191,6 @@ class TodoApp extends Component {
         this.setState({
             error: null
         })
-        // this.props.createTask(task);
         this.props.actions.createTodo(task)
         this.refs.createInput.value = ''
     }
@@ -214,9 +198,12 @@ class TodoApp extends Component {
     validateInput(task) {
         if (!task) {
             return 'Please enter a task.'
+<<<<<<< HEAD
             // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> b06ef94... clean code, remove comments
         } else if (this.props.todos.find((todo) => todo.get('task') === task)) {
 =======
         } else if (this.props.todos.find((todo) =>  todo.get('task') === task)) {
@@ -231,32 +218,21 @@ class TodoApp extends Component {
     }
 
     handleFilterOpen(event) {
-        // event.preventDefault();
-        // const filterOpen = this.refs.filterOpen
 
-        const filterOpen = event.target.checked //filterAllInput.value
-        // var filter = undefined
-        // if (filterAllChecked)
-        //   filter = 'all'
-        // console.log('filter todos. Open. Checkbox'+ event.target.checked+', Filter '+filterOpen)
+        const filterOpen = event.target.checked
         this.props.actions.filterTodosOpen(filterOpen)
     }
 
     handleFilterClosed(event) {
-        // event.preventDefault();
-        // const filterOpen = this.refs.filterOpen
 
-        const filterClosed = event.target.checked //filterAllInput.value
-        // var filter = undefined
-        // if (filterAllChecked)
-        //   filter = 'all'
-        // console.log('filter todos. handle toggle all. Checkbox'+ event.target.checked+', Filter '+filterClosed)
+        const filterClosed = event.target.checked
         this.props.actions.filterTodosClosed(filterClosed)
     }
 
     validateInput(task) {
         if (!task) {
             return 'Please enter a task.'
+<<<<<<< HEAD
             // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -265,6 +241,8 @@ class TodoApp extends Component {
         } else if (this.props.todos.find((todo) =>  todo.get('task') === task)) {
 >>>>>>> 6e3ff02... webstorm big changes crash
 =======
+=======
+>>>>>>> b06ef94... clean code, remove comments
         } else if (this.props.todos.find((todo) => todo.get('task') === task)) {
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
             return 'Task already exists.'

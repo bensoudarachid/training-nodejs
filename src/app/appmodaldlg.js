@@ -1,11 +1,9 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import 'jquery'
-import $ from 'jquery'
-import {IndexLink, Link} from 'react-router'
 
 if (process.env.BROWSER) {
-    // console.log('Appcomponent. environment is browser')
     require('./appmodaldlg.scss')
+<<<<<<< HEAD
 <<<<<<< HEAD
     // $(document).ready(function() { 
 =======
@@ -43,15 +41,13 @@ if (process.env.BROWSER) {
 
     // })
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
 }
 
 export default class AppModalDlg extends Component {
 
     render() {
-        // const { errorMessage } = this.props
-        // var myStyle = {fontSize: 100, color: '#FF0000'}
-        // console.log('appmodaldlgjs render')
-        // <span onClick={(event) => this.handleClose(event)} className='close'>×</span>
         return (
             <div id='appmodaldlg'>
                 <div className='modal'>
@@ -102,10 +98,4 @@ export default class AppModalDlg extends Component {
         this.props.actions.appError(undefined)
     }
 
-    // handleLoginClick(event) {
-    //   // console.log('loginjs andle request login in progress click')
-    //   // var modal = document.getElementById('myModal')
-    //   // modal.style.display = 'block'
-    //   this.props.onLoginProcessStartClick('Please login')
-    // }
 }

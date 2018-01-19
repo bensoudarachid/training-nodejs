@@ -1,12 +1,5 @@
 import React from 'react'
-import cookie from 'react-cookie'
-//import Immutable from 'immutable'
-// import { Pulse, FoldingCube, ThreeBounce, FadingCircle } from 'better-react-spinkit'
-// import util from 'util'
-// import FileUploadInput from '../../../components/shared/fileuploadinput'
 import AppImage from '../../../components/shared/appimage'
-// import $ from 'jquery'
-import TrainingImage from '../shared/trainingimage'
 
 if (process.env.BROWSER) {
     require('./admintraininglistitem.scss')
@@ -36,6 +29,7 @@ export default class AdminTrainingListItem extends React.Component {
         require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
 =======
         componentHandler.upgradeDom()
+<<<<<<< HEAD
 >>>>>>> 6e3ff02... webstorm big changes crash
         // this.loadImage()
     }
@@ -58,6 +52,10 @@ export default class AdminTrainingListItem extends React.Component {
     // <span className='glyphicon glyphicon-upload '></span>
     // <img src={'../../../images/Blog-CodingNeutral1.png'} alt='coding'/>
     // isUploading={isUploading}
+=======
+    }
+
+>>>>>>> b06ef94... clean code, remove comments
     render() {
         const title = this.props.training.get('title')
         const secondaryTitle = this.props.training.get('secondaryTitle') ? this.props.training.get('secondaryTitle') : ''
@@ -72,8 +70,6 @@ export default class AdminTrainingListItem extends React.Component {
             dayString = ' day'
         else
             dayString = ' days'
-        // <TrainingImage ref='uploadcomp' trainingid={trainingid} isUploading={isUploading}/>
-        //<AppImage ref='uploadcomp' api='training' imgid={trainingid} isUploading={isUploading}/>
         return (
             <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone'>
                 <div className='mdl-grid mdl-grid--no-spacing blockborder admintrainingslistitem'>
@@ -107,6 +103,7 @@ export default class AdminTrainingListItem extends React.Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored editbutton'
                                     onClick={this.handleEdit.bind(this)}>
                             </button>
@@ -124,6 +121,11 @@ export default class AdminTrainingListItem extends React.Component {
                             <button className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton'
 >>>>>>> 711f559... Javascript request interceptor for header manipulation. Webpack source maps not showing in Devtools. Eliminate source maps on production build. Export 5 colors constants from scss into javascript for the bigcalendar. Add mdl-selectfield in project and use it for bigcalendar. Adapt mdl-selectfield label color. Fix calendar background event and rows background colors. Devtools workspace. Map files to original disk files and edit directly in chrome. Disable autosaving of webpack.config.js in webstorm/Settings/LanguagesFrameworks/Webpack/change file name to something inexistent. Enable auto synchronisation on file disk change in webstorm. better buttons with glyphicons and hover. Adapt app wide uniform round buttons with glyphicons. Change buttons to the new round buttons on admin training list items. Implement a JSON.parse polyfill to automatically transform dates from json to javascript date objects. Bug fix. state Hydratation is not properly JSON date parsed. Need to stringify and parse again.Problem fix. Eveything landing in redux by state hydratation is deeply immutable Lists and Maps due to Immutable.fromJS. But we need a immutable list of simple Javascript events for BigCalendar: We add a new store element for this in trainingappmap: edittrainingevents.
                                     onClick={this.handleEdit.bind(this)}>
+=======
+                            <button
+                                className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton'
+                                onClick={this.handleEdit.bind(this)}>
+>>>>>>> b06ef94... clean code, remove comments
                                 <span className='glyphicon glyphicon-edit'/>
                             </button>
                             <button
@@ -146,15 +148,11 @@ export default class AdminTrainingListItem extends React.Component {
     }
 
     handleEdit(event) {
-//    console.log('Call Schedule for this Training'+this.props.training.get('id'))
         window.routerHistory.push('/admin/trainings/item/' + this.props.training.get('id'))
-        // this.props.actions.appError(undefined)
     }
 
     handleSchedule(event) {
         console.log('Call Edit for this Training' + this.props.training.get('id'))
-        // this.props.actions.appError(undefined)
-        // window.routerHistory.push('/admin/todos')
         window.routerHistory.push('/admin/trainings/item/' + this.props.training.get('id') + '/schedule')
 
     }
@@ -162,19 +160,3 @@ export default class AdminTrainingListItem extends React.Component {
 }
 
 
-// }
-// else
-//   return (
-//     <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
-//       <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'><div className={errorClass}>{error}</div></div>
-//       <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'><div className={loadingClass}>{loadingContent}</div></div>
-//       <form className='pad mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--4-col mdl-cell--5-col-tablet mdl-cell--4-col-phone' onSubmit={this.onSaveClick.bind(this)}>
-//         <div className='mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--4-col-phone' style={titleStyle} onClick={this.handleToggle.bind(this)}><p>{title}</p></div>
-//       </form>
-//       <div className='editsaveblock pad mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
-//         <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items' onClick={this.handleDelete.bind(this)} disabled={disabled}>Delete</button>
-//         <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored editbutton active right-items' onClick={this.onEditClick.bind(this)} disabled={disabled}>Edit</button>
-//       </div>
-//       {uploadBlock}
-//     </div>
-// )

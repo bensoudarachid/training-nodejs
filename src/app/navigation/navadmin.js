@@ -3,20 +3,14 @@ import {IndexLink, Link} from 'react-router'
 import Login from '../login.js'
 import Logout from '../logout.js'
 import {LogoutUser} from '../../services/actions.js'
-// import Bootstrap from '!style!css!../node_modules/bootstrap/dist/css/bootstrap.css'
-// require('!style!css!../node_modules/bootstrap/dist/css/bootstrap.min.css')
-// import { Button } from 'react-bootstrap'
 
-//import 'bootstrap/dist/css/bootstrap.css'
 
 import $ from 'jquery'
 import ApiConnection from '../../services/apiconnection'
-//import 'bootstrap/dist/js/bootstrap.js'
-// import '../styles/default.scss'
 
 if (process.env.BROWSER) {
-    // console.log('Appcomponent. environment is browser')
     require('./nav.scss')
+<<<<<<< HEAD
 //   function sir3allah(event){
 //     var logotitleElm2 = $('#bsnavi h2')
 //     // var rdm = Math.floor(Math.random() * 2) + 1
@@ -78,25 +72,31 @@ if (process.env.BROWSER) {
     //   })
     // })
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
 }
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 //require('./nav.scss')
 <<<<<<< HEAD
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 
 //require('./nav.scss')
 =======
+=======
+>>>>>>> b06ef94... clean code, remove comments
 var datasrc = undefined
 >>>>>>> 79912c6... Fetch Tenant logo and name from back end. right display of tenant name if it s composed of 1 or two parts
 
 class NavAdmin extends Component {
-    constructor(){
+    constructor() {
         super()
         this.handleResize = this.handleResize.bind(this)
     }
 
+<<<<<<< HEAD
     // <div>
 <<<<<<< HEAD
     //    </div>    
@@ -109,10 +109,9 @@ class NavAdmin extends Component {
 //	<Button>Click me!</Button>
 
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
     handleLoginClick(event) {
-        // console.log('loginjs andle request login in progress click')
-        // var modal = document.getElementById('myModal')
-        // modal.style.display = 'block'
         this.props.actions.loginProcessStart('Welcome')
     }
 
@@ -129,18 +128,16 @@ class NavAdmin extends Component {
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         const isAuthenticated = auth.get('isAuthenticated')
 
-        // console.log('nav: isBrowser'+isBrowser)
-        //&& this.props.location.pathname!='/register'
 
         if (process.env.BROWSER)
             datasrc = this.getRightLogoUrl()
         console.log('nav: logo = ' + datasrc)
         var tenantName1 = ''
-        if( this.props.app.get('tenant') )
+        if (this.props.app.get('tenant'))
             tenantName1 = this.props.app.get('tenant').get('name1')
-        console.log('tenantName1='+require('util').inspect(tenantName1, false, null))
+        console.log('tenantName1=' + require('util').inspect(tenantName1, false, null))
         var tenantName2 = ''
-        if( this.props.app.get('tenant') )
+        if (this.props.app.get('tenant'))
             tenantName2 = this.props.app.get('tenant').get('name2')
 
         return (
@@ -246,14 +243,14 @@ class NavAdmin extends Component {
                         <li>
                             <a href='#' onClick={(event) => this.handleLoginClick(event)}>
                                 <span className='glyphicon glyphicon-log-in'></span>
-                                </a>
+                            </a>
                         </li>
                         }
                         {isAuthenticated &&
                         <li>
                             <a href='#' onClick={(event) => this.props.actions.logoutUser()}>
                                 <span className='glyphicon glyphicon-log-out'></span>
-                                </a>
+                            </a>
                         </li>
                         }
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
@@ -262,36 +259,28 @@ class NavAdmin extends Component {
             </nav>
         )
     }
+
     static fetchData(actions, params) {
         console.log('Call Tenant Edit fetch data  <-----------------------------')
-        // console.log('Training edit. get training! param = '+util.inspect( params.id, false, null))
 
-        //The return is necessary. if not the fetching is not resolved properly on the server side!
         return actions.retrieveTenantDispatcher()
-        // return Promise.resolve(actions.retrieveTrainingDispatcher(params.id,hostname))
     }
 
     componentDidUpdate() {
         this.checkTitleMargin()
     }
+
     checkTitleMargin() {
-//        console.log('nav public update. ')
-//         const nav = $('#bsnavi')
-//         console.log('nav=' + nav[0])
-//         const {auth} = this.props
-//         const isFetching = auth.get('isFetching')
-//         if (isFetching)
-//             nav[0].style.border = '5px solid rgba(240, 168, 48, 0.7)'
         var tenantName2 = ''
-        if( this.props.app.get('tenant') )
+        if (this.props.app.get('tenant'))
             tenantName2 = this.props.app.get('tenant').get('name2')
-        console.log('componentDidMount tenantName2='+require('util').inspect(tenantName2, false, null))
-        if( tenantName2 == '' ){
-            $( ".logoblock" ).find( "h2" ).css( "margin-top", "25px" );
-            $( ".logoblock" ).find( "h2" ).css( "margin-left", "10px" );
-        }else{
-            $( ".logoblock" ).find( "h2" ).css( "margin-top", "12px" );
-            $( ".logoblock" ).find( "h2" ).css( "margin-left", "10px" );
+        console.log('componentDidMount tenantName2=' + require('util').inspect(tenantName2, false, null))
+        if (tenantName2 == '') {
+            $(".logoblock").find("h2").css("margin-top", "25px");
+            $(".logoblock").find("h2").css("margin-left", "10px");
+        } else {
+            $(".logoblock").find("h2").css("margin-top", "12px");
+            $(".logoblock").find("h2").css("margin-left", "10px");
         }
 
     }
@@ -310,25 +299,19 @@ class NavAdmin extends Component {
 
     getRightLogoUrl() {
         if (window.matchMedia("(min-width: 992px)").matches) {
-            // $('#starbg-wrapper')[0].style.display = 'none'
             return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 120 + '&height=' + 120
         } else {
-            // $('#starbg-wrapper')[0].style.display = 'none'
             return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 82 + '&height=' + 82
         }
     }
 
     handleResize() {
-        // console.log('Resize now')
-
-        // $('#starbg-wrapper')[0].style.display = 'none'
         const newDatasrc = this.getRightLogoUrl()
         if (newDatasrc != this.datasrc) {
             this.datasrc = newDatasrc
             $('#logo')[0].src = this.datasrc
             this.checkTitleMargin()
         }
-        // $('#starbg-wrapper')[0].style.display = 'block'
     }
 
 }
@@ -339,25 +322,21 @@ class NavAdmin extends Component {
 >>>>>>> 6e3ff02... webstorm big changes crash
 =======
 
+<<<<<<< HEAD
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 // <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 
+=======
+>>>>>>> b06ef94... clean code, remove comments
 export default NavAdmin
-// <div>
 
-//   {!isAuthenticated &&
-// 	  <Login
-// 	  errorMessage={errorMessage}
-// 	  onLoginClick={ creds => dispatch(loginUser(creds)) }
-// 	  />
-//   }
 
-//   {isAuthenticated &&
-//   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
-//   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 //    </div>    
 =======
 //    </div>
 >>>>>>> 6e3ff02... webstorm big changes crash
+=======
+>>>>>>> b06ef94... clean code, remove comments
