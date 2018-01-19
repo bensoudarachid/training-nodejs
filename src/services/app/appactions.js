@@ -56,9 +56,6 @@ let appactions = {
     },
 
     retrieveTenantDispatcher: function () {
-        console.log('Call retrieve Tenant Dispatcher  <-----------------------------')
-        // console.log('training actions. retrieveTrainingDispatcher')
-        // console.log('rootreducer='+require('util').inspect(rootreducer, false, null))
         return (dispatch, getState) => {
             // if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched'))
             //     return

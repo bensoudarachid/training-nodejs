@@ -1,56 +1,7 @@
-// @import "../../node_modules/material-design-lite/src/_color-definitions.scss";
-// $color-primary: "233,149,150";
-// $color-primary-dark: "33,49,50";
-// $color-accent: "233,149,50";
-// $color-primary-contrast:"133,249,50";
-// $color-accent-contrast:"233,49,250";
-
-// @import "_variables.scss";
-
-// $color-primary: "94,173,116"; //green 1 ok
-// $color-primary: "86,186,107";
-
 $color-primary: "133,149,150";
-
 $color-primary-dark: $color-primary;
 $color-accent: $color-primary;
-
 @import "../../node_modules/material-design-lite/src/material-design-lite.scss";
-
-// @import "node_modules/material-design-lite/src/_variables.scss";
-
-// $color-primary: "233,149,150";
-// $color-primary-dark: "33,49,50";
-// $color-accent: "233,149,50";
-// $color-primary-contrast:"133,249,50";
-// $color-accent-contrast:"233,49,250";
-
-// @import "../../node_modules/materialize-css/sass/components/mixins";
-// @import "../../node_modules/materialize-css/sass/components/color";
-
-// Variables;
-// @import "../../node_modules/materialize-css/sass/components/variables";
-
-// Reset
-// @import "../../node_modules/materialize-css/sass/components/normalize";
-
-// components
-// @import "../../node_modules/materialize-css/sass/components/global";
-// @import "materialize-css/sass/components/icons-material-design";
-// @import "materialize-css/sass/components/grid";
-// @import "materialize-css/sass/components/navbar";
-// @import "materialize-css/sass/components/roboto";
-// @import "materialize-css/sass/components/typography";
-// @import "materialize-css/sass/components/cards";
-// @import "materialize-css/sass/components/toast";
-// @import "materialize-css/sass/components/tabs";
-// @import "materialize-css/sass/components/tooltip";
-// @import "../../node_modules/materialize-css/sass/components/buttons";
-// @import "../../node_modules/materialize-css/sass/components/waves";
-// @import "../../node_modules/materialize-css/sass/materialize";
-//@import '../../node_modules/materialize-css/sass/components/_buttons.scss';
-//@import '../../node_modules/materialize-css/sass/components/_waves.scss';
-
 $orangedark: #F07818;
 $orangelight: #F0A830;
 $reddark: #E91818;
@@ -65,8 +16,8 @@ $blacklight: #091414;
 $violet: #ab69c6;
 $blue: #22A7F0;
 $magenta: #17bbb0;
-$pink:#ff6ca8;
-$metallic:#8c9aa9;
+$pink: #ff6ca8;
+$metallic: #8c9aa9;
 
 $roya-blue: rgba(140, 200, 233, 1.0);
 $roya-blue: #6f9;
@@ -82,133 +33,10 @@ $roya-blue: #69F;
 $roya-blue: #61b6f9;
 // $roya-blue:#68c4f7;
 
-// $trim-color-classes: false !default;
-
-// $color-primary: $palette-blue-800 !default;
-// $color-primary-dark: $palette-red-500 !default;
-// $color-accent: $palette-red-500 !default;
-
-// $color-primary: $palette-pink-700 !default;
-// $color-primary-dark: $palette-pink-700 !default;
-// $color-accent: $palette-pink-700 !default;
-// $color-primary-contrast: $palette-pink-700 !default;
-// $color-accent-contrast: $palette-pink-700 !default;
-
-// $backgroundimg:'../images/RoyaLearning9.png';
-
-// @import url('https://fonts.googleapis.com/css?family=Roboto');
-
-// @import url('http://sunmoonsky.us/fonts/fontFiles/arkhip/Arkhip_font.ttf');
-//$RoyaMainFont:'Arkhip';
-// @font-face {
-//   font-family: $RoyaMainFont;
-//   src: url('../styles/Arkhip_font.ttf') format("truetype");
-// }
-
-// @import url('https://fonts.googleapis.com/css?family=Overlock+SC');
-// $RoyaMainFont:'Overlock SC';
-
-// @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
-// $RoyaMainFont:'Rock Salt';
 
 @import url('https://fonts.googleapis.com/css?family=Merienda');
 $RoyaMainFont: 'Merienda', "Comic Sans MS", cursive, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 
-// @import url('https://fonts.googleapis.com/css?family=Federant');
-// $RoyaMainFont:'Federant';
-
-// @import url('https://fonts.googleapis.com/css?family=Finger+Paint');
-// $RoyaMainFont:'Finger Paint';
-
-// @import url('https://fonts.googleapis.com/css?family=Henny+Penny');
-// $RoyaMainFont:'Henny Penny';
-
-// @import url('https://fonts.googleapis.com/css?family=Irish+Grover');
-// $RoyaMainFont:'Irish Grover';
-
-// @import url('https://fonts.googleapis.com/css?family=MedievalSharp');
-// $RoyaMainFont:'MedievalSharp';
-
-// @import url('https://fonts.googleapis.com/css?family=Megrim');
-// $RoyaMainFont:'Megrim';
-
-// @import url('https://fonts.googleapis.com/css?family=Miltonian+Tattoo');
-// $RoyaMainFont:'Miltonian Tattoo';
-
-// @import url('https://fonts.googleapis.com/css?family=Nova+Cut');
-// $RoyaMainFont:'Nova Cut';
-
-// @import url('https://fonts.googleapis.com/css?family=Paprika');
-// $RoyaMainFont:'Paprika';
-
-// @import url('https://fonts.googleapis.com/css?family=Risque');
-// $RoyaMainFont:'Risque';
-
-// @import url('https://fonts.googleapis.com/css?family=Trade+Winds');
-// $RoyaMainFont:'Trade Winds';
-
-// @import url('https://fonts.googleapis.com/css?family=Sofadi+One');
-// $RoyaMainFont:'Sofadi One';
-
-// @import url('https://fonts.googleapis.com/css?family=Unkempt');
-// $RoyaMainFont:'Unkempt';
-
-// @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
-// $RoyaMainFont:'Permanent Marker';
-
-// @import url('https://fonts.googleapis.com/css?family=Marck+Script');
-// $RoyaMainFont:'Marck Script';
-
-// @import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
-// $RoyaMainFont:'Gochi Hand';
-
-// @import url('https://fonts.googleapis.com/css?family=Alex+Brush');
-// $RoyaMainFont:'Alex Brush';
-
-// @import url('https://fonts.googleapis.com/css?family=Allura');
-// $RoyaMainFont:'Allura';
-
-// @import url('https://fonts.googleapis.com/css?family=Calligraffitti');
-// $RoyaMainFont:'Calligraffitti';
-
-// @import url('https://fonts.googleapis.com/css?family=Caveat+Brush');
-// $RoyaMainFont:'Caveat Brush';
-
-// @import url('https://fonts.googleapis.com/css?family=Parisienne');
-// $RoyaMainFont:'Parisienne';
-
-// @import url('https://fonts.googleapis.com/css?family=Merienda+One');
-// $RoyaMainFont:'Merienda One';
-
-// @import url('https://fonts.googleapis.com/css?family=Qwigley');
-// $RoyaMainFont:'Qwigley';
-
-// @import url('https://fonts.googleapis.com/css?family=Tillana');
-// $RoyaMainFont:'Tillana';
-
-// @import url('https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise');
-// $RoyaMainFont:'Waiting for the Sunrise';
-
-// @import url('https://fonts.googleapis.com/css?family=Walter+Turncoat');
-// $RoyaMainFont:'Walter Turncoat';
-
-// @import url('https://fonts.googleapis.com/css?family=Merienda');
-// $RoyaMainFont:'Merienda';
-
-// @import url('https://fonts.googleapis.com/css?family=Lakki+Reddy');
-// $RoyaMainFont:'Lakki Reddy';
-
-// @import url('https://fonts.googleapis.com/css?family=Loved+by+the+King');
-// $RoyaMainFont:'Loved by the King';
-
-// @import url('https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps');
-// $RoyaMainFont:'Bilbo Swash Caps';
-
-// @import url('https://fonts.googleapis.com/css?family=Euphoria+Script');
-// $RoyaMainFont:'Euphoria Script';
-
-// @import url('https://fonts.googleapis.com/css?family=Julee');
-// $RoyaMainFont:'Julee';
 
 @mixin transitionAll($duration) {
   -webkit-transition: all $duration ease-out;
@@ -268,9 +96,7 @@ $RoyaMainFont: 'Merienda', "Comic Sans MS", cursive, "Lucida Sans Unicode", "Luc
   position: relative;
   $steps: $intensity;
 
-  // Ensure the @keyframes are generated at the root level
   @at-root {
-    // We need two different ones
     @for $i from 1 through 2 {
       @keyframes #{$name}-anim-#{$i} {
         @for $i from 0 through $steps/10 {
@@ -318,18 +144,16 @@ $RoyaMainFont: 'Merienda', "Comic Sans MS", cursive, "Lucida Sans Unicode", "Luc
 
   $steps: $intensity;
 
-  // Ensure the @keyframes are generated at the root level
   @at-root {
-    // We need two different ones
     @for $i from 1 through 2 {
       @keyframes #{$name}-anim-#{$i} {
         @for $i from 0 through $steps {
           #{percentage($i*(1/$steps))} {
             clip: rect(
-                random($height)+px,
-                $width+px,
-                random($height)+px,
-                0
+                            random($height)+px,
+                            $width+px,
+                            random($height)+px,
+                            0
             );
           }
         }
@@ -357,12 +181,8 @@ $RoyaMainFont: 'Merienda', "Comic Sans MS", cursive, "Lucida Sans Unicode", "Luc
 }
 
 @mixin svgGlitch($name, $intensity, $fillColor, $background, $fillHighlight1, $fillHighlight2, $width, $height, $top, $left) {
-
   $steps: $intensity;
-
-  // Ensure the @keyframes are generated at the root level
   @at-root {
-    // We need two different ones
     @for $i from 1 through 2 {
       @keyframes #{$name}-anim-#{$i} {
         @for $i from 0 through $steps {
@@ -404,11 +224,11 @@ $RoyaMainFont: 'Merienda', "Comic Sans MS", cursive, "Lucida Sans Unicode", "Luc
   }
 }
 
-$eventcolor0: darken(getMdlColor($color-primary),10%);
-$eventcolor1: lighten($green,10%);
+$eventcolor0: darken(getMdlColor($color-primary), 10%);
+$eventcolor1: lighten($green, 10%);
 $eventcolor2: $bluelight;
-$eventcolor3: lighten($reddark,20%);//#FFAC9C
-$eventcolor4: lighten($orangelight,10%);
+$eventcolor3: lighten($reddark, 20%); //#FFAC9C
+$eventcolor4: lighten($orangelight, 10%);
 
 :export {
   eventcolor0: $eventcolor0;

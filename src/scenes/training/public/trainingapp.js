@@ -260,6 +260,8 @@ class TrainingApp extends Component {
         const textSwitchContainer = $('#textswitch')
         var loop = function () {
             this.isTextSwitchAnimated = true
+            var rdm = 0
+            var lastrdm = 0
             setTimeout(function () {
                 var animFrame = window.requestAnimationFrame ||
                     window.webkitRequestAnimationFrame ||

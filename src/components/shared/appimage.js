@@ -59,7 +59,7 @@ export default class AppImage extends React.Component {
         if (imgid != undefined)
             datasrc += 'img/' + imgid
         datasrc += '?width=' + width + '&height=' + height + '' + idTokenParam
-        console.log('app image datasrc=' + require('util').inspect(datasrc, false, null))
+//        console.log('app image datasrc=' + require('util').inspect(datasrc, false, null))
         return (
 <<<<<<< HEAD
 <<<<<<< HEAD

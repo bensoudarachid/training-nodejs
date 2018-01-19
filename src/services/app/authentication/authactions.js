@@ -78,7 +78,6 @@ let authactions = {
             actions.logoutService(cookie.load('jwt'))
                 .then(response => {
                     if (!response.ok) {
-                        console.log('actions request logout not ok')
                         return Promise.reject()
                     } else {
                         dispatch(authactions.receiveLogout())
@@ -87,7 +86,11 @@ let authactions = {
                 }).catch(err => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 console.log('authactionsjs. Unhandled Login Error: ', err)
+=======
+                    console.log('authactionsjs. Unhandled Login Error: ', err)
+>>>>>>> f886b1f... clean code, remove console logs
             })
 =======
                     console.log('authactionsjs. Unhandled Login Error: ', err)
@@ -126,7 +129,6 @@ let authactions = {
             actions.loginUserService(creds)
                 .then(({user, response}) => {
                     if (!response.ok) {
-                        console.log('++++++++++++++++authactions. login not ok')
                         dispatch(authactions.loginError(user.error_description))
                         return Promise.reject(user)
                     } else {
@@ -135,10 +137,13 @@ let authactions = {
                 }).catch(err => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 console.log('++++++++++++++++++++++++++authactionsjs. Unhandled Login Error: ', err.error_description)
+=======
+                    console.log('authactionsjs. Unhandled Login Error: ', err.error_description)
+>>>>>>> f886b1f... clean code, remove console logs
 
                 if (err.error_description == undefined) {
-                    console.log('Auth actions, Response: ' + util.inspect(err, false, null))
                     return
                 }
                 if (!err.error_description.includes('JDBCConnectionException'))
@@ -253,14 +258,11 @@ let authactions = {
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     ({status, data}) => {
                         var error = data.error
-                        console.log('Auth actions, Response: ' + util.inspect(data, false, null))
                         if (status >= 400 && error != undefined) {
-                            console.log('Status looks bad. ' + status + '. error message = ' + error.message)
                             dispatch(actions.registerSystemError(error.message))
                         } else if (error) {
                             dispatch(actions.registerUserError(error))
                         } else {
-                            console.log('Status looks good ')
                             console.log(data)
                             dispatch(actions.receiveRegister(data))
 <<<<<<< HEAD
