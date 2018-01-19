@@ -78,14 +78,13 @@ let authactions = {
             actions.logoutService(cookie.load('jwt'))
                 .then(response => {
                     if (!response.ok) {
-                        console.log('actions request logout not ok')
                         return Promise.reject()
                     } else {
                         dispatch(authactions.receiveLogout())
                         window.routerHistory.push('/')
                     }
                 }).catch(err => {
-                console.log('authactionsjs. Unhandled Login Error: ', err)
+                    console.log('authactionsjs. Unhandled Login Error: ', err)
             })
         }
     },
@@ -116,17 +115,15 @@ let authactions = {
             actions.loginUserService(creds)
                 .then(({user, response}) => {
                     if (!response.ok) {
-                        console.log('++++++++++++++++authactions. login not ok')
                         dispatch(authactions.loginError(user.error_description))
                         return Promise.reject(user)
                     } else {
                         dispatch(authactions.receiveLogin(user))
                     }
                 }).catch(err => {
-                console.log('++++++++++++++++++++++++++authactionsjs. Unhandled Login Error: ', err.error_description)
+                    console.log('authactionsjs. Unhandled Login Error: ', err.error_description)
 
                 if (err.error_description == undefined) {
-                    console.log('Auth actions, Response: ' + util.inspect(err, false, null))
                     return
                 }
                 if (!err.error_description.includes('JDBCConnectionException'))
@@ -211,14 +208,11 @@ let authactions = {
                 .then(
                     ({status, data}) => {
                         var error = data.error
-                        console.log('Auth actions, Response: ' + util.inspect(data, false, null))
                         if (status >= 400 && error != undefined) {
-                            console.log('Status looks bad. ' + status + '. error message = ' + error.message)
                             dispatch(actions.registerSystemError(error.message))
                         } else if (error) {
                             dispatch(actions.registerUserError(error))
                         } else {
-                            console.log('Status looks good ')
                             console.log(data)
                             dispatch(actions.receiveRegister(data))
                         }

@@ -26,7 +26,7 @@ class NavPublic extends Component {
     }
 
     handleLoginClick(event) {
-        console.log('loginjs andle request login in progress click')
+  //      console.log('loginjs andle request login in progress click')
         this.props.actions.loginProcessStart('Welcome')
     }
 
@@ -35,18 +35,18 @@ class NavPublic extends Component {
         const {auth} = this.props
         const isAuthenticated = auth.get('isAuthenticated')
         const isFetching = auth.get('isFetching')
-        console.log('nav render: isfetching=' + require('util').inspect(isFetching, false, null))
+//        console.log('nav render: isfetching=' + require('util').inspect(isFetching, false, null))
         const authenticatingAnim = 'flash'
         const togglefetchingclass = 'navbar-toggle' + (isFetching ? ' ' + authenticatingAnim + ' animated toggloginfetch' : '')
-        console.log('nav render: isfetching=' + require('util').inspect(togglefetchingclass, false, null))
+//        console.log('nav render: isfetching=' + require('util').inspect(togglefetchingclass, false, null))
 
         if (process.env.BROWSER)
             datasrc = this.getRightLogoUrl()
-        console.log('nav: logo = ' + datasrc)
+//        console.log('nav: logo = ' + datasrc)
         var tenantName1 = ''
         if (this.props.app.get('tenant'))
             tenantName1 = this.props.app.get('tenant').get('name1')
-        console.log('tenantName1=' + require('util').inspect(tenantName1, false, null))
+//        console.log('tenantName1=' + require('util').inspect(tenantName1, false, null))
         var tenantName2 = ''
         if (this.props.app.get('tenant'))
             tenantName2 = this.props.app.get('tenant').get('name2')
