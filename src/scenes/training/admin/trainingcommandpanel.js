@@ -1,5 +1,4 @@
 import React from 'react'
-// import _ from 'lodash'
 
 if (process.env.BROWSER) {
     require('./trainingcommandpanel.scss')
@@ -24,15 +23,6 @@ export default class TrainingCommandPanel extends React.Component {
         }}>{this.state.error}</div>
     }
 
-    // renderOld() {
-    //   return (
-    //     <form onSubmit={this.handleCreate.bind(this)}>
-    //           <input type="text" placeholder="What do I need to do?" ref="searchInput" />
-    //               <button>Create</button>
-    //               {this.renderError()}
-    //       </form>
-    //     )
-    // }
     render() {
         const errorClass = this.state.error ? 'error' : ''
 
@@ -76,40 +66,14 @@ export default class TrainingCommandPanel extends React.Component {
         console.log('handle search call')
         event.preventDefault()
 
-        // const searchInput = this.refs.searchInput
-        // const title = searchInput.value
-        // const validateInput = this.validateInput(title)
-        // if (validateInput) {
-        //   this.setState({
-        //     error: validateInput
-        //   })
-        //   return
-        // }
 
-        // this.setState({
-        //   error: null
-        // })
-        // // this.props.createTask(title);
-        // this.props.actions.createTraining(title)
-        // this.refs.searchInput.value = ''
     }
 
     handleNew(event) {
         console.log('handle New call')
         event.preventDefault()
         this.props.actions.newTraining()
-        // window.routerHistory.push('trainings/item/new')
     }
 
-    // validateInput(title) {
-    //   if (!title) {
-    //     return 'Please enter a title.'
-    //   // } else if (_.find(this.props.trainings, (training) => training.get('title') === title)) {
-    //   } else if (this.props.trainings.find((training) =>  training.get('title') === title) ){
-    //     return 'Title already exists.'
-    //   } else {
-    //     return null
-    //   }
-    // }
 
 }

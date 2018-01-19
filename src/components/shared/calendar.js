@@ -2,10 +2,6 @@ import React from 'react'
 import 'jquery'
 import $ from 'jquery'
 
-// import '../../../node_modules/fullcalendar/dist/fullcalendar.js'
-import fullCalendar from 'fullcalendar'
-
-
 if (process.env.BROWSER) {
     console.log('Calendar. environment is browser')
     require('../../../node_modules/fullcalendar/dist/fullcalendar.css')
@@ -24,7 +20,6 @@ export default class FullCalendarEdit extends React.Component {
         componentHandler.upgradeDom()
         const {calendar} = this.refs
         $(calendar).fullCalendar({
-
             theme: false,
             timezone: 'local',
             defaultView: 'agendaWeek',
@@ -32,13 +27,10 @@ export default class FullCalendarEdit extends React.Component {
             navLinks: false,
             editable: true,
             eventLimit: true,
-            // allDaySlot: false,
             scrollTime: '09:00:00',
             minTime: '08:00:00',
             maxTime: '22:00:00',
-            // defaultdate: dateFormat(Date(),"yyyy-mm-dd"),
             contentHeight: 'auto',
-
             events: this.props.events,
         })
 

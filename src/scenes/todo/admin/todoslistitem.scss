@@ -23,24 +23,15 @@
     }
   }
   p {
-    // background-color: pink !important;
     margin-top: 6px;
     margin-bottom: 6px;
     margin-left: 6px;
   }
   img {
-    // background-color: red;
-    // background:radial-gradient(circle closest-side at 50% 50%, lighten(white,100%) 0,  lighten($roya-blue,15%) 95%, transparent 100%);
-    // margin-top:-10px;
     margin-left: -126px;
-    // right:100px
     width: 50px;
     height: 50px;
-    // margin-bottom:-30px;
     position: absolute;
-    // @media (min-width: 992px) {
-    // 	right:16.4%;
-    // }
   }
   .spinner {
     margin-top: 12px;
@@ -52,38 +43,13 @@
 
   .imgwrapper {
     margin-top: -8px;
-    // margin-right:78px;
     float: right;
     right: 95px;
-    // background-color: $reddark;
-    // margin-bottom:-30px;
-    // position:absolute;
     @media (min-width: 480px) {
       right: 110px;
     }
-    // @media (min-width: 840px) {
-    // 	right:17%;
-    // }
   }
 
-  // .error{
-  // 	margin: 2px 0 0 auto !important;
-  // 	// margin: auto !important;
-  // 	// padding:6px 0;
-  // 	z-index:10;
-  // 	left:15%;
-  // 	width:70%;
-  // 	height:30px;
-  // 	color: white;
-  // 	// margin: 0 auto;
-  // 	position:absolute;
-  // 	// justify-content: center;
-  // 	background-color: $reddark;
-  // 	border: 3px solid rgba(black,0.1);
-  // 	-webkit-border-radius: 25px;
-  // 	-moz-border-radius: 25px;
-  // 	border-radius: 25px;
-  // }
 }
 
 .center-items {
@@ -100,32 +66,16 @@
 
 .loading {
   margin: 0px auto !important;
-  // margin: auto !important;
-  // padding:6px 0;
   z-index: 10;
   left: 35%;
   width: 30%;
   height: 30px;
-  // color: white;
-  // margin: 0 auto;
   position: absolute;
-  // justify-content: center;
-  // background-color: lighten($roya-blue,20);
-  // border: 5px solid rgba(lighten($roya-blue,0.9),0.1);
-  // -webkit-border-radius: 25px;
-  // -moz-border-radius: 25px;
-  // border-radius: 25px;
 }
 
 .loadingbar {
-  // margin: 2px auto !important;
   z-index: 20;
   left: 0%;
   width: 100%;
   position: absolute;
-  // background-color: lighten($roya-blue,20);
-  // border: 5px solid rgba(lighten($roya-blue,0.9),0.1);
-  // -webkit-border-radius: 25px;
-  // -moz-border-radius: 25px;
-  // border-radius: 25px;
 }

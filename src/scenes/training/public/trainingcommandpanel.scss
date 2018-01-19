@@ -1,45 +1,32 @@
 @import '../../../styles/default.scss';
 
 #trainingcommandpanel {
-  // margin: -10px;
-  // padding: -10px;
-
-  // margin-top:-10px !important;
 
   width: 100%;
   margin: 5px auto;
   @media (min-width: 768px) {
-    //768
     width: 80%;
   }
   @media (min-width: 992px) {
-    //992
     width: 70%;
   }
 
   .tf {
     margin: -14px -10px -40px -40px;
     width: 100%;
-    // padding: 0;
   }
   button {
     margin: 0px;
   }
 
   .error {
-    // margin: 2px 0 0 auto !important;
-    // margin: auto !important;
-    // padding:6px 0;
     z-index: 10;
     left: 15%;
     width: 70%;
     height: 30px;
     color: white;
-    // margin: 0 auto;
     position: absolute;
-    // justify-content: center;
     background-color: $reddark;
-    // background-color: yellow ;
     border: 3px solid rgba(black, 0.1);
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;

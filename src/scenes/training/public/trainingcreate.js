@@ -1,5 +1,4 @@
 import React from 'react'
-// import _ from 'lodash'
 
 if (process.env.BROWSER) {
     require('./trainingcreate.scss')
@@ -24,15 +23,6 @@ export default class TrainingCreate extends React.Component {
         }}>{this.state.error}</div>
     }
 
-    // renderOld() {
-    //   return (
-    //     <form onSubmit={this.handleCreate.bind(this)}>
-    //           <input type="text" placeholder="What do I need to do?" ref="createInput" />
-    //               <button>Create</button>
-    //               {this.renderError()}
-    //       </form>
-    //     )
-    // }
     render() {
         const errorClass = this.state.error ? 'error' : ''
 
@@ -63,7 +53,6 @@ export default class TrainingCreate extends React.Component {
     }
 
     handleCreate(event) {
-//    console.log('handle create call')
         event.preventDefault()
 
         const createInput = this.refs.createInput
@@ -79,7 +68,6 @@ export default class TrainingCreate extends React.Component {
         this.setState({
             error: null
         })
-        // this.props.createTask(title);
         this.props.actions.createTraining(title)
         this.refs.createInput.value = ''
     }
@@ -87,7 +75,6 @@ export default class TrainingCreate extends React.Component {
     validateInput(title) {
         if (!title) {
             return 'Please enter a title.'
-            // } else if (_.find(this.props.trainings, (training) => training.get('title') === title)) {
         } else if (this.props.trainings.find((training) => training.get('title') === title)) {
             return 'Title already exists.'
         } else {

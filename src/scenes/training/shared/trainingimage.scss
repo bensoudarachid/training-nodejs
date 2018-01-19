@@ -2,27 +2,20 @@
 
 .imgwrapper {
   position: relative;
-  // background-color:yellow;
   img {
     position: position;
     width: 100%;
     height: 100%;
-    // background-color:red;
   }
   .spinnerwrap {
     position: absolute;
-    // background-color:yellow;
-    // left:15%;
     left: 25%;
     top: 15%;
     width: 50% !important;
     height: 50% !important;
   }
   .spinner {
-    // position:position;
-    // left:15%;
     width: 100%;
     height: 100%;
-    // background-color:blue;
   }
 }	

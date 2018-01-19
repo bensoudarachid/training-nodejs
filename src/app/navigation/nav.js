@@ -74,33 +74,13 @@ if (process.env.BROWSER) {
         })
     })
 
-    // $(document).ready(function() {
-    //   $('body').click(function(event) {
-    //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called
-    //     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
-    //       $('.navbar-collapse').collapse('toggle')
-    //     }
-    //   })
-    // })
-
 }
-
-//require('./nav.scss')
 
 
 class Nav extends Component {
-    // <div>
-    //    </div>
-    // {this.props.location.pathname!='/register' &&
-//     	<Link activeClassName='active' to='/register'>Register</Link>
-// }
-//	<Button>Click me!</Button>
 
 
     handleLoginClick(event) {
-        // console.log('loginjs andle request login in progress click')
-        // var modal = document.getElementById('myModal')
-        // modal.style.display = 'block'
         this.props.actions.loginProcessStart('Welcome to Roya')
     }
 
@@ -108,13 +88,7 @@ class Nav extends Component {
         const isBrowser = typeof window !== 'undefined'
         const {auth} = this.props
         const isAuthenticated = auth.get('isAuthenticated')
-        // console.log('navjs is authenticated '+isAuthenticated)
-
-        // console.log('nav: authority = '+auth.get('authority'))
-        // console.log('nav: isBrowser'+isBrowser)
-        //&& this.props.location.pathname!='/register'
         if (auth.get('authority') == 'admin') {
-            // console.log('nav: admin? authority = '+auth.get('authority'))
             return (
                 <NavAdmin
                     actions={this.props.actions}
@@ -123,7 +97,6 @@ class Nav extends Component {
                 />
             )
         } else if (auth.get('authority') == 'user') {
-            // console.log('nav: user? authority = '+auth.get('authority'))
             return (
                 <NavUser
                     actions={this.props.actions}
@@ -145,58 +118,5 @@ class Nav extends Component {
 }
 
 
-// <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
 
 export default Nav
-// <div>
-
-//   {!isAuthenticated &&
-// 	  <Login
-// 	  errorMessage={errorMessage}
-// 	  onLoginClick={ creds => dispatch(loginUser(creds)) }
-// 	  />
-//   }
-
-//   {isAuthenticated &&
-//   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
-//   }
-
-//    </div>
-
-
-//     <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
-//     <ul className='navbar-header logoblock'>
-//     <li><img id='logo' src={'./images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/></li>
-//     <li>
-//       <div>
-//       <h2>Roya</h2>
-//       <h3>Software</h3>
-//       </div>
-//     </li>
-//     <li>
-//       <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
-//         <span className="icon-bar"></span>
-//         <span className="icon-bar"></span>
-//         <span className="icon-bar"></span>
-//       </button>
-//     </li>   
-//   </ul>
-//     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-//       <ul className="nav navbar-nav navbar-left">
-//       <li><IndexLink activeClassName='active' to='/'>Home</IndexLink></li>
-//       <li><Link activeClassName='active' to='/todos'>Todos</Link></li>
-//       <li><Link activeClassName='active' to='/trainings'>Training</Link></li>
-//       </ul>
-//       <ul className="nav navbar-nav navbar-right">
-//       <li><Link activeClassName='active' to='/register'>Register</Link></li>
-// {isBrowser && !isAuthenticated &&
-//   <li><a href='#' onClick={(event) => this.handleLoginClick(event)}><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
-// }
-// {isAuthenticated &&
-//   <li>
-//   <a href='#' onClick={(event) => this.props.actions.logoutUser()}><span className='glyphicon glyphicon-log-out'></span> Logout</a>
-//   </li>
-// }     
-//       </ul>
-//     </div>
-//   </nav>

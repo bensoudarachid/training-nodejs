@@ -5,15 +5,10 @@
   float: left;
   padding-left: 10px;
   .file_input {
-    // float: left;
-    // display: inline;
     .justify {
-      // background-color: $color-primary;//darken($roya-blue,30%);
       padding-top: 7px;
-      // height:40px;
-      // width:40px;
     }
-    .image_input_button{
+    .image_input_button {
       &:hover {
         color: $roya-blue !important;
         background-color: white;
@@ -34,7 +29,6 @@
     margin-top: 10px;
     margin-left: 10px;
     min-width: 100px;
-    // background-color: lighten($roya-blue,25%);
     position: absolute;
   }
 
