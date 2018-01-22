@@ -3,7 +3,7 @@
 /*
  *  waterpipe.js - v1.0
  *  jQuery plugin. Smoky backgrounds generator
- *  http://www.dragdropsite.com
+ *  http:
  *
  *  Made by dragdropsite.com
  *
@@ -15,7 +15,7 @@
 (function ($, window, document, undefined) {
     var pluginName = 'waterpipe',
         defaults = {
-        //Smoke
+
         gradientStart: '#000000',
         gradientEnd: '#222222',
         smokeOpacity: 0.1,
@@ -27,7 +27,7 @@
         drawsPerFrame: 10,
         lineWidth: 2,
         speed: 1,
-        //Background
+
         bgColorInner: '#ffffff',
         bgColorOuter: '#666666'
     };
@@ -65,7 +65,6 @@
             this.displayCanvas[0].height = this.displayHeight;
             this.context = this.displayCanvas[0].getContext('2d');
 
-            //off screen canvas used only when exporting image
             this.exportCanvas = document.createElement('canvas');
             this.exportCanvas.width = this.displayWidth;
             this.exportCanvas.height = this.displayHeight;
@@ -117,7 +116,6 @@
                 maxR = this.settings.minMaxRad + Math.random() * (this.settings.maxMaxRad - this.settings.minMaxRad);
                 minR = this.settings.minRadFactor * maxR;
 
-                //define gradient
                 grad = this.context.createRadialGradient(0, 0, minR, 0, 0, maxR);
                 var gradientStart = this.hexToRGBA(this.settings.gradientStart, this.settings.smokeOpacity),
                     gradientEnd = this.hexToRGBA(this.settings.gradientEnd, this.settings.smokeOpacity);
@@ -130,12 +128,12 @@
                     centerY: this.displayHeight / 2 - 50,
                     maxRad: maxR,
                     minRad: minR,
-                    color: grad, //can set a gradient or solid color here.
-                    //fillColor: "rgba(0,0,0,1)",
+                    color: grad,
+
                     param: 0,
                     changeSpeed: 1 / 250,
-                    phase: Math.random() * TWO_PI, //the phase to use for a single fractal curve.
-                    globalPhase: Math.random() * TWO_PI //the curve as a whole will rise and fall by a sinusoid.
+                    phase: Math.random() * TWO_PI,
+                    globalPhase: Math.random() * TWO_PI
                 };
                 this.circles.push(newCircle);
                 newCircle.pointList1 = this.setLinePoints(this.settings.iterations);
@@ -150,11 +148,10 @@
             var x0, y0;
             var cosParam;
 
-            var xSqueeze = 0.75; //cheap 3D effect by shortening in x direction.
+            var xSqueeze = 0.75;
 
             var yOffset;
 
-            //draw circles
             for (j = 0; j < this.settings.drawsPerFrame; j++) {
 
                 this.drawCount++;
@@ -172,32 +169,27 @@
 
                     this.context.strokeStyle = c.color;
                     this.context.lineWidth = this.settings.lineWidth;
-                    //context.fillStyle = c.fillColor;
+
                     this.context.beginPath();
                     point1 = c.pointList1.first;
                     point2 = c.pointList2.first;
 
-                    //slowly rotate
                     c.phase += 0.0002;
 
                     var theta = c.phase;
                     rad = c.minRad + (point1.y + cosParam * (point2.y - point1.y)) * (c.maxRad - c.minRad);
 
-                    //move center
                     c.centerX += 0.5;
                     c.centerY += 0.04;
                     yOffset = 40 * Math.sin(c.globalPhase + this.drawCount / 1000 * TWO_PI);
-                    //stop when off screen
+
                     if (c.centerX > this.displayWidth + this.settings.maxMaxRad) {
                         clearInterval(timer);
                         timer = null;
                     }
 
-                    //we are drawing in new position by applying a transform. We are doing this so the gradient will move with the drawing.
                     this.context.setTransform(xSqueeze, 0, 0, 1, c.centerX, c.centerY + yOffset);
 
-                    //Drawing the curve involves stepping through a linked list of points defined by a fractal subdivision process.
-                    //It is like drawing a circle, except with varying radius.
                     x0 = xSqueeze * rad * Math.cos(theta);
                     y0 = rad * Math.sin(theta);
                     this.context.lineTo(x0, y0);
@@ -212,7 +204,6 @@
                     }
                     this.context.closePath();
                     this.context.stroke();
-                    //context.fill();       
                 }
             }
         },
@@ -240,16 +231,14 @@
                     newY = 0.5 * (point.y + nextPoint.y);
                     newY += dx * (Math.random() * 2 - 1);
 
-                    var newPoint = { x: newX, y: newY
+                    var newPoint = { x: newX, y: newY };
 
-                        //min, max
-                    };if (newY < minY) {
+                    if (newY < minY) {
                         minY = newY;
                     } else if (newY > maxY) {
                         maxY = newY;
                     }
 
-                    //put between points
                     newPoint.next = nextPoint;
                     point.next = newPoint;
 
@@ -257,7 +246,6 @@
                 }
             }
 
-            //normalize to values between 0 and 1
             if (maxY != minY) {
                 var normalizeRate = 1 / (maxY - minY);
                 point = pointList.first;
@@ -265,15 +253,13 @@
                     point.y = normalizeRate * (point.y - minY);
                     point = point.next;
                 }
-            }
-            //unlikely that max = min, but could happen if using zero iterations. In this case, set all points equal to 1.
-            else {
-                    point = pointList.first;
-                    while (point != null) {
-                        point.y = 1;
-                        point = point.next;
-                    }
+            } else {
+                point = pointList.first;
+                while (point != null) {
+                    point.y = 1;
+                    point = point.next;
                 }
+            }
 
             return pointList;
         },
@@ -291,16 +277,15 @@
         },
         download: function download(width, height) {
             this.exportContext.drawImage(this.displayCanvas[0], 0, 0, width, height, 0, 0, width, height);
-            //we will open a new window with the image contained within:        
-            //retrieve canvas image as data URL:
+
             var dataURL = this.exportCanvas.toDataURL('image/png');
-            //open a new window of appropriate size to hold the image:
+
             var imageWindow = window.open('', 'fractalLineImage', 'left=0,top=0,width=' + width + ',height=' + height + ',toolbar=0,resizable=0');
-            //write some html into the new window, creating an empty image:
+
             imageWindow.document.write('<title>Export Image</title>');
             imageWindow.document.write('<img id=\'exportImage\'' + ' alt=\'\'' + ' height=\'' + height + '\'' + ' width=\'' + width + '\'' + ' style=\'position:absolute;left:0;top:0\'/>');
             imageWindow.document.close();
-            //copy the image into the empty img in the newly opened window:
+
             var exportImage = imageWindow.document.getElementById('exportImage');
             exportImage.src = dataURL;
         }
@@ -329,20 +314,20 @@
                 var i = 0;
                 var found = false;
                 var len = this.colorStops.length;
-                //search for proper place to put stop in order.
+
                 while (!found && i < len) {
                     found = ratio <= this.colorStops[i].ratio;
                     if (!found) {
                         i++;
                     }
                 }
-                //add stop - remove next one if duplicate ratio
+
                 if (!found) {
-                    //place at end
+
                     this.colorStops.push(newStop);
                 } else {
                     if (ratio == this.colorStops[i].ratio) {
-                        //replace
+
                         this.colorStops.splice(i, 1, newStop);
                     } else {
                         this.colorStops.splice(i, 0, newStop);
@@ -394,7 +379,6 @@
         var rConst1 = 2 * this.rad0 * (this.rad1 - this.rad0);
         var r0Square = this.rad0 * this.rad0;
 
-        //first complete color stops with 0 and 1 ratios if not already present
         if (this.colorStops[0].ratio != 0) {
             var newStop = {
                 ratio: 0,
@@ -414,7 +398,6 @@
             this.colorStops.push(newStop);
         }
 
-        //create float valued gradient
         for (var i = 0; i < len / 4; i++) {
 
             x = rectX0 + i % rectW;
@@ -435,7 +418,6 @@
                     ratio = 1;
                 }
 
-                //find out what two stops this is between
                 if (ratio == 1) {
                     stopNumber = this.colorStops.length - 1;
                 } else {
@@ -449,7 +431,6 @@
                     }
                 }
 
-                //calculate color.
                 r0 = this.colorStops[stopNumber - 1].r;
                 g0 = this.colorStops[stopNumber - 1].g;
                 b0 = this.colorStops[stopNumber - 1].b;
@@ -469,13 +450,11 @@
                 b = b0;
             }
 
-            //set color as float values in buffer arrays
             rBuffer.push(r);
             gBuffer.push(g);
             bBuffer.push(b);
         }
 
-        //While converting floats to integer valued color values, apply Floyd-Steinberg dither.
         for (i = 0; i < len / 4; i++) {
             nearestValue = ~~rBuffer[i];
             quantError = rBuffer[i] - nearestValue;
@@ -499,7 +478,6 @@
             bBuffer[i + 1 + rectW] += 1 / 16 * quantError;
         }
 
-        //copy to pixel data
         for (i = 0; i < len; i += 4) {
             q = i / 4;
             pixelData[i] = ~~rBuffer[q];
@@ -511,8 +489,6 @@
         ctx.putImageData(image, rectX0, rectY0);
     };
 
-    // A really lightweight plugin wrapper around the constructor,
-    // preventing against multiple instantiations
     $.fn[pluginName] = function (options) {
         this.each(function () {
             if (!$.data(this, pluginName)) {
@@ -520,7 +496,6 @@
             }
         });
 
-        // chain jQuery functions
         return this;
     };
 })(jQuery, window, document);

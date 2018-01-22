@@ -16,8 +16,6 @@ var _admintrainingapp2 = _interopRequireDefault(_admintrainingapp);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import TrainingEdit from '../../scenes/training/admin/trainingedit'
-
 var trainingRoutes = _react2.default.createElement(
     _reactRouter.Route,
     { path: 'trainings', getChildRoutes: function getChildRoutes(location, cb) {
@@ -26,13 +24,5 @@ var trainingRoutes = _react2.default.createElement(
         } },
     _react2.default.createElement(_reactRouter.IndexRoute, { component: _admintrainingapp2.default })
 );
-// const trainingRoutes = {
-//   path: 'item/:id',
-//   component: TrainingEdit
-// } 
 
 exports.default = trainingRoutes;
-// <Route path="trainings">
-//   <IndexRoute component={TrainingApp}/>
-//   <Route path="item/:id" component={TrainingEdit} />
-// </Route>

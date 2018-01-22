@@ -50,6 +50,7 @@
     text-align: center;
     margin-left: -120px;
     margin-bottom: -8px;
+    //width: 580px;
     li {
       list-style: none;
       float: left;
@@ -57,9 +58,9 @@
         width: 82px;
         height: 82px;
         margin: 10px 0px 10px 0px;
-        @include transitionAll(.3s);
+        //@include transitionAll(.3s);
       }
-      @include transitionAll(.3s);
+      //@include transitionAll(.3s);
     }
     h2 {
       font-family: $RoyaMainFont;
@@ -71,9 +72,10 @@
       &:first-letter {
         font-size: 140%;
       }
-      @include transitionAll(.3s);
+      //@include transitionAll(.3s);
     }
     h3 {
+      width: 155px;
       font-family: $RoyaMainFont;
       letter-spacing: 0px;
       color: darken($roya-blue, 30%);
@@ -85,7 +87,7 @@
       &:first-letter {
         font-size: 140%;
       }
-      @include transitionAll(.3s);
+      //@include transitionAll(.3s);
     }
 
     button {
@@ -203,19 +205,21 @@
       margin: auto 10px;
       padding: 0;
       overflow: hidden;
+      .logocontainer{
+        width: 86px;
+      }
       li {
         list-style: none;
         float: left;
         img {
+          //width: 8px;
+          //height: 86px;
           margin-top: 14px;
           margin-left: 0px;
-
         }
-        @include transitionAll(.3s);
       }
       h2 {
         margin-top: 14px;
-        @include transitionAll(.3s);
       }
 
     }
@@ -275,18 +279,19 @@
       margin-left: 2%;
       margin-top: 20px;
       margin-right: 20px;
+      .logocontainer{
+        width: 140px;
+      }
+
       li {
         img {
           width: 120px;
           height: 120px;
           margin-top: 0px;
           margin-left: 6px;
-
-          @include transitionAll(.3s);
         }
         list-style: none;
         float: left;
-        @include transitionAll(.3s);
       }
       h2 {
         font-size: 2.5em;
@@ -294,15 +299,13 @@
         margin-top: 20px;
         margin-bottom: 1px;
         padding: 0;
-        @include transitionAll(.3s);
       }
 
       h3 {
+        width: 180px;
         font-size: 2.0em;
         margin: -26px 0 0 0;
         padding: 14px 2px 60px 2px;
-
-        @include transitionAll(.3s);
       }
 
     }

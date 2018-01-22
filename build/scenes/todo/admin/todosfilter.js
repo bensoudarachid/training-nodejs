@@ -18,8 +18,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import _ from 'lodash'
-
 if (process.env.BROWSER) {
     require('./todosfilter.scss');
 }
@@ -31,22 +29,11 @@ var TodosFilter = function (_React$Component) {
         _classCallCheck(this, TodosFilter);
 
         return _possibleConstructorReturn(this, (TodosFilter.__proto__ || Object.getPrototypeOf(TodosFilter)).call(this, props));
-
-        // this.state = {
-        //   error: null
-        // };
     }
-
-    // <div className='mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--2-col-phone'><p>open</p></div>
-    // <div className='mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--2-col-phone'><p>closed</p></div>
-
-    //defaultChecked={this.props.filterTodos!==undefined}
-
 
     _createClass(TodosFilter, [{
         key: 'render',
         value: function render() {
-            // console.log('filter todos. filter = '+this.props.filterTodos)
             return _react2.default.createElement(
                 'div',
                 {
@@ -95,7 +82,6 @@ var TodosFilter = function (_React$Component) {
     }, {
         key: 'renderOld',
         value: function renderOld() {
-            // console.log('filter todos. filter = '+this.props.filterTodos)
             return _react2.default.createElement(
                 'div',
                 { id: 'todosfilter' },
@@ -120,26 +106,16 @@ var TodosFilter = function (_React$Component) {
     }, {
         key: 'handleFilterOpen',
         value: function handleFilterOpen(event) {
-            // event.preventDefault();
-            // const filterOpen = this.refs.filterOpen
 
-            var filterOpen = event.target.checked; //filterAllInput.value
-            // var filter = undefined
-            // if (filterAllChecked)
-            //   filter = 'all'
+            var filterOpen = event.target.checked;
             console.log('filter todos. Open. Checkbox' + event.target.checked + ', Filter ' + filterOpen);
             this.props.actions.filterTodosOpen(filterOpen);
         }
     }, {
         key: 'handleFilterClosed',
         value: function handleFilterClosed(event) {
-            // event.preventDefault();
-            // const filterOpen = this.refs.filterOpen
 
-            var filterClosed = event.target.checked; //filterAllInput.value
-            // var filter = undefined
-            // if (filterAllChecked)
-            //   filter = 'all'
+            var filterClosed = event.target.checked;
             console.log('filter todos. Closed. Checkbox' + event.target.checked + ', Filter ' + filterClosed);
             this.props.actions.filterTodosClosed(filterClosed);
         }
@@ -148,7 +124,6 @@ var TodosFilter = function (_React$Component) {
         value: function validateInput(task) {
             if (!task) {
                 return 'Please enter a task.';
-                // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
             } else if (this.props.todos.find(function (todo) {
                 return todo.get('task') === task;
             })) {

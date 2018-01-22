@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+        value: true
 });
 
 var _react = require('react');
@@ -12,18 +12,6 @@ var _reactRouter = require('react-router');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import TodoApp from '../../scenes/todo/todoapp'
-
-var todoRoutes =
-// <Route path="todos" component={TodoApp} />
-_react2.default.createElement(_reactRouter.Route, { path: 'todos', component: require('../../scenes/todo/todoapp').default });
-// const trainingRoutes = {
-//   path: 'item/:id',
-//   component: TrainingEdit
-// } 
+var todoRoutes = _react2.default.createElement(_reactRouter.Route, { path: 'todos', component: require('../../scenes/todo/todoapp').default });
 
 exports.default = todoRoutes;
-// <Route path="trainings">
-//   <IndexRoute component={TrainingApp}/>
-//   <Route path="item/:id" component={TrainingEdit} />
-// </Route>

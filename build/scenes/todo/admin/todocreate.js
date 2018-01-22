@@ -18,9 +18,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import _ from 'lodash'
-
-
 if (process.env.BROWSER) {
     require('./todocreate.scss');
 }
@@ -38,25 +35,6 @@ var TodoCreate = function (_React$Component) {
         };
         return _this;
     }
-
-    // renderError() {
-    //   if (!this.state.error) {
-    //     return null
-    //   }
-
-    //   return <div style={{
-    //     color: 'red'
-    //   }}>{this.state.error}</div>
-    // }
-    // <form onSubmit={this.handleCreate.bind(this)}>
-    //       <div className='mdl-textfield tf mdl-js-textfield'>
-    //         <input className='mdl-textfield__input' type='text' ref="createInput" id='createInput'/>
-    //         <label className='mdl-textfield__label' htmlFor='createInput'>New todo...</label>
-    //       </div>
-    //       <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>Create</button>
-    //           {this.renderError()}
-    // </form>
-
 
     _createClass(TodoCreate, [{
         key: 'render',
@@ -108,13 +86,9 @@ var TodoCreate = function (_React$Component) {
                 )
             );
         }
-
-        // {this.renderError()}
-
     }, {
         key: 'handleCreate',
         value: function handleCreate(event) {
-            //    console.log('handle create call')
             event.preventDefault();
 
             var createInput = this.refs.createInput;
@@ -129,15 +103,13 @@ var TodoCreate = function (_React$Component) {
                     this.setState({
                         error: null
                     });
-                }.bind(this), 3000); //1000/100
-
+                }.bind(this), 3000);
                 return;
             }
 
             this.setState({
                 error: null
             });
-            // this.props.createTask(task);
             this.props.actions.createTodo(task);
             this.refs.createInput.value = '';
         }
@@ -146,7 +118,6 @@ var TodoCreate = function (_React$Component) {
         value: function validateInput(task) {
             if (!task) {
                 return 'Please enter a task.';
-                // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
             } else if (this.props.todos.find(function (todo) {
                 return todo.get('task') === task;
             })) {

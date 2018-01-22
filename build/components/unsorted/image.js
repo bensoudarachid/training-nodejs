@@ -18,10 +18,6 @@ var _apiconnection = require('../services/apiconnection');
 
 var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29,8 +25,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import actions from '../services/actions'
-
 
 var TodoImage = function (_React$Component) {
     _inherits(TodoImage, _React$Component);
@@ -46,8 +40,6 @@ var TodoImage = function (_React$Component) {
         value: function render() {
             var taskid = this.props.taskid;
             var idToken = _reactCookie2.default.load('jwt');
-            // 	console.log(this.props)
-            //  <p>A little bit about {this.props.params.name}!!I like {this.props.location.query.food}!</p>
             return _react2.default.createElement(
                 'div',
                 { className: 'imgwrap', id: 'imgwrap' + taskid },
@@ -59,34 +51,12 @@ var TodoImage = function (_React$Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            // componentHandler.upgradeDom()
             this.loadImage();
         }
     }, {
         key: 'loadImage',
         value: function loadImage() {
-            console.log('++++++++++++++++ todolistitem ++++++ imageload ');
-            // const loadImages = this.props.loadimages
-            // if( !loadImages)
-            //   return
-            // console.log('++++++++++++++++ todolistitem ++++++ really loading now')
-            // const taskid = this.props.get('taskid')
-            // var elm = $('#imgwrap'+taskid)
-            // // var imgbg=elm.find('.imgbg')
-            // var img=elm.find('.dataimg')
-            // // var imgSpinner=elm.find('.mdl-spinner')
-
-            // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
-            //   img[0].setAttribute('src', img[0].getAttribute('data-src'))
-            //   img[0].onload = function() {
-            //     img[0].removeAttribute('data-src')
-            //     // imgSpinner.remove()
-            //     this.setState({
-            //       imageLoaded: true
-            //     })
-
-            //   }.bind(this)
-            // }
+            // console.log('++++++++++++++++ todolistitem ++++++ imageload ')
         }
     }]);
 

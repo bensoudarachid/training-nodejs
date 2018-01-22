@@ -10,10 +10,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _immutable = require('immutable');
-
-var _immutable2 = _interopRequireDefault(_immutable);
-
 var _admintraininglistitem = require('./admintraininglistitem');
 
 var _admintraininglistitem2 = _interopRequireDefault(_admintraininglistitem);
@@ -29,10 +25,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-//import { ThreeBounce } from 'better-react-spinkit'
-
-
-//import LogoSpinner from '../../../components/shared/logospinner'
 
 if (process.env.BROWSER) {
     require('./admintraininglist.scss');
@@ -44,7 +36,6 @@ var AdminTrainingList = function (_React$Component) {
     function AdminTrainingList(props) {
         _classCallCheck(this, AdminTrainingList);
 
-        // console.log('training list. Mixin in constructor')
         var _this = _possibleConstructorReturn(this, (AdminTrainingList.__proto__ || Object.getPrototypeOf(AdminTrainingList)).call(this, props));
 
         _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
@@ -62,11 +53,8 @@ var AdminTrainingList = function (_React$Component) {
             var _this2 = this;
 
             var items = this.props.trainings;
-            // const props = _.omit(this.props, 'trainings');
-            // console.log('training list. render items. Size = '+items.size)
             if (items == undefined) return _react2.default.createElement('div', null);
             return items.map(function (training, index) {
-                // console.log('training list. index = '+index)
                 return _react2.default.createElement(_admintraininglistitem2.default, { ind: index, training: training, actions: _this2.props.actions });
             });
         }
@@ -77,9 +65,7 @@ var AdminTrainingList = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'admintrainingslist' },
-                this.props.trainings == undefined ?
-                //if i use div instead of span, big parts of the view are not clickable!
-                _react2.default.createElement('span', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap',
+                this.props.trainings == undefined ? _react2.default.createElement('span', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap',
                     style: {
                         width: '55px',
                         height: '55px'

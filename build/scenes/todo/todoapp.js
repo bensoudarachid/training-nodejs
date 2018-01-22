@@ -22,10 +22,6 @@ var _todoslist = require('./admin/todoslist');
 
 var _todoslist2 = _interopRequireDefault(_todoslist);
 
-var _reactCookie = require('react-cookie');
-
-var _reactCookie2 = _interopRequireDefault(_reactCookie);
-
 var _reactAddonsPureRenderMixin = require('react-addons-pure-render-mixin');
 
 var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
@@ -37,14 +33,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import _ from 'lodash'
-// import { ThreeBounce } from 'better-react-spinkit'
-
 
 var util = require('util');
 
 if (process.env.BROWSER) {
-    //  console.log('Appcomponent. environment is browser')
     require('./todoapp.scss');
 }
 
@@ -58,46 +50,24 @@ var TodoApp = function (_Component) {
 
         _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
 
-        // if(process.env.BROWSER && !this.props.auth.get('isAuthenticated')){
-        //   console.log('todoapp start login process')
-        //   this.props.actions.loginProcessStart('No access rights!')
-        // }
-        // this.state = {
-        //   error: null
-        // }
-
         return _this;
     }
 
     _createClass(TodoApp, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            //console.log('todoappjs mounted. Call fetchdata')
             TodoApp.fetchData(this.props.actions);
-            // componentHandler.upgradeDom()
         }
-
-        //This is a necessary call when component is fetched on server side
-
     }, {
         key: 'render',
         value: function render() {
             var auth = this.props.auth;
 
-            var isBrowser = process.env.BROWSER; //typeof window !== 'undefined';
+            var isBrowser = process.env.BROWSER;
             if (!isBrowser) {
-                //      console.log('+++++++++++++++++++++++++Todoapp render. environment is server')
                 return _react2.default.createElement('div', null);
             }
-            //console.log('+++++++++++++++++++++++++Todoapp render. environment is browser')
-            // const {auth} = this.props
-            // console.log('Render todoapp authenticated ? ' + auth.get('isAuthenticated'))
-            //  alert("Hi "+test);
-            // createTask={this.createTask.bind(this)}
-            //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
-            // deleteTask={this.deleteTask.bind(this)}
 
-            // {auth.get('loginProgress')?
             return _react2.default.createElement(
                 'div',
                 null,
@@ -128,50 +98,8 @@ var TodoApp = function (_Component) {
             );
         }
     }, {
-        key: 'renderOld',
-        value: function renderOld() {
-            var isBrowser = process.env.BROWSER; //typeof window !== 'undefined';
-            if (!isBrowser) {
-                // console.log('+++++++++++++++++++++++++Todoapp. environment is server')
-                return _react2.default.createElement('div', null);
-            }
-            // console.log('+++++++++++++++++++++++++Todoapp. environment is browser')
-            var auth = this.props.auth;
-            // console.log('Render todoapp authenticated ? ' + auth.get('isAuthenticated'))
-            //  alert("Hi "+test);
-            // createTask={this.createTask.bind(this)}
-            //            <CreateTodo todos={this.props.todos} dispatch={this.props.dispatch} actions={this.props.actions}/>
-            // deleteTask={this.deleteTask.bind(this)}
-
-            return _react2.default.createElement(
-                'div',
-                { id: 'todoapp' },
-                !auth.get('isAuthenticated') && _react2.default.createElement(
-                    'div',
-                    null,
-                    'No right access here. Please login'
-                ),
-                auth.get('isAuthenticated') && _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'mdl-grid mdl-grid--no-spacing blockborder parampanel' },
-                        _react2.default.createElement(_todosfilter2.default, { filteropen: this.props.todoappmap.get('filterOpen'),
-                            filterclosed: this.props.todoappmap.get('filterClosed'),
-                            actions: this.props.actions }),
-                        _react2.default.createElement(_todocreate2.default, { todos: this.props.todoappmap.get('todos'), actions: this.props.actions })
-                    ),
-                    _react2.default.createElement(_todoslist2.default, { todos: this.props.todoappmap.get('todos'),
-                        filteropen: this.props.todoappmap.get('filterOpen'),
-                        filterclosed: this.props.todoappmap.get('filterClosed'), actions: this.props.actions })
-                )
-            );
-        }
-    }, {
         key: 'handleCreate',
         value: function handleCreate(event) {
-            //    console.log('handle create call')
             event.preventDefault();
 
             var createInput = this.refs.createInput;
@@ -188,7 +116,6 @@ var TodoApp = function (_Component) {
             this.setState({
                 error: null
             });
-            // this.props.createTask(task);
             this.props.actions.createTodo(task);
             this.refs.createInput.value = '';
         }
@@ -197,7 +124,6 @@ var TodoApp = function (_Component) {
         value: function validateInput(task) {
             if (!task) {
                 return 'Please enter a task.';
-                // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
             } else if (this.props.todos.find(function (todo) {
                 return todo.get('task') === task;
             })) {
@@ -209,27 +135,15 @@ var TodoApp = function (_Component) {
     }, {
         key: 'handleFilterOpen',
         value: function handleFilterOpen(event) {
-            // event.preventDefault();
-            // const filterOpen = this.refs.filterOpen
 
-            var filterOpen = event.target.checked; //filterAllInput.value
-            // var filter = undefined
-            // if (filterAllChecked)
-            //   filter = 'all'
-            // console.log('filter todos. Open. Checkbox'+ event.target.checked+', Filter '+filterOpen)
+            var filterOpen = event.target.checked;
             this.props.actions.filterTodosOpen(filterOpen);
         }
     }, {
         key: 'handleFilterClosed',
         value: function handleFilterClosed(event) {
-            // event.preventDefault();
-            // const filterOpen = this.refs.filterOpen
 
-            var filterClosed = event.target.checked; //filterAllInput.value
-            // var filter = undefined
-            // if (filterAllChecked)
-            //   filter = 'all'
-            // console.log('filter todos. handle toggle all. Checkbox'+ event.target.checked+', Filter '+filterClosed)
+            var filterClosed = event.target.checked;
             this.props.actions.filterTodosClosed(filterClosed);
         }
     }, {
@@ -237,7 +151,6 @@ var TodoApp = function (_Component) {
         value: function validateInput(task) {
             if (!task) {
                 return 'Please enter a task.';
-                // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
             } else if (this.props.todos.find(function (todo) {
                 return todo.get('task') === task;
             })) {
@@ -264,8 +177,6 @@ var TodoApp = function (_Component) {
     }], [{
         key: 'fetchData',
         value: function fetchData(actions, params) {
-            //    console.log('Todo list fetch data for hostname='+require('util').inspect(hostname, false, null))
-            //    console.log('todoappjs fetchdata'+util.inspect( params, false, null))
             actions.retrieveUserTodosDispatcher();
         }
     }]);

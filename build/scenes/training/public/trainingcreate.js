@@ -18,8 +18,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import _ from 'lodash'
-
 if (process.env.BROWSER) {
     require('./trainingcreate.scss');
 }
@@ -53,17 +51,6 @@ var TrainingCreate = function (_React$Component) {
                 this.state.error
             );
         }
-
-        // renderOld() {
-        //   return (
-        //     <form onSubmit={this.handleCreate.bind(this)}>
-        //           <input type="text" placeholder="What do I need to do?" ref="createInput" />
-        //               <button>Create</button>
-        //               {this.renderError()}
-        //       </form>
-        //     )
-        // }
-
     }, {
         key: 'render',
         value: function render() {
@@ -117,7 +104,6 @@ var TrainingCreate = function (_React$Component) {
     }, {
         key: 'handleCreate',
         value: function handleCreate(event) {
-            //    console.log('handle create call')
             event.preventDefault();
 
             var createInput = this.refs.createInput;
@@ -133,7 +119,6 @@ var TrainingCreate = function (_React$Component) {
             this.setState({
                 error: null
             });
-            // this.props.createTask(title);
             this.props.actions.createTraining(title);
             this.refs.createInput.value = '';
         }
@@ -142,7 +127,6 @@ var TrainingCreate = function (_React$Component) {
         value: function validateInput(title) {
             if (!title) {
                 return 'Please enter a title.';
-                // } else if (_.find(this.props.trainings, (training) => training.get('title') === title)) {
             } else if (this.props.trainings.find(function (training) {
                 return training.get('title') === title;
             })) {

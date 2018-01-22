@@ -13,6 +13,7 @@ var styles = undefined;
 if (process.env.BROWSER) {
     styles = require('./nav.scss')
 <<<<<<< HEAD
+<<<<<<< HEAD
 //   function sir3allah(event){
 //     var logotitleElm2 = $('#bsnavi h2')
 //     // var rdm = Math.floor(Math.random() * 2) + 1
@@ -74,6 +75,8 @@ if (process.env.BROWSER) {
 >>>>>>> b06ef94... clean code, remove comments
 
 
+=======
+>>>>>>> e791b46... One single navigation component with changing navigation links depending on user role
 }
 <<<<<<< HEAD
 =======
@@ -111,7 +114,6 @@ class NavPublic extends Component {
     }
 
     handleLoginClick(event) {
-  //      console.log('loginjs andle request login in progress click')
         this.props.actions.loginProcessStart('Welcome')
     }
 
@@ -128,23 +130,17 @@ class NavPublic extends Component {
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         const isAuthenticated = auth.get('isAuthenticated')
         const isFetching = auth.get('isFetching')
-//        console.log('nav render: isfetching=' + require('util').inspect(isFetching, false, null))
         const authenticatingAnim = 'flash'
         const togglefetchingclass = 'navbar-toggle' + (isFetching ? ' ' + authenticatingAnim + ' animated toggloginfetch' : '')
-//        console.log('nav render: isfetching=' + require('util').inspect(togglefetchingclass, false, null))
-
-        if (process.env.BROWSER)
-            datasrc = this.getRightLogoUrl()
-//        console.log('nav: logo = ' + datasrc)
         var tenantName1 = ''
         if (this.props.app.get('tenant'))
             tenantName1 = this.props.app.get('tenant').get('name1')
-//        console.log('tenantName1=' + require('util').inspect(tenantName1, false, null))
         var tenantName2 = ''
         if (this.props.app.get('tenant'))
             tenantName2 = this.props.app.get('tenant').get('name2')
 
         return (
+<<<<<<< HEAD
             <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
                 <ul className='navbar-header logoblock'>
 <<<<<<< HEAD
@@ -184,6 +180,8 @@ class NavPublic extends Component {
                         </button>
                     </li>
                 </ul>
+=======
+>>>>>>> e791b46... One single navigation component with changing navigation links depending on user role
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul className="nav navbar-nav navbar-left">
 <<<<<<< HEAD
@@ -243,7 +241,6 @@ class NavPublic extends Component {
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     </ul>
                 </div>
-            </nav>
         )
     }
 
@@ -251,31 +248,6 @@ class NavPublic extends Component {
         console.log('Call Tenant Edit fetch data  <-----------------------------')
 
         return actions.retrieveTenantDispatcher()
-    }
-
-    componentDidUpdate() {
-        this.checkTitleMargin()
-        const nav = $('#bsnavi')
-        console.log('nav=' + nav[0])
-        const {auth} = this.props
-        const isFetching = auth.get('isFetching')
-        if (isFetching)
-            nav[0].style.border = '5px solid rgba(240, 168, 48, 0.7)'
-    }
-
-    checkTitleMargin() {
-        var tenantName2 = ''
-        if (this.props.app.get('tenant'))
-            tenantName2 = this.props.app.get('tenant').get('name2')
-        console.log('componentDidMount tenantName2=' + require('util').inspect(tenantName2, false, null))
-        if (tenantName2 == '') {
-            $(".logoblock").find("h2").css("margin-top", "25px");
-            $(".logoblock").find("h2").css("margin-left", "10px");
-        } else {
-            $(".logoblock").find("h2").css("margin-top", "12px");
-            $(".logoblock").find("h2").css("margin-left", "10px");
-        }
-
     }
 
     componentDidMount() {
@@ -291,13 +263,6 @@ class NavPublic extends Component {
         window.removeEventListener('resize', this.handleResize)
     }
 
-    getRightLogoUrl() {
-        if (window.matchMedia("(min-width: 992px)").matches) {
-            return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 120 + '&height=' + 120
-        } else {
-            return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 82 + '&height=' + 82
-        }
-    }
     handleResize() {
 
         const newDatasrc = this.getRightLogoUrl()
@@ -336,6 +301,7 @@ class NavPublic extends Component {
 =======
 >>>>>>> b06ef94... clean code, remove comments
 export default NavPublic
+<<<<<<< HEAD
 
 
 
@@ -347,3 +313,5 @@ export default NavPublic
 >>>>>>> 6e3ff02... webstorm big changes crash
 =======
 >>>>>>> b06ef94... clean code, remove comments
+=======
+>>>>>>> e791b46... One single navigation component with changing navigation links depending on user role

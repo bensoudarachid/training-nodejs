@@ -42,25 +42,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import $ from 'jquery'
-
-// import '../../../node_modules/fullcalendar/dist/fullcalendar.js'
-// import 'fullcalendar'
-
-
 var DragAndDropCalendar = (0, _dragAndDrop2.default)(_reactBigCalendar2.default);
 
 _reactBigCalendar2.default.setLocalizer(_reactBigCalendar2.default.momentLocalizer(_moment2.default));
 var styles = undefined;
 
 if (process.env.BROWSER) {
-    //    console.log('Calendar. environment is browser')
-    // require('../../../node_modules/fullcalendar/dist/fullcalendar.css')
     require('react-big-calendar/lib/css/react-big-calendar.css');
     require('react-big-calendar/lib/addons/dragAndDrop/styles.css');
     styles = require('./bigcalendaredit.scss');
 }
-// <div className='calendar' ref='calendar'/>
 
 var MyCustomHeader = _react2.default.createClass({
     displayName: 'MyCustomHeader',
@@ -79,21 +70,15 @@ var MyCustomHeader = _react2.default.createClass({
     }
 });
 
-// const colors = ['red','black','yellow','magenta','orange']
-
 var BigCalendarEdit = function (_React$Component) {
     _inherits(BigCalendarEdit, _React$Component);
 
-    // export default class Calendar extends React.Component {
     function BigCalendarEdit(props) {
         _classCallCheck(this, BigCalendarEdit);
-
-        // console.log('constructor '+require('util').inspect(this.props.events.toIndexedSeq().toArray(), false, null))
 
         var _this = _possibleConstructorReturn(this, (BigCalendarEdit.__proto__ || Object.getPrototypeOf(BigCalendarEdit)).call(this, props));
 
         _this.state = {
-            // localevents: props.events,
             selectedEvent: undefined
         };
         _this.moveEvent = _this.moveEvent.bind(_this);
@@ -111,88 +96,23 @@ var BigCalendarEdit = function (_React$Component) {
                 'Hi'
             );
         }
-
-        // <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--7-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
-
-        //     <div className='mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--7-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
-        //       <form className='pad mdl-grid mdl-cell mdl-cell--7-col mdl-cell--5-col-tablet mdl-cell--4-col-phone' onSubmit={this.onSaveClick.bind(this)}>
-        //         <div className='mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
-        //             <div className='mdl-textfield tf mdl-js-textfield'>
-        //               <input className='mdl-textfield__input' type='text' defaultValue={title} name={'eventInput'+index} ref='eventInput' id={'eventInput'+index}/>
-        //               <label className='mdl-textfield__label' htmlFor={'eventInput'+index}>Event...</label>
-        //             </div>
-        //         </div>
-        //       </form>
-        //       <div className='editsaveblock pad mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone'>
-        //         <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items' onClick={this.onCancelClick.bind(this)} disabled={disabled}>Cancel</button>
-        //         <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored savebutton right-items' onClick={this.onSaveClick.bind(this)} disabled={disabled}>Save</button>
-        //       </div>
-        //     </div>
-
-        // </div>
-
     }, {
         key: 'render',
         value: function render() {
-            // console.log('## ## ## BigCalendarEdit render '+require('util').inspect(this.props.trainingappmap.get('edittraining').get('events'), false, null))
-            // let events = Immutable.List([
-            //     // Immutable.Map({
-            //     //     'id': 151, 'number': 1, 'start': '2001-01-01T11:00:00.000Z', 'end': '2001-01-01T14:30:00.000Z', 'version': 4
-            //     // }),
-            //     Immutable.Map({
-            //         'number': 3,
-            //         // 'title': 'React 2',
-            //         // 'date': Date.now(),
-            //         'start': new Date(2001, 0, 3, 10, 30, 0, 0),
-            //         'end': new Date(2001, 0, 3, 14, 0, 0, 0)
-            //         // 'allDay': true
-            //     })
-            // ])
-            // events=events.toJS()
 
-            var events = this.props.trainingappmap.get('edittrainingevents'); //.get('events')
-            // console.log('render '+require('util').inspect(events, false, null))
-            //        if( styles ) {
-            //            console.log('calendar render. +++ +++ +++ styles.color=' + require('util').inspect(styles.eventcolor1, false, null))
-            //            console.log('11. calendar render. +++ +++ +++ styles.color=' + require('util').inspect(styles['eventcolor1'], false, null))
-            //        }
+            var events = this.props.trainingappmap.get('edittrainingevents');
 
-            // const title = this.state.event.title
-            // const id = this.state.event.get('id')
-            // const index = this.state.event.id
-
-            // let today = moment()
-            // let am8 = today.set('hour', 8).set('minutes', 0).toDate()
-            // let pm8 = today.set('hour', 21).set('minutes', 0).toDate()
             var trainingTitle = this.props.trainingappmap.get('edittraining') ? this.props.trainingappmap.get('edittraining').get('title') : '';
 
-            // console.log('training.get(title)='+require('util').inspect(training.get('title'), false, null))
-
             var selEvent = this.state.selectedEvent;
-            // console.log('selEvent='+require('util').inspect(selEvent, false, null))
             var eventTitle = selEvent == undefined ? 'Nothing' : selEvent.title;
-            // console.log('eventTitle=' + require('util').inspect(eventTitle, false, null))
             var eventId = selEvent == undefined ? 'Nothing' : selEvent.id;
             var startDate = selEvent == undefined ? 'Nothing' : selEvent.start;
             var endDate = selEvent == undefined ? 'Nothing' : selEvent.end;
             var hours = 0;
             if (startDate && endDate) hours = Math.abs(endDate - startDate) / 36e5;
 
-            //        console.log('hours='+require('util').inspect(hours, false, null))
-
             var disabled = false;
-
-            //     <div
-            // className='buttonblock pad mdl-cell mdl-cell--10-col mdl-cell--7-col-tablet mdl-cell--3-col-phone'>
-            //     <button
-            // className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored right-items'
-            // onClick={this.onCancelClick.bind(this)} disabled={disabled}>Cancel
-            //     </button>
-            //     <button
-            // className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored savebutton right-items'
-            // onClick={this.onSaveClick.bind(this)} disabled={disabled}>Save
-            //     </button>
-            //     </div>
 
             return _react2.default.createElement(
                 'div',
@@ -237,7 +157,8 @@ var BigCalendarEdit = function (_React$Component) {
                                     className: 'mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label duration' },
                                 _react2.default.createElement(
                                     'select',
-                                    { className: 'mdl-selectfield__select', id: 'duration', name: 'duration', value: hours > 0 ? hours : undefined,
+                                    { className: 'mdl-selectfield__select', id: 'duration', name: 'duration',
+                                        value: hours > 0 ? hours : undefined,
                                         onChange: this.onDurationSelect.bind(this) },
                                     _react2.default.createElement(
                                         'option',
@@ -431,19 +352,10 @@ var BigCalendarEdit = function (_React$Component) {
                 _react2.default.createElement(DragAndDropCalendar, {
                     selectable: true,
                     defaultDate: new Date(2001, 0, 7, 12, 30, 0, 0),
-                    events: events //{this.props.trainingappmap.get('edittraining').get('events')} //{this.state.localevents}
-                    // min={am8}
-                    // max={pm8}
-                    , min: new Date(2001, 0, 7, 8, 0, 0, 0),
-                    max: new Date(2001, 0, 7, 22, 0, 0, 0)
-                    // min={moment().startOf('day').toDate()}
-                    // max={moment().endOf('day').toDate()}
-                    , culture: 'en-GB'
-                    // events={myevents}
-                    // style={{height: '420px'}}
-                    // startAccessor='startDate'
-                    // endAccessor='endDate'
-                    , toolbar: false,
+                    events: events, min: new Date(2001, 0, 7, 8, 0, 0, 0),
+                    max: new Date(2001, 0, 7, 22, 0, 0, 0),
+                    culture: 'en-GB',
+                    toolbar: false,
                     style: { height: '650px', backgroundColor: 'transparent', margin: '4px', border: '0px' },
                     step: 30,
                     timeslots: 4,
@@ -457,7 +369,6 @@ var BigCalendarEdit = function (_React$Component) {
                         week: { header: MyCustomHeader },
                         month: { header: MyCustomHeader }
                     }
-                    // views={[]}
                 })
             );
         }
@@ -465,39 +376,19 @@ var BigCalendarEdit = function (_React$Component) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             componentHandler.upgradeDom();
-            // this.loadImage()
         }
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate() {
-            //        console.log('BigCal update view')
             componentHandler.upgradeDom();
             for (var i = 1; i < 5; i++) {
                 $('.colorbutton' + i).removeClass('buttonborder');
             }if (this.state.selectedEvent) $('.colorbutton' + this.state.selectedEvent.number).addClass('buttonborder');
-            // var dialogInputs = document.querySelectorAll('.mdl-textfield')
-            // for (var i = 0, l = dialogInputs.length; i < l; i++) {
-            //     // if( dialogInputs[i].MaterialTextfield != undefined )
-            //     dialogInputs[i].MaterialTextfield.checkDirty()
-            //     // else
-            //     //   console.log('todoslistitem.js. dialogInputs[i] is undefined')
-            // }
-            // const selEvent = this.state.selectedEvent
-            // const eventId = selEvent != undefined ? selEvent.id : undefined
-            // // console.log('todoslistitem.js. this.props.ind '+this.props.ind)
-            // if (!this.state.hadFocus && document.getElementById('eventTitle' + eventId)) {
-            //     document.getElementById('eventTitle' + eventId).focus()
-            //     this.setState({
-            //         hadFocus: true
-            //     })
-            // }
         }
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
             console.log('Unmount calendar');
-            // const {calendar} = this.refs
-            // $(calendar).fullCalendar('destroy')
         }
     }, {
         key: 'setColor1',
@@ -547,9 +438,7 @@ var BigCalendarEdit = function (_React$Component) {
                 return event !== selectedEvent;
             });
 
-            //        super.removeEvent2()
             this.state = {
-                // localevents:newEvents,
                 selectedEvent: undefined
             };
             this.props.actions.handleTrainingEditEventsChange(nextEvents);
@@ -557,7 +446,6 @@ var BigCalendarEdit = function (_React$Component) {
     }, {
         key: 'addEvent',
         value: function addEvent(event) {
-            // console.log('add event')
             var duration = document.getElementById('duration').options[document.getElementById('duration').selectedIndex].value;
             var nextEvents = this.props.trainingappmap.get('edittrainingevents');
             var selectedEvent = this.state.selectedEvent;
@@ -576,12 +464,7 @@ var BigCalendarEdit = function (_React$Component) {
                 return event.number != 0;
             });
             nextEvents = nextEvents.push(newEvent);
-            // this.setState({
-            //     // localevents:newEvents,
-            //     selectedEvent:newEvent
-            // })
             this.state = {
-                // localevents: props.events,
                 selectedEvent: newEvent
             };
             this.props.actions.handleTrainingEditEventsChange(nextEvents);
@@ -592,13 +475,10 @@ var BigCalendarEdit = function (_React$Component) {
             console.log('save calendar');
             var training = this.props.trainingappmap.get('edittraining');
             var newTraining = this.props.trainingappmap.get('edittraining').set('events', this.props.trainingappmap.get('edittrainingevents'));
-            //        console.log('training='+require('util').inspect(training, false, null))
 
-            // this.props.actions.updateTraining(training)
             this.props.actions.updateTrainingDispatcher(newTraining, training);
             this.state = {
                 selectedEvent: undefined
-                // events.map((e)=> console.log('save events='+require('util').inspect(e, false, null)))
             };
         }
     }, {
@@ -613,30 +493,18 @@ var BigCalendarEdit = function (_React$Component) {
                 var nextEvents = this.props.trainingappmap.get('edittrainingevents');
                 console.log('selectedEvent=' + require('util').inspect(selectedEvent, false, null));
                 console.log('just select this! ' + duration);
-                // console.log('selectedEvent.start.getHours()=' + require('util').inspect(selectedEvent.start.getHours(), false, null))
                 var addMinutes = Number(duration * 60);
                 console.log('newMinutes=' + require('util').inspect(addMinutes, false, null));
                 selectedEvent.end = new Date(selectedEvent.start.getTime() + addMinutes * 60000);
-                //selectedEvent.end.setHours(selectedEvent.start.getHours())
                 console.log('selectedEvent.end.getHours()=' + require('util').inspect(selectedEvent.end.getHours(), false, null));
-                // console.log('selectedEvent='+require('util').inspect(selectedEvent, false, null))
-                // this.setState({
-                //     localevents: nextEvents,
-                //     selectedEvent: selectedEvent
-                // })
                 var eventArray = nextEvents.toIndexedSeq().toArray();
                 for (var i = 0; i < eventArray.length; i++) {
-                    // nextEvents[i].selected = true
                     if (eventArray[i] === selectedEvent) {
-                        //eventArray contains already the right data and nextEvents is pointing right at it. But we need to create a new List just to trigger a new render
                         nextEvents = _immutable2.default.List(eventArray);
-                        // eventArray[i].start = start
-                        // eventArray[i].end = end
                         break;
                     }
                 }
                 this.props.actions.handleTrainingEditEventsChange(nextEvents);
-                // 'this.props.actions.handleTrainingEditEventsChange('title', 'mamak')
             }
         }
     }, {
@@ -649,74 +517,43 @@ var BigCalendarEdit = function (_React$Component) {
                 start = _ref.start,
                 end = _ref.end;
 
-            // const events = this.props.events
-            // const {localevents} = this.state
             var nextEvents = this.props.trainingappmap.get('edittrainingevents');
 
-            // const idx = localevents.indexOf(event)
-            // const updatedEvent = { ...event, start, end }
-
-            // var nextEvents = localevents
-            // nextEvents.splice(idx, 1, updatedEvent)
-            // nextEvents = nextEvents.remove(event)
-            // var newEvent = event
             event.start = start;
             event.end = end;
 
             var eventArray = nextEvents.toIndexedSeq().toArray();
-            //console.log('nextEvents[i] GO! '+eventArray.length)
             for (var i = 0; i < eventArray.length; i++) {
-                // nextEvents[i].selected = true
                 console.log('nextEvents[i] found?' + require('util').inspect(i, false, null));
                 if (eventArray[i] === event) {
                     console.log('------ nextEvents[i] found!' + require('util').inspect(eventArray[i], false, null));
-                    //eventArray contains already the right data and nextEvents is pointing right at it. But we need to create a new List just to trigger a new render
                     nextEvents = _immutable2.default.List(eventArray);
-                    // eventArray[i].start = start
-                    // eventArray[i].end = end
                     break;
                 }
             }
 
             this.state = {
-                // localevents,
                 selectedEvent: event
             };
             this.props.actions.handleTrainingEditEventsChange(nextEvents);
-            // alert(`${event.title} was dropped onto ${event.start}`)
         }
     }, {
         key: 'selectEvent',
         value: function selectEvent(event) {
             console.log('event=' + require('util').inspect(event, false, null));
             console.log('this.state.selectedEvent=' + require('util').inspect(this.state.selectedEvent, false, null));
-            //console.log('$(colorbuttonEvent.number)='+require('util').inspect($('colorbutton'+event.number), false, null))
 
-            // const {localevents} = this.state
-            // const nextEvents = localevents
             var nextEvents = this.props.trainingappmap.get('edittrainingevents');
 
             if (this.state.selectedEvent == event) {
                 console.log('Im out.');
                 var idx = nextEvents.indexOf(_immutable2.default.Map(event));
-                //const updatedEvent = {...event}
-                // updatedEvent.title = 'Hobb'
-                // nextEvents.splice(idx, 1, updatedEvent)
                 this.setState({
-                    // localevents: nextEvents,
                     selectedEvent: undefined
                 });
             } else {
                 console.log('Im in.');
-                // console.log('event.id='+require('util').inspect(event.id, false, null))
-                // for (var i = 0; i < nextEvents.length; i++) {
-                //     if (nextEvents[i].id == event.id) {
-                //         nextEvents[i].title = 'Tshash' + event.start
-                //         break
-                //     }
-                // }
                 this.setState({
-                    // localevents: nextEvents,
                     selectedEvent: event
                 });
             }
@@ -724,27 +561,20 @@ var BigCalendarEdit = function (_React$Component) {
     }, {
         key: 'eventStyleGetter',
         value: function eventStyleGetter(event, start, end, isSelected) {
-            //        console.log('event Style Getter =' + require('util').inspect(event.title, false, null) + ', isSelected=' + require('util').inspect(isSelected, false, null))
-            // var backgroundColor = '#' + event.hexColor
 
             var backgroundColor = styles['eventcolor' + event.number];
             var borderColor = event.number == 0 ? 'red' : 'white';
             if (isSelected) {
-                // backgroundColor = '#034'
                 borderColor = 'black';
             }
-            // console.log('event.title='+require('util').inspect(event.title, false, null)+'border='+require('util').inspect(border, false, null))
 
             var style = {
                 backgroundColor: backgroundColor,
-                // borderRadius: '0px',
                 opacity: 0.85,
-                color: 'transparent', //'white',
-                border: '2px',
+                color: 'transparent', border: '2px',
                 'border-style': 'solid',
                 'border-radius': '0px',
-                'border-color': borderColor, //'#f4f #f34'
-                display: 'block'
+                'border-color': borderColor, display: 'block'
             };
             return {
                 style: style

@@ -30,8 +30,6 @@ var RegisterConfirmation = function (_React$Component) {
     _createClass(RegisterConfirmation, [{
         key: 'render',
         value: function render() {
-            // console.log(this.props)
-            //        <p>A little bit about {this.props.params.name}!!I like {this.props.location.query.food}!</p>
             return _react2.default.createElement(
                 'div',
                 null,

@@ -18,8 +18,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import _ from 'lodash'
-
 var users = [{
     name: 'abbas',
     malegender: true
@@ -48,9 +46,6 @@ var UserApp = function (_Component) {
     _createClass(UserApp, [{
         key: 'render',
         value: function render() {
-            //let test = 'App';
-            //console.log("Hi there from "+test);
-            //  alert("Hi "+test);
             return _react2.default.createElement(
                 'div',
                 null,

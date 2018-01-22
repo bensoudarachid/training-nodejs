@@ -10,9 +10,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
+require('jquery');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23,40 +21,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 if (process.env.BROWSER) {
-    //  console.log('Login Component. environment is browser')
     require('./login.scss');
-    // require('materialize-css/sass/materialize.scss')
-    // require('materialize-css/sass/style.scss')
-    // require('materialize-css/sass/components/_color.scss')
-
-    // $(document).ready(function() {
-    //   var modal = document.getElementById('myModal')
-
-    // // Get the button that opens the modal
-    // // var btn = $('myBtn')[0]
-    //   var btn = document.getElementById('myBtn')
-    //   // console.log('loginjs. myBtn '+btn)
-    // // Get the <span> element that closes the modal
-    //   var span = document.getElementsByClassName('close')[0]
-
-    // // When the user clicks the button, open the modal
-    //   btn.onclick = function() {
-    //     modal.style.display = 'block'
-    //   }
-
-    // // When the user clicks on <span> (x), close the modal
-    //   span.onclick = function() {
-    //     modal.style.display = 'none'
-    //   }
-
-    // // When the user clicks anywhere outside of the modal, close it
-    //   window.onclick = function(event) {
-    //     if (event.target == modal) {
-    //       modal.style.display = 'none'
-    //     }
-    //   }
-
-    // })
 }
 
 var Login = function (_Component) {
@@ -70,33 +35,8 @@ var Login = function (_Component) {
 
     _createClass(Login, [{
         key: 'render',
-
-        // <li><button onClick={(event) => this.handleClick(event)} className='btn btn-primary'>
-        //  <span className='glyphicon glyphicon-log-in'></span> Login
-        // </button></li>
-        // </ul>
-        // <li>
-        // <input type='submit' value='Login' className='btn btn-primary'/>
-        // </li>
-
-        // <li>
-        //     <button type='submit' className='btn btn-primary'>
-        //       <span className='glyphicon glyphicon-log-in'></span> Login
-        //     </button>
-        // </li>
-
-        // <li>
-        // <TextField type='text' ref='username' className='inputfield' hintText='type your login here' floatingLabelText='Login'/>
-        // </li>
-        // <li>
-        // <TextField type='password' ref='password' className='inputfield' hintText='type your password here' floatingLabelText='Password'/>
-        // </li>
-
         value: function render() {
             var errorMessage = this.props.errorMessage;
-            // var myStyle = {fontSize: 100, color: '#FF0000'}
-            //       <li><input type='text' ref='username' className='form-control' placeholder='Username'/></li>
-            //<input type='password' ref='password' className='form-control' placeholder='Password'/>
 
             return _react2.default.createElement(
                 'div',
@@ -155,21 +95,12 @@ var Login = function (_Component) {
                 )
             );
         }
-
-        // <li>
-        //   <FlatButton className='button' type='submit'><span className='glyphicon glyphicon-log-in'></span> Login</FlatButton>
-        // </li>
-
     }, {
         key: 'handleClick',
         value: function handleClick(event) {
             event.preventDefault();
-            // console.log('login. Login value = '+this.refs.username.getValue())
-            // const username = this.refs.username.getValue().trim()
-            // const password = this.refs.password.getValue().trim()
             var username = this.refs.username.value.trim();
             var password = this.refs.password.value.trim();
-            // console.log('login. Login value = '+username)
             var creds = { username: username, password: password };
             this.props.onLoginClick(creds);
         }

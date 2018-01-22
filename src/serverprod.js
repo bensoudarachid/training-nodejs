@@ -224,9 +224,10 @@ app.get(appbasename + '/*', (req, res) => {
                                 <RouterContext {...renderProps} />
                             </Provider>
                         )
+
                         var d = new Date()
                         var hour = d.getHours()
-                        var vendorBundle = 'http:
+                        var vendorBundle = 'http://rlearn.herokuapp.com/vendor.bundle.js'
                         console.log('assets=' + require('util').inspect(assets, false, null))
                         var publicbundle = assets.publicapp.js //'/app.js'
                         var appstyle = assets.app.css

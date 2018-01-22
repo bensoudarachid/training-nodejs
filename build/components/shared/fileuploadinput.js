@@ -18,12 +18,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// require('../../../node_modules/material-design-lite/dist//material.css')
-// require('../../../node_modules/material-design-lite/dist/material.js')
-
-
 if (process.env.BROWSER) {
-    //  console.log('Appcomponent. environment is browser')
     require('./fileuploadinput.scss');
 }
 
@@ -33,20 +28,11 @@ var FileUploadInput = function (_Component) {
     function FileUploadInput(props) {
         _classCallCheck(this, FileUploadInput);
 
-        // var fileInputTextDiv = document.getElementById('file_input_text_div')
-        // var fileInput = document.getElementById('file_input_file')
-        // var fileInputText = document.getElementById('file_input_text')
         var _this = _possibleConstructorReturn(this, (FileUploadInput.__proto__ || Object.getPrototypeOf(FileUploadInput)).call(this, props));
 
         _this.changeInputText = _this.changeInputText.bind(_this);
         return _this;
     }
-
-    // <button className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored schedulebutton">
-    //   <span className='glyphicon glyphicon-upload '></span>
-    // </button>
-    // <input ref='file_input_file' onChange={this.changeInputText} className='none' type='file' id={id} disabled={this.props.disabled}/>
-
 
     _createClass(FileUploadInput, [{
         key: 'render',
@@ -76,18 +62,10 @@ var FileUploadInput = function (_Component) {
                 )
             );
         }
-
-        // <input ref='file_input_text' name='file_input_text' className="mdl-textfield mdl-js-textfield" type="text" disabled readonly/>
-        // <div ref='file_input_text_div' className='bgr mdl-textfield mdl-js-textfield'>
-        //   <input ref='file_input_text' name='file_input_text' className='bgp file_input_text mdl-textfield__input' type='text' disabled readonly />
-        // </div>
-        //<label className='mdl-textfield__label' htmlFor='file_input_text'></label>
-
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
             componentHandler.upgradeDom();
-            // componentHandler.upgradeDom()
             var fileInput = this.refs.file_input_file;
             fileInput.addEventListener('change', this.changeInputText);
             fileInput.addEventListener('change', this.changeState);
@@ -96,12 +74,10 @@ var FileUploadInput = function (_Component) {
         key: 'changeInputText',
         value: function changeInputText(event) {
             event.preventDefault();
-            // const fileInputTextDiv = this.refs.file_input_text_div
             var fileInput = this.refs.file_input_file;
             var fileInputText = this.refs.file_input_text;
             var str = fileInput.value;
             if (str == '') str = 'No Image';
-            // var str = value
             var i;
             if (str.lastIndexOf('\\')) {
                 i = str.lastIndexOf('\\') + 1;
@@ -109,24 +85,7 @@ var FileUploadInput = function (_Component) {
                 i = str.lastIndexOf('/') + 1;
             }
             fileInputText.innerHTML = str.slice(i, str.length);
-            // fileInputText.value = str.slice(i, str.length)
         }
-
-        // changeState() {
-        //   const fileInputTextDiv = this.refs.file_input_text_div
-        //   var fileInput = this.refs.file_input_file
-        //   var fileInputText = this.refs.file_input_text
-        //   if (fileInputText.value.length != 0) {
-        //     if (!fileInputTextDiv.classList.contains('is-focused')) {
-        //       fileInputTextDiv.classList.add('is-focused')
-        //     }
-        //   } else {
-        //     if (fileInputTextDiv.classList.contains('is-focused')) {
-        //       fileInputTextDiv.classList.remove('is-focused')
-        //     }
-        //   }
-        // }
-
     }]);
 
     return FileUploadInput;

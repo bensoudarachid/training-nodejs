@@ -18,8 +18,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import _ from 'lodash'
-
 if (process.env.BROWSER) {
     require('./trainingcommandpanel.scss');
 }
@@ -53,17 +51,6 @@ var TrainingCommandPanel = function (_React$Component) {
                 this.state.error
             );
         }
-
-        // renderOld() {
-        //   return (
-        //     <form onSubmit={this.handleCreate.bind(this)}>
-        //           <input type="text" placeholder="What do I need to do?" ref="searchInput" />
-        //               <button>Create</button>
-        //               {this.renderError()}
-        //       </form>
-        //     )
-        // }
-
     }, {
         key: 'render',
         value: function render() {
@@ -134,23 +121,6 @@ var TrainingCommandPanel = function (_React$Component) {
         value: function handleSearch(event) {
             console.log('handle search call');
             event.preventDefault();
-
-            // const searchInput = this.refs.searchInput
-            // const title = searchInput.value
-            // const validateInput = this.validateInput(title)
-            // if (validateInput) {
-            //   this.setState({
-            //     error: validateInput
-            //   })
-            //   return
-            // }
-
-            // this.setState({
-            //   error: null
-            // })
-            // // this.props.createTask(title);
-            // this.props.actions.createTraining(title)
-            // this.refs.searchInput.value = ''
         }
     }, {
         key: 'handleNew',
@@ -158,20 +128,7 @@ var TrainingCommandPanel = function (_React$Component) {
             console.log('handle New call');
             event.preventDefault();
             this.props.actions.newTraining();
-            // window.routerHistory.push('trainings/item/new')
         }
-
-        // validateInput(title) {
-        //   if (!title) {
-        //     return 'Please enter a title.'
-        //   // } else if (_.find(this.props.trainings, (training) => training.get('title') === title)) {
-        //   } else if (this.props.trainings.find((training) =>  training.get('title') === title) ){
-        //     return 'Title already exists.'
-        //   } else {
-        //     return null
-        //   }
-        // }
-
     }]);
 
     return TrainingCommandPanel;

@@ -129,8 +129,8 @@ class NavAdmin extends Component {
         const isAuthenticated = auth.get('isAuthenticated')
 
 
-        if (process.env.BROWSER)
-            datasrc = this.getRightLogoUrl()
+        // if (process.env.BROWSER)
+        //     datasrc = this.getRightLogoUrl()
         console.log('nav: logo = ' + datasrc)
         var tenantName1 = ''
         if (this.props.app.get('tenant'))
@@ -141,6 +141,7 @@ class NavAdmin extends Component {
             tenantName2 = this.props.app.get('tenant').get('name2')
 
         return (
+<<<<<<< HEAD
             <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
                 <ul className='navbar-header logoblock'>
 <<<<<<< HEAD
@@ -176,6 +177,8 @@ class NavAdmin extends Component {
                         </button>
                     </li>
                 </ul>
+=======
+>>>>>>> e791b46... One single navigation component with changing navigation links depending on user role
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -209,11 +212,6 @@ class NavAdmin extends Component {
                         <li>
                             <IndexLink activeClassName='active' to='/'>Home</IndexLink>
                         </li>
-                        {(process.env.NODE_ENV != 'production' || process.env.NODE_ENV == 'production') &&
-                        <li>
-                            <Link activeClassName='active' to='/admin/todos'>Todos</Link>
-                        </li>
-                        }
                         <li>
                             <Link activeClassName='active' to='/admin/trainings'>Training</Link>
                         </li>
@@ -256,7 +254,6 @@ class NavAdmin extends Component {
 >>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     </ul>
                 </div>
-            </nav>
         )
     }
 
@@ -295,14 +292,6 @@ class NavAdmin extends Component {
     componentWillUnmount() {
         console.log('removeEventListener')
         window.removeEventListener('resize', this.handleResize)
-    }
-
-    getRightLogoUrl() {
-        if (window.matchMedia("(min-width: 992px)").matches) {
-            return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 120 + '&height=' + 120
-        } else {
-            return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 82 + '&height=' + 82
-        }
     }
 
     handleResize() {

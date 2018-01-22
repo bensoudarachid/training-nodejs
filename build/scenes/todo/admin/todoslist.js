@@ -40,7 +40,6 @@ var TodosList = function (_React$Component) {
     function TodosList(props) {
         _classCallCheck(this, TodosList);
 
-        // console.log('todo list. Mixin in constructor')
         var _this = _possibleConstructorReturn(this, (TodosList.__proto__ || Object.getPrototypeOf(TodosList)).call(this, props));
 
         _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
@@ -51,31 +50,22 @@ var TodosList = function (_React$Component) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             componentHandler.upgradeDom();
-            //    console.log('mounted')
-            // componentHandler.upgradeDom()
-            // require('exports-loader?mdl=componentHandler!material-design-lite/material').upgradeDom()
         }
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate() {
-            //    console.log('updated')
             componentHandler.upgradeAllRegistered();
             console.log('componentHandler=' + require('util').inspect(componentHandler, false, null));
-            // componentHandler.upgradeAllRegistered()
-            // require('exports-loader?mdl=componentHandler!material-design-lite/material').upgradeAllRegistered()
         }
     }, {
         key: 'getItems',
         value: function getItems() {
             var _this2 = this;
 
-            // console.log('todo list filteropen ' + this.props.filteropen)
-            // console.log('todo list filterclosed ' + this.props.filterclosed)
             if (this.props.todos) {
                 return this.props.todos.filter(function (item) {
                     return item.get('completed') && _this2.props.filterclosed || !item.get('completed') && _this2.props.filteropen;
                 });
-                // console.log('todo list get items. render items. Size = '+listtodos.size)
             }
             return _immutable2.default.List([]);
         }
@@ -85,38 +75,14 @@ var TodosList = function (_React$Component) {
             var _this3 = this;
 
             var items = this.getItems();
-            // const props = _.omit(this.props, 'todos');
-            // console.log('todo list. render items. Size = '+items.size)
 
             return items.map(function (todo, index) {
-                // console.log('todo list. index = '+index)
                 return _react2.default.createElement(_todoslistitem2.default, { ind: index, todo: todo, actions: _this3.props.actions });
-                // return <div style={{width:'60%',margin:'auto',backgroundColor:'orange'}}>WOOOOOW {todo.get('id')}</div>
             });
         }
-
-        // renderO() {
-        //   if(this.props.todos==undefined)
-        //     return (
-        //       <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active' style={{width:'55px',height:'55px'}}></div>
-        //     )
-        //   return (
-        //     <div className='todoslist'>
-        //     {this.renderItems()}
-        //     </div>
-        //   )
-        // }
-
     }, {
         key: 'render',
         value: function render() {
-            // console.log('Hi there from List. Props: '+this.props);
-            // {this.props.todos==undefined?
-            //           <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
-            //         :
-            //           <div/>
-            // }
-            // Putting <div></div> instead of <span></span> produces a ununderstandlable scroll mess!
             return _react2.default.createElement(
                 'div',
                 { className: 'todoslist' },
