@@ -36,6 +36,10 @@ var AdminTrainingList = function (_React$Component) {
     function AdminTrainingList(props) {
         _classCallCheck(this, AdminTrainingList);
 
+<<<<<<< HEAD
+=======
+        // console.log('training list. Mixin in constructor')
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         var _this = _possibleConstructorReturn(this, (AdminTrainingList.__proto__ || Object.getPrototypeOf(AdminTrainingList)).call(this, props));
 
         _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
@@ -53,8 +57,16 @@ var AdminTrainingList = function (_React$Component) {
             var _this2 = this;
 
             var items = this.props.trainings;
+<<<<<<< HEAD
             if (items == undefined) return _react2.default.createElement('div', null);
             return items.map(function (training, index) {
+=======
+            // const props = _.omit(this.props, 'trainings');
+            // console.log('training list. render items. Size = '+items.size)
+            if (items == undefined) return _react2.default.createElement('div', null);
+            return items.map(function (training, index) {
+                // console.log('training list. index = '+index)
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                 return _react2.default.createElement(_admintraininglistitem2.default, { ind: index, training: training, actions: _this2.props.actions });
             });
         }
@@ -65,7 +77,13 @@ var AdminTrainingList = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'admintrainingslist' },
+<<<<<<< HEAD
                 this.props.trainings == undefined ? _react2.default.createElement('span', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap',
+=======
+                this.props.trainings == undefined ?
+                //if i use div instead of span, big parts of the view are not clickable!
+                _react2.default.createElement('span', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinnerwrap',
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                     style: {
                         width: '55px',
                         height: '55px'

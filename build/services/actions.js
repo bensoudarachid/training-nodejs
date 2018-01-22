@@ -5,6 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+<<<<<<< HEAD
+=======
+
+var _reactRouter = require('react-router');
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 
 var _rootreducer = require('./rootreducer');
 
@@ -45,5 +50,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var dateFormat = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*))(?:Z|(\+|-)([\d|:]*))?$/;
 
 var actions = _extends({}, _appservices2.default, _authservices2.default, _todoservices2.default, _trainingservices2.default, _appactions2.default, _authactions2.default, _todoactions2.default, _trainingactions2.default);
+<<<<<<< HEAD
+=======
+
+// JSON.useDateParser()
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 
 exports.default = actions;

@@ -40,6 +40,11 @@ var TodoImage = function (_React$Component) {
         value: function render() {
             var taskid = this.props.taskid;
             var idToken = _reactCookie2.default.load('jwt');
+<<<<<<< HEAD
+=======
+            // 	console.log(this.props)
+            //  <p>A little bit about {this.props.params.name}!!I like {this.props.location.query.food}!</p>
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             return _react2.default.createElement(
                 'div',
                 { className: 'imgwrap', id: 'imgwrap' + taskid },
@@ -51,12 +56,41 @@ var TodoImage = function (_React$Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
+<<<<<<< HEAD
+=======
+            // componentHandler.upgradeDom()
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             this.loadImage();
         }
     }, {
         key: 'loadImage',
         value: function loadImage() {
+<<<<<<< HEAD
             // console.log('++++++++++++++++ todolistitem ++++++ imageload ')
+=======
+            console.log('++++++++++++++++ todolistitem ++++++ imageload ');
+            // const loadImages = this.props.loadimages
+            // if( !loadImages)
+            //   return
+            // console.log('++++++++++++++++ todolistitem ++++++ really loading now')
+            // const taskid = this.props.get('taskid')
+            // var elm = $('#imgwrap'+taskid)
+            // // var imgbg=elm.find('.imgbg')
+            // var img=elm.find('.dataimg')
+            // // var imgSpinner=elm.find('.mdl-spinner')
+
+            // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
+            //   img[0].setAttribute('src', img[0].getAttribute('data-src'))
+            //   img[0].onload = function() {
+            //     img[0].removeAttribute('data-src')
+            //     // imgSpinner.remove()
+            //     this.setState({
+            //       imageLoaded: true
+            //     })
+
+            //   }.bind(this)
+            // }
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         }
     }]);
 

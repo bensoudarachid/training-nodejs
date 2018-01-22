@@ -36,6 +36,28 @@ var TodoCreate = function (_React$Component) {
         return _this;
     }
 
+<<<<<<< HEAD
+=======
+    // renderError() {
+    //   if (!this.state.error) {
+    //     return null
+    //   }
+
+    //   return <div style={{
+    //     color: 'red'
+    //   }}>{this.state.error}</div>
+    // }
+    // <form onSubmit={this.handleCreate.bind(this)}>
+    //       <div className='mdl-textfield tf mdl-js-textfield'>
+    //         <input className='mdl-textfield__input' type='text' ref="createInput" id='createInput'/>
+    //         <label className='mdl-textfield__label' htmlFor='createInput'>New todo...</label>
+    //       </div>
+    //       <button className='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>Create</button>
+    //           {this.renderError()}
+    // </form>
+
+
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
     _createClass(TodoCreate, [{
         key: 'render',
         value: function render() {
@@ -86,9 +108,19 @@ var TodoCreate = function (_React$Component) {
                 )
             );
         }
+<<<<<<< HEAD
     }, {
         key: 'handleCreate',
         value: function handleCreate(event) {
+=======
+
+        // {this.renderError()}
+
+    }, {
+        key: 'handleCreate',
+        value: function handleCreate(event) {
+            //    console.log('handle create call')
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             event.preventDefault();
 
             var createInput = this.refs.createInput;
@@ -103,13 +135,22 @@ var TodoCreate = function (_React$Component) {
                     this.setState({
                         error: null
                     });
+<<<<<<< HEAD
                 }.bind(this), 3000);
+=======
+                }.bind(this), 3000); //1000/100
+
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                 return;
             }
 
             this.setState({
                 error: null
             });
+<<<<<<< HEAD
+=======
+            // this.props.createTask(task);
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             this.props.actions.createTodo(task);
             this.refs.createInput.value = '';
         }
@@ -118,6 +159,10 @@ var TodoCreate = function (_React$Component) {
         value: function validateInput(task) {
             if (!task) {
                 return 'Please enter a task.';
+<<<<<<< HEAD
+=======
+                // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             } else if (this.props.todos.find(function (todo) {
                 return todo.get('task') === task;
             })) {

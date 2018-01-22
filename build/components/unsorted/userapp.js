@@ -46,6 +46,12 @@ var UserApp = function (_Component) {
     _createClass(UserApp, [{
         key: 'render',
         value: function render() {
+<<<<<<< HEAD
+=======
+            //let test = 'App';
+            //console.log("Hi there from "+test);
+            //  alert("Hi "+test);
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             return _react2.default.createElement(
                 'div',
                 null,

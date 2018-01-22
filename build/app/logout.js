@@ -20,6 +20,15 @@ var Logout = function (_Component) {
     function Logout() {
         _classCallCheck(this, Logout);
 
+<<<<<<< HEAD
+=======
+var Logout = function (_Component) {
+    _inherits(Logout, _Component);
+
+    function Logout() {
+        _classCallCheck(this, Logout);
+
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         return _possibleConstructorReturn(this, (Logout.__proto__ || Object.getPrototypeOf(Logout)).apply(this, arguments));
     }
 
@@ -28,6 +37,12 @@ var Logout = function (_Component) {
         value: function render() {
             var _this2 = this;
 
+<<<<<<< HEAD
+=======
+            // const { onLogoutClick } = this.props
+            // <button onClick={() => onLogoutClick()} className="btn btn-primary">
+
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             return React.createElement(
                 'button',
                 { onClick: function onClick() {

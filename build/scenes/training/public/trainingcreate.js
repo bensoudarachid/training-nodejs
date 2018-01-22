@@ -51,6 +51,20 @@ var TrainingCreate = function (_React$Component) {
                 this.state.error
             );
         }
+<<<<<<< HEAD
+=======
+
+        // renderOld() {
+        //   return (
+        //     <form onSubmit={this.handleCreate.bind(this)}>
+        //           <input type="text" placeholder="What do I need to do?" ref="createInput" />
+        //               <button>Create</button>
+        //               {this.renderError()}
+        //       </form>
+        //     )
+        // }
+
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
     }, {
         key: 'render',
         value: function render() {
@@ -104,6 +118,10 @@ var TrainingCreate = function (_React$Component) {
     }, {
         key: 'handleCreate',
         value: function handleCreate(event) {
+<<<<<<< HEAD
+=======
+            //    console.log('handle create call')
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             event.preventDefault();
 
             var createInput = this.refs.createInput;
@@ -119,6 +137,10 @@ var TrainingCreate = function (_React$Component) {
             this.setState({
                 error: null
             });
+<<<<<<< HEAD
+=======
+            // this.props.createTask(title);
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             this.props.actions.createTraining(title);
             this.refs.createInput.value = '';
         }
@@ -127,6 +149,10 @@ var TrainingCreate = function (_React$Component) {
         value: function validateInput(title) {
             if (!title) {
                 return 'Please enter a title.';
+<<<<<<< HEAD
+=======
+                // } else if (_.find(this.props.trainings, (training) => training.get('title') === title)) {
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             } else if (this.props.trainings.find(function (training) {
                 return training.get('title') === title;
             })) {

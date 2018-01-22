@@ -60,6 +60,15 @@ var Register = function (_Component) {
 
     _createClass(Register, [{
         key: 'render',
+<<<<<<< HEAD
+=======
+
+        //<Spinner spinnerName='three-bounce' /> circle wordpress double-bounce<p>Loading...</p>
+        // <input type='text' ref='email' className="form-control" placeholder='Email'/>
+        // <input type='text' ref='username' className="form-control" placeholder='Username'/>
+        // <input type='password' ref='password' className="form-control" placeholder='Password here'/>
+
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         value: function render() {
             var _this2 = this;
 
@@ -67,13 +76,62 @@ var Register = function (_Component) {
             var isRegistrationFetching = '';
             var registrationStep = '';
             var registrationError = {};
+<<<<<<< HEAD
+=======
+            // var usernameClasses
+            // var emailClasses
+            // var passwordClasses
+            // var passwordcheckClasses
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             if (this.props.auth) {
                 registererror = this.props.auth.get('registererror');
                 isRegistrationFetching = this.props.auth.get('isRegistrationFetching');
                 registrationStep = this.props.auth.get('registrationStep');
                 registrationError = this.props.auth.get('registrationError');
+<<<<<<< HEAD
             }
 
+=======
+                // usernameClasses = textInputClassnames + (registrationError.get('username')!==undefined?' is-invalid':'')
+                // emailClasses = textInputClassnames + (registrationError.get('email')!==undefined?' is-invalid':'')
+                // passwordClasses = textInputClassnames + (registrationError.get('password')!==undefined?' is-invalid':'')
+                // passwordcheckClasses = textInputClassnames + (registrationError.get('passwordCheck')!==undefined?' is-invalid':'')
+            }
+            // console.log('Register render. registrationError email  = '+registrationError.get('email'))
+            // console.log('Register render. registrationError email Classes = '+emailClasses)
+
+            // var emailClasses = textInputClassnames + (registrationError.get('email')!==''?' is-invalid':'')
+            // var passwordClasses = textInputClassnames + (registrationError.get('password')!==''?' is-invalid':'')
+            // var passwordCheckClasses = textInputClassnames + (registrationError.get('passwordCheck')!==''?' is-invalid':'')
+
+            // console.log('Register render. registrationError username valid = '+usernameClasses)
+
+
+            if (registererror) {}
+            //   // var snackbarContainer = document.querySelector('#appsnackbar')
+            //   // var data = {
+            //   //   message: 'An error has occured: '+registererror,
+            //   //   timeout: 3000
+            //   // }
+            //   // snackbarContainer.MaterialSnackbar.showSnackbar(data)
+
+            // var dialog = document.querySelector('#appdialog')
+            // dialog.showModal()
+            // mdl.mdl_open('#modal-demo')
+
+            // setTimeout(function(){
+
+            //   mdl.mdl_close('#modal-demo')
+
+            // }, 3000)
+
+            //   return <div/>
+            //<input type='password' ref='passwordcheck' className="form-control" placeholder='Password check'/>
+            //        <button onClick={(event) => this.handleClick(event)} className="btn btn-primary">
+            //         Register
+            //       </button>
+            //htmlFor='passwordcheck'
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             switch (registrationStep) {
                 case 1:
                     return _react2.default.createElement(
@@ -215,6 +273,7 @@ var Register = function (_Component) {
                 )
             );
         }
+<<<<<<< HEAD
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
@@ -258,6 +317,92 @@ var Register = function (_Component) {
         }
     }]);
 
+=======
+
+        // {registererror &&
+        // <AppDialog/>
+        // }
+
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            componentHandler.upgradeDom();
+            // const isRegistrationFetching = this.props.auth.get('isRegistrationFetching')
+            // console.log('Registeration. mount')
+            this.props.actions.registerInit();
+
+            // var dialogInputs = document.querySelectorAll('.mdl-textfield__input')
+            // for (var i = 0, l = dialogInputs.length; i < l; i++) {
+            //   dialogInputs[i].MaterialTextfield.checkDirty()
+            // }
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            var registrationError = this.props.auth.get('registrationError');
+            // console.log('Registeration. comp update')
+            // componentHandler.upgradeDom()
+            // $('#usernameid').get(0).MaterialTextfield.checkDirty()
+            //Need this code to get correct placeholderfloating  behaviour. otherwise content and placeholder overlap
+            var dialogInputs = document.querySelectorAll('.mdl-textfield');
+            for (var i = 0, l = dialogInputs.length; i < l; i++) {
+                dialogInputs[i].MaterialTextfield.checkDirty();
+                if (registrationError.get(dialogInputs[i].MaterialTextfield.input_.id) !== undefined) dialogInputs[i].className += ' is-invalid';else {
+                    dialogInputs[i].className = dialogInputs[i].className.replace(' is-invalid', ' ');
+                    // console.log('Register. dialogInputs[i].className - invalid '+dialogInputs[i].className)
+                }
+            }
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            console.log('Registeration. unmount');
+            this.props.actions.registerInit();
+        }
+    }, {
+        key: 'handleClick',
+        value: function handleClick(event) {
+            event.preventDefault();
+            // const usernameref = this.refs.username
+            // const usernameref = $('#usernameid')
+            // const usernameinput = usernameref.find('.mdl-textfield__input')
+            // console.log('Registeration. '+usernameinput[0].value)
+            var username = this.refs.username;
+            // console.log('Register User: '+this.refs.username.value)
+            var password = this.refs.password;
+            var email = this.refs.email;
+            var passwordCheck = this.refs.passwordCheck;
+            // console.log('Register passwordcheck: '+this.refs.passwordCheck.value)
+
+            var creds = {
+                // username: usernameinput[0].value.trim(),
+                username: username.value.trim(),
+                password: password.value.trim(),
+                email: email.value.trim(),
+                passwordCheck: passwordCheck.value.trim()
+            };
+            this.props.actions.registerUser(creds);
+
+            // const registrationError = this.props.auth.get('registrationError')
+            // const usernamevalid = registrationError.get('username')!==''?'is-invalid':''
+            // // if (registrationError.get('username') !== ''){
+            // console.log('Registeration. add valid ' + usernamevalid)
+            // usernameref.addClass(usernamevalid)
+
+            // const registrationError = this.props.auth.get('registrationError')
+            // if (registrationError.get('username') !== ''){
+            //   usernameref.addClass('is-invalid')
+            //   // const usernameerror = usernameref.find('.mdl-textfield__error')
+            //   // usernameerror[0].value = 'Waaaak wak'
+            //   return
+            // }else{
+            //   console.log('Registeration. Remove invalid')
+            //   usernameref.removeClass('is-invalid')
+            // }
+        }
+    }]);
+
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
     return Register;
 }(_react.Component);
 

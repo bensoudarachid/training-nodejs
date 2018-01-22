@@ -30,6 +30,11 @@ var AboutComponent = function (_React$Component) {
     _createClass(AboutComponent, [{
         key: 'render',
         value: function render() {
+<<<<<<< HEAD
+=======
+            // console.log(this.props)
+            //        <p>A little bit about {this.props.params.name}!!I like {this.props.location.query.food}!</p>
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 
             return _react2.default.createElement(
                 'div',

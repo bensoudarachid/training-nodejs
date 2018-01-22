@@ -51,6 +51,20 @@ var TrainingCommandPanel = function (_React$Component) {
                 this.state.error
             );
         }
+<<<<<<< HEAD
+=======
+
+        // renderOld() {
+        //   return (
+        //     <form onSubmit={this.handleCreate.bind(this)}>
+        //           <input type="text" placeholder="What do I need to do?" ref="searchInput" />
+        //               <button>Create</button>
+        //               {this.renderError()}
+        //       </form>
+        //     )
+        // }
+
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
     }, {
         key: 'render',
         value: function render() {
@@ -121,6 +135,26 @@ var TrainingCommandPanel = function (_React$Component) {
         value: function handleSearch(event) {
             console.log('handle search call');
             event.preventDefault();
+<<<<<<< HEAD
+=======
+
+            // const searchInput = this.refs.searchInput
+            // const title = searchInput.value
+            // const validateInput = this.validateInput(title)
+            // if (validateInput) {
+            //   this.setState({
+            //     error: validateInput
+            //   })
+            //   return
+            // }
+
+            // this.setState({
+            //   error: null
+            // })
+            // // this.props.createTask(title);
+            // this.props.actions.createTraining(title)
+            // this.refs.searchInput.value = ''
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         }
     }, {
         key: 'handleNew',
@@ -128,6 +162,21 @@ var TrainingCommandPanel = function (_React$Component) {
             console.log('handle New call');
             event.preventDefault();
         }
+<<<<<<< HEAD
+=======
+
+        // validateInput(title) {
+        //   if (!title) {
+        //     return 'Please enter a title.'
+        //   // } else if (_.find(this.props.trainings, (training) => training.get('title') === title)) {
+        //   } else if (this.props.trainings.find((training) =>  training.get('title') === title) ){
+        //     return 'Title already exists.'
+        //   } else {
+        //     return null
+        //   }
+        // }
+
+>>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
     }]);
 
     return TrainingCommandPanel;
