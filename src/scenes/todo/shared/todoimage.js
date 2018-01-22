@@ -3,16 +3,7 @@ import cookie from 'react-cookie'
 import ApiConnection from '../../../services/apiconnection'
 import $ from 'jquery'
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 export default class TodoImage extends React.Component {
-=======
-export default
-class TodoImage extends React.Component {
->>>>>>> 6e3ff02... webstorm big changes crash
-=======
-export default class TodoImage extends React.Component {
->>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
 
     constructor(props) {
         super(props)
@@ -27,77 +18,22 @@ export default class TodoImage extends React.Component {
 
         const idToken = cookie.load('jwt')
         return (
-<<<<<<< HEAD
-<<<<<<< HEAD
             <div className='imgwrapper' id={'imgwrap' + taskid}>
                 <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
                 <img id={'todolistitemimg' + taskid} src='./images/0.png'
                      data-src={ApiConnection.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken}
                      onLoad={this.handleImageLoaded.bind(this)}
                      onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
-=======
-            <div className='imgwrapper' id={'imgwrap' + taskid} >
-                <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
-                <img id={'todolistitemimg' + taskid} src='./images/0.png' data-src={ApiConnection.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken}
-                    onLoad={this.handleImageLoaded.bind(this)}
-                    onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
->>>>>>> 6e3ff02... webstorm big changes crash
-=======
-            <div className='imgwrapper' id={'imgwrap' + taskid}>
-                <div className='mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner'></div>
-                <img id={'todolistitemimg' + taskid} src='./images/0.png'
-                     data-src={ApiConnection.apiurl + '/api/todo/img/' + taskid + '?access_token=' + idToken}
-                     onLoad={this.handleImageLoaded.bind(this)}
-                     onError={this.handleImageErrored.bind(this)} className='dataimg' alt='coding'/>
->>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
             </div>
         )
     }
 
     componentDidMount() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-        // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-=======
-        // componentHandler.upgradeDom()
-        componentHandler.upgradeDom()
-        // componentHandler.upgradeDom()
->>>>>>> 6e3ff02... webstorm big changes crash
-//    console.log('++++++++++++++++ todoimage ++++++ componentDidMount ')
-        // this.loadImage()
-        // const taskid = this.props.taskid
-        // var elm = $('#imgwrap'+taskid)
-        // // var imgbg=elm.find('.imgbg')
-        // var img=elm.find('.dataimg')
-        // // var imgSpinner=elm.find('.mdl-spinner')
-        // if (img.load(true) && img[0].hasAttribute('data-src')) {//img is a jquery object img[0] is the dom object
-        //   img[0].removeAttribute('src')
-        //   img[0].setAttribute('src', img[0].getAttribute('data-src'))
-        //   img[0].removeAttribute('data-src')
-        //   this.setState({
-        //     imageLoaded: undefined
-        //   })
-        // }
-    }
-
-    componentDidUpdate() {
-<<<<<<< HEAD
-        // require('exports?componentHandler!material-design-lite/material.js').upgradeDom()
-        require('exports?componentHandler!material-design-lite/material.js').upgradeAllRegistered()
-=======
-        // componentHandler.upgradeDom()
-        // componentHandler.upgradeAllRegistered()
-        componentHandler.upgradeAllRegistered()
->>>>>>> 6e3ff02... webstorm big changes crash
-//    console.log('++++++++++++++++ todoimage ++++++ componentDidUpdate '+this.props.isUploading)   
-=======
         componentHandler.upgradeDom()
     }
 
     componentDidUpdate() {
         componentHandler.upgradeAllRegistered()
->>>>>>> b06ef94... clean code, remove comments
 
         const taskid = this.props.taskid
         var elm = $('#imgwrap' + taskid)

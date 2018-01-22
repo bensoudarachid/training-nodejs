@@ -12,17 +12,8 @@ let todoReducer = function (todoappmap = new Immutable.Map({
         todoappmap = new Immutable.Map({
             filterOpen: true,
             filterClosed: true,
-<<<<<<< HEAD
-            // loadTodoImages: false,
-<<<<<<< HEAD
-            todos: undefined//Immutable.List([])      
-=======
-            todos: undefined//Immutable.List([])
->>>>>>> 6e3ff02... webstorm big changes crash
-=======
 
             todos: undefined
->>>>>>> f886b1f... clean code, remove console logs
         })
     }
     var todos = todoappmap.get('todos')

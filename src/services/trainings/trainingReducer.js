@@ -66,32 +66,13 @@ let trainingReducer = function (trainingappmap = new Immutable.Map({
             trainingappmap = trainingappmap.set('edittraining', editTraining)
             return trainingappmap
         case 'EDIT_TRAINING_LOADED':
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            if (action.training == undefined)
-                trainingappmap = trainingappmap.set('edittraining', undefined)
-            else
-                trainingappmap = trainingappmap.set('edittraining', Immutable.Map(action.training))
-            // console.log('trainings reducer. training loaded. Do something with it' +util.inspect( action.training, false, null))
-=======
-            console.log('trainings reducer EDIT_TRAINING_LOADED  <-----------------------------')
-            console.log('action.training='+require('util').inspect(action.training.events.toIndexedSeq().toArray(), false, null))
-            if (action.training == undefined)
-=======
-//            console.log('trainings reducer EDIT_TRAINING_LOADED  <-----------------------------')
-//            console.log('action.training='+require('util').inspect(action.training.events.toIndexedSeq().toArray(), false, null))
-=======
->>>>>>> f886b1f... clean code, remove console logs
             if (action.training == undefined) {
->>>>>>> 7c3f8a8... Bug: vendor.js cannot be built: cannot find module mdl-selectfield although it is there. Solved by adding "main": "dist/mdl-selectfield.js" in node_modules\mdl-selectfield\package.json. Bug: Edit Training is not removed from redux state when components Training or TrainingSchedule are unmounted because of an undefined error
                 trainingappmap = trainingappmap.set('edittraining', undefined)
                 trainingappmap = trainingappmap.set('edittrainingevents', Immutable.List([]))
             } else {
                 trainingappmap = trainingappmap.set('edittraining', Immutable.Map(action.training))
                 trainingappmap = trainingappmap.set('edittrainingevents', Immutable.List(trainingappmap.get('edittraining').get('events').toJS()))
             }
->>>>>>> 6e3ff02... webstorm big changes crash
             return trainingappmap
         case 'EDIT_TRAINING_VALIDATE':
             var userInputErrors = {}

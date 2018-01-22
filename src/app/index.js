@@ -120,64 +120,7 @@ $('.ellipsis').ellipsis()
 
 ReactDom.render(
     <Provider store={store}>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <Router routes={routes} history={mybrowserHistory}/>
-=======
-        <Router routes={routes} history={mybrowserHistory} />
->>>>>>> 6e3ff02... webstorm big changes crash
-=======
-        <Router routes={routes} history={mybrowserHistory}/>
->>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
     </Provider>,
     document.getElementById('root')
 )
-<<<<<<< HEAD
-
-// ReactDom.render(
-//   <Provider store={store}>
-//     <Router history={mybrowserHistory} >
-//       <Route path="/" component={AppComponent}>
-//         <IndexRoute component={Home} />
-//         <Route path="register" component={Register} />
-//         <Route path="trainings">
-//           <IndexRoute component={TrainingApp}/>
-//           <Route path="item/:id" component={Training} />
-//         </Route>
-//         <Route path="todos" component={TodoApp} />
-//         <Route path='*' component={NotFound} />
-//       </Route>
-//     </Router>
-//   </Provider>,
-//   document.getElementById('root')
-// )
-
-// <Router routes={routes} history={browserHistory} />
-// <Router children={routes} history={browserHistory} />
-// <AppComponent />
-//  	<App />
-
-// <Provider store={store}>
-//  <App />
-// </Provider>,
-<<<<<<< HEAD
-// 
-=======
-//
->>>>>>> 6e3ff02... webstorm big changes crash
-
-// <Route handler={AppComponent} path="/">
-//   <DefaultRoute handler={Home} />
-//   <Route name="register" handler={Register} />
-//   <Route name="/registerconfirm(/:username" handler={RegisterConfirmation} />
-//   <Route name="todos" handler={TodoApp} />
-//   <Route name="trainings" handler={TrainingApp}>
-//   </Route>
-<<<<<<< HEAD
-//   <NotFoundRoute handler={NotFound}/>        
-=======
-//   <NotFoundRoute handler={NotFound}/>
->>>>>>> 6e3ff02... webstorm big changes crash
-// </Route>
-=======
->>>>>>> b06ef94... clean code, remove comments

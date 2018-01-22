@@ -20,75 +20,17 @@ if (process.env.BROWSER) {
             }
         })
     })
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // $(document).ready(function() { 
-    //   $('body').click(function(event) {
-    //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called 
-=======
-    // $(document).ready(function() {
-    //   $('body').click(function(event) {
-    //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called
->>>>>>> 6e3ff02... webstorm big changes crash
-    //     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
-    //       $('.navbar-collapse').collapse('toggle')
-    //     }
-    //   })
-    // })
-
-=======
->>>>>>> b06ef94... clean code, remove comments
-=======
->>>>>>> e791b46... One single navigation component with changing navigation links depending on user role
 }
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-//require('./nav.scss')
->>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
-
-//require('./nav.scss')
-
-<<<<<<< HEAD
-class Nav extends Component {
-    // <div>
-<<<<<<< HEAD
-    //    </div>    
-=======
-    //    </div>
->>>>>>> 6e3ff02... webstorm big changes crash
-    // {this.props.location.pathname!='/register' &&
-//     	<Link activeClassName='active' to='/register'>Register</Link>
-// }
-//	<Button>Click me!</Button>
-=======
-
-class Nav extends Component {
->>>>>>> b06ef94... clean code, remove comments
-
-
-=======
 var datasrc = undefined
 class Nav extends Component {
->>>>>>> e791b46... One single navigation component with changing navigation links depending on user role
     handleLoginClick(event) {
         this.props.actions.loginProcessStart('Welcome to Roya')
     }
 
     render() {
         const isBrowser = typeof window !== 'undefined'
-<<<<<<< HEAD
-<<<<<<< HEAD
         const {auth} = this.props
-=======
-        const { auth } = this.props
->>>>>>> 6e3ff02... webstorm big changes crash
-=======
-        const {auth} = this.props
->>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
         const isAuthenticated = auth.get('isAuthenticated')
         if (process.env.BROWSER)
             datasrc = this.getRightLogoUrl()
@@ -186,62 +128,3 @@ class Nav extends Component {
 }
 
 export default Nav
-<<<<<<< HEAD
-// <div>
-
-//   {!isAuthenticated &&
-// 	  <Login
-// 	  errorMessage={errorMessage}
-// 	  onLoginClick={ creds => dispatch(loginUser(creds)) }
-// 	  />
-//   }
-
-//   {isAuthenticated &&
-//   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
-//   }
-
-<<<<<<< HEAD
-//    </div>    
-=======
-//    </div>
->>>>>>> 6e3ff02... webstorm big changes crash
-
-
-//     <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
-//     <ul className='navbar-header logoblock'>
-//     <li><img id='logo' src={'./images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/></li>
-//     <li>
-//       <div>
-//       <h2>Roya</h2>
-//       <h3>Software</h3>
-//       </div>
-//     </li>
-//     <li>
-//       <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
-//         <span className="icon-bar"></span>
-//         <span className="icon-bar"></span>
-//         <span className="icon-bar"></span>
-//       </button>
-//     </li>   
-//   </ul>
-//     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-//       <ul className="nav navbar-nav navbar-left">
-//       <li><IndexLink activeClassName='active' to='/'>Home</IndexLink></li>
-//       <li><Link activeClassName='active' to='/todos'>Todos</Link></li>
-//       <li><Link activeClassName='active' to='/trainings'>Training</Link></li>
-//       </ul>
-//       <ul className="nav navbar-nav navbar-right">
-//       <li><Link activeClassName='active' to='/register'>Register</Link></li>
-// {isBrowser && !isAuthenticated &&
-//   <li><a href='#' onClick={(event) => this.handleLoginClick(event)}><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
-// }
-// {isAuthenticated &&
-//   <li>
-//   <a href='#' onClick={(event) => this.props.actions.logoutUser()}><span className='glyphicon glyphicon-log-out'></span> Logout</a>
-//   </li>
-// }     
-//       </ul>
-//     </div>
-//   </nav>
-=======
->>>>>>> b06ef94... clean code, remove comments

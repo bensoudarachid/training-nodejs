@@ -13,55 +13,12 @@ if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
 if (process.env.BROWSER) {
     require('../../../app/jquery.shuffleLetters.js')
     require('./admintrainingapp.scss')
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    // require('./trainingedit.scss')
-    // require('./trainingschedule.scss')
->>>>>>> 6e3ff02... webstorm big changes crash
-=======
->>>>>>> b06ef94... clean code, remove comments
 
     var rdm = 0
     var lastrdm = 0
 }
 
-<<<<<<< HEAD
-
-// import Immutable from 'immutable'
-
-// require('es6-promise').polyfill();
-// require('isomorphic-fetch');
-
-
-// const trainings = [
-//   {
-//     task: 'make react tuto',
-//     isCompleted: false
-//   },
-//   {
-//     task: 'eat dinner',
-//     isCompleted: true
-//   },
-//   {
-//     task: 'Beat it',
-//     isCompleted: false
-//   }
-// ];
-// import 'node-fetch'
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b06ef94... clean code, remove comments
 export default class AdminTrainingApp extends Component {
-=======
-export default
-class AdminTrainingApp extends Component {
->>>>>>> 6e3ff02... webstorm big changes crash
-=======
-export default class AdminTrainingApp extends Component {
->>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
     constructor(props) {
         super(props)
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
@@ -80,18 +37,6 @@ export default class AdminTrainingApp extends Component {
         return (
             <div>
                 <div className='admintrainingapp'>
-<<<<<<< HEAD
-        <span id="textwrap"> 
-          <p id="textswitch"></p>
-        </span>
-                    <div>
-                        <div className='blockborder parampanel commandpanel'>
-                            <TrainingCommandPanel trainings={this.props.trainingappmap.get('trainings')}
-                                                  actions={this.props.actions}/>
-                        </div>
-                        <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')}
-                                           actions={this.props.actions}/>
-=======
                     <span id="textwrap">
                         <p id="textswitch"></p>
                     </span>
@@ -100,13 +45,8 @@ export default class AdminTrainingApp extends Component {
                             <TrainingCommandPanel trainings={this.props.trainingappmap.get('trainings')}
                                                   actions={this.props.actions}/>
                         </div>
-<<<<<<< HEAD
-                        <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
->>>>>>> 6e3ff02... webstorm big changes crash
-=======
                         <AdminTrainingList trainings={this.props.trainingappmap.get('trainings')}
                                            actions={this.props.actions}/>
->>>>>>> 08d053b... webstorm 2017 reformatted code .install webpack-3, adapt extract-text-plugin. find a solution to have all app css in one file and still get js splitted by request-ensure method.(using different entries). fix the messy relative import paths through webpack resolve.modules. fix testing resolve paths by adding set NODE_PATH=./src&& mocha... in the beginning of the test command.Fix Public training -> Login -> Admin Training. No list there. Add mocha chai enzyme sinon tests using full rendering method mount for TodoList component in order to check internal method calls. Add training calendar.Add tests for training edit buttons. submit and delete. Move to babel es2017 and use async await in sinon tests
                     </div>
                 </div>
             </div>

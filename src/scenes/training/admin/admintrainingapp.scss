@@ -5,81 +5,13 @@
   margin: 0 auto;
   .commandpanel {
     width: 95%;
-<<<<<<< HEAD
-    // margin: 0 auto !important;
-<<<<<<< HEAD
-    @media (min-width: 768px) { //768
-      width: 85%;
-    }
-    @media (min-width: 992px) { //992
-=======
-=======
->>>>>>> b06ef94... clean code, remove comments
     @media (min-width: 768px) {
       width: 85%;
     }
     @media (min-width: 992px) {
-<<<<<<< HEAD
-      //992
->>>>>>> 6e3ff02... webstorm big changes crash
-=======
->>>>>>> b06ef94... clean code, remove comments
       width: 65%;
     }
   }
-<<<<<<< HEAD
-
-}
-
-#textwrap {
-  z-index: -850;
-  position: fixed;
-  width: 0.01%;
-  height: 30px;
-  // visibility:hidden;
-  opacity: 0.5;
-  // background-color: black;
-  margin-top: -28px;
-  left: 10px;
-<<<<<<< HEAD
-  @media (min-width: 768px) { //768
-=======
-  @media (min-width: 768px) {
-    //768
->>>>>>> 6e3ff02... webstorm big changes crash
-    margin-top: -32px;
-    left: 10px;
-    // background-color: black;
-  }
-<<<<<<< HEAD
-  @media (min-width: 992px) { //992
-=======
-  @media (min-width: 992px) {
-    //992
->>>>>>> 6e3ff02... webstorm big changes crash
-    left: 6%;
-    margin-top: -36px;
-  }
-  p {
-    white-space: nowrap;
-    // font-family: 'Roboto', Tahoma, sans-serif;
-    font-family: $RoyaMainFont;
-    font-size: 18px;
-    color: white;
-    position: relative;
-    // top:85px;
-    left: 0px;
-    width: 80%;
-    // height:40px;
-    opacity: 1;
-    text-align: left;
-    // background-color: red;
-    // margin-top:-120px;
-    text-transform: uppercase;
-    &:first-letter {
-      font-size: 140%;
-    }
-=======
   #textwrap {
     z-index: -850;
     position: fixed;
@@ -88,7 +20,6 @@
     opacity: 0.5;
     margin-top: -30px;
     left: 10px;
->>>>>>> 3c66ff3... Fix some view navigation and Training animation Text margins for a better layout
     @media (min-width: 768px) {
       margin-top: -32px;
       left: 10px;

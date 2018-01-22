@@ -1,14 +1,5 @@
-<<<<<<< HEAD
- @import '../../styles/default.scss';
-
-<<<<<<< HEAD
-=======
-// @import "../../../node_modules/material-design-lite/src/_variables.scss";
-=======
 @import '../../styles/default.scss';
->>>>>>> b06ef94... clean code, remove comments
 
->>>>>>> 6e3ff02... webstorm big changes crash
 #bsnavi {
 
   #bg {
@@ -174,15 +165,7 @@
     background: radial-gradient(circle closest-side at 35px 21px, lighten($orangelight, 19%) 0, lighten($orangelight, 19%) 18px, transparent 19px);
   }
 
-<<<<<<< HEAD
-  @media (min-width: 768px) { //768
-=======
   @media (min-width: 768px) {
-<<<<<<< HEAD
-    //768
->>>>>>> 6e3ff02... webstorm big changes crash
-=======
->>>>>>> b06ef94... clean code, remove comments
     .navbar-left, .navbar-right {
       margin-top: 36px;
       li a {
@@ -255,15 +238,7 @@
 
   }
 
-<<<<<<< HEAD
-  @media (min-width: 992px) { //992
-=======
   @media (min-width: 992px) {
-<<<<<<< HEAD
-    //992
->>>>>>> 6e3ff02... webstorm big changes crash
-=======
->>>>>>> b06ef94... clean code, remove comments
     width: 90%;
 
     @include transitionAll(.3s);
