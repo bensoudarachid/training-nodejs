@@ -29,30 +29,11 @@ var TodosFilter = function (_React$Component) {
         _classCallCheck(this, TodosFilter);
 
         return _possibleConstructorReturn(this, (TodosFilter.__proto__ || Object.getPrototypeOf(TodosFilter)).call(this, props));
-<<<<<<< HEAD
     }
 
     _createClass(TodosFilter, [{
         key: 'render',
         value: function render() {
-=======
-
-        // this.state = {
-        //   error: null
-        // };
-    }
-
-    // <div className='mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--2-col-phone'><p>open</p></div>
-    // <div className='mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--2-col-phone'><p>closed</p></div>
-
-    //defaultChecked={this.props.filterTodos!==undefined}
-
-
-    _createClass(TodosFilter, [{
-        key: 'render',
-        value: function render() {
-            // console.log('filter todos. filter = '+this.props.filterTodos)
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             return _react2.default.createElement(
                 'div',
                 {
@@ -101,10 +82,6 @@ var TodosFilter = function (_React$Component) {
     }, {
         key: 'renderOld',
         value: function renderOld() {
-<<<<<<< HEAD
-=======
-            // console.log('filter todos. filter = '+this.props.filterTodos)
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             return _react2.default.createElement(
                 'div',
                 { id: 'todosfilter' },
@@ -129,36 +106,16 @@ var TodosFilter = function (_React$Component) {
     }, {
         key: 'handleFilterOpen',
         value: function handleFilterOpen(event) {
-<<<<<<< HEAD
 
             var filterOpen = event.target.checked;
-=======
-            // event.preventDefault();
-            // const filterOpen = this.refs.filterOpen
-
-            var filterOpen = event.target.checked; //filterAllInput.value
-            // var filter = undefined
-            // if (filterAllChecked)
-            //   filter = 'all'
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             console.log('filter todos. Open. Checkbox' + event.target.checked + ', Filter ' + filterOpen);
             this.props.actions.filterTodosOpen(filterOpen);
         }
     }, {
         key: 'handleFilterClosed',
         value: function handleFilterClosed(event) {
-<<<<<<< HEAD
 
             var filterClosed = event.target.checked;
-=======
-            // event.preventDefault();
-            // const filterOpen = this.refs.filterOpen
-
-            var filterClosed = event.target.checked; //filterAllInput.value
-            // var filter = undefined
-            // if (filterAllChecked)
-            //   filter = 'all'
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             console.log('filter todos. Closed. Checkbox' + event.target.checked + ', Filter ' + filterClosed);
             this.props.actions.filterTodosClosed(filterClosed);
         }
@@ -167,10 +124,6 @@ var TodosFilter = function (_React$Component) {
         value: function validateInput(task) {
             if (!task) {
                 return 'Please enter a task.';
-<<<<<<< HEAD
-=======
-                // } else if (_.find(this.props.todos, (todo) => todo.get('task') === task)) {
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             } else if (this.props.todos.find(function (todo) {
                 return todo.get('task') === task;
             })) {

@@ -15,7 +15,6 @@ var _apiconnection2 = _interopRequireDefault(_apiconnection);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var url = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename;
-<<<<<<< HEAD
 
 var trainingservices = {
     retrieveTrainingService: function retrieveTrainingService(id) {
@@ -36,68 +35,6 @@ var trainingservices = {
             return response.text().then(function (text) {
                 return text.length ? JSON.parse(text) : {};
             }).then(function (data) {
-=======
-// const url = ApiConnection.apiurl
-
-// import {expressPort} from '../../server7'
-// export const LOGIN_REQUEST = 'LOGIN_REQUEST'
-// export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-// export const LOGIN_FAILURE = 'LOGIN_FAILURE'
-// export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
-// import {browserHistory} from 'react-router';
-// import { getIsFetching } from '../reducers'
-// import Immutable from 'immutable';
-var trainingservices = {
-    retrieveTrainingService: function retrieveTrainingService(id) {
-
-        var requesturl = url;
-        var headers = {
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-            'Content-Type': 'application/json'
-            // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
-            // 'Authorization': 'Bearer '+idToken
-
-            // if (hostname != undefined) {
-            //     // requesturl = ApiConnection.getApiConnection(hostname) + ApiConnection.appbasename
-            //     headers.OldClientHost = '' + hostname
-            // }
-        };var idToken = _reactCookie2.default.load('jwt');
-
-        console.log('training fetchData. url: ' + url + '/api/training/item/' + id);
-        if (idToken != undefined) {
-            headers.Authorization = 'Bearer ' + idToken;
-            // console.log('Ya trainings fetchData.  auth id token: ' + headers.Authorization)
-        }
-        // else {
-        //   console.log('Service retrieve trainings fetchData. Wahnsinn: no idToken')
-        // }
-        //var test = 'This is abbas in the hood!';
-        console.log('Call training server fetch now!. URL = ' + requesturl + '/api/training/item/' + id);
-        return fetch(requesturl + '/api/training/item/' + id, {
-            method: 'GET',
-            headers: headers
-            // headers: {
-            //   'Content-Type': 'application/x-www-form-urlencoded',
-            //   'Content-Type': 'application/json',
-            //   // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
-            //   'Authorization': 'Bearer '+idToken
-            // }
-            // ,
-            // body: JSON.stringify({
-            //   testparam: test
-            // })
-            // body: 'testparam='+test //if no json in header
-        }).then(function (response) {
-            return response.text().then(function (text) {
-                // return text.length ? JSON.parse(text,ApiConnection.reviver) : {}
-                return text.length ? JSON.parse(text) : {};
-            })
-            // response => response.json()
-            .then(function (data) {
-                //        console.log('Print status now')
-                //        console.log('Response Status = ' + response.status)
-                // console.log('Response data size = ' + data.size())
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                 return {
                     status: response.status,
                     data: data
@@ -105,7 +42,6 @@ var trainingservices = {
             });
         });
     },
-<<<<<<< HEAD
     // retrieveTrainingsService: async function () {
     //     let requesturl = url
     //     var headers = {
@@ -141,62 +77,6 @@ var trainingservices = {
             headers: headers
         }).then(function (response) {
             return response.json().then(function (data) {
-=======
-    retrieveTrainingsService: function retrieveTrainingsService() {
-        // var sessionId = cookie.load('JSESSIONID')
-        //        console.log('Service retrieve trainings fetchData')
-        var requesturl = url;
-        var headers = {
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-            'Content-Type': 'application/json'
-            // ,'ClientHost': ''+hostname//.replace("school.", "schoolapi.")
-            // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
-            // 'Authorization': 'Bearer '+idToken
-
-            // if (hostname != undefined) {
-            //     // requesturl = ApiConnection.getApiConnection(hostname)
-            //     // requesturl = ApiConnection.getApiConnection(hostname) + ApiConnection.appbasename
-            //     // headers.ClientHost = '' + hostname
-            // }
-        };var idToken = _reactCookie2.default.load('jwt');
-        //        console.log('Ya trainings fetchData.  auth id token: ' + idToken)
-        if (idToken != undefined) {
-            headers.Authorization = 'Bearer ' + idToken;
-            // console.log('Ya trainings fetchData.  auth id token: ' + headers.Authorization)
-        }
-        // else {
-        //   console.log('Service retrieve trainings fetchData. Wahnsinn: no idToken')
-        // }
-        //var test = 'This is abbas in the hood!';
-        // console.log('------------------Call retrieveTrainingsService fetch data now from '+ requesturl+'/api/trainings/2373')
-        return fetch(requesturl + '/api/trainings/2373', {
-            method: 'GET',
-            headers: headers
-            // headers: {
-            //   'Content-Type': 'application/x-www-form-urlencoded',
-            //   'Content-Type': 'application/json',
-            //   // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
-            //   'Authorization': 'Bearer '+idToken
-            // }
-            // ,
-            // body: JSON.stringify({
-            //   testparam: test
-            // })
-            // body: 'testparam='+test //if no json in header
-        }).then(
-        //This works too transforming the text response into json. But without the conversion
-        function (response) {
-            return response.json()
-            //This is the version to use if you dont have a JSON polyfill to take over the parse function in 'apiconnection'
-            // response => response.text()
-            // .then(text => {
-            //     return text.length ? JSON.parse(text,JSON.reviver) : {}
-            // })
-            .then(function (data) {
-                //        console.log('Print Response Status now ')
-                console.log('Response Status = ' + response.status);
-                // console.log('Response data size = ' + data.size())
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                 return {
                     status: response.status,
                     data: data
@@ -206,7 +86,6 @@ var trainingservices = {
     },
     updateTrainingServiceOld: function updateTrainingServiceOld(training) {
         var headers = {
-<<<<<<< HEAD
             'Content-Type': 'application/json'
         };
         var idToken = _reactCookie2.default.load('jwt');
@@ -214,36 +93,10 @@ var trainingservices = {
             headers.Authorization = 'Bearer ' + idToken;
         }
         var body = JSON.stringify(training);
-=======
-            // 'Content-Type': 'application/x-www-form-urlencoded'
-            'Content-Type': 'application/json' //for json paramter
-            // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
-            // 'Authorization': 'Bearer '+idToken
-        };
-        var idToken = _reactCookie2.default.load('jwt');
-        // console.log('trainings save Data.  auth id token: ' + idToken)
-        if (idToken != undefined) {
-            headers.Authorization = 'Bearer ' + idToken;
-        }
-        // else
-        //   console.log('trainings action. Wahnsinn: no idToken')
-
-        // var body = JSON.stringify({
-        //   id: training.get('id'),
-        //   task: training.get('task'),
-        //   // userid: -1
-        //   completed: training.get('completed')
-        // })
-        // training = training.set('task', null)
-        var body = JSON.stringify(training);
-        //&scope=read%20write
-        // console.log('body ' + body)
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         var config = {
             method: 'POST',
             headers: headers,
             body: body
-<<<<<<< HEAD
         };
         return fetch(url + '/api/training/updatetraining', config).then(function (response) {
             return response.json().then(function (data) {
@@ -257,51 +110,13 @@ var trainingservices = {
     updateTrainingService: function updateTrainingService(training, inputfile) {
         var headers = {};
         var idToken = _reactCookie2.default.load('jwt');
-=======
-            // console.log('config ')
-            // console.log(config)
-            // var training = null;
-
-        };return fetch(url + '/api/training/updatetraining', config).then(function (response) {
-            return response.json().then(function (data) {
-                return {
-                    status: response.status,
-                    data: data
-                };
-            });
-        });
-    },
-    updateTrainingService: function updateTrainingService(training, inputfile) {
-        //        console.log('inputfile=' + require('util').inspect(inputfile, false, null))
-        var headers = {
-            // 'Content-Type': 'multipart/form-data'
-            // 'Content-Type': 'multipart/form-data; boundary=B0EC8D07-EBF1-4EA7-966C-E492A9F2C36E'
-            //'Content-Type':'undefined'
-            // 'Content-Type':'multipart/mixed'
-            // 'Content-Type': 'application/octet-stream'
-            // 'Content-Type': 'application/json'
-        };
-        var idToken = _reactCookie2.default.load('jwt');
-        // console.log('trainings save Data.  training id : ' + training.get('id'))
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         if (idToken != undefined) {
             headers.Authorization = 'Bearer ' + idToken;
         }
         var trainingbody = JSON.stringify(training);
         var body = new FormData();
-<<<<<<< HEAD
         body.append('trainingParam', new Blob([trainingbody], { type: 'application/json' }));
         body.append('uploadfile', inputfile);
-=======
-        // body.append('trainingParam', trainingbody)
-        body.append('trainingParam', new Blob([trainingbody], { type: 'application/json' }));
-        // body.append('title', training.get('title'))
-        // body.append('secondaryTitle', training.get('secondaryTitle'))
-        // body.append('shortDescription', training.get('shortDescription'))
-        // body.append('longDescription', training.get('longDescription'))
-        body.append('uploadfile', inputfile);
-
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         var config = {
             method: 'POST',
             headers: headers,
@@ -309,11 +124,7 @@ var trainingservices = {
         };
         return fetch(url + '/api/training/updatetraining/', config).then(function (res) {
             return res.text().then(function (text) {
-<<<<<<< HEAD
 
-=======
-                // return text.length ? JSON.parse(text,ApiConnection.reviver) : {}
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                 return text.length ? JSON.parse(text) : {};
             }).then(function (data) {
                 return {
@@ -324,7 +135,6 @@ var trainingservices = {
         });
     },
     uploadTrainingFileService: function uploadTrainingFileService(training, inputfile) {
-<<<<<<< HEAD
         var headers = {};
         var idToken = _reactCookie2.default.load('jwt');
 
@@ -333,43 +143,12 @@ var trainingservices = {
         }
         var body = new FormData();
         body.append('uploadfile', inputfile);
-=======
-        var headers = {
-            // 'Content-Type': 'application/x-www-form-urlencoded'
-            //      'Content-Type': 'multipart/form-data' //for json paramter
-            // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
-            // 'Authorization': 'Bearer '+idToken
-        };
-        var idToken = _reactCookie2.default.load('jwt');
-        // console.log('trainings save Data.  training id : ' + training.get('id'))
-        if (idToken != undefined) {
-            headers.Authorization = 'Bearer ' + idToken;
-        }
-        // var body = JSON.stringify(training)
-
-        // var input = document.querySelector('input[type="file"]')
-
-        var body = new FormData();
-        body.append('uploadfile', inputfile);
-
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         var config = {
             method: 'POST',
             headers: headers,
             body: body
         };
-<<<<<<< HEAD
         return fetch(url + '/api/training/' + training.get('id') + '/fileupload/', config).then(function (res) {
-=======
-        return fetch(url + '/api/training/' + training.get('id') + '/fileupload/', config)
-        // .then(response => response.json()
-        //   .then(data => ({
-        //     status: response.status,
-        //     data
-        //   })
-        // ))
-        .then(function (res) {
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             return res.text().then(function (text) {
                 return text.length ? JSON.parse(text) : {};
             }).then(function (data) {
@@ -379,7 +158,6 @@ var trainingservices = {
                 };
             });
         });
-<<<<<<< HEAD
     },
     deleteTrainingService: function deleteTrainingService(training) {
         var headers = {
@@ -390,55 +168,12 @@ var trainingservices = {
             headers.Authorization = 'Bearer ' + idToken;
         }
         var body = JSON.stringify(training);
-=======
-
-        // return fetch(url+'/api/training/'+training.get('id')+'/fileupload/', config)
-        // .then(response => ({
-        //   status: response.status
-        // })
-        // )
-    },
-    deleteTrainingService: function deleteTrainingService(training) {
-        console.log('delete training=' + require('util').inspect(training, false, null));
-        var headers = {
-            // 'Content-Type': 'application/x-www-form-urlencoded'
-            'Content-Type': 'application/json' //for json paramter
-            // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsicmVzdHNlcnZpY2UiXSwidXNlcl9uYW1lIjoicGFwaWRha29zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTQ2ODQ0ODY2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImViMzQwNzMzLTA1MTItNDcxOS04Nzc4LWQ1M2VmMWY4N2MzOCIsImNsaWVudF9pZCI6ImNsaWVudGFwcCJ9.c_Ezkr191Ww7dWB2MEUj98XNQXsdmVdVmuIXQ_kKm3o'
-            // 'Authorization': 'Bearer '+idToken
-        };
-        var idToken = _reactCookie2.default.load('jwt');
-        // console.log('trainings save Data.  auth id token: ' + idToken)
-        if (idToken != undefined) {
-            headers.Authorization = 'Bearer ' + idToken;
-        }
-        // else{
-        //   console.log('trainings action. Wahnsinn: no idToken')
-        // }
-
-        // var body = JSON.stringify({
-        //   id: training.get('id'),
-        //   task: training.get('task'),
-        //   // userid: -1
-        //   completed: training.get('completed')
-        // })
-        // training = training.set('task', null)
-        var body = JSON.stringify(training);
-        //&scope=read%20write
-        console.log('body ' + body);
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         var config = {
             method: 'POST',
             headers: headers,
             body: body
-<<<<<<< HEAD
         };
         return fetch(url + '/api/training/deletetraining', config).then(function (response) {
-=======
-            // console.warn('config ')
-            // onsole.log(config)
-            // var training = null;
-        };return fetch(url + '/api/training/deletetraining', config).then(function (response) {
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             return response.json().then(function (data) {
                 return {
                     status: response.status,
@@ -447,10 +182,6 @@ var trainingservices = {
             });
         });
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 };
 
 exports.default = trainingservices;

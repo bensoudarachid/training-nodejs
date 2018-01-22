@@ -54,11 +54,7 @@ var NotFound = function NotFound() {
     return _react2.default.createElement(
         'h1',
         null,
-<<<<<<< HEAD
         '404.... Page not found.'
-=======
-        '404.... This page is not found!'
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
     );
 };
 

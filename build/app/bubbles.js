@@ -24,16 +24,7 @@ global.jQuery = require('jquery');
                 context = canvas.getContext('2d'),
                 defaults = {
                 star: {
-<<<<<<< HEAD
                     color: 'rgba(255, 255, 255, .5)', width: 100,
-=======
-                    // color: 'rgba(172, 186, 201, .99)', //silver
-                    // color: 'rgba(34, 167, 240, .99)', //blue
-                    color: 'rgba(255, 255, 255, .5)', //white
-                    // color: 'rgba(0, 0, 0, .99)', //black
-                    // color: 'rgba(108, 122, 137, .99)',
-                    width: 100,
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                     randomWidth: true
                 },
                 line: {
@@ -41,12 +32,7 @@ global.jQuery = require('jquery');
                     width: 0.2
                 },
                 position: {
-<<<<<<< HEAD
                     x: 0, y: 0
-=======
-                    x: 0, // This value will be overwritten at startup
-                    y: 0 // This value will be overwritten at startup
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                 },
                 width: window.innerWidth,
                 height: window.innerHeight,
@@ -72,14 +58,6 @@ global.jQuery = require('jquery');
             }
 
             Star.prototype = {
-<<<<<<< HEAD
-=======
-                // create: function(){
-                //   context.beginPath()
-                //   context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-                //   context.fill()
-                // },
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 
                 create: function create() {
                     this.drawEllipse(this.x, this.y, 2.5 * this.radius * config.width / window.innerWidth, 2 * this.radius * config.height / window.innerHeight);
@@ -87,23 +65,9 @@ global.jQuery = require('jquery');
                 drawEllipse: function drawEllipse(centerX, centerY, width, height) {
                     context.beginPath();
 
-<<<<<<< HEAD
                     context.moveTo(centerX, centerY - height / 2);
                     context.bezierCurveTo(centerX + width / 2, centerY - height / 2, centerX + width / 2, centerY + height / 2, centerX, centerY + height / 2);
                     context.bezierCurveTo(centerX - width / 2, centerY + height / 2, centerX - width / 2, centerY - height / 2, centerX, centerY - height / 2);
-=======
-                    context.moveTo(centerX, centerY - height / 2); // A1
-
-                    context.bezierCurveTo(centerX + width / 2, centerY - height / 2, // C1
-                    centerX + width / 2, centerY + height / 2, // C2
-                    centerX, centerY + height / 2); // A2
-
-                    context.bezierCurveTo(centerX - width / 2, centerY + height / 2, // C3
-                    centerX - width / 2, centerY - height / 2, // C4
-                    centerX, centerY - height / 2); // A1
-
-                    // context.fillStyle = 'white'
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                     context.fill();
                     context.closePath();
                 },
@@ -131,23 +95,8 @@ global.jQuery = require('jquery');
 
                 for (i = 0; i < length; i++) {
                     config.stars.push(new Star());
-<<<<<<< HEAD
                 }
             };
-=======
-                    // star = config.stars[i]
-                }
-
-                //          star.line()
-            };
-            // this.animateText = function () {
-            //   // canvas.width(($(window).width()).height($(window).height()))
-            //   context.font = '110px Dancing Script'
-            //   context.fillStyle = 'white'
-            //   context.textAlign = 'center'
-            //   context.fillText('JAVA', canvas.width/6, 1.0*canvas.height/3.7)
-            // }
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 
             this.animateStars = function () {
                 var length = config.length,
@@ -161,11 +110,6 @@ global.jQuery = require('jquery');
                     star.create();
                     star.animate();
                 }
-<<<<<<< HEAD
-=======
-
-                //          star.line()
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             };
 
             this.setCanvas = function () {
@@ -191,26 +135,9 @@ global.jQuery = require('jquery');
             this.loop = function (callback) {
                 callback();
 
-<<<<<<< HEAD
                 setTimeout(function () {
                     window.requestAnimationFrame(function () {
                         this.loop(callback);
-=======
-                // setTimeout(
-                //   window.requestAnimationFrame(function () {
-                //     stats.begin() // Only for Stats
-                //     this.loop(callback)
-                //     // window.setTimeout(this.loop(callback), 1000 / 20)
-                //     stats.end() // Only for Stats
-                //   }.bind(this))
-                // , 1000 / 10)
-                setTimeout(function () {
-                    window.requestAnimationFrame(function () {
-                        // stats.begin() // Only for Stats
-                        this.loop(callback);
-                        // window.setTimeout(this.loop(callback), 1000 / 20)
-                        // stats.end() // Only for Stats
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                     }.bind(this));
                 }.bind(this), 1000 / 15);
             };
@@ -238,7 +165,6 @@ global.jQuery = require('jquery');
                 c.init();
             });
         };
-<<<<<<< HEAD
     })(_jquery2.default, window);
 
     (0, _jquery2.default)('#canvs2').constellation({
@@ -251,104 +177,4 @@ global.jQuery = require('jquery');
     setTimeout(function () {
         (0, _jquery2.default)('#wavybg-wrapper').addClass('fadein');
     }, 1800);
-=======
-
-        // $.fn.textconstellation = function (options) {
-        //   return this.each(function () {
-        //     var c = new Constellation(this, options)
-        //     return c.animateText()
-        //   })
-        // }
-    })(_jquery2.default, window);
-
-    // Init plugin
-
-    (0, _jquery2.default)('#canvs2').constellation({
-        star: {
-            width: 4
-        },
-        // line: {
-        //   color: 'rgba(150, 125, 105, .5)'
-        // },
-        radius: 50
-    });
-
-    // $('#canvs3').textconstellation({
-    //   star: {
-    //     width: 5
-    //   },
-    //   // line: {
-    //   //   color: 'rgba(150, 125, 105, .5)'
-    //   // },
-    //   radius: 50
-    // })
-
-
-    setTimeout(function () {
-        (0, _jquery2.default)('#wavybg-wrapper').addClass('fadein');
-    }, 1800);
-
-    // var context = document.querySelector('#canvs3').getContext('2d')
-
-    // var color = $('.parampanel').css('background-color')
-    // var smokyBGNow = $('#wavybg-wrapper').waterpipe({
-    //   gradientStart: '#6bc1ff',
-    //   // gradientEnd: '#6C7A89',
-    //   // gradientEnd: '#9caab9',
-    //   // gradientEnd: '#bccad9',
-    //   // gradientEnd: '#ffffff',
-    //   gradientEnd: '#dfefff',
-
-
-    //   smokeOpacity: 0.05,
-    //   smokeSize: 0.2,
-    //   numCircles: 5,
-    //   maxMaxRad: 150,
-    //   minMaxRad: 1,
-    //   minRadFactor: 0.5,
-    //   iterations: 4,
-    //   drawsPerFrame: 45,
-    //   lineWidth: 1,
-    //   speed: 1,
-    //   // bgColorInner: '#6bc1ff',
-    //   bgColorInner: '#c5d3e2',
-    //   // bgColorOuter: '#003870'
-    //   // bgColorOuter: '#004790'
-    //   // bgColorOuter: '#ffffff'
-    //   bgColorOuter: '#2980b9'
-    // })
-
-    // var context = document.querySelector('#canvs2').getContext('2d')
-    // context.beginPath()
-    // context.arc(300, 380, 50, 0, 1.5 * Math.PI)
-    // context.fill()
-    // // var context = $('#canvs').getContext('2d')
-    // // context.font = 'italic 400 22px/2 sans-serif'
-    // context.strokeStyle = '#ff0'
-    // context.textBaseline = 'alphabetic'
-    // context.moveTo(350, 20)
-    // context.lineTo(450, 570)
-    // context.stroke()
-
-    // context.beginPath()
-    // context.arc(480, 480, 250, 0, 1.5 * Math.PI)
-    // context.fill()
-
-    // var c = document.getElementById('canvs3')
-    // var context = c.getContext('2d')
-    // context.beginPath()
-    // context.arc(300, 380, 50, 0, 2 * Math.PI,false)
-    // // context.fillStyle = 'green'
-    // context.fill()
-
-
-    // var modal = document.getElementById('myModal')
-    // window.onclick = function(event) {
-    //   if (event.target == modal) {
-    //     // const {dispatch, quote, auth, errorMessage, isSecretQuote} = this.props
-    //     this.props.auth.onLoginProcessEndClick()
-    //     // modal.style.display = 'none'
-    //   }
-    // }
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 });

@@ -29,15 +29,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var rootReducer = (0, _redux.combineReducers)({
     auth: _authReducer2.default,
     app: _appReducer2.default,
-<<<<<<< HEAD
     todoappmap: _todoReducer2.default,
     trainingappmap: _trainingReducer2.default,
-=======
-    // todoappmap: todoAppReducer,
-    todoappmap: _todoReducer2.default,
-    trainingappmap: _trainingReducer2.default,
-    // user: userReducer,
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
     routing: _reactRouterRedux.routerReducer
 });
 

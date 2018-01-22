@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"app":{"js":"/app.1b193da4a4cc8bc4de8f.js","css":"/app.1b193da4a4cc8bc4de8f.css"},"publicapp":{"js":"/publicapp.361000f18f5f1d17b3a6.js","css":"/publicapp.361000f18f5f1d17b3a6.css"},"vendor":{"js":"/vendor.75e110e92b4f25e7e884.bundle.js"}}
-=======
-{"app":{"js":"/app.63b4286051bcda186ff4.js","css":"/app.63b4286051bcda186ff4.css"},"publicapp":{"js":"/publicapp.8747529268c0b5395aa2.js","css":"/publicapp.8747529268c0b5395aa2.css"},"vendor":{"js":"/vendor.f9c50acf0cd648406567.bundle.js"}}
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
+{"app":{"js":"/app.1f90cc96fcfe82b459fd.js","css":"/app.1f90cc96fcfe82b459fd.css"},"publicapp":{"js":"/publicapp.a3c16190eba17cc2b442.js","css":"/publicapp.a3c16190eba17cc2b442.css"},"vendor":{"js":"/vendor.6e3458bb248b85ee0e40.bundle.js"}}

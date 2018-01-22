@@ -46,59 +46,6 @@ if (process.env.BROWSER) {
     (0, _jquery2.default)(document).ready(function () {
         (0, _jquery2.default)(document).click(function (event) {
 
-<<<<<<< HEAD
-=======
-if (process.env.BROWSER) {
-    // console.log('Appcomponent. environment is browser')
-    require('./nav.scss');
-    //   function sir3allah(event){
-    //     var logotitleElm2 = $('#bsnavi h2')
-    //     // var rdm = Math.floor(Math.random() * 2) + 1
-    //     // var rdm2 = Math.floor(Math.random() * 2) + 1
-    //     var imgAnim = 'flash'//rdm===1?'flash':'flash' //flash
-    //     // console.log('anim='+imgAnim)
-    //     var timeout=800//rdm===1?800:350
-    //     logotitleElm2.addClass('animated '+imgAnim) //+(rdm===3&&rdm2===1?' reverseanim':'')
-    //     setTimeout(() => {
-    //       logotitleElm2.removeClass('animated')
-    //       logotitleElm2.removeClass(imgAnim)
-    //     }, timeout)
-
-    //   }
-    //   window.requestAnimFrame = (function(){
-    //     return  window.requestAnimationFrame       ||
-    //           window.webkitRequestAnimationFrame ||
-    //           window.mozRequestAnimationFrame    ||
-    //           function( callback ){
-    //             console.log('Halli')
-    //             window.setTimeout(callback, 1000 / 2)
-    //           }
-    //   }
-    // )();
-
-    //   (function loop(){
-    //     // console.log('Halli')
-    //     sir3allah(undefined)
-    //     setTimeout(function() {
-    //       requestAnimFrame(loop)
-    //     },(30000) ) //1000/100
-    //   })()
-
-    // $(document).ready(function () {
-    //   $(document).click(function (event) {
-    //     console.log('click somewhere in browser should close toggle menu')
-    //     var clickover = $(event.target)
-    //     var _opened = $('.navbar-collapse').hasClass('navbar-collapse in')
-    //     if (_opened === true && !clickover.hasClass('navbar-toggle')) {
-    //       $('button.navbar-toggle').click()
-    //     }
-    //   })
-    // })
-
-    (0, _jquery2.default)(document).ready(function () {
-        (0, _jquery2.default)(document).click(function (event) {
-            // console.log('click somewhere in browser should close toggle menu')
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             var clickover = (0, _jquery2.default)(event.target);
 
             if ((0, _jquery2.default)('.navbar-collapse').is(':visible') && (0, _jquery2.default)('.navbar-toggle').is(':visible') && !clickover.hasClass('navbar-toggle')) {
@@ -106,60 +53,22 @@ if (process.env.BROWSER) {
             }
         });
     });
-<<<<<<< HEAD
 }
-=======
-
-    // $(document).ready(function() {
-    //   $('body').click(function(event) {
-    //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called
-    //     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
-    //       $('.navbar-collapse').collapse('toggle')
-    //     }
-    //   })
-    // })
-}
-
-//require('./nav.scss')
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 
 var datasrc = undefined;
 
 var Nav = function (_Component) {
     _inherits(Nav, _Component);
-<<<<<<< HEAD
 
     function Nav() {
         _classCallCheck(this, Nav);
 
-=======
-
-    function Nav() {
-        _classCallCheck(this, Nav);
-
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         return _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).apply(this, arguments));
     }
 
     _createClass(Nav, [{
         key: 'handleLoginClick',
-<<<<<<< HEAD
         value: function handleLoginClick(event) {
-=======
-
-        // <div>
-        //    </div>
-        // {this.props.location.pathname!='/register' &&
-        //     	<Link activeClassName='active' to='/register'>Register</Link>
-        // }
-        //	<Button>Click me!</Button>
-
-
-        value: function handleLoginClick(event) {
-            // console.log('loginjs andle request login in progress click')
-            // var modal = document.getElementById('myModal')
-            // modal.style.display = 'block'
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             this.props.actions.loginProcessStart('Welcome to Roya');
         }
     }, {
@@ -169,7 +78,6 @@ var Nav = function (_Component) {
             var auth = this.props.auth;
 
             var isAuthenticated = auth.get('isAuthenticated');
-<<<<<<< HEAD
             if (process.env.BROWSER) datasrc = this.getRightLogoUrl();
             var tenantName1 = '';
             if (this.props.app.get('tenant')) tenantName1 = this.props.app.get('tenant').get('name1');
@@ -269,34 +177,6 @@ var Nav = function (_Component) {
                 return _apiconnection2.default.apiurl + _apiconnection2.default.appbasename + '/api/profile/logo' + '?width=' + 120 + '&height=' + 120;
             } else {
                 return _apiconnection2.default.apiurl + _apiconnection2.default.appbasename + '/api/profile/logo' + '?width=' + 82 + '&height=' + 82;
-=======
-            // console.log('navjs is authenticated '+isAuthenticated)
-
-            // console.log('nav: authority = '+auth.get('authority'))
-            // console.log('nav: isBrowser'+isBrowser)
-            //&& this.props.location.pathname!='/register'
-            if (auth.get('authority') == 'admin') {
-                // console.log('nav: admin? authority = '+auth.get('authority'))
-                return _react2.default.createElement(_navadmin2.default, {
-                    actions: this.props.actions,
-                    auth: this.props.auth,
-                    app: this.props.app
-                });
-            } else if (auth.get('authority') == 'user') {
-                // console.log('nav: user? authority = '+auth.get('authority'))
-                return _react2.default.createElement(_navuser2.default, {
-                    actions: this.props.actions,
-                    auth: this.props.auth,
-                    app: this.props.app
-                });
-            } else {
-                // console.log('nav: guest? authority = '+auth.get('authority'))
-                return _react2.default.createElement(_navpublic2.default, {
-                    actions: this.props.actions,
-                    auth: this.props.auth,
-                    app: this.props.app
-                });
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             }
         }
     }]);
@@ -304,62 +184,4 @@ var Nav = function (_Component) {
     return Nav;
 }(_react.Component);
 
-<<<<<<< HEAD
 exports.default = Nav;
-=======
-// <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
-
-exports.default = Nav;
-// <div>
-
-//   {!isAuthenticated &&
-// 	  <Login
-// 	  errorMessage={errorMessage}
-// 	  onLoginClick={ creds => dispatch(loginUser(creds)) }
-// 	  />
-//   }
-
-//   {isAuthenticated &&
-//   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
-//   }
-
-//    </div>
-
-
-//     <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
-//     <ul className='navbar-header logoblock'>
-//     <li><img id='logo' src={'./images/RoyaLogoNeutralH120.png'} className='logo' alt='Roya logo'/></li>
-//     <li>
-//       <div>
-//       <h2>Roya</h2>
-//       <h3>Software</h3>
-//       </div>
-//     </li>
-//     <li>
-//       <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
-//         <span className="icon-bar"></span>
-//         <span className="icon-bar"></span>
-//         <span className="icon-bar"></span>
-//       </button>
-//     </li>   
-//   </ul>
-//     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-//       <ul className="nav navbar-nav navbar-left">
-//       <li><IndexLink activeClassName='active' to='/'>Home</IndexLink></li>
-//       <li><Link activeClassName='active' to='/todos'>Todos</Link></li>
-//       <li><Link activeClassName='active' to='/trainings'>Training</Link></li>
-//       </ul>
-//       <ul className="nav navbar-nav navbar-right">
-//       <li><Link activeClassName='active' to='/register'>Register</Link></li>
-// {isBrowser && !isAuthenticated &&
-//   <li><a href='#' onClick={(event) => this.handleLoginClick(event)}><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
-// }
-// {isAuthenticated &&
-//   <li>
-//   <a href='#' onClick={(event) => this.props.actions.logoutUser()}><span className='glyphicon glyphicon-log-out'></span> Logout</a>
-//   </li>
-// }     
-//       </ul>
-//     </div>
-//   </nav>
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985

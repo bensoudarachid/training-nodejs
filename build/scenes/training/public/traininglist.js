@@ -32,22 +32,12 @@ if (process.env.BROWSER) {
 
 var TrainingList = function (_React$Component) {
     _inherits(TrainingList, _React$Component);
-<<<<<<< HEAD
 
     function TrainingList(props) {
         _classCallCheck(this, TrainingList);
 
         var _this = _possibleConstructorReturn(this, (TrainingList.__proto__ || Object.getPrototypeOf(TrainingList)).call(this, props));
 
-=======
-
-    function TrainingList(props) {
-        _classCallCheck(this, TrainingList);
-
-        // console.log('training list. Mixin in constructor')
-        var _this = _possibleConstructorReturn(this, (TrainingList.__proto__ || Object.getPrototypeOf(TrainingList)).call(this, props));
-
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         _this.shouldComponentUpdate = _reactAddonsPureRenderMixin2.default.shouldComponentUpdate.bind(_this);
         return _this;
     }
@@ -57,45 +47,20 @@ var TrainingList = function (_React$Component) {
         value: function componentDidMount() {
             componentHandler.upgradeDom();
         }
-<<<<<<< HEAD
-=======
-
-        // getItems() {
-        //   if (this.props.trainings) {
-        //     return this.props.trainings.filter(
-        //       (item) =>
-        //         item.get('completed') && this.props.filterclosed ||
-        //         !item.get('completed') && this.props.filteropen
-        //     )
-        //     // console.log('training list get items. render items. Size = '+listtrainings.size)
-        //   }
-        //   return Immutable.List([])
-        // }
-
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
     }, {
         key: 'renderItems',
         value: function renderItems() {
             var _this2 = this;
 
             var items = this.props.trainings;
-<<<<<<< HEAD
 
             return items.map(function (training, index) {
-=======
-            // const props = _.omit(this.props, 'trainings');
-            // console.log('training list. render items. Size = '+items.size)
-
-            return items.map(function (training, index) {
-                // console.log('training list. index = '+index)
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                 return _react2.default.createElement(_traininglistitem2.default, { ind: index, training: training, actions: _this2.props.actions });
             });
         }
     }, {
         key: 'render',
         value: function render() {
-<<<<<<< HEAD
             return _react2.default.createElement(
                 'div',
                 { className: 'traininglist' },
@@ -106,31 +71,12 @@ var TrainingList = function (_React$Component) {
                     'div',
                     { className: 'traininglistwrap mdl-grid mdl-grid--no-spacing' },
                     this.renderItems()
-=======
-            return (
-                // key={'traininglist'+Math.random()}
-                _react2.default.createElement(
-                    'div',
-                    { className: 'traininglist' },
-                    this.props.trainings == undefined ? _react2.default.createElement('span', { className: 'mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active', style: {
-                            width: '55px',
-                            height: '55px'
-                        } }) : _react2.default.createElement(
-                        'div',
-                        { className: 'traininglistwrap mdl-grid mdl-grid--no-spacing' },
-                        this.renderItems()
-                    )
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                 )
             );
         }
     }, {
         key: 'renderTest',
         value: function renderTest() {
-<<<<<<< HEAD
-=======
-            // console.log('Hi there from List. Props: '+this.props);
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             return _react2.default.createElement('span', null);
         }
     }]);

@@ -1,11 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-<<<<<<< HEAD
         value: true
-=======
-    value: true
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 });
 
 var _react = require('react');

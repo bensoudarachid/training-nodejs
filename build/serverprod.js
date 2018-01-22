@@ -57,20 +57,18 @@ var FormData = require('form-data');
 var util = require('util');
 var compression = require('compression');
 
-var bodyParser = require('body-parser');
+var bodyParser = require('body-parser'); // is used for POST requests
 
 var appbasename = '';
 
 var app = (0, _express2.default)();
 
 var favicon = require('serve-favicon');
-
 var storage = _multer2.default.memoryStorage();
 var upload = (0, _multer2.default)({ storage: storage });
 
 app.use('/bootstrap', _express2.default.static(__dirname + '/../node_modules/bootstrap/dist/'));
 app.use('/mdl', _express2.default.static(__dirname + '/../node_modules/material-design-lite/dist/'));
-
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -87,11 +85,14 @@ app.post(appbasename + '/api/*/fileupload/*', upload.single('uploadfile'), funct
     if (!req.file) {
         return res.status(400).send('No file uploaded.');
     }
+    console.log('POST API. Uploading file orig name ' + req.file.originalname, ', name ' + req.file.name);
     var authtoken = req.body.authorizationtoken !== undefined ? 'Bearer ' + req.body.authorizationtoken : req.headers.authorization;
+
     var form = new FormData();
     form.append('uploadfile', req.file.buffer, req.file.originalname);
     var headers = form.getHeaders();
     headers.authorization = authtoken;
+
     var extServerOptionsPost = {
         host: req.headers.host,
         expressPort: '8083',
@@ -110,7 +111,7 @@ app.post(appbasename + '/api/*/fileupload/*', upload.single('uploadfile'), funct
             console.log('Error uploading ' + e);
         }).on('end', function () {
             var buffer = Buffer.concat(data);
-            console.log('working with chunks. better for images. Response is ' + buffer);
+            // console.log('working with chunks. better for images. Response is ' + buffer)
             res.send({ message: 'operation successful' });
         });
     });
@@ -123,14 +124,12 @@ app.post(appbasename + '/api/*/fileupload/*', upload.single('uploadfile'), funct
             errorDescription: 'server is not responding'
         });
     });
-
     reqPost.end();
 });
 
 app.get(appbasename + '/api/*', function (req, res) {
     console.log('GET API ' + req.url);
     console.log('GET API. ' + req.headers.host);
-
     var extServerOptionsPost = {
         host: req.headers.host,
         expressPort: '8083',
@@ -146,6 +145,7 @@ app.get(appbasename + '/api/*', function (req, res) {
         });
     });
     reqPost.on('error', function (e) {
+        console.error(e);
         res.send({
             error: 'server unavailable',
             errorDescription: 'server is not responding'
@@ -156,6 +156,8 @@ app.get(appbasename + '/api/*', function (req, res) {
 });
 
 app.post(appbasename + '/api/*', function (req, res) {
+    console.log('POST API. ' + req.url);
+    console.log('POST API. ' + req.headers.host);
     var dataSend = JSON.stringify(req.body);
     var extServerOptionsPost = {
         host: req.headers.host,
@@ -168,6 +170,7 @@ app.post(appbasename + '/api/*', function (req, res) {
             authorization: req.headers.authorization
         }
     };
+
     var reqPost = _http2.default.request(extServerOptionsPost, function (res2) {
         res2.on('data', function (data) {
             console.log('POST Operation Completed.\n\n');
@@ -188,10 +191,6 @@ var errorfile = __dirname + '/images/0.png';
 
 var apifetch = fetch;
 app.get(appbasename + '/*', function (req, res) {
-    console.log('');
-    console.log('');
-    console.log('');
-    console.log('*********************************************');
     var apihost = req.headers.host.replace('school.', 'schoolapi.');
     var favicon = req.protocol + '://' + apihost + '/api/profile/logo?width=16&height=16';
     console.log('Get request now just came: ' + req.url);
@@ -207,11 +206,9 @@ app.get(appbasename + '/*', function (req, res) {
 
     if (req.url.indexOf('.') !== -1) {
         console.log('Send File: ' + __dirname + req.url);
-
         var file = __dirname + req.url;
         _fs2.default.readFile(file, function (err, data) {
             if (err) {
-                console.log('Error file not found. Send error File: ' + errorfile);
                 res.status(200).sendFile(errorfile);
             } else res.end(data, 'binary');
         });
@@ -239,6 +236,7 @@ app.get(appbasename + '/*', function (req, res) {
                     params = renderProps.params,
                     history = renderProps.history;
 
+
                 (0, _reactRouter.match)({
                     routes: _routes.routes,
                     location: req.url
@@ -250,30 +248,27 @@ app.get(appbasename + '/*', function (req, res) {
                         return component.fetchData(dispactions, params, req.headers.host);
                     });
                     Promise.all(promises).then(function () {
-
                         console.log('resolved');
                         var body = (0, _server.renderToString)(_react2.default.createElement(
                             _reactRedux.Provider,
                             { store: store },
                             _react2.default.createElement(_reactRouter.RouterContext, renderProps)
                         ));
-
                         var d = new Date();
                         var hour = d.getHours();
                         var vendorBundle = 'http://rlearn.herokuapp.com/vendor.bundle.js';
-                        console.log('assets=' + require('util').inspect(assets, false, null));
                         var publicbundle = assets.publicapp.js; //'/app.js'
-                        var appstyle = assets.app.css;
+                        var appstyle = assets.app.css; // '/app.css'
+
                         vendorBundle = assets.vendor.js; //'/vendor.bundle.js'
                         var state = store.getState();
                         console.log('State paased to client = ' + JSON.stringify(state));
-                        res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <script defer src="' + vendorBundle + '"></script>\n                <script defer src="https:\n                <script defer src="https:\n                <link rel="stylesheet" href="https:\n                <script defer src="https:\n                <link rel="stylesheet" href="https:\n                <script defer src="https:\n                <script defer src="https:\n\n                <link rel="stylesheet" type="text/css" href="' + appstyle + '" />                \n                <link rel="icon" href="' + favicon + '">\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root"><div>' + body + '</div></div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script defer src="' + publicbundle + '"></script>\n                </body>\n              </html>');
+                        res.status(200).send('<!DOCTYPE html>\n              <html>\n                <head>\n                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n                <script defer src="' + vendorBundle + '"></script>\n                <script defer src="https://code.jquery.com/jquery-2.2.0.min.js"></script>\n                <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">\n                <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>\n                <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">\n                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>\n                <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>\n\n                <link rel="stylesheet" type="text/css" href="' + appstyle + '" />                \n                <link rel="icon" href="' + favicon + '">\n                </head>\n                <body style="background-color:#2980b9">\n                  <div id="root"><div>' + body + '</div></div>\n                  <script>window.__REDUX_STATE__ = ' + JSON.stringify(state) + '</script>\n                  <script defer src="' + publicbundle + '"></script>\n                </body>\n              </html>');
                     }).catch(function (err) {
                         return console.log('Booooo' + err);
                     });
                 });
             } else {
-
                 res.sendStatus(404);
             }
         });
@@ -281,6 +276,7 @@ app.get(appbasename + '/*', function (req, res) {
 });
 
 var port = process.env.PORT || _apiconnection2.default.expressPort;
+
 app.listen(port, function (error) {
     console.log('Start Express server 1');
     if (error) throw error;
@@ -290,7 +286,7 @@ app.listen(port, function (error) {
 
 process.on('message', function (message) {
     if (message === 'shutdown') {
-
+        // performCleanup()
         process.exit(0);
     }
 });

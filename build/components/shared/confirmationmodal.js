@@ -21,40 +21,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 if (process.env.BROWSER) {
-<<<<<<< HEAD
     require('./confirmationmodal.scss');
-=======
-    // console.log('Appcomponent. environment is browser')
-    require('./confirmationmodal.scss');
-    // $(document).ready(function() {
-    //   var modal = document.getElementById('myModal')
-
-    // // Get the button that opens the modal
-    // // var btn = $('myBtn')[0]
-    //   var btn = document.getElementById('myBtn')
-    //   // console.log('confirmationjs. myBtn '+btn)
-    // // Get the <span> element that closes the modal
-    //   var span = document.getElementsByClassName('close')[0]
-
-    // // When the user clicks the button, open the modal
-    //   btn.onclick = function() {
-    //     modal.style.display = 'block'
-    //   }
-
-    // // When the user clicks on <span> (x), close the modal
-    //   span.onclick = function() {
-    //     modal.style.display = 'none'
-    //   }
-
-    // // When the user clicks anywhere outside of the modal, close it
-    //   window.onclick = function(event) {
-    //     if (event.target == modal) {
-    //       modal.style.display = 'none'
-    //     }
-    //   }
-
-    // })
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 }
 
 var ConfirmationModal = function (_Component) {
@@ -136,10 +103,6 @@ var ConfirmationModal = function (_Component) {
         value: function handleCancel(event) {
             event.preventDefault();
             console.log('Cancel');
-<<<<<<< HEAD
-=======
-            // this.props.actions.needDeleteTrainingConfirmation(false)
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             this.props.actions.needActionConfirmation(false);
         }
     }, {
@@ -147,22 +110,8 @@ var ConfirmationModal = function (_Component) {
         value: function handleConfirm(event) {
             event.preventDefault();
             console.log('Confirm action');
-<<<<<<< HEAD
             this.props.actions.callActionConfirmation();
         }
-=======
-            // this.props.actions.deleteEditTrainingDispatcher() //this.props.training
-            this.props.actions.callActionConfirmation();
-        }
-
-        // handleConfirmationClick(event) {
-        //   // console.log('confirmationjs andle request confirmation in progress click')
-        //   // var modal = document.getElementById('myModal')
-        //   // modal.style.display = 'block'
-        //   this.props.onConfirmationProcessStartClick('Please confirmation')
-        // }
-
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
     }]);
 
     return ConfirmationModal;

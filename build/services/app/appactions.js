@@ -68,12 +68,6 @@ var appactions = {
     },
 
     retrieveTenantDispatcher: function retrieveTenantDispatcher() {
-<<<<<<< HEAD
-=======
-        console.log('Call retrieve Tenant Dispatcher  <-----------------------------');
-        // console.log('training actions. retrieveTrainingDispatcher')
-        // console.log('rootreducer='+require('util').inspect(rootreducer, false, null))
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         return function (dispatch, getState) {
             // if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched'))
             //     return

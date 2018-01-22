@@ -14,13 +14,6 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-<<<<<<< HEAD
-=======
-var _fullcalendar = require('fullcalendar');
-
-var _fullcalendar2 = _interopRequireDefault(_fullcalendar);
-
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29,12 +22,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-<<<<<<< HEAD
-=======
-// import '../../../node_modules/fullcalendar/dist/fullcalendar.js'
-
-
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 if (process.env.BROWSER) {
     console.log('Calendar. environment is browser');
     require('../../../node_modules/fullcalendar/dist/fullcalendar.css');
@@ -63,10 +50,6 @@ var FullCalendarEdit = function (_React$Component) {
             var calendar = this.refs.calendar;
 
             (0, _jquery2.default)(calendar).fullCalendar({
-<<<<<<< HEAD
-=======
-
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                 theme: false,
                 timezone: 'local',
                 defaultView: 'agendaWeek',
@@ -74,20 +57,10 @@ var FullCalendarEdit = function (_React$Component) {
                 navLinks: false,
                 editable: true,
                 eventLimit: true,
-<<<<<<< HEAD
                 scrollTime: '09:00:00',
                 minTime: '08:00:00',
                 maxTime: '22:00:00',
                 contentHeight: 'auto',
-=======
-                // allDaySlot: false,
-                scrollTime: '09:00:00',
-                minTime: '08:00:00',
-                maxTime: '22:00:00',
-                // defaultdate: dateFormat(Date(),"yyyy-mm-dd"),
-                contentHeight: 'auto',
-
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                 events: this.props.events
             });
         }

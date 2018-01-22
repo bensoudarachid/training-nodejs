@@ -39,75 +39,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 if (process.env.BROWSER) {
-<<<<<<< HEAD
     require('./nav.scss');
 }
 
-=======
-    // console.log('Appcomponent. environment is browser')
-    require('./nav.scss');
-    //   function sir3allah(event){
-    //     var logotitleElm2 = $('#bsnavi h2')
-    //     // var rdm = Math.floor(Math.random() * 2) + 1
-    //     // var rdm2 = Math.floor(Math.random() * 2) + 1
-    //     var imgAnim = 'flash'//rdm===1?'flash':'flash' //flash
-    //     // console.log('anim='+imgAnim)
-    //     var timeout=800//rdm===1?800:350
-    //     logotitleElm2.addClass('animated '+imgAnim) //+(rdm===3&&rdm2===1?' reverseanim':'')
-    //     setTimeout(() => {
-    //       logotitleElm2.removeClass('animated')
-    //       logotitleElm2.removeClass(imgAnim)
-    //     }, timeout)
-
-    //   }
-    //   window.requestAnimFrame = (function(){
-    //     return  window.requestAnimationFrame       ||
-    //           window.webkitRequestAnimationFrame ||
-    //           window.mozRequestAnimationFrame    ||
-    //           function( callback ){
-    //             console.log('Halli')
-    //             window.setTimeout(callback, 1000 / 2)
-    //           }
-    //   }
-    // )();
-
-    //   (function loop(){
-    //     // console.log('Halli')
-    //     sir3allah(undefined)
-    //     setTimeout(function() {
-    //       requestAnimFrame(loop)
-    //     },(30000) ) //1000/100
-    //   })()
-
-    // $(document).ready(function () {
-    //   $(document).click(function (event) {
-    //     var clickover = $(event.target)
-    //     var _opened = $('.navbar-collapse').hasClass('navbar-collapse in')
-    //     if (_opened === true && !clickover.hasClass('navbar-toggle')) {
-    //       $('button.navbar-toggle').click()
-    //     }
-    //   })
-    // })
-
-    // $(document).ready(function() {
-
-    //   $('body').click(function(event) {
-    //   // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called
-    //     console.log('loginjs andle request login in progress click')
-    //     if ($('.navbar-collapse').is(':visible') && $('.navbar-toggle').is(':visible') ) {
-    //       $('.navbar-collapse').collapse('toggle')
-    //     }
-    //   })
-    // })
-}
-
-//require('./nav.scss')
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 var datasrc = undefined;
 
 var NavAdmin = function (_Component) {
     _inherits(NavAdmin, _Component);
-<<<<<<< HEAD
 
     function NavAdmin() {
         _classCallCheck(this, NavAdmin);
@@ -117,35 +55,10 @@ var NavAdmin = function (_Component) {
         _this.handleResize = _this.handleResize.bind(_this);
         return _this;
     }
-=======
-
-    function NavAdmin() {
-        _classCallCheck(this, NavAdmin);
-
-        var _this = _possibleConstructorReturn(this, (NavAdmin.__proto__ || Object.getPrototypeOf(NavAdmin)).call(this));
-
-        _this.handleResize = _this.handleResize.bind(_this);
-        return _this;
-    }
-
-    // <div>
-    //    </div>
-    // {this.props.location.pathname!='/register' &&
-    //     	<Link activeClassName='active' to='/register'>Register</Link>
-    // }
-    //	<Button>Click me!</Button>
-
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 
     _createClass(NavAdmin, [{
         key: 'handleLoginClick',
         value: function handleLoginClick(event) {
-<<<<<<< HEAD
-=======
-            // console.log('loginjs andle request login in progress click')
-            // var modal = document.getElementById('myModal')
-            // modal.style.display = 'block'
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             this.props.actions.loginProcessStart('Welcome');
         }
     }, {
@@ -158,15 +71,8 @@ var NavAdmin = function (_Component) {
 
             var isAuthenticated = auth.get('isAuthenticated');
 
-<<<<<<< HEAD
             // if (process.env.BROWSER)
             //     datasrc = this.getRightLogoUrl()
-=======
-            // console.log('nav: isBrowser'+isBrowser)
-            //&& this.props.location.pathname!='/register'
-
-            if (process.env.BROWSER) datasrc = this.getRightLogoUrl();
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             console.log('nav: logo = ' + datasrc);
             var tenantName1 = '';
             if (this.props.app.get('tenant')) tenantName1 = this.props.app.get('tenant').get('name1');
@@ -175,7 +81,6 @@ var NavAdmin = function (_Component) {
             if (this.props.app.get('tenant')) tenantName2 = this.props.app.get('tenant').get('name2');
 
             return _react2.default.createElement(
-<<<<<<< HEAD
                 'div',
                 { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
                 _react2.default.createElement(
@@ -189,63 +94,27 @@ var NavAdmin = function (_Component) {
                             { activeClassName: 'active', to: '/' },
                             'Home'
                         )
-=======
-                'nav',
-                { id: 'bsnavi', className: 'navbar navbar-default navbar-fixed-top', role: 'navigation' },
-                _react2.default.createElement(
-                    'ul',
-                    { className: 'navbar-header logoblock' },
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        process.env.BROWSER && _react2.default.createElement('img', { id: 'logo', src: datasrc, className: 'logo', alt: 'logo' })
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                     ),
                     _react2.default.createElement(
                         'li',
                         null,
                         _react2.default.createElement(
-<<<<<<< HEAD
                             _reactRouter.Link,
                             { activeClassName: 'active', to: '/admin/trainings' },
                             'Training'
-=======
-                            'div',
-                            null,
-                            _react2.default.createElement(
-                                'h2',
-                                null,
-                                tenantName1
-                            ),
-                            _react2.default.createElement(
-                                'h3',
-                                null,
-                                tenantName2
-                            )
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                         )
                     ),
                     _react2.default.createElement(
                         'li',
                         null,
                         _react2.default.createElement(
-<<<<<<< HEAD
                             _reactRouter.Link,
                             { activeClassName: 'active', to: '/users' },
                             'User'
-=======
-                            'button',
-                            { id: 'togg', type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse',
-                                'data-target': '#bs-example-navbar-collapse-1' },
-                            _react2.default.createElement('span', { className: 'icon-bar' }),
-                            _react2.default.createElement('span', { className: 'icon-bar' }),
-                            _react2.default.createElement('span', { className: 'icon-bar' })
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                         )
                     )
                 ),
                 _react2.default.createElement(
-<<<<<<< HEAD
                     'ul',
                     { className: 'nav navbar-nav navbar-right' },
                     isBrowser && !isAuthenticated && _react2.default.createElement(
@@ -268,74 +137,6 @@ var NavAdmin = function (_Component) {
                                     return _this2.props.actions.logoutUser();
                                 } },
                             _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-out' })
-=======
-                    'div',
-                    { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
-                    _react2.default.createElement(
-                        'ul',
-                        { className: 'nav navbar-nav navbar-left fadeIn animated' },
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                _reactRouter.IndexLink,
-                                { activeClassName: 'active', to: '/' },
-                                'Home'
-                            )
-                        ),
-                        (process.env.NODE_ENV != 'production' || process.env.NODE_ENV == 'production') && _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                _reactRouter.Link,
-                                { activeClassName: 'active', to: '/admin/todos' },
-                                'Todos'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                _reactRouter.Link,
-                                { activeClassName: 'active', to: '/admin/trainings' },
-                                'Training'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                _reactRouter.Link,
-                                { activeClassName: 'active', to: '/users' },
-                                'User'
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'ul',
-                        { className: 'nav navbar-nav navbar-right' },
-                        isBrowser && !isAuthenticated && _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#', onClick: function onClick(event) {
-                                        return _this2.handleLoginClick(event);
-                                    } },
-                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-in' })
-                            )
-                        ),
-                        isAuthenticated && _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#', onClick: function onClick(event) {
-                                        return _this2.props.actions.logoutUser();
-                                    } },
-                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-log-out' })
-                            )
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
                         )
                     )
                 )
@@ -349,16 +150,6 @@ var NavAdmin = function (_Component) {
     }, {
         key: 'checkTitleMargin',
         value: function checkTitleMargin() {
-<<<<<<< HEAD
-=======
-            //        console.log('nav public update. ')
-            //         const nav = $('#bsnavi')
-            //         console.log('nav=' + nav[0])
-            //         const {auth} = this.props
-            //         const isFetching = auth.get('isFetching')
-            //         if (isFetching)
-            //             nav[0].style.border = '5px solid rgba(240, 168, 48, 0.7)'
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             var tenantName2 = '';
             if (this.props.app.get('tenant')) tenantName2 = this.props.app.get('tenant').get('name2');
             console.log('componentDidMount tenantName2=' + require('util').inspect(tenantName2, false, null));
@@ -385,75 +176,25 @@ var NavAdmin = function (_Component) {
             window.removeEventListener('resize', this.handleResize);
         }
     }, {
-<<<<<<< HEAD
         key: 'handleResize',
         value: function handleResize() {
-=======
-        key: 'getRightLogoUrl',
-        value: function getRightLogoUrl() {
-            if (window.matchMedia("(min-width: 992px)").matches) {
-                // $('#starbg-wrapper')[0].style.display = 'none'
-                return _apiconnection2.default.apiurl + _apiconnection2.default.appbasename + '/api/profile/logo' + '?width=' + 120 + '&height=' + 120;
-            } else {
-                // $('#starbg-wrapper')[0].style.display = 'none'
-                return _apiconnection2.default.apiurl + _apiconnection2.default.appbasename + '/api/profile/logo' + '?width=' + 82 + '&height=' + 82;
-            }
-        }
-    }, {
-        key: 'handleResize',
-        value: function handleResize() {
-            // console.log('Resize now')
-
-            // $('#starbg-wrapper')[0].style.display = 'none'
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
             var newDatasrc = this.getRightLogoUrl();
             if (newDatasrc != this.datasrc) {
                 this.datasrc = newDatasrc;
                 (0, _jquery2.default)('#logo')[0].src = this.datasrc;
                 this.checkTitleMargin();
             }
-<<<<<<< HEAD
-=======
-            // $('#starbg-wrapper')[0].style.display = 'block'
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         }
     }], [{
         key: 'fetchData',
         value: function fetchData(actions, params) {
             console.log('Call Tenant Edit fetch data  <-----------------------------');
-<<<<<<< HEAD
 
             return actions.retrieveTenantDispatcher();
-=======
-            // console.log('Training edit. get training! param = '+util.inspect( params.id, false, null))
-
-            //The return is necessary. if not the fetching is not resolved properly on the server side!
-            return actions.retrieveTenantDispatcher();
-            // return Promise.resolve(actions.retrieveTrainingDispatcher(params.id,hostname))
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
         }
     }]);
 
     return NavAdmin;
 }(_react.Component);
-<<<<<<< HEAD
-=======
-
-// <li><a href='#'><span className='glyphicon glyphicon-log-in'></span> Login</a></li>
-
-exports.default = NavAdmin;
-// <div>
-
-//   {!isAuthenticated &&
-// 	  <Login
-// 	  errorMessage={errorMessage}
-// 	  onLoginClick={ creds => dispatch(loginUser(creds)) }
-// 	  />
-//   }
-
-//   {isAuthenticated &&
-//   	<Logout onLogoutClick={() => dispatch(logoutUser())} />
-//   }
->>>>>>> 925bab295a612c10fec264cbcabc75c90e8ed985
 
 exports.default = NavAdmin;
