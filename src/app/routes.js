@@ -18,7 +18,7 @@ if (typeof require.ensure !== 'function') require.ensure = (d, c) => c(require)
 const Users = ({params, location}) => (
     <h3>Howdy Wa fin {params.name}! You like Food: {location.query.food}.</h3>
 )
-const NotFound = () => ( <h1>404.... This page is not found!</h1> )
+const NotFound = () => ( <h1>404.... Page not found.</h1> )
 
 const routes = (
     <Route path="/" component={AppComponent}

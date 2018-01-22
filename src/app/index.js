@@ -88,7 +88,7 @@ import rootReducer from '../services/rootreducer'
 
 })($)
 
-const NotFound = () => ( <h1>404.... This page is not found!</h1> )
+const NotFound = () => ( <h1>404.... Page not found.</h1> )
 
 var initialState = JSON.parse(JSON.stringify(window.__REDUX_STATE__))
 Object

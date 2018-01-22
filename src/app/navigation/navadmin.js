@@ -30,8 +30,8 @@ class NavAdmin extends Component {
         const isAuthenticated = auth.get('isAuthenticated')
 
 
-        if (process.env.BROWSER)
-            datasrc = this.getRightLogoUrl()
+        // if (process.env.BROWSER)
+        //     datasrc = this.getRightLogoUrl()
         console.log('nav: logo = ' + datasrc)
         var tenantName1 = ''
         if (this.props.app.get('tenant'))
@@ -42,38 +42,11 @@ class NavAdmin extends Component {
             tenantName2 = this.props.app.get('tenant').get('name2')
 
         return (
-            <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
-                <ul className='navbar-header logoblock'>
-                    <li>
-                        {process.env.BROWSER &&
-                        <img id='logo' src={datasrc} className='logo' alt='logo'/>
-                        }
-                    </li>
-                    <li>
-                        <div>
-                            <h2>{tenantName1}</h2>
-                            <h3>{tenantName2}</h3>
-                        </div>
-                    </li>
-                    <li>
-                        <button id='togg' type="button" className="navbar-toggle" data-toggle="collapse"
-                                data-target="#bs-example-navbar-collapse-1">
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                        </button>
-                    </li>
-                </ul>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul className="nav navbar-nav navbar-left fadeIn animated">
                         <li>
                             <IndexLink activeClassName='active' to='/'>Home</IndexLink>
                         </li>
-                        {(process.env.NODE_ENV != 'production' || process.env.NODE_ENV == 'production') &&
-                        <li>
-                            <Link activeClassName='active' to='/admin/todos'>Todos</Link>
-                        </li>
-                        }
                         <li>
                             <Link activeClassName='active' to='/admin/trainings'>Training</Link>
                         </li>
@@ -98,7 +71,6 @@ class NavAdmin extends Component {
                         }
                     </ul>
                 </div>
-            </nav>
         )
     }
 
@@ -137,14 +109,6 @@ class NavAdmin extends Component {
     componentWillUnmount() {
         console.log('removeEventListener')
         window.removeEventListener('resize', this.handleResize)
-    }
-
-    getRightLogoUrl() {
-        if (window.matchMedia("(min-width: 992px)").matches) {
-            return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 120 + '&height=' + 120
-        } else {
-            return ApiConnection.apiurl + ApiConnection.appbasename + '/api/profile/logo' + '?width=' + 82 + '&height=' + 82
-        }
     }
 
     handleResize() {
