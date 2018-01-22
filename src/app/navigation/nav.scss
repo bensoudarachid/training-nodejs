@@ -1,12 +1,11 @@
 @import '../../styles/default.scss';
 
 #bsnavi {
-
+  height: 105px;
   #bg {
     position: absolute;
   }
   padding: 0;
-
   margin: -15px auto 0 auto;
 
   box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.2), 0 8px 15px 0 rgba(0, 0, 0, 0.1);
@@ -166,6 +165,7 @@
   }
 
   @media (min-width: 768px) {
+    height: 110px;
     .navbar-left, .navbar-right {
       margin-top: 36px;
       li a {
@@ -239,6 +239,7 @@
   }
 
   @media (min-width: 992px) {
+    height: 160px;
     width: 90%;
 
     @include transitionAll(.3s);
