@@ -56,7 +56,7 @@ var sinon = require('sinon').sandbox.create();
     var trainingappmap = void 0;
     var auth = void 0;
     // let stubcomponentDidMount
-    (0, _mocha.it)('checks fetchdata call and connection to redux store', _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+    (0, _mocha.it)('checks fetchdata call and connection to redux store', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
         var initialState, logger, mockStoreInitialized, mapStateToProps, mapDispatchToProps, TrainingEditConn, component;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {

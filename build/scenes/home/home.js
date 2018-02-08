@@ -123,6 +123,10 @@ var Home = function (_Component) {
                 }
             });
         }
+
+        // <img src={'./images/0.png'} data-src={'./images/Blog-Coding.svg'}
+        // className='dataimg' alt='coding'/>
+
     }, {
         key: 'render',
         value: function render() {

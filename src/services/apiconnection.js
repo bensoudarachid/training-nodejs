@@ -56,7 +56,8 @@ class ApiConnection {
         var authurl = ''
         if (process.env.BROWSER) {
             const apiHostname = window.location.hostname.replace("school.", "schoolapi.");
-            authurl = window.location.protocol + '//' + apiHostname + ':' + apiport
+            // authurl = window.location.protocol + '//' + apiHostname + ':' + apiport
+            authurl = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port
         } else {
             if (process.env.TRAINING_API_LOCAL_IP != undefined) {
                 authurl = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080'

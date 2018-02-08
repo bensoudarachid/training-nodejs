@@ -99,6 +99,9 @@ class Home extends Component {
         })
     }
 
+// <img src={'./images/0.png'} data-src={'./images/Blog-Coding.svg'}
+// className='dataimg' alt='coding'/>
+
     render() {
         return (
             <div>
@@ -113,6 +116,7 @@ class Home extends Component {
                                         className="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active spinner"></div>
                                     <img src={'./images/0.png'} data-src={'./images/Blog-Coding.svg'}
                                          className='dataimg' alt='coding'/>
+
                                 </div>
                                 <p>We have the mission to accompany companies in any project and support them
                                     implement secure information, management, communication or e-commerce systems. We

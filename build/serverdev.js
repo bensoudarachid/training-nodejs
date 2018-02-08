@@ -57,6 +57,9 @@ var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var httpProxy = require('http-proxy');
+var apiProxy = httpProxy.createProxyServer();
+
 var FormData = require('form-data');
 var util = require('util');
 var compression = require('compression');
@@ -72,6 +75,18 @@ var app = (0, _express2.default)();
 var storage = _multer2.default.memoryStorage();
 var upload = (0, _multer2.default)({ storage: storage });
 
+// app.use('/api', proxy('' + process.env.TRAINING_API_LOCAL_IP + ':8080'));
+var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080';
+app.all("/api/*", function (req, res) {
+    req.url = req.originalUrl;
+    console.log('redirecting to Rest Server ' + req.originalUrl);
+    apiProxy.web(req, res, { target: serverOne });
+});
+app.all("/oauth/*", function (req, res) {
+    req.url = req.originalUrl;
+    // console.log('redirecting to Auth Server '+req.originalUrl)
+    apiProxy.web(req, res, { target: serverOne });
+});
 app.use('/bootstrap', _express2.default.static(__dirname + '/../node_modules/bootstrap/dist/'));
 app.use('/mdl', _express2.default.static(__dirname + '/../node_modules/material-design-lite/dist/'));
 app.use('/jquery', _express2.default.static(__dirname + '/../node_modules/jquery/dist/'));
@@ -212,7 +227,7 @@ app.get(appbasename + '/*', function (req, res) {
     fetch = apifetch;
     fetch = function (origFetch) {
         return function myFetch() {
-            arguments[1].headers.ClientHost = req.headers.host;
+            arguments[1].headers.ClientHost = req.headers.host.indexOf(':') !== -1 ? req.headers.host.substr(0, req.headers.host.indexOf(':')) : req.headers.host;
             console.log('arguments=' + require('util').inspect(arguments, false, null));
             var result = origFetch.apply(this, arguments);
             return result;
@@ -226,8 +241,8 @@ app.get(appbasename + '/*', function (req, res) {
         if (req.url.endsWith('.png')) {
             timeout = 350;
         }
-        console.log('Timeout for ' + req.url + ' is ' + timeout);
-        console.log('Timeout done ' + req.url);
+        // console.log('Timeout for ' + req.url + ' is ' + timeout)
+        // console.log('Timeout done ' + req.url)
         setTimeout(function () {
             _fs2.default.readFile(file, function (err, data) {
                 if (err) {
