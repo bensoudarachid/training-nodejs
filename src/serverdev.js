@@ -1,20 +1,23 @@
+import 'ignore-styles'
 import React from 'react'
 import express from 'express'
 import http from 'http'
 import {match, RouterContext} from 'react-router'
 import {renderToString} from 'react-dom/server'
-import {routes} from './app/routes'
+import {routes} from 'app/routes'
 import {applyMiddleware, bindActionCreators, createStore} from 'redux'
-import rootReducer from './services/rootreducer'
+import rootReducer from 'services/rootreducer'
 import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 import fs from 'fs'
 import multer from 'multer'
 import {Provider} from 'react-redux'
-import actions from './services/actions'
-import ApiConnection from './services/apiconnection'
+import actions from 'services/actions'
+import ApiConnection from 'services/apiconnection'
+
 
 var httpProxy = require('http-proxy');
+
 var apiProxy = httpProxy.createProxyServer();
 
 var FormData = require('form-data')
@@ -28,6 +31,7 @@ const appbasename = ''
 var config = require('../webpack.config.js')
 var webpack = require('webpack')
 
+
 const app = express()
 var storage = multer.memoryStorage()
 var upload = multer({storage: storage})
@@ -36,7 +40,7 @@ var upload = multer({storage: storage})
 var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080'
 app.all("/api/*", function(req, res) {
     req.url = req.originalUrl
-    console.log('redirecting to Rest Server '+req.originalUrl)
+    // console.log('redirecting to Rest Server '+req.originalUrl)
     apiProxy.web(req, res, {target: serverOne})
 })
 app.all("/oauth/*", function(req, res) {
@@ -182,6 +186,7 @@ app.post(appbasename + '/api/*', function (req, res) {
 
 var errorfile = __dirname + '/images/0.png'
 const apifetch = fetch
+const apirequire = require
 app.get(appbasename + '/*', (req, res) => {
     const apihost = req.headers.host.replace('school.', 'schoolapi.')
     const favicon = req.protocol + '://' + apihost + ':8088/api/profile/logo?width=16&height=16'

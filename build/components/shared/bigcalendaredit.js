@@ -34,6 +34,14 @@ var _dragAndDrop = require('react-big-calendar/lib/addons/dragAndDrop');
 
 var _dragAndDrop2 = _interopRequireDefault(_dragAndDrop);
 
+require('react-big-calendar/lib/css/react-big-calendar.css');
+
+require('react-big-calendar/lib/addons/dragAndDrop/styles.css');
+
+var _bigcalendaredit = require('./bigcalendaredit.scss');
+
+var _bigcalendaredit2 = _interopRequireDefault(_bigcalendaredit);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45,13 +53,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var DragAndDropCalendar = (0, _dragAndDrop2.default)(_reactBigCalendar2.default);
 
 _reactBigCalendar2.default.setLocalizer(_reactBigCalendar2.default.momentLocalizer(_moment2.default));
-var styles = undefined;
-
-if (process.env.BROWSER) {
-    require('react-big-calendar/lib/css/react-big-calendar.css');
-    require('react-big-calendar/lib/addons/dragAndDrop/styles.css');
-    styles = require('./bigcalendaredit.scss');
-}
 
 var MyCustomHeader = _react2.default.createClass({
     displayName: 'MyCustomHeader',
@@ -562,7 +563,7 @@ var BigCalendarEdit = function (_React$Component) {
         key: 'eventStyleGetter',
         value: function eventStyleGetter(event, start, end, isSelected) {
 
-            var backgroundColor = styles['eventcolor' + event.number];
+            var backgroundColor = _bigcalendaredit2.default['eventcolor' + event.number];
             var borderColor = event.number == 0 ? 'red' : 'white';
             if (isSelected) {
                 borderColor = 'black';

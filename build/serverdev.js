@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.port = undefined;
 
+require('ignore-styles');
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -21,11 +23,11 @@ var _reactRouter = require('react-router');
 
 var _server = require('react-dom/server');
 
-var _routes = require('./app/routes');
+var _routes = require('app/routes');
 
 var _redux = require('redux');
 
-var _rootreducer = require('./services/rootreducer');
+var _rootreducer = require('services/rootreducer');
 
 var _rootreducer2 = _interopRequireDefault(_rootreducer);
 
@@ -47,17 +49,18 @@ var _multer2 = _interopRequireDefault(_multer);
 
 var _reactRedux = require('react-redux');
 
-var _actions = require('./services/actions');
+var _actions = require('services/actions');
 
 var _actions2 = _interopRequireDefault(_actions);
 
-var _apiconnection = require('./services/apiconnection');
+var _apiconnection = require('services/apiconnection');
 
 var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var httpProxy = require('http-proxy');
+
 var apiProxy = httpProxy.createProxyServer();
 
 var FormData = require('form-data');
@@ -79,7 +82,7 @@ var upload = (0, _multer2.default)({ storage: storage });
 var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080';
 app.all("/api/*", function (req, res) {
     req.url = req.originalUrl;
-    console.log('redirecting to Rest Server ' + req.originalUrl);
+    // console.log('redirecting to Rest Server '+req.originalUrl)
     apiProxy.web(req, res, { target: serverOne });
 });
 app.all("/oauth/*", function (req, res) {
@@ -220,6 +223,7 @@ app.post(appbasename + '/api/*', function (req, res) {
 
 var errorfile = __dirname + '/images/0.png';
 var apifetch = fetch;
+var apirequire = require;
 app.get(appbasename + '/*', function (req, res) {
     var apihost = req.headers.host.replace('school.', 'schoolapi.');
     var favicon = req.protocol + '://' + apihost + ':8088/api/profile/logo?width=16&height=16';

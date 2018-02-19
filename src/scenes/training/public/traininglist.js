@@ -3,9 +3,7 @@ import React from 'react'
 import TrainingListItem from './traininglistitem'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
-if (process.env.BROWSER) {
-    require('./traininglist.scss')
-}
+import './traininglist.scss'
 
 export default class TrainingList extends React.Component {
     constructor(props) {

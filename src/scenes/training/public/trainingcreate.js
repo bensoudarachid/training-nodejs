@@ -1,8 +1,6 @@
 import React from 'react'
 
-if (process.env.BROWSER) {
-    require('./trainingcreate.scss')
-}
+require('./trainingcreate.scss')
 
 export default class TrainingCreate extends React.Component {
     constructor(props) {

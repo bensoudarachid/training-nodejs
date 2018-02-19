@@ -1,7 +1,7 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import TodosList from 'scenes/todo/admin/todoslist'
-// import TodosListItem from '../../../../../scenes/todo/admin/todoslistitem'
+
 import {expect} from 'chai'
 import {shallow, mount, render} from 'enzyme'
 import sinon from 'sinon'

@@ -1,5 +1,5 @@
 import cookie from 'react-cookie'
-import actions from '../../actions'
+import actions from 'services/actions'
 
 const util = require('util')
 

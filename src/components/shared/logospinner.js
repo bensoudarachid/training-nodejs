@@ -1,9 +1,5 @@
 import React from 'react'
-
-if (process.env.BROWSER) {
-    console.log('LogoSpinner. environment is browser')
-    require('./logospinner.scss')
-}
+import 'logospinner.scss'
 
 export default class LogoSpinner extends React.Component {
     render() {

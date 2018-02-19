@@ -3,9 +3,7 @@ import Immutable from 'immutable'
 import TodosListItem from './todoslistitem'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
-if (process.env.BROWSER) {
-    require('./todoslist.scss')
-}
+import './todoslist.scss'
 
 export default class TodosList extends React.Component {
     constructor(props) {

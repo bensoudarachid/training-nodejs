@@ -20,17 +20,17 @@ var _logout = require('../logout.js');
 
 var _logout2 = _interopRequireDefault(_logout);
 
-var _actions = require('../../services/actions.js');
+var _actions = require('services/actions.js');
 
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _apiconnection = require('../../services/apiconnection');
+var _apiconnection = require('services/apiconnection');
 
 var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
-var _appimage = require('../../components/shared/appimage');
+var _appimage = require('components/shared/appimage');
 
 var _appimage2 = _interopRequireDefault(_appimage);
 
@@ -43,9 +43,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var styles = undefined;
-if (process.env.BROWSER) {
-    styles = require('./nav.scss');
-}
+styles = require('./nav.scss');
 
 var datasrc = undefined;
 
@@ -146,7 +144,7 @@ var NavPublic = function (_Component) {
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-            console.log('removeEventListener');
+            //console.log('removeEventListener')
             window.removeEventListener('resize', this.handleResize);
         }
     }, {

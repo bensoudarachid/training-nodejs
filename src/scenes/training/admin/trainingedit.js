@@ -1,14 +1,12 @@
 import React from 'react'
 import Immutable from 'immutable'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import FileUploadInput from '../../../components/shared/fileuploadinput'
-import AppImage from '../../../components/shared/appimage'
+import FileUploadInput from 'components/shared/fileuploadinput'
+import AppImage from 'components/shared/appimage'
 
-var util = require('util')
+import util from 'util'
 
-if (process.env.BROWSER) {
-    require('./trainingedit.scss')
-}
+import './trainingedit.scss'
 
 export default class TrainingEdit extends React.Component {
 
@@ -28,8 +26,8 @@ export default class TrainingEdit extends React.Component {
         const isTrainingEditFetching = this.props.trainingappmap.get('isTrainingEditFetching')
         const trainingEditError = this.props.trainingappmap.get('trainingEditError')
         const id = training == undefined ? '' : training.get('id')
-        console.log('trainingedit.js render. training = ' + require('util').inspect(training, false, null))
-        console.log('trainingedit.js render. training id = ' + require('util').inspect(id, false, null))
+//        console.log('trainingedit.js render. training = ' + require('util').inspect(training, false, null))
+//        console.log('trainingedit.js render. training id = ' + require('util').inspect(id, false, null))
         const title = training == undefined ? '' : training.get('title')
         const secondaryTitle = training == undefined ? '' : training.get('secondaryTitle')
         const shortDescription = training == undefined ? '' : training.get('shortDescription')
@@ -43,7 +41,6 @@ export default class TrainingEdit extends React.Component {
         if (saving == undefined)
             saving = false
         const disabled = saving ? 'disabled' : ''
-
 
         if (!auth.get('isAuthenticated'))
             return (
@@ -178,6 +175,7 @@ export default class TrainingEdit extends React.Component {
     componentWillUnmount() {
         console.log('Training edit componentWillUnmount')
         this.props.actions.loadEditTraining(undefined)
+        this.props.actions.setTrainingUserInputError(undefined);
     }
 
     componentDidMount() {

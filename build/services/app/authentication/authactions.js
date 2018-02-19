@@ -8,7 +8,7 @@ var _reactCookie = require('react-cookie');
 
 var _reactCookie2 = _interopRequireDefault(_reactCookie);
 
-var _actions = require('../../actions');
+var _actions = require('services/actions');
 
 var _actions2 = _interopRequireDefault(_actions);
 

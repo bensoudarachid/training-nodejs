@@ -1,4 +1,4 @@
-import {getIsFetching} from './rootreducer'
+//import {getIsFetching} from './rootreducer'
 import todoactions from './todos/todoactions'
 import trainingactions from './trainings/trainingactions'
 import authservices from './app/authentication/authservices'

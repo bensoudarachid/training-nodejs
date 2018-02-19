@@ -2,17 +2,15 @@ import React, {Component, PropTypes} from 'react'
 import {IndexLink, Link} from 'react-router'
 import Login from '../login.js'
 import Logout from '../logout.js'
-import {LogoutUser} from '../../services/actions.js'
+import {LogoutUser} from 'services/actions.js'
 
 
 import $ from 'jquery'
-import ApiConnection from '../../services/apiconnection'
-import AppImage from '../../components/shared/appimage'
+import ApiConnection from 'services/apiconnection'
+import AppImage from 'components/shared/appimage'
 
 var styles = undefined;
-if (process.env.BROWSER) {
-    styles = require('./nav.scss')
-}
+styles = require('./nav.scss')
 
 var datasrc = undefined
 
@@ -84,7 +82,7 @@ class NavPublic extends Component {
     }
 
     componentWillUnmount() {
-        console.log('removeEventListener')
+        //console.log('removeEventListener')
         window.removeEventListener('resize', this.handleResize)
     }
 

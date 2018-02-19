@@ -44,6 +44,8 @@ var _appmodaldlg = require('./appmodaldlg.js');
 
 var _appmodaldlg2 = _interopRequireDefault(_appmodaldlg);
 
+require('./appcomponent.scss');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59,8 +61,6 @@ if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
 };
 
 if (process.env.BROWSER) {
-    require('./appcomponent.scss');
-
     var modal = document.getElementById('myModal');
     window.onclick = function (event) {
         if (event.target == modal) {
@@ -90,6 +90,22 @@ var AppComponent = function (_React$Component) {
             this.handleBubblesVisibility();
             window.addEventListener('scroll', this.handleBubblesVisibility);
             window.addEventListener('resize', this.handleBubblesVisibility);
+            if (process.env.BROWSER) {
+
+                var webSocket = new WebSocket('ws://127.0.0.1:8080/counter');
+                webSocket.onmessage = function (message) {
+                    console.log('ws message', message);
+                };
+                webSocket.onopen = function () {
+                    console.log('ws open');
+                };
+                webSocket.onclose = function () {
+                    console.log('ws close');
+                };
+                webSocket.onerror = function wserror(message) {
+                    console.log('ws Error', message);
+                };
+            }
         }
     }, {
         key: 'componentWillReceiveProps',

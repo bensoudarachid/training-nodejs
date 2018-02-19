@@ -1,0 +1,187 @@
+@import '../styles/default.scss';
+
+$page-leave-duration: 80ms;
+$page-enter-duration: 250ms;
+.page-enter {
+  opacity: 0.01;
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  margin: auto;
+  transition: all $page-enter-duration ease-in;
+  transition-delay: $page-leave-duration;
+}
+
+.page-enter.page-enter-active {
+  position: absolute;
+  opacity: 1;
+}
+
+.page-leave {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  opacity: 0.8;
+  transition: opacity $page-leave-duration ease-in;
+}
+
+.page-leave.page-leave-active {
+  position: absolute;
+  opacity: 0;
+}
+
+#wavybg-wrapper {
+  z-index: -1000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+#starbg-wrapper {
+  z-index: -800;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+#appcomp {
+  .fadein {
+    opacity: 1;
+    transition: opacity 0.6s;
+  }
+
+  .mdl-textfield, .mdl-selectfield {
+    width: 100%;
+    padding: auto 14px !important;
+  }
+  .mdl-cell, .mdl-textfield__input, .mdl-textfield__label, .mdl-selectfield__label, .mdl-selectfield__select {
+    padding: 0px 4px 0px 4px !important;
+  }
+
+  .mdl-selectfield--floating-label.is-focused .mdl-selectfield__label,
+  .mdl-selectfield--floating-label.is-dirty .mdl-selectfield__label {
+    color: getMdlColor($color-primary);
+  }
+
+  button {
+    font-family: $RoyaMainFont;
+    margin: 0 2px 0px 0px;
+    padding: 1px 0px 2px 0px;
+    text-transform: none;
+    font-size: 1.0em;
+    letter-spacing: -1px;
+
+    &:disabled {
+      color: lighten($roya-blue, 10%);
+    }
+    &:hover {
+      box-shadow: 0px 3px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+  .mdlroundbutton {
+    margin: 0px 4px 0px 4px !important;
+    width: 35px !important;
+    height: 35px;
+    @media (min-width: 768px) {
+      width: 40px !important;
+      height: 40px;
+      margin: 0px 4px 0px 4px !important;
+    }
+    @media (min-width: 992px) {
+      width: 45px !important;
+      height: 45px;
+      margin: 0px 8px 0px 8px !important;
+    }
+    background-color: getMdlColor($color-primary);
+    color: white;
+    &:hover {
+      color: $roya-blue;
+      background-color: white;
+    }
+    $duration: 0s;
+    &:active {
+      border: 2px solid lighten($roya-blue, 19%);
+
+    }
+    .glyphicon {
+      margin-top: 5%;
+      margin-left: 2%;
+      font-size: 17px;
+      @media (min-width: 768px) {
+        font-size: 20px;
+      }
+      @media (min-width: 992px) {
+        font-size: 22px;
+      }
+    }
+
+    .glyphicon-minus {
+      margin-right: 10%;
+    }
+  }
+
+  .disabled {
+    background-color: lighten(getMdlColor($color-primary), 40%);
+  }
+
+  #contt {
+    font-family: 'Roboto', Tahoma, sans-serif;
+    font-size: 1.15em;
+    letter-spacing: -0.75px;
+    padding-top: 94px;
+    margin: auto;
+    overflow: hidden;
+    h3 {
+      margin: 0;
+    }
+    p {
+      font-size: 1.1em;
+      letter-spacing: -0.75px;
+      text-align: justify;
+    }
+    .error {
+      margin: 2px 0 0 auto !important;
+      z-index: 10;
+      left: 15%;
+      width: 70%;
+      height: 30px;
+      color: white;
+      position: absolute;
+      background-color: $reddark;
+      border: 3px solid rgba(black, 0.1);
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+    }
+
+    @media (min-width: 768px) {
+      padding-top: 110px;
+    }
+    @media (min-width: 992px) {
+      padding-top: 170px;
+    }
+
+  }
+
+}
+
+
+

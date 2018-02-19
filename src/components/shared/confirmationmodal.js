@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 import 'jquery'
-
-if (process.env.BROWSER) {
-    require('./confirmationmodal.scss')
-}
+import './confirmationmodal.scss'
 
 export default class ConfirmationModal extends Component {
 

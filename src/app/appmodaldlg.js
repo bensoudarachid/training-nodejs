@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import 'jquery'
 
-if (process.env.BROWSER) {
-    require('./appmodaldlg.scss')
-}
+require('./appmodaldlg.scss')
 
 export default class AppModalDlg extends Component {
 

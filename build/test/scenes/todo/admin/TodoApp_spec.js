@@ -31,9 +31,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // const {renderIntoDocument,//findRenderedDOMComponentsWithTag,
 //        scryRenderedDOMComponentsWithTag} = TestUtils
 
-// import { spyOnComponentMethod, stubComponentMethod } from 'sinon-spy-react'
-
-// import TodoApp from '../../../../../scenes/todo/todoapp'
 (0, _mocha.describe)('TodoApp', function () {
     var auth = {
         isAuthenticated: true

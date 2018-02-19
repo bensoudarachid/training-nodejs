@@ -1,12 +1,8 @@
 import React from 'react'
-import BigCalendarEdit from '../../../components/shared/bigcalendaredit'
+import BigCalendarEdit from 'components/shared/bigcalendaredit'
+import './trainingschedule.scss'
+import util from 'util'
 
-
-var util = require('util')
-
-if (process.env.BROWSER) {
-    require('./trainingschedule.scss')
-}
 
 export default class TrainingSchedule extends React.Component {
 

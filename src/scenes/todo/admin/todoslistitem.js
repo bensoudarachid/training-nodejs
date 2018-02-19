@@ -1,11 +1,9 @@
 import React from 'react'
 import cookie from 'react-cookie'
-import FileUploadInput from '../../../components/shared/fileuploadinput'
+import FileUploadInput from 'components/shared/fileuploadinput'
 import TodoImage from './todoimage'
 
-if (process.env.BROWSER) {
-    require('./todoslistitem.scss')
-}
+require('./todoslistitem.scss')
 
 export default class TodosListItem extends React.Component {
     constructor(props) {

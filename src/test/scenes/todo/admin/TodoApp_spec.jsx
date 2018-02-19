@@ -1,9 +1,9 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
-// import TodoApp from '../../../../../scenes/todo/todoapp'
+
 import TodoApp from 'scenes/todo/todoapp'
 import {expect} from 'chai'
-// import { spyOnComponentMethod, stubComponentMethod } from 'sinon-spy-react'
+
 import sinon from 'sinon'
 import {List, Map} from 'immutable'
 

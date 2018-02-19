@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-
-const util = require('util')
+import util from 'util'
+import './register.scss'
 
 const RegSuccessful = () => (
     <div>
@@ -15,9 +15,6 @@ const RegError = () => (
 
 const textInputClassnames = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label'
 
-if (process.env.BROWSER) {
-    require('./register.scss')
-}
 
 export default class Register extends Component {
     render() {

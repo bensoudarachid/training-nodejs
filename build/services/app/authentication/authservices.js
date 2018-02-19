@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _apiconnection = require('../../apiconnection');
+var _apiconnection = require('services/apiconnection');
 
 var _apiconnection2 = _interopRequireDefault(_apiconnection);
 

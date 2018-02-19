@@ -3,6 +3,7 @@ import AdminTrainingList from './admintraininglist'
 import TrainingCommandPanel from './trainingcommandpanel'
 import $ from 'jquery'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import './admintrainingapp.scss'
 
 var util = require('util')
 
@@ -11,8 +12,7 @@ if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
 }
 
 if (process.env.BROWSER) {
-    require('../../../app/jquery.shuffleLetters.js')
-    require('./admintrainingapp.scss')
+    require('app/jquery.shuffleLetters.js')
 
     var rdm = 0
     var lastrdm = 0

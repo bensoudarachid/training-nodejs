@@ -2,14 +2,12 @@ import React, {Component, PropTypes} from 'react'
 import {IndexLink, Link} from 'react-router'
 import Login from '../login.js'
 import Logout from '../logout.js'
-import {LogoutUser} from '../../services/actions.js'
+import {LogoutUser} from 'services/actions.js'
 
 
 import $ from 'jquery'
 
-if (process.env.BROWSER) {
-    require('./nav.scss')
-}
+require('./nav.scss')
 
 class NavUser extends Component {
 

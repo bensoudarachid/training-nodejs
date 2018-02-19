@@ -1,4 +1,4 @@
-import ApiConnection from '../../apiconnection'
+import ApiConnection from 'services/apiconnection'
 const authurl = ApiConnection.apiurl + ApiConnection.appbasename
 const authservices = {
     registerUserService: function (user) {

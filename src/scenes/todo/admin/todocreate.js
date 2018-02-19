@@ -1,8 +1,6 @@
 import React from 'react'
+import './todocreate.scss'
 
-if (process.env.BROWSER) {
-    require('./todocreate.scss')
-}
 export default class TodoCreate extends React.Component {
     constructor(props) {
         super(props)

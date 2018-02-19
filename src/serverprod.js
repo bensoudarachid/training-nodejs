@@ -1,3 +1,4 @@
+import 'ignore-styles'
 import React from 'react'
 import express from 'express'
 import http from 'http'
@@ -37,7 +38,7 @@ var upload = multer({storage: storage})
 var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080'
 app.all("/api/*", function(req, res) {
     req.url = req.originalUrl
-    console.log('redirecting to Rest Server '+req.originalUrl)
+    // console.log('redirecting to Rest Server '+req.originalUrl)
     apiProxy.web(req, res, {target: serverOne})
 })
 app.all("/oauth/*", function(req, res) {

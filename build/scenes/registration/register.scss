@@ -1,0 +1,36 @@
+@import '../../styles/default.scss';
+
+.register {
+
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  -moz-background-clip: padding; /* Firefox 3.6 */
+  -webkit-background-clip: padding; /*Safari 4? Chrome 6?*/
+  background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+  text-align: center;
+  input {
+    font-family: 'Roboto', Tahoma, sans-serif;
+  }
+  label {
+    font-family: 'Roboto', Tahoma, sans-serif;
+  }
+  .spinnerwrap {
+    margin: auto;
+    margin-top: 5%;
+    width: 120px;
+    height: 120px;
+  }
+
+  .footer {
+    height: 50px;
+  }
+  .container {
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    width: 70%;
+  }
+}
+
+

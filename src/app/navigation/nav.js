@@ -2,14 +2,12 @@ import React, {Component} from 'react'
 import NavUser from './navuser'
 import NavPublic from './navpublic'
 import NavAdmin from './navadmin'
-import {LogoutUser} from '../../services/actions.js'
+import {LogoutUser} from 'services/actions.js'
 import $ from 'jquery'
-import ApiConnection from '../../services/apiconnection'
-
+import ApiConnection from 'services/apiconnection'
+import './nav.scss'
 
 if (process.env.BROWSER) {
-    require('./nav.scss')
-
     $(document).ready(function () {
         $(document).click(function (event) {
 
@@ -41,7 +39,7 @@ class Nav extends Component {
         if (this.props.app.get('tenant'))
             tenantName2 = this.props.app.get('tenant').get('name2')
         auth.get('authority')
-        console.log('auth.get(authority)=' + require('util').inspect(auth.get('authority'), false, null))
+//        console.log('auth.get(authority)=' + require('util').inspect(auth.get('authority'), false, null))
         return (
             <nav id='bsnavi' className='navbar navbar-default navbar-fixed-top' role="navigation">
                 <ul className='navbar-header logoblock'>
@@ -107,7 +105,7 @@ class Nav extends Component {
         var tenantName2 = ''
         if (this.props.app.get('tenant'))
             tenantName2 = this.props.app.get('tenant').get('name2')
-        console.log('componentDidMount tenantName2=' + require('util').inspect(tenantName2, false, null))
+        //console.log('componentDidMount tenantName2=' + require('util').inspect(tenantName2, false, null))
         if (tenantName2 == '') {
             $(".logoblock").find("h2").css("margin-top", "25px");
             $(".logoblock").find("h2").css("margin-left", "10px");

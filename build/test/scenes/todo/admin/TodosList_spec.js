@@ -28,7 +28,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var renderIntoDocument = _reactAddonsTestUtils2.default.renderIntoDocument,
     scryRenderedDOMComponentsWithTag = _reactAddonsTestUtils2.default.scryRenderedDOMComponentsWithTag;
-// import TodosListItem from '../../../../../scenes/todo/admin/todoslistitem'
+
 
 (0, _mocha.describe)('TodosList', function () {
 

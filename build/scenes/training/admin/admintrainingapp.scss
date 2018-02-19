@@ -1,0 +1,56 @@
+@import '../../../styles/default.scss';
+
+.admintrainingapp {
+  width: 100%;
+  margin: 0 auto;
+  .commandpanel {
+    width: 95%;
+    @media (min-width: 768px) {
+      width: 85%;
+    }
+    @media (min-width: 992px) {
+      width: 65%;
+    }
+  }
+  #textwrap {
+    z-index: -850;
+    position: fixed;
+    width: 0.01%;
+    height: 30px;
+    opacity: 0.5;
+    margin-top: -30px;
+    left: 10px;
+    @media (min-width: 768px) {
+      margin-top: -32px;
+      left: 10px;
+    }
+    @media (min-width: 992px) {
+      left: 6%;
+      margin-top: -40px;
+    }
+    p {
+      white-space: nowrap;
+      font-family: $RoyaMainFont;
+      font-size: 18px;
+      color: white;
+      position: relative;
+      left: 0px;
+      width: 80%;
+      opacity: 1;
+      text-align: left;
+      text-transform: uppercase;
+      &:first-letter {
+        font-size: 140%;
+      }
+      @media (min-width: 768px) {
+        font-size: 22px;
+      }
+      @media (min-width: 992px) {
+        font-size: 26px;
+      }
+
+    }
+  }
+}
+
+

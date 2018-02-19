@@ -2,9 +2,7 @@ import React, {Component} from 'react'
 import 'jquery'
 import Login from './login'
 
-if (process.env.BROWSER) {
-    require('./loginmodal.scss')
-}
+import './loginmodal.scss'
 
 export default class LoginModal extends Component {
 

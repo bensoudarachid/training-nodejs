@@ -20,15 +20,17 @@ var _logout = require('../logout.js');
 
 var _logout2 = _interopRequireDefault(_logout);
 
-var _actions = require('../../services/actions.js');
+var _actions = require('services/actions.js');
 
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _apiconnection = require('../../services/apiconnection');
+var _apiconnection = require('services/apiconnection');
 
 var _apiconnection2 = _interopRequireDefault(_apiconnection);
+
+require('./nav.scss');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37,10 +39,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-if (process.env.BROWSER) {
-    require('./nav.scss');
-}
 
 var datasrc = undefined;
 
@@ -71,12 +69,8 @@ var NavAdmin = function (_Component) {
 
             var isAuthenticated = auth.get('isAuthenticated');
 
-            // if (process.env.BROWSER)
-            //     datasrc = this.getRightLogoUrl()
-            console.log('nav: logo = ' + datasrc);
             var tenantName1 = '';
             if (this.props.app.get('tenant')) tenantName1 = this.props.app.get('tenant').get('name1');
-            console.log('tenantName1=' + require('util').inspect(tenantName1, false, null));
             var tenantName2 = '';
             if (this.props.app.get('tenant')) tenantName2 = this.props.app.get('tenant').get('name2');
 
@@ -152,7 +146,7 @@ var NavAdmin = function (_Component) {
         value: function checkTitleMargin() {
             var tenantName2 = '';
             if (this.props.app.get('tenant')) tenantName2 = this.props.app.get('tenant').get('name2');
-            console.log('componentDidMount tenantName2=' + require('util').inspect(tenantName2, false, null));
+            //        console.log('componentDidMount tenantName2=' + require('util').inspect(tenantName2, false, null))
             if (tenantName2 == '') {
                 (0, _jquery2.default)(".logoblock").find("h2").css("margin-top", "25px");
                 (0, _jquery2.default)(".logoblock").find("h2").css("margin-left", "10px");
@@ -165,7 +159,7 @@ var NavAdmin = function (_Component) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             componentHandler.upgradeDom();
-            console.log('addEventListener');
+            //console.log('addEventListener')
             window.addEventListener('resize', this.handleResize);
             NavAdmin.fetchData(this.props.actions, this.props.params);
         }
@@ -188,8 +182,7 @@ var NavAdmin = function (_Component) {
     }], [{
         key: 'fetchData',
         value: function fetchData(actions, params) {
-            console.log('Call Tenant Edit fetch data  <-----------------------------');
-
+            //        console.log('Call Tenant Edit fetch data  <-----------------------------')
             return actions.retrieveTenantDispatcher();
         }
     }]);

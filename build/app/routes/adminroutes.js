@@ -10,7 +10,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = require('react-router');
 
-var _admintrainingapp = require('../../scenes/training/admin/admintrainingapp');
+var _admintrainingapp = require('scenes/training/admin/admintrainingapp');
 
 var _admintrainingapp2 = _interopRequireDefault(_admintrainingapp);
 

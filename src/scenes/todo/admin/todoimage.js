@@ -1,6 +1,6 @@
 import React from 'react'
 import cookie from 'react-cookie'
-import ApiConnection from '../../../services/apiconnection'
+import ApiConnection from 'services/apiconnection'
 import $ from 'jquery'
 
 export default class TodoImage extends React.Component {

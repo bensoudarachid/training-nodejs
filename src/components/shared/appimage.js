@@ -1,11 +1,8 @@
 import React from 'react'
 import cookie from 'react-cookie'
-import ApiConnection from '../../services/apiconnection'
+import ApiConnection from 'services/apiconnection'
 import $ from 'jquery'
-
-if (process.env.BROWSER) {
-    require('./appimage.scss')
-}
+import './appimage.scss'
 
 export default class AppImage extends React.Component {
 

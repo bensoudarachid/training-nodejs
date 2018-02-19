@@ -1,8 +1,5 @@
 import React from 'react'
-
-if (process.env.BROWSER) {
-    require('./trainingcommandpanel.scss')
-}
+import './trainingcommandpanel.scss'
 
 export default class TrainingCommandPanel extends React.Component {
     constructor(props) {

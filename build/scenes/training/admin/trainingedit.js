@@ -18,13 +18,19 @@ var _reactAddonsPureRenderMixin = require('react-addons-pure-render-mixin');
 
 var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
 
-var _fileuploadinput = require('../../../components/shared/fileuploadinput');
+var _fileuploadinput = require('components/shared/fileuploadinput');
 
 var _fileuploadinput2 = _interopRequireDefault(_fileuploadinput);
 
-var _appimage = require('../../../components/shared/appimage');
+var _appimage = require('components/shared/appimage');
 
 var _appimage2 = _interopRequireDefault(_appimage);
+
+var _util = require('util');
+
+var _util2 = _interopRequireDefault(_util);
+
+require('./trainingedit.scss');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33,12 +39,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var util = require('util');
-
-if (process.env.BROWSER) {
-    require('./trainingedit.scss');
-}
 
 var TrainingEdit = function (_React$Component) {
     _inherits(TrainingEdit, _React$Component);
@@ -64,8 +64,8 @@ var TrainingEdit = function (_React$Component) {
             var isTrainingEditFetching = this.props.trainingappmap.get('isTrainingEditFetching');
             var trainingEditError = this.props.trainingappmap.get('trainingEditError');
             var id = training == undefined ? '' : training.get('id');
-            console.log('trainingedit.js render. training = ' + require('util').inspect(training, false, null));
-            console.log('trainingedit.js render. training id = ' + require('util').inspect(id, false, null));
+            //        console.log('trainingedit.js render. training = ' + require('util').inspect(training, false, null))
+            //        console.log('trainingedit.js render. training id = ' + require('util').inspect(id, false, null))
             var title = training == undefined ? '' : training.get('title');
             var secondaryTitle = training == undefined ? '' : training.get('secondaryTitle');
             var shortDescription = training == undefined ? '' : training.get('shortDescription');
@@ -284,6 +284,7 @@ var TrainingEdit = function (_React$Component) {
         value: function componentWillUnmount() {
             console.log('Training edit componentWillUnmount');
             this.props.actions.loadEditTraining(undefined);
+            this.props.actions.setTrainingUserInputError(undefined);
         }
     }, {
         key: 'componentDidMount',

@@ -1,0 +1,21 @@
+@import '../../../styles/default.scss';
+
+.imgwrapper {
+  position: relative;
+  img {
+    position: position;
+    width: 100%;
+    height: 100%;
+  }
+  .spinnerwrap {
+    position: absolute;
+    left: 25%;
+    top: 15%;
+    width: 50% !important;
+    height: 50% !important;
+  }
+  .spinner {
+    width: 100%;
+    height: 100%;
+  }
+}	

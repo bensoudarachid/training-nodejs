@@ -3,12 +3,9 @@ import TodosFilter from './admin/todosfilter'
 import React, {Component} from 'react'
 import TodosList from './admin/todoslist'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import './todoapp.scss'
+import util from 'util'
 
-var util = require('util')
-
-if (process.env.BROWSER) {
-    require('./todoapp.scss')
-}
 
 class TodoApp extends Component {
 

@@ -108,11 +108,11 @@ var trainingservices = {
         });
     },
     updateTrainingService: function updateTrainingService(training, inputfile) {
+        console.log('##############################################################updateTrainingService this is');
         var headers = {};
         var idToken = _reactCookie2.default.load('jwt');
-        if (idToken != undefined) {
-            headers.Authorization = 'Bearer ' + idToken;
-        }
+        if (idToken != undefined) headers.Authorization = 'Bearer ' + idToken;
+
         var trainingbody = JSON.stringify(training);
         var body = new FormData();
         body.append('trainingParam', new Blob([trainingbody], { type: 'application/json' }));

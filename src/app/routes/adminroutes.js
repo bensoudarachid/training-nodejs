@@ -1,7 +1,7 @@
 import React from 'react'
 import {DefaultRoute, IndexRoute, NotFoundRoute, Route} from 'react-router'
 
-import AdminTrainingApp from '../../scenes/training/admin/admintrainingapp'
+import AdminTrainingApp from 'scenes/training/admin/admintrainingapp'
 
 if (typeof require.ensure !== 'function') require.ensure = (d, c) => c(require)
 

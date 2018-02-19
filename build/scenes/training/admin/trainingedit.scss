@@ -1,0 +1,53 @@
+@import '../../../styles/default.scss';
+
+.trainingedit {
+  width: 95%;
+  margin: auto;
+  background-color: lighten($roya-blue, 30%);
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+
+  input {
+    font-family: 'Roboto', Tahoma, sans-serif;
+  }
+  label {
+    font-family: 'Roboto', Tahoma, sans-serif;
+  }
+  .spinnerwrap {
+    margin: auto;
+    margin-top: 2px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer {
+    height: 50px;
+  }
+  .container {
+    width: 100%;
+  }
+
+  .fileuploadinput {
+    margin: 30px -15px 0 15px !important;
+    @media (min-width: 768px) {
+      margin: 40px 0 0 0px !important;
+    }
+
+  }
+
+  .imgwrapper {
+    margin: 8px;
+    width: 90px;
+    height: 90px;
+    @media (min-width: 768px) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: 85%;
+  }
+
+}

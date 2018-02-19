@@ -1,9 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import 'jquery'
 
-if (process.env.BROWSER) {
-    require('./login.scss')
-}
+import './login.scss'
 
 export default class Login extends Component {
 

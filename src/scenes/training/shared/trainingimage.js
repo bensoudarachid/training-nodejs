@@ -1,11 +1,9 @@
 import React from 'react'
 import cookie from 'react-cookie'
-import ApiConnection from '../../../services/apiconnection'
+import ApiConnection from 'services/apiconnection'
 import $ from 'jquery'
 
-if (process.env.BROWSER) {
-    require('./trainingimage.scss')
-}
+import './trainingimage.scss'
 
 export default class TrainingImage extends React.Component {
 

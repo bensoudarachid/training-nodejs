@@ -1,12 +1,9 @@
 import React from 'react'
 import 'jquery'
 import $ from 'jquery'
+import '../../../node_modules/fullcalendar/dist/fullcalendar.css'
+import './calendar.scss'
 
-if (process.env.BROWSER) {
-    console.log('Calendar. environment is browser')
-    require('../../../node_modules/fullcalendar/dist/fullcalendar.css')
-    require('./calendar.scss')
-}
 
 export default class FullCalendarEdit extends React.Component {
     render() {

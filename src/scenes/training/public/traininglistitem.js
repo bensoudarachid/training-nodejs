@@ -1,9 +1,11 @@
 import React from 'react'
-import AppImage from '../../../components/shared/appimage'
+import AppImage from 'components/shared/appimage'
 
-if (process.env.BROWSER) {
-    require('./traininglistitem.scss')
-}
+import './traininglistitem.scss'
+
+// if (process.env.BROWSER) {
+//     require('./traininglistitem.scss')
+// }
 
 export default class TrainingListItem extends React.Component {
     constructor(props) {

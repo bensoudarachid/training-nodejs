@@ -22,7 +22,6 @@ module.exports = {
     // devtool:'#inline-source-map',
     // devtool: 'eval-source-map',
     // devtool: 'source-map',
-
     entry: [
         'webpack-hot-middleware/client?path=http://127.0.0.1:8081/__webpack_hmr',
         './src/app'

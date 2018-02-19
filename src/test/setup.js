@@ -1,8 +1,6 @@
 import chai from 'chai';
 import chaiImmutable from 'chai-immutable';
 import jsdom from 'jsdom';
-// import '../../node_modules/material-design-lite/dist/material.css';
-// require('babel-core/register');
 require('../../node_modules/babel-polyfill/dist/polyfill.js')
 
 const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');

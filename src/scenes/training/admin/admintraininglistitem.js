@@ -1,10 +1,7 @@
 import React from 'react'
-import AppImage from '../../../components/shared/appimage'
+import AppImage from 'components/shared/appimage'
 
-if (process.env.BROWSER) {
-    require('./admintraininglistitem.scss')
-
-}
+require('./admintraininglistitem.scss')
 
 export default class AdminTrainingListItem extends React.Component {
     constructor(props) {

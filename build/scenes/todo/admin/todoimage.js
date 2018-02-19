@@ -14,7 +14,7 @@ var _reactCookie = require('react-cookie');
 
 var _reactCookie2 = _interopRequireDefault(_reactCookie);
 
-var _apiconnection = require('../../../services/apiconnection');
+var _apiconnection = require('services/apiconnection');
 
 var _apiconnection2 = _interopRequireDefault(_apiconnection);
 

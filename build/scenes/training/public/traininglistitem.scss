@@ -1,0 +1,124 @@
+@import '../../../styles/default.scss';
+
+.trainingslistitem {
+  background-color: lighten($roya-blue, 30%);
+  -moz-background-clip: padding; /* Firefox 3.6 */
+  -webkit-background-clip: padding; /* Safari 4? Chrome 6? */
+  background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+  margin: 10px 0px !important;
+  @media (min-width: 768px) {
+    margin: 10px 5px !important;
+  }
+
+  @media (min-width: 992px) {
+    margin: 10px 10px !important;
+  }
+
+  &:hover {
+    -ms-transform: scale(1.02, 1.02); /* IE 9 */
+    -webkit-transform: scale(1.02, 1.02); /* Safari */
+    transform: scale(1.02, 1.02);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 8px 8px 0 rgba(0, 0, 0, 0.1);
+    @include transitionAll(.08s);
+  }
+  &:hover .imgwrapper {
+    -ms-transform: scale(0.98, 0.98); /* IE 9 */
+    -webkit-transform: scale(0.98, 0.98); /* Safari */
+    transform: scale(0.98, 0.98);
+  }
+
+  hr {
+    display: block;
+    position: relative;
+    padding: 0;
+    margin: 8px auto;
+    height: 1px;
+    width: 100%;
+    font-size: 1px;
+    line-height: 1px;
+    clear: both;
+    border: none;
+    background: rgba(28, 42, 57, 0.5); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, rgba(255, 255, 225, 0), rgba(28, 42, 57, 0.5), rgba(255, 255, 225, 0)); /*Safari 5.1-6*/
+    background: -o-linear-gradient(right, rgba(255, 255, 225, 0), rgba(28, 42, 57, 0.5), rgba(255, 255, 225, 0)); /*Opera 11.1-12*/
+    background: -moz-linear-gradient(right, rgba(255, 255, 225, 0), rgba(28, 42, 57, 0.5), rgba(255, 255, 225, 0)); /*Fx 3.6-15*/
+    background: linear-gradient(to right, rgba(255, 255, 225, 0), rgba(28, 42, 57, 0.5), rgba(255, 255, 225, 0)); /*Standard*/
+  }
+
+  .shortdescription {
+    text-align: justify;
+
+    height: 100px;
+    margin: 10px 0px 10px 0px !important;
+    line-height: 20px;
+  }
+
+  h4 {
+    font-family: $RoyaMainFont;
+    margin: 25px 0px 5px 0px;
+    padding: 0;
+    text-transform: none;
+    font-size: 1.3em;
+    letter-spacing: -1.5px;
+    line-height: 22px;
+    height: 24px;
+    text-align: right;
+  }
+  h5 {
+    font-family: $RoyaMainFont;
+    margin: 0px 0px 0px 0px;
+    padding: 0;
+    text-transform: none;
+    font-size: 1.1em;
+    letter-spacing: -1.5px;
+    height: 30px;
+    text-align: right;
+  }
+  .buttonwrap {
+    margin: 0px 0px 8px 0px;
+    height: 35px;
+  }
+  .schedulebutton, .editbutton {
+    margin: 0px 4px !important;
+    width: 35px !important;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px 25px;
+    border-radius: 50%;
+    color: white;
+  }
+  .schedulebutton {
+    background-image: url('../../../images/calendar.svg');
+  }
+  .editbutton {
+    background-image: url('../../../images/edit.svg');
+  }
+  .promo {
+    font-family: $RoyaMainFont;
+    font-size: 1.1em;
+    color: darken($redlight, 0%);
+    margin: 6px 0px 0px 0px;
+    padding: 0;
+    text-transform: none;
+    float: left;
+  }
+  .duration {
+    font-family: $RoyaMainFont;
+    font-size: 1.1em;
+    margin-right: 0px;
+    margin-top: 6px;
+    float: right;
+    white-space: nowrap;
+  }
+  .imgwrapper {
+    position: absolute;
+    margin-top: 6px;
+    margin-left: 0px;
+    width: 82px;
+    height: 82px;
+
+  }
+
+}
+

@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 
-if (process.env.BROWSER) {
-    require('./fileuploadinput.scss')
-}
+require('./fileuploadinput.scss')
 
 export default class FileUploadInput extends Component {
 

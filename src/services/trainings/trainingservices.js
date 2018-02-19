@@ -68,8 +68,7 @@ const trainingservices = {
                 method: 'GET',
                 headers
             }
-        )
-            .then(
+        ).then(
                 response => response.json()
                     .then(data => {
                             return ({
@@ -101,11 +100,12 @@ const trainingservices = {
             ))
     },
     updateTrainingService: function (training, inputfile) {
+        console.log('##############################################################updateTrainingService this is')
         var headers = {}
         var idToken = cookie.load('jwt')
-        if (idToken != undefined) {
+        if (idToken != undefined)
             headers.Authorization = 'Bearer ' + idToken
-        }
+
         var trainingbody = JSON.stringify(training)
         var body = new FormData()
         body.append('trainingParam', new Blob([trainingbody], {type: 'application/json'}))

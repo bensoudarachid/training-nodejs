@@ -1,8 +1,5 @@
 import React from 'react'
-
-if (process.env.BROWSER) {
-    require('./todosfilter.scss')
-}
+import './todosfilter.scss'
 
 export default class TodosFilter extends React.Component {
     constructor(props) {

@@ -22,15 +22,17 @@ var _navadmin = require('./navadmin');
 
 var _navadmin2 = _interopRequireDefault(_navadmin);
 
-var _actions = require('../../services/actions.js');
+var _actions = require('services/actions.js');
 
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _apiconnection = require('../../services/apiconnection');
+var _apiconnection = require('services/apiconnection');
 
 var _apiconnection2 = _interopRequireDefault(_apiconnection);
+
+require('./nav.scss');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41,8 +43,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 if (process.env.BROWSER) {
-    require('./nav.scss');
-
     (0, _jquery2.default)(document).ready(function () {
         (0, _jquery2.default)(document).click(function (event) {
 
@@ -84,7 +84,7 @@ var Nav = function (_Component) {
             var tenantName2 = '';
             if (this.props.app.get('tenant')) tenantName2 = this.props.app.get('tenant').get('name2');
             auth.get('authority');
-            console.log('auth.get(authority)=' + require('util').inspect(auth.get('authority'), false, null));
+            //        console.log('auth.get(authority)=' + require('util').inspect(auth.get('authority'), false, null))
             return _react2.default.createElement(
                 'nav',
                 { id: 'bsnavi', className: 'navbar navbar-default navbar-fixed-top', role: 'navigation' },
@@ -161,7 +161,7 @@ var Nav = function (_Component) {
         value: function checkTitleMargin() {
             var tenantName2 = '';
             if (this.props.app.get('tenant')) tenantName2 = this.props.app.get('tenant').get('name2');
-            console.log('componentDidMount tenantName2=' + require('util').inspect(tenantName2, false, null));
+            //console.log('componentDidMount tenantName2=' + require('util').inspect(tenantName2, false, null))
             if (tenantName2 == '') {
                 (0, _jquery2.default)(".logoblock").find("h2").css("margin-top", "25px");
                 (0, _jquery2.default)(".logoblock").find("h2").css("margin-left", "10px");

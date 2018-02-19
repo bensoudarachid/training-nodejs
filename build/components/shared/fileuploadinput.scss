@@ -1,0 +1,39 @@
+@import '../../styles/default.scss';
+
+.file_input_div {
+  margin-top: -2px;
+  float: left;
+  padding-left: 10px;
+  .file_input {
+    .justify {
+      padding-top: 7px;
+    }
+    .image_input_button {
+      &:hover {
+        color: $roya-blue !important;
+        background-color: white;
+      }
+    }
+  }
+
+  #file_input_text_div {
+    width: 200px;
+    margin-top: -8px;
+    margin-left: 5px;
+  }
+
+  .none {
+    display: none;
+  }
+  .uploadlabel {
+    margin-top: 10px;
+    margin-left: 10px;
+    min-width: 100px;
+    position: absolute;
+  }
+
+}
+
+.disabled {
+  color: lighten($roya-blue, 10%);
+}

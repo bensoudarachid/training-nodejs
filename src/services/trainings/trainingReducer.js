@@ -62,7 +62,7 @@ let trainingReducer = function (trainingappmap = new Immutable.Map({
             return trainingappmap
         case 'EDIT_TRAINING_SAVING':
             var editTraining = action.training
-            editTraining = editTraining.set('saving', true)
+            editTraining = editTraining.set('saving', action.saving)
             trainingappmap = trainingappmap.set('edittraining', editTraining)
             return trainingappmap
         case 'EDIT_TRAINING_LOADED':
@@ -76,18 +76,22 @@ let trainingReducer = function (trainingappmap = new Immutable.Map({
             return trainingappmap
         case 'EDIT_TRAINING_VALIDATE':
             var userInputErrors = {}
-            if (action.editTraining.get('title').length == 0)
-                userInputErrors.title = 'required'
-            if (action.editTraining.get('shortDescription').length == 0) {
-                userInputErrors.shortDescription = 'required'
-            }
-            if (!validator.isLength(action.editTraining.get('title').trim(), 0, 40))
-                userInputErrors.title = 'too long (40 chars max)'
 
-            if (!validator.isLength(action.editTraining.get('shortDescription').trim(), 0, 255))
-                userInputErrors.shortDescription = 'too long (255 chars max)'
+            // if (action.editTraining.get('title').length == 0)
+            //     userInputErrors.title = 'required'
+            // if (action.editTraining.get('shortDescription').length == 0) {
+            //     userInputErrors.shortDescription = 'required'
+            // }
+            // if (!validator.isLength(action.editTraining.get('title').trim(), 0, 40))
+            //     userInputErrors.title = 'too long (40 chars max)'
+            //
+            // if (!validator.isLength(action.editTraining.get('shortDescription').trim(), 0, 255))
+            //     userInputErrors.shortDescription = 'too long (255 chars max)'
 
             trainingappmap = trainingappmap.set('trainingEditError', new Immutable.Map(userInputErrors))
+            return trainingappmap
+        case  'SET_TRAINING_VALIDATION_ERROR':
+            trainingappmap = trainingappmap.set('trainingEditError', new Immutable.Map(action.validationError))
             return trainingappmap
         case 'TRAININGS_LOADED':
             if (action.trainings == undefined)

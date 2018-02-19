@@ -20,7 +20,7 @@ var _logout = require('../logout.js');
 
 var _logout2 = _interopRequireDefault(_logout);
 
-var _actions = require('../../services/actions.js');
+var _actions = require('services/actions.js');
 
 var _jquery = require('jquery');
 
@@ -34,9 +34,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-if (process.env.BROWSER) {
-    require('./nav.scss');
-}
+require('./nav.scss');
 
 var NavUser = function (_Component) {
     _inherits(NavUser, _Component);

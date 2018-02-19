@@ -8,19 +8,15 @@ import {DragDropContext} from 'react-dnd'
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
+import 'react-big-calendar/lib/css/react-big-calendar.css'
+import 'react-big-calendar/lib/addons/dragAndDrop/styles.css'
+import styles  from './bigcalendaredit.scss'
 
 const DragAndDropCalendar = withDragAndDrop(BigCalendar)
 
 BigCalendar.setLocalizer(
     BigCalendar.momentLocalizer(moment)
 )
-var styles = undefined
-
-if (process.env.BROWSER) {
-    require('react-big-calendar/lib/css/react-big-calendar.css')
-    require('react-big-calendar/lib/addons/dragAndDrop/styles.css')
-    styles = require('./bigcalendaredit.scss')
-}
 
 let MyCustomHeader = React.createClass({
     render() {

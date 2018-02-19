@@ -2,15 +2,13 @@ import React, {Component, PropTypes} from 'react'
 import {IndexLink, Link} from 'react-router'
 import Login from '../login.js'
 import Logout from '../logout.js'
-import {LogoutUser} from '../../services/actions.js'
+import {LogoutUser} from 'services/actions.js'
 
 
 import $ from 'jquery'
-import ApiConnection from '../../services/apiconnection'
+import ApiConnection from 'services/apiconnection'
 
-if (process.env.BROWSER) {
-    require('./nav.scss')
-}
+import './nav.scss'
 
 var datasrc = undefined
 
@@ -30,13 +28,9 @@ class NavAdmin extends Component {
         const isAuthenticated = auth.get('isAuthenticated')
 
 
-        // if (process.env.BROWSER)
-        //     datasrc = this.getRightLogoUrl()
-        console.log('nav: logo = ' + datasrc)
         var tenantName1 = ''
         if (this.props.app.get('tenant'))
             tenantName1 = this.props.app.get('tenant').get('name1')
-        console.log('tenantName1=' + require('util').inspect(tenantName1, false, null))
         var tenantName2 = ''
         if (this.props.app.get('tenant'))
             tenantName2 = this.props.app.get('tenant').get('name2')
@@ -75,8 +69,7 @@ class NavAdmin extends Component {
     }
 
     static fetchData(actions, params) {
-        console.log('Call Tenant Edit fetch data  <-----------------------------')
-
+//        console.log('Call Tenant Edit fetch data  <-----------------------------')
         return actions.retrieveTenantDispatcher()
     }
 
@@ -88,7 +81,7 @@ class NavAdmin extends Component {
         var tenantName2 = ''
         if (this.props.app.get('tenant'))
             tenantName2 = this.props.app.get('tenant').get('name2')
-        console.log('componentDidMount tenantName2=' + require('util').inspect(tenantName2, false, null))
+//        console.log('componentDidMount tenantName2=' + require('util').inspect(tenantName2, false, null))
         if (tenantName2 == '') {
             $(".logoblock").find("h2").css("margin-top", "25px");
             $(".logoblock").find("h2").css("margin-left", "10px");
@@ -101,7 +94,7 @@ class NavAdmin extends Component {
 
     componentDidMount() {
         componentHandler.upgradeDom()
-        console.log('addEventListener')
+        //console.log('addEventListener')
         window.addEventListener('resize', this.handleResize)
         NavAdmin.fetchData(this.props.actions, this.props.params)
     }

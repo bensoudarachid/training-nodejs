@@ -1,5 +1,7 @@
 'use strict';
 
+require('ignore-styles');
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -73,7 +75,7 @@ var upload = (0, _multer2.default)({ storage: storage });
 var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080';
 app.all("/api/*", function (req, res) {
     req.url = req.originalUrl;
-    console.log('redirecting to Rest Server ' + req.originalUrl);
+    // console.log('redirecting to Rest Server '+req.originalUrl)
     apiProxy.web(req, res, { target: serverOne });
 });
 app.all("/oauth/*", function (req, res) {

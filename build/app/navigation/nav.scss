@@ -1,0 +1,307 @@
+@import '../../styles/default.scss';
+
+#bsnavi {
+  height: 105px;
+  #bg {
+    position: absolute;
+  }
+  padding: 0;
+  margin: -15px auto 0 auto;
+
+  box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.2), 0 8px 15px 0 rgba(0, 0, 0, 0.1);
+  background-color: lighten($roya-blue, 40%);
+
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  border: 5px solid rgba(darken($roya-blue, 9%), 0.3);
+  -webkit-border-radius: 0 0 25px 25px;
+  -moz-border-radius: 0 0 25px 25px;
+  border-radius: 0 0 25px 25px;
+
+  #togg {
+    background: radial-gradient(circle closest-side at 19px 20px, transparent 0, transparent 17px, transparent 19px);
+    &:hover, &:focus {
+      background: radial-gradient(circle closest-side at 19px 20px, lighten(getMdlColor($color-primary), 30%) 0, lighten(getMdlColor($color-primary), 30%) 17px, transparent 19px);
+      box-shadow: none;
+    }
+  }
+  .toggloginfetch {
+    background: radial-gradient(circle closest-side at 19px 20px, lighten($orangelight, 30%) 0, lighten($orangelight, 30%) 17px, transparent 19px) !important;
+  }
+  .navbar-collapse, .collapse {
+    border: none;
+    overflow: hidden;
+  }
+  .logoblock {
+
+    padding-left: 46%;
+    overflow: hidden;
+    text-align: center;
+    margin-left: -120px;
+    margin-bottom: -8px;
+    //width: 580px;
+    li {
+      list-style: none;
+      float: left;
+      img {
+        width: 82px;
+        height: 82px;
+        margin: 10px 0px 10px 0px;
+        //@include transitionAll(.3s);
+      }
+      //@include transitionAll(.3s);
+    }
+    h2 {
+      font-family: $RoyaMainFont;
+      letter-spacing: 0px;
+      font-size: 2.1em;
+      color: #2c3a49;
+      margin-top: 8px;
+      margin-bottom: 2px;
+      &:first-letter {
+        font-size: 140%;
+      }
+      //@include transitionAll(.3s);
+    }
+    h3 {
+      width: 155px;
+      font-family: $RoyaMainFont;
+      letter-spacing: 0px;
+      color: darken($roya-blue, 30%);
+      height: 50px;
+      margin: -32px 0 0 0;
+      padding: 13px 2px 0px 2px;
+      font-size: 1.7em;
+      z-index: -100;
+      &:first-letter {
+        font-size: 140%;
+      }
+      //@include transitionAll(.3s);
+    }
+
+    button {
+      display: block;
+      background-color: transparent;
+      width: 38px;
+      height: 40px;
+      margin-top: 35px;
+      margin-right: -10%;
+      padding: 0;
+      border: none;
+      &:hover, &:focus {
+        background-color: rgba(10, 100, 200, 0.1);
+      }
+      span {
+        display: block;
+        width: 30px;
+        margin: 4px;
+        height: 3px;
+        background-color: black;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .active {
+    color: darken(getMdlColor($color-primary), 30%);
+    background: radial-gradient(circle closest-side at 35px 21px, lighten(getMdlColor($color-primary), 30%) 0, lighten(getMdlColor($color-primary), 30%) 18px, transparent 19px);
+
+    border: 1px solid transparent;
+    text-decoration: none;
+    margin-bottom: -2px;
+  }
+
+  .navbar-left {
+    margin-bottom: 0px;
+  }
+  .navbar-right {
+    margin-bottom: 3px;
+  }
+
+  .navbar-nav {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2px;
+    width: 100px;
+  }
+
+  .navbar-right li, .navbar-left li {
+
+    margin-top: 2px;
+
+  }
+
+  .navbar-right li:first-child {
+    margin-top: 0px;
+    &:hover, &:focus {
+      margin-top: 0px;
+      margin-bottom: 2px;
+    }
+  }
+  a, li {
+    min-width: 55px;
+    font-family: $RoyaMainFont;
+    letter-spacing: -2px;
+    span {
+      font-size: 0.7em;
+    }
+  }
+  a {
+
+    font-size: 1.8em;
+    display: block;
+    color: darken($roya-blue, 35%);
+    float: left;
+    white-space: nowrap;
+    background: radial-gradient(circle closest-side at 35px 21px, lighten($roya-blue, 19%) 0, lighten($roya-blue, 19%) 18px, transparent 19px);
+    &:hover, &:focus {
+      @extend .active;
+    }
+  }
+  .loginfetch {
+    background: radial-gradient(circle closest-side at 35px 21px, lighten($orangelight, 19%) 0, lighten($orangelight, 19%) 18px, transparent 19px);
+  }
+
+  @media (min-width: 768px) {
+    height: 110px;
+    .navbar-left, .navbar-right {
+      margin-top: 36px;
+      li a {
+        font-size: 1.8em;
+        margin: -8px;
+      }
+    }
+    .navbar-nav {
+      width: auto;
+    }
+
+    .logoblock button {
+      display: none;
+    }
+    #bs-example-navbar-collapse-1 {
+      display: inline-block;
+    }
+    .logoblock {
+      list-style-type: none;
+      margin: auto 10px;
+      padding: 0;
+      overflow: hidden;
+      .logocontainer{
+        width: 86px;
+      }
+      li {
+        list-style: none;
+        float: left;
+        img {
+          //width: 8px;
+          //height: 86px;
+          margin-top: 14px;
+          margin-left: 0px;
+        }
+      }
+      h2 {
+        margin-top: 14px;
+      }
+
+    }
+
+    .active {
+      border: 0px solid transparent;
+      background: radial-gradient(circle closest-side at 35px 26px, lighten(getMdlColor($color-primary), 30%) 0, lighten(getMdlColor($color-primary), 30%) 18px, transparent 20px);
+
+    }
+    a {
+      width: 100%;
+      display: inline;
+      float: center;
+      white-space: nowrap;
+      background: radial-gradient(circle closest-side at 35px 26px, lighten($roya-blue, 19%) 0, lighten($roya-blue, 19%) 18px, transparent 20px);
+      &:hover, &:focus {
+        border: 0px solid transparent;
+
+      }
+    }
+    .loginfetch {
+      background: radial-gradient(circle closest-side at 35px 26px, lighten($orangelight, 19%) 0, lighten($orangelight, 19%) 18px, transparent 20px);
+    }
+
+    .navbar-right li:first-child {
+      margin: 3px 0px 0px 0;
+      &:hover, &:focus {
+        margin: 3px 0px 0px 0px;
+      }
+    }
+
+    @include transitionAll(.3s);
+
+  }
+
+  @media (min-width: 992px) {
+    height: 160px;
+    width: 90%;
+
+    @include transitionAll(.3s);
+
+    .navbar-left, .navbar-right {
+      margin-top: 58px;
+    }
+    .navbar-right {
+      margin-right: 2%;
+    }
+    .logoblock {
+      list-style-type: none;
+      margin-left: 2%;
+      margin-top: 20px;
+      margin-right: 20px;
+      .logocontainer{
+        width: 140px;
+      }
+
+      li {
+        img {
+          width: 120px;
+          height: 120px;
+          margin-top: 0px;
+          margin-left: 6px;
+        }
+        list-style: none;
+        float: left;
+      }
+      h2 {
+        font-size: 2.5em;
+        letter-spacing: 0px;
+        margin-top: 20px;
+        margin-bottom: 1px;
+        padding: 0;
+      }
+
+      h3 {
+        width: 180px;
+        font-size: 2.0em;
+        margin: -26px 0 0 0;
+        padding: 14px 2px 60px 2px;
+      }
+
+    }
+
+    nav ul {
+      margin-top: 70px;
+    }
+    nav button, nav a, nav li {
+      font-size: 1.9em;
+    }
+    .active {
+      margin: 43px 0px 0px -2px;
+    }
+
+    a {
+      margin-top: 45px;
+      &:hover, &:focus {
+        margin: 43px 0px 0px -2px;
+      }
+    }
+  }
+}
+

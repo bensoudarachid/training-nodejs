@@ -69,9 +69,14 @@ const trainingactions = {
             dispatch(trainingactions.createTrainingInit(representTraining))
             actions.updateTrainingService(representTraining).then(
                 ({status, data}) => {
-                    if (status === 401) {
+                    if (status == 401) {
                         dispatch(actions.receiveLogout())
-                    } else if (status >= 400) {
+                    }
+                    else if (status == 422) {
+                        dispatch(trainingactions.savingEditTraining(training,false))
+                        dispatch(trainingactions.setTrainingUserInputError(data.validation))
+                    }
+                    else if (status > 401) {
                         var error = data
                         console.log('Status looks bad. ' + status + '. error message = ' + error.message)
                         dispatch(trainingactions.rejectTraining(representTraining))
@@ -81,7 +86,6 @@ const trainingactions = {
                         console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
                         dispatch(actions.receiveLogout())
                     } else if (data.error) {
-
                         var errorDescription = data.error_description
                         console.log('Trainingapp fetch error = ' + data.error + ', description = ' + errorDescription)
                         dispatch(trainingactions.rejectTraining(representTraining))
@@ -181,13 +185,17 @@ const trainingactions = {
                 console.log('trainingEditError.get(shortDescription)=' + require('util').inspect(trainingEditError.get('shortDescription'), false, null))
                 return
             }
-            dispatch(trainingactions.savingEditTraining(training))
+            dispatch(trainingactions.savingEditTraining(training,true))
             training = training.set('duration', 12)
             actions.updateTrainingService(training, fileinput)
                 .then(
                     ({status, data}) => {
                         if (actions.disconnect(dispatch, status, data))
                             return
+                        else if (status == 422) {
+                            dispatch(trainingactions.savingEditTraining(training,false))
+                            dispatch(trainingactions.setTrainingUserInputError(data.validation))
+                        }
                         else if (status == 413) {
                             return handleError(dispatch, 'File is too large (250 kb max)', training, trainingold)
                         } else if (status >= 400) {
@@ -234,10 +242,11 @@ const trainingactions = {
             training: trainingraw
         }
     },
-    savingEditTraining: function (trainingraw) {
+    savingEditTraining: function (trainingraw, saving) {
         return {
             type: 'EDIT_TRAINING_SAVING',
-            training: trainingraw
+            training: trainingraw,
+            saving: saving
         }
     },
     loadEditTraining: function (trainingraw) {
@@ -254,34 +263,12 @@ const trainingactions = {
             editTraining
         }
     },
-
-    // retrieveTrainingsDispatcher: function () {
-    //
-    //     return (dispatch, getState) => {
-    //
-    //         if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched'))
-    //             return
-    //         try{
-    //             var results = actions.retrieveTrainingsService()
-    //             if (results.status === 401) {
-    //                 dispatch(actions.loginProcessStart('No access rights!', actions.retrieveTrainingsDispatcher))
-    //             } else if (status >= 400) {
-    //                 var error = results.data
-    //                 dispatch(actions.loadTrainings([]))
-    //             } else if (results.data.error) {
-    //                 var errorDescription = results.data.error_description
-    //                 dispatch(actions.loadTrainings([]))
-    //             } else {
-    //                 dispatch(actions.loadTrainings(results.data))
-    //             }
-    //
-    //         }catch (err){
-    //             if (err.code == 'ENOENT') {
-    //                 dispatch(actions.serverDataFetch(false))
-    //             }
-    //         }
-    //     }
-    // },
+    setTrainingUserInputError: function (validationError) {
+        return {
+            type: 'SET_TRAINING_VALIDATION_ERROR',
+            validationError
+        }
+    },
 
     retrieveTrainingsDispatcher: function () {
 

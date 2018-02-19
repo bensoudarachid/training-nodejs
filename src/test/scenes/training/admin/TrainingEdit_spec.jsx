@@ -2,7 +2,6 @@ import React from 'react'
 import Immutable from 'immutable'
 // import TestUtils from 'react-addons-test-utils'
 import TrainingEdit from 'scenes/training/admin/trainingedit'
-// import TodosListItem from '../../../../../scenes/todo/admin/todoslistitem'
 import {expect} from 'chai'
 import {shallow, mount, render, ReactWrapper} from 'enzyme'
 import actions from 'services/actions'
@@ -13,9 +12,7 @@ import createLogger from 'redux-logger'
 import {bindActionCreators} from 'redux'
 import {connect, Provider} from 'react-redux'
 import rootReducer from 'services/rootreducer'
-//import { combineReducers } from 'redux'
 
-// import sinon from 'sinon'
 require('sinon-as-promised')
 var sinon = require('sinon').sandbox.create()
 

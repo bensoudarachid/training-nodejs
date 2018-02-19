@@ -2,16 +2,15 @@ import React, {Component} from 'react'
 import TrainingList from './traininglist'
 import $ from 'jquery'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-
-var util = require('util')
+import './trainingapp.scss'
+import util from 'util'
 
 if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
     return c(require)
 }
 
 if (process.env.BROWSER) {
-    require('../../../app/jquery.shuffleLetters.js')
-    require('./trainingapp.scss')
+    require('app/jquery.shuffleLetters.js')
 }
 
 

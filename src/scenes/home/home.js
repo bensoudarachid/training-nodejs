@@ -4,9 +4,7 @@ import 'jquery'
 import $ from 'jquery'
 
 
-if (process.env.BROWSER) {
-    require('./home.scss')
-}
+import './home.scss'
 
 class Home extends Component {
 

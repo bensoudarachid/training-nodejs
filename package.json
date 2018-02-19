@@ -8,14 +8,14 @@
     "test": "set NODE_ENV=test&&set NODE_PATH=./src&& mocha --compilers js:babel-core/register --require ./src/test/setup.js \"src/test/**/*.@(js|jsx)\"",
     "test:watch": "npm run test -- --watch --watch-extensions jsx",
     "devserver": "webpack-dev-server --content-base public/",
-    "serve": "set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=development&&nodemon src/serverdev.js --exec babel-node --ignore src/components --ignore src/app --ignore src/scenes --ignore src/services --ignore build --presets es2015,react",
+    "serve": "set NODE_PATH=./src&&set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=development&&nodemon src/serverdev.js --exec babel-node --ignore src/components --ignore src/app --ignore src/scenes --ignore src/services --ignore build --presets es2015,react",
     "build": "set NODE_ENV=production && webpack --config webpack-production.config.js --progress && babel src -d build",
     "buildserver": "set NODE_ENV=production && babel src -d build",
-    "prod": "set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=production&&node build/serverprod.js",
+    "prod": "set NODE_PATH=./build&&set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=production&&node build/serverprod.js",
     "tbuild": "mkdir build && Copy-Item ./src/images ./build/ -recurse ",
     "tdel": "rm -r build",
     "startpm2": "set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=production&&pm2 start build/serverprod.js",
-    "start": "set NODE_ENV=production&&node build/serverprod.js",
+    "start": "set NODE_PATH=./build&&set NODE_ENV=production&&node build/serverprod.js",
     "stop": "naught stop",
     "status": "naught status",
     "deploy": "naught deploy --timeout 3"
@@ -104,6 +104,7 @@
     "form-data": "^2.1.2",
     "fullcalendar": "^3.4.0",
     "http-proxy": "^1.16.2",
+    "ignore-styles": "^5.0.1",
     "immutable": "^3.8.1",
     "inline-style-prefixer": "^2.0.1",
     "isomorphic-fetch": "^2.2.1",
@@ -130,10 +131,12 @@
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
+    "rootpath": "^0.1.2",
     "serve-favicon": "^2.3.0",
     "stats-js": "^1.0.0-alpha1",
     "traceur": "0.0.110",
-    "validator": "^6.2.0"
+    "validator": "^6.2.0",
+    "ws": "^4.0.0"
   },
   "engines": {
     "node": "4.4.4"

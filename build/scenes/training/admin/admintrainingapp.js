@@ -26,6 +26,8 @@ var _reactAddonsPureRenderMixin = require('react-addons-pure-render-mixin');
 
 var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
 
+require('./admintrainingapp.scss');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -41,8 +43,7 @@ if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
 };
 
 if (process.env.BROWSER) {
-    require('../../../app/jquery.shuffleLetters.js');
-    require('./admintrainingapp.scss');
+    require('app/jquery.shuffleLetters.js');
 
     var rdm = 0;
     var lastrdm = 0;
