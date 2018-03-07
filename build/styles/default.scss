@@ -46,6 +46,12 @@ $RoyaMainFont: 'Merienda', "Comic Sans MS", cursive, "Lucida Sans Unicode", "Luc
   transition: all $duration ease-out;
 }
 
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
+
 @function number($value) {
   @if type-of($value) == 'number' {
     @return $value;

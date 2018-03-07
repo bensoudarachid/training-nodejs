@@ -286,6 +286,7 @@ app.get(appbasename + '/*', (req, res) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
                 <script defer src="/jquery/jquery.min.js"></script>
                 <script defer src="/bootstrap/js/bootstrap.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
                 <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
                 <script defer src="/mdl/material.js"></script>
                 <link rel="stylesheet" type="text/css" href="/mdl/material.brown-blue.min.css">

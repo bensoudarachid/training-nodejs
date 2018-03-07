@@ -62,7 +62,7 @@ var TrainingListItem = function (_React$Component) {
             if (onlydays < 2) dayString = ' day';else dayString = ' days';
             return _react2.default.createElement(
                 'div',
-                { className: 'mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone' },
+                { className: 'mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone' },
                 _react2.default.createElement(
                     'div',
                     { className: 'mdl-grid mdl-grid--no-spacing blockborder trainingslistitem' },

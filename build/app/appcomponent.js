@@ -54,6 +54,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// import SockJS from 'sockjs-client'
+
+// require('stompjs')
+// import SockJS from 'sockjs-client'
+
 global.jQuery = require('jquery');
 
 if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
@@ -90,23 +95,10 @@ var AppComponent = function (_React$Component) {
             this.handleBubblesVisibility();
             window.addEventListener('scroll', this.handleBubblesVisibility);
             window.addEventListener('resize', this.handleBubblesVisibility);
-            if (process.env.BROWSER) {
-
-                var webSocket = new WebSocket('ws://127.0.0.1:8080/counter');
-                webSocket.onmessage = function (message) {
-                    console.log('ws message', message);
-                };
-                webSocket.onopen = function () {
-                    console.log('ws open');
-                };
-                webSocket.onclose = function () {
-                    console.log('ws close');
-                };
-                webSocket.onerror = function wserror(message) {
-                    console.log('ws Error', message);
-                };
-            }
         }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {}
     }, {
         key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(nextProps) {

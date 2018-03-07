@@ -75,9 +75,7 @@
 
   margin: 0px;
   border: 0px solid black;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
+  @include border-radius(15px);
 
   background-color: lighten($roya-blue, 30%);
   -moz-background-clip: padding; /* Firefox 3.6 */

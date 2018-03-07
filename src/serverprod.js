@@ -124,6 +124,7 @@ app.get(appbasename + '/api/*', (req, res) => {
             res.send(data)
         })
     })
+
     reqPost.on('error', function (e) {
         console.error(e)
         res.send({
@@ -254,7 +255,7 @@ app.get(appbasename + '/*', (req, res) => {
                 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-blue.min.css">
                 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
                 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>
-
+                <script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
                 <link rel="stylesheet" type="text/css" href="${appstyle}" />                
                 <link rel="icon" href="${favicon}">
                 </head>

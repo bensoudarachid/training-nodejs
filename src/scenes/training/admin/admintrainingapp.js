@@ -25,6 +25,8 @@ export default class AdminTrainingApp extends Component {
         this.isTextSwitchAnimated = false
     }
 
+
+
     static fetchData(actions, params) {
         return actions.retrieveTrainingsDispatcher()
     }

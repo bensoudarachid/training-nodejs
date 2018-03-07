@@ -1,7 +1,7 @@
 @import '../../styles/default.scss';
 
 #bsnavi {
-  height: 105px;
+  //height: 105px;
   #bg {
     position: absolute;
   }
@@ -12,12 +12,10 @@
   background-color: lighten($roya-blue, 40%);
 
   -moz-background-clip: padding;
-  -webkit-background-clip: padding;
+  -webkit-background-clip: padding-box;
   background-clip: padding-box;
   border: 5px solid rgba(darken($roya-blue, 9%), 0.3);
-  -webkit-border-radius: 0 0 25px 25px;
-  -moz-border-radius: 0 0 25px 25px;
-  border-radius: 0 0 25px 25px;
+  @include border-radius(0 0 25px 25px);
 
   #togg {
     background: radial-gradient(circle closest-side at 19px 20px, transparent 0, transparent 17px, transparent 19px);
@@ -26,15 +24,17 @@
       box-shadow: none;
     }
   }
+
   .toggloginfetch {
     background: radial-gradient(circle closest-side at 19px 20px, lighten($orangelight, 30%) 0, lighten($orangelight, 30%) 17px, transparent 19px) !important;
   }
+
   .navbar-collapse, .collapse {
     border: none;
     overflow: hidden;
   }
-  .logoblock {
 
+  .logoblock {
     padding-left: 46%;
     overflow: hidden;
     text-align: center;
@@ -115,10 +115,10 @@
   .navbar-left {
     margin-bottom: 0px;
   }
+
   .navbar-right {
     margin-bottom: 3px;
   }
-
   .navbar-nav {
     float: none;
     margin-left: auto;
@@ -126,13 +126,9 @@
     margin-top: 2px;
     width: 100px;
   }
-
   .navbar-right li, .navbar-left li {
-
     margin-top: 2px;
-
   }
-
   .navbar-right li:first-child {
     margin-top: 0px;
     &:hover, &:focus {
@@ -149,7 +145,6 @@
     }
   }
   a {
-
     font-size: 1.8em;
     display: block;
     color: darken($roya-blue, 35%);

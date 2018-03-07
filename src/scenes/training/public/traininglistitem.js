@@ -35,7 +35,7 @@ export default class TrainingListItem extends React.Component {
         else
             dayString = ' days'
         return (
-            <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone'>
+            <div className='mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone'>
                 <div className='mdl-grid mdl-grid--no-spacing blockborder trainingslistitem'>
                     <div className='mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--1-col-phone'>
                         <AppImage ref='uploadcomp' api='training' imgid={trainingid} isUploading={isUploading}/>

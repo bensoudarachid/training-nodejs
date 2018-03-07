@@ -15,6 +15,11 @@ console.log('path to src =' + require('util').inspect(path.resolve('./src'), fal
 // }
 
 module.exports = {
+    // node:{
+    //     fs:'empty',
+    //     map:'empty',
+    //     tls:'empty'
+    // },
     // devtool: 'inline-source-map', // devtool: 'cheap-module-source-map',
     devtool: 'cheap-module-eval-source-map',
     // devtool: 'cheap-eval-source-map',

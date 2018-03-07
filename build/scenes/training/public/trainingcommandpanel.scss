@@ -28,9 +28,7 @@
     position: absolute;
     background-color: $reddark;
     border: 3px solid rgba(black, 0.1);
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
+    @include border-radius(25px);
     margin-top: -104px !important;
     @media (min-width: 840px) {
       margin-top: -56px !important;

@@ -12,6 +12,10 @@ import LoginModal from './loginmodal.js'
 import AppModalDlg from './appmodaldlg.js'
 import './appcomponent.scss'
 
+// import SockJS from 'sockjs-client'
+
+// require('stompjs')
+// import SockJS from 'sockjs-client'
 
 global.jQuery = require('jquery')
 
@@ -44,25 +48,10 @@ class AppComponent extends React.Component {
         this.handleBubblesVisibility()
         window.addEventListener('scroll', this.handleBubblesVisibility)
         window.addEventListener('resize', this.handleBubblesVisibility)
-        if (process.env.BROWSER) {
 
-            var webSocket = new WebSocket('ws://127.0.0.1:8080/counter')
-            webSocket.onmessage = function(message) {
-                console.log('ws message', message)
-            }
-            webSocket.onopen = function() {
-                console.log('ws open')
-            }
-            webSocket.onclose = function() {
-                console.log('ws close')
-            }
-            webSocket.onerror = function wserror(message) {
-                console.log('ws Error', message)
-            }
-
-        }
     }
-
+    componentWillUnmount() {
+    }
     componentWillReceiveProps(nextProps) {
         if (nextProps.location !== this.props.location && process.env.BROWSER) {
             this.props.actions.savePreviousLocation(this.props.location.pathname)
