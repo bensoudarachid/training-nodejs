@@ -32,9 +32,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-require('stompjs');
+// require('stompjs')
 // import SockJS from 'sockjs-client'
-var StompClient = require('stompjs').StompClient;
+// var StompClient = require('stompjs').StompClient
 
 if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
     return c(require);
@@ -129,19 +129,28 @@ var TrainingApp = function (_Component) {
                 }.bind(this);
 
                 var connectAndReconnect = function (socketUrl, successCallback) {
-                    if (this.stompClient != undefined) this.stompClient.disconnect();
-                    if (this.websocket != undefined) this.websocket.close();
-                    this.websocket = new SockJS(socketUrl, null, { protocols_whitelist: ['xdr-streaming', 'xhr-streaming', 'iframe-eventsource', 'iframe-htmlfile', 'xdr-polling', 'xhr-polling', 'iframe-xhr-polling', 'jsonp-polling'] });
-                    this.stompClient = Stomp.over(this.websocket);
-                    this.stompClient.heartbeat.outgoing = 0;
-                    this.stompClient.heartbeat.incoming = 0;
-                    // this.stompClient = Stomp.client(socketUrl)
-                    this.stompClient.connect('guest', 'guest', successCallback, function () {
-                        console.log('Oops! Reconnect');
-                        setTimeout(function () {
-                            connectAndReconnect(socketUrl, successCallback);
-                        }, 4000);
-                    }, '/');
+                    // if (this.stompClient!=undefined)
+                    //     this.stompClient.disconnect()
+                    // if (this.websocket !=undefined)
+                    //     this.websocket.close()
+                    // this.websocket =  new SockJS(socketUrl, null, { protocols_whitelist: ['xdr-streaming', 'xhr-streaming', 'iframe-eventsource', 'iframe-htmlfile', 'xdr-polling', 'xhr-polling', 'iframe-xhr-polling', 'jsonp-polling'] })
+                    // this.stompClient = Stomp.over(this.websocket)
+                    // this.stompClient.heartbeat.outgoing = 0
+                    // this.stompClient.heartbeat.incoming = 0
+                    // // this.stompClient = Stomp.client(socketUrl)
+                    // this.stompClient.connect(
+                    //     'guest',
+                    //     'guest',
+                    //     successCallback,
+                    //     () => {
+                    //         console.log('Oops! Reconnect')
+                    //         setTimeout(() => {
+                    //             connectAndReconnect(socketUrl, successCallback)
+                    //         }, 4000)
+                    //     },
+                    //     '/'
+                    // )
+
                 }.bind(this);
                 connectAndReconnect(socketUrl, successCallback);
             }
