@@ -1,14 +1,18 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _apiconnection = require('services/apiconnection');
+var _apiconnection = require("services/apiconnection");
 
 var _apiconnection2 = _interopRequireDefault(_apiconnection);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var path = require("path");
+console.log("----------------./ = %s", path.resolve("./"));
+console.log("----------------__dirname = %s", path.resolve(__dirname));
 
 var authurl = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename;
 var authservices = {
