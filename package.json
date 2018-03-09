@@ -15,7 +15,7 @@
     "tbuild": "mkdir build && Copy-Item ./src/images ./build/ -recurse ",
     "tdel": "rm -r build",
     "startpm2": "set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=production&&pm2 start build/serverprod.js",
-    "start": "cd build&&set NODE_PATH=../build&&set NODE_ENV=production&&node serverprod.js",
+    "start": "cd build&&set NODE_ENV=production&&node serverprod.js",
     "stop": "naught stop",
     "status": "naught status",
     "deploy": "naught deploy --timeout 3"
