@@ -4,7 +4,6 @@
   "description": "This a a full todo example with react redux express babel scss",
   "main": "index.js",
   "scripts": {
-    "preinstall":"cd $(pwd)/build",
     "oldtest": "test",
     "test": "set NODE_ENV=test&&set NODE_PATH=./src&& mocha --compilers js:babel-core/register --require ./src/test/setup.js \"src/test/**/*.@(js|jsx)\"",
     "test:watch": "npm run test -- --watch --watch-extensions jsx",
@@ -12,11 +11,11 @@
     "serve": "set NODE_PATH=./src&&set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=development&&nodemon src/serverdev.js --exec babel-node --ignore src/components --ignore src/app --ignore src/scenes --ignore src/services --ignore build --presets es2015,react",
     "build": "set NODE_ENV=production && webpack --config webpack-production.config.js --progress && babel src -d build",
     "buildserver": "set NODE_ENV=production && babel src -d build",
-    "prod": "set NODE_PATH=./build&&set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=production&&node build/serverprod.js",
+    "prod": "cd build&&set NODE_PATH=../build&&set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=production&&node serverprod.js",
     "tbuild": "mkdir build && Copy-Item ./src/images ./build/ -recurse ",
     "tdel": "rm -r build",
     "startpm2": "set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=production&&pm2 start build/serverprod.js",
-    "start": "set NODE_ENV=production&&node serverprod.js",
+    "start": "cd build&&set NODE_ENV=production&&node serverprod.js",
     "stop": "naught stop",
     "status": "naught status",
     "deploy": "naught deploy --timeout 3"
