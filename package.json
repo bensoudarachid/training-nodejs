@@ -4,6 +4,7 @@
   "description": "This a a full todo example with react redux express babel scss",
   "main": "index.js",
   "scripts": {
+    "preinstall":"cd $(pwd)/build",
     "oldtest": "test",
     "test": "set NODE_ENV=test&&set NODE_PATH=./src&& mocha --compilers js:babel-core/register --require ./src/test/setup.js \"src/test/**/*.@(js|jsx)\"",
     "test:watch": "npm run test -- --watch --watch-extensions jsx",
@@ -15,7 +16,7 @@
     "tbuild": "mkdir build && Copy-Item ./src/images ./build/ -recurse ",
     "tdel": "rm -r build",
     "startpm2": "set TRAINING_API_LOCAL_IP=127.0.0.1&&set NODE_ENV=production&&pm2 start build/serverprod.js",
-    "start": "set NODE_PATH=/opt/app-root/src/build/&&set NODE_ENV=production&&node build/serverprod.js",
+    "start": "set NODE_ENV=production&&node serverprod.js",
     "stop": "naught stop",
     "status": "naught status",
     "deploy": "naught deploy --timeout 3"
