@@ -6,7 +6,7 @@ import './trainingapp.scss'
 
 // require('stompjs')
 // import SockJS from 'sockjs-client'
-// var StompClient = require('stompjs').StompClient
+var StompClient = require('stompjs').StompClient
 
 if (typeof require.ensure !== 'function') require.ensure = function (d, c) {
     return c(require)
@@ -56,9 +56,20 @@ class TrainingApp extends Component {
                     <span id="textwrap">
                         <p id="textswitch"></p>
                     </span>
+                    <button
+                        className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton'
+                        onClick={this.sendName.bind(this)}>
+                        Send
+                    </button>
+                    <h3>Timestamp</h3>
+                    <div id="timestamp"></div>
+                    <h3>Heap Memory Usage</h3>
+                    <div id="heap"></div>
+                    <h3>Non Heap Memory Usage</h3>
+                    <div id="nonheap"></div>
+
                     <div>
-                        <TrainingList trainings={this.props.trainingappmap.get('trainings')}
-                                      actions={this.props.actions}/>
+                        <TrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
                     </div>
                 </div>
             </div>
@@ -89,27 +100,27 @@ class TrainingApp extends Component {
             }.bind(this)
 
             let connectAndReconnect = function (socketUrl, successCallback) {
-                // if (this.stompClient!=undefined)
-                //     this.stompClient.disconnect()
-                // if (this.websocket !=undefined)
-                //     this.websocket.close()
-                // this.websocket =  new SockJS(socketUrl, null, { protocols_whitelist: ['xdr-streaming', 'xhr-streaming', 'iframe-eventsource', 'iframe-htmlfile', 'xdr-polling', 'xhr-polling', 'iframe-xhr-polling', 'jsonp-polling'] })
-                // this.stompClient = Stomp.over(this.websocket)
-                // this.stompClient.heartbeat.outgoing = 0
-                // this.stompClient.heartbeat.incoming = 0
-                // // this.stompClient = Stomp.client(socketUrl)
-                // this.stompClient.connect(
-                //     'guest',
-                //     'guest',
-                //     successCallback,
-                //     () => {
-                //         console.log('Oops! Reconnect')
-                //         setTimeout(() => {
-                //             connectAndReconnect(socketUrl, successCallback)
-                //         }, 4000)
-                //     },
-                //     '/'
-                // )
+                if (this.stompClient!=undefined)
+                    this.stompClient.disconnect()
+                if (this.websocket !=undefined)
+                    this.websocket.close()
+                this.websocket =  new SockJS(socketUrl, null, { protocols_whitelist: ['xdr-streaming', 'xhr-streaming', 'iframe-eventsource', 'iframe-htmlfile', 'xdr-polling', 'xhr-polling', 'iframe-xhr-polling', 'jsonp-polling'] })
+                this.stompClient = Stomp.over(this.websocket)
+                this.stompClient.heartbeat.outgoing = 0
+                this.stompClient.heartbeat.incoming = 0
+                // this.stompClient = Stomp.client(socketUrl)
+                this.stompClient.connect(
+                    'guest',
+                    'guest',
+                    successCallback,
+                    () => {
+                        console.log('Oops! Reconnect')
+                        setTimeout(() => {
+                            connectAndReconnect(socketUrl, successCallback)
+                        }, 4000)
+                    },
+                    '/'
+                );
 
             }.bind(this)
             connectAndReconnect(socketUrl, successCallback)
