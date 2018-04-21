@@ -40,12 +40,12 @@ var upload = multer({storage: storage})
 var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080'
 app.all("/api/*", function(req, res) {
     req.url = req.originalUrl
-    // console.log('redirecting to Rest Server '+req.originalUrl)
+    console.log('redirecting to Rest Server '+req.originalUrl)
     apiProxy.web(req, res, {target: serverOne})
 })
 app.all("/oauth/*", function(req, res) {
     req.url = req.originalUrl
-    // console.log('redirecting to Auth Server '+req.originalUrl)
+    console.log('redirecting to Auth Server '+req.originalUrl)
     apiProxy.web(req, res, {target: serverOne})
 })
 app.use('/bootstrap', express.static(__dirname + '/../node_modules/bootstrap/dist/'))
@@ -161,7 +161,6 @@ app.post(appbasename + '/api/*', function (req, res) {
             authorization: authtoken
         }
     }
-
 
     var reqPost = http.request(extServerOptionsPost, function (res2) {
         var data = []
