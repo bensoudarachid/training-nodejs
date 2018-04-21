@@ -335,6 +335,7 @@ var TrainingEdit = function (_React$Component) {
     }], [{
         key: 'fetchData',
         value: function fetchData(actions, params) {
+            console.log('fetchData params=' + require('util').inspect(params, false, null));
             return actions.retrieveTrainingDispatcher(params);
         }
     }]);

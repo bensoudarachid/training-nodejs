@@ -119,8 +119,7 @@ var Nav = function (_Component) {
                         null,
                         _react2.default.createElement(
                             'button',
-                            { id: 'togg', type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse',
-                                'data-target': '#bs-example-navbar-collapse-1' },
+                            { id: 'togg', type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1' },
                             _react2.default.createElement('span', { className: 'icon-bar' }),
                             _react2.default.createElement('span', { className: 'icon-bar' }),
                             _react2.default.createElement('span', { className: 'icon-bar' })

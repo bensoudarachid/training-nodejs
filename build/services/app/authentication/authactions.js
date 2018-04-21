@@ -129,6 +129,7 @@ var authactions = {
                 var user = _ref.user,
                     response = _ref.response;
 
+                console.log('################### auth response=' + require('util').inspect(response, false, null));
                 if (!response.ok) {
                     dispatch(authactions.loginError(user.error_description));
                     return Promise.reject(user);

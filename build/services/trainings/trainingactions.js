@@ -59,7 +59,7 @@ var trainingactions = {
     newTraining: function newTraining() {
         return function (dispatch) {
             var newTraining = {
-                id: -1,
+                // id: -1,
                 title: '',
                 shortDescription: '',
                 longDescription: '',
@@ -72,6 +72,7 @@ var trainingactions = {
         };
     },
     createTraining: function createTraining(title) {
+        console.log('createTraining');
         return function (dispatch) {
             var representTraining = _immutable2.default.Map({
                 id: -1,
@@ -271,9 +272,7 @@ var trainingactions = {
     },
 
     retrieveTrainingsDispatcher: function retrieveTrainingsDispatcher() {
-
         return function (dispatch, getState) {
-
             if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched')) return;
             return _actions2.default.retrieveTrainingsService().then(function (_ref4) {
                 var status = _ref4.status,
@@ -300,6 +299,7 @@ var trainingactions = {
     },
 
     retrieveTrainingDispatcher: function retrieveTrainingDispatcher(params) {
+        console.log('retrieveTrainingDispatcher params=' + require('util').inspect(params, false, null));
         return function (dispatch, getState) {
             if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched')) return;
             if (params == undefined || isNaN(params.id)) {

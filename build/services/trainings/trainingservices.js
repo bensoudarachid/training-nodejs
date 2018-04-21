@@ -18,6 +18,7 @@ var url = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename;
 
 var trainingservices = {
     retrieveTrainingService: function retrieveTrainingService(id) {
+        console.log('retrieveTrainingService');
         var requesturl = url;
         var headers = {
             'Content-Type': 'application/json'
@@ -64,6 +65,7 @@ var trainingservices = {
     // },
 
     retrieveTrainingsService: function retrieveTrainingsService() {
+        console.log('retrieveTrainingsService');
         var requesturl = url;
         var headers = {
             'Content-Type': 'application/json'
@@ -135,6 +137,7 @@ var trainingservices = {
         });
     },
     uploadTrainingFileService: function uploadTrainingFileService(training, inputfile) {
+        console.log('uploadTrainingFileService');
         var headers = {};
         var idToken = _reactCookie2.default.load('jwt');
 
@@ -160,6 +163,7 @@ var trainingservices = {
         });
     },
     deleteTrainingService: function deleteTrainingService(training) {
+        console.log('uploadTrainingFileService');
         var headers = {
             'Content-Type': 'application/json'
         };

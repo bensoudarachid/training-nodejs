@@ -63,7 +63,8 @@ var AppImage = function (_React$Component) {
             var idToken = _reactCookie2.default.load('jwt');
             var idTokenParam = idToken == undefined ? '' : '&access_token=' + idToken;
             var datasrc = _apiconnection2.default.apiurl + _apiconnection2.default.appbasename + '/api/' + api + '/';
-            if (imgid != undefined) datasrc += 'img/' + imgid;
+            if (imgid != undefined) datasrc += 'img/' + imgid;else return _react2.default.createElement('div', { className: 'imgwrapper' });
+
             datasrc += '?width=' + width + '&height=' + height + '' + idTokenParam;
             //        console.log('app image datasrc=' + require('util').inspect(datasrc, false, null))
             return _react2.default.createElement(
@@ -142,10 +143,11 @@ var AppImage = function (_React$Component) {
     }, {
         key: 'shouldComponentUpdate',
         value: function shouldComponentUpdate(nextProps, nextState) {
-
             var isUploading = this.props.isUploading;
             if (isUploading == undefined) return false;
             var imgid = this.props.imgid;
+            if (!imgid) return false;
+
             var elm = (0, _jquery2.default)('#imgwrap' + imgid);
             var image = elm.find('.dataimg');
             var img = image[0];

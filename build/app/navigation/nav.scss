@@ -25,14 +25,9 @@
     }
   }
 
-  .toggloginfetch {
-    background: radial-gradient(circle closest-side at 19px 20px, lighten($orangelight, 30%) 0, lighten($orangelight, 30%) 17px, transparent 19px) !important;
-  }
-
-  .navbar-collapse, .collapse {
-    border: none;
-    overflow: hidden;
-  }
+  //.toggloginfetch {
+  //  background: radial-gradient(circle closest-side at 19px 20px, lighten($orangelight, 30%) 0, lighten($orangelight, 30%) 17px, transparent 19px) !important;
+  //}
 
   .logoblock {
     padding-left: 46%;
@@ -40,7 +35,6 @@
     text-align: center;
     margin-left: -120px;
     margin-bottom: -8px;
-    //width: 580px;
     li {
       list-style: none;
       float: left;
@@ -48,9 +42,7 @@
         width: 82px;
         height: 82px;
         margin: 10px 0px 10px 0px;
-        //@include transitionAll(.3s);
       }
-      //@include transitionAll(.3s);
     }
     h2 {
       font-family: $RoyaMainFont;
@@ -62,7 +54,6 @@
       &:first-letter {
         font-size: 140%;
       }
-      //@include transitionAll(.3s);
     }
     h3 {
       width: 155px;
@@ -77,7 +68,6 @@
       &:first-letter {
         font-size: 140%;
       }
-      //@include transitionAll(.3s);
     }
 
     button {
@@ -103,80 +93,15 @@
     }
   }
 
-  .active {
-    color: darken(getMdlColor($color-primary), 30%);
-    background: radial-gradient(circle closest-side at 35px 21px, lighten(getMdlColor($color-primary), 30%) 0, lighten(getMdlColor($color-primary), 30%) 18px, transparent 19px);
-
-    border: 1px solid transparent;
-    text-decoration: none;
-    margin-bottom: -2px;
-  }
-
-  .navbar-left {
-    margin-bottom: 0px;
-  }
-
-  .navbar-right {
-    margin-bottom: 3px;
-  }
-  .navbar-nav {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2px;
-    width: 100px;
-  }
-  .navbar-right li, .navbar-left li {
-    margin-top: 2px;
-  }
-  .navbar-right li:first-child {
-    margin-top: 0px;
-    &:hover, &:focus {
-      margin-top: 0px;
-      margin-bottom: 2px;
-    }
-  }
-  a, li {
-    min-width: 55px;
-    font-family: $RoyaMainFont;
-    letter-spacing: -2px;
-    span {
-      font-size: 0.7em;
-    }
-  }
-  a {
-    font-size: 1.8em;
-    display: block;
-    color: darken($roya-blue, 35%);
-    float: left;
-    white-space: nowrap;
-    background: radial-gradient(circle closest-side at 35px 21px, lighten($roya-blue, 19%) 0, lighten($roya-blue, 19%) 18px, transparent 19px);
-    &:hover, &:focus {
-      @extend .active;
-    }
-  }
   .loginfetch {
     background: radial-gradient(circle closest-side at 35px 21px, lighten($orangelight, 19%) 0, lighten($orangelight, 19%) 18px, transparent 19px);
   }
 
   @media (min-width: 768px) {
     height: 110px;
-    .navbar-left, .navbar-right {
-      margin-top: 36px;
-      li a {
-        font-size: 1.8em;
-        margin: -8px;
-      }
-    }
-    .navbar-nav {
-      width: auto;
-    }
 
     .logoblock button {
       display: none;
-    }
-    #bs-example-navbar-collapse-1 {
-      display: inline-block;
     }
     .logoblock {
       list-style-type: none;
@@ -190,8 +115,6 @@
         list-style: none;
         float: left;
         img {
-          //width: 8px;
-          //height: 86px;
           margin-top: 14px;
           margin-left: 0px;
         }
@@ -201,32 +124,8 @@
       }
 
     }
-
-    .active {
-      border: 0px solid transparent;
-      background: radial-gradient(circle closest-side at 35px 26px, lighten(getMdlColor($color-primary), 30%) 0, lighten(getMdlColor($color-primary), 30%) 18px, transparent 20px);
-
-    }
-    a {
-      width: 100%;
-      display: inline;
-      float: center;
-      white-space: nowrap;
-      background: radial-gradient(circle closest-side at 35px 26px, lighten($roya-blue, 19%) 0, lighten($roya-blue, 19%) 18px, transparent 20px);
-      &:hover, &:focus {
-        border: 0px solid transparent;
-
-      }
-    }
     .loginfetch {
       background: radial-gradient(circle closest-side at 35px 26px, lighten($orangelight, 19%) 0, lighten($orangelight, 19%) 18px, transparent 20px);
-    }
-
-    .navbar-right li:first-child {
-      margin: 3px 0px 0px 0;
-      &:hover, &:focus {
-        margin: 3px 0px 0px 0px;
-      }
     }
 
     @include transitionAll(.3s);
@@ -239,12 +138,6 @@
 
     @include transitionAll(.3s);
 
-    .navbar-left, .navbar-right {
-      margin-top: 58px;
-    }
-    .navbar-right {
-      margin-right: 2%;
-    }
     .logoblock {
       list-style-type: none;
       margin-left: 2%;
@@ -279,23 +172,6 @@
         padding: 14px 2px 60px 2px;
       }
 
-    }
-
-    nav ul {
-      margin-top: 70px;
-    }
-    nav button, nav a, nav li {
-      font-size: 1.9em;
-    }
-    .active {
-      margin: 43px 0px 0px -2px;
-    }
-
-    a {
-      margin-top: 45px;
-      &:hover, &:focus {
-        margin: 43px 0px 0px -2px;
-      }
     }
   }
 }

@@ -27,6 +27,7 @@ var authservices = {
             body: body
         };
         return fetch(authurl + '/register', config).then(function (response) {
+            console.log('#### ##### ##### ##### ##### ##### ##### response=' + require('util').inspect(response, false, null));
             return response.json().then(function (data) {
                 return {
                     status: response.status,
@@ -34,6 +35,12 @@ var authservices = {
                 };
             });
         });
+        // return fetch(authurl + '/register', config)
+        //     .then(response => response.json().then(data => ({
+        //             status: response.status,
+        //             data
+        //         })
+        //     ))
     },
     loginUserService: function loginUserService(creds) {
         var body = 'grant_type=password&username=' + creds.username + '&password=' + creds.password + '&client_id=clientapp&client_secret=123456';
@@ -46,8 +53,10 @@ var authservices = {
             },
             body: body
         };
+
         return fetch(authurl + '/oauth/token', config).then(function (response) {
             return response.json().then(function (user) {
+                console.log('user retrieved =' + require('util').inspect(user, false, null));
                 return {
                     user: user,
                     response: response
@@ -57,6 +66,16 @@ var authservices = {
             console.log('hahaaaaaa' + err);
             throw { error: 'connectionfailure', error_description: 'Failed to connect. Please try later' };
         });
+        // return fetch(authurl + '/oauth/token', config)
+        //     .then(response => response.json().then(user => ({
+        //             user,
+        //             response
+        //         }))
+        //     )
+        //     .catch(function (err) {
+        //         console.log('hahaaaaaa' + err)
+        //         throw {error: 'connectionfailure', error_description: 'Failed to connect. Please try later'}
+        //     })
     },
     logoutService: function logoutService(idToken) {
         var config = {
