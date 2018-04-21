@@ -43,8 +43,9 @@ class TrainingApp extends Component {
 // <div id="heap"></div>
 //         <h3>Non Heap Memory Usage</h3>
 // <div id="nonheap"></div>
+//
 
-    render() {
+        render() {
         const isBrowser = process.env.BROWSER
         if (!isBrowser) {
             return <div/>
@@ -56,18 +57,6 @@ class TrainingApp extends Component {
                     <span id="textwrap">
                         <p id="textswitch"></p>
                     </span>
-                    <button
-                        className='mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdlroundbutton'
-                        onClick={this.sendName.bind(this)}>
-                        Send
-                    </button>
-                    <h3>Timestamp</h3>
-                    <div id="timestamp"></div>
-                    <h3>Heap Memory Usage</h3>
-                    <div id="heap"></div>
-                    <h3>Non Heap Memory Usage</h3>
-                    <div id="nonheap"></div>
-
                     <div>
                         <TrainingList trainings={this.props.trainingappmap.get('trainings')} actions={this.props.actions}/>
                     </div>
@@ -81,7 +70,8 @@ class TrainingApp extends Component {
         window.switchTextArray = ['Java', 'Javascript', 'Spring Boot', 'Spring Security', 'Rest', 'Agile', 'Ooa', 'Ood', 'System Security', 'Sound Edition', 'Web-Design', 'E-Commerce', 'React', 'Html5', 'Css3', 'Virtualization', 'Flat design', 'Cloud', 'Angular', 'Json', 'Xml', 'Sql', 'Mysql', 'Hibernate', 'JPA', 'Webpack', 'Node.js', 'Git', 'Code Versioning', 'UML', 'Eclipse', 'Design Pattern', 'Music production', 'Sass']
         this.textswitcher()
         if (process.env.BROWSER) {
-            let socketUrl = 'http://192.168.99.100:15674/stomp'
+            // let socketUrl = 'http://192.168.99.100:15674/stomp'
+            let socketUrl = 'http://192.168.99.100:31674/stomp'
             let successCallback = function () {
                 this.stompClient.send('/queue/jsa.sendqueue', {}, JSON.stringify({'time':new Date().toTimeString(),'content':window.location.hostname}))
                 this.stompSubscription = this.stompClient.subscribe('/exchange/amq.topic/jsa.routingkey.abbaslearn', function (data) {
@@ -94,7 +84,7 @@ class TrainingApp extends Component {
                             'text': message.time
                         })
                 }, {
-                    'durable': false,
+                    'durable': true,
                     'auto-delete': true
                 })
             }.bind(this)

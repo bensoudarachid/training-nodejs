@@ -8,7 +8,7 @@ import {LogoutUser} from 'services/actions.js'
 import $ from 'jquery'
 import ApiConnection from 'services/apiconnection'
 
-import './nav.scss'
+// import './navpublic.scss'
 
 var datasrc = undefined
 

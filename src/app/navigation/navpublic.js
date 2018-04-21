@@ -10,7 +10,7 @@ import ApiConnection from 'services/apiconnection'
 import AppImage from 'components/shared/appimage'
 
 var styles = undefined;
-styles = require('./nav.scss')
+styles = require('./navpublic.scss')
 
 var datasrc = undefined
 

@@ -114,6 +114,7 @@ let authactions = {
 
             actions.loginUserService(creds)
                 .then(({user, response}) => {
+                    console.log('################### auth response='+require('util').inspect(response, false, null))
                     if (!response.ok) {
                         dispatch(authactions.loginError(user.error_description))
                         return Promise.reject(user)

@@ -4,6 +4,7 @@ const url = ApiConnection.apiurl + ApiConnection.appbasename
 
 const trainingservices = {
     retrieveTrainingService: function (id) {
+        console.log('retrieveTrainingService')
         let requesturl = url
         var headers = {
             'Content-Type': 'application/json'
@@ -55,6 +56,7 @@ const trainingservices = {
     // },
 
     retrieveTrainingsService: function () {
+        console.log('retrieveTrainingsService')
         let requesturl = url
         var headers = {
             'Content-Type': 'application/json'
@@ -128,6 +130,7 @@ const trainingservices = {
                 ))
     },
     uploadTrainingFileService: function (training, inputfile) {
+        console.log('uploadTrainingFileService')
         var headers = {}
         var idToken = cookie.load('jwt')
 
@@ -153,6 +156,7 @@ const trainingservices = {
                 ))
     },
     deleteTrainingService: function (training) {
+        console.log('uploadTrainingFileService')
         var headers = {
             'Content-Type': 'application/json'
         }

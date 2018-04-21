@@ -31,6 +31,9 @@ export default class AppImage extends React.Component {
         var datasrc = ApiConnection.apiurl + ApiConnection.appbasename + '/api/' + api + '/'
         if (imgid != undefined)
             datasrc += 'img/' + imgid
+        else
+            return <div className='imgwrapper' />
+
         datasrc += '?width=' + width + '&height=' + height + '' + idTokenParam
 //        console.log('app image datasrc=' + require('util').inspect(datasrc, false, null))
         return (
@@ -107,11 +110,13 @@ export default class AppImage extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-
         var isUploading = this.props.isUploading
         if (isUploading == undefined)
             return false
         const imgid = this.props.imgid
+        if( !imgid )
+            return false
+
         var elm = $('#imgwrap' + imgid)
         var image = elm.find('.dataimg')
         var img = image[0]

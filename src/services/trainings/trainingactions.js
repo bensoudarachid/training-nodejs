@@ -45,7 +45,7 @@ const trainingactions = {
     newTraining: function () {
         return (dispatch) => {
             var newTraining = {
-                id: -1,
+                // id: -1,
                 title: '',
                 shortDescription: '',
                 longDescription: '',
@@ -58,6 +58,7 @@ const trainingactions = {
         }
     },
     createTraining: function (title) {
+        console.log('createTraining')
         return (dispatch) => {
             var representTraining = Immutable.Map({
                 id: -1,
@@ -271,9 +272,7 @@ const trainingactions = {
     },
 
     retrieveTrainingsDispatcher: function () {
-
         return (dispatch, getState) => {
-
             if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched'))
                 return
             return actions.retrieveTrainingsService()
@@ -302,10 +301,11 @@ const trainingactions = {
     },
 
     retrieveTrainingDispatcher: function (params) {
+        console.log('retrieveTrainingDispatcher params='+require('util').inspect(params, false, null))
         return (dispatch, getState) => {
             if (process.env.BROWSER && getState().app.get('previouslocation') == undefined && getState().app.get('serverDataFetched'))
                 return
-            if (params == undefined || isNaN(params.id)) {
+            if (params == undefined || isNaN(params.id) ) {
                 return
             }
             return actions.retrieveTrainingService(params.id)

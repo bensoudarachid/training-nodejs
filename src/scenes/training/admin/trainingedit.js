@@ -16,6 +16,7 @@ export default class TrainingEdit extends React.Component {
     }
 
     static fetchData(actions, params) {
+        console.log('fetchData params='+require('util').inspect(params, false, null))
         return actions.retrieveTrainingDispatcher(params)
     }
 
