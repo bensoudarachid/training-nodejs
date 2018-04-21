@@ -52,7 +52,6 @@ class ApiConnection {
             else
                 apiport = 80
         }
-        var url = ''
         var authurl = ''
         if (process.env.BROWSER) {
             const apiHostname = window.location.hostname.replace("school.", "schoolapi.");
@@ -65,8 +64,8 @@ class ApiConnection {
             else
                 authurl = undefined
         }
-        url = authurl
-        this.apiurl = url
+        // url = authurl
+        this.apiurl = authurl
         this.expressPort = expressPort
         this.appbasename = appbasename
     }

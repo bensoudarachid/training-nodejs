@@ -72,8 +72,8 @@ var favicon = require('serve-favicon');
 var storage = _multer2.default.memoryStorage();
 var upload = (0, _multer2.default)({ storage: storage });
 
-// var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080'
-var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP;
+var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080';
+// var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP
 app.all("/api/*", function (req, res) {
     req.url = req.originalUrl;
     console.log('redirecting to Rest Server ' + serverOne + ' the request ' + req.originalUrl);

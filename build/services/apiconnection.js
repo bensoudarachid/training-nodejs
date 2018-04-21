@@ -57,7 +57,6 @@ var ApiConnection = function ApiConnection() {
     if (process.env.NODE_ENV === 'production') {
         if (process.env.BROWSER && window.location.protocol == 'https:') apiport = 9083;else apiport = 80;
     }
-    var url = '';
     var authurl = '';
     if (process.env.BROWSER) {
         var apiHostname = window.location.hostname.replace("school.", "schoolapi.");
@@ -68,8 +67,8 @@ var ApiConnection = function ApiConnection() {
             authurl = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080';
         } else authurl = undefined;
     }
-    url = authurl;
-    this.apiurl = url;
+    // url = authurl
+    this.apiurl = authurl;
     this.expressPort = expressPort;
     this.appbasename = appbasename;
 };
