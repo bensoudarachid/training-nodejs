@@ -72,12 +72,15 @@ var favicon = require('serve-favicon');
 var storage = _multer2.default.memoryStorage();
 var upload = (0, _multer2.default)({ storage: storage });
 
+var withPort = false;
 // var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080'
 var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP;
 app.all("/api/*", function (req, res) {
+    withPort = !withPort;
     req.url = req.originalUrl;
-    console.log('Redirecting to Rest Server ' + serverOne + ' the request ' + req.originalUrl);
-    apiProxy.web(req, res, { target: serverOne });
+    withPort ? ':8080' : '';
+    console.log('Redirecting to Rest Server ' + serverOne + withPort ? ':8080' : '' + ' the request ' + req.originalUrl);
+    apiProxy.web(req, res, { target: serverOne + withPort ? ':8080' : '' });
 });
 app.all("/oauth/*", function (req, res) {
     req.url = req.originalUrl;
