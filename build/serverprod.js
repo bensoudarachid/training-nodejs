@@ -77,10 +77,11 @@ var withPort = false;
 var serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP;
 app.all("/api/*", function (req, res) {
     withPort = !withPort;
+    console.log('withPort=' + require('util').inspect(withPort, false, null));
+    if (withPort) serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080';else serverOne = 'http://' + process.env.TRAINING_API_LOCAL_IP;
     req.url = req.originalUrl;
-    withPort ? ':8080' : '';
-    console.log('Redirecting to Rest Server ' + serverOne + withPort ? ':8080' : '' + ' the request ' + req.originalUrl);
-    apiProxy.web(req, res, { target: serverOne + withPort ? ':8080' : '' });
+    console.log('Redirecting to Rest Server ' + serverOne + ' the request ' + req.originalUrl);
+    apiProxy.web(req, res, { target: serverOne });
 });
 app.all("/oauth/*", function (req, res) {
     req.url = req.originalUrl;
