@@ -15,6 +15,8 @@ const trainingservices = {
         if (idToken != undefined) {
             headers.Authorization = 'Bearer ' + idToken
         }
+
+        console.log('requesturl='+require('util').inspect(requesturl + '/api/training/item/' + id, false, null))
         return fetch(requesturl + '/api/training/item/' + id,
             {
                 method: 'GET',
