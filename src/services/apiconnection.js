@@ -59,7 +59,8 @@ class ApiConnection {
             // authurl = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port
         } else {
             if (process.env.TRAINING_API_LOCAL_IP != undefined) {
-                authurl = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080'
+                // authurl = 'http://' + process.env.TRAINING_API_LOCAL_IP + ':8080'
+                authurl = 'http://' + process.env.TRAINING_API_LOCAL_IP
             }
             else
                 authurl = undefined
