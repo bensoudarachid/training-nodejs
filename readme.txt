@@ -1,6 +1,8 @@
 
 I'm happy to present the Training (or School) App. This is a prototype of data management application for Schools and Training centers
 
+#React-Node-Training: School-App
+
 School-App is a Saas Single Page App (SPA) based on React, Redux, Immutable, Babel ES6 and Spring Boot Rest API
 
 This project is firstly about covering and learning all basic features of a modern SPA: All the tools a developer needs to have a nice and fast development routine, a project ready, solid and intuitive code architecture and the basics of the main technologies involved. It's also about combining the old solid Java Back End world with the modern Front End technologies and getting the best of both(see list below)
@@ -16,52 +18,52 @@ This is a work in progress. The code is not optimal yet
 
 Covered topics:
 
-Performance:
- Isomorphic Rendering
- Introduction to reactive programming using Akka concurrency and cluster technology
- Spring-Rest API delivers Optmized Image Sizes using Batik from regular images formats + SVG
- Vendor + Route Oriented JS and CSS Code Splitting, Routes are based on roles
- General lazy image loading and on scroll image loading
+###Performance:
+- Isomorphic Rendering
+- Introduction to reactive programming using Akka concurrency and cluster technology
+- Spring-Rest API delivers Optmized Image Sizes using Batik from regular images formats + SVG
+- Vendor + Route Oriented JS and CSS Code Splitting, Routes are based on roles
+- General lazy image loading and on scroll image loading
 
-Security:
- OAuth-2 Authentication and Role based Authorization, JDBC TokenStore
+###Security:
+- OAuth-2 Authentication and Role based Authorization, JDBC TokenStore
 
-Architecture:
- Feature oriented Front End Code Architecture
- Classic back end 3 Tier architecture with REST controller, Service, Repository (DAO). Moving towards Akka remote Actors as extra layer between controller and service layers
+###Architecture:
+- Feature oriented Front End Code Architecture
+- Classic back end 3 Tier architecture with REST controller, Service, Repository (DAO). Moving towards Akka remote Actors as extra layer between controller and service layers
  
-Testing:
- Mocha chai enzyme sinon component Testing
+###Testing:
+- Mocha chai enzyme sinon component Testing
 
-Development :
- Fast development iterations using Nodemon and Webpack Hot Middleware
+###Development :
+- Fast development iterations using Nodemon and Webpack Hot Middleware
 
-Front End:
- One Scss file per React component
- Json automatic date conversion in Javascript (Json parsing polyfill)
- Animation on Scroll using SASS and jQuery
- React component life cycle integrated Animation
- Webpack Bundle Hashing to ensure browser downloads the right versions
- Use of Material Design Lite (MDL) UI framework, customized MDL colors and integration with own Scss variables
- Front end side form validation
- Modal dialogs for login and error messages
+###Front End:
+- One Scss file per React component
+- Json automatic date conversion in Javascript (Json parsing polyfill)
+- Animation on Scroll using SASS and jQuery
+- React component life cycle integrated Animation
+- Webpack Bundle Hashing to ensure browser downloads the right versions
+- Use of Material Design Lite (MDL) UI framework, customized MDL colors and integration with own Scss variables
+- Front end side form validation
+- Modal dialogs for login and error messages
  
-Back End:
- Letsencrypt automatic certificate renewal through Spring Scheduler
- Json automatic date conversion in Java (@JsonFormat)
- Get Images as dynamic, access-protected Spring-REST Api resources
- Iterative DB-Update using Flyway. Update runs automatically on all tenant DB's on App Boot 
- Multitenancy through URL app subdomain 'tenantxy.school.domain' . Each tenant has his own DB and own storage
- Server side form validation
- Combined Jackson and Hibernate annotations for One-to-Many relationships
+###Back End:
+- Letsencrypt automatic certificate renewal through Spring Scheduler
+- Json automatic date conversion in Java (@JsonFormat)
+- Get Images as dynamic, access-protected Spring-REST Api resources
+- Iterative DB-Update using Flyway. Update runs automatically on all tenant DB's on App Boot 
+- Multitenancy through URL app subdomain 'tenantxy.school.domain' . Each tenant has his own DB and own storage
+- Server side form validation
+- Combined Jackson and Hibernate annotations for One-to-Many relationships
  
 
-A Series of Blog posts is being planned to talk about those topics and others:
- Easier zero downtime deployments using Apache/Tomcat clusters using stateless SPAs
- Use Webpack analyzer Tool to check webpack bundle composition and detect unnecessary big libs
- Webpack Source maps and Editing source code directly in chrome dev tools editor
- Introduction to Webstorm
- The issue of double rest api call in case of server rendering
- Material design lite integration
- Optimize Rest api image delivery including SVGs
+##A Series of Blog posts is being planned to talk about those topics and others:
+- Easier zero downtime deployments using Apache/Tomcat clusters using stateless SPAs
+- Use Webpack analyzer Tool to check webpack bundle composition and detect unnecessary big libs
+- Webpack Source maps and Editing source code directly in chrome dev tools editor
+- Introduction to Webstorm
+- The issue of double rest api call in case of server rendering
+- Material design lite integration
+- Optimize Rest api image delivery including SVGs
 
