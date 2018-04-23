@@ -16,7 +16,6 @@ const trainingservices = {
             headers.Authorization = 'Bearer ' + idToken
         }
 
-        console.log('requesturl='+require('util').inspect(requesturl + '/api/training/item/' + id, false, null))
         return fetch(requesturl + '/api/training/item/' + id,
             {
                 method: 'GET',
@@ -59,6 +58,8 @@ const trainingservices = {
 
     retrieveTrainingsService: function () {
         console.log('retrieveTrainingsService')
+
+        console.log('requesturl='+require('util').inspect(requesturl + '/api/training/item/' + id, false, null))
         let requesturl = url
         var headers = {
             'Content-Type': 'application/json'
