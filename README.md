@@ -1,7 +1,7 @@
 
 I'm happy to present the Training (or School) App. This is a prototype of data management application for Schools and Training centers
 
-#React-Node-Training: School-App
+# React-Node-Training: School-App
 
 School-App is a Saas Single Page App (SPA) based on React, Redux, Immutable, Babel ES6 and Spring Boot Rest API
 
@@ -18,27 +18,27 @@ This is a work in progress. The code is not optimal yet
 
 Covered topics:
 
-###Performance:
+### Performance:
 - Isomorphic Rendering
 - Introduction to reactive programming using Akka concurrency and cluster technology
 - Spring-Rest API delivers Optmized Image Sizes using Batik from regular images formats + SVG
 - Vendor + Route Oriented JS and CSS Code Splitting, Routes are based on roles
 - General lazy image loading and on scroll image loading
 
-###Security:
+### Security:
 - OAuth-2 Authentication and Role based Authorization, JDBC TokenStore
 
-###Architecture:
+### Architecture:
 - Feature oriented Front End Code Architecture
 - Classic back end 3 Tier architecture with REST controller, Service, Repository (DAO). Moving towards Akka remote Actors as extra layer between controller and service layers
  
-###Testing:
+### Testing:
 - Mocha chai enzyme sinon component Testing
 
-###Development :
+### Development :
 - Fast development iterations using Nodemon and Webpack Hot Middleware
 
-###Front End:
+### Front End:
 - One Scss file per React component
 - Json automatic date conversion in Javascript (Json parsing polyfill)
 - Animation on Scroll using SASS and jQuery
@@ -48,7 +48,7 @@ Covered topics:
 - Front end side form validation
 - Modal dialogs for login and error messages
  
-###Back End:
+### Back End:
 - Letsencrypt automatic certificate renewal through Spring Scheduler
 - Json automatic date conversion in Java (@JsonFormat)
 - Get Images as dynamic, access-protected Spring-REST Api resources
@@ -58,7 +58,7 @@ Covered topics:
 - Combined Jackson and Hibernate annotations for One-to-Many relationships
  
 
-##A Series of Blog posts is being planned to talk about those topics and others:
+## A Series of Blog posts is being planned to talk about those topics and others:
 - Easier zero downtime deployments using Apache/Tomcat clusters using stateless SPAs
 - Use Webpack analyzer Tool to check webpack bundle composition and detect unnecessary big libs
 - Webpack Source maps and Editing source code directly in chrome dev tools editor
