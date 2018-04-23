@@ -68,8 +68,8 @@ var trainingservices = {
     retrieveTrainingsService: function retrieveTrainingsService() {
         console.log('retrieveTrainingsService');
 
-        console.log('requesturl=' + require('util').inspect(requesturl + '/api/training/item/' + id, false, null));
         var requesturl = url;
+        console.log('requesturl=' + require('util').inspect(requesturl, false, null));
         var headers = {
             'Content-Type': 'application/json'
         };

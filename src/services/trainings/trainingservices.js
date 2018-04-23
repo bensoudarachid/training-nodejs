@@ -59,8 +59,8 @@ const trainingservices = {
     retrieveTrainingsService: function () {
         console.log('retrieveTrainingsService')
 
-        console.log('requesturl='+require('util').inspect(requesturl + '/api/training/item/' + id, false, null))
         let requesturl = url
+        console.log('requesturl='+require('util').inspect(requesturl , false, null))
         var headers = {
             'Content-Type': 'application/json'
         }
